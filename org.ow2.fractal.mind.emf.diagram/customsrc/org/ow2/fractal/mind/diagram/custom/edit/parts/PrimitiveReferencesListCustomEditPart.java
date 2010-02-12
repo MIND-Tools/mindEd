@@ -1,0 +1,90 @@
+package org.ow2.fractal.mind.diagram.custom.edit.parts;
+
+import org.eclipse.draw2d.IFigure;
+import org.eclipse.draw2d.LayoutManager;
+import org.eclipse.draw2d.geometry.Dimension;
+import org.eclipse.draw2d.geometry.Point;
+import org.eclipse.draw2d.geometry.Rectangle;
+import org.eclipse.gef.EditPart;
+import org.eclipse.gef.EditPolicy;
+import org.eclipse.gef.GraphicalEditPart;
+import org.eclipse.gef.editpolicies.LayoutEditPolicy;
+import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
+import org.eclipse.gmf.runtime.draw2d.ui.figures.ConstrainedToolbarLayout;
+import org.eclipse.gmf.runtime.notation.NotationPackage;
+import org.eclipse.gmf.runtime.notation.View;
+import org.ow2.fractal.mind.diagram.custom.edit.policies.CompositeReferencesListCustomItemSemanticEditPolicy;
+import org.ow2.fractal.mind.diagram.custom.edit.policies.FixedChildrenLayoutEditPolicy;
+import org.ow2.fractal.mind.diagram.custom.edit.policies.MindSubCreationEditPolicy;
+import org.ow2.fractal.mind.diagram.custom.helpers.ComponentHelper;
+import org.ow2.fractal.mind.diagram.custom.layouts.ConstrainedFlowLayout;
+import org.ow2.fractal.mind.diagram.custom.layouts.IFractalSize;
+
+import adl.diagram.edit.parts.PrimitiveReferencesListEditPart;
+import adl.diagram.part.MindVisualIDRegistry;
+
+public class PrimitiveReferencesListCustomEditPart extends
+		PrimitiveReferencesListEditPart {
+
+	public PrimitiveReferencesListCustomEditPart(View view) {
+		super(view);
+	}
+	
+	@Override
+	protected IFigure setupContentPane(IFigure nodeShape) {
+		if (nodeShape.getLayoutManager() == null) {
+			// No spacing
+			ConstrainedToolbarLayout layout = new ConstrainedToolbarLayout();
+			nodeShape.setLayoutManager(layout);
+		}
+		return nodeShape; // use nodeShape itself as contentPane
+	}
+	
+	@Override
+	protected void refreshBounds() {
+		int width = ((Integer) getStructuralFeatureValue(NotationPackage.eINSTANCE.getSize_Width())).intValue();
+		int height = -1;
+		
+		PrimitiveReferencesListAreaCustomEditPart pane = getPane();
+		LayoutManager areaLayout = null;
+		if (pane != null)
+			areaLayout = pane.getLayoutManager();
+		if (areaLayout != null && areaLayout instanceof ConstrainedFlowLayout) {
+			ComponentHelper.layoutAllChildren(getFigure());
+			height = ((ConstrainedFlowLayout)areaLayout).getTotalHeight() +
+					IFractalSize.TITLE_HEIGHT + 6;
+		}
+		
+		Dimension size = new Dimension(width, height);
+		Point loc = new Point(0, 0);
+		((GraphicalEditPart) getParent()).setLayoutConstraint(
+			this,
+			getFigure(),
+			new Rectangle(loc, size));
+	}
+	
+	public PrimitiveReferencesListAreaCustomEditPart getPane() {
+		EditPart pane = getChildBySemanticHint(MindVisualIDRegistry
+				.getType(PrimitiveReferencesListAreaCustomEditPart.VISUAL_ID));
+		if (pane instanceof PrimitiveReferencesListAreaCustomEditPart)
+			return (PrimitiveReferencesListAreaCustomEditPart) pane;
+		return null;
+		 
+	}
+
+	@Override
+	public void createDefaultEditPolicies() {
+		super.createDefaultEditPolicies();
+		installEditPolicy(EditPolicy.LAYOUT_ROLE, createLayoutEditPolicy());
+		installEditPolicy(EditPolicyRoles.CREATION_ROLE,
+				new MindSubCreationEditPolicy());
+		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE,
+				new CompositeReferencesListCustomItemSemanticEditPolicy());
+		removeEditPolicy(EditPolicyRoles.DRAG_DROP_ROLE);
+	}
+	
+	protected LayoutEditPolicy createLayoutEditPolicy() {
+		return new FixedChildrenLayoutEditPolicy();
+	}
+
+}
