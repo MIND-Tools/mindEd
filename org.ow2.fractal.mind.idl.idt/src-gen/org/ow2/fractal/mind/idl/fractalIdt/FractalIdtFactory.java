@@ -1,0 +1,47 @@
+/**
+ * <copyright>
+ * </copyright>
+ *
+
+ */
+package org.ow2.fractal.mind.idl.fractalIdt;
+
+import org.eclipse.emf.ecore.EFactory;
+
+/**
+ * <!-- begin-user-doc -->
+ * The <b>Factory</b> for the model.
+ * It provides a create method for each non-abstract class of the model.
+ * <!-- end-user-doc -->
+ * @see org.ow2.fractal.mind.idl.fractalIdt.FractalIdtPackage
+ * @generated
+ */
+public interface FractalIdtFactory extends EFactory
+{
+  /**
+   * The singleton instance of the factory.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  FractalIdtFactory eINSTANCE = org.ow2.fractal.mind.idl.fractalIdt.impl.FractalIdtFactoryImpl.init();
+
+  /**
+   * Returns a new object of class '<em>Idt File</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Idt File</em>'.
+   * @generated
+   */
+  IdtFile createIdtFile();
+
+  /**
+   * Returns the package supported by this factory.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the package supported by this factory.
+   * @generated
+   */
+  FractalIdtPackage getFractalIdtPackage();
+
+} //FractalIdtFactory

@@ -1,0 +1,131 @@
+grammar org.ow2.fractal.mind.idl.FractalItf with org.eclipse.xtext.common.Terminals
+
+generate fractalIDL 'http://www.ow2.org/fractal/mind/idl/FractalItf' 
+
+// itf definition
+
+
+ItfFile:
+  (includes+=IncludeDirective)* (type+=TypeDefinition|constant+=
+  ConstantDefinition)* interface=InterfaceDefinition (";")?;
+
+
+// Type definition part
+
+
+TypeDefinition:
+  (TypedefSpecification|StructOrUnionSpecification|EnumSpecification)';';
+
+TypedefSpecification:
+  'typedef' qualifedType=QualifiedTypeSpecification dec=Declarators;
+
+QualifiedTypeSpecification:
+  (typeQualifier+=TypeQualifier)* typeSpec=TypeSpecification;
+
+enum TypeQualifier:
+  const | volatile;
+
+TypeSpecification:
+  typeDefName=TypedefName|StructOrUnionSpecification|EnumSpecification|(typeSpecifier+=TypeSpecifier)+;
+
+TypedefName:
+  FullyQualifiedName;
+
+enum TypeSpecifier:
+  void | char | short | int | long | float | double | signed | unsigned | string | int8_t | uint8_t |
+  int16_t | uint16_t | int32_t | uint32_t | int64_t | uint64_t | intptr_t | uintptr_t;
+
+StructOrUnionSpecification:
+  StructOrUnionDefinition|StructorUnionReference;
+
+StructOrUnionDefinition:
+  struct=StructOrUnion id=Identifier? '{' (structMember+=StructMember)* '}';
+
+StructorUnionReference:
+  struct=StructOrUnion id=Identifier;
+
+StructOrUnion:
+  'struct' | 'union'; 
+
+StructMember:
+  qualType=QualifiedTypeSpecification dec=Declarators (':' INT)? ';';
+
+EnumSpecification:
+  EnumDefinition|EnumReference;
+
+EnumDefinition:
+  'enum' id=Identifier? '{' enumMemberList=EnumMemberList '}';
+
+EnumReference:
+  'enum' id=Identifier;
+
+EnumMemberList:
+  EnumMember (',' enumMember+=EnumMember)*;
+
+EnumMember:
+  id=Identifier ('=' INT)?;
+
+Declarators:
+  dec=Declarator (',' declaratorList+=Declarator)*;
+
+Declarator:
+  ('*' (typeQualifier+=TypeQualifier)*)* dc=DirectDeclarator;
+
+
+//PointerSpecification:
+//  qualifiedPointer+=(qualified_PointerSpecification)*;
+//
+//qualified_PointerSpecification:
+//  '*' (typeQualifier+=TypeQualifier)*;
+
+
+DirectDeclarator:
+  (id=Identifier|'(' Declarator ')') (ArraySpecification)*;
+
+ArraySpecification:
+  '['INT']';
+
+Identifier:
+  id=ID;
+
+FullyQualifiedName:
+  ID ('.' ID)*; 
+  
+  
+  // Interface definition part
+
+
+ConstantDefinition:
+  "#define" id=Identifier;
+
+InterfaceDefinition:
+  'interface' ("unmanaged")? fqn=FullyQualifiedName (":" fqn2=FullyQualifiedName)?
+  '{' (methodDef+=MethodDefinition)* '}';
+
+MethodDefinition:
+  qualifiedTypeSpec=QualifiedTypeSpecification id=Identifier ('(' ('void')? ')'|'('
+  ParameterList=ParameterList ')') ';';
+
+ParameterList:
+  param=Parameter (',' params+=Parameter)* (',' '...')?;
+
+Parameter:
+  (ParameterQualifier+=ParameterQualifier)* qualifiedTypeSpec=
+  QualifiedTypeSpecification dec=Declarator;
+
+enum ParameterQualifier:
+  in | out; 
+  
+  
+// include directive
+
+
+IncludeDirective:
+  '#include' path=IncludePath;
+
+IncludePath:
+  "\".*\""|"<.*>"; 
+  
+
+
+

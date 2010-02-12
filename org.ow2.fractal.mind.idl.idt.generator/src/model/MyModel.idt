@@ -1,0 +1,14 @@
+/*
+ * This is an example model
+ */
+namespace datatypes {
+	type String
+}
+
+namespace entities {
+	import datatypes.*
+	
+	entity Person {
+		property name: String
+	}
+}

@@ -1,0 +1,27 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: org.ow2.fractal.mind.xtext.ui
+Bundle-Vendor: Partenaire Minalogic
+Bundle-Version: 0.2.0
+Bundle-SymbolicName: org.ow2.fractal.mind.xtext.ui; singleton:=true
+Eclipse-RegisterBuddy: org.eclipse.xtext.log4j
+Bundle-ActivationPolicy: lazy
+Require-Bundle: org.ow2.fractal.mind.xtext;visibility:=reexport,
+ org.eclipse.xtext.ui.core,
+ org.eclipse.xtext.ui.common,
+ org.eclipse.xtend,
+ org.ow2.fractal.mind.emf.model.editor,
+ org.ow2.fractal.mind.emf.diagram;bundle-version="0.2.0";resolution:=optional,
+ org.eclipse.ui.editors,
+ org.eclipse.ui,
+ org.antlr.runtime
+Bundle-RequiredExecutionEnvironment: J2SE-1.5
+Export-Package: org.ow2.fractal.mind.xtext,
+ org.ow2.fractal.mind.xtext.contentassist,
+ org.ow2.fractal.mind.xtext.contentassist.antlr,
+ org.ow2.fractal.mind.xtext.internal
+Bundle-Activator: org.ow2.fractal.mind.xtext.internal.FractalActivator
+Import-Package: adl,
+ org.apache.log4j,
+ org.ow2.fractal.mind.ide,
+ org.ow2.fractal.mind.ide.emf.mindide

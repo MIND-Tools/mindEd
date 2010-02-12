@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<plugin>
+
+    <extension
+            point="org.eclipse.ui.editors">
+        <editor
+            class="org.ow2.fractal.mind.idl.FractalIdtExecutableExtensionFactory:org.eclipse.xtext.ui.core.editor.XtextEditor"
+            contributorClass="org.eclipse.ui.editors.text.TextEditorActionContributor"
+            default="true"
+            extensions="idt"
+            id="org.ow2.fractal.mind.idl.FractalIdt"
+            name="FractalIdt Editor">
+        </editor>
+    </extension>
+    <extension
+        point="org.eclipse.ui.handlers">
+        <handler
+            class="org.ow2.fractal.mind.idl.FractalIdtExecutableExtensionFactory:org.eclipse.xtext.ui.common.editor.hyperlinking.OpenDeclarationHandler"
+            commandId="org.eclipse.xtext.ui.common.editor.hyperlinking.OpenDeclaration">
+            <activeWhen>
+                <reference
+                    definitionId="org.ow2.fractal.mind.idl.FractalIdt.Editor.opened">
+                </reference>
+            </activeWhen>
+        </handler>
+        <handler
+            class="org.ow2.fractal.mind.idl.FractalIdtExecutableExtensionFactory:org.eclipse.xtext.ui.core.editor.handler.ValidateActionHandler"
+            commandId="org.ow2.fractal.mind.idl.FractalIdt.validate">
+         <activeWhen>
+            <reference
+                    definitionId="org.ow2.fractal.mind.idl.FractalIdt.Editor.opened">
+            </reference>
+         </activeWhen>
+      </handler>
+    </extension>
+    <extension point="org.eclipse.core.expressions.definitions">
+        <definition id="org.ow2.fractal.mind.idl.FractalIdt.Editor.opened">
+            <and>
+                <reference definitionId="isActiveEditorAnInstanceOfXtextEditor"/>
+                <with variable="activeEditor">
+                    <test property="org.eclipse.xtext.ui.core.editor.XtextEditor.languageName" 
+                        value="org.ow2.fractal.mind.idl.FractalIdt" 
+                        forcePluginActivation="true"/>
+                </with>        
+            </and>
+        </definition>
+    </extension>
+    <extension
+            point="org.eclipse.ui.preferencePages">
+        <page
+            class="org.ow2.fractal.mind.idl.FractalIdtExecutableExtensionFactory:org.eclipse.xtext.ui.core.editor.preferences.LanguageRootPreferencePage"
+            id="org.ow2.fractal.mind.idl.FractalIdt"
+            name="FractalIdt"
+            category="org.eclipse.xtext.languages">
+            <keywordReference id="org.ow2.fractal.mind.idl.ui.keyword_FractalIdt"/>
+        </page>
+        <page
+            category="org.ow2.fractal.mind.idl.FractalIdt"
+            class="org.ow2.fractal.mind.idl.FractalIdtExecutableExtensionFactory:org.eclipse.xtext.ui.common.editor.syntaxcoloring.SyntaxColoringPreferencePage"
+            id="org.ow2.fractal.mind.idl.FractalIdt.coloring"
+            name="Syntax Coloring">
+            <keywordReference id="org.ow2.fractal.mind.idl.ui.keyword_FractalIdt"/>
+        </page>
+        <page
+            category="org.ow2.fractal.mind.idl.FractalIdt"
+            class="org.ow2.fractal.mind.idl.FractalIdtExecutableExtensionFactory:org.eclipse.xtext.ui.common.editor.templates.XtextTemplatePreferencePage"
+            id="org.ow2.fractal.mind.idl.FractalIdt.templates"
+            name="Templates">
+            <keywordReference id="org.ow2.fractal.mind.idl.ui.keyword_FractalIdt"/>
+        </page>
+    </extension>
+    <extension
+        point="org.eclipse.ui.keywords">
+        <keyword
+            id="org.ow2.fractal.mind.idl.ui.keyword_FractalIdt"
+            label="FractalIdt"/>
+    </extension>
+    <extension
+         point="org.eclipse.ui.commands">
+      <command
+            description="Trigger expensive validation"
+            id="org.ow2.fractal.mind.idl.FractalIdt.validate"
+            name="Validate">
+      </command>
+    </extension>
+    <extension point="org.eclipse.ui.menus">
+        <menuContribution
+            locationURI="popup:#TextEditorContext?after=group.open">
+             <command
+                 commandId="org.ow2.fractal.mind.idl.FractalIdt.validate"
+                 style="push"
+                 tooltip="Trigger expensive validation">
+            <visibleWhen checkEnabled="false">
+                <reference
+                    definitionId="org.ow2.fractal.mind.idl.FractalIdt.Editor.opened">
+                </reference>
+            </visibleWhen>
+         </command>  
+         </menuContribution>
+    </extension>
+
+<!-- adding resource factories -->
+
+	<extension
+		point="org.eclipse.emf.ecore.extension_parser">
+		<parser
+			class="org.ow2.fractal.mind.idl.FractalIdtExecutableExtensionFactory:org.eclipse.xtext.resource.IResourceFactory"
+			type="idt">
+		</parser>
+	</extension>
+	<extension
+        point="org.eclipse.xtext.extension_resourceServiceProvider">
+     <resourceServiceProvider
+           class="org.ow2.fractal.mind.idl.FractalIdtExecutableExtensionFactory:org.eclipse.xtext.resource.IResourceServiceProvider"
+           uriExtension="idt">
+     </resourceServiceProvider>
+  </extension>
+
+
+
+
+</plugin>

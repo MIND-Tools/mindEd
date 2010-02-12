@@ -1,0 +1,48 @@
+/**
+ * <copyright>
+ * </copyright>
+ *
+
+ */
+package fractalIDL.impl;
+
+import fractalIDL.EnumMemberList;
+import fractalIDL.FractalIDLPackage;
+
+import org.eclipse.emf.ecore.EClass;
+
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+
+/**
+ * <!-- begin-user-doc -->
+ * An implementation of the model object '<em><b>Enum Member List</b></em>'.
+ * <!-- end-user-doc -->
+ * <p>
+ * </p>
+ *
+ * @generated
+ */
+public class EnumMemberListImpl extends MinimalEObjectImpl.Container implements EnumMemberList
+{
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected EnumMemberListImpl()
+  {
+    super();
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  protected EClass eStaticClass()
+  {
+    return FractalIDLPackage.Literals.ENUM_MEMBER_LIST;
+  }
+
+} //EnumMemberListImpl
