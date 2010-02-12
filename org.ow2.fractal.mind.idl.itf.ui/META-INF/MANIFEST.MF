@@ -5,14 +5,14 @@ Bundle-Vendor: My Company
 Bundle-Version: 1.0.0
 Bundle-SymbolicName: org.ow2.fractal.mind.idl.itf.ui; singleton:=true
 Bundle-ActivationPolicy: lazy
-Require-Bundle: org.ow2.fractal.mind.idl.itf;visibility:=reexport,
- org.eclipse.xtext.ui.core,
+Require-Bundle: org.eclipse.xtext.ui.core,
  org.eclipse.xtext.ui.common,
  org.eclipse.ui.editors;bundle-version="3.5.0",
  org.eclipse.ui.ide;bundle-version="3.5.0",
  org.eclipse.ui,
  org.antlr.runtime,
- org.eclipse.xtext.builder
+ org.eclipse.xtext.builder,
+ org.ow2.fractal.mind.idl.itf;bundle-version="1.0.0"
 Import-Package: org.apache.log4j,
  org.eclipse.jdt.ui
 Bundle-RequiredExecutionEnvironment: J2SE-1.5

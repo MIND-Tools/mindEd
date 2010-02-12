@@ -6,12 +6,13 @@
     <extension
             point="org.eclipse.ui.editors">
         <editor
-            class="org.ow2.fractal.mind.idl.FractalItfExecutableExtensionFactory:org.eclipse.xtext.ui.core.editor.XtextEditor"
-            contributorClass="org.eclipse.ui.editors.text.TextEditorActionContributor"
-            default="true"
-            extensions="itf"
-            id="org.ow2.fractal.mind.idl.FractalItf"
-            name="FractalItf Editor">
+              class="org.ow2.fractal.mind.idl.FractalItfExecutableExtensionFactory:org.eclipse.xtext.ui.core.editor.XtextEditor"
+              contributorClass="org.eclipse.ui.editors.text.TextEditorActionContributor"
+              default="true"
+              extensions="itf"
+              icon="icons/InterfaceDefinition.gif"
+              id="org.ow2.fractal.mind.idl.FractalItf"
+              name="FractalItf Editor">
         </editor>
     </extension>
     <extension
