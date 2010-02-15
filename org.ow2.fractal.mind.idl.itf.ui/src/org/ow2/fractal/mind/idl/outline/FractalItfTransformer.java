@@ -86,15 +86,22 @@ public class FractalItfTransformer extends
 	public ContentOutlineNode createNode(MethodDefinition obj,
 			ContentOutlineNode parentNode) {
 		ContentOutlineNode node = super.newOutlineNode(obj, parentNode);
-		obj.getParameterList().getParams();
 
 		String label = obj.getId().getId() + "(";
 
+		if (obj.getParameterList().getParam() != null)
+
+			label = label
+					+ obj.getParameterList().getParam().getQualifiedTypeSpec()
+							.getTypeSpec().getTypeSpecifier().get(0);
+
 		for (Parameter parameter : obj.getParameterList().getParams()) {
 			label = label
+					+ ","
 					+ parameter.getQualifiedTypeSpec().getTypeSpec()
-							.getTypeSpecifier().get(0) + " ";
+							.getTypeSpecifier().get(0);
 		}
+
 		label = label + ")";
 
 		node.setLabel(label);
@@ -110,7 +117,7 @@ public class FractalItfTransformer extends
 	}
 
 	public List<EObject> getChildren(TypedefSpecification obj) {
-		return  NO_CHILDREN;
+		return NO_CHILDREN;
 	}
 
 	public List<EObject> getChildren(StructOrUnionDefinition obj) {
