@@ -3,6 +3,7 @@ package org.ow2.fractal.mind.diagram.custom.edit.parts;
 import java.util.List;
 
 import org.eclipse.draw2d.IFigure;
+import org.eclipse.draw2d.LayoutManager;
 import org.eclipse.draw2d.geometry.Dimension;
 import org.eclipse.draw2d.geometry.Point;
 import org.eclipse.draw2d.geometry.Rectangle;
@@ -21,6 +22,7 @@ import org.ow2.fractal.mind.diagram.custom.edit.policies.FixedChildrenLayoutEdit
 import org.ow2.fractal.mind.diagram.custom.edit.policies.MindSubCreationEditPolicy;
 import org.ow2.fractal.mind.diagram.custom.edit.policies.NoDragDropEditPolicy;
 import org.ow2.fractal.mind.diagram.custom.edit.policies.OpenDefinitionEditPolicy;
+import org.ow2.fractal.mind.diagram.custom.helpers.ComponentHelper;
 import org.ow2.fractal.mind.diagram.custom.layouts.ConstrainedFlowLayout;
 import org.ow2.fractal.mind.diagram.custom.layouts.IFractalSize;
 import org.ow2.fractal.mind.diagram.custom.providers.NoDragTracker;
@@ -57,28 +59,24 @@ public class CompositeSingleReferenceDefinitionCustomEditPart extends
 	protected void refreshBounds() {
 		
 		int width = -1;
+		int height = -1;
 		if (getParent() instanceof TemplateDefinitionAreaCustomEditPart) {
 			width = ((GraphicalEditPart) getParent()).getFigure().getBounds().width - 10;
 		}
 		
 		// The height depends on the number of children in the area of the reference
 		// Get the area
-		EditPart pane = getPrimaryChildEditPart();
-		int nbChildren = 0;
-		if (pane != null) {
-			nbChildren = pane.getChildren().size();
-		}
-		
-		int height = IFractalSize.TITLE_HEIGHT;
-		if (nbChildren > 0) {
-			List<GraphicalEditPart> children = pane.getChildren();
-			for (GraphicalEditPart child : children) {
-				int childHeight = child.getFigure().getBounds().height;
-				if (childHeight == 0)
-					childHeight = IFractalSize.TITLE_HEIGHT;
-				height += childHeight;
-			}
-			height += 10;
+		CompositeSingleReferenceDefinitionAreaCustomEditPart pane = getPane();
+		LayoutManager areaLayout = null;
+		if (pane != null)
+			areaLayout = pane.getLayoutManager();
+		if (areaLayout != null && areaLayout instanceof ConstrainedFlowLayout) {
+			// The manager should be a ConstrainedFlowLayout
+			// It keeps the total height used so we can use it here
+			ComponentHelper.layoutAllChildren(pane.getContentPane());
+			height = ((ConstrainedFlowLayout)areaLayout).getTotalHeight() +
+					IFractalSize.TITLE_HEIGHT;
+			if (pane.getChildren().size() > 0) height += 12;
 		}
 		
 		// Now set the constraint
@@ -150,4 +148,14 @@ public class CompositeSingleReferenceDefinitionCustomEditPart extends
 	}
 
 
+	/**
+	 * Returns the area : CompositeSingleReferenceDefinitionAreaCustomEditPart
+	 */
+	public CompositeSingleReferenceDefinitionAreaCustomEditPart getPane() {
+		EditPart pane = getChildBySemanticHint(MindVisualIDRegistry
+				.getType(CompositeSingleReferenceDefinitionAreaCustomEditPart.VISUAL_ID));
+		if (pane instanceof CompositeSingleReferenceDefinitionAreaCustomEditPart)
+			return (CompositeSingleReferenceDefinitionAreaCustomEditPart) pane;
+		return null;
+	}
 }

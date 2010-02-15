@@ -1,7 +1,15 @@
 package org.ow2.fractal.mind.diagram.custom.edit.parts;
 
+import java.util.List;
+
 import org.eclipse.draw2d.IFigure;
+import org.eclipse.draw2d.LayoutManager;
+import org.eclipse.draw2d.geometry.Dimension;
+import org.eclipse.draw2d.geometry.Point;
+import org.eclipse.draw2d.geometry.Rectangle;
+import org.eclipse.gef.EditPart;
 import org.eclipse.gef.EditPolicy;
+import org.eclipse.gmf.runtime.diagram.ui.editparts.GraphicalEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.CreationEditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.DragDropEditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
@@ -11,6 +19,8 @@ import org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure;
 import org.eclipse.gmf.runtime.notation.View;
 import org.ow2.fractal.mind.diagram.custom.edit.policies.MindSubCreationEditPolicy;
 import org.ow2.fractal.mind.diagram.custom.edit.policies.TemplateSpecifierCustomItemSemanticEditPolicy;
+import org.ow2.fractal.mind.diagram.custom.helpers.ComponentHelper;
+import org.ow2.fractal.mind.diagram.custom.layouts.ConstrainedFlowLayout;
 import org.ow2.fractal.mind.diagram.custom.layouts.IFractalSize;
 
 import adl.diagram.edit.parts.TemplateSpecifierEditPart;

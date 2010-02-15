@@ -1,9 +1,11 @@
 package org.ow2.fractal.mind.diagram.custom.helpers;
 
+import java.util.Iterator;
 import java.util.List;
 
 import org.eclipse.draw2d.Border;
 import org.eclipse.draw2d.IFigure;
+import org.eclipse.draw2d.LayoutManager;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.gef.DragTracker;
 import org.eclipse.gef.EditPart;
@@ -164,5 +166,26 @@ public class ComponentHelper implements IFractalShape {
 			handleMergedComponentFigure(child);
 		}
 	}	
+	
+	
+	/**
+	 * Calls the layout() method of the layout for all the sub figures
+	 * @param fig
+	 */
+	@SuppressWarnings("unchecked")
+	public static void layoutAllChildren(IFigure fig) {
+		if (fig == null) return;
+		LayoutManager manager = fig.getLayoutManager();
+		if (manager != null) {
+			manager.layout(fig);
+		}
+		List children = fig.getChildren();
+		for (Iterator iterator = children.iterator(); iterator.hasNext();) {
+			IFigure child = (IFigure) iterator.next();
+			if (child != null) {
+				layoutAllChildren(child);
+			}
+		}
+	}
 	
 }

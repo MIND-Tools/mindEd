@@ -37,7 +37,7 @@ import adl.diagram.part.MindVisualIDRegistry;
  * edit policy with the getCreateCommand provided in the
  * {@linkplain org.ow2.fractal.mind.diagram.custom.helpers.ItemSemanticEditPolicyHelper}
  * @author maroto
- *
+ * 
  */
 public class MindCreationEditPolicy extends
 		CreationEditPolicy {

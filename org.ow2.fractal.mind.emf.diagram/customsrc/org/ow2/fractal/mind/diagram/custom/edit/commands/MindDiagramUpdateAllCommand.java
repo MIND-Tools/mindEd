@@ -1,11 +1,13 @@
 package org.ow2.fractal.mind.diagram.custom.edit.commands;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 
 import org.eclipse.core.commands.ExecutionEvent;
 import org.eclipse.core.commands.ExecutionException;
+import org.eclipse.draw2d.geometry.Rectangle;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
 import org.eclipse.emf.transaction.impl.TransactionImpl;
@@ -43,6 +45,13 @@ public class MindDiagramUpdateAllCommand extends MindDiagramUpdateCommand {
 	 */
 	private int maxRank;
 	
+	/**
+	 * Used to store the position of all elements before refreshing the merge,
+	 * in order for them to keep their bounds if the user changed it. Otherwise,
+	 * they are re-initialized as if they were just created.
+	 */
+	protected HashMap<EObject,Rectangle> boundsMemory = new HashMap<EObject,Rectangle>();
+	
 	
 	public Object execute(ExecutionEvent event) throws ExecutionException {
 		
@@ -66,6 +75,9 @@ public class MindDiagramUpdateAllCommand extends MindDiagramUpdateCommand {
 					if (rootEditPart == null) return null;
 				}
 				
+				// Save the bounds, save the world
+				saveBounds(rootEditPart);				
+				
 				// Transaction to refresh the merge
 				TransactionalEditingDomain domain = ((AdlDefinitionEditPart)rootEditPart).getEditingDomain();
 				TransactionImpl transaction = new TransactionImpl(domain, false);
@@ -83,11 +95,14 @@ public class MindDiagramUpdateAllCommand extends MindDiagramUpdateCommand {
 				}
 				finally{}
 				
+				// Restore the bounds
+				restoreBounds(rootEditPart);
+				
 				try {
 					// Just refresh and then keep the same value for this update
 					// Else it could become a bit messy
 					refreshMaxRank();
-					// Update all elements in the diagram by calling with te rootEditPart
+					// Update all elements in the diagram by calling with the rootEditPart
 					updateAll(rootEditPart, 0);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -257,15 +272,6 @@ public class MindDiagramUpdateAllCommand extends MindDiagramUpdateCommand {
 		// Hiding the view seems a better way but it causes trouble
 		// The transaction sets "parent" attribute to null so it is never displayed again
 		// I will try to debug this later on
-//		TransactionImpl transaction = new TransactionImpl(graphEP.getEditingDomain(),false);
-//		try {
-//			transaction.start();
-//			graphEP.getPrimaryView().setVisible(false);
-//			transaction.commit();
-//		} catch (Exception e) {
-//			e.printStackTrace();
-//		}
-//		finally{}
 	}
 	
 	/**
@@ -283,16 +289,33 @@ public class MindDiagramUpdateAllCommand extends MindDiagramUpdateCommand {
 		if (graphEP instanceof CompositeSubComponentEditPart)
 			((CompositeSubComponentEditPart)graphEP).getPrimaryShape().setVisible(true);
 		
-		// see hideElement(EditPart editPart)
-//		TransactionImpl transaction = new TransactionImpl(graphEP.getEditingDomain(),false);
-//		try {
-//			transaction.start();
-//			graphEP.getPrimaryView().setVisible(true);
-//			transaction.commit();
-//		} catch (Exception e) {
-//			e.printStackTrace();
-//		}
-//		finally{}
+		// Hiding the view seems a better way but it causes trouble
+		// The transaction sets "parent" attribute to null so it is never displayed again
+		// I will try to debug this later on
+	}
+	
+	
+	public void saveBounds(EditPart editPart) {
+		if (editPart instanceof GraphicalEditPart)
+			boundsMemory.put(((View)editPart.getModel()).getElement(), ((GraphicalEditPart)editPart).getFigure().getBounds());
+			
+		List<EditPart> editPartList = editPart.getChildren();
+		for (EditPart child : editPartList) {
+			saveBounds(child);
+		}
+	}
+	
+	public void restoreBounds(EditPart editPart) {
+		if (editPart instanceof GraphicalEditPart) {
+			EObject element = ((View)editPart.getModel()).getElement();
+			Rectangle bounds = boundsMemory.get(element);
+			((GraphicalEditPart)editPart).getFigure().setBounds(bounds);
+		}
+		
+		List<EditPart> editPartList = editPart.getChildren();
+		for (EditPart child : editPartList) {
+			restoreBounds(child);
+		}
 	}
 	
 }

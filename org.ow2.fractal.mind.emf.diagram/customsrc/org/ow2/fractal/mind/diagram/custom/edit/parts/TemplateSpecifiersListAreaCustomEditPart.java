@@ -2,8 +2,11 @@ package org.ow2.fractal.mind.diagram.custom.edit.parts;
 
 import org.eclipse.draw2d.LayoutManager;
 import org.eclipse.gef.EditPart;
+import org.eclipse.gef.EditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
 import org.eclipse.gmf.runtime.notation.View;
+import org.ow2.fractal.mind.diagram.custom.edit.policies.CustomXYLayoutEditPolicy;
+import org.ow2.fractal.mind.diagram.custom.edit.policies.FixedChildrenLayoutEditPolicy;
 import org.ow2.fractal.mind.diagram.custom.edit.policies.TemplateSpecifiersListAreaCustomCanonicalEditPolicy;
 import org.ow2.fractal.mind.diagram.custom.layouts.ConstrainedFlowLayout;
 
@@ -21,6 +24,9 @@ public class TemplateSpecifiersListAreaCustomEditPart extends
 		super.createDefaultEditPolicies();
 		installEditPolicy(EditPolicyRoles.CANONICAL_ROLE,
 				new TemplateSpecifiersListAreaCustomCanonicalEditPolicy());
+		removeEditPolicy(EditPolicy.LAYOUT_ROLE);
+		installEditPolicy(EditPolicy.LAYOUT_ROLE,
+				new FixedChildrenLayoutEditPolicy());
 	}
 	
 	@Override
