@@ -27,12 +27,8 @@ public class FractalIdtFormatter extends FractalItfFormatter {
 				.getFractalItfGrammarAccess();
 
 		c.setIndentationSpace("    ");
-		formatEnum(f, c);
 		formatDefine(f, c);
-		formatDefine(f, c);
-		formatEnum(f, c);
-		formatTypeDef(f, c);
-		formatStructUnion(f, c);
+		formatTypeDefinition(f, c);
 
 	}
 
