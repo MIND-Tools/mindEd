@@ -23,8 +23,6 @@ public class FractalItfFormatter extends AbstractDeclarativeFormatter {
 	@Override
 	protected void configureFormatting(FormattingConfig c) {
 
-		System.out.println("configure formatting itf 2");
-
 		FractalItfGrammarAccess f = (org.ow2.fractal.mind.idl.services.FractalItfGrammarAccess) getGrammarAccess();
 
 		c.setIndentationSpace("    ");

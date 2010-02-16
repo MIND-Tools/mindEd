@@ -21,8 +21,6 @@ public class FractalIdtFormatter extends FractalItfFormatter {
 	@Override
 	protected void configureFormatting(FormattingConfig c) {
 
-		System.out.println("configure formatting idt");
-
 		FractalItfGrammarAccess f = ((org.ow2.fractal.mind.idl.services.FractalIdtGrammarAccess) getGrammarAccess())
 				.getFractalItfGrammarAccess();
 
