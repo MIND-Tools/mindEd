@@ -177,7 +177,7 @@ public class MindDiagramUpdateAllCommand extends MindDiagramUpdateCommand {
 	 * Calls the refresh() method of all CanonicalEditPolicy registered on this element
 	 * @param modelElement
 	 */
-	@SuppressWarnings("unchecked")
+	@SuppressWarnings("rawtypes")
 	public void updateElement(EObject modelElement) {
 		List editPolicies = CanonicalEditPolicy
 			.getRegisteredEditPolicies(modelElement);
@@ -295,6 +295,7 @@ public class MindDiagramUpdateAllCommand extends MindDiagramUpdateCommand {
 	}
 	
 	
+	@SuppressWarnings("unchecked")
 	public void saveBounds(EditPart editPart) {
 		if (editPart instanceof GraphicalEditPart)
 			boundsMemory.put(((View)editPart.getModel()).getElement(), ((GraphicalEditPart)editPart).getFigure().getBounds());
@@ -305,6 +306,7 @@ public class MindDiagramUpdateAllCommand extends MindDiagramUpdateCommand {
 		}
 	}
 	
+	@SuppressWarnings("unchecked")
 	public void restoreBounds(EditPart editPart) {
 		if (editPart instanceof GraphicalEditPart) {
 			EObject element = ((View)editPart.getModel()).getElement();
