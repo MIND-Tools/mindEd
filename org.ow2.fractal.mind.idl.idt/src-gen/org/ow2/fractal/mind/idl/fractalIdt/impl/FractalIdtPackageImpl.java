@@ -13,7 +13,7 @@ import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
 import org.ow2.fractal.mind.idl.fractalIDL.FractalIDLPackage;
-import org.ow2.fractal.mind.idl.fractalIDL.impl.FractalIDLPackageImpl;
+
 import org.ow2.fractal.mind.idl.fractalIdt.FractalIdtFactory;
 import org.ow2.fractal.mind.idl.fractalIdt.FractalIdtPackage;
 import org.ow2.fractal.mind.idl.fractalIdt.IdtFile;
@@ -81,16 +81,14 @@ public class FractalIdtPackageImpl extends EPackageImpl implements FractalIdtPac
 
     isInited = true;
 
-    // Obtain or create and register interdependencies
-    FractalIDLPackageImpl theFractalIDLPackage = (FractalIDLPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(FractalIDLPackage.eNS_URI) instanceof FractalIDLPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(FractalIDLPackage.eNS_URI) : FractalIDLPackage.eINSTANCE);
+    // Initialize simple dependencies
+    FractalIDLPackage.eINSTANCE.eClass();
 
     // Create package meta-data objects
     theFractalIdtPackage.createPackageContents();
-    theFractalIDLPackage.createPackageContents();
 
     // Initialize created meta-data
     theFractalIdtPackage.initializePackageContents();
-    theFractalIDLPackage.initializePackageContents();
 
     // Mark meta-data to indicate it can't be changed
     theFractalIdtPackage.freeze();

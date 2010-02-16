@@ -19,7 +19,9 @@
 			<fragment class="org.eclipse.xtext.generator.grammarAccess.GrammarAccessFragment"/>
 			
 			<!-- generates Java API for the generated EPackages -->
-			<fragment class="org.eclipse.xtext.generator.ecore.EcoreGeneratorFragment"/>
+			<fragment class="org.eclipse.xtext.generator.ecore.EcoreGeneratorFragment"
+			 referencedGenModels="platform:/resource/org.ow2.fractal.mind.idl.itf/src-gen/org/ow2/fractal/mind/idl/FractalItf.genmodel"
+			/>
 			
 			<!-- the serialization component -->
 			<fragment class="org.eclipse.xtext.generator.parseTreeConstructor.ParseTreeConstructorFragment"/>

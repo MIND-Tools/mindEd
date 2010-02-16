@@ -9,6 +9,7 @@ package org.ow2.fractal.mind.idl.fractalIdt;
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EObject;
+
 import org.ow2.fractal.mind.idl.fractalIDL.ConstantDefinition;
 import org.ow2.fractal.mind.idl.fractalIDL.IncludeDirective;
 import org.ow2.fractal.mind.idl.fractalIDL.TypeDefinition;
@@ -35,7 +36,7 @@ public interface IdtFile extends EObject
 {
   /**
    * Returns the value of the '<em><b>Includes</b></em>' containment reference list.
-   * The list contents are of type {@link fractalIDL.IncludeDirective}.
+   * The list contents are of type {@link org.ow2.fractal.mind.idl.fractalIDL.IncludeDirective}.
    * <!-- begin-user-doc -->
    * <p>
    * If the meaning of the '<em>Includes</em>' containment reference list isn't clear,
@@ -51,7 +52,7 @@ public interface IdtFile extends EObject
 
   /**
    * Returns the value of the '<em><b>Type</b></em>' containment reference list.
-   * The list contents are of type {@link fractalIDL.TypeDefinition}.
+   * The list contents are of type {@link org.ow2.fractal.mind.idl.fractalIDL.TypeDefinition}.
    * <!-- begin-user-doc -->
    * <p>
    * If the meaning of the '<em>Type</em>' containment reference list isn't clear,
@@ -67,7 +68,7 @@ public interface IdtFile extends EObject
 
   /**
    * Returns the value of the '<em><b>Constant</b></em>' containment reference list.
-   * The list contents are of type {@link fractalIDL.ConstantDefinition}.
+   * The list contents are of type {@link org.ow2.fractal.mind.idl.fractalIDL.ConstantDefinition}.
    * <!-- begin-user-doc -->
    * <p>
    * If the meaning of the '<em>Constant</em>' containment reference list isn't clear,

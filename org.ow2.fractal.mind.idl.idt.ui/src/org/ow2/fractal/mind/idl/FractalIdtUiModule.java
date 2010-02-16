@@ -3,7 +3,7 @@
  */
 package org.ow2.fractal.mind.idl;
 
-import org.eclipse.xtext.ui.common.editor.syntaxcoloring.ILexicalHighlightingConfiguration;
+import org.eclipse.xtext.ui.common.editor.syntaxcoloring.IHighlightingConfiguration;
 import org.eclipse.xtext.ui.common.editor.syntaxcoloring.antlr.AbstractAntlrTokenToAttributeIdMapper;
 
 /**
@@ -18,7 +18,7 @@ public class FractalIdtUiModule extends org.ow2.fractal.mind.idl.AbstractFractal
 	 * Using ITF lexical highlighting
 	 * 
 	 */
-	public Class<? extends ILexicalHighlightingConfiguration> bindILexicalHighlightingConfiguration() {
+	public Class<? extends IHighlightingConfiguration> bindILexicalHighlightingConfiguration() {
 		return LexicalHighlightingConfiguration.class;
 		}
 	

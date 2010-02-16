@@ -5,8 +5,8 @@ import java.util.Map.Entry;
 
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.RGB;
+import org.eclipse.xtext.ui.common.editor.syntaxcoloring.IHighlightingConfiguration;
 import org.eclipse.xtext.ui.common.editor.syntaxcoloring.IHighlightingConfigurationAcceptor;
-import org.eclipse.xtext.ui.common.editor.syntaxcoloring.ILexicalHighlightingConfiguration;
 import org.eclipse.xtext.ui.core.editor.utils.TextStyle;
 
 /**
@@ -17,7 +17,7 @@ import org.eclipse.xtext.ui.core.editor.utils.TextStyle;
  *
  */
 public class LexicalHighlightingConfiguration implements
-		ILexicalHighlightingConfiguration {
+IHighlightingConfiguration {
 	
 	/***
 	 * 

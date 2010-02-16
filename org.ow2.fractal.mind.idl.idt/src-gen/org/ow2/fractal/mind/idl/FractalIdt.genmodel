@@ -6,7 +6,7 @@
     modelPluginID="org.ow2.fractal.mind.idl.idt" forceOverwrite="true" modelName="FractalIdt"
     updateClasspath="false" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
     complianceLevel="5.0" copyrightFields="false" editPluginID="org.ow2.fractal.mind.idl.idt.edit"
-    editorPluginID="org.ow2.fractal.mind.idl.idt.editor">
+    editorPluginID="org.ow2.fractal.mind.idl.idt.editor" usedGenPackages="../../../../../../../org.ow2.fractal.mind.idl.itf/src-gen/org/ow2/fractal/mind/idl/FractalItf.genmodel#//fractalIDL">
   <genPackages prefix="FractalIdt" basePackage="org.ow2.fractal.mind.idl" disposableProviderFactory="true"
       ecorePackage="FractalIdt.ecore#/">
     <genClasses ecoreClass="FractalIdt.ecore#//IdtFile">

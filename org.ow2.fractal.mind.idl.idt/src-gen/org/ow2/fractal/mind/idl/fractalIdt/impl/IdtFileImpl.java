@@ -23,6 +23,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
 import org.ow2.fractal.mind.idl.fractalIDL.ConstantDefinition;
 import org.ow2.fractal.mind.idl.fractalIDL.IncludeDirective;
 import org.ow2.fractal.mind.idl.fractalIDL.TypeDefinition;
+
 import org.ow2.fractal.mind.idl.fractalIdt.FractalIdtPackage;
 import org.ow2.fractal.mind.idl.fractalIdt.IdtFile;
 
