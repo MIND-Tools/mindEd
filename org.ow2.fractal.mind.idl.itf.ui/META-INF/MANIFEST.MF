@@ -19,5 +19,6 @@ Bundle-RequiredExecutionEnvironment: J2SE-1.5
 Export-Package: org.ow2.fractal.mind.idl,
  org.ow2.fractal.mind.idl.contentassist,
  org.ow2.fractal.mind.idl.contentassist.antlr,
+ org.ow2.fractal.mind.idl.labeling,
  org.ow2.fractal.mind.idl.outline
 Bundle-Activator: org.ow2.fractal.mind.idl.internal.FractalItfActivator
