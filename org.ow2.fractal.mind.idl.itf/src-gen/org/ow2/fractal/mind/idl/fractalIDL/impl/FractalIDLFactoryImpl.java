@@ -86,7 +86,6 @@ public class FractalIDLFactoryImpl extends EFactoryImpl implements FractalIDLFac
       case FractalIDLPackage.DECLARATORS: return createDeclarators();
       case FractalIDLPackage.DECLARATOR: return createDeclarator();
       case FractalIDLPackage.DIRECT_DECLARATOR: return createDirectDeclarator();
-      case FractalIDLPackage.IDENTIFIER: return createIdentifier();
       case FractalIDLPackage.CONSTANT_DEFINITION: return createConstantDefinition();
       case FractalIDLPackage.INTERFACE_DEFINITION: return createInterfaceDefinition();
       case FractalIDLPackage.METHOD_DEFINITION: return createMethodDefinition();
@@ -325,17 +324,6 @@ public class FractalIDLFactoryImpl extends EFactoryImpl implements FractalIDLFac
   {
     DirectDeclaratorImpl directDeclarator = new DirectDeclaratorImpl();
     return directDeclarator;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Identifier createIdentifier()
-  {
-    IdentifierImpl identifier = new IdentifierImpl();
-    return identifier;
   }
 
   /**

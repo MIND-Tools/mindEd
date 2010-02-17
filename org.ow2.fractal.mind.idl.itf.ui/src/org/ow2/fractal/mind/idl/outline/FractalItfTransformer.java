@@ -11,6 +11,7 @@ import org.eclipse.xtext.ui.common.editor.outline.transformer.AbstractDeclarativ
 import org.ow2.fractal.mind.idl.fractalIDL.ConstantDefinition;
 import org.ow2.fractal.mind.idl.fractalIDL.EnumDefinition;
 import org.ow2.fractal.mind.idl.fractalIDL.EnumReference;
+import org.ow2.fractal.mind.idl.fractalIDL.IncludeDirective;
 import org.ow2.fractal.mind.idl.fractalIDL.InterfaceDefinition;
 import org.ow2.fractal.mind.idl.fractalIDL.ItfFile;
 import org.ow2.fractal.mind.idl.fractalIDL.MethodDefinition;
@@ -43,7 +44,7 @@ public class FractalItfTransformer extends
 	public ContentOutlineNode createNode(ConstantDefinition obj,
 			ContentOutlineNode parentNode) {
 		ContentOutlineNode node = super.newOutlineNode(obj, parentNode);
-		node.setLabel("#define " + obj.getId().getId());
+		node.setLabel("define " + obj.getId());
 		return node;
 	}
 
@@ -65,21 +66,21 @@ public class FractalItfTransformer extends
 	public ContentOutlineNode createNode(StructOrUnionDefinition obj,
 			ContentOutlineNode parentNode) {
 		ContentOutlineNode node = super.newOutlineNode(obj, parentNode);
-		node.setLabel(obj.getStruct() + " " + obj.getId().getId());
+		node.setLabel(obj.getStruct() + " " + obj.getId());
 		return node;
 	}
 
 	public ContentOutlineNode createNode(EnumDefinition obj,
 			ContentOutlineNode parentNode) {
 		ContentOutlineNode node = super.newOutlineNode(obj, parentNode);
-		node.setLabel("enum " + obj.getId().getId());
+		node.setLabel("enum " + obj.getId());
 		return node;
 	}
 
 	public ContentOutlineNode createNode(EnumReference obj,
 			ContentOutlineNode parentNode) {
 		ContentOutlineNode node = super.newOutlineNode(obj, parentNode);
-		node.setLabel("enum " + obj.getId().getId());
+		node.setLabel("enum " + obj.getId());
 		return node;
 	}
 
@@ -87,7 +88,7 @@ public class FractalItfTransformer extends
 			ContentOutlineNode parentNode) {
 		ContentOutlineNode node = super.newOutlineNode(obj, parentNode);
 
-		String label = obj.getId().getId() + "(";
+		String label = obj.getId() + "(";
 
 		if (obj.getParameterList().getParam() != null)
 
@@ -104,6 +105,14 @@ public class FractalItfTransformer extends
 
 		label = label + ")";
 
+		node.setLabel(label);
+		return node;
+	}
+
+	public ContentOutlineNode createNode(IncludeDirective obj,
+			ContentOutlineNode parentNode) {
+		ContentOutlineNode node = super.newOutlineNode(obj, parentNode);
+		String label = obj.getPath();
 		node.setLabel(label);
 		return node;
 	}

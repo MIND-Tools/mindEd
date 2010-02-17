@@ -164,11 +164,6 @@ public class FractalIDLAdapterFactory extends AdapterFactoryImpl
         return createDirectDeclaratorAdapter();
       }
       @Override
-      public Adapter caseIdentifier(Identifier object)
-      {
-        return createIdentifierAdapter();
-      }
-      @Override
       public Adapter caseConstantDefinition(ConstantDefinition object)
       {
         return createConstantDefinitionAdapter();
@@ -471,21 +466,6 @@ public class FractalIDLAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createDirectDeclaratorAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link org.ow2.fractal.mind.idl.fractalIDL.Identifier <em>Identifier</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.ow2.fractal.mind.idl.fractalIDL.Identifier
-   * @generated
-   */
-  public Adapter createIdentifierAdapter()
   {
     return null;
   }

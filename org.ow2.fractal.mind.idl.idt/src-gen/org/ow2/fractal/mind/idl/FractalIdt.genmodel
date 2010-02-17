@@ -11,8 +11,8 @@
       ecorePackage="FractalIdt.ecore#/">
     <genClasses ecoreClass="FractalIdt.ecore#//IdtFile">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference FractalIdt.ecore#//IdtFile/includes"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference FractalIdt.ecore#//IdtFile/type"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference FractalIdt.ecore#//IdtFile/constant"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference FractalIdt.ecore#//IdtFile/type"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

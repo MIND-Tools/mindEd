@@ -7,10 +7,10 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="includes" upperBound="-1"
         eType="ecore:EClass ../../../../../../../org.ow2.fractal.mind.idl.itf/src-gen/org/ow2/fractal/mind/idl/FractalItf.ecore#//IncludeDirective"
         containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="type" upperBound="-1" eType="ecore:EClass ../../../../../../../org.ow2.fractal.mind.idl.itf/src-gen/org/ow2/fractal/mind/idl/FractalItf.ecore#//TypeDefinition"
-        containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="constant" upperBound="-1"
         eType="ecore:EClass ../../../../../../../org.ow2.fractal.mind.idl.itf/src-gen/org/ow2/fractal/mind/idl/FractalItf.ecore#//ConstantDefinition"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="type" upperBound="-1" eType="ecore:EClass ../../../../../../../org.ow2.fractal.mind.idl.itf/src-gen/org/ow2/fractal/mind/idl/FractalItf.ecore#//TypeDefinition"
         containment="true"/>
   </eClassifiers>
 </ecore:EPackage>

@@ -79,22 +79,22 @@ public interface FractalIdtPackage extends EPackage
   int IDT_FILE__INCLUDES = 0;
 
   /**
-   * The feature id for the '<em><b>Type</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int IDT_FILE__TYPE = 1;
-
-  /**
    * The feature id for the '<em><b>Constant</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int IDT_FILE__CONSTANT = 2;
+  int IDT_FILE__CONSTANT = 1;
+
+  /**
+   * The feature id for the '<em><b>Type</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int IDT_FILE__TYPE = 2;
 
   /**
    * The number of structural features of the '<em>Idt File</em>' class.
@@ -128,17 +128,6 @@ public interface FractalIdtPackage extends EPackage
   EReference getIdtFile_Includes();
 
   /**
-   * Returns the meta object for the containment reference list '{@link org.ow2.fractal.mind.idl.fractalIdt.IdtFile#getType <em>Type</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Type</em>'.
-   * @see org.ow2.fractal.mind.idl.fractalIdt.IdtFile#getType()
-   * @see #getIdtFile()
-   * @generated
-   */
-  EReference getIdtFile_Type();
-
-  /**
    * Returns the meta object for the containment reference list '{@link org.ow2.fractal.mind.idl.fractalIdt.IdtFile#getConstant <em>Constant</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -148,6 +137,17 @@ public interface FractalIdtPackage extends EPackage
    * @generated
    */
   EReference getIdtFile_Constant();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link org.ow2.fractal.mind.idl.fractalIdt.IdtFile#getType <em>Type</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Type</em>'.
+   * @see org.ow2.fractal.mind.idl.fractalIdt.IdtFile#getType()
+   * @see #getIdtFile()
+   * @generated
+   */
+  EReference getIdtFile_Type();
 
   /**
    * Returns the factory that creates the instances of the model.
@@ -191,20 +191,20 @@ public interface FractalIdtPackage extends EPackage
     EReference IDT_FILE__INCLUDES = eINSTANCE.getIdtFile_Includes();
 
     /**
-     * The meta object literal for the '<em><b>Type</b></em>' containment reference list feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference IDT_FILE__TYPE = eINSTANCE.getIdtFile_Type();
-
-    /**
      * The meta object literal for the '<em><b>Constant</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
     EReference IDT_FILE__CONSTANT = eINSTANCE.getIdtFile_Constant();
+
+    /**
+     * The meta object literal for the '<em><b>Type</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference IDT_FILE__TYPE = eINSTANCE.getIdtFile_Type();
 
   }
 

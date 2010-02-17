@@ -25,6 +25,7 @@ public class FractalIdtFormatter extends FractalItfFormatter {
 				.getFractalItfGrammarAccess();
 
 		c.setIndentationSpace("    ");
+		formatInclude(f, c);
 		formatDefine(f, c);
 		formatTypeDefinition(f, c);
 

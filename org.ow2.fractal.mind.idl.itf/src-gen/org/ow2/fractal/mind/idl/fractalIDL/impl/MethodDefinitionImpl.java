@@ -16,7 +16,6 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.ow2.fractal.mind.idl.fractalIDL.FractalIDLPackage;
-import org.ow2.fractal.mind.idl.fractalIDL.Identifier;
 import org.ow2.fractal.mind.idl.fractalIDL.MethodDefinition;
 import org.ow2.fractal.mind.idl.fractalIDL.ParameterList;
 import org.ow2.fractal.mind.idl.fractalIDL.QualifiedTypeSpecification;
@@ -49,14 +48,24 @@ public class MethodDefinitionImpl extends MinimalEObjectImpl.Container implement
   protected QualifiedTypeSpecification qualifiedTypeSpec;
 
   /**
-   * The cached value of the '{@link #getId() <em>Id</em>}' containment reference.
+   * The default value of the '{@link #getId() <em>Id</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getId()
    * @generated
    * @ordered
    */
-  protected Identifier id;
+  protected static final String ID_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getId() <em>Id</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getId()
+   * @generated
+   * @ordered
+   */
+  protected String id = ID_EDEFAULT;
 
   /**
    * The cached value of the '{@link #getParameterList() <em>Parameter List</em>}' containment reference.
@@ -142,7 +151,7 @@ public class MethodDefinitionImpl extends MinimalEObjectImpl.Container implement
    * <!-- end-user-doc -->
    * @generated
    */
-  public Identifier getId()
+  public String getId()
   {
     return id;
   }
@@ -152,37 +161,12 @@ public class MethodDefinitionImpl extends MinimalEObjectImpl.Container implement
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetId(Identifier newId, NotificationChain msgs)
+  public void setId(String newId)
   {
-    Identifier oldId = id;
+    String oldId = id;
     id = newId;
     if (eNotificationRequired())
-    {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FractalIDLPackage.METHOD_DEFINITION__ID, oldId, newId);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
-    }
-    return msgs;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setId(Identifier newId)
-  {
-    if (newId != id)
-    {
-      NotificationChain msgs = null;
-      if (id != null)
-        msgs = ((InternalEObject)id).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FractalIDLPackage.METHOD_DEFINITION__ID, null, msgs);
-      if (newId != null)
-        msgs = ((InternalEObject)newId).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FractalIDLPackage.METHOD_DEFINITION__ID, null, msgs);
-      msgs = basicSetId(newId, msgs);
-      if (msgs != null) msgs.dispatch();
-    }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, FractalIDLPackage.METHOD_DEFINITION__ID, newId, newId));
+      eNotify(new ENotificationImpl(this, Notification.SET, FractalIDLPackage.METHOD_DEFINITION__ID, oldId, id));
   }
 
   /**
@@ -245,8 +229,6 @@ public class MethodDefinitionImpl extends MinimalEObjectImpl.Container implement
     {
       case FractalIDLPackage.METHOD_DEFINITION__QUALIFIED_TYPE_SPEC:
         return basicSetQualifiedTypeSpec(null, msgs);
-      case FractalIDLPackage.METHOD_DEFINITION__ID:
-        return basicSetId(null, msgs);
       case FractalIDLPackage.METHOD_DEFINITION__PARAMETER_LIST:
         return basicSetParameterList(null, msgs);
     }
@@ -287,7 +269,7 @@ public class MethodDefinitionImpl extends MinimalEObjectImpl.Container implement
         setQualifiedTypeSpec((QualifiedTypeSpecification)newValue);
         return;
       case FractalIDLPackage.METHOD_DEFINITION__ID:
-        setId((Identifier)newValue);
+        setId((String)newValue);
         return;
       case FractalIDLPackage.METHOD_DEFINITION__PARAMETER_LIST:
         setParameterList((ParameterList)newValue);
@@ -310,7 +292,7 @@ public class MethodDefinitionImpl extends MinimalEObjectImpl.Container implement
         setQualifiedTypeSpec((QualifiedTypeSpecification)null);
         return;
       case FractalIDLPackage.METHOD_DEFINITION__ID:
-        setId((Identifier)null);
+        setId(ID_EDEFAULT);
         return;
       case FractalIDLPackage.METHOD_DEFINITION__PARAMETER_LIST:
         setParameterList((ParameterList)null);
@@ -332,11 +314,28 @@ public class MethodDefinitionImpl extends MinimalEObjectImpl.Container implement
       case FractalIDLPackage.METHOD_DEFINITION__QUALIFIED_TYPE_SPEC:
         return qualifiedTypeSpec != null;
       case FractalIDLPackage.METHOD_DEFINITION__ID:
-        return id != null;
+        return ID_EDEFAULT == null ? id != null : !ID_EDEFAULT.equals(id);
       case FractalIDLPackage.METHOD_DEFINITION__PARAMETER_LIST:
         return parameterList != null;
     }
     return super.eIsSet(featureID);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public String toString()
+  {
+    if (eIsProxy()) return super.toString();
+
+    StringBuffer result = new StringBuffer(super.toString());
+    result.append(" (id: ");
+    result.append(id);
+    result.append(')');
+    return result.toString();
   }
 
 } //MethodDefinitionImpl

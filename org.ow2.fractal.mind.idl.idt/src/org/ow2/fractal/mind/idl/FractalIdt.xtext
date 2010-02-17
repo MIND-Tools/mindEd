@@ -3,5 +3,5 @@ grammar org.ow2.fractal.mind.idl.FractalIdt with org.ow2.fractal.mind.idl.Fracta
 generate fractalIdt "http://www.ow2.org/fractal/mind/idl/FractalIdt"
 
 IdtFile:
-  (includes+=IncludeDirective)* (type+=TypeDefinition|constant+=ConstantDefinition)*;
+  (includes+=IncludeDirective)* (constant+=ConstantDefinition|type+=TypeDefinition)*;
 	

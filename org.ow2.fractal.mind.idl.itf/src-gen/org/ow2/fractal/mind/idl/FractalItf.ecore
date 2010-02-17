@@ -6,10 +6,10 @@
   <eClassifiers xsi:type="ecore:EClass" name="ItfFile">
     <eStructuralFeatures xsi:type="ecore:EReference" name="includes" upperBound="-1"
         eType="#//IncludeDirective" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="type" upperBound="-1" eType="#//TypeDefinition"
-        containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="constant" upperBound="-1"
         eType="#//ConstantDefinition" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="type" upperBound="-1" eType="#//TypeDefinition"
+        containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="interface" eType="#//InterfaceDefinition"
         containment="true"/>
   </eClassifiers>
@@ -59,8 +59,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="StructOrUnionSpecification" eSuperTypes="#//TypeDefinition #//TypeSpecification">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="struct" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="id" eType="#//Identifier"
-        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="StructOrUnionDefinition" eSuperTypes="#//StructOrUnionSpecification">
     <eStructuralFeatures xsi:type="ecore:EReference" name="structMember" upperBound="-1"
@@ -74,8 +73,7 @@
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="EnumSpecification" eSuperTypes="#//TypeDefinition #//TypeSpecification">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="id" eType="#//Identifier"
-        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="EnumDefinition" eSuperTypes="#//EnumSpecification">
     <eStructuralFeatures xsi:type="ecore:EReference" name="enumMemberList" eType="#//EnumMemberList"
@@ -86,8 +84,7 @@
   <eClassifiers xsi:type="ecore:EClass" name="EnumMember" eSuperTypes="#//EnumMemberList">
     <eStructuralFeatures xsi:type="ecore:EReference" name="enumMember" upperBound="-1"
         eType="#//EnumMember" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="id" eType="#//Identifier"
-        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Declarators">
     <eStructuralFeatures xsi:type="ecore:EReference" name="dec" eType="#//Declarator"
@@ -102,15 +99,10 @@
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DirectDeclarator">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="id" eType="#//Identifier"
-        containment="true"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Identifier">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ConstantDefinition">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="id" eType="#//Identifier"
-        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="InterfaceDefinition">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="fqn" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -121,8 +113,7 @@
   <eClassifiers xsi:type="ecore:EClass" name="MethodDefinition">
     <eStructuralFeatures xsi:type="ecore:EReference" name="qualifiedTypeSpec" eType="#//QualifiedTypeSpecification"
         containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="id" eType="#//Identifier"
-        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="ParameterList" eType="#//ParameterList"
         containment="true"/>
   </eClassifiers>

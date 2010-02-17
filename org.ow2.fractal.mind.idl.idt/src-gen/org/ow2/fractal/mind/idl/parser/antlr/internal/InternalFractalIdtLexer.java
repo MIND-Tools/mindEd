@@ -11,7 +11,7 @@ import java.util.List;
 import java.util.ArrayList;
 
 public class InternalFractalIdtLexer extends Lexer {
-    public static final int RULE_ID=5;
+    public static final int RULE_ID=4;
     public static final int RULE_ANY_OTHER=10;
     public static final int T29=29;
     public static final int T28=28;
@@ -24,7 +24,7 @@ public class InternalFractalIdtLexer extends Lexer {
     public static final int T22=22;
     public static final int T21=21;
     public static final int T20=20;
-    public static final int RULE_INT=4;
+    public static final int RULE_INT=5;
     public static final int T38=38;
     public static final int T37=37;
     public static final int T39=39;
@@ -483,11 +483,10 @@ public class InternalFractalIdtLexer extends Lexer {
     public final void mT33() throws RecognitionException {
         try {
             int _type = T33;
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:32:5: ( '\".*\"' )
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:32:7: '\".*\"'
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:32:5: ( '<' )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:32:7: '<'
             {
-            match("\".*\""); 
-
+            match('<'); 
 
             }
 
@@ -502,11 +501,10 @@ public class InternalFractalIdtLexer extends Lexer {
     public final void mT34() throws RecognitionException {
         try {
             int _type = T34;
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:33:5: ( '<.*>' )
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:33:7: '<.*>'
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:33:5: ( '>' )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:33:7: '>'
             {
-            match("<.*>"); 
-
+            match('>'); 
 
             }
 
@@ -958,10 +956,10 @@ public class InternalFractalIdtLexer extends Lexer {
     public final void mRULE_ID() throws RecognitionException {
         try {
             int _type = RULE_ID;
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2193:9: ( ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )* )
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2193:11: ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2185:9: ( ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )* )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2185:11: ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
             {
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2193:11: ( '^' )?
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2185:11: ( '^' )?
             int alt1=2;
             int LA1_0 = input.LA(1);
 
@@ -970,7 +968,7 @@ public class InternalFractalIdtLexer extends Lexer {
             }
             switch (alt1) {
                 case 1 :
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2193:11: '^'
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2185:11: '^'
                     {
                     match('^'); 
 
@@ -989,7 +987,7 @@ public class InternalFractalIdtLexer extends Lexer {
                 recover(mse);    throw mse;
             }
 
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2193:40: ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2185:40: ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
             loop2:
             do {
                 int alt2=2;
@@ -1037,10 +1035,10 @@ public class InternalFractalIdtLexer extends Lexer {
     public final void mRULE_INT() throws RecognitionException {
         try {
             int _type = RULE_INT;
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2195:10: ( ( '0' .. '9' )+ )
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2195:12: ( '0' .. '9' )+
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2187:10: ( ( '0' .. '9' )+ )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2187:12: ( '0' .. '9' )+
             {
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2195:12: ( '0' .. '9' )+
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2187:12: ( '0' .. '9' )+
             int cnt3=0;
             loop3:
             do {
@@ -1054,7 +1052,7 @@ public class InternalFractalIdtLexer extends Lexer {
 
                 switch (alt3) {
             	case 1 :
-            	    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2195:13: '0' .. '9'
+            	    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2187:13: '0' .. '9'
             	    {
             	    matchRange('0','9'); 
 
@@ -1084,10 +1082,10 @@ public class InternalFractalIdtLexer extends Lexer {
     public final void mRULE_STRING() throws RecognitionException {
         try {
             int _type = RULE_STRING;
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2197:13: ( ( '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' ) )
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2197:15: ( '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2189:13: ( ( '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' ) )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2189:15: ( '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
             {
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2197:15: ( '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2189:15: ( '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
             int alt6=2;
             int LA6_0 = input.LA(1);
 
@@ -1099,16 +1097,16 @@ public class InternalFractalIdtLexer extends Lexer {
             }
             else {
                 NoViableAltException nvae =
-                    new NoViableAltException("2197:15: ( '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )", 6, 0, input);
+                    new NoViableAltException("2189:15: ( '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )", 6, 0, input);
 
                 throw nvae;
             }
             switch (alt6) {
                 case 1 :
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2197:16: '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"'
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2189:16: '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"'
                     {
                     match('\"'); 
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2197:20: ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )*
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2189:20: ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )*
                     loop4:
                     do {
                         int alt4=3;
@@ -1124,7 +1122,7 @@ public class InternalFractalIdtLexer extends Lexer {
 
                         switch (alt4) {
                     	case 1 :
-                    	    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2197:21: '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' )
+                    	    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2189:21: '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' )
                     	    {
                     	    match('\\'); 
                     	    if ( input.LA(1)=='\"'||input.LA(1)=='\''||input.LA(1)=='\\'||input.LA(1)=='b'||input.LA(1)=='f'||input.LA(1)=='n'||input.LA(1)=='r'||input.LA(1)=='t' ) {
@@ -1141,7 +1139,7 @@ public class InternalFractalIdtLexer extends Lexer {
                     	    }
                     	    break;
                     	case 2 :
-                    	    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2197:62: ~ ( ( '\\\\' | '\"' ) )
+                    	    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2189:62: ~ ( ( '\\\\' | '\"' ) )
                     	    {
                     	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='!')||(input.LA(1)>='#' && input.LA(1)<='[')||(input.LA(1)>=']' && input.LA(1)<='\uFFFE') ) {
                     	        input.consume();
@@ -1167,10 +1165,10 @@ public class InternalFractalIdtLexer extends Lexer {
                     }
                     break;
                 case 2 :
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2197:82: '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )* '\\''
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2189:82: '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )* '\\''
                     {
                     match('\''); 
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2197:87: ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )*
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2189:87: ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )*
                     loop5:
                     do {
                         int alt5=3;
@@ -1186,7 +1184,7 @@ public class InternalFractalIdtLexer extends Lexer {
 
                         switch (alt5) {
                     	case 1 :
-                    	    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2197:88: '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' )
+                    	    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2189:88: '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' )
                     	    {
                     	    match('\\'); 
                     	    if ( input.LA(1)=='\"'||input.LA(1)=='\''||input.LA(1)=='\\'||input.LA(1)=='b'||input.LA(1)=='f'||input.LA(1)=='n'||input.LA(1)=='r'||input.LA(1)=='t' ) {
@@ -1203,7 +1201,7 @@ public class InternalFractalIdtLexer extends Lexer {
                     	    }
                     	    break;
                     	case 2 :
-                    	    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2197:129: ~ ( ( '\\\\' | '\\'' ) )
+                    	    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2189:129: ~ ( ( '\\\\' | '\\'' ) )
                     	    {
                     	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='&')||(input.LA(1)>='(' && input.LA(1)<='[')||(input.LA(1)>=']' && input.LA(1)<='\uFFFE') ) {
                     	        input.consume();
@@ -1245,12 +1243,12 @@ public class InternalFractalIdtLexer extends Lexer {
     public final void mRULE_ML_COMMENT() throws RecognitionException {
         try {
             int _type = RULE_ML_COMMENT;
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2199:17: ( '/*' ( options {greedy=false; } : . )* '*/' )
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2199:19: '/*' ( options {greedy=false; } : . )* '*/'
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2191:17: ( '/*' ( options {greedy=false; } : . )* '*/' )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2191:19: '/*' ( options {greedy=false; } : . )* '*/'
             {
             match("/*"); 
 
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2199:24: ( options {greedy=false; } : . )*
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2191:24: ( options {greedy=false; } : . )*
             loop7:
             do {
                 int alt7=2;
@@ -1275,7 +1273,7 @@ public class InternalFractalIdtLexer extends Lexer {
 
                 switch (alt7) {
             	case 1 :
-            	    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2199:52: .
+            	    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2191:52: .
             	    {
             	    matchAny(); 
 
@@ -1303,12 +1301,12 @@ public class InternalFractalIdtLexer extends Lexer {
     public final void mRULE_SL_COMMENT() throws RecognitionException {
         try {
             int _type = RULE_SL_COMMENT;
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2201:17: ( '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )? )
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2201:19: '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )?
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2193:17: ( '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )? )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2193:19: '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )?
             {
             match("//"); 
 
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2201:24: (~ ( ( '\\n' | '\\r' ) ) )*
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2193:24: (~ ( ( '\\n' | '\\r' ) ) )*
             loop8:
             do {
                 int alt8=2;
@@ -1321,7 +1319,7 @@ public class InternalFractalIdtLexer extends Lexer {
 
                 switch (alt8) {
             	case 1 :
-            	    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2201:24: ~ ( ( '\\n' | '\\r' ) )
+            	    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2193:24: ~ ( ( '\\n' | '\\r' ) )
             	    {
             	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='\t')||(input.LA(1)>='\u000B' && input.LA(1)<='\f')||(input.LA(1)>='\u000E' && input.LA(1)<='\uFFFE') ) {
             	        input.consume();
@@ -1342,7 +1340,7 @@ public class InternalFractalIdtLexer extends Lexer {
                 }
             } while (true);
 
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2201:40: ( ( '\\r' )? '\\n' )?
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2193:40: ( ( '\\r' )? '\\n' )?
             int alt10=2;
             int LA10_0 = input.LA(1);
 
@@ -1351,9 +1349,9 @@ public class InternalFractalIdtLexer extends Lexer {
             }
             switch (alt10) {
                 case 1 :
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2201:41: ( '\\r' )? '\\n'
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2193:41: ( '\\r' )? '\\n'
                     {
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2201:41: ( '\\r' )?
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2193:41: ( '\\r' )?
                     int alt9=2;
                     int LA9_0 = input.LA(1);
 
@@ -1362,7 +1360,7 @@ public class InternalFractalIdtLexer extends Lexer {
                     }
                     switch (alt9) {
                         case 1 :
-                            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2201:41: '\\r'
+                            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2193:41: '\\r'
                             {
                             match('\r'); 
 
@@ -1392,10 +1390,10 @@ public class InternalFractalIdtLexer extends Lexer {
     public final void mRULE_WS() throws RecognitionException {
         try {
             int _type = RULE_WS;
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2203:9: ( ( ' ' | '\\t' | '\\r' | '\\n' )+ )
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2203:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2195:9: ( ( ' ' | '\\t' | '\\r' | '\\n' )+ )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2195:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
             {
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2203:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2195:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
             int cnt11=0;
             loop11:
             do {
@@ -1448,8 +1446,8 @@ public class InternalFractalIdtLexer extends Lexer {
     public final void mRULE_ANY_OTHER() throws RecognitionException {
         try {
             int _type = RULE_ANY_OTHER;
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2205:16: ( . )
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2205:18: .
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2197:16: ( . )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2197:18: .
             {
             matchAny(); 
 
@@ -1474,24 +1472,24 @@ public class InternalFractalIdtLexer extends Lexer {
             int LA12_2 = input.LA(2);
 
             if ( (LA12_2=='y') ) {
-                int LA12_35 = input.LA(3);
+                int LA12_36 = input.LA(3);
 
-                if ( (LA12_35=='p') ) {
-                    int LA12_72 = input.LA(4);
+                if ( (LA12_36=='p') ) {
+                    int LA12_73 = input.LA(4);
 
-                    if ( (LA12_72=='e') ) {
+                    if ( (LA12_73=='e') ) {
                         int LA12_92 = input.LA(5);
 
                         if ( (LA12_92=='d') ) {
-                            int LA12_118 = input.LA(6);
+                            int LA12_117 = input.LA(6);
 
-                            if ( (LA12_118=='e') ) {
-                                int LA12_146 = input.LA(7);
+                            if ( (LA12_117=='e') ) {
+                                int LA12_144 = input.LA(7);
 
-                                if ( (LA12_146=='f') ) {
-                                    int LA12_169 = input.LA(8);
+                                if ( (LA12_144=='f') ) {
+                                    int LA12_167 = input.LA(8);
 
-                                    if ( ((LA12_169>='0' && LA12_169<='9')||(LA12_169>='A' && LA12_169<='Z')||LA12_169=='_'||(LA12_169>='a' && LA12_169<='z')) ) {
+                                    if ( ((LA12_167>='0' && LA12_167<='9')||(LA12_167>='A' && LA12_167<='Z')||LA12_167=='_'||(LA12_167>='a' && LA12_167<='z')) ) {
                                         alt12=48;
                                     }
                                     else {
@@ -1525,21 +1523,21 @@ public class InternalFractalIdtLexer extends Lexer {
             switch ( input.LA(2) ) {
             case 't':
                 {
-                int LA12_39 = input.LA(3);
+                int LA12_40 = input.LA(3);
 
-                if ( (LA12_39=='r') ) {
+                if ( (LA12_40=='r') ) {
                     switch ( input.LA(4) ) {
                     case 'i':
                         {
                         int LA12_93 = input.LA(5);
 
                         if ( (LA12_93=='n') ) {
-                            int LA12_119 = input.LA(6);
+                            int LA12_118 = input.LA(6);
 
-                            if ( (LA12_119=='g') ) {
-                                int LA12_147 = input.LA(7);
+                            if ( (LA12_118=='g') ) {
+                                int LA12_145 = input.LA(7);
 
-                                if ( ((LA12_147>='0' && LA12_147<='9')||(LA12_147>='A' && LA12_147<='Z')||LA12_147=='_'||(LA12_147>='a' && LA12_147<='z')) ) {
+                                if ( ((LA12_145>='0' && LA12_145<='9')||(LA12_145>='A' && LA12_145<='Z')||LA12_145=='_'||(LA12_145>='a' && LA12_145<='z')) ) {
                                     alt12=48;
                                 }
                                 else {
@@ -1557,12 +1555,12 @@ public class InternalFractalIdtLexer extends Lexer {
                         int LA12_94 = input.LA(5);
 
                         if ( (LA12_94=='c') ) {
-                            int LA12_120 = input.LA(6);
+                            int LA12_119 = input.LA(6);
 
-                            if ( (LA12_120=='t') ) {
-                                int LA12_148 = input.LA(7);
+                            if ( (LA12_119=='t') ) {
+                                int LA12_146 = input.LA(7);
 
-                                if ( ((LA12_148>='0' && LA12_148<='9')||(LA12_148>='A' && LA12_148<='Z')||LA12_148=='_'||(LA12_148>='a' && LA12_148<='z')) ) {
+                                if ( ((LA12_146>='0' && LA12_146<='9')||(LA12_146>='A' && LA12_146<='Z')||LA12_146=='_'||(LA12_146>='a' && LA12_146<='z')) ) {
                                     alt12=48;
                                 }
                                 else {
@@ -1585,18 +1583,18 @@ public class InternalFractalIdtLexer extends Lexer {
                 break;
             case 'h':
                 {
-                int LA12_40 = input.LA(3);
+                int LA12_41 = input.LA(3);
 
-                if ( (LA12_40=='o') ) {
-                    int LA12_74 = input.LA(4);
+                if ( (LA12_41=='o') ) {
+                    int LA12_75 = input.LA(4);
 
-                    if ( (LA12_74=='r') ) {
+                    if ( (LA12_75=='r') ) {
                         int LA12_95 = input.LA(5);
 
                         if ( (LA12_95=='t') ) {
-                            int LA12_121 = input.LA(6);
+                            int LA12_120 = input.LA(6);
 
-                            if ( ((LA12_121>='0' && LA12_121<='9')||(LA12_121>='A' && LA12_121<='Z')||LA12_121=='_'||(LA12_121>='a' && LA12_121<='z')) ) {
+                            if ( ((LA12_120>='0' && LA12_120<='9')||(LA12_120>='A' && LA12_120<='Z')||LA12_120=='_'||(LA12_120>='a' && LA12_120<='z')) ) {
                                 alt12=48;
                             }
                             else {
@@ -1614,21 +1612,21 @@ public class InternalFractalIdtLexer extends Lexer {
                 break;
             case 'i':
                 {
-                int LA12_41 = input.LA(3);
+                int LA12_42 = input.LA(3);
 
-                if ( (LA12_41=='g') ) {
-                    int LA12_75 = input.LA(4);
+                if ( (LA12_42=='g') ) {
+                    int LA12_76 = input.LA(4);
 
-                    if ( (LA12_75=='n') ) {
+                    if ( (LA12_76=='n') ) {
                         int LA12_96 = input.LA(5);
 
                         if ( (LA12_96=='e') ) {
-                            int LA12_122 = input.LA(6);
+                            int LA12_121 = input.LA(6);
 
-                            if ( (LA12_122=='d') ) {
-                                int LA12_150 = input.LA(7);
+                            if ( (LA12_121=='d') ) {
+                                int LA12_148 = input.LA(7);
 
-                                if ( ((LA12_150>='0' && LA12_150<='9')||(LA12_150>='A' && LA12_150<='Z')||LA12_150=='_'||(LA12_150>='a' && LA12_150<='z')) ) {
+                                if ( ((LA12_148>='0' && LA12_148<='9')||(LA12_148>='A' && LA12_148<='Z')||LA12_148=='_'||(LA12_148>='a' && LA12_148<='z')) ) {
                                     alt12=48;
                                 }
                                 else {
@@ -1655,54 +1653,37 @@ public class InternalFractalIdtLexer extends Lexer {
             switch ( input.LA(2) ) {
             case 'i':
                 {
-                int LA12_42 = input.LA(3);
+                int LA12_43 = input.LA(3);
 
-                if ( (LA12_42=='n') ) {
-                    int LA12_76 = input.LA(4);
+                if ( (LA12_43=='n') ) {
+                    int LA12_77 = input.LA(4);
 
-                    if ( (LA12_76=='t') ) {
+                    if ( (LA12_77=='t') ) {
                         switch ( input.LA(5) ) {
-                        case '8':
+                        case 'p':
                             {
-                            int LA12_123 = input.LA(6);
+                            int LA12_122 = input.LA(6);
 
-                            if ( (LA12_123=='_') ) {
-                                int LA12_151 = input.LA(7);
+                            if ( (LA12_122=='t') ) {
+                                int LA12_149 = input.LA(7);
 
-                                if ( (LA12_151=='t') ) {
-                                    int LA12_173 = input.LA(8);
+                                if ( (LA12_149=='r') ) {
+                                    int LA12_171 = input.LA(8);
 
-                                    if ( ((LA12_173>='0' && LA12_173<='9')||(LA12_173>='A' && LA12_173<='Z')||LA12_173=='_'||(LA12_173>='a' && LA12_173<='z')) ) {
-                                        alt12=48;
-                                    }
-                                    else {
-                                        alt12=37;}
-                                }
-                                else {
-                                    alt12=48;}
-                            }
-                            else {
-                                alt12=48;}
-                            }
-                            break;
-                        case '3':
-                            {
-                            int LA12_124 = input.LA(6);
+                                    if ( (LA12_171=='_') ) {
+                                        int LA12_187 = input.LA(9);
 
-                            if ( (LA12_124=='2') ) {
-                                int LA12_152 = input.LA(7);
+                                        if ( (LA12_187=='t') ) {
+                                            int LA12_200 = input.LA(10);
 
-                                if ( (LA12_152=='_') ) {
-                                    int LA12_174 = input.LA(8);
-
-                                    if ( (LA12_174=='t') ) {
-                                        int LA12_190 = input.LA(9);
-
-                                        if ( ((LA12_190>='0' && LA12_190<='9')||(LA12_190>='A' && LA12_190<='Z')||LA12_190=='_'||(LA12_190>='a' && LA12_190<='z')) ) {
-                                            alt12=48;
+                                            if ( ((LA12_200>='0' && LA12_200<='9')||(LA12_200>='A' && LA12_200<='Z')||LA12_200=='_'||(LA12_200>='a' && LA12_200<='z')) ) {
+                                                alt12=48;
+                                            }
+                                            else {
+                                                alt12=45;}
                                         }
                                         else {
-                                            alt12=41;}
+                                            alt12=48;}
                                     }
                                     else {
                                         alt12=48;}
@@ -1716,18 +1697,18 @@ public class InternalFractalIdtLexer extends Lexer {
                             break;
                         case '1':
                             {
-                            int LA12_125 = input.LA(6);
+                            int LA12_123 = input.LA(6);
 
-                            if ( (LA12_125=='6') ) {
-                                int LA12_153 = input.LA(7);
+                            if ( (LA12_123=='6') ) {
+                                int LA12_150 = input.LA(7);
 
-                                if ( (LA12_153=='_') ) {
-                                    int LA12_175 = input.LA(8);
+                                if ( (LA12_150=='_') ) {
+                                    int LA12_172 = input.LA(8);
 
-                                    if ( (LA12_175=='t') ) {
-                                        int LA12_191 = input.LA(9);
+                                    if ( (LA12_172=='t') ) {
+                                        int LA12_188 = input.LA(9);
 
-                                        if ( ((LA12_191>='0' && LA12_191<='9')||(LA12_191>='A' && LA12_191<='Z')||LA12_191=='_'||(LA12_191>='a' && LA12_191<='z')) ) {
+                                        if ( ((LA12_188>='0' && LA12_188<='9')||(LA12_188>='A' && LA12_188<='Z')||LA12_188=='_'||(LA12_188>='a' && LA12_188<='z')) ) {
                                             alt12=48;
                                         }
                                         else {
@@ -1743,20 +1724,49 @@ public class InternalFractalIdtLexer extends Lexer {
                                 alt12=48;}
                             }
                             break;
+                        case '3':
+                            {
+                            int LA12_124 = input.LA(6);
+
+                            if ( (LA12_124=='2') ) {
+                                int LA12_151 = input.LA(7);
+
+                                if ( (LA12_151=='_') ) {
+                                    int LA12_173 = input.LA(8);
+
+                                    if ( (LA12_173=='t') ) {
+                                        int LA12_189 = input.LA(9);
+
+                                        if ( ((LA12_189>='0' && LA12_189<='9')||(LA12_189>='A' && LA12_189<='Z')||LA12_189=='_'||(LA12_189>='a' && LA12_189<='z')) ) {
+                                            alt12=48;
+                                        }
+                                        else {
+                                            alt12=41;}
+                                    }
+                                    else {
+                                        alt12=48;}
+                                }
+                                else {
+                                    alt12=48;}
+                            }
+                            else {
+                                alt12=48;}
+                            }
+                            break;
                         case '6':
                             {
-                            int LA12_126 = input.LA(6);
+                            int LA12_125 = input.LA(6);
 
-                            if ( (LA12_126=='4') ) {
-                                int LA12_154 = input.LA(7);
+                            if ( (LA12_125=='4') ) {
+                                int LA12_152 = input.LA(7);
 
-                                if ( (LA12_154=='_') ) {
-                                    int LA12_176 = input.LA(8);
+                                if ( (LA12_152=='_') ) {
+                                    int LA12_174 = input.LA(8);
 
-                                    if ( (LA12_176=='t') ) {
-                                        int LA12_192 = input.LA(9);
+                                    if ( (LA12_174=='t') ) {
+                                        int LA12_190 = input.LA(9);
 
-                                        if ( ((LA12_192>='0' && LA12_192<='9')||(LA12_192>='A' && LA12_192<='Z')||LA12_192=='_'||(LA12_192>='a' && LA12_192<='z')) ) {
+                                        if ( ((LA12_190>='0' && LA12_190<='9')||(LA12_190>='A' && LA12_190<='Z')||LA12_190=='_'||(LA12_190>='a' && LA12_190<='z')) ) {
                                             alt12=48;
                                         }
                                         else {
@@ -1772,33 +1782,21 @@ public class InternalFractalIdtLexer extends Lexer {
                                 alt12=48;}
                             }
                             break;
-                        case 'p':
+                        case '8':
                             {
-                            int LA12_127 = input.LA(6);
+                            int LA12_126 = input.LA(6);
 
-                            if ( (LA12_127=='t') ) {
-                                int LA12_155 = input.LA(7);
+                            if ( (LA12_126=='_') ) {
+                                int LA12_153 = input.LA(7);
 
-                                if ( (LA12_155=='r') ) {
-                                    int LA12_177 = input.LA(8);
+                                if ( (LA12_153=='t') ) {
+                                    int LA12_175 = input.LA(8);
 
-                                    if ( (LA12_177=='_') ) {
-                                        int LA12_193 = input.LA(9);
-
-                                        if ( (LA12_193=='t') ) {
-                                            int LA12_205 = input.LA(10);
-
-                                            if ( ((LA12_205>='0' && LA12_205<='9')||(LA12_205>='A' && LA12_205<='Z')||LA12_205=='_'||(LA12_205>='a' && LA12_205<='z')) ) {
-                                                alt12=48;
-                                            }
-                                            else {
-                                                alt12=45;}
-                                        }
-                                        else {
-                                            alt12=48;}
+                                    if ( ((LA12_175>='0' && LA12_175<='9')||(LA12_175>='A' && LA12_175<='Z')||LA12_175=='_'||(LA12_175>='a' && LA12_175<='z')) ) {
+                                        alt12=48;
                                     }
                                     else {
-                                        alt12=48;}
+                                        alt12=37;}
                                 }
                                 else {
                                     alt12=48;}
@@ -1821,29 +1819,52 @@ public class InternalFractalIdtLexer extends Lexer {
             case 'n':
                 {
                 switch ( input.LA(3) ) {
-                case 'm':
+                case 'i':
                     {
-                    int LA12_77 = input.LA(4);
+                    int LA12_78 = input.LA(4);
 
-                    if ( (LA12_77=='a') ) {
+                    if ( (LA12_78=='o') ) {
                         int LA12_98 = input.LA(5);
 
                         if ( (LA12_98=='n') ) {
+                            int LA12_127 = input.LA(6);
+
+                            if ( ((LA12_127>='0' && LA12_127<='9')||(LA12_127>='A' && LA12_127<='Z')||LA12_127=='_'||(LA12_127>='a' && LA12_127<='z')) ) {
+                                alt12=48;
+                            }
+                            else {
+                                alt12=6;}
+                        }
+                        else {
+                            alt12=48;}
+                    }
+                    else {
+                        alt12=48;}
+                    }
+                    break;
+                case 'm':
+                    {
+                    int LA12_79 = input.LA(4);
+
+                    if ( (LA12_79=='a') ) {
+                        int LA12_99 = input.LA(5);
+
+                        if ( (LA12_99=='n') ) {
                             int LA12_128 = input.LA(6);
 
                             if ( (LA12_128=='a') ) {
-                                int LA12_156 = input.LA(7);
+                                int LA12_155 = input.LA(7);
 
-                                if ( (LA12_156=='g') ) {
-                                    int LA12_178 = input.LA(8);
+                                if ( (LA12_155=='g') ) {
+                                    int LA12_176 = input.LA(8);
 
-                                    if ( (LA12_178=='e') ) {
-                                        int LA12_194 = input.LA(9);
+                                    if ( (LA12_176=='e') ) {
+                                        int LA12_192 = input.LA(9);
 
-                                        if ( (LA12_194=='d') ) {
-                                            int LA12_206 = input.LA(10);
+                                        if ( (LA12_192=='d') ) {
+                                            int LA12_204 = input.LA(10);
 
-                                            if ( ((LA12_206>='0' && LA12_206<='9')||(LA12_206>='A' && LA12_206<='Z')||LA12_206=='_'||(LA12_206>='a' && LA12_206<='z')) ) {
+                                            if ( ((LA12_204>='0' && LA12_204<='9')||(LA12_204>='A' && LA12_204<='Z')||LA12_204=='_'||(LA12_204>='a' && LA12_204<='z')) ) {
                                                 alt12=48;
                                             }
                                             else {
@@ -1870,24 +1891,24 @@ public class InternalFractalIdtLexer extends Lexer {
                     break;
                 case 's':
                     {
-                    int LA12_78 = input.LA(4);
+                    int LA12_80 = input.LA(4);
 
-                    if ( (LA12_78=='i') ) {
-                        int LA12_99 = input.LA(5);
+                    if ( (LA12_80=='i') ) {
+                        int LA12_100 = input.LA(5);
 
-                        if ( (LA12_99=='g') ) {
+                        if ( (LA12_100=='g') ) {
                             int LA12_129 = input.LA(6);
 
                             if ( (LA12_129=='n') ) {
-                                int LA12_157 = input.LA(7);
+                                int LA12_156 = input.LA(7);
 
-                                if ( (LA12_157=='e') ) {
-                                    int LA12_179 = input.LA(8);
+                                if ( (LA12_156=='e') ) {
+                                    int LA12_177 = input.LA(8);
 
-                                    if ( (LA12_179=='d') ) {
-                                        int LA12_195 = input.LA(9);
+                                    if ( (LA12_177=='d') ) {
+                                        int LA12_193 = input.LA(9);
 
-                                        if ( ((LA12_195>='0' && LA12_195<='9')||(LA12_195>='A' && LA12_195<='Z')||LA12_195=='_'||(LA12_195>='a' && LA12_195<='z')) ) {
+                                        if ( ((LA12_193>='0' && LA12_193<='9')||(LA12_193>='A' && LA12_193<='Z')||LA12_193=='_'||(LA12_193>='a' && LA12_193<='z')) ) {
                                             alt12=48;
                                         }
                                         else {
@@ -1901,29 +1922,6 @@ public class InternalFractalIdtLexer extends Lexer {
                             }
                             else {
                                 alt12=48;}
-                        }
-                        else {
-                            alt12=48;}
-                    }
-                    else {
-                        alt12=48;}
-                    }
-                    break;
-                case 'i':
-                    {
-                    int LA12_79 = input.LA(4);
-
-                    if ( (LA12_79=='o') ) {
-                        int LA12_100 = input.LA(5);
-
-                        if ( (LA12_100=='n') ) {
-                            int LA12_130 = input.LA(6);
-
-                            if ( ((LA12_130>='0' && LA12_130<='9')||(LA12_130>='A' && LA12_130<='Z')||LA12_130=='_'||(LA12_130>='a' && LA12_130<='z')) ) {
-                                alt12=48;
-                            }
-                            else {
-                                alt12=6;}
                         }
                         else {
                             alt12=48;}
@@ -1948,12 +1946,12 @@ public class InternalFractalIdtLexer extends Lexer {
             int LA12_8 = input.LA(2);
 
             if ( (LA12_8=='n') ) {
-                int LA12_45 = input.LA(3);
+                int LA12_46 = input.LA(3);
 
-                if ( (LA12_45=='u') ) {
-                    int LA12_80 = input.LA(4);
+                if ( (LA12_46=='u') ) {
+                    int LA12_81 = input.LA(4);
 
-                    if ( (LA12_80=='m') ) {
+                    if ( (LA12_81=='m') ) {
                         int LA12_101 = input.LA(5);
 
                         if ( ((LA12_101>='0' && LA12_101<='9')||(LA12_101>='A' && LA12_101<='Z')||LA12_101=='_'||(LA12_101>='a' && LA12_101<='z')) ) {
@@ -2025,33 +2023,21 @@ public class InternalFractalIdtLexer extends Lexer {
                 case 't':
                     {
                     switch ( input.LA(4) ) {
-                    case 'p':
+                    case '8':
                         {
                         int LA12_102 = input.LA(5);
 
-                        if ( (LA12_102=='t') ) {
-                            int LA12_132 = input.LA(6);
+                        if ( (LA12_102=='_') ) {
+                            int LA12_131 = input.LA(6);
 
-                            if ( (LA12_132=='r') ) {
-                                int LA12_159 = input.LA(7);
+                            if ( (LA12_131=='t') ) {
+                                int LA12_157 = input.LA(7);
 
-                                if ( (LA12_159=='_') ) {
-                                    int LA12_180 = input.LA(8);
-
-                                    if ( (LA12_180=='t') ) {
-                                        int LA12_196 = input.LA(9);
-
-                                        if ( ((LA12_196>='0' && LA12_196<='9')||(LA12_196>='A' && LA12_196<='Z')||LA12_196=='_'||(LA12_196>='a' && LA12_196<='z')) ) {
-                                            alt12=48;
-                                        }
-                                        else {
-                                            alt12=44;}
-                                    }
-                                    else {
-                                        alt12=48;}
+                                if ( ((LA12_157>='0' && LA12_157<='9')||(LA12_157>='A' && LA12_157<='Z')||LA12_157=='_'||(LA12_157>='a' && LA12_157<='z')) ) {
+                                    alt12=48;
                                 }
                                 else {
-                                    alt12=48;}
+                                    alt12=36;}
                             }
                             else {
                                 alt12=48;}
@@ -2065,15 +2051,15 @@ public class InternalFractalIdtLexer extends Lexer {
                         int LA12_103 = input.LA(5);
 
                         if ( (LA12_103=='4') ) {
-                            int LA12_133 = input.LA(6);
+                            int LA12_132 = input.LA(6);
 
-                            if ( (LA12_133=='_') ) {
-                                int LA12_160 = input.LA(7);
+                            if ( (LA12_132=='_') ) {
+                                int LA12_158 = input.LA(7);
 
-                                if ( (LA12_160=='t') ) {
-                                    int LA12_181 = input.LA(8);
+                                if ( (LA12_158=='t') ) {
+                                    int LA12_179 = input.LA(8);
 
-                                    if ( ((LA12_181>='0' && LA12_181<='9')||(LA12_181>='A' && LA12_181<='Z')||LA12_181=='_'||(LA12_181>='a' && LA12_181<='z')) ) {
+                                    if ( ((LA12_179>='0' && LA12_179<='9')||(LA12_179>='A' && LA12_179<='Z')||LA12_179=='_'||(LA12_179>='a' && LA12_179<='z')) ) {
                                         alt12=48;
                                     }
                                     else {
@@ -2094,15 +2080,15 @@ public class InternalFractalIdtLexer extends Lexer {
                         int LA12_104 = input.LA(5);
 
                         if ( (LA12_104=='6') ) {
-                            int LA12_134 = input.LA(6);
+                            int LA12_133 = input.LA(6);
 
-                            if ( (LA12_134=='_') ) {
-                                int LA12_161 = input.LA(7);
+                            if ( (LA12_133=='_') ) {
+                                int LA12_159 = input.LA(7);
 
-                                if ( (LA12_161=='t') ) {
-                                    int LA12_182 = input.LA(8);
+                                if ( (LA12_159=='t') ) {
+                                    int LA12_180 = input.LA(8);
 
-                                    if ( ((LA12_182>='0' && LA12_182<='9')||(LA12_182>='A' && LA12_182<='Z')||LA12_182=='_'||(LA12_182>='a' && LA12_182<='z')) ) {
+                                    if ( ((LA12_180>='0' && LA12_180<='9')||(LA12_180>='A' && LA12_180<='Z')||LA12_180=='_'||(LA12_180>='a' && LA12_180<='z')) ) {
                                         alt12=48;
                                     }
                                     else {
@@ -2123,15 +2109,15 @@ public class InternalFractalIdtLexer extends Lexer {
                         int LA12_105 = input.LA(5);
 
                         if ( (LA12_105=='2') ) {
-                            int LA12_135 = input.LA(6);
+                            int LA12_134 = input.LA(6);
 
-                            if ( (LA12_135=='_') ) {
-                                int LA12_162 = input.LA(7);
+                            if ( (LA12_134=='_') ) {
+                                int LA12_160 = input.LA(7);
 
-                                if ( (LA12_162=='t') ) {
-                                    int LA12_183 = input.LA(8);
+                                if ( (LA12_160=='t') ) {
+                                    int LA12_181 = input.LA(8);
 
-                                    if ( ((LA12_183>='0' && LA12_183<='9')||(LA12_183>='A' && LA12_183<='Z')||LA12_183=='_'||(LA12_183>='a' && LA12_183<='z')) ) {
+                                    if ( ((LA12_181>='0' && LA12_181<='9')||(LA12_181>='A' && LA12_181<='Z')||LA12_181=='_'||(LA12_181>='a' && LA12_181<='z')) ) {
                                         alt12=48;
                                     }
                                     else {
@@ -2147,33 +2133,27 @@ public class InternalFractalIdtLexer extends Lexer {
                             alt12=48;}
                         }
                         break;
-                    case 'e':
+                    case 'p':
                         {
                         int LA12_106 = input.LA(5);
 
-                        if ( (LA12_106=='r') ) {
-                            int LA12_136 = input.LA(6);
+                        if ( (LA12_106=='t') ) {
+                            int LA12_135 = input.LA(6);
 
-                            if ( (LA12_136=='f') ) {
-                                int LA12_163 = input.LA(7);
+                            if ( (LA12_135=='r') ) {
+                                int LA12_161 = input.LA(7);
 
-                                if ( (LA12_163=='a') ) {
-                                    int LA12_184 = input.LA(8);
+                                if ( (LA12_161=='_') ) {
+                                    int LA12_182 = input.LA(8);
 
-                                    if ( (LA12_184=='c') ) {
-                                        int LA12_200 = input.LA(9);
+                                    if ( (LA12_182=='t') ) {
+                                        int LA12_197 = input.LA(9);
 
-                                        if ( (LA12_200=='e') ) {
-                                            int LA12_209 = input.LA(10);
-
-                                            if ( ((LA12_209>='0' && LA12_209<='9')||(LA12_209>='A' && LA12_209<='Z')||LA12_209=='_'||(LA12_209>='a' && LA12_209<='z')) ) {
-                                                alt12=48;
-                                            }
-                                            else {
-                                                alt12=18;}
+                                        if ( ((LA12_197>='0' && LA12_197<='9')||(LA12_197>='A' && LA12_197<='Z')||LA12_197=='_'||(LA12_197>='a' && LA12_197<='z')) ) {
+                                            alt12=48;
                                         }
                                         else {
-                                            alt12=48;}
+                                            alt12=44;}
                                     }
                                     else {
                                         alt12=48;}
@@ -2188,21 +2168,39 @@ public class InternalFractalIdtLexer extends Lexer {
                             alt12=48;}
                         }
                         break;
-                    case '8':
+                    case 'e':
                         {
                         int LA12_107 = input.LA(5);
 
-                        if ( (LA12_107=='_') ) {
-                            int LA12_137 = input.LA(6);
+                        if ( (LA12_107=='r') ) {
+                            int LA12_136 = input.LA(6);
 
-                            if ( (LA12_137=='t') ) {
-                                int LA12_164 = input.LA(7);
+                            if ( (LA12_136=='f') ) {
+                                int LA12_162 = input.LA(7);
 
-                                if ( ((LA12_164>='0' && LA12_164<='9')||(LA12_164>='A' && LA12_164<='Z')||LA12_164=='_'||(LA12_164>='a' && LA12_164<='z')) ) {
-                                    alt12=48;
+                                if ( (LA12_162=='a') ) {
+                                    int LA12_183 = input.LA(8);
+
+                                    if ( (LA12_183=='c') ) {
+                                        int LA12_198 = input.LA(9);
+
+                                        if ( (LA12_198=='e') ) {
+                                            int LA12_207 = input.LA(10);
+
+                                            if ( ((LA12_207>='0' && LA12_207<='9')||(LA12_207>='A' && LA12_207<='Z')||LA12_207=='_'||(LA12_207>='a' && LA12_207<='z')) ) {
+                                                alt12=48;
+                                            }
+                                            else {
+                                                alt12=18;}
+                                        }
+                                        else {
+                                            alt12=48;}
+                                    }
+                                    else {
+                                        alt12=48;}
                                 }
                                 else {
-                                    alt12=36;}
+                                    alt12=48;}
                             }
                             else {
                                 alt12=48;}
@@ -2357,24 +2355,24 @@ public class InternalFractalIdtLexer extends Lexer {
                 switch ( input.LA(3) ) {
                 case 'l':
                     {
-                    int LA12_83 = input.LA(4);
+                    int LA12_84 = input.LA(4);
 
-                    if ( (LA12_83=='a') ) {
+                    if ( (LA12_84=='a') ) {
                         int LA12_109 = input.LA(5);
 
                         if ( (LA12_109=='t') ) {
-                            int LA12_138 = input.LA(6);
+                            int LA12_137 = input.LA(6);
 
-                            if ( (LA12_138=='i') ) {
-                                int LA12_165 = input.LA(7);
+                            if ( (LA12_137=='i') ) {
+                                int LA12_163 = input.LA(7);
 
-                                if ( (LA12_165=='l') ) {
-                                    int LA12_186 = input.LA(8);
+                                if ( (LA12_163=='l') ) {
+                                    int LA12_184 = input.LA(8);
 
-                                    if ( (LA12_186=='e') ) {
-                                        int LA12_201 = input.LA(9);
+                                    if ( (LA12_184=='e') ) {
+                                        int LA12_199 = input.LA(9);
 
-                                        if ( ((LA12_201>='0' && LA12_201<='9')||(LA12_201>='A' && LA12_201<='Z')||LA12_201=='_'||(LA12_201>='a' && LA12_201<='z')) ) {
+                                        if ( ((LA12_199>='0' && LA12_199<='9')||(LA12_199>='A' && LA12_199<='Z')||LA12_199=='_'||(LA12_199>='a' && LA12_199<='z')) ) {
                                             alt12=48;
                                         }
                                         else {
@@ -2398,9 +2396,9 @@ public class InternalFractalIdtLexer extends Lexer {
                     break;
                 case 'i':
                     {
-                    int LA12_84 = input.LA(4);
+                    int LA12_85 = input.LA(4);
 
-                    if ( (LA12_84=='d') ) {
+                    if ( (LA12_85=='d') ) {
                         int LA12_110 = input.LA(5);
 
                         if ( ((LA12_110>='0' && LA12_110<='9')||(LA12_110>='A' && LA12_110<='Z')||LA12_110=='_'||(LA12_110>='a' && LA12_110<='z')) ) {
@@ -2420,52 +2418,11 @@ public class InternalFractalIdtLexer extends Lexer {
             else {
                 alt12=48;}
         }
-        else if ( (LA12_0=='\"') ) {
-            int LA12_20 = input.LA(2);
-
-            if ( (LA12_20=='.') ) {
-                int LA12_59 = input.LA(3);
-
-                if ( (LA12_59=='*') ) {
-                    int LA12_85 = input.LA(4);
-
-                    if ( (LA12_85=='\"') ) {
-                        alt12=23;
-                    }
-                    else if ( ((LA12_85>='\u0000' && LA12_85<='!')||(LA12_85>='#' && LA12_85<='\uFFFE')) ) {
-                        alt12=50;
-                    }
-                    else {
-                        NoViableAltException nvae =
-                            new NoViableAltException("1:1: Tokens : ( T11 | T12 | T13 | T14 | T15 | T16 | T17 | T18 | T19 | T20 | T21 | T22 | T23 | T24 | T25 | T26 | T27 | T28 | T29 | T30 | T31 | T32 | T33 | T34 | T35 | T36 | T37 | T38 | T39 | T40 | T41 | T42 | T43 | T44 | T45 | T46 | T47 | T48 | T49 | T50 | T51 | T52 | T53 | T54 | T55 | T56 | T57 | RULE_ID | RULE_INT | RULE_STRING | RULE_ML_COMMENT | RULE_SL_COMMENT | RULE_WS | RULE_ANY_OTHER );", 12, 85, input);
-
-                        throw nvae;
-                    }
-                }
-                else if ( ((LA12_59>='\u0000' && LA12_59<=')')||(LA12_59>='+' && LA12_59<='\uFFFE')) ) {
-                    alt12=50;
-                }
-                else {
-                    NoViableAltException nvae =
-                        new NoViableAltException("1:1: Tokens : ( T11 | T12 | T13 | T14 | T15 | T16 | T17 | T18 | T19 | T20 | T21 | T22 | T23 | T24 | T25 | T26 | T27 | T28 | T29 | T30 | T31 | T32 | T33 | T34 | T35 | T36 | T37 | T38 | T39 | T40 | T41 | T42 | T43 | T44 | T45 | T46 | T47 | T48 | T49 | T50 | T51 | T52 | T53 | T54 | T55 | T56 | T57 | RULE_ID | RULE_INT | RULE_STRING | RULE_ML_COMMENT | RULE_SL_COMMENT | RULE_WS | RULE_ANY_OTHER );", 12, 59, input);
-
-                    throw nvae;
-                }
-            }
-            else if ( ((LA12_20>='\u0000' && LA12_20<='-')||(LA12_20>='/' && LA12_20<='\uFFFE')) ) {
-                alt12=50;
-            }
-            else {
-                alt12=54;}
-        }
         else if ( (LA12_0=='<') ) {
-            int LA12_21 = input.LA(2);
-
-            if ( (LA12_21=='.') ) {
-                alt12=24;
-            }
-            else {
-                alt12=54;}
+            alt12=23;
+        }
+        else if ( (LA12_0=='>') ) {
+            alt12=24;
         }
         else if ( (LA12_0=='c') ) {
             switch ( input.LA(2) ) {
@@ -2477,9 +2434,9 @@ public class InternalFractalIdtLexer extends Lexer {
                     int LA12_86 = input.LA(4);
 
                     if ( (LA12_86=='r') ) {
-                        int LA12_112 = input.LA(5);
+                        int LA12_111 = input.LA(5);
 
-                        if ( ((LA12_112>='0' && LA12_112<='9')||(LA12_112>='A' && LA12_112<='Z')||LA12_112=='_'||(LA12_112>='a' && LA12_112<='z')) ) {
+                        if ( ((LA12_111>='0' && LA12_111<='9')||(LA12_111>='A' && LA12_111<='Z')||LA12_111=='_'||(LA12_111>='a' && LA12_111<='z')) ) {
                             alt12=48;
                         }
                         else {
@@ -2500,12 +2457,12 @@ public class InternalFractalIdtLexer extends Lexer {
                     int LA12_87 = input.LA(4);
 
                     if ( (LA12_87=='s') ) {
-                        int LA12_113 = input.LA(5);
+                        int LA12_112 = input.LA(5);
 
-                        if ( (LA12_113=='t') ) {
-                            int LA12_142 = input.LA(6);
+                        if ( (LA12_112=='t') ) {
+                            int LA12_140 = input.LA(6);
 
-                            if ( ((LA12_142>='0' && LA12_142<='9')||(LA12_142>='A' && LA12_142<='Z')||LA12_142=='_'||(LA12_142>='a' && LA12_142<='z')) ) {
+                            if ( ((LA12_140>='0' && LA12_140<='9')||(LA12_140>='A' && LA12_140<='Z')||LA12_140=='_'||(LA12_140>='a' && LA12_140<='z')) ) {
                                 alt12=48;
                             }
                             else {
@@ -2535,9 +2492,9 @@ public class InternalFractalIdtLexer extends Lexer {
                     int LA12_88 = input.LA(4);
 
                     if ( (LA12_88=='g') ) {
-                        int LA12_114 = input.LA(5);
+                        int LA12_113 = input.LA(5);
 
-                        if ( ((LA12_114>='0' && LA12_114<='9')||(LA12_114>='A' && LA12_114<='Z')||LA12_114=='_'||(LA12_114>='a' && LA12_114<='z')) ) {
+                        if ( ((LA12_113>='0' && LA12_113<='9')||(LA12_113>='A' && LA12_113<='Z')||LA12_113=='_'||(LA12_113>='a' && LA12_113<='z')) ) {
                             alt12=48;
                         }
                         else {
@@ -2562,12 +2519,12 @@ public class InternalFractalIdtLexer extends Lexer {
                     int LA12_89 = input.LA(4);
 
                     if ( (LA12_89=='a') ) {
-                        int LA12_115 = input.LA(5);
+                        int LA12_114 = input.LA(5);
 
-                        if ( (LA12_115=='t') ) {
-                            int LA12_144 = input.LA(6);
+                        if ( (LA12_114=='t') ) {
+                            int LA12_142 = input.LA(6);
 
-                            if ( ((LA12_144>='0' && LA12_144<='9')||(LA12_144>='A' && LA12_144<='Z')||LA12_144=='_'||(LA12_144>='a' && LA12_144<='z')) ) {
+                            if ( ((LA12_142>='0' && LA12_142<='9')||(LA12_142>='A' && LA12_142<='Z')||LA12_142=='_'||(LA12_142>='a' && LA12_142<='z')) ) {
                                 alt12=48;
                             }
                             else {
@@ -2595,15 +2552,15 @@ public class InternalFractalIdtLexer extends Lexer {
                     int LA12_90 = input.LA(4);
 
                     if ( (LA12_90=='b') ) {
-                        int LA12_116 = input.LA(5);
+                        int LA12_115 = input.LA(5);
 
-                        if ( (LA12_116=='l') ) {
-                            int LA12_145 = input.LA(6);
+                        if ( (LA12_115=='l') ) {
+                            int LA12_143 = input.LA(6);
 
-                            if ( (LA12_145=='e') ) {
-                                int LA12_168 = input.LA(7);
+                            if ( (LA12_143=='e') ) {
+                                int LA12_166 = input.LA(7);
 
-                                if ( ((LA12_168>='0' && LA12_168<='9')||(LA12_168>='A' && LA12_168<='Z')||LA12_168=='_'||(LA12_168>='a' && LA12_168<='z')) ) {
+                                if ( ((LA12_166>='0' && LA12_166<='9')||(LA12_166>='A' && LA12_166<='Z')||LA12_166=='_'||(LA12_166>='a' && LA12_166<='z')) ) {
                                     alt12=48;
                                 }
                                 else {
@@ -2660,10 +2617,19 @@ public class InternalFractalIdtLexer extends Lexer {
         else if ( ((LA12_0>='0' && LA12_0<='9')) ) {
             alt12=49;
         }
-        else if ( (LA12_0=='\'') ) {
+        else if ( (LA12_0=='\"') ) {
             int LA12_30 = input.LA(2);
 
             if ( ((LA12_30>='\u0000' && LA12_30<='\uFFFE')) ) {
+                alt12=50;
+            }
+            else {
+                alt12=54;}
+        }
+        else if ( (LA12_0=='\'') ) {
+            int LA12_31 = input.LA(2);
+
+            if ( ((LA12_31>='\u0000' && LA12_31<='\uFFFE')) ) {
                 alt12=50;
             }
             else {
@@ -2688,7 +2654,7 @@ public class InternalFractalIdtLexer extends Lexer {
         else if ( ((LA12_0>='\t' && LA12_0<='\n')||LA12_0=='\r'||LA12_0==' ') ) {
             alt12=53;
         }
-        else if ( ((LA12_0>='\u0000' && LA12_0<='\b')||(LA12_0>='\u000B' && LA12_0<='\f')||(LA12_0>='\u000E' && LA12_0<='\u001F')||LA12_0=='!'||(LA12_0>='$' && LA12_0<='&')||LA12_0=='+'||LA12_0=='-'||(LA12_0>='>' && LA12_0<='@')||LA12_0=='\\'||LA12_0=='`'||LA12_0=='|'||(LA12_0>='~' && LA12_0<='\uFFFE')) ) {
+        else if ( ((LA12_0>='\u0000' && LA12_0<='\b')||(LA12_0>='\u000B' && LA12_0<='\f')||(LA12_0>='\u000E' && LA12_0<='\u001F')||LA12_0=='!'||(LA12_0>='$' && LA12_0<='&')||LA12_0=='+'||LA12_0=='-'||(LA12_0>='?' && LA12_0<='@')||LA12_0=='\\'||LA12_0=='`'||LA12_0=='|'||(LA12_0>='~' && LA12_0<='\uFFFE')) ) {
             alt12=54;
         }
         else {

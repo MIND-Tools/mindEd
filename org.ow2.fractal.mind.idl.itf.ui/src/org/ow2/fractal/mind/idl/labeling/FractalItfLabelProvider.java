@@ -4,6 +4,7 @@ import org.eclipse.xtext.ui.core.DefaultLabelProvider;
 import org.ow2.fractal.mind.idl.fractalIDL.ConstantDefinition;
 import org.ow2.fractal.mind.idl.fractalIDL.EnumDefinition;
 import org.ow2.fractal.mind.idl.fractalIDL.EnumReference;
+import org.ow2.fractal.mind.idl.fractalIDL.IncludeDirective;
 import org.ow2.fractal.mind.idl.fractalIDL.InterfaceDefinition;
 import org.ow2.fractal.mind.idl.fractalIDL.ItfFile;
 import org.ow2.fractal.mind.idl.fractalIDL.MethodDefinition;
@@ -36,7 +37,7 @@ public class FractalItfLabelProvider extends DefaultLabelProvider {
 	};
 
 	public String text(MethodDefinition obj) {
-		return "Method " + obj.getId().getId();
+		return "Method " + obj.getId();
 	};
 
 	public String image(ItfFile obj) {
@@ -56,11 +57,15 @@ public class FractalItfLabelProvider extends DefaultLabelProvider {
 
 	public String image(TypeDefinition obj) {
 		return "typedef_obj.gif";
-
 	}
 	
 	public String image(ConstantDefinition obj) {
 		return "define_obj.gif";
+
+	}
+	
+	public String image(IncludeDirective obj) {
+		return "imp_obj.gif";
 
 	}
 	

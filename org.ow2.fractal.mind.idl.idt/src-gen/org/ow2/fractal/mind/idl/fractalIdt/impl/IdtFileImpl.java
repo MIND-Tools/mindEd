@@ -35,8 +35,8 @@ import org.ow2.fractal.mind.idl.fractalIdt.IdtFile;
  * The following features are implemented:
  * <ul>
  *   <li>{@link org.ow2.fractal.mind.idl.fractalIdt.impl.IdtFileImpl#getIncludes <em>Includes</em>}</li>
- *   <li>{@link org.ow2.fractal.mind.idl.fractalIdt.impl.IdtFileImpl#getType <em>Type</em>}</li>
  *   <li>{@link org.ow2.fractal.mind.idl.fractalIdt.impl.IdtFileImpl#getConstant <em>Constant</em>}</li>
+ *   <li>{@link org.ow2.fractal.mind.idl.fractalIdt.impl.IdtFileImpl#getType <em>Type</em>}</li>
  * </ul>
  * </p>
  *
@@ -55,16 +55,6 @@ public class IdtFileImpl extends MinimalEObjectImpl.Container implements IdtFile
   protected EList<IncludeDirective> includes;
 
   /**
-   * The cached value of the '{@link #getType() <em>Type</em>}' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getType()
-   * @generated
-   * @ordered
-   */
-  protected EList<TypeDefinition> type;
-
-  /**
    * The cached value of the '{@link #getConstant() <em>Constant</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -73,6 +63,16 @@ public class IdtFileImpl extends MinimalEObjectImpl.Container implements IdtFile
    * @ordered
    */
   protected EList<ConstantDefinition> constant;
+
+  /**
+   * The cached value of the '{@link #getType() <em>Type</em>}' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getType()
+   * @generated
+   * @ordered
+   */
+  protected EList<TypeDefinition> type;
 
   /**
    * <!-- begin-user-doc -->
@@ -114,20 +114,6 @@ public class IdtFileImpl extends MinimalEObjectImpl.Container implements IdtFile
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<TypeDefinition> getType()
-  {
-    if (type == null)
-    {
-      type = new EObjectContainmentEList<TypeDefinition>(TypeDefinition.class, this, FractalIdtPackage.IDT_FILE__TYPE);
-    }
-    return type;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public EList<ConstantDefinition> getConstant()
   {
     if (constant == null)
@@ -142,6 +128,20 @@ public class IdtFileImpl extends MinimalEObjectImpl.Container implements IdtFile
    * <!-- end-user-doc -->
    * @generated
    */
+  public EList<TypeDefinition> getType()
+  {
+    if (type == null)
+    {
+      type = new EObjectContainmentEList<TypeDefinition>(TypeDefinition.class, this, FractalIdtPackage.IDT_FILE__TYPE);
+    }
+    return type;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   @Override
   public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
   {
@@ -149,10 +149,10 @@ public class IdtFileImpl extends MinimalEObjectImpl.Container implements IdtFile
     {
       case FractalIdtPackage.IDT_FILE__INCLUDES:
         return ((InternalEList<?>)getIncludes()).basicRemove(otherEnd, msgs);
-      case FractalIdtPackage.IDT_FILE__TYPE:
-        return ((InternalEList<?>)getType()).basicRemove(otherEnd, msgs);
       case FractalIdtPackage.IDT_FILE__CONSTANT:
         return ((InternalEList<?>)getConstant()).basicRemove(otherEnd, msgs);
+      case FractalIdtPackage.IDT_FILE__TYPE:
+        return ((InternalEList<?>)getType()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -169,10 +169,10 @@ public class IdtFileImpl extends MinimalEObjectImpl.Container implements IdtFile
     {
       case FractalIdtPackage.IDT_FILE__INCLUDES:
         return getIncludes();
-      case FractalIdtPackage.IDT_FILE__TYPE:
-        return getType();
       case FractalIdtPackage.IDT_FILE__CONSTANT:
         return getConstant();
+      case FractalIdtPackage.IDT_FILE__TYPE:
+        return getType();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -192,13 +192,13 @@ public class IdtFileImpl extends MinimalEObjectImpl.Container implements IdtFile
         getIncludes().clear();
         getIncludes().addAll((Collection<? extends IncludeDirective>)newValue);
         return;
-      case FractalIdtPackage.IDT_FILE__TYPE:
-        getType().clear();
-        getType().addAll((Collection<? extends TypeDefinition>)newValue);
-        return;
       case FractalIdtPackage.IDT_FILE__CONSTANT:
         getConstant().clear();
         getConstant().addAll((Collection<? extends ConstantDefinition>)newValue);
+        return;
+      case FractalIdtPackage.IDT_FILE__TYPE:
+        getType().clear();
+        getType().addAll((Collection<? extends TypeDefinition>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -217,11 +217,11 @@ public class IdtFileImpl extends MinimalEObjectImpl.Container implements IdtFile
       case FractalIdtPackage.IDT_FILE__INCLUDES:
         getIncludes().clear();
         return;
-      case FractalIdtPackage.IDT_FILE__TYPE:
-        getType().clear();
-        return;
       case FractalIdtPackage.IDT_FILE__CONSTANT:
         getConstant().clear();
+        return;
+      case FractalIdtPackage.IDT_FILE__TYPE:
+        getType().clear();
         return;
     }
     super.eUnset(featureID);
@@ -239,10 +239,10 @@ public class IdtFileImpl extends MinimalEObjectImpl.Container implements IdtFile
     {
       case FractalIdtPackage.IDT_FILE__INCLUDES:
         return includes != null && !includes.isEmpty();
-      case FractalIdtPackage.IDT_FILE__TYPE:
-        return type != null && !type.isEmpty();
       case FractalIdtPackage.IDT_FILE__CONSTANT:
         return constant != null && !constant.isEmpty();
+      case FractalIdtPackage.IDT_FILE__TYPE:
+        return type != null && !type.isEmpty();
     }
     return super.eIsSet(featureID);
   }

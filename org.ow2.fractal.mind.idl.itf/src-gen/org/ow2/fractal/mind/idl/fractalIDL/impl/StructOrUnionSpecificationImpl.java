@@ -9,19 +9,16 @@ package org.ow2.fractal.mind.idl.fractalIDL.impl;
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import org.eclipse.emf.ecore.util.EDataTypeEList;
 
 import org.ow2.fractal.mind.idl.fractalIDL.FractalIDLPackage;
-import org.ow2.fractal.mind.idl.fractalIDL.Identifier;
 import org.ow2.fractal.mind.idl.fractalIDL.StructOrUnionSpecification;
 import org.ow2.fractal.mind.idl.fractalIDL.TypeSpecification;
 import org.ow2.fractal.mind.idl.fractalIDL.TypeSpecifier;
@@ -95,14 +92,24 @@ public class StructOrUnionSpecificationImpl extends TypeDefinitionImpl implement
   protected String struct = STRUCT_EDEFAULT;
 
   /**
-   * The cached value of the '{@link #getId() <em>Id</em>}' containment reference.
+   * The default value of the '{@link #getId() <em>Id</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getId()
    * @generated
    * @ordered
    */
-  protected Identifier id;
+  protected static final String ID_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getId() <em>Id</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getId()
+   * @generated
+   * @ordered
+   */
+  protected String id = ID_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
@@ -190,7 +197,7 @@ public class StructOrUnionSpecificationImpl extends TypeDefinitionImpl implement
    * <!-- end-user-doc -->
    * @generated
    */
-  public Identifier getId()
+  public String getId()
   {
     return id;
   }
@@ -200,53 +207,12 @@ public class StructOrUnionSpecificationImpl extends TypeDefinitionImpl implement
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetId(Identifier newId, NotificationChain msgs)
+  public void setId(String newId)
   {
-    Identifier oldId = id;
+    String oldId = id;
     id = newId;
     if (eNotificationRequired())
-    {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FractalIDLPackage.STRUCT_OR_UNION_SPECIFICATION__ID, oldId, newId);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
-    }
-    return msgs;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setId(Identifier newId)
-  {
-    if (newId != id)
-    {
-      NotificationChain msgs = null;
-      if (id != null)
-        msgs = ((InternalEObject)id).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FractalIDLPackage.STRUCT_OR_UNION_SPECIFICATION__ID, null, msgs);
-      if (newId != null)
-        msgs = ((InternalEObject)newId).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FractalIDLPackage.STRUCT_OR_UNION_SPECIFICATION__ID, null, msgs);
-      msgs = basicSetId(newId, msgs);
-      if (msgs != null) msgs.dispatch();
-    }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, FractalIDLPackage.STRUCT_OR_UNION_SPECIFICATION__ID, newId, newId));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
-  {
-    switch (featureID)
-    {
-      case FractalIDLPackage.STRUCT_OR_UNION_SPECIFICATION__ID:
-        return basicSetId(null, msgs);
-    }
-    return super.eInverseRemove(otherEnd, featureID, msgs);
+      eNotify(new ENotificationImpl(this, Notification.SET, FractalIDLPackage.STRUCT_OR_UNION_SPECIFICATION__ID, oldId, id));
   }
 
   /**
@@ -293,7 +259,7 @@ public class StructOrUnionSpecificationImpl extends TypeDefinitionImpl implement
         setStruct((String)newValue);
         return;
       case FractalIDLPackage.STRUCT_OR_UNION_SPECIFICATION__ID:
-        setId((Identifier)newValue);
+        setId((String)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -319,7 +285,7 @@ public class StructOrUnionSpecificationImpl extends TypeDefinitionImpl implement
         setStruct(STRUCT_EDEFAULT);
         return;
       case FractalIDLPackage.STRUCT_OR_UNION_SPECIFICATION__ID:
-        setId((Identifier)null);
+        setId(ID_EDEFAULT);
         return;
     }
     super.eUnset(featureID);
@@ -342,7 +308,7 @@ public class StructOrUnionSpecificationImpl extends TypeDefinitionImpl implement
       case FractalIDLPackage.STRUCT_OR_UNION_SPECIFICATION__STRUCT:
         return STRUCT_EDEFAULT == null ? struct != null : !STRUCT_EDEFAULT.equals(struct);
       case FractalIDLPackage.STRUCT_OR_UNION_SPECIFICATION__ID:
-        return id != null;
+        return ID_EDEFAULT == null ? id != null : !ID_EDEFAULT.equals(id);
     }
     return super.eIsSet(featureID);
   }
@@ -404,6 +370,8 @@ public class StructOrUnionSpecificationImpl extends TypeDefinitionImpl implement
     result.append(typeSpecifier);
     result.append(", struct: ");
     result.append(struct);
+    result.append(", id: ");
+    result.append(id);
     result.append(')');
     return result.toString();
   }

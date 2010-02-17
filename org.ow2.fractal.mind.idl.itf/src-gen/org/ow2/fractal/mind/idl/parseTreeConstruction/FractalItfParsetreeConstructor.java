@@ -52,13 +52,12 @@ protected class ThisRootNode extends RootToken {
 			case 14: return new Declarators_Group(this, this, 14, inst);
 			case 15: return new Declarator_Group(this, this, 15, inst);
 			case 16: return new DirectDeclarator_Group(this, this, 16, inst);
-			case 17: return new Identifier_IdAssignment(this, this, 17, inst);
-			case 18: return new ConstantDefinition_Group(this, this, 18, inst);
-			case 19: return new InterfaceDefinition_Group(this, this, 19, inst);
-			case 20: return new MethodDefinition_Group(this, this, 20, inst);
-			case 21: return new ParameterList_Group(this, this, 21, inst);
-			case 22: return new Parameter_Group(this, this, 22, inst);
-			case 23: return new IncludeDirective_Group(this, this, 23, inst);
+			case 17: return new ConstantDefinition_Group(this, this, 17, inst);
+			case 18: return new InterfaceDefinition_Group(this, this, 18, inst);
+			case 19: return new MethodDefinition_Group(this, this, 19, inst);
+			case 20: return new ParameterList_Group(this, this, 20, inst);
+			case 21: return new Parameter_Group(this, this, 21, inst);
+			case 22: return new IncludeDirective_Group(this, this, 22, inst);
 			default: return null;
 		}	
 	}	
@@ -68,22 +67,17 @@ protected class ThisRootNode extends RootToken {
 /************ begin Rule ItfFile ****************
  *
  * ItfFile:
- *   includes+=IncludeDirective* (type+=TypeDefinition|constant+=ConstantDefinition)*
- *   interface=InterfaceDefinition ";"?;  
- * 
- * // itf definition
+ *   includes+=IncludeDirective* (constant+=ConstantDefinition|type+=TypeDefinition)*
+ *   interface=InterfaceDefinition ";"?;   // itf definition
  * 
  * 
  * 
  *     
- *       
- * 
- * 
- * // Type definition part
+ *         // Type definition part
  *
  **/
 
-// includes+=IncludeDirective* (type+=TypeDefinition|constant+=ConstantDefinition)*
+// includes+=IncludeDirective* (constant+=ConstantDefinition|type+=TypeDefinition)*
 // interface=InterfaceDefinition ";"?
 protected class ItfFile_Group extends GroupToken {
 	
@@ -157,7 +151,7 @@ protected class ItfFile_IncludesAssignment_0 extends AssignmentToken  {
 	}	
 }
 
-// (type+=TypeDefinition|constant+=ConstantDefinition)*
+// (constant+=ConstantDefinition|type+=TypeDefinition)*
 protected class ItfFile_Alternatives_1 extends AlternativesToken {
 
 	public ItfFile_Alternatives_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
@@ -172,71 +166,24 @@ protected class ItfFile_Alternatives_1 extends AlternativesToken {
     @Override
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new ItfFile_TypeAssignment_1_0(parent, this, 0, inst);
-			case 1: return new ItfFile_ConstantAssignment_1_1(parent, this, 1, inst);
+			case 0: return new ItfFile_ConstantAssignment_1_0(parent, this, 0, inst);
+			case 1: return new ItfFile_TypeAssignment_1_1(parent, this, 1, inst);
 			default: return null;
 		}	
 	}	
 		
-}
-
-// type+=TypeDefinition
-protected class ItfFile_TypeAssignment_1_0 extends AssignmentToken  {
-	
-	public ItfFile_TypeAssignment_1_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
-		super(parent, next, no, current);
-	}
-	
-	@Override
-	public Assignment getGrammarElement() {
-		return grammarAccess.getItfFileAccess().getTypeAssignment_1_0();
-	}
-
-    @Override
-	public AbstractToken createFollower(int index, IInstanceDescription inst) {
-		switch(index) {
-			case 0: return new TypeDefinition_Group(this, this, 0, inst);
-			default: return null;
-		}	
-	}	
-		
-    @Override	
-	protected IInstanceDescription tryConsumeVal() {
-		if((value = current.getConsumable("type",true)) == null) return null;
-		IInstanceDescription obj = current.cloneAndConsume("type");
-		if(value instanceof EObject) { // org::eclipse::xtext::impl::RuleCallImpl
-			IInstanceDescription param = getDescr((EObject)value);
-			if(param.isInstanceOf(grammarAccess.getTypeDefinitionRule().getType().getClassifier())) {
-				type = AssignmentType.PRC;
-				element = grammarAccess.getItfFileAccess().getTypeTypeDefinitionParserRuleCall_1_0_0(); 
-				consumed = obj;
-				return param;
-			}
-		}
-		return null;
-	}
-
-    @Override
-	public AbstractToken createParentFollower(AbstractToken next,	int actIndex, int index, IInstanceDescription inst) {
-		if(value == inst.getDelegate() && !inst.isConsumed()) return null;
-		switch(index) {
-			case 0: return new ItfFile_Alternatives_1(parent, next, actIndex, consumed);
-			case 1: return new ItfFile_IncludesAssignment_0(parent, next, actIndex, consumed);
-			default: return parent.createParentFollower(next, actIndex , index - 2, consumed);
-		}	
-	}	
 }
 
 // constant+=ConstantDefinition
-protected class ItfFile_ConstantAssignment_1_1 extends AssignmentToken  {
+protected class ItfFile_ConstantAssignment_1_0 extends AssignmentToken  {
 	
-	public ItfFile_ConstantAssignment_1_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	public ItfFile_ConstantAssignment_1_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	@Override
 	public Assignment getGrammarElement() {
-		return grammarAccess.getItfFileAccess().getConstantAssignment_1_1();
+		return grammarAccess.getItfFileAccess().getConstantAssignment_1_0();
 	}
 
     @Override
@@ -255,7 +202,54 @@ protected class ItfFile_ConstantAssignment_1_1 extends AssignmentToken  {
 			IInstanceDescription param = getDescr((EObject)value);
 			if(param.isInstanceOf(grammarAccess.getConstantDefinitionRule().getType().getClassifier())) {
 				type = AssignmentType.PRC;
-				element = grammarAccess.getItfFileAccess().getConstantConstantDefinitionParserRuleCall_1_1_0(); 
+				element = grammarAccess.getItfFileAccess().getConstantConstantDefinitionParserRuleCall_1_0_0(); 
+				consumed = obj;
+				return param;
+			}
+		}
+		return null;
+	}
+
+    @Override
+	public AbstractToken createParentFollower(AbstractToken next,	int actIndex, int index, IInstanceDescription inst) {
+		if(value == inst.getDelegate() && !inst.isConsumed()) return null;
+		switch(index) {
+			case 0: return new ItfFile_Alternatives_1(parent, next, actIndex, consumed);
+			case 1: return new ItfFile_IncludesAssignment_0(parent, next, actIndex, consumed);
+			default: return parent.createParentFollower(next, actIndex , index - 2, consumed);
+		}	
+	}	
+}
+
+// type+=TypeDefinition
+protected class ItfFile_TypeAssignment_1_1 extends AssignmentToken  {
+	
+	public ItfFile_TypeAssignment_1_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Assignment getGrammarElement() {
+		return grammarAccess.getItfFileAccess().getTypeAssignment_1_1();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new TypeDefinition_Group(this, this, 0, inst);
+			default: return null;
+		}	
+	}	
+		
+    @Override	
+	protected IInstanceDescription tryConsumeVal() {
+		if((value = current.getConsumable("type",true)) == null) return null;
+		IInstanceDescription obj = current.cloneAndConsume("type");
+		if(value instanceof EObject) { // org::eclipse::xtext::impl::RuleCallImpl
+			IInstanceDescription param = getDescr((EObject)value);
+			if(param.isInstanceOf(grammarAccess.getTypeDefinitionRule().getType().getClassifier())) {
+				type = AssignmentType.PRC;
+				element = grammarAccess.getItfFileAccess().getTypeTypeDefinitionParserRuleCall_1_1_0(); 
 				consumed = obj;
 				return param;
 			}
@@ -329,10 +323,7 @@ protected class ItfFile_InterfaceAssignment_2 extends AssignmentToken  {
 /************ begin Rule TypeDefinition ****************
  *
  * TypeDefinition:
- *   (TypedefSpecification|StructOrUnionSpecification|EnumSpecification) ";"; 
- * 
- * 
- * // Type definition part
+ *   (TypedefSpecification|StructOrUnionSpecification|EnumSpecification) ";";   // Type definition part
  *
  **/
 
@@ -1081,11 +1072,11 @@ protected class StructOrUnionSpecification_StructorUnionReferenceParserRuleCall_
 /************ begin Rule StructOrUnionDefinition ****************
  *
  * StructOrUnionDefinition:
- *   struct=StructOrUnion id=Identifier? "{" structMember+=StructMember* "}";
+ *   struct=StructOrUnion id=ID? "{" structMember+=StructMember* "}";
  *
  **/
 
-// struct=StructOrUnion id=Identifier? "{" structMember+=StructMember* "}"
+// struct=StructOrUnion id=ID? "{" structMember+=StructMember* "}"
 protected class StructOrUnionDefinition_Group extends GroupToken {
 	
 	public StructOrUnionDefinition_Group(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
@@ -1145,7 +1136,7 @@ protected class StructOrUnionDefinition_StructAssignment_0 extends AssignmentTok
 
 }
 
-// id=Identifier?
+// id=ID?
 protected class StructOrUnionDefinition_IdAssignment_1 extends AssignmentToken  {
 	
 	public StructOrUnionDefinition_IdAssignment_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
@@ -1160,7 +1151,7 @@ protected class StructOrUnionDefinition_IdAssignment_1 extends AssignmentToken  
     @Override
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new Identifier_IdAssignment(this, this, 0, inst);
+			case 0: return new StructOrUnionDefinition_StructAssignment_0(parent, this, 0, inst);
 			default: return null;
 		}	
 	}	
@@ -1169,26 +1160,14 @@ protected class StructOrUnionDefinition_IdAssignment_1 extends AssignmentToken  
 	protected IInstanceDescription tryConsumeVal() {
 		if((value = current.getConsumable("id",false)) == null) return null;
 		IInstanceDescription obj = current.cloneAndConsume("id");
-		if(value instanceof EObject) { // org::eclipse::xtext::impl::RuleCallImpl
-			IInstanceDescription param = getDescr((EObject)value);
-			if(param.isInstanceOf(grammarAccess.getIdentifierRule().getType().getClassifier())) {
-				type = AssignmentType.PRC;
-				element = grammarAccess.getStructOrUnionDefinitionAccess().getIdIdentifierParserRuleCall_1_0(); 
-				consumed = obj;
-				return param;
-			}
+		if(Boolean.TRUE.booleanValue()) { // org::eclipse::xtext::impl::RuleCallImpl FIXME: check if value is valid for lexer rule
+			type = AssignmentType.LRC;
+			element = grammarAccess.getStructOrUnionDefinitionAccess().getIdIDTerminalRuleCall_1_0();
+			return obj;
 		}
 		return null;
 	}
 
-    @Override
-	public AbstractToken createParentFollower(AbstractToken next,	int actIndex, int index, IInstanceDescription inst) {
-		if(value == inst.getDelegate() && !inst.isConsumed()) return null;
-		switch(index) {
-			case 0: return new StructOrUnionDefinition_StructAssignment_0(parent, next, actIndex, consumed);
-			default: return null;
-		}	
-	}	
 }
 
 // "{"
@@ -1291,11 +1270,11 @@ protected class StructOrUnionDefinition_RightCurlyBracketKeyword_4 extends Keywo
 /************ begin Rule StructorUnionReference ****************
  *
  * StructorUnionReference:
- *   struct=StructOrUnion id=Identifier;
+ *   struct=StructOrUnion id=ID;
  *
  **/
 
-// struct=StructOrUnion id=Identifier
+// struct=StructOrUnion id=ID
 protected class StructorUnionReference_Group extends GroupToken {
 	
 	public StructorUnionReference_Group(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
@@ -1355,7 +1334,7 @@ protected class StructorUnionReference_StructAssignment_0 extends AssignmentToke
 
 }
 
-// id=Identifier
+// id=ID
 protected class StructorUnionReference_IdAssignment_1 extends AssignmentToken  {
 	
 	public StructorUnionReference_IdAssignment_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
@@ -1370,7 +1349,7 @@ protected class StructorUnionReference_IdAssignment_1 extends AssignmentToken  {
     @Override
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new Identifier_IdAssignment(this, this, 0, inst);
+			case 0: return new StructorUnionReference_StructAssignment_0(parent, this, 0, inst);
 			default: return null;
 		}	
 	}	
@@ -1379,26 +1358,14 @@ protected class StructorUnionReference_IdAssignment_1 extends AssignmentToken  {
 	protected IInstanceDescription tryConsumeVal() {
 		if((value = current.getConsumable("id",true)) == null) return null;
 		IInstanceDescription obj = current.cloneAndConsume("id");
-		if(value instanceof EObject) { // org::eclipse::xtext::impl::RuleCallImpl
-			IInstanceDescription param = getDescr((EObject)value);
-			if(param.isInstanceOf(grammarAccess.getIdentifierRule().getType().getClassifier())) {
-				type = AssignmentType.PRC;
-				element = grammarAccess.getStructorUnionReferenceAccess().getIdIdentifierParserRuleCall_1_0(); 
-				consumed = obj;
-				return param;
-			}
+		if(Boolean.TRUE.booleanValue()) { // org::eclipse::xtext::impl::RuleCallImpl FIXME: check if value is valid for lexer rule
+			type = AssignmentType.LRC;
+			element = grammarAccess.getStructorUnionReferenceAccess().getIdIDTerminalRuleCall_1_0();
+			return obj;
 		}
 		return null;
 	}
 
-    @Override
-	public AbstractToken createParentFollower(AbstractToken next,	int actIndex, int index, IInstanceDescription inst) {
-		if(value == inst.getDelegate() && !inst.isConsumed()) return null;
-		switch(index) {
-			case 0: return new StructorUnionReference_StructAssignment_0(parent, next, actIndex, consumed);
-			default: return null;
-		}	
-	}	
 }
 
 
@@ -1737,11 +1704,11 @@ protected class EnumSpecification_EnumReferenceParserRuleCall_1 extends RuleCall
 /************ begin Rule EnumDefinition ****************
  *
  * EnumDefinition:
- *   "enum" id=Identifier? "{" enumMemberList=EnumMemberList "}";
+ *   "enum" id=ID? "{" enumMemberList=EnumMemberList "}";
  *
  **/
 
-// "enum" id=Identifier? "{" enumMemberList=EnumMemberList "}"
+// "enum" id=ID? "{" enumMemberList=EnumMemberList "}"
 protected class EnumDefinition_Group extends GroupToken {
 	
 	public EnumDefinition_Group(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
@@ -1789,7 +1756,7 @@ protected class EnumDefinition_EnumKeyword_0 extends KeywordToken  {
 		
 }
 
-// id=Identifier?
+// id=ID?
 protected class EnumDefinition_IdAssignment_1 extends AssignmentToken  {
 	
 	public EnumDefinition_IdAssignment_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
@@ -1804,7 +1771,7 @@ protected class EnumDefinition_IdAssignment_1 extends AssignmentToken  {
     @Override
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new Identifier_IdAssignment(this, this, 0, inst);
+			case 0: return new EnumDefinition_EnumKeyword_0(parent, this, 0, inst);
 			default: return null;
 		}	
 	}	
@@ -1813,26 +1780,14 @@ protected class EnumDefinition_IdAssignment_1 extends AssignmentToken  {
 	protected IInstanceDescription tryConsumeVal() {
 		if((value = current.getConsumable("id",false)) == null) return null;
 		IInstanceDescription obj = current.cloneAndConsume("id");
-		if(value instanceof EObject) { // org::eclipse::xtext::impl::RuleCallImpl
-			IInstanceDescription param = getDescr((EObject)value);
-			if(param.isInstanceOf(grammarAccess.getIdentifierRule().getType().getClassifier())) {
-				type = AssignmentType.PRC;
-				element = grammarAccess.getEnumDefinitionAccess().getIdIdentifierParserRuleCall_1_0(); 
-				consumed = obj;
-				return param;
-			}
+		if(Boolean.TRUE.booleanValue()) { // org::eclipse::xtext::impl::RuleCallImpl FIXME: check if value is valid for lexer rule
+			type = AssignmentType.LRC;
+			element = grammarAccess.getEnumDefinitionAccess().getIdIDTerminalRuleCall_1_0();
+			return obj;
 		}
 		return null;
 	}
 
-    @Override
-	public AbstractToken createParentFollower(AbstractToken next,	int actIndex, int index, IInstanceDescription inst) {
-		if(value == inst.getDelegate() && !inst.isConsumed()) return null;
-		switch(index) {
-			case 0: return new EnumDefinition_EnumKeyword_0(parent, next, actIndex, consumed);
-			default: return null;
-		}	
-	}	
 }
 
 // "{"
@@ -1933,11 +1888,11 @@ protected class EnumDefinition_RightCurlyBracketKeyword_4 extends KeywordToken  
 /************ begin Rule EnumReference ****************
  *
  * EnumReference:
- *   "enum" id=Identifier;
+ *   "enum" id=ID;
  *
  **/
 
-// "enum" id=Identifier
+// "enum" id=ID
 protected class EnumReference_Group extends GroupToken {
 	
 	public EnumReference_Group(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
@@ -1985,7 +1940,7 @@ protected class EnumReference_EnumKeyword_0 extends KeywordToken  {
 		
 }
 
-// id=Identifier
+// id=ID
 protected class EnumReference_IdAssignment_1 extends AssignmentToken  {
 	
 	public EnumReference_IdAssignment_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
@@ -2000,7 +1955,7 @@ protected class EnumReference_IdAssignment_1 extends AssignmentToken  {
     @Override
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new Identifier_IdAssignment(this, this, 0, inst);
+			case 0: return new EnumReference_EnumKeyword_0(parent, this, 0, inst);
 			default: return null;
 		}	
 	}	
@@ -2009,26 +1964,14 @@ protected class EnumReference_IdAssignment_1 extends AssignmentToken  {
 	protected IInstanceDescription tryConsumeVal() {
 		if((value = current.getConsumable("id",true)) == null) return null;
 		IInstanceDescription obj = current.cloneAndConsume("id");
-		if(value instanceof EObject) { // org::eclipse::xtext::impl::RuleCallImpl
-			IInstanceDescription param = getDescr((EObject)value);
-			if(param.isInstanceOf(grammarAccess.getIdentifierRule().getType().getClassifier())) {
-				type = AssignmentType.PRC;
-				element = grammarAccess.getEnumReferenceAccess().getIdIdentifierParserRuleCall_1_0(); 
-				consumed = obj;
-				return param;
-			}
+		if(Boolean.TRUE.booleanValue()) { // org::eclipse::xtext::impl::RuleCallImpl FIXME: check if value is valid for lexer rule
+			type = AssignmentType.LRC;
+			element = grammarAccess.getEnumReferenceAccess().getIdIDTerminalRuleCall_1_0();
+			return obj;
 		}
 		return null;
 	}
 
-    @Override
-	public AbstractToken createParentFollower(AbstractToken next,	int actIndex, int index, IInstanceDescription inst) {
-		if(value == inst.getDelegate() && !inst.isConsumed()) return null;
-		switch(index) {
-			case 0: return new EnumReference_EnumKeyword_0(parent, next, actIndex, consumed);
-			default: return null;
-		}	
-	}	
 }
 
 
@@ -2204,11 +2147,11 @@ protected class EnumMemberList_EnumMemberAssignment_1_1 extends AssignmentToken 
 /************ begin Rule EnumMember ****************
  *
  * EnumMember:
- *   id=Identifier ("=" INT)?;
+ *   id=ID ("=" INT)?;
  *
  **/
 
-// id=Identifier ("=" INT)?
+// id=ID ("=" INT)?
 protected class EnumMember_Group extends GroupToken {
 	
 	public EnumMember_Group(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
@@ -2236,7 +2179,7 @@ protected class EnumMember_Group extends GroupToken {
 	}
 }
 
-// id=Identifier
+// id=ID
 protected class EnumMember_IdAssignment_0 extends AssignmentToken  {
 	
 	public EnumMember_IdAssignment_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
@@ -2251,8 +2194,7 @@ protected class EnumMember_IdAssignment_0 extends AssignmentToken  {
     @Override
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new Identifier_IdAssignment(this, this, 0, inst);
-			default: return null;
+			default: return parent.createParentFollower(this, index, index, inst);
 		}	
 	}	
 		
@@ -2260,25 +2202,14 @@ protected class EnumMember_IdAssignment_0 extends AssignmentToken  {
 	protected IInstanceDescription tryConsumeVal() {
 		if((value = current.getConsumable("id",true)) == null) return null;
 		IInstanceDescription obj = current.cloneAndConsume("id");
-		if(value instanceof EObject) { // org::eclipse::xtext::impl::RuleCallImpl
-			IInstanceDescription param = getDescr((EObject)value);
-			if(param.isInstanceOf(grammarAccess.getIdentifierRule().getType().getClassifier())) {
-				type = AssignmentType.PRC;
-				element = grammarAccess.getEnumMemberAccess().getIdIdentifierParserRuleCall_0_0(); 
-				consumed = obj;
-				return param;
-			}
+		if(Boolean.TRUE.booleanValue()) { // org::eclipse::xtext::impl::RuleCallImpl FIXME: check if value is valid for lexer rule
+			type = AssignmentType.LRC;
+			element = grammarAccess.getEnumMemberAccess().getIdIDTerminalRuleCall_0_0();
+			return obj;
 		}
 		return null;
 	}
 
-    @Override
-	public AbstractToken createParentFollower(AbstractToken next,	int actIndex, int index, IInstanceDescription inst) {
-		if(value == inst.getDelegate() && !inst.isConsumed()) return null;
-		switch(index) {
-			default: return parent.createParentFollower(next, actIndex , index, consumed);
-		}	
-	}	
 }
 
 // ("=" INT)?
@@ -2534,10 +2465,7 @@ protected class Declarators_DeclaratorListAssignment_1_1 extends AssignmentToken
  *   ("*" typeQualifier+=TypeQualifier*)* dc=DirectDeclarator; 
  * 
  * 
- *       
- * 
- * 
- * //PointerSpecification:
+ *         //PointerSpecification:
  * //  qualifiedPointer+=(qualified_PointerSpecification)*;
  * //
  * //qualified_PointerSpecification:
@@ -2705,10 +2633,7 @@ protected class Declarator_DcAssignment_1 extends AssignmentToken  {
 /************ begin Rule DirectDeclarator ****************
  *
  * DirectDeclarator:
- *   (id=Identifier|"(" Declarator ")") ArraySpecification*; 
- * 
- * 
- * //PointerSpecification:
+ *   (id=ID|"(" Declarator ")") ArraySpecification*;   //PointerSpecification:
  * //  qualifiedPointer+=(qualified_PointerSpecification)*;
  * //
  * //qualified_PointerSpecification:
@@ -2716,7 +2641,7 @@ protected class Declarator_DcAssignment_1 extends AssignmentToken  {
  *
  **/
 
-// (id=Identifier|"(" Declarator ")") ArraySpecification*
+// (id=ID|"(" Declarator ")") ArraySpecification*
 protected class DirectDeclarator_Group extends GroupToken {
 	
 	public DirectDeclarator_Group(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
@@ -2744,7 +2669,7 @@ protected class DirectDeclarator_Group extends GroupToken {
 	}
 }
 
-// id=Identifier|"(" Declarator ")"
+// id=ID|"(" Declarator ")"
 protected class DirectDeclarator_Alternatives_0 extends AlternativesToken {
 
 	public DirectDeclarator_Alternatives_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
@@ -2767,7 +2692,7 @@ protected class DirectDeclarator_Alternatives_0 extends AlternativesToken {
 		
 }
 
-// id=Identifier
+// id=ID
 protected class DirectDeclarator_IdAssignment_0_0 extends AssignmentToken  {
 	
 	public DirectDeclarator_IdAssignment_0_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
@@ -2782,8 +2707,7 @@ protected class DirectDeclarator_IdAssignment_0_0 extends AssignmentToken  {
     @Override
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new Identifier_IdAssignment(this, this, 0, inst);
-			default: return null;
+			default: return parent.createParentFollower(this, index, index, inst);
 		}	
 	}	
 		
@@ -2791,25 +2715,14 @@ protected class DirectDeclarator_IdAssignment_0_0 extends AssignmentToken  {
 	protected IInstanceDescription tryConsumeVal() {
 		if((value = current.getConsumable("id",true)) == null) return null;
 		IInstanceDescription obj = current.cloneAndConsume("id");
-		if(value instanceof EObject) { // org::eclipse::xtext::impl::RuleCallImpl
-			IInstanceDescription param = getDescr((EObject)value);
-			if(param.isInstanceOf(grammarAccess.getIdentifierRule().getType().getClassifier())) {
-				type = AssignmentType.PRC;
-				element = grammarAccess.getDirectDeclaratorAccess().getIdIdentifierParserRuleCall_0_0_0(); 
-				consumed = obj;
-				return param;
-			}
+		if(Boolean.TRUE.booleanValue()) { // org::eclipse::xtext::impl::RuleCallImpl FIXME: check if value is valid for lexer rule
+			type = AssignmentType.LRC;
+			element = grammarAccess.getDirectDeclaratorAccess().getIdIDTerminalRuleCall_0_0_0();
+			return obj;
 		}
 		return null;
 	}
 
-    @Override
-	public AbstractToken createParentFollower(AbstractToken next,	int actIndex, int index, IInstanceDescription inst) {
-		if(value == inst.getDelegate() && !inst.isConsumed()) return null;
-		switch(index) {
-			default: return parent.createParentFollower(next, actIndex , index, consumed);
-		}	
-	}	
 }
 
 // "(" Declarator ")"
@@ -2943,66 +2856,15 @@ protected class DirectDeclarator_ArraySpecificationParserRuleCall_1 extends Unas
 
 
 
-/************ begin Rule Identifier ****************
- *
- * Identifier:
- *   id=ID;
- *
- **/
-
-// id=ID
-protected class Identifier_IdAssignment extends AssignmentToken  {
-	
-	public Identifier_IdAssignment(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
-		super(parent, next, no, current);
-	}
-	
-	@Override
-	public Assignment getGrammarElement() {
-		return grammarAccess.getIdentifierAccess().getIdAssignment();
-	}
-
-    @Override
-	public AbstractToken createFollower(int index, IInstanceDescription inst) {
-		switch(index) {
-			default: return parent.createParentFollower(this, index, index, inst);
-		}	
-	}	
-		
-    @Override
-	public IInstanceDescription tryConsume() {
-		if(!current.isInstanceOf(grammarAccess.getIdentifierRule().getType().getClassifier())) return null;
-		return tryConsumeVal();
-	}
-    @Override	
-	protected IInstanceDescription tryConsumeVal() {
-		if((value = current.getConsumable("id",true)) == null) return null;
-		IInstanceDescription obj = current.cloneAndConsume("id");
-		if(Boolean.TRUE.booleanValue()) { // org::eclipse::xtext::impl::RuleCallImpl FIXME: check if value is valid for lexer rule
-			type = AssignmentType.LRC;
-			element = grammarAccess.getIdentifierAccess().getIdIDTerminalRuleCall_0();
-			return obj;
-		}
-		return null;
-	}
-
-}
-
-/************ end Rule Identifier ****************/
-
-
 
 /************ begin Rule ConstantDefinition ****************
  *
  * ConstantDefinition:
- *   "#define" id=Identifier;  
- *   
- *   
- *   // Interface definition part
+ *   "#define" id=ID INT;   // Interface definition part
  *
  **/
 
-// "#define" id=Identifier
+// "#define" id=ID INT
 protected class ConstantDefinition_Group extends GroupToken {
 	
 	public ConstantDefinition_Group(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
@@ -3017,7 +2879,7 @@ protected class ConstantDefinition_Group extends GroupToken {
     @Override
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new ConstantDefinition_IdAssignment_1(parent, this, 0, inst);
+			case 0: return new ConstantDefinition_INTTerminalRuleCall_2(parent, this, 0, inst);
 			default: return null;
 		}	
 	}	
@@ -3050,7 +2912,7 @@ protected class ConstantDefinition_DefineKeyword_0 extends KeywordToken  {
 		
 }
 
-// id=Identifier
+// id=ID
 protected class ConstantDefinition_IdAssignment_1 extends AssignmentToken  {
 	
 	public ConstantDefinition_IdAssignment_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
@@ -3065,7 +2927,7 @@ protected class ConstantDefinition_IdAssignment_1 extends AssignmentToken  {
     @Override
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new Identifier_IdAssignment(this, this, 0, inst);
+			case 0: return new ConstantDefinition_DefineKeyword_0(parent, this, 0, inst);
 			default: return null;
 		}	
 	}	
@@ -3074,26 +2936,36 @@ protected class ConstantDefinition_IdAssignment_1 extends AssignmentToken  {
 	protected IInstanceDescription tryConsumeVal() {
 		if((value = current.getConsumable("id",true)) == null) return null;
 		IInstanceDescription obj = current.cloneAndConsume("id");
-		if(value instanceof EObject) { // org::eclipse::xtext::impl::RuleCallImpl
-			IInstanceDescription param = getDescr((EObject)value);
-			if(param.isInstanceOf(grammarAccess.getIdentifierRule().getType().getClassifier())) {
-				type = AssignmentType.PRC;
-				element = grammarAccess.getConstantDefinitionAccess().getIdIdentifierParserRuleCall_1_0(); 
-				consumed = obj;
-				return param;
-			}
+		if(Boolean.TRUE.booleanValue()) { // org::eclipse::xtext::impl::RuleCallImpl FIXME: check if value is valid for lexer rule
+			type = AssignmentType.LRC;
+			element = grammarAccess.getConstantDefinitionAccess().getIdIDTerminalRuleCall_1_0();
+			return obj;
 		}
 		return null;
 	}
 
+}
+
+// INT
+protected class ConstantDefinition_INTTerminalRuleCall_2 extends UnassignedTextToken {
+
+	public ConstantDefinition_INTTerminalRuleCall_2(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public RuleCall getGrammarElement() {
+		return grammarAccess.getConstantDefinitionAccess().getINTTerminalRuleCall_2();
+	}
+
     @Override
-	public AbstractToken createParentFollower(AbstractToken next,	int actIndex, int index, IInstanceDescription inst) {
-		if(value == inst.getDelegate() && !inst.isConsumed()) return null;
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new ConstantDefinition_DefineKeyword_0(parent, next, actIndex, consumed);
+			case 0: return new ConstantDefinition_IdAssignment_1(parent, this, 0, inst);
 			default: return null;
 		}	
 	}	
+		
 }
 
 
@@ -3370,13 +3242,13 @@ protected class InterfaceDefinition_RightCurlyBracketKeyword_6 extends KeywordTo
 /************ begin Rule MethodDefinition ****************
  *
  * MethodDefinition:
- *   qualifiedTypeSpec=QualifiedTypeSpecification id=Identifier ("(" "void"? ")"|"("
- *   ParameterList=ParameterList ")") ";";
+ *   qualifiedTypeSpec=QualifiedTypeSpecification id=ID ("(" "void"? ")"|"(" ParameterList
+ *   =ParameterList ")") ";";
  *
  **/
 
-// qualifiedTypeSpec=QualifiedTypeSpecification id=Identifier ("(" "void"? ")"|"("
-// ParameterList=ParameterList ")") ";"
+// qualifiedTypeSpec=QualifiedTypeSpecification id=ID ("(" "void"? ")"|"(" ParameterList
+// =ParameterList ")") ";"
 protected class MethodDefinition_Group extends GroupToken {
 	
 	public MethodDefinition_Group(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
@@ -3448,7 +3320,7 @@ protected class MethodDefinition_QualifiedTypeSpecAssignment_0 extends Assignmen
 	}	
 }
 
-// id=Identifier
+// id=ID
 protected class MethodDefinition_IdAssignment_1 extends AssignmentToken  {
 	
 	public MethodDefinition_IdAssignment_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
@@ -3463,7 +3335,7 @@ protected class MethodDefinition_IdAssignment_1 extends AssignmentToken  {
     @Override
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new Identifier_IdAssignment(this, this, 0, inst);
+			case 0: return new MethodDefinition_QualifiedTypeSpecAssignment_0(parent, this, 0, inst);
 			default: return null;
 		}	
 	}	
@@ -3472,26 +3344,14 @@ protected class MethodDefinition_IdAssignment_1 extends AssignmentToken  {
 	protected IInstanceDescription tryConsumeVal() {
 		if((value = current.getConsumable("id",true)) == null) return null;
 		IInstanceDescription obj = current.cloneAndConsume("id");
-		if(value instanceof EObject) { // org::eclipse::xtext::impl::RuleCallImpl
-			IInstanceDescription param = getDescr((EObject)value);
-			if(param.isInstanceOf(grammarAccess.getIdentifierRule().getType().getClassifier())) {
-				type = AssignmentType.PRC;
-				element = grammarAccess.getMethodDefinitionAccess().getIdIdentifierParserRuleCall_1_0(); 
-				consumed = obj;
-				return param;
-			}
+		if(Boolean.TRUE.booleanValue()) { // org::eclipse::xtext::impl::RuleCallImpl FIXME: check if value is valid for lexer rule
+			type = AssignmentType.LRC;
+			element = grammarAccess.getMethodDefinitionAccess().getIdIDTerminalRuleCall_1_0();
+			return obj;
 		}
 		return null;
 	}
 
-    @Override
-	public AbstractToken createParentFollower(AbstractToken next,	int actIndex, int index, IInstanceDescription inst) {
-		if(value == inst.getDelegate() && !inst.isConsumed()) return null;
-		switch(index) {
-			case 0: return new MethodDefinition_QualifiedTypeSpecAssignment_0(parent, next, actIndex, consumed);
-			default: return null;
-		}	
-	}	
 }
 
 // "(" "void"? ")"|"(" ParameterList=ParameterList ")"
@@ -4069,10 +3929,7 @@ protected class Parameter_DecAssignment_2 extends AssignmentToken  {
 /************ begin Rule IncludeDirective ****************
  *
  * IncludeDirective:
- *   "#include" path=IncludePath;  
- *   
- *   
- * // include directive
+ *   "#include" path=IncludePath;   // include directive
  *
  **/
 

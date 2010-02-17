@@ -37,8 +37,8 @@ import org.ow2.fractal.mind.idl.fractalIDL.TypeDefinition;
  * The following features are implemented:
  * <ul>
  *   <li>{@link org.ow2.fractal.mind.idl.fractalIDL.impl.ItfFileImpl#getIncludes <em>Includes</em>}</li>
- *   <li>{@link org.ow2.fractal.mind.idl.fractalIDL.impl.ItfFileImpl#getType <em>Type</em>}</li>
  *   <li>{@link org.ow2.fractal.mind.idl.fractalIDL.impl.ItfFileImpl#getConstant <em>Constant</em>}</li>
+ *   <li>{@link org.ow2.fractal.mind.idl.fractalIDL.impl.ItfFileImpl#getType <em>Type</em>}</li>
  *   <li>{@link org.ow2.fractal.mind.idl.fractalIDL.impl.ItfFileImpl#getInterface <em>Interface</em>}</li>
  * </ul>
  * </p>
@@ -58,16 +58,6 @@ public class ItfFileImpl extends MinimalEObjectImpl.Container implements ItfFile
   protected EList<IncludeDirective> includes;
 
   /**
-   * The cached value of the '{@link #getType() <em>Type</em>}' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getType()
-   * @generated
-   * @ordered
-   */
-  protected EList<TypeDefinition> type;
-
-  /**
    * The cached value of the '{@link #getConstant() <em>Constant</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -76,6 +66,16 @@ public class ItfFileImpl extends MinimalEObjectImpl.Container implements ItfFile
    * @ordered
    */
   protected EList<ConstantDefinition> constant;
+
+  /**
+   * The cached value of the '{@link #getType() <em>Type</em>}' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getType()
+   * @generated
+   * @ordered
+   */
+  protected EList<TypeDefinition> type;
 
   /**
    * The cached value of the '{@link #getInterface() <em>Interface</em>}' containment reference.
@@ -127,20 +127,6 @@ public class ItfFileImpl extends MinimalEObjectImpl.Container implements ItfFile
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<TypeDefinition> getType()
-  {
-    if (type == null)
-    {
-      type = new EObjectContainmentEList<TypeDefinition>(TypeDefinition.class, this, FractalIDLPackage.ITF_FILE__TYPE);
-    }
-    return type;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public EList<ConstantDefinition> getConstant()
   {
     if (constant == null)
@@ -148,6 +134,20 @@ public class ItfFileImpl extends MinimalEObjectImpl.Container implements ItfFile
       constant = new EObjectContainmentEList<ConstantDefinition>(ConstantDefinition.class, this, FractalIDLPackage.ITF_FILE__CONSTANT);
     }
     return constant;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EList<TypeDefinition> getType()
+  {
+    if (type == null)
+    {
+      type = new EObjectContainmentEList<TypeDefinition>(TypeDefinition.class, this, FractalIDLPackage.ITF_FILE__TYPE);
+    }
+    return type;
   }
 
   /**
@@ -210,10 +210,10 @@ public class ItfFileImpl extends MinimalEObjectImpl.Container implements ItfFile
     {
       case FractalIDLPackage.ITF_FILE__INCLUDES:
         return ((InternalEList<?>)getIncludes()).basicRemove(otherEnd, msgs);
-      case FractalIDLPackage.ITF_FILE__TYPE:
-        return ((InternalEList<?>)getType()).basicRemove(otherEnd, msgs);
       case FractalIDLPackage.ITF_FILE__CONSTANT:
         return ((InternalEList<?>)getConstant()).basicRemove(otherEnd, msgs);
+      case FractalIDLPackage.ITF_FILE__TYPE:
+        return ((InternalEList<?>)getType()).basicRemove(otherEnd, msgs);
       case FractalIDLPackage.ITF_FILE__INTERFACE:
         return basicSetInterface(null, msgs);
     }
@@ -232,10 +232,10 @@ public class ItfFileImpl extends MinimalEObjectImpl.Container implements ItfFile
     {
       case FractalIDLPackage.ITF_FILE__INCLUDES:
         return getIncludes();
-      case FractalIDLPackage.ITF_FILE__TYPE:
-        return getType();
       case FractalIDLPackage.ITF_FILE__CONSTANT:
         return getConstant();
+      case FractalIDLPackage.ITF_FILE__TYPE:
+        return getType();
       case FractalIDLPackage.ITF_FILE__INTERFACE:
         return getInterface();
     }
@@ -257,13 +257,13 @@ public class ItfFileImpl extends MinimalEObjectImpl.Container implements ItfFile
         getIncludes().clear();
         getIncludes().addAll((Collection<? extends IncludeDirective>)newValue);
         return;
-      case FractalIDLPackage.ITF_FILE__TYPE:
-        getType().clear();
-        getType().addAll((Collection<? extends TypeDefinition>)newValue);
-        return;
       case FractalIDLPackage.ITF_FILE__CONSTANT:
         getConstant().clear();
         getConstant().addAll((Collection<? extends ConstantDefinition>)newValue);
+        return;
+      case FractalIDLPackage.ITF_FILE__TYPE:
+        getType().clear();
+        getType().addAll((Collection<? extends TypeDefinition>)newValue);
         return;
       case FractalIDLPackage.ITF_FILE__INTERFACE:
         setInterface((InterfaceDefinition)newValue);
@@ -285,11 +285,11 @@ public class ItfFileImpl extends MinimalEObjectImpl.Container implements ItfFile
       case FractalIDLPackage.ITF_FILE__INCLUDES:
         getIncludes().clear();
         return;
-      case FractalIDLPackage.ITF_FILE__TYPE:
-        getType().clear();
-        return;
       case FractalIDLPackage.ITF_FILE__CONSTANT:
         getConstant().clear();
+        return;
+      case FractalIDLPackage.ITF_FILE__TYPE:
+        getType().clear();
         return;
       case FractalIDLPackage.ITF_FILE__INTERFACE:
         setInterface((InterfaceDefinition)null);
@@ -310,10 +310,10 @@ public class ItfFileImpl extends MinimalEObjectImpl.Container implements ItfFile
     {
       case FractalIDLPackage.ITF_FILE__INCLUDES:
         return includes != null && !includes.isEmpty();
-      case FractalIDLPackage.ITF_FILE__TYPE:
-        return type != null && !type.isEmpty();
       case FractalIDLPackage.ITF_FILE__CONSTANT:
         return constant != null && !constant.isEmpty();
+      case FractalIDLPackage.ITF_FILE__TYPE:
+        return type != null && !type.isEmpty();
       case FractalIDLPackage.ITF_FILE__INTERFACE:
         return interface_ != null;
     }

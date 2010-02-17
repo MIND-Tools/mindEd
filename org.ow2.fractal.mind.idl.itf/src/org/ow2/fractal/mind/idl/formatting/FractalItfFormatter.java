@@ -26,6 +26,7 @@ public class FractalItfFormatter extends AbstractDeclarativeFormatter {
 		FractalItfGrammarAccess f = (org.ow2.fractal.mind.idl.services.FractalItfGrammarAccess) getGrammarAccess();
 
 		c.setIndentationSpace("    ");
+		formatInclude(f, c);
 		formatDefine(f, c);
 		formatInterfaces(f, c);
 		formatTypeDefinition(f, c);
@@ -73,7 +74,7 @@ public class FractalItfFormatter extends AbstractDeclarativeFormatter {
 
 	protected void formatDefine(FractalItfGrammarAccess f, FormattingConfig c) {
 		c.setLinewrap().after(
-				f.getConstantDefinitionAccess().getIdAssignment_1());
+				f.getConstantDefinitionAccess().getINTTerminalRuleCall_2());
 	}
 
 	/**
@@ -81,15 +82,33 @@ public class FractalItfFormatter extends AbstractDeclarativeFormatter {
 	 */
 	protected void formatTypeDefinition(FractalItfGrammarAccess f,
 			FormattingConfig c) {
+
+		c.setLinewrap(2).before(
+				f.getTypedefSpecificationAccess().getTypedefKeyword_0());
 		c.setLinewrap().after(
 				f.getTypeDefinitionAccess().getSemicolonKeyword_1());
+		c.setLinewrap()
+				.after(f.getStructMemberAccess().getSemicolonKeyword_3());
+		formatBloc(f.getStructOrUnionDefinitionAccess()
+				.getLeftCurlyBracketKeyword_2(), f
+				.getStructOrUnionDefinitionAccess()
+				.getRightCurlyBracketKeyword_4(), c);
 	}
-	
+
 	/**
 	 * Format Method definitions
 	 */
 	protected void formatMethod(FractalItfGrammarAccess f, FormattingConfig c) {
-		c.setLinewrap().after(f.getMethodDefinitionAccess().getSemicolonKeyword_3());
+		c.setLinewrap().after(
+				f.getMethodDefinitionAccess().getSemicolonKeyword_3());
+	}
+	
+	
+	/**
+	 * Format Include declarations
+	 */
+	protected void formatInclude(FractalItfGrammarAccess f, FormattingConfig c) {
+		c.setLinewrap().after(f.getIncludeDirectiveAccess().getPathAssignment_1());
 	}
 
 }

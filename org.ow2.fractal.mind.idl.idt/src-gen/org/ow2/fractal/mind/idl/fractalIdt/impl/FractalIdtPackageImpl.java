@@ -124,7 +124,7 @@ public class FractalIdtPackageImpl extends EPackageImpl implements FractalIdtPac
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getIdtFile_Type()
+  public EReference getIdtFile_Constant()
   {
     return (EReference)idtFileEClass.getEStructuralFeatures().get(1);
   }
@@ -134,7 +134,7 @@ public class FractalIdtPackageImpl extends EPackageImpl implements FractalIdtPac
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getIdtFile_Constant()
+  public EReference getIdtFile_Type()
   {
     return (EReference)idtFileEClass.getEStructuralFeatures().get(2);
   }
@@ -171,8 +171,8 @@ public class FractalIdtPackageImpl extends EPackageImpl implements FractalIdtPac
     // Create classes and their features
     idtFileEClass = createEClass(IDT_FILE);
     createEReference(idtFileEClass, IDT_FILE__INCLUDES);
-    createEReference(idtFileEClass, IDT_FILE__TYPE);
     createEReference(idtFileEClass, IDT_FILE__CONSTANT);
+    createEReference(idtFileEClass, IDT_FILE__TYPE);
   }
 
   /**
@@ -211,8 +211,8 @@ public class FractalIdtPackageImpl extends EPackageImpl implements FractalIdtPac
     // Initialize classes and features; add operations and parameters
     initEClass(idtFileEClass, IdtFile.class, "IdtFile", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getIdtFile_Includes(), theFractalIDLPackage.getIncludeDirective(), null, "includes", null, 0, -1, IdtFile.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getIdtFile_Type(), theFractalIDLPackage.getTypeDefinition(), null, "type", null, 0, -1, IdtFile.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getIdtFile_Constant(), theFractalIDLPackage.getConstantDefinition(), null, "constant", null, 0, -1, IdtFile.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getIdtFile_Type(), theFractalIDLPackage.getTypeDefinition(), null, "type", null, 0, -1, IdtFile.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     // Create resource
     createResource(eNS_URI);

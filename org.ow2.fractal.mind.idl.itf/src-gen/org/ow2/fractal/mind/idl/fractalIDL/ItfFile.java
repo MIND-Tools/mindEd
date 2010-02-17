@@ -19,8 +19,8 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * <ul>
  *   <li>{@link org.ow2.fractal.mind.idl.fractalIDL.ItfFile#getIncludes <em>Includes</em>}</li>
- *   <li>{@link org.ow2.fractal.mind.idl.fractalIDL.ItfFile#getType <em>Type</em>}</li>
  *   <li>{@link org.ow2.fractal.mind.idl.fractalIDL.ItfFile#getConstant <em>Constant</em>}</li>
+ *   <li>{@link org.ow2.fractal.mind.idl.fractalIDL.ItfFile#getType <em>Type</em>}</li>
  *   <li>{@link org.ow2.fractal.mind.idl.fractalIDL.ItfFile#getInterface <em>Interface</em>}</li>
  * </ul>
  * </p>
@@ -48,22 +48,6 @@ public interface ItfFile extends EObject
   EList<IncludeDirective> getIncludes();
 
   /**
-   * Returns the value of the '<em><b>Type</b></em>' containment reference list.
-   * The list contents are of type {@link org.ow2.fractal.mind.idl.fractalIDL.TypeDefinition}.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Type</em>' containment reference list isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Type</em>' containment reference list.
-   * @see org.ow2.fractal.mind.idl.fractalIDL.FractalIDLPackage#getItfFile_Type()
-   * @model containment="true"
-   * @generated
-   */
-  EList<TypeDefinition> getType();
-
-  /**
    * Returns the value of the '<em><b>Constant</b></em>' containment reference list.
    * The list contents are of type {@link org.ow2.fractal.mind.idl.fractalIDL.ConstantDefinition}.
    * <!-- begin-user-doc -->
@@ -78,6 +62,22 @@ public interface ItfFile extends EObject
    * @generated
    */
   EList<ConstantDefinition> getConstant();
+
+  /**
+   * Returns the value of the '<em><b>Type</b></em>' containment reference list.
+   * The list contents are of type {@link org.ow2.fractal.mind.idl.fractalIDL.TypeDefinition}.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Type</em>' containment reference list isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Type</em>' containment reference list.
+   * @see org.ow2.fractal.mind.idl.fractalIDL.FractalIDLPackage#getItfFile_Type()
+   * @model containment="true"
+   * @generated
+   */
+  EList<TypeDefinition> getType();
 
   /**
    * Returns the value of the '<em><b>Interface</b></em>' containment reference.

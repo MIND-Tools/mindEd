@@ -180,15 +180,6 @@ public interface FractalIDLFactory extends EFactory
   DirectDeclarator createDirectDeclarator();
 
   /**
-   * Returns a new object of class '<em>Identifier</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Identifier</em>'.
-   * @generated
-   */
-  Identifier createIdentifier();
-
-  /**
    * Returns a new object of class '<em>Constant Definition</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
