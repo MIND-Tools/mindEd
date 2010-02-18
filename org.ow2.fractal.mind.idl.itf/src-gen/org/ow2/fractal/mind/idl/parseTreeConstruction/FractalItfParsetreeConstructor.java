@@ -3929,11 +3929,11 @@ protected class Parameter_DecAssignment_2 extends AssignmentToken  {
 /************ begin Rule IncludeDirective ****************
  *
  * IncludeDirective:
- *   "#include" path=IncludePath;   // include directive
+ *   "#include" (importedURI=STRING|includeID=IncludeLib);   // include directive
  *
  **/
 
-// "#include" path=IncludePath
+// "#include" (importedURI=STRING|includeID=IncludeLib)
 protected class IncludeDirective_Group extends GroupToken {
 	
 	public IncludeDirective_Group(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
@@ -3948,7 +3948,7 @@ protected class IncludeDirective_Group extends GroupToken {
     @Override
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new IncludeDirective_PathAssignment_1(parent, this, 0, inst);
+			case 0: return new IncludeDirective_Alternatives_1(parent, this, 0, inst);
 			default: return null;
 		}	
 	}	
@@ -3981,16 +3981,39 @@ protected class IncludeDirective_IncludeKeyword_0 extends KeywordToken  {
 		
 }
 
-// path=IncludePath
-protected class IncludeDirective_PathAssignment_1 extends AssignmentToken  {
+// importedURI=STRING|includeID=IncludeLib
+protected class IncludeDirective_Alternatives_1 extends AlternativesToken {
+
+	public IncludeDirective_Alternatives_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
 	
-	public IncludeDirective_PathAssignment_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	@Override
+	public Alternatives getGrammarElement() {
+		return grammarAccess.getIncludeDirectiveAccess().getAlternatives_1();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new IncludeDirective_ImportedURIAssignment_1_0(parent, this, 0, inst);
+			case 1: return new IncludeDirective_IncludeIDAssignment_1_1(parent, this, 1, inst);
+			default: return null;
+		}	
+	}	
+		
+}
+
+// importedURI=STRING
+protected class IncludeDirective_ImportedURIAssignment_1_0 extends AssignmentToken  {
+	
+	public IncludeDirective_ImportedURIAssignment_1_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	@Override
 	public Assignment getGrammarElement() {
-		return grammarAccess.getIncludeDirectiveAccess().getPathAssignment_1();
+		return grammarAccess.getIncludeDirectiveAccess().getImportedURIAssignment_1_0();
 	}
 
     @Override
@@ -4003,11 +4026,45 @@ protected class IncludeDirective_PathAssignment_1 extends AssignmentToken  {
 		
     @Override	
 	protected IInstanceDescription tryConsumeVal() {
-		if((value = current.getConsumable("path",true)) == null) return null;
-		IInstanceDescription obj = current.cloneAndConsume("path");
-		if(Boolean.TRUE.booleanValue()) { // org::eclipse::xtext::impl::RuleCallImpl FIXME: check if value is valid for datatype rule
-			type = AssignmentType.DRC;
-			element = grammarAccess.getIncludeDirectiveAccess().getPathIncludePathParserRuleCall_1_0();
+		if((value = current.getConsumable("importedURI",true)) == null) return null;
+		IInstanceDescription obj = current.cloneAndConsume("importedURI");
+		if(Boolean.TRUE.booleanValue()) { // org::eclipse::xtext::impl::RuleCallImpl FIXME: check if value is valid for lexer rule
+			type = AssignmentType.LRC;
+			element = grammarAccess.getIncludeDirectiveAccess().getImportedURISTRINGTerminalRuleCall_1_0_0();
+			return obj;
+		}
+		return null;
+	}
+
+}
+
+// includeID=IncludeLib
+protected class IncludeDirective_IncludeIDAssignment_1_1 extends AssignmentToken  {
+	
+	public IncludeDirective_IncludeIDAssignment_1_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Assignment getGrammarElement() {
+		return grammarAccess.getIncludeDirectiveAccess().getIncludeIDAssignment_1_1();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new IncludeDirective_IncludeKeyword_0(parent, this, 0, inst);
+			default: return null;
+		}	
+	}	
+		
+    @Override	
+	protected IInstanceDescription tryConsumeVal() {
+		if((value = current.getConsumable("includeID",true)) == null) return null;
+		IInstanceDescription obj = current.cloneAndConsume("includeID");
+		if(Boolean.TRUE.booleanValue()) { // org::eclipse::xtext::impl::RuleCallImpl FIXME: check if value is valid for lexer rule
+			type = AssignmentType.LRC;
+			element = grammarAccess.getIncludeDirectiveAccess().getIncludeIDIncludeLibTerminalRuleCall_1_1_0();
 			return obj;
 		}
 		return null;
@@ -4016,7 +4073,7 @@ protected class IncludeDirective_PathAssignment_1 extends AssignmentToken  {
 }
 
 
-/************ end Rule IncludeDirective ****************/
 
+/************ end Rule IncludeDirective ****************/
 
 }

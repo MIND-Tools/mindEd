@@ -891,9 +891,19 @@ public class FractalIDLPackageImpl extends EPackageImpl implements FractalIDLPac
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getIncludeDirective_Path()
+  public EAttribute getIncludeDirective_ImportedURI()
   {
     return (EAttribute)includeDirectiveEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getIncludeDirective_IncludeID()
+  {
+    return (EAttribute)includeDirectiveEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -1037,7 +1047,8 @@ public class FractalIDLPackageImpl extends EPackageImpl implements FractalIDLPac
     createEReference(parameterEClass, PARAMETER__DEC);
 
     includeDirectiveEClass = createEClass(INCLUDE_DIRECTIVE);
-    createEAttribute(includeDirectiveEClass, INCLUDE_DIRECTIVE__PATH);
+    createEAttribute(includeDirectiveEClass, INCLUDE_DIRECTIVE__IMPORTED_URI);
+    createEAttribute(includeDirectiveEClass, INCLUDE_DIRECTIVE__INCLUDE_ID);
 
     // Create enums
     typeQualifierEEnum = createEEnum(TYPE_QUALIFIER);
@@ -1168,7 +1179,8 @@ public class FractalIDLPackageImpl extends EPackageImpl implements FractalIDLPac
     initEReference(getParameter_Dec(), this.getDeclarator(), null, "dec", null, 0, 1, Parameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(includeDirectiveEClass, IncludeDirective.class, "IncludeDirective", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getIncludeDirective_Path(), ecorePackage.getEString(), "path", null, 0, 1, IncludeDirective.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getIncludeDirective_ImportedURI(), ecorePackage.getEString(), "importedURI", null, 0, 1, IncludeDirective.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getIncludeDirective_IncludeID(), ecorePackage.getEString(), "includeID", null, 0, 1, IncludeDirective.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     // Initialize enums and add enum literals
     initEEnum(typeQualifierEEnum, TypeQualifier.class, "TypeQualifier");

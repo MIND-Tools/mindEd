@@ -1943,95 +1943,57 @@ ruleIncludeDirective returns [EObject current=null]
     {
         createLeafNode(grammarAccess.getIncludeDirectiveAccess().getIncludeKeyword_0(), null); 
     }
+((
 (
-(
-		{ 
-	        currentNode=createCompositeNode(grammarAccess.getIncludeDirectiveAccess().getPathIncludePathParserRuleCall_1_0(), currentNode); 
-	    }
-		lv_path_1_0=ruleIncludePath		{
+		lv_importedURI_1_0=RULE_STRING
+		{
+			createLeafNode(grammarAccess.getIncludeDirectiveAccess().getImportedURISTRINGTerminalRuleCall_1_0_0(), "importedURI"); 
+		}
+		{
 	        if ($current==null) {
 	            $current = factory.create(grammarAccess.getIncludeDirectiveRule().getType().getClassifier());
-	            associateNodeWithAstElement(currentNode.getParent(), $current);
+	            associateNodeWithAstElement(currentNode, $current);
 	        }
 	        try {
 	       		set(
 	       			$current, 
-	       			"path",
-	        		lv_path_1_0, 
-	        		"IncludePath", 
-	        		currentNode);
+	       			"importedURI",
+	        		lv_importedURI_1_0, 
+	        		"STRING", 
+	        		lastConsumedNode);
 	        } catch (ValueConverterException vce) {
 				handleValueConverterException(vce);
 	        }
-	        currentNode = currentNode.getParent();
 	    }
 
 )
-))
-;
-
-
-
-
-
-// Entry rule entryRuleIncludePath
-entryRuleIncludePath returns [String current=null] 
-	:
-	{ currentNode = createCompositeNode(grammarAccess.getIncludePathRule(), currentNode); } 
-	 iv_ruleIncludePath=ruleIncludePath 
-	 { $current=$iv_ruleIncludePath.current.getText(); }  
-	 EOF 
-;
-
-// Rule IncludePath
-ruleIncludePath returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] 
-    @init { setCurrentLookahead(); resetLookahead(); 
-    }
-    @after { resetLookahead(); 
-	    lastConsumedNode = currentNode;
-    }:
-(    this_STRING_0=RULE_STRING    {
-		$current.merge(this_STRING_0);
-    }
-
-    { 
-    createLeafNode(grammarAccess.getIncludePathAccess().getSTRINGTerminalRuleCall_0(), null); 
-    }
-
+)
     |(
-	kw='<' 
-    {
-        $current.merge(kw);
-        createLeafNode(grammarAccess.getIncludePathAccess().getLessThanSignKeyword_1_0(), null); 
-    }
-    this_ID_2=RULE_ID    {
-		$current.merge(this_ID_2);
-    }
+(
+		lv_includeID_2_0=RULE_INCLUDELIB
+		{
+			createLeafNode(grammarAccess.getIncludeDirectiveAccess().getIncludeIDIncludeLibTerminalRuleCall_1_1_0(), "includeID"); 
+		}
+		{
+	        if ($current==null) {
+	            $current = factory.create(grammarAccess.getIncludeDirectiveRule().getType().getClassifier());
+	            associateNodeWithAstElement(currentNode, $current);
+	        }
+	        try {
+	       		set(
+	       			$current, 
+	       			"includeID",
+	        		lv_includeID_2_0, 
+	        		"IncludeLib", 
+	        		lastConsumedNode);
+	        } catch (ValueConverterException vce) {
+				handleValueConverterException(vce);
+	        }
+	    }
 
-    { 
-    createLeafNode(grammarAccess.getIncludePathAccess().getIDTerminalRuleCall_1_1(), null); 
-    }
-
-	kw='.' 
-    {
-        $current.merge(kw);
-        createLeafNode(grammarAccess.getIncludePathAccess().getFullStopKeyword_1_2(), null); 
-    }
-    this_ID_4=RULE_ID    {
-		$current.merge(this_ID_4);
-    }
-
-    { 
-    createLeafNode(grammarAccess.getIncludePathAccess().getIDTerminalRuleCall_1_3(), null); 
-    }
-
-	kw='>' 
-    {
-        $current.merge(kw);
-        createLeafNode(grammarAccess.getIncludePathAccess().getGreaterThanSignKeyword_1_4(), null); 
-    }
-))
-    ;
+)
+)))
+;
 
 
 
@@ -2207,6 +2169,8 @@ ruleParameterQualifier returns [Enumerator current=null]
 ));
 
 
+
+RULE_INCLUDELIB : '<' RULE_ID '.' RULE_ID '>';
 
 RULE_ID : '^'? ('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'_'|'0'..'9')*;
 

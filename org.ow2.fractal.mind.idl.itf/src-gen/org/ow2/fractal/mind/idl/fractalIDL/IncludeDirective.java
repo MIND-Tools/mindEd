@@ -16,7 +16,8 @@ import org.eclipse.emf.ecore.EObject;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link org.ow2.fractal.mind.idl.fractalIDL.IncludeDirective#getPath <em>Path</em>}</li>
+ *   <li>{@link org.ow2.fractal.mind.idl.fractalIDL.IncludeDirective#getImportedURI <em>Imported URI</em>}</li>
+ *   <li>{@link org.ow2.fractal.mind.idl.fractalIDL.IncludeDirective#getIncludeID <em>Include ID</em>}</li>
  * </ul>
  * </p>
  *
@@ -27,29 +28,55 @@ import org.eclipse.emf.ecore.EObject;
 public interface IncludeDirective extends EObject
 {
   /**
-   * Returns the value of the '<em><b>Path</b></em>' attribute.
+   * Returns the value of the '<em><b>Imported URI</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Path</em>' attribute isn't clear,
+   * If the meaning of the '<em>Imported URI</em>' attribute isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Path</em>' attribute.
-   * @see #setPath(String)
-   * @see org.ow2.fractal.mind.idl.fractalIDL.FractalIDLPackage#getIncludeDirective_Path()
+   * @return the value of the '<em>Imported URI</em>' attribute.
+   * @see #setImportedURI(String)
+   * @see org.ow2.fractal.mind.idl.fractalIDL.FractalIDLPackage#getIncludeDirective_ImportedURI()
    * @model
    * @generated
    */
-  String getPath();
+  String getImportedURI();
 
   /**
-   * Sets the value of the '{@link org.ow2.fractal.mind.idl.fractalIDL.IncludeDirective#getPath <em>Path</em>}' attribute.
+   * Sets the value of the '{@link org.ow2.fractal.mind.idl.fractalIDL.IncludeDirective#getImportedURI <em>Imported URI</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Path</em>' attribute.
-   * @see #getPath()
+   * @param value the new value of the '<em>Imported URI</em>' attribute.
+   * @see #getImportedURI()
    * @generated
    */
-  void setPath(String value);
+  void setImportedURI(String value);
+
+  /**
+   * Returns the value of the '<em><b>Include ID</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Include ID</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Include ID</em>' attribute.
+   * @see #setIncludeID(String)
+   * @see org.ow2.fractal.mind.idl.fractalIDL.FractalIDLPackage#getIncludeDirective_IncludeID()
+   * @model
+   * @generated
+   */
+  String getIncludeID();
+
+  /**
+   * Sets the value of the '{@link org.ow2.fractal.mind.idl.fractalIDL.IncludeDirective#getIncludeID <em>Include ID</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Include ID</em>' attribute.
+   * @see #getIncludeID()
+   * @generated
+   */
+  void setIncludeID(String value);
 
 } // IncludeDirective

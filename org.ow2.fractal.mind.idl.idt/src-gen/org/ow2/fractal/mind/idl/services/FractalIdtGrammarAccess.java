@@ -410,7 +410,7 @@ public class FractalIdtGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//IncludeDirective:
-	//  "#include" path=IncludePath;   // include directive
+	//  "#include" (importedURI=STRING|includeID=IncludeLib);   // include directive
 	public FractalItfGrammarAccess.IncludeDirectiveElements getIncludeDirectiveAccess() {
 		return gaFractalItf.getIncludeDirectiveAccess();
 	}
@@ -419,15 +419,11 @@ public class FractalIdtGrammarAccess extends AbstractGrammarElementFinder {
 		return getIncludeDirectiveAccess().getRule();
 	}
 
-	//IncludePath returns ecore::EString:
-	//  STRING|"<" ID "." ID ">";
-	public FractalItfGrammarAccess.IncludePathElements getIncludePathAccess() {
-		return gaFractalItf.getIncludePathAccess();
-	}
-	
-	public ParserRule getIncludePathRule() {
-		return getIncludePathAccess().getRule();
-	}
+	//terminal IncludeLib:
+	//  "<" ID "." ID ">";
+	public TerminalRule getIncludeLibRule() {
+		return gaFractalItf.getIncludeLibRule();
+	} 
 
 	//terminal ID:
 	//  "^"? ("a".."z" | "A".."Z" | "_") ("a".."z" | "A".."Z" | "_" | "0".."9")*;

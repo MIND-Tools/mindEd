@@ -47,7 +47,7 @@ public class FractalIdtParser extends AbstractContentAssistParser {
 					put(grammarAccess.getDirectDeclaratorAccess().getAlternatives_0(), "rule__DirectDeclarator__Alternatives_0");
 					put(grammarAccess.getArraySpecificationAccess().getAlternatives_1(), "rule__ArraySpecification__Alternatives_1");
 					put(grammarAccess.getMethodDefinitionAccess().getAlternatives_2(), "rule__MethodDefinition__Alternatives_2");
-					put(grammarAccess.getIncludePathAccess().getAlternatives(), "rule__IncludePath__Alternatives");
+					put(grammarAccess.getIncludeDirectiveAccess().getAlternatives_1(), "rule__IncludeDirective__Alternatives_1");
 					put(grammarAccess.getTypeQualifierAccess().getAlternatives(), "rule__TypeQualifier__Alternatives");
 					put(grammarAccess.getTypeSpecifierAccess().getAlternatives(), "rule__TypeSpecifier__Alternatives");
 					put(grammarAccess.getParameterQualifierAccess().getAlternatives(), "rule__ParameterQualifier__Alternatives");
@@ -86,7 +86,6 @@ public class FractalIdtParser extends AbstractContentAssistParser {
 					put(grammarAccess.getParameterListAccess().getGroup_2(), "rule__ParameterList__Group_2__0");
 					put(grammarAccess.getParameterAccess().getGroup(), "rule__Parameter__Group__0");
 					put(grammarAccess.getIncludeDirectiveAccess().getGroup(), "rule__IncludeDirective__Group__0");
-					put(grammarAccess.getIncludePathAccess().getGroup_1(), "rule__IncludePath__Group_1__0");
 					put(grammarAccess.getIdtFileAccess().getIncludesAssignment_0(), "rule__IdtFile__IncludesAssignment_0");
 					put(grammarAccess.getIdtFileAccess().getConstantAssignment_1_0(), "rule__IdtFile__ConstantAssignment_1_0");
 					put(grammarAccess.getIdtFileAccess().getTypeAssignment_1_1(), "rule__IdtFile__TypeAssignment_1_1");
@@ -129,7 +128,8 @@ public class FractalIdtParser extends AbstractContentAssistParser {
 					put(grammarAccess.getParameterAccess().getParameterQualifierAssignment_0(), "rule__Parameter__ParameterQualifierAssignment_0");
 					put(grammarAccess.getParameterAccess().getQualifiedTypeSpecAssignment_1(), "rule__Parameter__QualifiedTypeSpecAssignment_1");
 					put(grammarAccess.getParameterAccess().getDecAssignment_2(), "rule__Parameter__DecAssignment_2");
-					put(grammarAccess.getIncludeDirectiveAccess().getPathAssignment_1(), "rule__IncludeDirective__PathAssignment_1");
+					put(grammarAccess.getIncludeDirectiveAccess().getImportedURIAssignment_1_0(), "rule__IncludeDirective__ImportedURIAssignment_1_0");
+					put(grammarAccess.getIncludeDirectiveAccess().getIncludeIDAssignment_1_1(), "rule__IncludeDirective__IncludeIDAssignment_1_1");
 				}
 			};
 		}

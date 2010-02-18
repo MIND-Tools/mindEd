@@ -105,10 +105,11 @@ enum ParameterQualifier:
 
 
 IncludeDirective:
-  '#include' path=IncludePath;
-
-IncludePath:
-  STRING|'<'ID'.'ID'>'; 
+  '#include'  (importedURI=STRING|includeID=IncludeLib);
+  
+terminal IncludeLib:
+	'<'ID'.'ID'>';
+	
   
 
 

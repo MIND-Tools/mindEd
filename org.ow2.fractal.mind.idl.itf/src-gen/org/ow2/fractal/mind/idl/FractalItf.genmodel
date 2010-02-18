@@ -116,7 +116,8 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference FractalItf.ecore#//Parameter/dec"/>
     </genClasses>
     <genClasses ecoreClass="FractalItf.ecore#//IncludeDirective">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute FractalItf.ecore#//IncludeDirective/path"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute FractalItf.ecore#//IncludeDirective/importedURI"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute FractalItf.ecore#//IncludeDirective/includeID"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

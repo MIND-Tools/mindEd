@@ -966,64 +966,36 @@ public class FractalItfGrammarAccess extends AbstractGrammarElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "IncludeDirective");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Keyword cIncludeKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Assignment cPathAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cPathIncludePathParserRuleCall_1_0 = (RuleCall)cPathAssignment_1.eContents().get(0);
+		private final Alternatives cAlternatives_1 = (Alternatives)cGroup.eContents().get(1);
+		private final Assignment cImportedURIAssignment_1_0 = (Assignment)cAlternatives_1.eContents().get(0);
+		private final RuleCall cImportedURISTRINGTerminalRuleCall_1_0_0 = (RuleCall)cImportedURIAssignment_1_0.eContents().get(0);
+		private final Assignment cIncludeIDAssignment_1_1 = (Assignment)cAlternatives_1.eContents().get(1);
+		private final RuleCall cIncludeIDIncludeLibTerminalRuleCall_1_1_0 = (RuleCall)cIncludeIDAssignment_1_1.eContents().get(0);
 		
 		//IncludeDirective:
-		//  "#include" path=IncludePath;   // include directive
+		//  "#include" (importedURI=STRING|includeID=IncludeLib);   // include directive
 		public ParserRule getRule() { return rule; }
 
-		//"#include" path=IncludePath
+		//"#include" (importedURI=STRING|includeID=IncludeLib)
 		public Group getGroup() { return cGroup; }
 
 		//"#include"
 		public Keyword getIncludeKeyword_0() { return cIncludeKeyword_0; }
 
-		//path=IncludePath
-		public Assignment getPathAssignment_1() { return cPathAssignment_1; }
+		//importedURI=STRING|includeID=IncludeLib
+		public Alternatives getAlternatives_1() { return cAlternatives_1; }
 
-		//IncludePath
-		public RuleCall getPathIncludePathParserRuleCall_1_0() { return cPathIncludePathParserRuleCall_1_0; }
-	}
-
-	public class IncludePathElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "IncludePath");
-		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final RuleCall cSTRINGTerminalRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
-		private final Group cGroup_1 = (Group)cAlternatives.eContents().get(1);
-		private final Keyword cLessThanSignKeyword_1_0 = (Keyword)cGroup_1.eContents().get(0);
-		private final RuleCall cIDTerminalRuleCall_1_1 = (RuleCall)cGroup_1.eContents().get(1);
-		private final Keyword cFullStopKeyword_1_2 = (Keyword)cGroup_1.eContents().get(2);
-		private final RuleCall cIDTerminalRuleCall_1_3 = (RuleCall)cGroup_1.eContents().get(3);
-		private final Keyword cGreaterThanSignKeyword_1_4 = (Keyword)cGroup_1.eContents().get(4);
-		
-		//IncludePath returns ecore::EString:
-		//  STRING|"<" ID "." ID ">";
-		public ParserRule getRule() { return rule; }
-
-		//STRING|"<" ID "." ID ">"
-		public Alternatives getAlternatives() { return cAlternatives; }
+		//importedURI=STRING
+		public Assignment getImportedURIAssignment_1_0() { return cImportedURIAssignment_1_0; }
 
 		//STRING
-		public RuleCall getSTRINGTerminalRuleCall_0() { return cSTRINGTerminalRuleCall_0; }
+		public RuleCall getImportedURISTRINGTerminalRuleCall_1_0_0() { return cImportedURISTRINGTerminalRuleCall_1_0_0; }
 
-		//"<" ID "." ID ">"
-		public Group getGroup_1() { return cGroup_1; }
+		//includeID=IncludeLib
+		public Assignment getIncludeIDAssignment_1_1() { return cIncludeIDAssignment_1_1; }
 
-		//"<"
-		public Keyword getLessThanSignKeyword_1_0() { return cLessThanSignKeyword_1_0; }
-
-		//ID
-		public RuleCall getIDTerminalRuleCall_1_1() { return cIDTerminalRuleCall_1_1; }
-
-		//"."
-		public Keyword getFullStopKeyword_1_2() { return cFullStopKeyword_1_2; }
-
-		//ID
-		public RuleCall getIDTerminalRuleCall_1_3() { return cIDTerminalRuleCall_1_3; }
-
-		//">"
-		public Keyword getGreaterThanSignKeyword_1_4() { return cGreaterThanSignKeyword_1_4; }
+		//IncludeLib
+		public RuleCall getIncludeIDIncludeLibTerminalRuleCall_1_1_0() { return cIncludeIDIncludeLibTerminalRuleCall_1_1_0; }
 	}
 	
 	
@@ -1293,7 +1265,7 @@ public class FractalItfGrammarAccess extends AbstractGrammarElementFinder {
 	private ParameterElements pParameter;
 	private ParameterQualifierElements unknownRuleParameterQualifier;
 	private IncludeDirectiveElements pIncludeDirective;
-	private IncludePathElements pIncludePath;
+	private TerminalRule tIncludeLib;
 	
 	private final GrammarProvider grammarProvider;
 
@@ -1635,7 +1607,7 @@ public class FractalItfGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//IncludeDirective:
-	//  "#include" path=IncludePath;   // include directive
+	//  "#include" (importedURI=STRING|includeID=IncludeLib);   // include directive
 	public IncludeDirectiveElements getIncludeDirectiveAccess() {
 		return (pIncludeDirective != null) ? pIncludeDirective : (pIncludeDirective = new IncludeDirectiveElements());
 	}
@@ -1644,15 +1616,11 @@ public class FractalItfGrammarAccess extends AbstractGrammarElementFinder {
 		return getIncludeDirectiveAccess().getRule();
 	}
 
-	//IncludePath returns ecore::EString:
-	//  STRING|"<" ID "." ID ">";
-	public IncludePathElements getIncludePathAccess() {
-		return (pIncludePath != null) ? pIncludePath : (pIncludePath = new IncludePathElements());
-	}
-	
-	public ParserRule getIncludePathRule() {
-		return getIncludePathAccess().getRule();
-	}
+	//terminal IncludeLib:
+	//  "<" ID "." ID ">";
+	public TerminalRule getIncludeLibRule() {
+		return (tIncludeLib != null) ? tIncludeLib : (tIncludeLib = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "IncludeLib"));
+	} 
 
 	//terminal ID:
 	//  "^"? ("a".."z" | "A".."Z" | "_") ("a".."z" | "A".."Z" | "_" | "0".."9")*;

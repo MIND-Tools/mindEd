@@ -7,73 +7,74 @@ package org.ow2.fractal.mind.idl.parser.antlr.internal;
 import org.eclipse.xtext.parser.antlr.Lexer;
 }
 
-T11 : ';' ;
-T12 : 'typedef' ;
-T13 : '{' ;
-T14 : '}' ;
-T15 : 'struct' ;
-T16 : 'union' ;
-T17 : ':' ;
-T18 : 'enum' ;
-T19 : ',' ;
-T20 : '=' ;
-T21 : '*' ;
-T22 : '(' ;
-T23 : ')' ;
-T24 : '[' ;
-T25 : ']' ;
-T26 : '.' ;
-T27 : '#define' ;
-T28 : 'interface' ;
-T29 : 'unmanaged' ;
-T30 : 'void' ;
-T31 : '...' ;
-T32 : '#include' ;
-T33 : '<' ;
-T34 : '>' ;
-T35 : 'const' ;
-T36 : 'volatile' ;
-T37 : 'char' ;
-T38 : 'short' ;
-T39 : 'int' ;
-T40 : 'long' ;
-T41 : 'float' ;
-T42 : 'double' ;
-T43 : 'signed' ;
-T44 : 'unsigned' ;
-T45 : 'string' ;
-T46 : 'int8_t' ;
-T47 : 'uint8_t' ;
-T48 : 'int16_t' ;
-T49 : 'uint16_t' ;
-T50 : 'int32_t' ;
-T51 : 'uint32_t' ;
-T52 : 'int64_t' ;
-T53 : 'uint64_t' ;
-T54 : 'intptr_t' ;
-T55 : 'uintptr_t' ;
-T56 : 'in' ;
-T57 : 'out' ;
+T12 : ';' ;
+T13 : 'typedef' ;
+T14 : '{' ;
+T15 : '}' ;
+T16 : 'struct' ;
+T17 : 'union' ;
+T18 : ':' ;
+T19 : 'enum' ;
+T20 : ',' ;
+T21 : '=' ;
+T22 : '*' ;
+T23 : '(' ;
+T24 : ')' ;
+T25 : '[' ;
+T26 : ']' ;
+T27 : '.' ;
+T28 : '#define' ;
+T29 : 'interface' ;
+T30 : 'unmanaged' ;
+T31 : 'void' ;
+T32 : '...' ;
+T33 : '#include' ;
+T34 : 'const' ;
+T35 : 'volatile' ;
+T36 : 'char' ;
+T37 : 'short' ;
+T38 : 'int' ;
+T39 : 'long' ;
+T40 : 'float' ;
+T41 : 'double' ;
+T42 : 'signed' ;
+T43 : 'unsigned' ;
+T44 : 'string' ;
+T45 : 'int8_t' ;
+T46 : 'uint8_t' ;
+T47 : 'int16_t' ;
+T48 : 'uint16_t' ;
+T49 : 'int32_t' ;
+T50 : 'uint32_t' ;
+T51 : 'int64_t' ;
+T52 : 'uint64_t' ;
+T53 : 'intptr_t' ;
+T54 : 'uintptr_t' ;
+T55 : 'in' ;
+T56 : 'out' ;
 
-// $ANTLR src "../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g" 2185
+// $ANTLR src "../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g" 2147
+RULE_INCLUDELIB : '<' RULE_ID '.' RULE_ID '>';
+
+// $ANTLR src "../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g" 2149
 RULE_ID : '^'? ('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'_'|'0'..'9')*;
 
-// $ANTLR src "../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g" 2187
+// $ANTLR src "../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g" 2151
 RULE_INT : ('0'..'9')+;
 
-// $ANTLR src "../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g" 2189
+// $ANTLR src "../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g" 2153
 RULE_STRING : ('"' ('\\' ('b'|'t'|'n'|'f'|'r'|'"'|'\''|'\\')|~(('\\'|'"')))* '"'|'\'' ('\\' ('b'|'t'|'n'|'f'|'r'|'"'|'\''|'\\')|~(('\\'|'\'')))* '\'');
 
-// $ANTLR src "../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g" 2191
+// $ANTLR src "../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g" 2155
 RULE_ML_COMMENT : '/*' ( options {greedy=false;} : . )*'*/';
 
-// $ANTLR src "../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g" 2193
+// $ANTLR src "../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g" 2157
 RULE_SL_COMMENT : '//' ~(('\n'|'\r'))* ('\r'? '\n')?;
 
-// $ANTLR src "../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g" 2195
+// $ANTLR src "../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g" 2159
 RULE_WS : (' '|'\t'|'\r'|'\n')+;
 
-// $ANTLR src "../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g" 2197
+// $ANTLR src "../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g" 2161
 RULE_ANY_OTHER : .;
 
 

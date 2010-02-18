@@ -985,13 +985,22 @@ public interface FractalIDLPackage extends EPackage
   int INCLUDE_DIRECTIVE = 22;
 
   /**
-   * The feature id for the '<em><b>Path</b></em>' attribute.
+   * The feature id for the '<em><b>Imported URI</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int INCLUDE_DIRECTIVE__PATH = 0;
+  int INCLUDE_DIRECTIVE__IMPORTED_URI = 0;
+
+  /**
+   * The feature id for the '<em><b>Include ID</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int INCLUDE_DIRECTIVE__INCLUDE_ID = 1;
 
   /**
    * The number of structural features of the '<em>Include Directive</em>' class.
@@ -1000,7 +1009,7 @@ public interface FractalIDLPackage extends EPackage
    * @generated
    * @ordered
    */
-  int INCLUDE_DIRECTIVE_FEATURE_COUNT = 1;
+  int INCLUDE_DIRECTIVE_FEATURE_COUNT = 2;
 
   /**
    * The meta object id for the '{@link org.ow2.fractal.mind.idl.fractalIDL.TypeQualifier <em>Type Qualifier</em>}' enum.
@@ -1660,15 +1669,26 @@ public interface FractalIDLPackage extends EPackage
   EClass getIncludeDirective();
 
   /**
-   * Returns the meta object for the attribute '{@link org.ow2.fractal.mind.idl.fractalIDL.IncludeDirective#getPath <em>Path</em>}'.
+   * Returns the meta object for the attribute '{@link org.ow2.fractal.mind.idl.fractalIDL.IncludeDirective#getImportedURI <em>Imported URI</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Path</em>'.
-   * @see org.ow2.fractal.mind.idl.fractalIDL.IncludeDirective#getPath()
+   * @return the meta object for the attribute '<em>Imported URI</em>'.
+   * @see org.ow2.fractal.mind.idl.fractalIDL.IncludeDirective#getImportedURI()
    * @see #getIncludeDirective()
    * @generated
    */
-  EAttribute getIncludeDirective_Path();
+  EAttribute getIncludeDirective_ImportedURI();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.ow2.fractal.mind.idl.fractalIDL.IncludeDirective#getIncludeID <em>Include ID</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Include ID</em>'.
+   * @see org.ow2.fractal.mind.idl.fractalIDL.IncludeDirective#getIncludeID()
+   * @see #getIncludeDirective()
+   * @generated
+   */
+  EAttribute getIncludeDirective_IncludeID();
 
   /**
    * Returns the meta object for enum '{@link org.ow2.fractal.mind.idl.fractalIDL.TypeQualifier <em>Type Qualifier</em>}'.
@@ -2242,12 +2262,20 @@ public interface FractalIDLPackage extends EPackage
     EClass INCLUDE_DIRECTIVE = eINSTANCE.getIncludeDirective();
 
     /**
-     * The meta object literal for the '<em><b>Path</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Imported URI</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute INCLUDE_DIRECTIVE__PATH = eINSTANCE.getIncludeDirective_Path();
+    EAttribute INCLUDE_DIRECTIVE__IMPORTED_URI = eINSTANCE.getIncludeDirective_ImportedURI();
+
+    /**
+     * The meta object literal for the '<em><b>Include ID</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute INCLUDE_DIRECTIVE__INCLUDE_ID = eINSTANCE.getIncludeDirective_IncludeID();
 
     /**
      * The meta object literal for the '{@link org.ow2.fractal.mind.idl.fractalIDL.TypeQualifier <em>Type Qualifier</em>}' enum.

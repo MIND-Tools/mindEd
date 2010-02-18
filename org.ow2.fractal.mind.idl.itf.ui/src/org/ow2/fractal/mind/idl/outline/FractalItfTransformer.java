@@ -112,7 +112,8 @@ public class FractalItfTransformer extends
 	public ContentOutlineNode createNode(IncludeDirective obj,
 			ContentOutlineNode parentNode) {
 		ContentOutlineNode node = super.newOutlineNode(obj, parentNode);
-		String label = obj.getPath();
+		String label = (obj.getImportedURI() != null) ? obj.getImportedURI()
+				: obj.getIncludeID();
 		node.setLabel(label);
 		return node;
 	}

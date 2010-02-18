@@ -23,7 +23,8 @@ import org.ow2.fractal.mind.idl.fractalIDL.IncludeDirective;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.ow2.fractal.mind.idl.fractalIDL.impl.IncludeDirectiveImpl#getPath <em>Path</em>}</li>
+ *   <li>{@link org.ow2.fractal.mind.idl.fractalIDL.impl.IncludeDirectiveImpl#getImportedURI <em>Imported URI</em>}</li>
+ *   <li>{@link org.ow2.fractal.mind.idl.fractalIDL.impl.IncludeDirectiveImpl#getIncludeID <em>Include ID</em>}</li>
  * </ul>
  * </p>
  *
@@ -32,24 +33,44 @@ import org.ow2.fractal.mind.idl.fractalIDL.IncludeDirective;
 public class IncludeDirectiveImpl extends MinimalEObjectImpl.Container implements IncludeDirective
 {
   /**
-   * The default value of the '{@link #getPath() <em>Path</em>}' attribute.
+   * The default value of the '{@link #getImportedURI() <em>Imported URI</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getPath()
+   * @see #getImportedURI()
    * @generated
    * @ordered
    */
-  protected static final String PATH_EDEFAULT = null;
+  protected static final String IMPORTED_URI_EDEFAULT = null;
 
   /**
-   * The cached value of the '{@link #getPath() <em>Path</em>}' attribute.
+   * The cached value of the '{@link #getImportedURI() <em>Imported URI</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getPath()
+   * @see #getImportedURI()
    * @generated
    * @ordered
    */
-  protected String path = PATH_EDEFAULT;
+  protected String importedURI = IMPORTED_URI_EDEFAULT;
+
+  /**
+   * The default value of the '{@link #getIncludeID() <em>Include ID</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getIncludeID()
+   * @generated
+   * @ordered
+   */
+  protected static final String INCLUDE_ID_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getIncludeID() <em>Include ID</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getIncludeID()
+   * @generated
+   * @ordered
+   */
+  protected String includeID = INCLUDE_ID_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
@@ -77,9 +98,9 @@ public class IncludeDirectiveImpl extends MinimalEObjectImpl.Container implement
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getPath()
+  public String getImportedURI()
   {
-    return path;
+    return importedURI;
   }
 
   /**
@@ -87,12 +108,35 @@ public class IncludeDirectiveImpl extends MinimalEObjectImpl.Container implement
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setPath(String newPath)
+  public void setImportedURI(String newImportedURI)
   {
-    String oldPath = path;
-    path = newPath;
+    String oldImportedURI = importedURI;
+    importedURI = newImportedURI;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, FractalIDLPackage.INCLUDE_DIRECTIVE__PATH, oldPath, path));
+      eNotify(new ENotificationImpl(this, Notification.SET, FractalIDLPackage.INCLUDE_DIRECTIVE__IMPORTED_URI, oldImportedURI, importedURI));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public String getIncludeID()
+  {
+    return includeID;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setIncludeID(String newIncludeID)
+  {
+    String oldIncludeID = includeID;
+    includeID = newIncludeID;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, FractalIDLPackage.INCLUDE_DIRECTIVE__INCLUDE_ID, oldIncludeID, includeID));
   }
 
   /**
@@ -105,8 +149,10 @@ public class IncludeDirectiveImpl extends MinimalEObjectImpl.Container implement
   {
     switch (featureID)
     {
-      case FractalIDLPackage.INCLUDE_DIRECTIVE__PATH:
-        return getPath();
+      case FractalIDLPackage.INCLUDE_DIRECTIVE__IMPORTED_URI:
+        return getImportedURI();
+      case FractalIDLPackage.INCLUDE_DIRECTIVE__INCLUDE_ID:
+        return getIncludeID();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -121,8 +167,11 @@ public class IncludeDirectiveImpl extends MinimalEObjectImpl.Container implement
   {
     switch (featureID)
     {
-      case FractalIDLPackage.INCLUDE_DIRECTIVE__PATH:
-        setPath((String)newValue);
+      case FractalIDLPackage.INCLUDE_DIRECTIVE__IMPORTED_URI:
+        setImportedURI((String)newValue);
+        return;
+      case FractalIDLPackage.INCLUDE_DIRECTIVE__INCLUDE_ID:
+        setIncludeID((String)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -138,8 +187,11 @@ public class IncludeDirectiveImpl extends MinimalEObjectImpl.Container implement
   {
     switch (featureID)
     {
-      case FractalIDLPackage.INCLUDE_DIRECTIVE__PATH:
-        setPath(PATH_EDEFAULT);
+      case FractalIDLPackage.INCLUDE_DIRECTIVE__IMPORTED_URI:
+        setImportedURI(IMPORTED_URI_EDEFAULT);
+        return;
+      case FractalIDLPackage.INCLUDE_DIRECTIVE__INCLUDE_ID:
+        setIncludeID(INCLUDE_ID_EDEFAULT);
         return;
     }
     super.eUnset(featureID);
@@ -155,8 +207,10 @@ public class IncludeDirectiveImpl extends MinimalEObjectImpl.Container implement
   {
     switch (featureID)
     {
-      case FractalIDLPackage.INCLUDE_DIRECTIVE__PATH:
-        return PATH_EDEFAULT == null ? path != null : !PATH_EDEFAULT.equals(path);
+      case FractalIDLPackage.INCLUDE_DIRECTIVE__IMPORTED_URI:
+        return IMPORTED_URI_EDEFAULT == null ? importedURI != null : !IMPORTED_URI_EDEFAULT.equals(importedURI);
+      case FractalIDLPackage.INCLUDE_DIRECTIVE__INCLUDE_ID:
+        return INCLUDE_ID_EDEFAULT == null ? includeID != null : !INCLUDE_ID_EDEFAULT.equals(includeID);
     }
     return super.eIsSet(featureID);
   }
@@ -172,8 +226,10 @@ public class IncludeDirectiveImpl extends MinimalEObjectImpl.Container implement
     if (eIsProxy()) return super.toString();
 
     StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (path: ");
-    result.append(path);
+    result.append(" (importedURI: ");
+    result.append(importedURI);
+    result.append(", includeID: ");
+    result.append(includeID);
     result.append(')');
     return result.toString();
   }

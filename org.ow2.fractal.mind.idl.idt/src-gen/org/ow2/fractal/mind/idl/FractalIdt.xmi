@@ -538,24 +538,26 @@
       </type>
       <alternatives xsi:type="xtext:Group">
         <tokens xsi:type="xtext:Keyword" value="#include"/>
-        <tokens xsi:type="xtext:Assignment" feature="path" operator="=">
-          <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.30"/>
+        <tokens xsi:type="xtext:Alternatives">
+          <groups xsi:type="xtext:Assignment" feature="importedURI" operator="=">
+            <terminal xsi:type="xtext:RuleCall" rule="/2/@rules.2"/>
+          </groups>
+          <groups xsi:type="xtext:Assignment" feature="includeID" operator="=">
+            <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.30"/>
+          </groups>
         </tokens>
       </alternatives>
     </rules>
-    <rules xsi:type="xtext:ParserRule" name="IncludePath">
+    <rules xsi:type="xtext:TerminalRule" name="IncludeLib">
       <type metamodel="/2/@metamodelDeclarations.0">
         <classifier xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       </type>
-      <alternatives xsi:type="xtext:Alternatives">
-        <groups xsi:type="xtext:RuleCall" rule="/2/@rules.2"/>
-        <groups xsi:type="xtext:Group">
-          <tokens xsi:type="xtext:Keyword" value="&lt;"/>
-          <tokens xsi:type="xtext:RuleCall" rule="/2/@rules.0"/>
-          <tokens xsi:type="xtext:Keyword" value="."/>
-          <tokens xsi:type="xtext:RuleCall" rule="/2/@rules.0"/>
-          <tokens xsi:type="xtext:Keyword" value=">"/>
-        </groups>
+      <alternatives xsi:type="xtext:Group">
+        <tokens xsi:type="xtext:Keyword" value="&lt;"/>
+        <tokens xsi:type="xtext:RuleCall" rule="/2/@rules.0"/>
+        <tokens xsi:type="xtext:Keyword" value="."/>
+        <tokens xsi:type="xtext:RuleCall" rule="/2/@rules.0"/>
+        <tokens xsi:type="xtext:Keyword" value=">"/>
       </alternatives>
     </rules>
   </xtext:Grammar>
