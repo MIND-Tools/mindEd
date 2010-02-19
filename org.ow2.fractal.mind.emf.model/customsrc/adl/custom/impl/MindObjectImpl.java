@@ -3,7 +3,6 @@ package adl.custom.impl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
 
 import adl.AnnotationsList;
-import adl.MindObject;
 import adl.custom.adapters.factory.AdlAdapterHelperFactory;
 import adl.custom.helpers.IHelper;
 
@@ -24,7 +23,7 @@ import adl.custom.helpers.IHelper;
  * @extends EObject
  */
 
-public class MindObjectImpl extends EObjectImpl implements MindObject {
+public class MindObjectImpl extends EObjectImpl {
 	protected IHelper<?> helper = getHelper();
 	
 	public IHelper<?> getHelper() {
@@ -70,16 +69,13 @@ public class MindObjectImpl extends EObjectImpl implements MindObject {
 		linkedAnnotationsList = newLinkedAnnotationsList;
 	}
 
-	@Override
 	public AnnotationsList getAnnotationsList() {
-		// TODO Auto-generated method stub
+		// TODO 
 		return null;
 	}
 
-	@Override
 	public void setAnnotationsList(AnnotationsList value) {
-		// TODO Auto-generated method stub
-		
+		// TODO 
 	}
 
 }

@@ -8,12 +8,12 @@ Bundle-Vendor: %providerName
 Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Export-Package: adl,
+ adl.custom.adapters,
+ adl.custom.adapters.factory,
+ adl.custom.helpers,
  adl.custom.impl,
  adl.custom.impl.factory,
  adl.custom.util,
- adl.custom.util.adapters,
- adl.custom.util.adapters.factory,
- adl.helpers,
  adl.impl,
  adl.util
 Require-Bundle: org.eclipse.core.runtime,
