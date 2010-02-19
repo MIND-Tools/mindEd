@@ -169,6 +169,7 @@ public class ArchitectureDefinitionHelper extends HelperAdapter<ArchitectureDefi
 		return null;
 	}
 	
+	@Override
 	public ComponentType getComponentType(){
 		if(getObject().getBody()==null)return ComponentType.NONE;
 		switch(getObject().getBody().eClass().getClassifierID())
