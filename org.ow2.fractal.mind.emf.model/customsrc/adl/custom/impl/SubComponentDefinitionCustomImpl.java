@@ -1,61 +1,64 @@
 package adl.custom.impl;
 
-import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.util.EList;
 
 import adl.AnnotationsList;
-import adl.ArchitectureDefinition;
+import adl.Body;
 import adl.ComponentReference;
 import adl.Element;
-import adl.custom.util.adapters.factory.AdlAdapterHelperFactory;
-import adl.helpers.ArchitectureDefinitionHelper;
-import adl.helpers.IHelper;
-import adl.impl.PrimitiveSubComponentImpl;
+import adl.impl.SubComponentDefinitionImpl;
 
 /**
- * <b>Class</b> <i>PrimitiveSubComponentCustomImpl</i>
+ * <b>Class</b> <i>TemplateSubComponentCustomImpl</i>
  * <p>
  * This class extends generated class PrimitiveSubComponentImpl to provides custom functions.
  * 
  * <p>
  * The following features are supported:
  * <ul>
- * <li>{@link adl.custom.impl.PrimitiveSubComponentCustomImpl#getHelper <em>getHelper</em>}</li>
- * <li>{@link adl.custom.impl.PrimitiveSubComponentCustomImpl#setActiveDefinitionCallsList <em>setActiveDefinitionCallsList</em>}</li>
- * <li>{@link adl.custom.impl.PrimitiveSubComponentCustomImpl#getActiveDefinitionCallsList <em>getActiveDefinitionCallsList</em>}</li>
- * <li>{@link adl.custom.impl.PrimitiveSubComponentCustomImpl#setLinkedAnnotationsList <em>setLinkedAnnotationsList</em>}</li>
- * <li>{@link adl.custom.impl.PrimitiveSubComponentCustomImpl#getLinkedAnnotationsList <em>getLinkedAnnotationsList</em>}</li>
+ * <li>{@link adl.custom.impl.SubComponentDefinitionCustomImpl#getReferenceDefinition <em>getReferenceDefinition</em>}</li>
+ * <li>{@link adl.custom.impl.SubComponentDefinitionCustomImpl#setReferenceDefinition <em>setReferenceDefinition</em>}</li>
+ * <li>{@link adl.custom.impl.SubComponentDefinitionCustomImpl#getTemplateReference <em>getTemplateReference</em>}</li>
+ * <li>{@link adl.custom.impl.SubComponentDefinitionCustomImpl#getHelper <em>getHelper</em>}</li>
+ * <li>{@link adl.custom.impl.SubComponentDefinitionCustomImpl#getActiveDefinitionCallsList <em>getActiveDefinitionCallsList</em>}</li>
+ * <li>{@link adl.custom.impl.SubComponentDefinitionCustomImpl#setActiveDefinitionCallsList <em>setActiveDefinitionCallsList</em>}</li>
+ * <li>{@link adl.custom.impl.SubComponentDefinitionCustomImpl#getLinkedAnnotationsList <em>getLinkedAnnotationsList</em>}</li>
+ * <li>{@link adl.custom.impl.SubComponentDefinitionCustomImpl#setLinkedAnnotationsList <em>setLinkedAnnotationsList</em>}</li>
  * </ul>
  * </p>
  * 
  * @author proustr
  * @model kind="custom implementation"
- * @extends PrimitiveSubComponentImpl
+ * @extends
  */
-public class PrimitiveSubComponentCustomImpl extends PrimitiveSubComponentImpl {
+public class SubComponentDefinitionCustomImpl extends SubComponentDefinitionImpl {
 	/**
 	 * EList<ComponentReference> activeDefinitionCallsList : Local variable containing the list of references that have already been treated.
 	 */
 	private EList<ComponentReference> activeDefinitionCallsList = null;
 
-	/**
-	 * <b>Method</b> <i>getHelper</i>
-	 * <p>
-	 * This methods use the AdlAdapterHelperFactory to recover the correct associated Helper for this class and the returns it.
+
+	/*
+	 * (non-Javadoc)
 	 * 
-	 * @return ArchitectureDefinitionHelper
-	 * 
-	 * @author proustr
+	 * @see adl.impl.ArchitectureDefinitionImpl#setReferenceDefinition(adl.ComponentReference)
 	 */
-	public ArchitectureDefinitionHelper getHelper() {
-		ArchitectureDefinitionHelper result = null;
-		Adapter helper = AdlAdapterHelperFactory.getInstance().adapt(this, ArchitectureDefinitionHelper.class);
-		if (helper != null) {
-			result = (ArchitectureDefinitionHelper) helper;
-		}
-		return result;
+	@Override
+	public void setReferenceDefinition(ComponentReference newReferenceDefinition) {
+		super.setReferenceDefinition(newReferenceDefinition);
 	}
 
+	/* (non-Javadoc)
+	 * @see adl.impl.ArchitectureDefinitionImpl#getSimpleName()
+	 */
+	@Override
+	public String getSimpleName() {
+		if (simpleName == null || !simpleName.contains(".")) {
+			simpleName = getHelper().getSimpleName(this);
+		}
+		return super.getSimpleName();
+	}
+	
 	/**
 	 * <b>Method</b> <i>setActiveDefinitionCallsList</i>
 	 * <p>
@@ -86,13 +89,13 @@ public class PrimitiveSubComponentCustomImpl extends PrimitiveSubComponentImpl {
 	/*
 	 * (non-Javadoc)
 	 * 
-	 * @see adl.impl.PrimitiveAnonymousSubComponentImpl#getLinkedAnnotationsList()
+	 * @see adl.impl.TemplateSubComponentImpl#getLinkedAnnotationsList()
 	 */
 	@Override
 	public AnnotationsList getLinkedAnnotationsList() {
-		ArchitectureDefinition parent = this.getParentComponent();
+		Body parent = this.getParentBody();
 		if (parent != null) {
-			EList<Element> elements = this.getParentComponent().getElements();
+			EList<Element> elements = parent.getElements();
 			int index = elements.indexOf(this);
 			if (index > 0 && elements.get(index - 1) instanceof AnnotationsList) linkedAnnotationsList = (AnnotationsList) elements
 					.get(index - 1);
@@ -103,11 +106,11 @@ public class PrimitiveSubComponentCustomImpl extends PrimitiveSubComponentImpl {
 	/*
 	 * (non-Javadoc)
 	 * 
-	 * @see adl.impl.PrimitiveAnonymousSubComponentImpl#setLinkedAnnotationsList(adl.AnnotationsList)
+	 * @see adl.impl.TemplateSubComponentImpl#setLinkedAnnotationsList(adl.AnnotationsList)
 	 */
 	@Override
 	public void setLinkedAnnotationsList(AnnotationsList newLinkedAnnotationsList) {
-		ArchitectureDefinition parent = this.getParentComponent();
+		Body parent = this.getParentBody();
 		if (parent != null) {
 			EList<Element> elements = parent.getElements();
 			int index = elements.indexOf(this);
