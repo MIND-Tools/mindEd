@@ -243,6 +243,10 @@ public abstract class AbstractMergeTreatment extends
 				return true;
 			}
 		}
+		else if (object1 instanceof MergedObject)
+		{
+			return ((MergedObject)object1).isCanOverride();
+		}
 		return false;
 	}
 

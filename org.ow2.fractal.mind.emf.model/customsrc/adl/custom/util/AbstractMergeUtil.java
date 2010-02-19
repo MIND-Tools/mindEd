@@ -271,7 +271,7 @@ public abstract class AbstractMergeUtil extends AbstractReferencesTreatment {
 		EStructuralFeature feature=null;
 		if(definition instanceof SubComponentDefinition)
 		{
-			feature = adlPackage.getArchitectureDefinition_ReferenceDefinition();
+			feature = adlPackage.getSubComponentDefinition_ReferenceDefinition();
 			ComponentReference reference = (ComponentReference) definition.eGet(feature);
 			if (reference == null)	return null;
 			result.add(reference.getReferenceName());
