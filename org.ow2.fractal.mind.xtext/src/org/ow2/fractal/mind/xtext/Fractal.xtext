@@ -1,10 +1,9 @@
 grammar org.ow2.fractal.mind.xtext.Fractal with org.eclipse.xtext.common.Terminals
 import "http://org.ow2.fractal/mind/mind.ecore/0.2.0"
 
-
 AdlDefinition : 
 ((imports+=ImportDefinition)*)
-(definitionAnnotationsList=AnnotationsList)?
+(annotationsList=AnnotationsList)?
 (architecturedefinition=ArchitectureDefinition);
 
 ImportDefinition :
@@ -24,50 +23,41 @@ PrimitiveComponentDefinition :
 name=FQN
 (primitiveFormalArgumentsList=FormalArgumentsList)?
 (referencesList=PrimitiveReferencesList)?
-	(
-		('{'((elements+=AnnotationsList)?elements+=PrimitiveDefinitionElement)*'}'
-	)
-	|
-	(
-		(elements+=AnnotationsList)?elements+=PrimitiveDefinitionElement)*
-	)
+(('{'(body=PrimitiveBody)?'}')
+|
+body=PrimitiveBody)?
 ;
 
+
+
 PrimitiveDefinitionElement :
-(InterfaceDefinition
+InterfaceDefinition
 |AttributeDefinition
 |DataDefinition
-|ImplementationDefinition)(';')?;
+|ImplementationDefinition;
 
 ComponentTypeDefinition :
 'type' name=FQN
 (referencesList=TypeReferencesList)?
-	(
-		((elements+=AnnotationsList)?elements+=TypeDefinitionElement)*
-	
-	|
-		('{'((elements+=AnnotationsList)?elements+=TypeDefinitionElement)*'}')
-	)
+(('{'(body=TypeBody)?'}')
+|
+body=TypeBody)?
 ;
 
 TypeReferenceDefinition :
 referenceName=FQN;
 
 TypeDefinitionElement : 
-InterfaceDefinition';'?;
+InterfaceDefinition;
 
 CompositeComponentDefinition : 
 'composite' name=FQN 
 (templateSpecifiersList=TemplateSpecifiersList)?
 (compositeFormalArgumentsList=FormalArgumentsList)?
 (referencesList=CompositeReferencesList)?
-	(
-		('{'((elements+=AnnotationsList)?elements+=CompositeDefinitionElement)*'}'
-	)
-	|
-	(
-		(elements+=AnnotationsList)?elements+=CompositeDefinitionElement)*
-	)
+(('{'(body=CompositeBody)?'}')
+|
+(body=CompositeBody))?
 ;
 
 TemplateSpecifiersList :
@@ -89,14 +79,42 @@ FormalArgument :
 name=ID;
 
 CompositeDefinitionElement :
-(('contains'SubComponentDefinition)|InterfaceDefinition|BindingDefinition)(';')?;
+SubComponentDefinition|InterfaceDefinition|BindingDefinition;
 
 SubComponentDefinition :
-(CompositeAnonymousSubComponent)
-|(CompositeSubComponent)
-|(PrimitiveAnonymousSubComponent)
-|(PrimitiveSubComponent)
-|(TemplateSubComponent);
+(annotationsList=AnnotationsList)?
+'contains' (referenceDefinition=ComponentReference)? 'as' name=ID
+
+(
+	(
+		anonymous?='composite' 
+		'{'body = CompositeBody'}'
+	)
+|
+	(
+		anonymous?='primitive' 
+		'{'body = PrimitiveBody'}'
+	)
+)?
+;
+
+Body :
+CompositeBody | PrimitiveBody | TypeBody;
+
+CompositeBody :
+(annotationsList=AnnotationsList)?
+((elements+=CompositeDefinitionElement)(';')?)*;
+
+PrimitiveBody :
+(annotationsList=AnnotationsList)?
+((elements+=PrimitiveDefinitionElement)(';')?)*;
+
+TypeBody :
+(annotationsList=AnnotationsList)?
+((elements+=TypeDefinitionElement)(';')?)*;
+
+Element :
+CompositeDefinitionElement|PrimitiveDefinitionElement|TypeDefinitionElement;
 
 ComponentReference :
 CompositeReferenceDefinition
@@ -109,14 +127,6 @@ referenceName=FQN
 ("("argumentsList+=ArgumentDefinition(","argumentsList+=ArgumentDefinition)*")")?
 ;
 
-CompositeSubComponent : 
-'composite'referenceDefinition=CompositeReferenceDefinition'as'name=ID;
-
-CompositeAnonymousSubComponent :
-'composite'
-(referenceDefinition=CompositeReferenceDefinition)?'as'name=ID
-'{'(((elements+=AnnotationsList)?elements+=CompositeDefinitionElement))*'}';
-
 PrimitiveReferenceDefinition :
 referenceName=FQN
 ("("argumentsList+=ArgumentDefinition(","argumentsList+=ArgumentDefinition)*")")?
@@ -126,18 +136,8 @@ TemplateDefinition :
 (name=ID"=")?((reference=CompositeReferenceDefinition))
 ;
 
-TemplateSubComponent :
-(referenceDefinition=CompositeReferenceDefinition)?'as'name=ID;
-
-PrimitiveSubComponent :
-'primitive'referenceDefinition=PrimitiveReferenceDefinition'as'name=ID;
-
-PrimitiveAnonymousSubComponent :
-'primitive'(referenceDefinition=PrimitiveReferenceDefinition)?
-'as'name=ID
-'{'(((elements+=AnnotationsList)?elements+=PrimitiveDefinitionElement))*'}';
-
 AttributeDefinition :
+(annotationsList=AnnotationsList)?
 'attribute'(type=AttributeType)?
 attributeName=ID('='value=Value)?;
 
@@ -147,22 +147,26 @@ ArgumentDefinition :
 ;
 
 InterfaceDefinition :
+(annotationsList=AnnotationsList)?
 role=Role (signature=FQN)?'as'name=ID
 (collection?='['(collectionsize=INT)?collection?=']')?
 (contingency=Contingency)?
 ;
 
-BindingDefinition : 
+BindingDefinition :
+(annotationsList=AnnotationsList)?
 ('binds'
 ('this'|interfaceSourceParentName=ID)'.'interfaceSourceName=ID('['interfaceSourceIndex=INT']')?
 'to'
 ('this'|interfaceTargetParentName=ID)'.'interfaceTargetName=ID('['interfaceTargetIndex=INT']')?);
 
 DataDefinition :
+(annotationsList=AnnotationsList)?
 (('data'((fileC=FileC)|(inlineCcode=InlineCodeC)))
 |('nodata'));
 
 ImplementationDefinition :
+(annotationsList=AnnotationsList)?
 'source'((fileC=FileC)|(inlineCcode=InlineCodeC));
 
 TemplateSpecifier :
