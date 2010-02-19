@@ -2,11 +2,9 @@ package adl.custom.impl;
 
 import java.util.ArrayList;
 
-import org.eclipse.emf.common.notify.Adapter;
-
-import adl.custom.util.adapters.factory.AdlAdapterHelperFactory;
-import adl.helpers.ArchitectureDefinitionHelper;
-import adl.helpers.IHelper;
+import adl.custom.adapters.factory.AdlAdapterHelperFactory;
+import adl.custom.helpers.ArchitectureDefinitionHelper;
+import adl.custom.helpers.IHelper;
 import adl.impl.ArchitectureDefinitionImpl;
 
 public class ArchitectureDefinitionCustomImpl extends
@@ -14,6 +12,7 @@ public class ArchitectureDefinitionCustomImpl extends
 
 	private ArrayList<String> activeDefinitionCallsList=null;
 	
+	@SuppressWarnings("rawtypes")
 	public Object getAdapter(Class adapter) {
 		Object object = null;
 	
@@ -23,15 +22,6 @@ public class ArchitectureDefinitionCustomImpl extends
 		}
 		
 		return object;
-	}
-
-	public ArchitectureDefinitionHelper getHelper(){
-		ArchitectureDefinitionHelper result = null;
-		Adapter helper = AdlAdapterHelperFactory.getInstance().adapt(this,ArchitectureDefinitionHelper.class);
-		if(helper != null){
-			result = (ArchitectureDefinitionHelper)helper;
-		}
-		return result;
 	}
 
 	public void setActiveDefinitionCallsList(

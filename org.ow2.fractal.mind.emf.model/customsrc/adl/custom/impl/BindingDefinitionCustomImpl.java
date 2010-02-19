@@ -1,15 +1,9 @@
 package adl.custom.impl;
 
-import org.eclipse.emf.common.notify.Adapter;
-import org.eclipse.emf.common.util.EList;
-
 import adl.AdlPackage;
-import adl.AnnotationsList;
 import adl.ArchitectureDefinition;
-import adl.Element;
+import adl.Body;
 import adl.InterfaceDefinition;
-import adl.custom.util.adapters.factory.AdlAdapterHelperFactory;
-import adl.helpers.BindingDefinitionHelper;
 import adl.impl.BindingDefinitionImpl;
 
 /**
@@ -43,7 +37,11 @@ public class BindingDefinitionCustomImpl extends BindingDefinitionImpl {
 		if (interfaceSourceName != null
 				&& !interfaceSourceName.equals(AdlPackage.eINSTANCE.getBindingDefinition_InterfaceSourceName()
 						.getDefaultValueLiteral())) {
-			interfaceSource = getHelper().getInterfaceByName(interfaceSourceName, interfaceSourceParentName);
+			InterfaceDefinition tmpinterface = getHelper().getInterfaceByName(interfaceSourceName, interfaceSourceParentName); 
+			if(tmpinterface!=null)
+			{
+				interfaceSource = tmpinterface;
+			}
 		}
 		return super.getInterfaceSource();
 	}
@@ -58,7 +56,11 @@ public class BindingDefinitionCustomImpl extends BindingDefinitionImpl {
 		if (interfaceTargetName != null
 				&& !interfaceTargetName.equals(AdlPackage.eINSTANCE.getBindingDefinition_InterfaceTargetName()
 						.getDefaultValueLiteral())) {
-			interfaceTarget = getHelper().getInterfaceByName(interfaceTargetName, interfaceTargetParentName);
+			InterfaceDefinition tmpinterface = getHelper().getInterfaceByName(interfaceTargetName, interfaceTargetParentName); 
+			if(tmpinterface!=null)
+			{
+				interfaceTarget = tmpinterface;
+			}
 		}
 		return super.getInterfaceTarget();
 	}
@@ -75,7 +77,7 @@ public class BindingDefinitionCustomImpl extends BindingDefinitionImpl {
 		}
 		InterfaceDefinition tmpInterfaceDefinition = getHelper().getInterfaceByName(interfaceSourceName,
 				interfaceSourceParentName);
-		interfaceSource = tmpInterfaceDefinition;
+		if(tmpInterfaceDefinition!=null)interfaceSource = tmpInterfaceDefinition;
 		return super.getInterfaceSourceName();
 	}
 
@@ -102,16 +104,16 @@ public class BindingDefinitionCustomImpl extends BindingDefinitionImpl {
 	 */
 	@Override
 	public String getInterfaceSourceParentName() {
-		if (interfaceSource != null && interfaceSource.getParentComponent() != null) {
+		ArchitectureDefinition parent = getInterfaceParent(interfaceSource);
+		if (interfaceSource != null && parent!= null) {
 			if (getHelper().getAdlDefinition() != null) {
-				if (interfaceSource.getParentComponent() != null
-						&& interfaceSource.getParentComponent() == getHelper().getAdlDefinition().getHelper()
-								.getMainDefinition()) {
+				if (parent == getHelper().getAdlDefinition().getHelper()
+								.getMainDefinition() && !interfaceSourceParentName.equals(getHelper().getSimpleName(parent))) {
 					interfaceSourceParentName = AdlPackage.eINSTANCE.getBindingDefinition_InterfaceSourceParentName()
 							.getDefaultValueLiteral();
 				}
 				else {
-					interfaceSourceParentName = interfaceSource.getParentComponent().getName();
+					interfaceSourceParentName = getHelper().getSimpleName(parent);
 				}
 			}
 		}
@@ -125,16 +127,16 @@ public class BindingDefinitionCustomImpl extends BindingDefinitionImpl {
 	 */
 	@Override
 	public String getInterfaceTargetParentName() {
-		if (interfaceTarget != null && interfaceTarget.getParentComponent() != null) {
+		ArchitectureDefinition parent = getInterfaceParent(interfaceTarget);
+		if (interfaceTarget != null && parent != null) {
 			if (getHelper().getAdlDefinition() != null) {
-				if (interfaceTarget.getParentComponent() != null
-						&& interfaceTarget.getParentComponent() == getHelper().getAdlDefinition().getHelper()
-								.getMainDefinition()) {
+				if (parent == getHelper().getAdlDefinition().getHelper()
+								.getMainDefinition() && !interfaceTargetParentName.equals(getHelper().getSimpleName(parent))) {
 					interfaceTargetParentName = AdlPackage.eINSTANCE.getBindingDefinition_InterfaceTargetParentName()
 							.getDefaultValueLiteral();
 				}
 				else {
-					interfaceTargetParentName = interfaceTarget.getParentComponent().getName();
+					interfaceTargetParentName = getHelper().getSimpleName(parent);
 				}
 			}
 		}
@@ -148,12 +150,12 @@ public class BindingDefinitionCustomImpl extends BindingDefinitionImpl {
 	 */
 	@Override
 	public void setInterfaceSource(InterfaceDefinition newInterfaceSource) {
-		if (interfaceSource != newInterfaceSource) {
+		ArchitectureDefinition parent = getInterfaceParent(newInterfaceSource);
+		if (interfaceSource != newInterfaceSource && newInterfaceSource!=null) {
 			super.setInterfaceSource(newInterfaceSource);
 			if (newInterfaceSource != null) {
 				interfaceSourceName = newInterfaceSource.getName();
-				if (newInterfaceSource.getParentComponent() != null) interfaceSourceParentName = newInterfaceSource
-						.getParentComponent().getName();
+				if (parent != null) interfaceSourceParentName = getHelper().getSimpleName(parent);
 			}
 			super.setInterfaceSource(newInterfaceSource);
 		}
@@ -166,12 +168,12 @@ public class BindingDefinitionCustomImpl extends BindingDefinitionImpl {
 	 */
 	@Override
 	public void setInterfaceTarget(InterfaceDefinition newInterfaceTarget) {
-		if (interfaceTarget != newInterfaceTarget) {
+		ArchitectureDefinition parent = getInterfaceParent(newInterfaceTarget);
+		if (interfaceTarget != newInterfaceTarget && newInterfaceTarget!=null) {
 			super.setInterfaceTarget(newInterfaceTarget);
 			if (newInterfaceTarget != null) {
 				interfaceTargetName = newInterfaceTarget.getName();
-				if (newInterfaceTarget.getParentComponent() != null) interfaceTargetParentName = newInterfaceTarget
-						.getParentComponent().getName();
+				if (parent != null) interfaceTargetParentName = getHelper().getSimpleName(parent);
 			}
 		}
 	}
@@ -189,7 +191,7 @@ public class BindingDefinitionCustomImpl extends BindingDefinitionImpl {
 					&& !newInterfaceSourceName.equals(AdlPackage.eINSTANCE.getBindingDefinition_InterfaceSourceName())) {
 				InterfaceDefinition tmpInterface = getHelper().getInterfaceByName(newInterfaceSourceName,
 						interfaceSourceParentName);
-				interfaceSource = tmpInterface;
+				if(tmpInterface!=null)interfaceSource = tmpInterface;
 			}
 		}
 	}
@@ -207,7 +209,7 @@ public class BindingDefinitionCustomImpl extends BindingDefinitionImpl {
 					&& !newInterfaceTargetName.equals(AdlPackage.eINSTANCE.getBindingDefinition_InterfaceTargetName())) {
 				InterfaceDefinition tmpInterface = getHelper().getInterfaceByName(newInterfaceTargetName,
 						interfaceTargetParentName);
-				interfaceTarget = tmpInterface;
+				if(tmpInterface!=null)interfaceTarget = tmpInterface;
 			}
 		}
 	}
@@ -234,54 +236,25 @@ public class BindingDefinitionCustomImpl extends BindingDefinitionImpl {
 				.setInterfaceTargetParentName(newInterfaceTargetParentName);
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see adl.impl.ElementImpl#getLinkedAnnotationsList()
-	 */
-	@Override
-	public AnnotationsList getLinkedAnnotationsList() {
-		ArchitectureDefinition parent = this.getParentComponent();
-		if (parent != null) {
-			EList<Element> elements = this.getParentComponent().getElements();
-			int index = elements.indexOf(this);
-			if (index > 0 && elements.get(index - 1) instanceof AnnotationsList) linkedAnnotationsList = (AnnotationsList) elements
-					.get(index - 1);
-		}
-		return linkedAnnotationsList;
-	}
-
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see adl.impl.ElementImpl#setLinkedAnnotationsList(adl.AnnotationsList)
-	 */
-	@Override
-	public void setLinkedAnnotationsList(AnnotationsList newLinkedAnnotationsList) {
-		ArchitectureDefinition parent = this.getParentComponent();
-		if (parent != null) {
-			EList<Element> elements = parent.getElements();
-			int index = elements.indexOf(this);
-			if (index > 0 && elements.get(index - 1) instanceof AnnotationsList) linkedAnnotationsList = (AnnotationsList) elements
-					.get(index - 1);
-		}
-	}
-
+	
 	/**
-	 * <b>Method</b> <i>getHelper</i>
+	 * <b>Method</b> <i>getInterfaceParent</i>
 	 * <p>
-	 * This methods use the AdlAdapterHelperFactory to recover the correct associated Helper for this class and the returns it.
+	 * This methods the component that contains given interface.
 	 * 
-	 * @return BindingDefinitionHelper
+	 * @return ArchitectureDefinition
 	 * 
 	 * @author proustr
-	 */
-	public BindingDefinitionHelper getHelper() {
-		BindingDefinitionHelper result = null;
-		Adapter helper = AdlAdapterHelperFactory.getInstance().adapt(this, BindingDefinitionHelper.class);
-		if (helper != null) {
-			result = (BindingDefinitionHelper) helper;
+	 */	
+	private ArchitectureDefinition getInterfaceParent(InterfaceDefinition interfaceDefinition)
+	{
+		if(interfaceDefinition==null)return null;
+		Body body = interfaceDefinition.getParentBody();
+		if(body!=null)
+		{
+			return body.getParentComponent();
 		}
-		return result;
+		return null;
 	}
+	
 }

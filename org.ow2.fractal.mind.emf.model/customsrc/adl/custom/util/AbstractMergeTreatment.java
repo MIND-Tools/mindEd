@@ -13,12 +13,14 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.EStructuralFeature;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 
 import adl.AdlDefinition;
 import adl.AdlFactory;
 import adl.AdlPackage;
 import adl.ArchitectureDefinition;
 import adl.ComponentReference;
+import adl.Element;
 import adl.ImportDefinition;
 import adl.MergedObject;
 import adl.SubComponentDefinition;
@@ -33,23 +35,29 @@ import adl.custom.util.AdlMergeUtilTrace.MessageTypes;
  * @model kind="abstract class"
  * @extends AbstractReferencesTreatment
  */
-public abstract class AbstractMergeTreatment extends AbstractReferencesTreatment {
+public abstract class AbstractMergeTreatment extends
+		AbstractReferencesTreatment {
 	/**
-	 * HashMap<EObject,EObject> eObjectsMergeHistoryMapping : When merge algorithm duplicates some objects, this variable keeps the mapping between
-	 * main object and created object while merging. It allows to resolve references at the end of merging by finding correspounding duplicated object
-	 * instance.
+	 * HashMap<EObject,EObject> eObjectsMergeHistoryMapping : When merge
+	 * algorithm duplicates some objects, this variable keeps the mapping
+	 * between main object and created object while merging. It allows to
+	 * resolve references at the end of merging by finding correspounding
+	 * duplicated object instance.
 	 * 
 	 */
 	protected HashMap<EObject, EObject> eObjectsMergeHistoryMapping = new HashMap<EObject, EObject>();
 	/**
-	 * HashMap<EObject,EObject> referencesToResolve : While some imported references from a merge can target an inexisting object in model that have
-	 * still not been imported, the non containment references are treated at the end. This variable stores the non containment references to treat
+	 * HashMap<EObject,EObject> referencesToResolve : While some imported
+	 * references from a merge can target an inexisting object in model that
+	 * have still not been imported, the non containment references are treated
+	 * at the end. This variable stores the non containment references to treat
 	 * after having merged two definition.
 	 * 
 	 */
 	protected HashMap<EObject, EObject> referencesToResolve = new HashMap<EObject, EObject>();
 	/**
-	 * DefinitionLoaderUtil definitionLoader : Instantiate a unique loader util for the class.
+	 * DefinitionLoaderUtil definitionLoader : Instantiate a unique loader util
+	 * for the class.
 	 * 
 	 */
 	protected DefinitionLoaderUtil definitionLoader;
@@ -70,7 +78,8 @@ public abstract class AbstractMergeTreatment extends AbstractReferencesTreatment
 	 */
 	protected static boolean merging = false;
 	/**
-	 * AdlMergeUtilTrace logger : Instantiate a custom logger util for merge tools.
+	 * AdlMergeUtilTrace logger : Instantiate a custom logger util for merge
+	 * tools.
 	 * 
 	 */
 	protected AdlMergeUtilTrace logger = AdlMergeUtilTrace.getInstance();
@@ -78,42 +87,83 @@ public abstract class AbstractMergeTreatment extends AbstractReferencesTreatment
 	/**
 	 * <b>Method</b> <i>findObjectWithSameNameInList</i>
 	 * <p>
-	 * This method returns from a reference object the object with the same name in provided EList. The method can also check if object are from same
+	 * This method returns from a reference object the object with the same name
+	 * in provided EList. The method can also check if object are from same
 	 * type.
 	 * 
 	 * @param referenceObject
-	 *            : The reference object used for the check. Only its name will be considered (must have an attribute with pattern "*name*").
-	 * @param listToCheck
-	 *            : The eList of EObjects to find inside an object with same name than referenceObject.
+	 *            : The reference object used for the check. Only its name will
+	 *            be considered (must have an attribute with pattern "*name*").
+	 * @param eList
+	 *            : The eList of EObjects to find inside an object with same
+	 *            name than referenceObject.
 	 * @param checkeClass
-	 *            : If true, check also if objects have same type, if false only checks object's name.
-	 * @return Found object in listToCheck with same name than referenceObject. False if nothing found.
+	 *            : If true, check also if objects have same type, if false only
+	 *            checks object's name.
+	 * @return Found object in listToCheck with same name than referenceObject.
+	 *         False if nothing found.
 	 * 
 	 * @author proustr
 	 */
-	protected EObject findObjectWithSameNameInList(MergedObject referenceObject, EList<EObject> listToCheck,
+	protected Element findElementWithSameNameInList(
+			MergedObject referenceObject, EList<Element> eList,
 			boolean checkeClass) {
-		for (EObject targetObject : listToCheck) {
-			if (targetObject.eClass() == referenceObject.eClass() || !checkeClass) if (haveSameName(referenceObject,
-					targetObject)) return targetObject;
+		for (Element targetObject : eList) {
+			if (targetObject.eClass() == referenceObject.eClass()
+					|| !checkeClass)
+				if (haveSameName(referenceObject, targetObject))
+					return targetObject;
 		}
 		return null;
 	}
 
 	/**
-	 * <b>Method</b> <i>isSameEClass</i><p>
+	 * <b>Method</b> <i>isSameEClass</i>
+	 * <p>
 	 * Method returning if the 2 given objects have same EClass
-	 * @param object1 : EObject
-	 * @param object2 : EObject to check if same class as object1
+	 * 
+	 * @param object1
+	 *            : EObject
+	 * @param object2
+	 *            : EObject to check if same class as object1
 	 * @return true if object1 has same class as object2, false otherwise.
 	 * 
 	 * @author proustr
 	 */
-	public boolean isSameEClass(EObject object1, EObject object2)
-	{
-		return object1.eClass()==object2.eClass();
+	public boolean isSameEClass(EObject object1, EObject object2) {
+		return object1.eClass() == object2.eClass();
 	}
-	
+
+	/**
+	 * <b>Method</b> <i>copyObject</i>
+	 * <p>
+	 * This method upgrade EcoreUtil.copy to copy attributes too, sometimes
+	 * values were not duplicated.
+	 * 
+	 * @param source
+	 *            : The eObject to be copied.
+	 * @return a copy of the object with all contained objects
+	 * 
+	 * @author proustr
+	 */
+	protected EObject copyObject(EObject source) {
+		EObject target = EcoreUtil.copy(source);
+		TreeIterator<EObject> sourceIterator = source.eAllContents();
+		TreeIterator<EObject> targetIterator = target.eAllContents();
+		while (sourceIterator.hasNext() && targetIterator.hasNext()) {
+			EObject sourceObject = sourceIterator.next();
+			EObject targetObject = targetIterator.next();
+			if (sourceObject.eClass() == targetObject.eClass()) {
+				for (EAttribute attribute : sourceObject.eClass()
+						.getEAllAttributes()) {
+					targetObject.eSet(attribute, sourceObject.eGet(attribute));
+				}
+			}
+			setReferenceToResolve(sourceObject,targetObject);
+			eObjectsMergeHistoryMapping.put(sourceObject, targetObject);
+		}
+		return target;
+	}
 
 	/**
 	 * <b>Method</b> <i>recoverImports</i>
@@ -121,7 +171,8 @@ public abstract class AbstractMergeTreatment extends AbstractReferencesTreatment
 	 * This method recovers the imports list of a definition from any eObject.
 	 * 
 	 * @param eObject
-	 *            : The eObject contained in a definition to find associated imports.
+	 *            : The eObject contained in a definition to find associated
+	 *            imports.
 	 * @return an arrayList of String containing definition's imports
 	 * 
 	 * @author proustr
@@ -135,7 +186,8 @@ public abstract class AbstractMergeTreatment extends AbstractReferencesTreatment
 		if (eObject != null) {
 			AdlDefinition adlDefinition = (AdlDefinition) eObject;
 			for (ImportDefinition currentImport : adlDefinition.getImports()) {
-				if (!currentImport.isMerged()) importsList.add(currentImport.getImportName());
+				if (!currentImport.isMerged())
+					importsList.add(currentImport.getImportName());
 			}
 		}
 		return importsList;
@@ -147,16 +199,21 @@ public abstract class AbstractMergeTreatment extends AbstractReferencesTreatment
 	 * This method checks if an import already exists in a definition.
 	 * 
 	 * @param sourceImport
-	 *            : The import to check if already exists in a specified definition.
+	 *            : The import to check if already exists in a specified
+	 *            definition.
 	 * @param target
-	 *            : The target definition to check if sourceImport already exists inside.
-	 * @return true if the import already exists in specified definition, else false.
+	 *            : The target definition to check if sourceImport already
+	 *            exists inside.
+	 * @return true if the import already exists in specified definition, else
+	 *         false.
 	 * 
 	 * @author proustr
 	 */
-	protected boolean importAlreadyExisting(ImportDefinition sourceImport, AdlDefinition target) {
+	protected boolean importAlreadyExisting(ImportDefinition sourceImport,
+			AdlDefinition target) {
 		for (ImportDefinition targetImport : target.getImports()) {
-			if (targetImport.getImportName().equals(sourceImport.getImportName())) {
+			if (targetImport.getImportName().equals(
+					sourceImport.getImportName())) {
 				return true;
 			}
 		}
@@ -166,13 +223,15 @@ public abstract class AbstractMergeTreatment extends AbstractReferencesTreatment
 	/**
 	 * <b>Method</b> <i>haveSameName</i>
 	 * <p>
-	 * This method checks if two objects have an attribute with pattern '*name*' with same value.
+	 * This method checks if two objects have an attribute with pattern '*name*'
+	 * with same value.
 	 * 
 	 * @param object1
 	 *            : first object to compare
 	 * @param targetObject
 	 *            : second object to compare with object1
-	 * @return true if objects have same name and objects both have an attribute with pattern '*name*', else false.
+	 * @return true if objects have same name and objects both have an attribute
+	 *         with pattern '*name*', else false.
 	 * 
 	 * @author proustr
 	 */
@@ -180,11 +239,10 @@ public abstract class AbstractMergeTreatment extends AbstractReferencesTreatment
 		String sourceObjectName = getAttributeName(object1);
 		String targetObjectName = getAttributeName(targetObject);
 		if (sourceObjectName != null && targetObjectName != null) {
-			if (sourceObjectName.equalsIgnoreCase(targetObjectName) && sourceObjectName != null) {
+			if (sourceObjectName.equalsIgnoreCase(targetObjectName)) {
 				return true;
 			}
 		}
-		else if (sourceObjectName == null && targetObjectName == null && isSameEClass(object1, targetObject))return true;
 		return false;
 	}
 
@@ -194,15 +252,18 @@ public abstract class AbstractMergeTreatment extends AbstractReferencesTreatment
 	 * Method to create easily an object from an eClass.
 	 * 
 	 * @param eclass
-	 *            : The object type to create. The eClass must be contained in AdlPackage.
+	 *            : The object type to create. The eClass must be contained in
+	 *            AdlPackage.
 	 * @return An empty new EObject of specified type in eclass.
 	 * 
 	 * @author proustr
 	 */
 	protected EObject createEObject(EClass eclass) {
 		EObject result = AdlFactory.eINSTANCE.create(eclass);
-		for (EStructuralFeature feature : result.eClass().getEAllStructuralFeatures()) {
-			if (feature.isUnsettable()) result.eUnset(feature);
+		for (EStructuralFeature feature : result.eClass()
+				.getEAllStructuralFeatures()) {
+			if (feature.isUnsettable())
+				result.eUnset(feature);
 		}
 		return result;
 	}
@@ -210,8 +271,10 @@ public abstract class AbstractMergeTreatment extends AbstractReferencesTreatment
 	/**
 	 * <b>Method</b> <i>cleanMerge</i>
 	 * <p>
-	 * This method cleans from an EObject its merged subitems (children). If the EObject is an ArchitectureDefinition and the main definition, the
-	 * imports will also be cleaned from merged imports. Checks the override state of each contained subitem.
+	 * This method cleans from an EObject its merged subitems (children). If the
+	 * EObject is an ArchitectureDefinition and the main definition, the imports
+	 * will also be cleaned from merged imports. Checks the override state of
+	 * each contained subitem.
 	 * 
 	 * @param buffer
 	 *            : The EObject to clean its merged subitems.
@@ -221,11 +284,12 @@ public abstract class AbstractMergeTreatment extends AbstractReferencesTreatment
 	public void cleanMerge(EObject buffer) {
 		if (buffer.eContainer() instanceof AdlDefinition) {
 			cleanMergedImports((AdlDefinition) buffer.eContainer());
-			logger.log(((ArchitectureDefinition) buffer).getName(), "Cleaning merged items", MessageTypes.CLEAN, false,
+			logger.log(((ArchitectureDefinition) buffer).getName(),
+					"Cleaning merged items", MessageTypes.CLEAN, false, true,
+					false, false);
+		} else
+			logger.log("?", "Cleaning merged items", MessageTypes.CLEAN, false,
 					true, false, false);
-		}
-		else
-			logger.log("?", "Cleaning merged items", MessageTypes.CLEAN, false, true, false, false);
 		TreeIterator<EObject> tree = buffer.eAllContents();
 		while (tree.hasNext()) {
 			EObject current = tree.next();
@@ -238,13 +302,15 @@ public abstract class AbstractMergeTreatment extends AbstractReferencesTreatment
 
 		}
 		deleteNonOverrideItems(buffer);
-		logger.log("?", "Finished cleaning", MessageTypes.SUCCESS, false, false, true, false);
+		logger.log("?", "Finished cleaning", MessageTypes.SUCCESS, false,
+				false, true, false);
 	}
 
 	/**
 	 * <b>Method</b> <i>deleteNonOverrideItems</i>
 	 * <p>
-	 * This method is a part of clanMerge method. It deletes all subitems of MergedObject type with non override state (override attribute = false).
+	 * This method is a part of clanMerge method. It deletes all subitems of
+	 * MergedObject type with non override state (override attribute = false).
 	 * 
 	 * @param buffer
 	 *            : The EObject to clean.
@@ -262,11 +328,11 @@ public abstract class AbstractMergeTreatment extends AbstractReferencesTreatment
 			if (current instanceof MergedObject) {
 				MergedObject object = (MergedObject) current;
 				if (object.isMerged()) {
-					if (!object.isOverride() && !(object instanceof ComponentReference)) {
+					if (!object.isOverride()
+							&& !(object instanceof ComponentReference)) {
 						remove = true;
 						break;
-					}
-					else {
+					} else {
 						object.setOverride(false);
 						object.setMerged(false);
 					}
@@ -280,8 +346,7 @@ public abstract class AbstractMergeTreatment extends AbstractReferencesTreatment
 			if (content instanceof EList<?>) {
 				EList<EObject> contentList = (EList<EObject>) content;
 				contentList.remove(current);
-			}
-			else
+			} else
 				parent.eSet(current.eContainingFeature(), null);
 			deleteNonOverrideItems(buffer);
 		}
@@ -290,7 +355,8 @@ public abstract class AbstractMergeTreatment extends AbstractReferencesTreatment
 	/**
 	 * <b>Method</b> <i>setOverrideParents</i>
 	 * <p>
-	 * This methods allows to change the state of parents when an overrided object is found. Those parent's override attribute is set to true.
+	 * This methods allows to change the state of parents when an overrided
+	 * object is found. Those parent's override attribute is set to true.
 	 * 
 	 * @param object
 	 *            : The object to set parents override attribute to true.
@@ -301,9 +367,9 @@ public abstract class AbstractMergeTreatment extends AbstractReferencesTreatment
 		while (object != null) {
 			if (object instanceof MergedObject) {
 				MergedObject current = (MergedObject) object;
-				if (current.isMerged()) current.setOverride(true);
-			}
-			else
+				if (current.isMerged())
+					current.setOverride(true);
+			} else
 				break;
 			object = object.eContainer();
 		}
@@ -312,7 +378,8 @@ public abstract class AbstractMergeTreatment extends AbstractReferencesTreatment
 	/**
 	 * <b>Method</b> <i>cleanImportsFromMerges</i>
 	 * <p>
-	 * This method delete from the import list of specified definition the imports that have been merged.
+	 * This method delete from the import list of specified definition the
+	 * imports that have been merged.
 	 * 
 	 * @param targetDefinition
 	 *            : definition to clean merged imports from.
@@ -320,18 +387,22 @@ public abstract class AbstractMergeTreatment extends AbstractReferencesTreatment
 	 * @author proustr
 	 */
 	protected void cleanMergedImports(AdlDefinition targetDefinition) {
-		Iterator<ImportDefinition> importDefinition = targetDefinition.getImports().iterator();
+		Iterator<ImportDefinition> importDefinition = targetDefinition
+				.getImports().iterator();
 		while (importDefinition.hasNext()) {
 			ImportDefinition currentImport = importDefinition.next();
-			if (currentImport.isMerged()) importDefinition.remove();
+			if (currentImport.isMerged())
+				importDefinition.remove();
 		}
 	}
 
 	/**
 	 * <b>Method</b> <i>resolveReferences</i>
 	 * <p>
-	 * This method resolves untreated references stored in referencesToResolve variable after a merge of 2 definitions. This method can update a
-	 * non-containment reference with the new object duplicated during a merge thanks to eObjectsMergeHistoryMapping variable.
+	 * This method resolves untreated references stored in referencesToResolve
+	 * variable after a merge of 2 definitions. This method can update a
+	 * non-containment reference with the new object duplicated during a merge
+	 * thanks to eObjectsMergeHistoryMapping variable.
 	 * 
 	 * @author proustr
 	 */
@@ -341,38 +412,39 @@ public abstract class AbstractMergeTreatment extends AbstractReferencesTreatment
 		while (iterator.hasNext()) {
 			EObject sourceObject = (EObject) iterator.next();
 			EObject targetObject = referencesToResolve.get(sourceObject);
-			for (EReference reference : sourceObject.eClass().getEAllReferences()) {
-				if (!reference.isContainer() && !reference.isContainment()
-						&& !AdlPackage.eINSTANCE.getMergedObject().getEAllStructuralFeatures().contains(reference)) {
-					EObject referenceToAdd = eObjectsMergeHistoryMapping.get(sourceObject.eGet(reference));
+			for (EReference reference : sourceObject.eClass()
+					.getEAllReferences()) {
+				if (!reference.isContainer()
+						&& !reference.isContainment()
+						&& !AdlPackage.eINSTANCE.getMergedObject()
+								.getEAllStructuralFeatures()
+								.contains(reference)) {
+					EObject referenceToAdd = eObjectsMergeHistoryMapping
+							.get(sourceObject.eGet(reference));
 					targetObject.eSet(reference, referenceToAdd);
 				}
 
 			}
 		}
 		referencesToResolve.clear();
+		eObjectsMergeHistoryMapping.clear();
 	}
 
-	/**
-	 * <b>Method</b> <i>getAttributeName</i>
-	 * <p>
-	 * If the input EObject has an attribute with name like '*name*', returns it value.
-	 * 
-	 * @param object
-	 *            : The EObject to find name
-	 * @return the string value of the attribute name.
-	 * 
-	 * @author proustr
-	 */
-	protected String getAttributeName(EObject object) {
-		for (EAttribute attribute : object.eClass().getEAllAttributes()) {
-			if (attribute.getName().toLowerCase().contains("name")) {
-				return (String) object.eGet(attribute);
+	protected void setReferenceToResolve(EObject sourceObject,EObject targetObject)
+	{
+		for (EReference reference : sourceObject.eClass()
+				.getEAllReferences()) {
+			if (!reference.isContainer()
+					&& !reference.isContainment()
+					&& !AdlPackage.eINSTANCE.getMergedObject()
+							.getEAllStructuralFeatures()
+							.contains(reference)) {
+				referencesToResolve.put(sourceObject, targetObject);
 			}
-		}
-		return null;
+		}		
 	}
-
+	
+	@SuppressWarnings("unchecked")
 	/**
 	 * <b>Method</b> <i>getReferencesList</i>
 	 * <p>
@@ -385,22 +457,26 @@ public abstract class AbstractMergeTreatment extends AbstractReferencesTreatment
 	 * 
 	 * @author proustr
 	 */
-	@SuppressWarnings("unchecked")
-	public EList<ComponentReference> getReferencesList(ArchitectureDefinition definition) {
+	public EList<ComponentReference> getReferencesList(
+			ArchitectureDefinition definition) {
 		EList<ComponentReference> result = new BasicEList<ComponentReference>();
 
-		if (definition == null) return null;
+		if (definition == null)
+			return null;
 		EStructuralFeature feature = null;
 		if (definition instanceof SubComponentDefinition) {
-			feature = adlPackage.getArchitectureDefinition_ReferenceDefinition();
-			ComponentReference reference = (ComponentReference) definition.eGet(feature);
-			if (reference == null) return null;
+			feature = adlPackage
+					.getSubComponentDefinition_ReferenceDefinition();
+			ComponentReference reference = (ComponentReference) definition
+					.eGet(feature);
+			if (reference == null)
+				return null;
 			result.add(reference);
-		}
-		else {
+		} else {
 			feature = adlPackage.getArchitectureDefinition_ReferencesList();
 			EObject referenceList = (EObject) definition.eGet(feature);
-			if (referenceList == null) return null;
+			if (referenceList == null)
+				return null;
 			feature = adlPackage.getReferencesList_References();
 			result = (EList<ComponentReference>) referenceList.eGet(feature);
 		}
@@ -408,9 +484,33 @@ public abstract class AbstractMergeTreatment extends AbstractReferencesTreatment
 	}
 
 	/**
+	 * <b>Method</b> <i>getAttributeName</i>
+	 * <p>
+	 * If the input EObject has an attribute with name like '*name*', returns it
+	 * value.
+	 * 
+	 * @param object
+	 *            : The EObject to find name
+	 * @return the string value of the attribute name.
+	 * 
+	 * @author proustr
+	 */
+	protected String getAttributeName(EObject object) {
+		if (object == null)
+			return null;
+		for (EAttribute attribute : object.eClass().getEAllAttributes()) {
+			if (attribute.getName().toLowerCase().contains("name")) {
+				return (String) object.eGet(attribute);
+			}
+		}
+		return null;
+	}
+
+	/**
 	 * <b>Method</b> <i>getFeatureContainingName</i>
 	 * <p>
-	 * The methods recovers the feature of an EClass with a name having a pattern like specified featureName.
+	 * The methods recovers the feature of an EClass with a name having a
+	 * pattern like specified featureName.
 	 * 
 	 * @param objectToMerge
 	 *            : EObject containing the required feature
@@ -420,9 +520,12 @@ public abstract class AbstractMergeTreatment extends AbstractReferencesTreatment
 	 * 
 	 * @author proustr
 	 */
-	protected EStructuralFeature getFeatureContainingName(EObject objectToMerge, String featureName) {
-		for (EStructuralFeature feature : objectToMerge.eClass().getEAllStructuralFeatures()) {
-			if (feature.getName().toLowerCase().contains(featureName.toLowerCase())) {
+	protected EStructuralFeature getFeatureContainingName(
+			EObject objectToMerge, String featureName) {
+		for (EStructuralFeature feature : objectToMerge.eClass()
+				.getEAllStructuralFeatures()) {
+			if (feature.getName().toLowerCase().contains(
+					featureName.toLowerCase())) {
 				return feature;
 			}
 		}

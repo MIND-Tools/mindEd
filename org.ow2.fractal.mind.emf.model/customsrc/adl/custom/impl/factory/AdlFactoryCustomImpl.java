@@ -7,8 +7,8 @@
 package adl.custom.impl.factory;
 
 import adl.*;
+import adl.custom.adapters.factory.*;
 import adl.custom.impl.*;
-import adl.custom.util.adapters.factory.*;
 import adl.impl.AdlFactoryImpl;
 import adl.impl.AttributeDefinitionImpl;
 import adl.impl.BindingDefinitionImpl;
@@ -16,13 +16,9 @@ import adl.impl.ComponentReferenceImpl;
 import adl.impl.ComponentTypeDefinitionImpl;
 import adl.impl.CompositeReferencesListImpl;
 import adl.impl.DataDefinitionImpl;
-import adl.impl.FileCImpl;
 import adl.impl.ImplementationDefinitionImpl;
-import adl.impl.InlineCodeCImpl;
 import adl.impl.InterfaceDefinitionImpl;
-import adl.impl.PrimitiveAnonymousSubComponentImpl;
 import adl.impl.PrimitiveReferencesListImpl;
-import adl.impl.PrimitiveSubComponentImpl;
 import adl.impl.TypeReferenceDefinitionImpl;
 import adl.impl.TypeReferencesListImpl;
 
@@ -51,24 +47,6 @@ public class AdlFactoryCustomImpl extends AdlFactoryImpl  {
 		AdlDefinitionCustomImpl adlDefinition = new AdlDefinitionCustomImpl();
 		AdlAdapterCustomFactory.getInstance().createAdapter(adlDefinition);
 		return adlDefinition;
-	}
-	
-	/* (non-Javadoc)
-	 * @see adl.impl.AdlFactoryImpl#createCompositeSubComponent()
-	 */
-	public CompositeSubComponent createCompositeSubComponent() {
-		CompositeSubComponentCustomImpl compositeSubComponent = new CompositeSubComponentCustomImpl();
-		AdlAdapterCustomFactory.getInstance().createAdapter(compositeSubComponent);
-		return compositeSubComponent;
-	}
-	
-	/* (non-Javadoc)
-	 * @see adl.impl.AdlFactoryImpl#createCompositeAnonymousSubComponent()
-	 */
-	public CompositeAnonymousSubComponent createCompositeAnonymousSubComponent() {
-		CompositeAnonymousSubComponentCustomImpl compositeAnonymousSubComponent = new CompositeAnonymousSubComponentCustomImpl();
-		AdlAdapterCustomFactory.getInstance().createAdapter(compositeAnonymousSubComponent);
-		return compositeAnonymousSubComponent;
 	}
 	
 	/* (non-Javadoc)
@@ -194,29 +172,11 @@ public class AdlFactoryCustomImpl extends AdlFactoryImpl  {
 	}
 
 	/* (non-Javadoc)
-	 * @see adl.impl.AdlFactoryImpl#createPrimitiveAnonymousSubComponent()
-	 */
-	public PrimitiveAnonymousSubComponent createPrimitiveAnonymousSubComponent() {
-		PrimitiveAnonymousSubComponentImpl primitiveAnonymousSubComponent = new PrimitiveAnonymousSubComponentCustomImpl();
-		AdlAdapterCustomFactory.getInstance().createAdapter(primitiveAnonymousSubComponent);
-		return primitiveAnonymousSubComponent;
-	}
-
-	/* (non-Javadoc)
-	 * @see adl.impl.AdlFactoryImpl#createPrimitiveSubComponent()
-	 */
-	public PrimitiveSubComponent createPrimitiveSubComponent() {
-		PrimitiveSubComponentImpl primitiveSubComponent = new PrimitiveSubComponentCustomImpl();
-		AdlAdapterCustomFactory.getInstance().createAdapter(primitiveSubComponent);
-		return primitiveSubComponent;
-	}
-
-	/* (non-Javadoc)
 	 * @see adl.impl.AdlFactoryImpl#createTemplateSubComponent()
 	 */
-	public TemplateSubComponent createTemplateSubComponent() {
-		TemplateSubComponentCustomImpl templateSubComponent = new TemplateSubComponentCustomImpl();
-		AdlAdapterCustomFactory.getInstance().createAdapter(templateSubComponent);
-		return templateSubComponent;
+	public SubComponentDefinition createSubComponentDefinition() {
+		SubComponentDefinitionCustomImpl subComponent = new SubComponentDefinitionCustomImpl();
+		AdlAdapterCustomFactory.getInstance().createAdapter(subComponent);
+		return subComponent;
 	}
 }

@@ -7,16 +7,12 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EReference;
-import org.eclipse.emf.ecore.EStructuralFeature;
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 
 import adl.AdlDefinition;
 import adl.AdlFactory;
-import adl.AdlPackage;
 import adl.ArchitectureDefinition;
 import adl.ImportDefinition;
 import adl.MergedObject;
-import adl.SubComponentDefinition;
 
 /**
  * <b>Class</b> <i>BufferUtil</i>
@@ -40,6 +36,7 @@ public class BufferUtil extends AbstractMergeTreatment {
 	 * HashMap<EObject,EObject> eBufferHistoryMapping : Maps the items of definition to put in buffer with those created in the buffer.
 	 * 
 	 */
+	
 	private HashMap<EObject, EObject> eBufferHistoryMapping = new HashMap<EObject, EObject>();
 
 	private BufferUtil() {
@@ -62,17 +59,12 @@ public class BufferUtil extends AbstractMergeTreatment {
 		if (buffer != null) buffer = null;
 		eBufferHistoryMapping.clear();
 		referencesToResolve.clear();
-		eObjectsMergeHistoryMapping.clear();
-		AdlDefinition adlDefinition = (AdlDefinition) adlFactory.createAdlDefinition();
-		buffer = (ArchitectureDefinition) adlFactory.create(definition.eClass());
-		buffer.setName(definition.getName());
-		adlDefinition.setArchitecturedefinition(buffer);
-		updateImports(definition, buffer);
-		addReference(definition, buffer, AdlPackage.eINSTANCE.getArchitectureDefinition_ReferencesList());
-		updateElements(definition, buffer);
+		AdlDefinition adlDefinition = (AdlDefinition) copyObject(definition.eContainer());
+		buffer = adlDefinition.getArchitecturedefinition();
 		resolveReferences();
 		cleanMerge(buffer);
 	}
+	
 
 	/**
 	 * <b>Method</b> <i>updateImports</i>
@@ -192,30 +184,9 @@ public class BufferUtil extends AbstractMergeTreatment {
 	 * @author proustr
 	 */
 	public void updateDefinitionFromBuffer(ArchitectureDefinition definition) {
-		eObjectsMergeHistoryMapping.clear();
-		if (buffer != null && definition != null) {
-			updateElements(buffer, definition);
-			updateImports(buffer, definition);
-			resolveReferences();
-		}
-	}
-
-	/**
-	 * <b>Method</b> <i>updateElements</i>
-	 * <p>
-	 * Launch the update only on the 'elements' feature.
-	 * 
-	 * @param objectToMerge
-	 *            : source elements used to update target elements.
-	 * @param mergedObject
-	 *            : target elements to update with source elements.
-	 * 
-	 * @author proustr
-	 */
-	protected void updateElements(EObject objectToMerge, EObject mergedObject) {
-		EStructuralFeature feature = adlPackage.getArchitectureDefinition_Elements();
-		if (objectToMerge.eGet(feature) == null) return;
-		updateReference(objectToMerge.eGet(feature), mergedObject.eGet(feature));
+		updateReference(buffer, definition);
+		updateImports(buffer, definition);
+		resolveReferences();
 	}
 
 	/**
@@ -240,10 +211,10 @@ public class BufferUtil extends AbstractMergeTreatment {
 		}
 
 		if (sourceObject instanceof MergedObject) {
-			EObject content = (EObject) sourceObject;
-			EObject contentReceiving = (EObject) targetObject;
-			eObjectsMergeHistoryMapping.put(content, contentReceiving);
-			updateFeatures(content, contentReceiving);
+			EObject source = (EObject) sourceObject;
+			EObject target = (EObject) targetObject;
+			eObjectsMergeHistoryMapping.put(source, target);
+			updateFeatures(source, target);
 		}
 	}
 
@@ -287,6 +258,16 @@ public class BufferUtil extends AbstractMergeTreatment {
 		}
 	}
 
+	
+	protected EObject findObjectWithSameNameInList(MergedObject referenceObject, EList<EObject> eList,
+			boolean checkeClass) {
+		for (EObject targetObject : eList) {
+			if (targetObject.eClass() == referenceObject.eClass() || !checkeClass) if (haveSameName(referenceObject,
+					targetObject)) return targetObject;
+		}
+		return null;
+	}
+	
 	/**
 	 * <b>Method</b> <i>updateFeatures</i>
 	 * <p>
@@ -308,11 +289,15 @@ public class BufferUtil extends AbstractMergeTreatment {
 		for (EReference reference : sourceObject.eClass().getEAllContainments()) {
 			if (targetObject.eGet(reference) == null || !targetObject.eIsSet(reference)) {
 				if (sourceObject.eIsSet(reference)) {
-					if (!(sourceObject.eGet(reference) instanceof EList<?>)) {
+					if (!(sourceObject.eGet(reference) instanceof EList<?>) && sourceObject.eGet(reference)!=null) {
 						EObject newObject = createEObject(((EObject) sourceObject.eGet(reference)).eClass());
 						targetObject.eSet(reference, newObject);
 					}
 				}
+			}
+			else if(sourceObject.eGet(reference) == null)
+			{
+				targetObject.eSet(reference, null);
 			}
 			updateReference(sourceObject.eGet(reference), targetObject.eGet(reference));
 		}

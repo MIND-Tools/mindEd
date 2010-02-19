@@ -48,7 +48,7 @@ public class AdlMergeUtilTrace {
 	 */
 	public void log(String objectName, String message, MessageTypes type, boolean bErr, boolean bNewInd,
 			boolean bEndInd, boolean bResetInd) {
-		if (bNewInd) {
+		if (bNewInd && _indCount<MAX_IND) {
 			_currentIndent += INDENT;
 			_indCount++;
 			separator();

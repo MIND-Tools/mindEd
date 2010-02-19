@@ -1,9 +1,5 @@
 package adl.custom.impl;
 
-import org.eclipse.emf.common.notify.Adapter;
-
-import adl.custom.util.adapters.factory.AdlAdapterHelperFactory;
-import adl.helpers.ComponentReferenceHelper;
 import adl.impl.TypeReferenceDefinitionImpl;
 
 /**
@@ -54,22 +50,5 @@ public class TypeReferenceDefinitionCustomImpl extends TypeReferenceDefinitionIm
 		super.setReferenceName(newReferenceName);
 	}
 
-	/**
-	 * <b>Method</b> <i>getHelper</i>
-	 * <p>
-	 * This methods use the AdlAdapterHelperFactory to recover the correct associated Helper for this class and the returns it.
-	 * 
-	 * @return ComponentReferenceHelper
-	 * 
-	 * @author proustr
-	 */
-	public ComponentReferenceHelper getHelper() {
-		ComponentReferenceHelper result = null;
-		Adapter helper = AdlAdapterHelperFactory.getInstance().adapt(this, ComponentReferenceHelper.class);
-		if (helper != null) {
-			result = (ComponentReferenceHelper) helper;
-		}
-		return result;
-	}
 
 }

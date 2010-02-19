@@ -2,8 +2,8 @@ package adl.custom.impl;
 
 import org.eclipse.emf.common.notify.Adapter;
 
-import adl.custom.util.adapters.factory.AdlAdapterHelperFactory;
-import adl.helpers.ComponentReferenceHelper;
+import adl.custom.adapters.factory.AdlAdapterHelperFactory;
+import adl.custom.helpers.ComponentReferenceHelper;
 import adl.impl.CompositeReferenceDefinitionImpl;
 
 /**

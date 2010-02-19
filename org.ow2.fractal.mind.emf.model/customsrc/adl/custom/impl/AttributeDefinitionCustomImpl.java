@@ -3,7 +3,7 @@ package adl.custom.impl;
 import org.eclipse.emf.common.util.EList;
 
 import adl.AnnotationsList;
-import adl.ArchitectureDefinition;
+import adl.Body;
 import adl.Element;
 import adl.impl.AttributeDefinitionImpl;
 
@@ -35,12 +35,13 @@ public class AttributeDefinitionCustomImpl extends AttributeDefinitionImpl {
 	 */
 	@Override
 	public AnnotationsList getLinkedAnnotationsList() {
-		ArchitectureDefinition parent = this.getParentComponent();
-		if (parent != null) {
-			EList<Element> elements = this.getParentComponent().getElements();
-			int index = elements.indexOf(this);
-			if (index > 0 && elements.get(index - 1) instanceof AnnotationsList) linkedAnnotationsList = (AnnotationsList) elements
-					.get(index - 1);
+		Body body = this.getParentBody();
+		if(body!=null)
+		{
+				EList<Element> elements = body.getElements();
+				int index = elements.indexOf(this);
+				if (index > 0 && elements.get(index - 1) instanceof AnnotationsList) linkedAnnotationsList = (AnnotationsList) elements
+						.get(index - 1);
 		}
 		return linkedAnnotationsList;
 	}
@@ -52,7 +53,7 @@ public class AttributeDefinitionCustomImpl extends AttributeDefinitionImpl {
 	 */
 	@Override
 	public void setLinkedAnnotationsList(AnnotationsList newLinkedAnnotationsList) {
-		ArchitectureDefinition parent = this.getParentComponent();
+		Body parent = this.getParentBody();
 		if (parent != null) {
 			EList<Element> elements = parent.getElements();
 			int index = elements.indexOf(this);

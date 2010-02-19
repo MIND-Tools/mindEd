@@ -16,7 +16,6 @@ import adl.AdlFactory;
 import adl.AdlPackage;
 import adl.ArchitectureDefinition;
 import adl.custom.util.AdlMergeUtilTrace.MessageTypes;
-import adl.impl.AdlPackageImpl;
 
 /**
  * <b>Class</b> <i>DefinitionLoaderUtil</i>

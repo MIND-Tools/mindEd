@@ -1,13 +1,10 @@
 package adl.custom.impl;
 
-import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import adl.AdlPackage;
 import adl.ImportDefinition;
-import adl.custom.util.adapters.factory.AdlAdapterHelperFactory;
-import adl.helpers.AdlDefinitionHelper;
 import adl.impl.AdlDefinitionImpl;
 
 /**
@@ -61,13 +58,13 @@ public class AdlDefinitionCustomImpl extends AdlDefinitionImpl {
 	 * 
 	 * @author proustr
 	 */
-	public AdlDefinitionHelper getHelper() {
+/*	public AdlDefinitionHelper getHelper() {
 		AdlDefinitionHelper result = null;
 		Adapter helper = AdlAdapterHelperFactory.getInstance().adapt(this, AdlDefinitionHelper.class);
 		if (helper != null) {
 			result = (AdlDefinitionHelper) helper;
 		}
 		return result;
-	}
+	}*/
 
 }

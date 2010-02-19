@@ -7,38 +7,35 @@ import java.util.Map.Entry;
 
 import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
-import org.eclipse.emf.ecore.EAttribute;
+import org.eclipse.emf.common.util.TreeIterator;
 import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.ecore.EReference;
-import org.eclipse.emf.ecore.EStructuralFeature;
 
-import adl.AdlDefinition;
-import adl.AdlFactory;
 import adl.AdlPackage;
 import adl.ArchitectureDefinition;
 import adl.ArgumentDefinition;
+import adl.Body;
 import adl.ComponentReference;
-import adl.ComponentTypeDefinition;
-import adl.CompositeAnonymousSubComponent;
 import adl.CompositeComponentDefinition;
 import adl.Element;
-import adl.ImportDefinition;
 import adl.MergedObject;
-import adl.PrimitiveAnonymousSubComponent;
 import adl.PrimitiveComponentDefinition;
 import adl.SubComponentDefinition;
 import adl.TemplateDefinition;
 import adl.TemplateSpecifier;
-import adl.TemplateSubComponent;
 import adl.custom.impl.CompositeComponentDefinitionCustomImpl;
-import adl.custom.impl.TemplateSubComponentCustomImpl;
-import adl.custom.util.AdlMergeUtilTrace.MessageTypes;
+
 
 /**
  * <b>Class</b> <i>AdlMergeUtil</i>
  * <p>
  * This util must be used in static mode and must be instantiate via getInstance function. Its main functionality is to merge two components together
  * or to selfmerge a component from its referenceList.
+ * 
+ * Public functions available for use :
+ * - Merge algorithm can be externally called only once until it has finished.
+ * - External call is done with merge() function. Internal calls to resolve subComponents and multi merges is done with fullMerge();
+ * - updateSubComponentReferences() function allows to update all subComponents references, also done in merge() function.
+ * - 'merging' boolean static variable can be set up with setMerging and indicates whenever the algorithm is busy or not.
  * 
  * @author proustr
  * @model kind="custom implementation"
@@ -48,7 +45,6 @@ public class AdlMergeUtil extends AbstractMergeTreatment {
 	private BufferUtil buffer = BufferUtil.getInstance();
 	private DefinitionLoaderUtil definitionLoader = DefinitionLoaderUtil.getInstance();
 	private HashMap<String, String> mergedDefinitionsHistory = new HashMap<String, String>();
-	private ArchitectureDefinition mainDefinition = null;
 
 	private AdlMergeUtil() {
 		eObjectsMergeHistoryMapping.clear();
@@ -74,46 +70,17 @@ public class AdlMergeUtil extends AbstractMergeTreatment {
 	 * @author proustr
 	 */
 	public void merge(ArchitectureDefinition definition, EList<ComponentReference> refList, boolean useBuffer) {
-		if (definition.eContainer() == null) return;
-		if (mainDefinition == null) mainDefinition = definition;
-		logger.log(definition.getName(), "Merge demand " + definition.getName() + "...", MessageTypes.INFO, false,
-				false, false, false);
-		if (refList == null || refList.isEmpty()) {
-			try {
-				cleanMerge(definition);
-				updateSubComponentReferences(definition, null);
-				logger.log(definition.getName(), "Exiting merge", MessageTypes.INFO, false, false, false, false);
-				return;
-			}
-			finally {
-			}
-		}
-		if (definition instanceof SubComponentDefinition) {
-			if (((MergedObject) definition).isMerged() || merging) return;
-			logger.log(definition.getName(), "SubComponent with merging state = " + merging, MessageTypes.INFO, false,
-					true, false, false);
-		}
-		if (useBuffer && !merging) {
+		//merging=false;
+		if (!merging) {
 			try {
 				mergedDefinitionsHistory.clear();
-				eObjectsMergeHistoryMapping.clear();
-				logger.log(definition.getName(), "Start merging", MessageTypes.BUFFER, false, true, false, false);
 				merging = true;
-				logger.log(definition.getName(), "Loading buffer from definition...", MessageTypes.BUFFER, false,
-						false, false, false);
 				buffer.createBuffer(definition);
-				logger.log(definition.getName(), "Load complete...", MessageTypes.BUFFER, false, false, false, false);
 				fullMerge(buffer.getDefinition(), refList);
-				logger.log(definition.getName(), "Updating definition from buffer", MessageTypes.BUFFER, false, false,
-						false, false);
+				resolveReferences();
 				buffer.updateDefinitionFromBuffer(definition);
-				logger.log(definition.getName(), "Update complete", MessageTypes.BUFFER, false, false, false, false);
-				logger.log(definition.getName(), "Merge finished without error !", MessageTypes.SUCCESS, false, false,
-						true, false);
 			}
 			catch (Exception e) {
-				logger.log(definition.getName(), "Merge finished with errors !\n" + e.getMessage() + "\n",
-						MessageTypes.ERROR, true, false, true, mainDefinition == definition);
 				e.printStackTrace();
 				e = null;
 				cleanMerge(definition);
@@ -121,30 +88,8 @@ public class AdlMergeUtil extends AbstractMergeTreatment {
 			finally {
 				merging = false;
 				mergedDefinitionsHistory.clear();
-				logger.log(definition.getName(), "Exiting merge.", MessageTypes.BUFFER, false, false, false,
-						mainDefinition == definition);
 			}
 		}
-		else {
-			try {
-				logger.log(definition.getName(), "Start merging without buffer...", MessageTypes.NOBUFFER, false, true,
-						false, false);
-				cleanMerge(definition);
-				fullMerge(definition, refList);
-				logger.log(definition.getName(), "Merge finished without error !", MessageTypes.SUCCESS, false, false,
-						true, false);
-			}
-			catch (Exception e) {
-				logger.log(definition.getName(), "Merge finished with errors !\n" + e.getMessage() + "\n",
-						MessageTypes.ERROR, false, true, false, mainDefinition == definition);
-				e = null;
-			}
-			finally {
-				logger.log(definition.getName(), "Exiting merge.", MessageTypes.INFO, false, false, false,
-						mainDefinition == definition);
-			}
-		}
-		if (mainDefinition == definition) mainDefinition = null;
 	}
 
 	/**
@@ -169,110 +114,24 @@ public class AdlMergeUtil extends AbstractMergeTreatment {
 		ComponentReference currentReferenceTreatment = null;
 		importsList = recoverImports(definition);
 		int i = 0;
-		while (i < refList.size()) {
+		while (refList!=null && i < refList.size()) {
 			ComponentReference currentReference = refList.get(i);
 			currentReferenceTreatment = currentReference;
-			if (currentReference != null
-					&& !currentReference.getReferenceName().equals(
-							adlPackage.getComponentReference_ReferenceName().getDefaultValue())) {
+			if (currentReference != null) {
 				mergedDefinitionCall = currentReference.getNameFQN();
 				checkIfCircleReferences(mergedDefinitionCall, definition);
-				logger.log(definition.getName(), "Starting merge for reference : " + mergedDefinitionCall,
-						MessageTypes.DETAILS, false, true, false, false);
 				mergedDefinition = prepareDefinitionForMerge(definitionToMerge, mergedDefinitionCall, importsList);
 				executeMerge(definitionToMerge, mergedDefinition, currentReferenceTreatment);
 				definitionLoader.unloadDefinition(definitionCall);
 				definitionCall = mergedDefinitionCall;
 				definitionToMerge = mergedDefinition;
-				logger.log(definition.getName(), "Merge done for " + mergedDefinitionCall, MessageTypes.DETAILS, false,
-						false, true, false);
 			}
 			i++;
 		}
-		if (canMerge(definition, definitionToMerge) && definitionToMerge != null) {
-			logger.log(definition.getName(), "Starting merge for reference : " + definitionToMerge.getName(),
-					MessageTypes.DETAILS, false, true, false, false);
+		if (canMerge(definition, definitionToMerge)) {
 			executeMerge(definitionToMerge, definition, currentReferenceTreatment);
-			logger.log(definition.getName(), "Merge done for " + definitionToMerge.getName() + " into "
-					+ definition.getName(), MessageTypes.DETAILS, false, false, true, false);
 		}
 		definitionLoader.unloadDefinition(definitionCall);
-	}
-
-	/**
-	 * <b>Method</b> <i>getTemplate</i>
-	 * <p>
-	 * This method resolves a template sub component referencing a template specifier with the correct template definition of the current reference.
-	 * It recovers the reference of the template component which is currently under merging and tries to find the associated template definition in
-	 * current reference under treatment. The association between template subcomponent reference and the template definition is done with template
-	 * name first and also index if there is no template name in template definition.
-	 * 
-	 * @param currentReferenceTreatment
-	 *            the reference of the definition which received the merge (reference under treatment in fullMerge)
-	 * @param templateComponent
-	 *            the template component being merged
-	 * @return the template definition of the referenced template of the template sub component.
-	 * 
-	 * @author proustr
-	 */
-	private TemplateSpecifier getTemplate(ComponentReference currentReferenceTreatment,
-			TemplateSubComponent templateComponent) {
-		if (currentReferenceTreatment == null || templateComponent.getReferenceDefinition() == null) return null;
-		CompositeComponentDefinition mainSource = (CompositeComponentDefinition) getMainComponent(templateComponent);
-		TemplateDefinition result = null;
-		for (TemplateDefinition template : currentReferenceTreatment.getTemplatesList()) {
-			if (template.getName().equals(templateComponent.getReferenceDefinition().getReferenceName())
-					&& !template.getName().equals(adlPackage.getTemplateSpecifier_Name())) {
-				result = template;
-				return result;
-			}
-			else if (template.getName() == null
-					|| template.getName().equals(adlPackage.getTemplateSpecifier_Name().getDefaultValue())) {
-				int index = currentReferenceTreatment.getTemplatesList().indexOf(template);
-				if (mainSource.getTemplateSpecifiersList() != null
-						&& index == mainSource.getTemplateSpecifiersList().getTemplateSpecifiers().indexOf(
-								templateComponent.getTemplateReference())) {
-					result = template;
-					return result;
-				}
-			}
-		}
-		return null;
-	}
-
-	/**
-	 * <b>Method</b> <i>getTemplates</i>
-	 * <p>
-	 * This method get all templates definitions of the given component reference.
-	 * 
-	 * @param currentReferenceTreatment
-	 *            : the reference to recover templates definitions from.
-	 * @return a map of templates names or templates index (if no name defined) and its associated reference.
-	 * 
-	 * @author proustr
-	 */
-	private HashMap<String, ComponentReference> getTemplates(ComponentReference currentReferenceTreatment) {
-		HashMap<String, ComponentReference> result = new HashMap<String, ComponentReference>();
-		if (currentReferenceTreatment == null) return result;
-		for (TemplateDefinition template : currentReferenceTreatment.getTemplatesList()) {
-			if (template.getReference() != null) {
-				if (!template.getName().equals(adlPackage.getTemplateSpecifier_Name().getDefaultValue())) {
-					HashMap<String, ComponentReference> templateSpecifiers = getTemplateSpecifiers(currentReferenceTreatment);
-					if (!templateSpecifiers.containsKey(template.getReference().getReferenceName())) {
-						result.put(template.getName(), template.getReference());
-					}
-					else {
-						result.put(template.getName(), templateSpecifiers.get(template.getReference()
-								.getReferenceName()));
-					}
-				}
-				else {
-					result.put(String.valueOf(currentReferenceTreatment.getTemplatesList().indexOf(template)), template
-							.getReference());
-				}
-			}
-		}
-		return result;
 	}
 
 	/**
@@ -286,23 +145,37 @@ public class AdlMergeUtil extends AbstractMergeTreatment {
 	 * 
 	 * @author proustr
 	 */
-	private HashMap<String, ComponentReference> getTemplateSpecifiers(ComponentReference currentReferenceTreatment) {
+	private HashMap<String, ComponentReference> getTemplateSpecifiers(EObject objectContainedByMainDefinition) {
 		HashMap<String, ComponentReference> result = new HashMap<String, ComponentReference>();
-		CompositeComponentDefinitionCustomImpl mainComponent = (CompositeComponentDefinitionCustomImpl) getMainComponent(currentReferenceTreatment);
-		if (currentReferenceTreatment == null || mainComponent == null
+		CompositeComponentDefinitionCustomImpl mainComponent = (CompositeComponentDefinitionCustomImpl) getMainComponent(objectContainedByMainDefinition);
+		if (mainComponent == null
 				|| mainComponent.getTemplateSpecifiersList() == null) return result;
 		for (TemplateSpecifier template : mainComponent.getTemplateSpecifiersList().getTemplateSpecifiers()) {
 			if (template.getReference() != null) {
 				if (!template.getName().equals(adlPackage.getTemplateSpecifier_Name().getDefaultValue())) {
 					result.put(template.getName(), template.getReference());
 				}
-				else {
-					result.put(String.valueOf(currentReferenceTreatment.getTemplatesList().indexOf(template)), template
-							.getReference());
-				}
 			}
 		}
 		return result;
+	}
+	
+	/**
+	 * <b>Method</b> <i>getTemplateSpecifier</i>
+	 * <p>
+	 * If given reference is mapping an existing Template Specifier declared in main definition, returns type reference mapped to this template specifier. 
+	 * 
+	 * @param reference
+	 *            : Reference to resolve with declared template specifiers
+	 * @return type component referenced by corresponding template specifier.
+	 * 
+	 * @author proustr
+	 */	
+	private ComponentReference getTemplateSpecifier(ComponentReference reference)
+	{
+		if(reference==null)return null;
+		HashMap<String, ComponentReference> templateSpecifiers = getTemplateSpecifiers(reference);
+		return templateSpecifiers.get(reference.getReferenceName());
 	}
 
 	/**
@@ -328,24 +201,12 @@ public class AdlMergeUtil extends AbstractMergeTreatment {
 	public void executeMerge(ArchitectureDefinition definitionToMerge, ArchitectureDefinition mergedComponent,
 			ComponentReference currentReferenceTreatment) {
 		if (definitionToMerge != null && mergedComponent != null) {
-			logger.log("", "Merging " + definitionToMerge.getName() + " into " + mergedComponent.getName(),
-					MessageTypes.DETAILS, false, true, false, false);
-			mergeElements(definitionToMerge, mergedComponent, currentReferenceTreatment);
-			logger.log("", "Updating referenced objects...", MessageTypes.DETAILS, false, false, false, false);
-			resolveReferences();
-			logger.log("", "Updating imports...", MessageTypes.DETAILS, false, false, false, false);
-			resolveImports(definitionToMerge, mergedComponent);
-			//logger.log("", "Resolving generic parameters...", MessageTypes.DETAILS, false, false, false, false);
-			//resolveUndefinedParameters(definitionToMerge, currentReferenceTreatment);
-			//resolveUndefinedTemplates(definitionToMerge, currentReferenceTreatment);
-			logger.log("", "Updating subComponents...", MessageTypes.DETAILS, false, false, false, false);
+			mergeBody(definitionToMerge, mergedComponent, currentReferenceTreatment);
 			updateSubComponentReferences(mergedComponent, currentReferenceTreatment);
-			logger.log("", "All steps done !", MessageTypes.SUCCESS, false, false, true, false);
+			resolveTemplate(mergedComponent, definitionToMerge, currentReferenceTreatment);
 		}
 		else if (mergedComponent != null) {
-			logger.log("", "Updating subComponents...", MessageTypes.DETAILS, false, true, false, false);
 			updateSubComponentReferences(mergedComponent, currentReferenceTreatment);
-			logger.log("", "All steps done !", MessageTypes.SUCCESS, false, false, true, false);
 		}
 	}
 
@@ -532,7 +393,6 @@ public class AdlMergeUtil extends AbstractMergeTreatment {
 	 * @author proustr
 	 */
 	private void checkIfCircleReferences(String defToMerge, ArchitectureDefinition mergedDef) {
-		if (getParentComponentHelper(mergedDef) == null) return;
 		ArchitectureDefinition parentReceiptDef = getMainComponent(mergedDef);
 		if (parentReceiptDef != null) {
 			String badReference = null;
@@ -582,44 +442,6 @@ public class AdlMergeUtil extends AbstractMergeTreatment {
 	}
 
 	/**
-	 * <b>Method</b> <i>resolveImports</i>
-	 * <p>
-	 * This method adds imports of definition to merge to main definition if those import are not already existing.
-	 * 
-	 * @param source
-	 *            : definition to merge
-	 * @param target
-	 *            : definition receiving merge
-	 * 
-	 * @author proustr
-	 */
-	private void resolveImports(ArchitectureDefinition source, ArchitectureDefinition target) {
-
-		EObject targetContainer = target.eContainer();
-		if (source.eContainer() instanceof AdlDefinition) {
-			AdlDefinition sourceDefinition = (AdlDefinition) source.eContainer();
-			while (!(targetContainer instanceof AdlDefinition) && targetContainer != null) {
-				targetContainer = targetContainer.eContainer();
-			}
-			if (targetContainer != null) {
-				AdlDefinition targetDefinition = (AdlDefinition) targetContainer;
-				Iterator<ImportDefinition> importList = sourceDefinition.getImports().iterator();
-				ArrayList<ImportDefinition> importsToAdd = new ArrayList<ImportDefinition>();
-				while (importList.hasNext()) {
-					ImportDefinition eImport = importList.next();
-					if (!importAlreadyExisting(eImport, targetDefinition)) {
-						ImportDefinition newImport = AdlFactory.eINSTANCE.createImportDefinition();
-						newImport.setImportName(eImport.getImportName());
-						newImport.setMerged(true);
-						importsToAdd.add(newImport);
-					}
-				}
-				targetDefinition.getImports().addAll(importsToAdd);
-			}
-		}
-	}
-
-	/**
 	 * <b>Method</b> <i>mergeElements</i>
 	 * <p>
 	 * This method merge each feature of a given objectToMerge into a given mergedObject if features are compatibles.
@@ -633,12 +455,16 @@ public class AdlMergeUtil extends AbstractMergeTreatment {
 	 * 
 	 * @author proustr
 	 */
-	protected void mergeElements(EObject objectToMerge, EObject mergedObject,
+	protected void mergeBody(ArchitectureDefinition objectToMerge, ArchitectureDefinition mergedObject,
 			ComponentReference currentReferenceTreatment) {
-
-		for (EStructuralFeature feature : objectToMerge.eClass().getEAllContainments()) {
-			if (mergedObject.eClass().getEAllContainments().contains(feature)) checkReference(objectToMerge
-					.eGet(feature), mergedObject.eGet(feature), currentReferenceTreatment);
+		if(objectToMerge.getBody()!=null)
+		{
+			if(mergedObject.getBody()==null)
+			{
+				mergedObject.setBody((Body) adlFactory.create(objectToMerge.getBody().eClass()));
+				mergedObject.getBody().setMerged(true);
+			}
+			checkReference(objectToMerge.getBody(), mergedObject.getBody(), currentReferenceTreatment);
 		}
 	}
 
@@ -658,67 +484,42 @@ public class AdlMergeUtil extends AbstractMergeTreatment {
 	 * 
 	 * @author proustr
 	 */
-	@SuppressWarnings("unchecked")
-	private void checkReference(Object sourceObject, Object targetObject, ComponentReference currentReferenceTreatment) {
-
-		if (sourceObject instanceof EList<?>) {
-			EList<EObject> contentList = (EList<EObject>) sourceObject;
-			EList<EObject> contentReceivingList = (EList<EObject>) targetObject;
-			checkReferenceList(contentList, contentReceivingList, currentReferenceTreatment);
-		}
-
-		if (sourceObject instanceof MergedObject ) {
-			MergedObject content = (MergedObject) sourceObject;
-			MergedObject contentReceiving = (MergedObject) targetObject;
-			if (haveSameName(content, contentReceiving) && contentReceiving.isMerged() == false && ((MergedObject)sourceObject).isCanOverride()) {
-				contentReceiving.setOverride(true);
+	private void checkReference(Body sourceBody, Body targetBody, ComponentReference currentReferenceTreatment) {
+		for(Element element : sourceBody.getElements())
+		{
+			if(element instanceof MergedObject)
+			{
+				Element overridedObject = findElementWithSameNameInList((MergedObject)element, targetBody.getElements(), true); 
+				if(overridedObject==null)
+				{
+					if(element instanceof MergedObject)
+					{
+						Element elementToAdd = (Element) copyObject(element);
+						setAllMerged(((MergedObject)elementToAdd));
+						targetBody.getElements().add(elementToAdd);
+						setReferenceToResolve(element,elementToAdd);
+						eObjectsMergeHistoryMapping.put(element, elementToAdd);
+					}
+				}
+				else if(!((MergedObject)overridedObject).isMerged())
+				{
+					((MergedObject)overridedObject).setOverride(true);
+				}
 			}
-			else if (contentReceiving.isMerged() != true) copyFeatures(content, contentReceiving,
-					currentReferenceTreatment);
-			eObjectsMergeHistoryMapping.put(content, contentReceiving);
-
 		}
+
 	}
 
-	/**
-	 * <b>Method</b> <i>checkReferenceList</i>
-	 * <p>
-	 * Check in contentReceivingList if each EObject contained by contentList exists or not. If object is a MergedObject and dont have an object with
-	 * same name in contentReceivingList, then a new object is created with same features and added to contentReceivingList. Else the override
-	 * attribute is set to true.
-	 * 
-	 * @param contentList
-	 *            : One List feature of EObjects contained by definition to merge.
-	 * @param contentReceivingList
-	 *            : The list of corresponding contentList feature in main definition.
-	 * @param currentReferenceTreatment
-	 *            : Component reference currently merging.
-	 * 
-	 * @author proustr
-	 */
-	private void checkReferenceList(EList<EObject> contentList, EList<EObject> contentReceivingList,
-			ComponentReference currentReferenceTreatment) {
-		for (EObject sourceObject : contentList) {
-			boolean doMerge = true;
-			if (sourceObject instanceof TemplateSubComponentCustomImpl) {
-				doMerge = false;
-				TemplateSubComponentCustomImpl templateSubComponent = (TemplateSubComponentCustomImpl) sourceObject;
-				doMerge = resolveTemplate(templateSubComponent, contentReceivingList, currentReferenceTreatment);
-			}
-			if (sourceObject instanceof MergedObject && doMerge) {
-				EObject targetObject = findObjectWithSameNameInList((MergedObject)sourceObject, contentReceivingList, true);
-				if (targetObject == null || !((MergedObject)sourceObject).isCanOverride()) {
-					targetObject = createEObject(sourceObject.eClass());
-					eObjectsMergeHistoryMapping.put(sourceObject, targetObject);
-					copyFeatures(sourceObject, targetObject, currentReferenceTreatment);
-					contentReceivingList.add(targetObject);
-				}
-				else if(!((MergedObject)targetObject).isMerged()){
-					((MergedObject) targetObject).setOverride(true);
-				}
-				else {
-					eObjectsMergeHistoryMapping.put(sourceObject, targetObject);
-				}
+
+	private void setAllMerged(MergedObject mergedObject) {
+		mergedObject.setMerged(true);
+		TreeIterator<EObject> treeIterator = mergedObject.eAllContents();
+		while(treeIterator.hasNext())
+		{
+			EObject current = treeIterator.next();
+			if (current instanceof  MergedObject)
+			{
+				((MergedObject)current).setMerged(true);
 			}
 		}
 	}
@@ -731,7 +532,7 @@ public class AdlMergeUtil extends AbstractMergeTreatment {
 	 * already exists, returns false and set override to true if object is not already merged. If template has been defined if current component
 	 * reference under treatment (by name or index), associate reference to treat with template sub component, clean sub component and merge it.
 	 * 
-	 * @param templateSubComponent
+	 * @param subComponent
 	 *            : templateSubComponent currently under treatment
 	 * @param contentReceivingList
 	 *            : feature in main component that will contain the resolved template sub component
@@ -741,112 +542,113 @@ public class AdlMergeUtil extends AbstractMergeTreatment {
 	 * 
 	 * @author proustr
 	 */
-	private boolean resolveTemplate(TemplateSubComponentCustomImpl templateSubComponent,
-			EList<EObject> contentReceivingList, ComponentReference currentReferenceTreatment) {
-
-		if (templateSubComponent.getTemplateReference() != null) {
-			String templateName = templateSubComponent.getTemplateReference().getName();
-			MergedObject tmpObject = (MergedObject) findObjectWithSameNameInList(templateSubComponent,
-					contentReceivingList, false);
-
-			if (tmpObject != null) {
-				if (!tmpObject.isMerged()) {
-					tmpObject.setOverride(true);
-				}
-				return false;
-			}
-			else {
-				HashMap<String, ComponentReference> templates = getTemplates(currentReferenceTreatment);
-				ComponentReference templateTarget = null;
-				if (templates.containsKey(templateName)) {
-					templateTarget = templates.get(templateName);
-				}
-				else {
-					CompositeComponentDefinitionCustomImpl sourceParent = (CompositeComponentDefinitionCustomImpl) templateSubComponent
-							.getHelper().getParentComponent();
-					if (sourceParent.getTemplateSpecifiersList() != null) {
-						int index = sourceParent.getTemplateSpecifiersList().getTemplateSpecifiers().indexOf(
-								templateSubComponent.getTemplateReference());
-						if (index > -1 && templates.containsKey(String.valueOf(index))) {
-							templateTarget = templates.get(String.valueOf(index));
-						}
-					}
-				}
-
-				HashMap<String, ComponentReference> templateSpecifiers = getTemplateSpecifiers(currentReferenceTreatment);
-
-				if (templateTarget != null) {
-					if (templateSpecifiers.containsKey(templateTarget.getReferenceName())) {
-						templateTarget = templateSpecifiers.get(templateTarget.getReferenceName());
-					}
-					EList<ComponentReference> references = new BasicEList<ComponentReference>();
-					references.add(templateTarget);
-					TemplateSubComponent newTemplateComponent = adlFactory.createTemplateSubComponent();
-					if (templateTarget.eContainer() instanceof TemplateDefinition) {
-						newTemplateComponent.setMerged(true);
-					}
-					else
+	private void resolveTemplate(ArchitectureDefinition mergedDefinition,
+			ArchitectureDefinition definitionToMerge, ComponentReference currentReferenceTreatment) {
+		if(definitionToMerge.eClass().getClassifierID() != AdlPackage.COMPOSITE_COMPONENT_DEFINITION) return;
+		if(!currentReferenceTreatment.getTemplatesList().isEmpty())
+		{
+			ArrayList<SubComponentDefinition> mergedList = getMergedSubComponentsList(mergedDefinition);
+			ArrayList<SubComponentDefinition> toMergeList = getTemplateSubComponentsList(definitionToMerge);
+			for(SubComponentDefinition subComponent : toMergeList)
+			{
+				SubComponentDefinition subComponentToResolve = findComponentWithSameRefAndName(mergedList,subComponent);
+				if(subComponentToResolve!=null)
+				{
+					subComponentToResolve.setBody(null);
+					ComponentReference reference = getLinkedReference(subComponent,currentReferenceTreatment);
+					subComponentToResolve.setReferenceDefinition((ComponentReference) copyObject(reference));
+					if(reference!=null)
 					{
-						copyFeatures(templateSubComponent, newTemplateComponent, currentReferenceTreatment);
-					}
-					cleanMerge(newTemplateComponent);
-					fullMerge(newTemplateComponent, references);
-					newTemplateComponent.setTemplateReference(getTemplate(currentReferenceTreatment,
-					templateSubComponent));
-					newTemplateComponent.setName(templateSubComponent.getName());
-					contentReceivingList.add(newTemplateComponent);
-					return false;
+						
+						BasicEList<ComponentReference> list = new BasicEList<ComponentReference>();
+						list.add(reference);
+						fullMerge(subComponentToResolve, list);
+					} 
 				}
 			}
 		}
-		return true;
 	}
 
-	/**
-	 * <b>Method</b> <i>copyFeatures</i>
-	 * <p>
-	 * This method copy common features of sourceObject into targetObject. Features concerned are attributes and reference with containment but
-	 * MergedObject features. References without containment are stored into referencesToResolve to be resolve later (a reference without containment
-	 * can reference an object not yet existing in main definition and that will be merged after this one). Finaly, target object merged attribute is
-	 * set to true.
-	 * 
-	 * @param sourceObject
-	 * @param targetObject
-	 * @param currentReferenceTreatment
-	 * 
-	 * @author proustr
-	 */
-	private void copyFeatures(EObject sourceObject, EObject targetObject, ComponentReference currentReferenceTreatment) {
 
-		for (EAttribute attribute : sourceObject.eClass().getEAllAttributes()) {
-			if ((!targetObject.eIsSet(attribute) || targetObject.eGet(attribute) == null)
-					&& sourceObject.eGet(attribute) != null
-					&& !AdlPackage.eINSTANCE.getMergedObject().getEAllAttributes().contains(attribute)) {
-				targetObject.eSet(attribute, sourceObject.eGet(attribute));
+	private ComponentReference getLinkedReference(
+			SubComponentDefinition subComponent,
+			ComponentReference currentReferenceTreatment) {
+		EList<TemplateDefinition> templateList = currentReferenceTreatment.getTemplatesList();
+		for(TemplateDefinition template : templateList)
+		{
+			if(template.getName().equals(subComponent.getReferenceDefinition().getReferenceName()))
+			{
+				return template.getReference();
 			}
 		}
-		for (EReference reference : sourceObject.eClass().getEAllContainments()) {
-			if (targetObject.eGet(reference) == null || !targetObject.eIsSet(reference)) {
-				if (sourceObject.eGet(reference) != null && sourceObject.eIsSet(reference)) {
-					if (!(sourceObject.eGet(reference) instanceof EList<?>)) {
-						EObject newObject = createEObject(((EObject) sourceObject.eGet(reference)).eClass());
-						targetObject.eSet(reference, newObject);
-					}
+		
+		ArrayList<String> templateSpecifiers = new ArrayList<String>();
+		templateSpecifiers.addAll(getTemplateSpecifiers(subComponent).keySet());
+		int index = templateSpecifiers.indexOf(subComponent.getReferenceDefinition().getReferenceName());
+		if(index!=-1 && templateList.size()>index)
+		{
+			if(templateList.get(index).getName().equals(adlPackage.getTemplateSpecifier_Name().getDefaultValue()))
+			{
+				return templateList.get(index).getReference();
+			}
+		}
+		return null;
+	}
+
+	private ArrayList<SubComponentDefinition> getTemplateSubComponentsList(
+			ArchitectureDefinition definition) {
+		ArrayList<SubComponentDefinition> result = new ArrayList<SubComponentDefinition>();
+		
+		TreeIterator<EObject> treeIterator = definition.eAllContents();
+		while(treeIterator.hasNext())
+		{
+			EObject current = treeIterator.next();
+			if(current instanceof SubComponentDefinition)
+			{
+				SubComponentDefinition subComponent = (SubComponentDefinition) current;
+				if(getTemplateSpecifier(subComponent.getReferenceDefinition())!=null)
+				{
+					result.add(subComponent);
 				}
 			}
-			checkReference(sourceObject.eGet(reference), targetObject.eGet(reference), currentReferenceTreatment);
 		}
-		for (EReference reference : sourceObject.eClass().getEAllReferences()) {
-			if (!reference.isContainer() && !reference.isContainment()) {
-				if (!targetObject.eIsSet(reference) && sourceObject.eIsSet(reference)) {
-					referencesToResolve.put(sourceObject, targetObject);
+		return result;
+	}
+
+	private SubComponentDefinition findComponentWithSameRefAndName(
+			ArrayList<SubComponentDefinition> subsList,
+			SubComponentDefinition refSub) {
+		for(SubComponentDefinition sub : subsList)
+		{
+			if(sub.getReferenceDefinition()!=null)
+			{
+				if(sub.getName().equals(refSub.getName())
+				&& sub.getReferenceDefinition().getReferenceName().equals(refSub.getReferenceDefinition().getReferenceName()))
+				{
+					return sub;
 				}
 			}
 		}
-		if (targetObject instanceof MergedObject) {
-			((MergedObject) targetObject).setMerged(true);
-		}
+		return null;
+	}
 
+	private ArrayList<SubComponentDefinition> getMergedSubComponentsList(
+			ArchitectureDefinition definition) {
+		ArrayList<SubComponentDefinition> result = new ArrayList<SubComponentDefinition>();
+		TreeIterator<EObject> treeIterator = definition.eAllContents();
+		while(treeIterator.hasNext())
+		{
+			EObject current = treeIterator.next();
+			if(current instanceof SubComponentDefinition)
+			{
+				SubComponentDefinition subComponent = (SubComponentDefinition) current;
+				if(subComponent.isMerged())
+				{
+					result.add(subComponent);
+				}
+			}
+		}
+		return result;
 	}
 
 	/**
@@ -882,7 +684,7 @@ public class AdlMergeUtil extends AbstractMergeTreatment {
 		}
 		// If main definition has references, resolves merges.
 		EList<ComponentReference> referencesList = getReferencesList(mergedDefinition);
-		merge(mergedDefinition, referencesList, false);
+		fullMerge(mergedDefinition, referencesList);
 		return mergedDefinition;
 	}
 
@@ -911,28 +713,18 @@ public class AdlMergeUtil extends AbstractMergeTreatment {
 	 */
 	protected boolean canMerge(ArchitectureDefinition mergedComponent, ArchitectureDefinition componentToMerge) {
 
-		int componentType = findComponentType(mergedComponent);
-		if (componentType == AdlPackage.TEMPLATE_SUB_COMPONENT) return true;
-		int componentToMergeType = findComponentType(componentToMerge);
-		switch (componentToMergeType) {
-		case AdlPackage.COMPOSITE_COMPONENT_DEFINITION:
-			if (componentType == AdlPackage.COMPOSITE_SUB_COMPONENT
-					|| componentType == AdlPackage.COMPOSITE_COMPONENT_DEFINITION
-					|| componentType == AdlPackage.COMPOSITE_ANONYMOUS_SUB_COMPONENT) {
-				return true;
-			}
-			break;
-		case AdlPackage.PRIMITIVE_COMPONENT_DEFINITION:
-			if (componentType == AdlPackage.PRIMITIVE_SUB_COMPONENT
-					|| componentType == AdlPackage.PRIMITIVE_COMPONENT_DEFINITION
-					|| componentType == AdlPackage.PRIMITIVE_ANONYMOUS_SUB_COMPONENT) {
-				return true;
-			}
-			break;
-		case AdlPackage.COMPONENT_TYPE_DEFINITION:
+		if(componentToMerge==null)return true;
+		int componentType = mergedComponent.eClass().getClassifierID();
+		int componentToMergeType = componentToMerge.eClass().getClassifierID();
+		if(
+				componentType == AdlPackage.SUB_COMPONENT_DEFINITION
+				||
+				componentToMergeType==AdlPackage.COMPONENT_TYPE_DEFINITION
+				||
+				componentType == componentToMergeType
+			)
 			return true;
-		}
-		return false;
+		else return false;
 	}
 
 	/**
@@ -995,48 +787,29 @@ public class AdlMergeUtil extends AbstractMergeTreatment {
 	 */
 	public void updateSubComponentReferences(ArchitectureDefinition definition,
 			ComponentReference currentReferenceTreatment) {
-		logger.log(definition.getName(), "Updating subcomponents of definition", MessageTypes.SUBS, false, true, false,
-				false);
-		Iterator<Element> treeIterator = definition.getElements().iterator();
+		if(definition.getBody()==null)return;
+		Iterator<Element> treeIterator = definition.getBody().getElements().iterator();
 		while (treeIterator.hasNext()) {
 			EObject current = treeIterator.next();
 			if (current instanceof SubComponentDefinition && current != definition
 					&& !((SubComponentDefinition) current).isMerged()) {
-				EStructuralFeature feature = null;
-				ComponentReference reference = null;
-				for (EStructuralFeature tmpFeature : current.eClass().getEAllContainments()) {
-					if (ComponentReference.class.isAssignableFrom(tmpFeature.getEType().getInstanceClass())) {
-						feature = tmpFeature;
-						reference = (ComponentReference) current.eGet(feature);
-					}
-				}
-				if (current instanceof TemplateSubComponent && !((TemplateSubComponent) current).isMerged()) {
-					if (((TemplateSubComponent) current).getTemplateReference() != null) {
-						reference = ((TemplateSubComponent) current).getTemplateReference().getReference();
-					}
+				SubComponentDefinition currentDefinition = (SubComponentDefinition) current;
+				ComponentReference reference = currentDefinition.getReferenceDefinition();
+				if (getTemplateSpecifier(reference) != null) {
+					reference = getTemplateSpecifier(reference);
 				}
 				if (reference != null
-						&& reference.getReferenceName() != ""
 						&& !reference.getReferenceName().equals(
 								adlPackage.getComponentReference_ReferenceName().getDefaultValueLiteral())) {
 					EList<ComponentReference> references = new BasicEList<ComponentReference>();
 					references.add(reference);
-					logger.log(definition.getName(), "SubComponent found : "
-							+ ((ArchitectureDefinition) current).getName(), MessageTypes.SUBS, false, true, false,
-							false);
 					cleanMerge(current);
-					fullMerge((ArchitectureDefinition) current, references);
-					logger.log(definition.getName(), "Finished updating "
-							+ ((ArchitectureDefinition) current).getName(), MessageTypes.SUBS, false, false, true,
-							false);
+					fullMerge(currentDefinition, references);
 				}
-				updateSubComponentReferences((ArchitectureDefinition) current, ((ArchitectureDefinition) current)
-						.getReferenceDefinition());
+				updateSubComponentReferences(currentDefinition, currentDefinition.getReferenceDefinition());
 			}
 
 		}
-		logger.log(definition.getName(), "Finished update of definition " + definition.getName(), MessageTypes.SUBS,
-				false, false, true, false);
 	}
 
 	/**

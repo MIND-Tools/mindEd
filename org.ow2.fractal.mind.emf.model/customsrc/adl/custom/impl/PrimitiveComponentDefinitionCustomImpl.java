@@ -1,12 +1,8 @@
 package adl.custom.impl;
 
-import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.util.EList;
 
 import adl.ComponentReference;
-import adl.custom.util.adapters.factory.AdlAdapterHelperFactory;
-import adl.helpers.ArchitectureDefinitionHelper;
-import adl.helpers.IHelper;
 import adl.impl.PrimitiveComponentDefinitionImpl;
 
 /** <b>Class</b> <i>PrimitiveComponentDefinitionCustomImpl</i><p>
@@ -28,11 +24,35 @@ import adl.impl.PrimitiveComponentDefinitionImpl;
 public class PrimitiveComponentDefinitionCustomImpl extends
 		PrimitiveComponentDefinitionImpl {
 	
+	/* (non-Javadoc)
+	 * @see adl.impl.ArchitectureDefinitionImpl#getSimpleName()
+	 */
+	@Override
+	public String getSimpleName() {
+		if (simpleName == null || !simpleName.contains(".")) {
+			simpleName = getHelper().getSimpleName(this);
+		}
+		return super.getSimpleName();
+	}
+
 	/**
 	 * EList<ComponentReference> activeDefinitionCallsList : Local variable containing the list of references that have already been treated.
 	 */
 	private EList<ComponentReference> activeDefinitionCallsList=null;
 
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see adl.impl.ComponentReferenceImpl#getNameFQN()
+	 */
+	@Override
+	public String getNameFQN() {
+		if (nameFQN == null || !nameFQN.contains(".")) {
+			nameFQN = getHelper().getNameFQN();
+		}
+		return super.getNameFQN();
+	}
+	
 	@Override
 	public void setName(String newName) {
 		String oldName = name;
@@ -43,22 +63,6 @@ public class PrimitiveComponentDefinitionCustomImpl extends
 		super.setName(newName);
 	}
 	
-	/**
-	 * <b>Method</b> <i>getHelper</i><p>
-	 * This methods use the AdlAdapterHelperFactory to recover the correct associated Helper for this class and the returns it.
-	 * @return ArchitectureDefinitionHelper
-	 * 
-	 * @author proustr
-	 */
-	public ArchitectureDefinitionHelper getHelper(){
-		ArchitectureDefinitionHelper result = null;
-		Adapter helper = AdlAdapterHelperFactory.getInstance().adapt(this,ArchitectureDefinitionHelper.class);
-		if(helper != null){
-			result = (ArchitectureDefinitionHelper)helper;
-		}
-		return result;
-	}
-
 	/**
 	 * <b>Method</b> <i>setActiveDefinitionCallsList</i>
 	 * <p>
