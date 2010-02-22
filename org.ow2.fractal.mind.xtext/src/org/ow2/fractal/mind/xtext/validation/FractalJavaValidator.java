@@ -28,9 +28,7 @@ import adl.InterfaceDefinition;
 import adl.PrimitiveReferenceDefinition;
 import adl.TemplateSpecifier;
 import adl.TypeReferenceDefinition;
-import adl.custom.impl.ComponentTypeDefinitionCustomImpl;
 import adl.custom.impl.CompositeComponentDefinitionCustomImpl;
-import adl.custom.impl.PrimitiveComponentDefinitionCustomImpl;
 import adl.custom.util.AdlMergeUtil;
 import adl.impl.AdlDefinitionImpl;
 
@@ -93,7 +91,7 @@ public class FractalJavaValidator extends AbstractFractalJavaValidator {
 			definition = (ArchitectureDefinition) definition.eContainer();
 
 			// Get sub elements
-			for (Element element : definition.getElements()) {
+			for (Element element : definition.getBody().getElements()) {
 
 				// Check found Architecture Definition names
 				if (element instanceof ArchitectureDefinition) {
@@ -373,7 +371,7 @@ public class FractalJavaValidator extends AbstractFractalJavaValidator {
 			}
 		}
 		// if we're still here, it means that there is an error
-		error("Extend is not valid.", AdlPackage.COMPOSITE_COMPONENT_DEFINITION__REFERENCE_DEFINITION);		
+		error("Extend is not valid.", AdlPackage.COMPOSITE_COMPONENT_DEFINITION);		
 		
 	}
 	

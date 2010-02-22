@@ -3,16 +3,16 @@ package org.ow2.fractal.mind.xtext;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.RGB;
 import org.eclipse.xtext.ui.common.editor.syntaxcoloring.IHighlightingConfigurationAcceptor;
-import org.eclipse.xtext.ui.common.editor.syntaxcoloring.ILexicalHighlightingConfiguration;
 import org.eclipse.xtext.ui.core.editor.utils.TextStyle;
 
 /**
  * class which Attribute styles to IDs
+ * 
  * @author Nicolas LINGOIS
- *
+ * 
  */
-public class LexicalHighlightingConfiguration implements
-		ILexicalHighlightingConfiguration {
+public class LexicalHighlightingConfiguration extends
+		SemanticHighlightingConfiguration {
 
 	public static final String KEYWORD_ID = "keyword";
 	public static final String PUNCTUATION_ID = "punctuation";
@@ -25,7 +25,7 @@ public class LexicalHighlightingConfiguration implements
 	public static final String PRIMITIVE_ID = "primitive";
 	public static final String INTERFACE_ID = "interface";
 	public static final String HEXA_ID = "0x";
-	
+
 	public void configure(IHighlightingConfigurationAcceptor acceptor) {
 		acceptor.acceptDefaultHighlighting(KEYWORD_ID, "Keyword",
 				keywordTextStyle());
@@ -44,19 +44,27 @@ public class LexicalHighlightingConfiguration implements
 		acceptor.acceptDefaultHighlighting(INTERFACE_ID, "interfaces keyword",
 				interfaceTextStyle());
 		acceptor.acceptDefaultHighlighting(COMPOSITE_ID, "composite",
-		compositeTextStyle());
+				compositeTextStyle());
 		acceptor.acceptDefaultHighlighting(PRIMITIVE_ID, "primitive",
 				primitiveTextStyle());
 		acceptor.acceptDefaultHighlighting(HEXA_ID, "Hexadecimal",
-				numberTextStyle());}
-	
+				numberTextStyle());
+		
+		// From SemanticHighlightingConfiguration
+		acceptor.acceptDefaultHighlighting(DATA_ID, "data/source style",
+				dataTextStyle());
+		acceptor.acceptDefaultHighlighting(ANNOTATIONS_ID, "annotation style",
+				annotationTextStyle());
+
+	}
+
 	public TextStyle defaultTextStyle() {
 		TextStyle textStyle = new TextStyle();
 		textStyle.setBackgroundColor(new RGB(255, 255, 255));
 		textStyle.setColor(new RGB(0, 0, 0));
 		return textStyle;
 	}
-	
+
 	public TextStyle interfaceTextStyle() {
 		TextStyle textStyle = defaultTextStyle().copy();
 		textStyle.setColor(new RGB(0, 0, 0));
@@ -70,7 +78,7 @@ public class LexicalHighlightingConfiguration implements
 		textStyle.setStyle(SWT.BOLD);
 		return textStyle;
 	}
-	
+
 	public TextStyle primitiveTextStyle() {
 		TextStyle textStyle = defaultTextStyle().copy();
 		textStyle.setColor(new RGB(200, 0, 0));

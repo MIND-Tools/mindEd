@@ -33,7 +33,7 @@ public abstract class AbstractFractalUiModule extends FractalRuntimeModule {
 	}
 
 	// contributed by org.eclipse.xtext.ui.generator.ImplicitUiFragment
-	public Class<? extends org.eclipse.xtext.ui.common.editor.outline.ITreeProvider> bindITreeProvider() {
+	public Class<? extends org.eclipse.xtext.ui.common.editor.outline.IOutlineTreeProvider> bindIOutlineTreeProvider() {
 		return org.eclipse.xtext.ui.common.editor.outline.transformer.TransformingTreeProvider.class;
 	}
 
@@ -108,6 +108,11 @@ public abstract class AbstractFractalUiModule extends FractalRuntimeModule {
 	}
 
 	// contributed by org.eclipse.xtext.ui.generator.ImplicitUiFragment
+	public void configureXtextEditorErrorTickUpdater(com.google.inject.Binder binder) {
+		binder.bind(org.eclipse.xtext.ui.core.editor.IXtextEditorCallback.class).annotatedWith(com.google.inject.name.Names.named("IXtextEditorCallBack")).to(org.eclipse.xtext.ui.core.editor.XtextEditorErrorTickUpdater.class);
+	}
+
+	// contributed by org.eclipse.xtext.ui.generator.ImplicitUiFragment
 	public Class<? extends org.eclipse.xtext.resource.IExternalContentSupport.IExternalContentProvider> bindIExternalContentSupport$IExternalContentProvider() {
 		return org.eclipse.xtext.ui.core.editor.IDirtyStateManager.class;
 	}
@@ -154,6 +159,11 @@ public abstract class AbstractFractalUiModule extends FractalRuntimeModule {
 
 	// contributed by org.eclipse.xtext.ui.generator.labeling.LabelProviderFragment
 	public Class<? extends org.eclipse.jface.viewers.ILabelProvider> bindILabelProvider() {
+		return org.ow2.fractal.mind.xtext.labeling.FractalLabelProvider.class;
+	}
+
+	// contributed by org.eclipse.xtext.ui.generator.labeling.LabelProviderFragment
+	public Class<? extends org.eclipse.jface.viewers.DelegatingStyledCellLabelProvider.IStyledLabelProvider> bindDelegatingStyledCellLabelProvider$IStyledLabelProvider() {
 		return org.ow2.fractal.mind.xtext.labeling.FractalLabelProvider.class;
 	}
 

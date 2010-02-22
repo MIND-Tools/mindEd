@@ -2,8 +2,8 @@ package org.ow2.fractal.mind.xtext;
 
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.RGB;
+import org.eclipse.xtext.ui.common.editor.syntaxcoloring.IHighlightingConfiguration;
 import org.eclipse.xtext.ui.common.editor.syntaxcoloring.IHighlightingConfigurationAcceptor;
-import org.eclipse.xtext.ui.common.editor.syntaxcoloring.ISemanticHighlightingConfiguration;
 import org.eclipse.xtext.ui.core.editor.utils.TextStyle;
 
 /**
@@ -12,7 +12,7 @@ import org.eclipse.xtext.ui.core.editor.utils.TextStyle;
  * @contributor Rémi MELISSON
  *
  */
-public class SemanticHighlightingConfiguration implements ISemanticHighlightingConfiguration{
+public class SemanticHighlightingConfiguration implements IHighlightingConfiguration{
 	
 	
 	public final static String DATA_ID = "Data";

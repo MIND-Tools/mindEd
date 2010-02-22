@@ -52,8 +52,7 @@
         <page
             class="org.ow2.fractal.mind.xtext.FractalExecutableExtensionFactory:org.eclipse.xtext.ui.core.editor.preferences.LanguageRootPreferencePage"
             id="org.ow2.fractal.mind.xtext.Fractal"
-            name="Fractal"
-            category="org.eclipse.xtext.languages">
+            name="Fractal">
             <keywordReference id="org.ow2.fractal.mind.xtext.ui.keyword_Fractal"/>
         </page>
         <page
@@ -87,7 +86,7 @@
     </extension>
     <extension point="org.eclipse.ui.menus">
         <menuContribution
-            locationURI="popup:#TextEditorContext?after=group.open">
+            locationURI="popup:#TextEditorContext?after=group.edit">
              <command
                  commandId="org.ow2.fractal.mind.xtext.Fractal.validate"
                  style="push"
@@ -100,6 +99,27 @@
          </command>  
          </menuContribution>
     </extension>
+    <extension point="org.eclipse.ui.menus">
+		<menuContribution locationURI="popup:#TextEditorContext?endof=group.find">
+			<command commandId="org.eclipse.xtext.ui.core.editor.FindReferences">
+				<visibleWhen checkEnabled="false">
+                	<reference definitionId="org.ow2.fractal.mind.xtext.Fractal.Editor.opened">
+                	</reference>
+            	</visibleWhen>
+			</command>
+		</menuContribution>
+	</extension>
+	<extension point="org.eclipse.ui.handlers">
+	    <handler
+            class="org.ow2.fractal.mind.xtext.FractalExecutableExtensionFactory:org.eclipse.xtext.ui.core.editor.findrefs.FindReferencesHandler"
+            commandId="org.eclipse.xtext.ui.core.editor.FindReferences">
+            <activeWhen>
+                <reference
+                    definitionId="org.ow2.fractal.mind.xtext.Fractal.Editor.opened">
+                </reference>
+            </activeWhen>
+        </handler>
+    </extension>   
 
 <!-- adding resource factories -->
 
@@ -110,15 +130,21 @@
 			type="adl">
 		</parser>
 	</extension>
-	<extension
-        point="org.eclipse.xtext.extension_resourceServiceProvider">
-     <resourceServiceProvider
-           class="org.ow2.fractal.mind.xtext.FractalExecutableExtensionFactory:org.eclipse.xtext.resource.IResourceServiceProvider"
-           uriExtension="adl">
-     </resourceServiceProvider>
-  </extension>
+	<extension point="org.eclipse.xtext.extension_resourceServiceProvider">
+        <resourceServiceProvider
+            class="org.ow2.fractal.mind.xtext.FractalExecutableExtensionFactory:org.eclipse.xtext.ui.core.resource.IResourceUIServiceProvider"
+            uriExtension="adl">
+        </resourceServiceProvider>
+    </extension>
 
 
+   <!-- quickfix marker resolution generator -->
+   <extension
+         point="org.eclipse.ui.ide.markerResolution">
+      <markerResolutionGenerator
+            class="org.ow2.fractal.mind.xtext.FractalExecutableExtensionFactory:org.eclipse.xtext.ui.core.editor.quickfix.MarkerResolutionGenerator">
+      </markerResolutionGenerator>
+   </extension>
 
 
 </plugin>

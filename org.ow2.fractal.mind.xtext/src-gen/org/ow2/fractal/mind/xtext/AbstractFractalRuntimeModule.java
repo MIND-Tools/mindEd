@@ -24,7 +24,7 @@ public abstract class AbstractFractalRuntimeModule extends DefaultRuntimeModule 
 	}
 	
 	protected void bindProperties(Binder binder) {
-		bindProperties(binder, "/org/ow2/fractal/mind/xtext/Fractal.properties");
+		bindProperties(binder, "org/ow2/fractal/mind/xtext/Fractal.properties");
 	}
 	
 	

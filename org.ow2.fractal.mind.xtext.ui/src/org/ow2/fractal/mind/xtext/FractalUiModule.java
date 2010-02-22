@@ -3,9 +3,8 @@
  */
 package org.ow2.fractal.mind.xtext;
 
-import org.eclipse.xtext.ui.common.editor.syntaxcoloring.ILexicalHighlightingConfiguration;
+import org.eclipse.xtext.ui.common.editor.syntaxcoloring.IHighlightingConfiguration;
 import org.eclipse.xtext.ui.common.editor.syntaxcoloring.ISemanticHighlightingCalculator;
-import org.eclipse.xtext.ui.common.editor.syntaxcoloring.ISemanticHighlightingConfiguration;
 import org.eclipse.xtext.ui.common.editor.syntaxcoloring.antlr.AbstractAntlrTokenToAttributeIdMapper;
 
 /**
@@ -17,7 +16,7 @@ public class FractalUiModule extends org.ow2.fractal.mind.xtext.AbstractFractalU
 	 * register syntax coloring
 	 * @return class which define MIND ADL syntax coloring
 	 */
-	public Class<? extends ILexicalHighlightingConfiguration> bindILexicalHighlightingConfiguration() {
+	public Class<? extends IHighlightingConfiguration> bindILexicalHighlightingConfiguration() {
 		return LexicalHighlightingConfiguration.class;
 		}
 	
@@ -42,9 +41,9 @@ public class FractalUiModule extends org.ow2.fractal.mind.xtext.AbstractFractalU
 	 * 
 	 * @return class which define color for ID's
 	 */
-	public Class<? extends ISemanticHighlightingConfiguration> bindSemanticHighlightingConfiguration() {
-		    return SemanticHighlightingConfiguration.class;
-		}
+//	public Class<? extends IHighlightingConfiguration> bindSemanticHighlightingConfiguration() {
+//		    return SemanticHighlightingConfiguration.class;
+//		}
 	
 	
 	

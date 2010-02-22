@@ -1,19 +1,13 @@
 package org.ow2.fractal.mind.xtext.contentassist;
 
-import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 
-import org.eclipse.emf.common.notify.Adapter;
-import org.eclipse.emf.common.util.EList;
-import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.ecore.resource.Resource.Internal;
 import org.eclipse.jface.text.contentassist.ICompletionProposal;
-import org.eclipse.jface.text.templates.Template;
 import org.eclipse.xtext.Assignment;
 import org.eclipse.xtext.RuleCall;
 import org.eclipse.xtext.ui.core.editor.contentassist.ContentAssistContext;
@@ -28,18 +22,12 @@ import adl.ArchitectureDefinition;
 import adl.BindingDefinition;
 import adl.CompositeComponentDefinition;
 import adl.Element;
-import adl.ImportDefinition;
 import adl.InterfaceDefinition;
 import adl.Role;
 import adl.TemplateSpecifier;
 import adl.TemplateSpecifiersList;
 import adl.custom.impl.AdlDefinitionCustomImpl;
-import adl.custom.impl.ArchitectureDefinitionCustomImpl;
-import adl.custom.impl.ComponentTypeDefinitionCustomImpl;
 import adl.custom.impl.CompositeComponentDefinitionCustomImpl;
-import adl.custom.impl.PrimitiveComponentDefinitionCustomImpl;
-import adl.custom.impl.TemplateSubComponentCustomImpl;
-import adl.impl.TemplateSpecifierImpl;
 
 /**
  * Content assist for Mind adl editor
@@ -264,7 +252,7 @@ public class FractalProposalProvider extends AbstractFractalProposalProvider {
 			// content assist using corresponding sub component
 			if (definition.getInterfaceTargetParentName() != null) {
 
-				Map<String, ArchitectureDefinition> map = getSubComponents(definition
+				Map<String, ArchitectureDefinition> map = getSubComponents(definition.getHelper()
 						.getParentComponent());
 
 				// retrieve sub component
@@ -273,7 +261,7 @@ public class FractalProposalProvider extends AbstractFractalProposalProvider {
 			}
 			// content assist using current component
 			else
-				elt = definition.getParentComponent();
+				elt = definition.getHelper().getParentComponent();
 
 			Map<String, InterfaceDefinition> map = getInterfaces(elt,
 					Role.PROVIDES);
@@ -329,7 +317,7 @@ public class FractalProposalProvider extends AbstractFractalProposalProvider {
 			// retrieve binding definition
 			BindingDefinition definition = (BindingDefinition) model;
 
-			Map<String, ArchitectureDefinition> map = getSubComponents(definition
+			Map<String, ArchitectureDefinition> map = getSubComponents(definition.getHelper()
 					.getParentComponent());
 
 			// retrieve sub component
@@ -428,7 +416,7 @@ public class FractalProposalProvider extends AbstractFractalProposalProvider {
 			ArchitectureDefinition definition = (ArchitectureDefinition) model;
 
 			// Retrieve sub element for this definition
-			for (Element element : definition.getElements()) {
+			for (Element element : definition.getBody().getElements()) {
 
 				// Only elements which are instance of SubComponentDefinition
 				// are valid proposal for binding
@@ -545,7 +533,7 @@ public class FractalProposalProvider extends AbstractFractalProposalProvider {
 		HashMap<String, ArchitectureDefinition> map = new HashMap<String, ArchitectureDefinition>();
 
 		if (definition != null) {
-			for (Element element : definition.getElements()) {
+			for (Element element : definition.getBody().getElements()) {
 				if (element instanceof adl.SubComponentDefinition) {
 					ArchitectureDefinition def = (ArchitectureDefinition) element;
 					map.put(def.getName(), def);
@@ -573,7 +561,7 @@ public class FractalProposalProvider extends AbstractFractalProposalProvider {
 		HashMap<String, InterfaceDefinition> map = new HashMap<String, InterfaceDefinition>();
 
 		if (definition != null) {
-			for (Element element : definition.getElements()) {
+			for (Element element : definition.getBody().getElements()) {
 				// retrieve interfaces elements
 				if (element instanceof adl.InterfaceDefinition) {
 					InterfaceDefinition def = (InterfaceDefinition) element;
