@@ -212,7 +212,7 @@ ElementValueArrayInitializer :
 "{"values+=ElementValue(","values+=ElementValue)*"}"; 
 
 Value :
-ID|signedINT|HexadecimalType|STRING;
+ID|signedINT|HexadecimalType|STRING|'null';
 
 HexadecimalType :
 '0x'INT;

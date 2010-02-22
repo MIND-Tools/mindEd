@@ -786,6 +786,7 @@
         <groups xsi:type="xtext:RuleCall" rule="/0/@rules.53"/>
         <groups xsi:type="xtext:RuleCall" rule="/0/@rules.44"/>
         <groups xsi:type="xtext:RuleCall" rule="/1/@rules.2"/>
+        <groups xsi:type="xtext:Keyword" value="null"/>
       </alternatives>
     </rules>
     <rules xsi:type="xtext:ParserRule" name="HexadecimalType">

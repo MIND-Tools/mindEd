@@ -1931,12 +1931,13 @@ public class FractalGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cSignedINTParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
 		private final RuleCall cHexadecimalTypeParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
 		private final RuleCall cSTRINGTerminalRuleCall_3 = (RuleCall)cAlternatives.eContents().get(3);
+		private final Keyword cNullKeyword_4 = (Keyword)cAlternatives.eContents().get(4);
 		
 		//Value returns ecore::EString:
-		//  ID|signedINT|HexadecimalType|STRING;
+		//  ID|signedINT|HexadecimalType|STRING|"null";
 		public ParserRule getRule() { return rule; }
 
-		//ID|signedINT|HexadecimalType|STRING
+		//ID|signedINT|HexadecimalType|STRING|"null"
 		public Alternatives getAlternatives() { return cAlternatives; }
 
 		//ID
@@ -1950,6 +1951,9 @@ public class FractalGrammarAccess extends AbstractGrammarElementFinder {
 
 		//STRING
 		public RuleCall getSTRINGTerminalRuleCall_3() { return cSTRINGTerminalRuleCall_3; }
+
+		//"null"
+		public Keyword getNullKeyword_4() { return cNullKeyword_4; }
 	}
 
 	public class HexadecimalTypeElements extends AbstractParserRuleElementFinder {
@@ -2696,7 +2700,7 @@ public class FractalGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//Value returns ecore::EString:
-	//  ID|signedINT|HexadecimalType|STRING;
+	//  ID|signedINT|HexadecimalType|STRING|"null";
 	public ValueElements getValueAccess() {
 		return (pValue != null) ? pValue : (pValue = new ValueElements());
 	}

@@ -1913,6 +1913,14 @@ rule__Value__Alternatives
 { after(grammarAccess.getValueAccess().getSTRINGTerminalRuleCall_3()); }
 )
 
+    |(
+{ before(grammarAccess.getValueAccess().getNullKeyword_4()); }
+
+	'null' 
+
+{ after(grammarAccess.getValueAccess().getNullKeyword_4()); }
+)
+
 ;
 finally {
 	restoreStackSize(stackSize);

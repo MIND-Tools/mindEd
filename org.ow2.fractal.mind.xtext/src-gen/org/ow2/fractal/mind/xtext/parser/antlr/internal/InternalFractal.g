@@ -3995,6 +3995,13 @@ ruleValue returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()]
     { 
     createLeafNode(grammarAccess.getValueAccess().getSTRINGTerminalRuleCall_3(), null); 
     }
+
+    |
+	kw='null' 
+    {
+        $current.merge(kw);
+        createLeafNode(grammarAccess.getValueAccess().getNullKeyword_4(), null); 
+    }
 )
     ;
 
