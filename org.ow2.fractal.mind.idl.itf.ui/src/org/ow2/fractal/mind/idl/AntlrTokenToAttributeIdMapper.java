@@ -32,7 +32,7 @@ public class AntlrTokenToAttributeIdMapper extends AbstractAntlrTokenToAttribute
 	/*
 	 * Primitive keywords -> include, type & constant, interface
 	 */
-	private static final HashSet<String> primitiveKeywords = new HashSet<String>();
+	protected static final HashSet<String> primitiveKeywords = new HashSet<String>();
 	static {
 		primitiveKeywords.add("'#define'");
 		primitiveKeywords.add("'#include'");
