@@ -20,45 +20,123 @@ public class FractalIdtGrammarAccess extends AbstractGrammarElementFinder {
 	public class IdtFileElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "IdtFile");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Assignment cIncludesAssignment_0 = (Assignment)cGroup.eContents().get(0);
-		private final RuleCall cIncludesIncludeDirectiveParserRuleCall_0_0 = (RuleCall)cIncludesAssignment_0.eContents().get(0);
-		private final Alternatives cAlternatives_1 = (Alternatives)cGroup.eContents().get(1);
-		private final Assignment cConstantAssignment_1_0 = (Assignment)cAlternatives_1.eContents().get(0);
-		private final RuleCall cConstantConstantDefinitionParserRuleCall_1_0_0 = (RuleCall)cConstantAssignment_1_0.eContents().get(0);
-		private final Assignment cTypeAssignment_1_1 = (Assignment)cAlternatives_1.eContents().get(1);
-		private final RuleCall cTypeTypeDefinitionParserRuleCall_1_1_0 = (RuleCall)cTypeAssignment_1_1.eContents().get(0);
+		private final Assignment cBegindefAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final RuleCall cBegindefConstantDefinitionBeginParserRuleCall_0_0 = (RuleCall)cBegindefAssignment_0.eContents().get(0);
+		private final Assignment cDefAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cDefConstantDefinitionParserRuleCall_1_0 = (RuleCall)cDefAssignment_1.eContents().get(0);
+		private final Assignment cIncludesAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cIncludesIncludeDirectiveParserRuleCall_2_0 = (RuleCall)cIncludesAssignment_2.eContents().get(0);
+		private final Alternatives cAlternatives_3 = (Alternatives)cGroup.eContents().get(3);
+		private final Assignment cConstantAssignment_3_0 = (Assignment)cAlternatives_3.eContents().get(0);
+		private final RuleCall cConstantConstantDefinitionParserRuleCall_3_0_0 = (RuleCall)cConstantAssignment_3_0.eContents().get(0);
+		private final Assignment cTypeAssignment_3_1 = (Assignment)cAlternatives_3.eContents().get(1);
+		private final RuleCall cTypeTypeDefinitionParserRuleCall_3_1_0 = (RuleCall)cTypeAssignment_3_1.eContents().get(0);
+		private final Assignment cEnddefAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final RuleCall cEnddefConstantDefinitionEndParserRuleCall_4_0 = (RuleCall)cEnddefAssignment_4.eContents().get(0);
 		
 		//IdtFile:
-		//  includes+=IncludeDirective* (constant+=ConstantDefinition|type+=TypeDefinition)*;
+		//  begindef=ConstantDefinitionBegin def=ConstantDefinition includes+=IncludeDirective
+		//  * (constant+=ConstantDefinition|type+=TypeDefinition)* enddef=
+		//  ConstantDefinitionEnd;
 		public ParserRule getRule() { return rule; }
 
-		//includes+=IncludeDirective* (constant+=ConstantDefinition|type+=TypeDefinition)*
+		//begindef=ConstantDefinitionBegin def=ConstantDefinition includes+=IncludeDirective
+		// * (constant+=ConstantDefinition|type+=TypeDefinition)* enddef=
+		//ConstantDefinitionEnd
 		public Group getGroup() { return cGroup; }
 
-		//includes+=IncludeDirective*
-		public Assignment getIncludesAssignment_0() { return cIncludesAssignment_0; }
+		//begindef=ConstantDefinitionBegin
+		public Assignment getBegindefAssignment_0() { return cBegindefAssignment_0; }
 
-		//IncludeDirective
-		public RuleCall getIncludesIncludeDirectiveParserRuleCall_0_0() { return cIncludesIncludeDirectiveParserRuleCall_0_0; }
+		//ConstantDefinitionBegin
+		public RuleCall getBegindefConstantDefinitionBeginParserRuleCall_0_0() { return cBegindefConstantDefinitionBeginParserRuleCall_0_0; }
 
-		//(constant+=ConstantDefinition|type+=TypeDefinition)*
-		public Alternatives getAlternatives_1() { return cAlternatives_1; }
-
-		//constant+=ConstantDefinition
-		public Assignment getConstantAssignment_1_0() { return cConstantAssignment_1_0; }
+		//def=ConstantDefinition
+		public Assignment getDefAssignment_1() { return cDefAssignment_1; }
 
 		//ConstantDefinition
-		public RuleCall getConstantConstantDefinitionParserRuleCall_1_0_0() { return cConstantConstantDefinitionParserRuleCall_1_0_0; }
+		public RuleCall getDefConstantDefinitionParserRuleCall_1_0() { return cDefConstantDefinitionParserRuleCall_1_0; }
+
+		//includes+=IncludeDirective*
+		public Assignment getIncludesAssignment_2() { return cIncludesAssignment_2; }
+
+		//IncludeDirective
+		public RuleCall getIncludesIncludeDirectiveParserRuleCall_2_0() { return cIncludesIncludeDirectiveParserRuleCall_2_0; }
+
+		//(constant+=ConstantDefinition|type+=TypeDefinition)*
+		public Alternatives getAlternatives_3() { return cAlternatives_3; }
+
+		//constant+=ConstantDefinition
+		public Assignment getConstantAssignment_3_0() { return cConstantAssignment_3_0; }
+
+		//ConstantDefinition
+		public RuleCall getConstantConstantDefinitionParserRuleCall_3_0_0() { return cConstantConstantDefinitionParserRuleCall_3_0_0; }
 
 		//type+=TypeDefinition
-		public Assignment getTypeAssignment_1_1() { return cTypeAssignment_1_1; }
+		public Assignment getTypeAssignment_3_1() { return cTypeAssignment_3_1; }
 
 		//TypeDefinition
-		public RuleCall getTypeTypeDefinitionParserRuleCall_1_1_0() { return cTypeTypeDefinitionParserRuleCall_1_1_0; }
+		public RuleCall getTypeTypeDefinitionParserRuleCall_3_1_0() { return cTypeTypeDefinitionParserRuleCall_3_1_0; }
+
+		//enddef=ConstantDefinitionEnd
+		public Assignment getEnddefAssignment_4() { return cEnddefAssignment_4; }
+
+		//ConstantDefinitionEnd
+		public RuleCall getEnddefConstantDefinitionEndParserRuleCall_4_0() { return cEnddefConstantDefinitionEndParserRuleCall_4_0; }
+	}
+
+	public class ConstantDefinitionBeginElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "ConstantDefinitionBegin");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cIfndefKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cIdAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cIdIDTerminalRuleCall_1_0 = (RuleCall)cIdAssignment_1.eContents().get(0);
+		
+		//ConstantDefinitionBegin:
+		//  "#ifndef" id=ID;
+		public ParserRule getRule() { return rule; }
+
+		//"#ifndef" id=ID
+		public Group getGroup() { return cGroup; }
+
+		//"#ifndef"
+		public Keyword getIfndefKeyword_0() { return cIfndefKeyword_0; }
+
+		//id=ID
+		public Assignment getIdAssignment_1() { return cIdAssignment_1; }
+
+		//ID
+		public RuleCall getIdIDTerminalRuleCall_1_0() { return cIdIDTerminalRuleCall_1_0; }
+	}
+
+	public class ConstantDefinitionEndElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "ConstantDefinitionEnd");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cEndifKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cIdAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cIdIDTerminalRuleCall_1_0 = (RuleCall)cIdAssignment_1.eContents().get(0);
+		
+		//ConstantDefinitionEnd:
+		//  "#endif" id=ID;
+		public ParserRule getRule() { return rule; }
+
+		//"#endif" id=ID
+		public Group getGroup() { return cGroup; }
+
+		//"#endif"
+		public Keyword getEndifKeyword_0() { return cEndifKeyword_0; }
+
+		//id=ID
+		public Assignment getIdAssignment_1() { return cIdAssignment_1; }
+
+		//ID
+		public RuleCall getIdIDTerminalRuleCall_1_0() { return cIdIDTerminalRuleCall_1_0; }
 	}
 	
 	
 	private IdtFileElements pIdtFile;
+	private ConstantDefinitionBeginElements pConstantDefinitionBegin;
+	private ConstantDefinitionEndElements pConstantDefinitionEnd;
 	
 	private final GrammarProvider grammarProvider;
 
@@ -82,13 +160,35 @@ public class FractalIdtGrammarAccess extends AbstractGrammarElementFinder {
 
 	
 	//IdtFile:
-	//  includes+=IncludeDirective* (constant+=ConstantDefinition|type+=TypeDefinition)*;
+	//  begindef=ConstantDefinitionBegin def=ConstantDefinition includes+=IncludeDirective
+	//  * (constant+=ConstantDefinition|type+=TypeDefinition)* enddef=
+	//  ConstantDefinitionEnd;
 	public IdtFileElements getIdtFileAccess() {
 		return (pIdtFile != null) ? pIdtFile : (pIdtFile = new IdtFileElements());
 	}
 	
 	public ParserRule getIdtFileRule() {
 		return getIdtFileAccess().getRule();
+	}
+
+	//ConstantDefinitionBegin:
+	//  "#ifndef" id=ID;
+	public ConstantDefinitionBeginElements getConstantDefinitionBeginAccess() {
+		return (pConstantDefinitionBegin != null) ? pConstantDefinitionBegin : (pConstantDefinitionBegin = new ConstantDefinitionBeginElements());
+	}
+	
+	public ParserRule getConstantDefinitionBeginRule() {
+		return getConstantDefinitionBeginAccess().getRule();
+	}
+
+	//ConstantDefinitionEnd:
+	//  "#endif" id=ID;
+	public ConstantDefinitionEndElements getConstantDefinitionEndAccess() {
+		return (pConstantDefinitionEnd != null) ? pConstantDefinitionEnd : (pConstantDefinitionEnd = new ConstantDefinitionEndElements());
+	}
+	
+	public ParserRule getConstantDefinitionEndRule() {
+		return getConstantDefinitionEndAccess().getRule();
 	}
 
 	//ItfFile:
@@ -294,6 +394,7 @@ public class FractalIdtGrammarAccess extends AbstractGrammarElementFinder {
 	//
 	//
 	//        //PointerSpecification:
+	//
 	////  qualifiedPointer+=(qualified_PointerSpecification)*;
 	////
 	////qualified_PointerSpecification:
@@ -308,6 +409,7 @@ public class FractalIdtGrammarAccess extends AbstractGrammarElementFinder {
 
 	//DirectDeclarator:
 	//  (id=ID|"(" Declarator ")") ArraySpecification*;   //PointerSpecification:
+	//
 	////  qualifiedPointer+=(qualified_PointerSpecification)*;
 	////
 	////qualified_PointerSpecification:
@@ -344,7 +446,7 @@ public class FractalIdtGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//ConstantDefinition:
-	//  "#define" id=ID INT;   // Interface definition part
+	//  "#define" id=ID;   // Interface definition part
 	public FractalItfGrammarAccess.ConstantDefinitionElements getConstantDefinitionAccess() {
 		return gaFractalItf.getConstantDefinitionAccess();
 	}

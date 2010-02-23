@@ -37,7 +37,7 @@ public class FractalIdtParser extends AbstractContentAssistParser {
 			nameMappings = new HashMap<AbstractElement, String>() {
 				private static final long serialVersionUID = 1L;
 				{
-					put(grammarAccess.getIdtFileAccess().getAlternatives_1(), "rule__IdtFile__Alternatives_1");
+					put(grammarAccess.getIdtFileAccess().getAlternatives_3(), "rule__IdtFile__Alternatives_3");
 					put(grammarAccess.getItfFileAccess().getAlternatives_1(), "rule__ItfFile__Alternatives_1");
 					put(grammarAccess.getTypeDefinitionAccess().getAlternatives_0(), "rule__TypeDefinition__Alternatives_0");
 					put(grammarAccess.getTypeSpecificationAccess().getAlternatives(), "rule__TypeSpecification__Alternatives");
@@ -52,6 +52,8 @@ public class FractalIdtParser extends AbstractContentAssistParser {
 					put(grammarAccess.getTypeSpecifierAccess().getAlternatives(), "rule__TypeSpecifier__Alternatives");
 					put(grammarAccess.getParameterQualifierAccess().getAlternatives(), "rule__ParameterQualifier__Alternatives");
 					put(grammarAccess.getIdtFileAccess().getGroup(), "rule__IdtFile__Group__0");
+					put(grammarAccess.getConstantDefinitionBeginAccess().getGroup(), "rule__ConstantDefinitionBegin__Group__0");
+					put(grammarAccess.getConstantDefinitionEndAccess().getGroup(), "rule__ConstantDefinitionEnd__Group__0");
 					put(grammarAccess.getItfFileAccess().getGroup(), "rule__ItfFile__Group__0");
 					put(grammarAccess.getTypeDefinitionAccess().getGroup(), "rule__TypeDefinition__Group__0");
 					put(grammarAccess.getTypedefSpecificationAccess().getGroup(), "rule__TypedefSpecification__Group__0");
@@ -86,9 +88,14 @@ public class FractalIdtParser extends AbstractContentAssistParser {
 					put(grammarAccess.getParameterListAccess().getGroup_2(), "rule__ParameterList__Group_2__0");
 					put(grammarAccess.getParameterAccess().getGroup(), "rule__Parameter__Group__0");
 					put(grammarAccess.getIncludeDirectiveAccess().getGroup(), "rule__IncludeDirective__Group__0");
-					put(grammarAccess.getIdtFileAccess().getIncludesAssignment_0(), "rule__IdtFile__IncludesAssignment_0");
-					put(grammarAccess.getIdtFileAccess().getConstantAssignment_1_0(), "rule__IdtFile__ConstantAssignment_1_0");
-					put(grammarAccess.getIdtFileAccess().getTypeAssignment_1_1(), "rule__IdtFile__TypeAssignment_1_1");
+					put(grammarAccess.getIdtFileAccess().getBegindefAssignment_0(), "rule__IdtFile__BegindefAssignment_0");
+					put(grammarAccess.getIdtFileAccess().getDefAssignment_1(), "rule__IdtFile__DefAssignment_1");
+					put(grammarAccess.getIdtFileAccess().getIncludesAssignment_2(), "rule__IdtFile__IncludesAssignment_2");
+					put(grammarAccess.getIdtFileAccess().getConstantAssignment_3_0(), "rule__IdtFile__ConstantAssignment_3_0");
+					put(grammarAccess.getIdtFileAccess().getTypeAssignment_3_1(), "rule__IdtFile__TypeAssignment_3_1");
+					put(grammarAccess.getIdtFileAccess().getEnddefAssignment_4(), "rule__IdtFile__EnddefAssignment_4");
+					put(grammarAccess.getConstantDefinitionBeginAccess().getIdAssignment_1(), "rule__ConstantDefinitionBegin__IdAssignment_1");
+					put(grammarAccess.getConstantDefinitionEndAccess().getIdAssignment_1(), "rule__ConstantDefinitionEnd__IdAssignment_1");
 					put(grammarAccess.getItfFileAccess().getIncludesAssignment_0(), "rule__ItfFile__IncludesAssignment_0");
 					put(grammarAccess.getItfFileAccess().getConstantAssignment_1_0(), "rule__ItfFile__ConstantAssignment_1_0");
 					put(grammarAccess.getItfFileAccess().getTypeAssignment_1_1(), "rule__ItfFile__TypeAssignment_1_1");

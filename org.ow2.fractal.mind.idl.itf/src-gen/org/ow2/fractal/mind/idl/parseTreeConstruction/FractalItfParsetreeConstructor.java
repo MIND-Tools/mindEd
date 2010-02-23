@@ -2466,6 +2466,7 @@ protected class Declarators_DeclaratorListAssignment_1_1 extends AssignmentToken
  * 
  * 
  *         //PointerSpecification:
+ * 
  * //  qualifiedPointer+=(qualified_PointerSpecification)*;
  * //
  * //qualified_PointerSpecification:
@@ -2634,6 +2635,7 @@ protected class Declarator_DcAssignment_1 extends AssignmentToken  {
  *
  * DirectDeclarator:
  *   (id=ID|"(" Declarator ")") ArraySpecification*;   //PointerSpecification:
+ * 
  * //  qualifiedPointer+=(qualified_PointerSpecification)*;
  * //
  * //qualified_PointerSpecification:
@@ -2860,11 +2862,11 @@ protected class DirectDeclarator_ArraySpecificationParserRuleCall_1 extends Unas
 /************ begin Rule ConstantDefinition ****************
  *
  * ConstantDefinition:
- *   "#define" id=ID INT;   // Interface definition part
+ *   "#define" id=ID;   // Interface definition part
  *
  **/
 
-// "#define" id=ID INT
+// "#define" id=ID
 protected class ConstantDefinition_Group extends GroupToken {
 	
 	public ConstantDefinition_Group(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
@@ -2879,7 +2881,7 @@ protected class ConstantDefinition_Group extends GroupToken {
     @Override
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new ConstantDefinition_INTTerminalRuleCall_2(parent, this, 0, inst);
+			case 0: return new ConstantDefinition_IdAssignment_1(parent, this, 0, inst);
 			default: return null;
 		}	
 	}	
@@ -2944,28 +2946,6 @@ protected class ConstantDefinition_IdAssignment_1 extends AssignmentToken  {
 		return null;
 	}
 
-}
-
-// INT
-protected class ConstantDefinition_INTTerminalRuleCall_2 extends UnassignedTextToken {
-
-	public ConstantDefinition_INTTerminalRuleCall_2(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
-		super(parent, next, no, current);
-	}
-	
-	@Override
-	public RuleCall getGrammarElement() {
-		return grammarAccess.getConstantDefinitionAccess().getINTTerminalRuleCall_2();
-	}
-
-    @Override
-	public AbstractToken createFollower(int index, IInstanceDescription inst) {
-		switch(index) {
-			case 0: return new ConstantDefinition_IdAssignment_1(parent, this, 0, inst);
-			default: return null;
-		}	
-	}	
-		
 }
 
 

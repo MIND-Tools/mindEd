@@ -84,6 +84,16 @@ public class FractalIdtAdapterFactory extends AdapterFactoryImpl
         return createIdtFileAdapter();
       }
       @Override
+      public Adapter caseConstantDefinitionBegin(ConstantDefinitionBegin object)
+      {
+        return createConstantDefinitionBeginAdapter();
+      }
+      @Override
+      public Adapter caseConstantDefinitionEnd(ConstantDefinitionEnd object)
+      {
+        return createConstantDefinitionEndAdapter();
+      }
+      @Override
       public Adapter defaultCase(EObject object)
       {
         return createEObjectAdapter();
@@ -116,6 +126,36 @@ public class FractalIdtAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createIdtFileAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.ow2.fractal.mind.idl.fractalIdt.ConstantDefinitionBegin <em>Constant Definition Begin</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.ow2.fractal.mind.idl.fractalIdt.ConstantDefinitionBegin
+   * @generated
+   */
+  public Adapter createConstantDefinitionBeginAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.ow2.fractal.mind.idl.fractalIdt.ConstantDefinitionEnd <em>Constant Definition End</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.ow2.fractal.mind.idl.fractalIdt.ConstantDefinitionEnd
+   * @generated
+   */
+  public Adapter createConstantDefinitionEndAdapter()
   {
     return null;
   }

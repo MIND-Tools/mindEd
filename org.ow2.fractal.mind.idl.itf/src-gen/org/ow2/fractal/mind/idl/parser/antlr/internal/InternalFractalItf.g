@@ -1499,11 +1499,7 @@ ruleConstantDefinition returns [EObject current=null]
 	    }
 
 )
-)RULE_INT
-    { 
-    createLeafNode(grammarAccess.getConstantDefinitionAccess().getINTTerminalRuleCall_2(), null); 
-    }
-)
+))
 ;
 
 

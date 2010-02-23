@@ -36,29 +36,31 @@ protected class ThisRootNode extends RootToken {
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
 			case 0: return new IdtFile_Group(this, this, 0, inst);
-			case 1: return new ItfFile_Group(this, this, 1, inst);
-			case 2: return new TypeDefinition_Group(this, this, 2, inst);
-			case 3: return new TypedefSpecification_Group(this, this, 3, inst);
-			case 4: return new QualifiedTypeSpecification_Group(this, this, 4, inst);
-			case 5: return new TypeSpecification_Alternatives(this, this, 5, inst);
-			case 6: return new StructOrUnionSpecification_Alternatives(this, this, 6, inst);
-			case 7: return new StructOrUnionDefinition_Group(this, this, 7, inst);
-			case 8: return new StructorUnionReference_Group(this, this, 8, inst);
-			case 9: return new StructMember_Group(this, this, 9, inst);
-			case 10: return new EnumSpecification_Alternatives(this, this, 10, inst);
-			case 11: return new EnumDefinition_Group(this, this, 11, inst);
-			case 12: return new EnumReference_Group(this, this, 12, inst);
-			case 13: return new EnumMemberList_Group(this, this, 13, inst);
-			case 14: return new EnumMember_Group(this, this, 14, inst);
-			case 15: return new Declarators_Group(this, this, 15, inst);
-			case 16: return new Declarator_Group(this, this, 16, inst);
-			case 17: return new DirectDeclarator_Group(this, this, 17, inst);
-			case 18: return new ConstantDefinition_Group(this, this, 18, inst);
-			case 19: return new InterfaceDefinition_Group(this, this, 19, inst);
-			case 20: return new MethodDefinition_Group(this, this, 20, inst);
-			case 21: return new ParameterList_Group(this, this, 21, inst);
-			case 22: return new Parameter_Group(this, this, 22, inst);
-			case 23: return new IncludeDirective_Group(this, this, 23, inst);
+			case 1: return new ConstantDefinitionBegin_Group(this, this, 1, inst);
+			case 2: return new ConstantDefinitionEnd_Group(this, this, 2, inst);
+			case 3: return new ItfFile_Group(this, this, 3, inst);
+			case 4: return new TypeDefinition_Group(this, this, 4, inst);
+			case 5: return new TypedefSpecification_Group(this, this, 5, inst);
+			case 6: return new QualifiedTypeSpecification_Group(this, this, 6, inst);
+			case 7: return new TypeSpecification_Alternatives(this, this, 7, inst);
+			case 8: return new StructOrUnionSpecification_Alternatives(this, this, 8, inst);
+			case 9: return new StructOrUnionDefinition_Group(this, this, 9, inst);
+			case 10: return new StructorUnionReference_Group(this, this, 10, inst);
+			case 11: return new StructMember_Group(this, this, 11, inst);
+			case 12: return new EnumSpecification_Alternatives(this, this, 12, inst);
+			case 13: return new EnumDefinition_Group(this, this, 13, inst);
+			case 14: return new EnumReference_Group(this, this, 14, inst);
+			case 15: return new EnumMemberList_Group(this, this, 15, inst);
+			case 16: return new EnumMember_Group(this, this, 16, inst);
+			case 17: return new Declarators_Group(this, this, 17, inst);
+			case 18: return new Declarator_Group(this, this, 18, inst);
+			case 19: return new DirectDeclarator_Group(this, this, 19, inst);
+			case 20: return new ConstantDefinition_Group(this, this, 20, inst);
+			case 21: return new InterfaceDefinition_Group(this, this, 21, inst);
+			case 22: return new MethodDefinition_Group(this, this, 22, inst);
+			case 23: return new ParameterList_Group(this, this, 23, inst);
+			case 24: return new Parameter_Group(this, this, 24, inst);
+			case 25: return new IncludeDirective_Group(this, this, 25, inst);
 			default: return null;
 		}	
 	}	
@@ -68,11 +70,15 @@ protected class ThisRootNode extends RootToken {
 /************ begin Rule IdtFile ****************
  *
  * IdtFile:
- *   includes+=IncludeDirective* (constant+=ConstantDefinition|type+=TypeDefinition)*;
+ *   begindef=ConstantDefinitionBegin def=ConstantDefinition includes+=IncludeDirective
+ *   * (constant+=ConstantDefinition|type+=TypeDefinition)* enddef=
+ *   ConstantDefinitionEnd;
  *
  **/
 
-// includes+=IncludeDirective* (constant+=ConstantDefinition|type+=TypeDefinition)*
+// begindef=ConstantDefinitionBegin def=ConstantDefinition includes+=IncludeDirective
+// * (constant+=ConstantDefinition|type+=TypeDefinition)* enddef=
+// ConstantDefinitionEnd
 protected class IdtFile_Group extends GroupToken {
 	
 	public IdtFile_Group(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
@@ -87,8 +93,7 @@ protected class IdtFile_Group extends GroupToken {
     @Override
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new IdtFile_Alternatives_1(parent, this, 0, inst);
-			case 1: return new IdtFile_IncludesAssignment_0(parent, this, 1, inst);
+			case 0: return new IdtFile_EnddefAssignment_4(parent, this, 0, inst);
 			default: return null;
 		}	
 	}	
@@ -100,16 +105,107 @@ protected class IdtFile_Group extends GroupToken {
 	}
 }
 
-// includes+=IncludeDirective*
-protected class IdtFile_IncludesAssignment_0 extends AssignmentToken  {
+// begindef=ConstantDefinitionBegin
+protected class IdtFile_BegindefAssignment_0 extends AssignmentToken  {
 	
-	public IdtFile_IncludesAssignment_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	public IdtFile_BegindefAssignment_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	@Override
 	public Assignment getGrammarElement() {
-		return grammarAccess.getIdtFileAccess().getIncludesAssignment_0();
+		return grammarAccess.getIdtFileAccess().getBegindefAssignment_0();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new ConstantDefinitionBegin_Group(this, this, 0, inst);
+			default: return null;
+		}	
+	}	
+		
+    @Override	
+	protected IInstanceDescription tryConsumeVal() {
+		if((value = current.getConsumable("begindef",true)) == null) return null;
+		IInstanceDescription obj = current.cloneAndConsume("begindef");
+		if(value instanceof EObject) { // org::eclipse::xtext::impl::RuleCallImpl
+			IInstanceDescription param = getDescr((EObject)value);
+			if(param.isInstanceOf(grammarAccess.getConstantDefinitionBeginRule().getType().getClassifier())) {
+				type = AssignmentType.PRC;
+				element = grammarAccess.getIdtFileAccess().getBegindefConstantDefinitionBeginParserRuleCall_0_0(); 
+				consumed = obj;
+				return param;
+			}
+		}
+		return null;
+	}
+
+    @Override
+	public AbstractToken createParentFollower(AbstractToken next,	int actIndex, int index, IInstanceDescription inst) {
+		if(value == inst.getDelegate() && !inst.isConsumed()) return null;
+		switch(index) {
+			default: return parent.createParentFollower(next, actIndex , index, consumed);
+		}	
+	}	
+}
+
+// def=ConstantDefinition
+protected class IdtFile_DefAssignment_1 extends AssignmentToken  {
+	
+	public IdtFile_DefAssignment_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Assignment getGrammarElement() {
+		return grammarAccess.getIdtFileAccess().getDefAssignment_1();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new ConstantDefinition_Group(this, this, 0, inst);
+			default: return null;
+		}	
+	}	
+		
+    @Override	
+	protected IInstanceDescription tryConsumeVal() {
+		if((value = current.getConsumable("def",true)) == null) return null;
+		IInstanceDescription obj = current.cloneAndConsume("def");
+		if(value instanceof EObject) { // org::eclipse::xtext::impl::RuleCallImpl
+			IInstanceDescription param = getDescr((EObject)value);
+			if(param.isInstanceOf(grammarAccess.getConstantDefinitionRule().getType().getClassifier())) {
+				type = AssignmentType.PRC;
+				element = grammarAccess.getIdtFileAccess().getDefConstantDefinitionParserRuleCall_1_0(); 
+				consumed = obj;
+				return param;
+			}
+		}
+		return null;
+	}
+
+    @Override
+	public AbstractToken createParentFollower(AbstractToken next,	int actIndex, int index, IInstanceDescription inst) {
+		if(value == inst.getDelegate() && !inst.isConsumed()) return null;
+		switch(index) {
+			case 0: return new IdtFile_BegindefAssignment_0(parent, next, actIndex, consumed);
+			default: return null;
+		}	
+	}	
+}
+
+// includes+=IncludeDirective*
+protected class IdtFile_IncludesAssignment_2 extends AssignmentToken  {
+	
+	public IdtFile_IncludesAssignment_2(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Assignment getGrammarElement() {
+		return grammarAccess.getIdtFileAccess().getIncludesAssignment_2();
 	}
 
     @Override
@@ -128,7 +224,7 @@ protected class IdtFile_IncludesAssignment_0 extends AssignmentToken  {
 			IInstanceDescription param = getDescr((EObject)value);
 			if(param.isInstanceOf(grammarAccess.getIncludeDirectiveRule().getType().getClassifier())) {
 				type = AssignmentType.PRC;
-				element = grammarAccess.getIdtFileAccess().getIncludesIncludeDirectiveParserRuleCall_0_0(); 
+				element = grammarAccess.getIdtFileAccess().getIncludesIncludeDirectiveParserRuleCall_2_0(); 
 				consumed = obj;
 				return param;
 			}
@@ -140,29 +236,30 @@ protected class IdtFile_IncludesAssignment_0 extends AssignmentToken  {
 	public AbstractToken createParentFollower(AbstractToken next,	int actIndex, int index, IInstanceDescription inst) {
 		if(value == inst.getDelegate() && !inst.isConsumed()) return null;
 		switch(index) {
-			case 0: return new IdtFile_IncludesAssignment_0(parent, next, actIndex, consumed);
-			default: return parent.createParentFollower(next, actIndex , index - 1, consumed);
+			case 0: return new IdtFile_IncludesAssignment_2(parent, next, actIndex, consumed);
+			case 1: return new IdtFile_DefAssignment_1(parent, next, actIndex, consumed);
+			default: return null;
 		}	
 	}	
 }
 
 // (constant+=ConstantDefinition|type+=TypeDefinition)*
-protected class IdtFile_Alternatives_1 extends AlternativesToken {
+protected class IdtFile_Alternatives_3 extends AlternativesToken {
 
-	public IdtFile_Alternatives_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	public IdtFile_Alternatives_3(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	@Override
 	public Alternatives getGrammarElement() {
-		return grammarAccess.getIdtFileAccess().getAlternatives_1();
+		return grammarAccess.getIdtFileAccess().getAlternatives_3();
 	}
 
     @Override
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new IdtFile_ConstantAssignment_1_0(parent, this, 0, inst);
-			case 1: return new IdtFile_TypeAssignment_1_1(parent, this, 1, inst);
+			case 0: return new IdtFile_ConstantAssignment_3_0(parent, this, 0, inst);
+			case 1: return new IdtFile_TypeAssignment_3_1(parent, this, 1, inst);
 			default: return null;
 		}	
 	}	
@@ -170,15 +267,15 @@ protected class IdtFile_Alternatives_1 extends AlternativesToken {
 }
 
 // constant+=ConstantDefinition
-protected class IdtFile_ConstantAssignment_1_0 extends AssignmentToken  {
+protected class IdtFile_ConstantAssignment_3_0 extends AssignmentToken  {
 	
-	public IdtFile_ConstantAssignment_1_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	public IdtFile_ConstantAssignment_3_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	@Override
 	public Assignment getGrammarElement() {
-		return grammarAccess.getIdtFileAccess().getConstantAssignment_1_0();
+		return grammarAccess.getIdtFileAccess().getConstantAssignment_3_0();
 	}
 
     @Override
@@ -197,7 +294,7 @@ protected class IdtFile_ConstantAssignment_1_0 extends AssignmentToken  {
 			IInstanceDescription param = getDescr((EObject)value);
 			if(param.isInstanceOf(grammarAccess.getConstantDefinitionRule().getType().getClassifier())) {
 				type = AssignmentType.PRC;
-				element = grammarAccess.getIdtFileAccess().getConstantConstantDefinitionParserRuleCall_1_0_0(); 
+				element = grammarAccess.getIdtFileAccess().getConstantConstantDefinitionParserRuleCall_3_0_0(); 
 				consumed = obj;
 				return param;
 			}
@@ -209,23 +306,24 @@ protected class IdtFile_ConstantAssignment_1_0 extends AssignmentToken  {
 	public AbstractToken createParentFollower(AbstractToken next,	int actIndex, int index, IInstanceDescription inst) {
 		if(value == inst.getDelegate() && !inst.isConsumed()) return null;
 		switch(index) {
-			case 0: return new IdtFile_Alternatives_1(parent, next, actIndex, consumed);
-			case 1: return new IdtFile_IncludesAssignment_0(parent, next, actIndex, consumed);
-			default: return parent.createParentFollower(next, actIndex , index - 2, consumed);
+			case 0: return new IdtFile_Alternatives_3(parent, next, actIndex, consumed);
+			case 1: return new IdtFile_IncludesAssignment_2(parent, next, actIndex, consumed);
+			case 2: return new IdtFile_DefAssignment_1(parent, next, actIndex, consumed);
+			default: return null;
 		}	
 	}	
 }
 
 // type+=TypeDefinition
-protected class IdtFile_TypeAssignment_1_1 extends AssignmentToken  {
+protected class IdtFile_TypeAssignment_3_1 extends AssignmentToken  {
 	
-	public IdtFile_TypeAssignment_1_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	public IdtFile_TypeAssignment_3_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	@Override
 	public Assignment getGrammarElement() {
-		return grammarAccess.getIdtFileAccess().getTypeAssignment_1_1();
+		return grammarAccess.getIdtFileAccess().getTypeAssignment_3_1();
 	}
 
     @Override
@@ -244,7 +342,7 @@ protected class IdtFile_TypeAssignment_1_1 extends AssignmentToken  {
 			IInstanceDescription param = getDescr((EObject)value);
 			if(param.isInstanceOf(grammarAccess.getTypeDefinitionRule().getType().getClassifier())) {
 				type = AssignmentType.PRC;
-				element = grammarAccess.getIdtFileAccess().getTypeTypeDefinitionParserRuleCall_1_1_0(); 
+				element = grammarAccess.getIdtFileAccess().getTypeTypeDefinitionParserRuleCall_3_1_0(); 
 				consumed = obj;
 				return param;
 			}
@@ -256,16 +354,251 @@ protected class IdtFile_TypeAssignment_1_1 extends AssignmentToken  {
 	public AbstractToken createParentFollower(AbstractToken next,	int actIndex, int index, IInstanceDescription inst) {
 		if(value == inst.getDelegate() && !inst.isConsumed()) return null;
 		switch(index) {
-			case 0: return new IdtFile_Alternatives_1(parent, next, actIndex, consumed);
-			case 1: return new IdtFile_IncludesAssignment_0(parent, next, actIndex, consumed);
-			default: return parent.createParentFollower(next, actIndex , index - 2, consumed);
+			case 0: return new IdtFile_Alternatives_3(parent, next, actIndex, consumed);
+			case 1: return new IdtFile_IncludesAssignment_2(parent, next, actIndex, consumed);
+			case 2: return new IdtFile_DefAssignment_1(parent, next, actIndex, consumed);
+			default: return null;
 		}	
 	}	
 }
 
 
+// enddef=ConstantDefinitionEnd
+protected class IdtFile_EnddefAssignment_4 extends AssignmentToken  {
+	
+	public IdtFile_EnddefAssignment_4(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Assignment getGrammarElement() {
+		return grammarAccess.getIdtFileAccess().getEnddefAssignment_4();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new ConstantDefinitionEnd_Group(this, this, 0, inst);
+			default: return null;
+		}	
+	}	
+		
+    @Override	
+	protected IInstanceDescription tryConsumeVal() {
+		if((value = current.getConsumable("enddef",true)) == null) return null;
+		IInstanceDescription obj = current.cloneAndConsume("enddef");
+		if(value instanceof EObject) { // org::eclipse::xtext::impl::RuleCallImpl
+			IInstanceDescription param = getDescr((EObject)value);
+			if(param.isInstanceOf(grammarAccess.getConstantDefinitionEndRule().getType().getClassifier())) {
+				type = AssignmentType.PRC;
+				element = grammarAccess.getIdtFileAccess().getEnddefConstantDefinitionEndParserRuleCall_4_0(); 
+				consumed = obj;
+				return param;
+			}
+		}
+		return null;
+	}
+
+    @Override
+	public AbstractToken createParentFollower(AbstractToken next,	int actIndex, int index, IInstanceDescription inst) {
+		if(value == inst.getDelegate() && !inst.isConsumed()) return null;
+		switch(index) {
+			case 0: return new IdtFile_Alternatives_3(parent, next, actIndex, consumed);
+			case 1: return new IdtFile_IncludesAssignment_2(parent, next, actIndex, consumed);
+			case 2: return new IdtFile_DefAssignment_1(parent, next, actIndex, consumed);
+			default: return null;
+		}	
+	}	
+}
+
 
 /************ end Rule IdtFile ****************/
+
+
+/************ begin Rule ConstantDefinitionBegin ****************
+ *
+ * ConstantDefinitionBegin:
+ *   "#ifndef" id=ID;
+ *
+ **/
+
+// "#ifndef" id=ID
+protected class ConstantDefinitionBegin_Group extends GroupToken {
+	
+	public ConstantDefinitionBegin_Group(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Group getGrammarElement() {
+		return grammarAccess.getConstantDefinitionBeginAccess().getGroup();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new ConstantDefinitionBegin_IdAssignment_1(parent, this, 0, inst);
+			default: return null;
+		}	
+	}	
+		
+    @Override
+	public IInstanceDescription tryConsume() {
+		if(!current.isInstanceOf(grammarAccess.getConstantDefinitionBeginRule().getType().getClassifier())) return null;
+		return tryConsumeVal();
+	}
+}
+
+// "#ifndef"
+protected class ConstantDefinitionBegin_IfndefKeyword_0 extends KeywordToken  {
+	
+	public ConstantDefinitionBegin_IfndefKeyword_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Keyword getGrammarElement() {
+		return grammarAccess.getConstantDefinitionBeginAccess().getIfndefKeyword_0();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			default: return parent.createParentFollower(this, index, index, inst);
+		}	
+	}	
+		
+}
+
+// id=ID
+protected class ConstantDefinitionBegin_IdAssignment_1 extends AssignmentToken  {
+	
+	public ConstantDefinitionBegin_IdAssignment_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Assignment getGrammarElement() {
+		return grammarAccess.getConstantDefinitionBeginAccess().getIdAssignment_1();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new ConstantDefinitionBegin_IfndefKeyword_0(parent, this, 0, inst);
+			default: return null;
+		}	
+	}	
+		
+    @Override	
+	protected IInstanceDescription tryConsumeVal() {
+		if((value = current.getConsumable("id",true)) == null) return null;
+		IInstanceDescription obj = current.cloneAndConsume("id");
+		if(Boolean.TRUE.booleanValue()) { // org::eclipse::xtext::impl::RuleCallImpl FIXME: check if value is valid for lexer rule
+			type = AssignmentType.LRC;
+			element = grammarAccess.getConstantDefinitionBeginAccess().getIdIDTerminalRuleCall_1_0();
+			return obj;
+		}
+		return null;
+	}
+
+}
+
+
+/************ end Rule ConstantDefinitionBegin ****************/
+
+
+/************ begin Rule ConstantDefinitionEnd ****************
+ *
+ * ConstantDefinitionEnd:
+ *   "#endif" id=ID;
+ *
+ **/
+
+// "#endif" id=ID
+protected class ConstantDefinitionEnd_Group extends GroupToken {
+	
+	public ConstantDefinitionEnd_Group(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Group getGrammarElement() {
+		return grammarAccess.getConstantDefinitionEndAccess().getGroup();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new ConstantDefinitionEnd_IdAssignment_1(parent, this, 0, inst);
+			default: return null;
+		}	
+	}	
+		
+    @Override
+	public IInstanceDescription tryConsume() {
+		if(!current.isInstanceOf(grammarAccess.getConstantDefinitionEndRule().getType().getClassifier())) return null;
+		return tryConsumeVal();
+	}
+}
+
+// "#endif"
+protected class ConstantDefinitionEnd_EndifKeyword_0 extends KeywordToken  {
+	
+	public ConstantDefinitionEnd_EndifKeyword_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Keyword getGrammarElement() {
+		return grammarAccess.getConstantDefinitionEndAccess().getEndifKeyword_0();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			default: return parent.createParentFollower(this, index, index, inst);
+		}	
+	}	
+		
+}
+
+// id=ID
+protected class ConstantDefinitionEnd_IdAssignment_1 extends AssignmentToken  {
+	
+	public ConstantDefinitionEnd_IdAssignment_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Assignment getGrammarElement() {
+		return grammarAccess.getConstantDefinitionEndAccess().getIdAssignment_1();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new ConstantDefinitionEnd_EndifKeyword_0(parent, this, 0, inst);
+			default: return null;
+		}	
+	}	
+		
+    @Override	
+	protected IInstanceDescription tryConsumeVal() {
+		if((value = current.getConsumable("id",true)) == null) return null;
+		IInstanceDescription obj = current.cloneAndConsume("id");
+		if(Boolean.TRUE.booleanValue()) { // org::eclipse::xtext::impl::RuleCallImpl FIXME: check if value is valid for lexer rule
+			type = AssignmentType.LRC;
+			element = grammarAccess.getConstantDefinitionEndAccess().getIdIDTerminalRuleCall_1_0();
+			return obj;
+		}
+		return null;
+	}
+
+}
+
+
+/************ end Rule ConstantDefinitionEnd ****************/
 
 
 /************ begin Rule ItfFile ****************
@@ -2670,6 +3003,7 @@ protected class Declarators_DeclaratorListAssignment_1_1 extends AssignmentToken
  * 
  * 
  *         //PointerSpecification:
+ * 
  * //  qualifiedPointer+=(qualified_PointerSpecification)*;
  * //
  * //qualified_PointerSpecification:
@@ -2838,6 +3172,7 @@ protected class Declarator_DcAssignment_1 extends AssignmentToken  {
  *
  * DirectDeclarator:
  *   (id=ID|"(" Declarator ")") ArraySpecification*;   //PointerSpecification:
+ * 
  * //  qualifiedPointer+=(qualified_PointerSpecification)*;
  * //
  * //qualified_PointerSpecification:
@@ -3064,11 +3399,11 @@ protected class DirectDeclarator_ArraySpecificationParserRuleCall_1 extends Unas
 /************ begin Rule ConstantDefinition ****************
  *
  * ConstantDefinition:
- *   "#define" id=ID INT;   // Interface definition part
+ *   "#define" id=ID;   // Interface definition part
  *
  **/
 
-// "#define" id=ID INT
+// "#define" id=ID
 protected class ConstantDefinition_Group extends GroupToken {
 	
 	public ConstantDefinition_Group(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
@@ -3083,7 +3418,7 @@ protected class ConstantDefinition_Group extends GroupToken {
     @Override
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new ConstantDefinition_INTTerminalRuleCall_2(parent, this, 0, inst);
+			case 0: return new ConstantDefinition_IdAssignment_1(parent, this, 0, inst);
 			default: return null;
 		}	
 	}	
@@ -3148,28 +3483,6 @@ protected class ConstantDefinition_IdAssignment_1 extends AssignmentToken  {
 		return null;
 	}
 
-}
-
-// INT
-protected class ConstantDefinition_INTTerminalRuleCall_2 extends UnassignedTextToken {
-
-	public ConstantDefinition_INTTerminalRuleCall_2(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
-		super(parent, next, no, current);
-	}
-	
-	@Override
-	public RuleCall getGrammarElement() {
-		return grammarAccess.getConstantDefinitionAccess().getINTTerminalRuleCall_2();
-	}
-
-    @Override
-	public AbstractToken createFollower(int index, IInstanceDescription inst) {
-		switch(index) {
-			case 0: return new ConstantDefinition_IdAssignment_1(parent, this, 0, inst);
-			default: return null;
-		}	
-	}	
-		
 }
 
 

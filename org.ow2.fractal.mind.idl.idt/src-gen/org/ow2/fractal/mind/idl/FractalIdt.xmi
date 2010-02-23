@@ -9,6 +9,12 @@
         <classifier xsi:type="ecore:EClass" href="http://www.ow2.org/fractal/mind/idl/FractalIdt#//IdtFile"/>
       </type>
       <alternatives xsi:type="xtext:Group">
+        <tokens xsi:type="xtext:Assignment" feature="begindef" operator="=">
+          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.1"/>
+        </tokens>
+        <tokens xsi:type="xtext:Assignment" feature="def" operator="=">
+          <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.23"/>
+        </tokens>
         <tokens xsi:type="xtext:Assignment" cardinality="*" feature="includes" operator="+=">
           <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.29"/>
         </tokens>
@@ -19,6 +25,31 @@
           <groups xsi:type="xtext:Assignment" feature="type" operator="+=">
             <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.1"/>
           </groups>
+        </tokens>
+        <tokens xsi:type="xtext:Assignment" feature="enddef" operator="=">
+          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.2"/>
+        </tokens>
+      </alternatives>
+    </rules>
+    <rules xsi:type="xtext:ParserRule" name="ConstantDefinitionBegin">
+      <type metamodel="/0/@metamodelDeclarations.0">
+        <classifier xsi:type="ecore:EClass" href="http://www.ow2.org/fractal/mind/idl/FractalIdt#//ConstantDefinitionBegin"/>
+      </type>
+      <alternatives xsi:type="xtext:Group">
+        <tokens xsi:type="xtext:Keyword" value="#ifndef"/>
+        <tokens xsi:type="xtext:Assignment" feature="id" operator="=">
+          <terminal xsi:type="xtext:RuleCall" rule="/2/@rules.0"/>
+        </tokens>
+      </alternatives>
+    </rules>
+    <rules xsi:type="xtext:ParserRule" name="ConstantDefinitionEnd">
+      <type metamodel="/0/@metamodelDeclarations.0">
+        <classifier xsi:type="ecore:EClass" href="http://www.ow2.org/fractal/mind/idl/FractalIdt#//ConstantDefinitionEnd"/>
+      </type>
+      <alternatives xsi:type="xtext:Group">
+        <tokens xsi:type="xtext:Keyword" value="#endif"/>
+        <tokens xsi:type="xtext:Assignment" feature="id" operator="=">
+          <terminal xsi:type="xtext:RuleCall" rule="/2/@rules.0"/>
         </tokens>
       </alternatives>
     </rules>
@@ -427,7 +458,6 @@
         <tokens xsi:type="xtext:Assignment" feature="id" operator="=">
           <terminal xsi:type="xtext:RuleCall" rule="/2/@rules.0"/>
         </tokens>
-        <tokens xsi:type="xtext:RuleCall" rule="/2/@rules.1"/>
       </alternatives>
     </rules>
     <rules xsi:type="xtext:ParserRule" name="InterfaceDefinition">

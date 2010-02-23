@@ -36,6 +36,24 @@ public interface FractalIdtFactory extends EFactory
   IdtFile createIdtFile();
 
   /**
+   * Returns a new object of class '<em>Constant Definition Begin</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Constant Definition Begin</em>'.
+   * @generated
+   */
+  ConstantDefinitionBegin createConstantDefinitionBegin();
+
+  /**
+   * Returns a new object of class '<em>Constant Definition End</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Constant Definition End</em>'.
+   * @generated
+   */
+  ConstantDefinitionEnd createConstantDefinitionEnd();
+
+  /**
    * Returns the package supported by this factory.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

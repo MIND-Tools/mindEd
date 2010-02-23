@@ -88,9 +88,57 @@ ruleIdtFile returns [EObject current=null]
 ((
 (
 		{ 
-	        currentNode=createCompositeNode(grammarAccess.getIdtFileAccess().getIncludesIncludeDirectiveParserRuleCall_0_0(), currentNode); 
+	        currentNode=createCompositeNode(grammarAccess.getIdtFileAccess().getBegindefConstantDefinitionBeginParserRuleCall_0_0(), currentNode); 
 	    }
-		lv_includes_0_0=ruleIncludeDirective		{
+		lv_begindef_0_0=ruleConstantDefinitionBegin		{
+	        if ($current==null) {
+	            $current = factory.create(grammarAccess.getIdtFileRule().getType().getClassifier());
+	            associateNodeWithAstElement(currentNode.getParent(), $current);
+	        }
+	        try {
+	       		set(
+	       			$current, 
+	       			"begindef",
+	        		lv_begindef_0_0, 
+	        		"ConstantDefinitionBegin", 
+	        		currentNode);
+	        } catch (ValueConverterException vce) {
+				handleValueConverterException(vce);
+	        }
+	        currentNode = currentNode.getParent();
+	    }
+
+)
+)(
+(
+		{ 
+	        currentNode=createCompositeNode(grammarAccess.getIdtFileAccess().getDefConstantDefinitionParserRuleCall_1_0(), currentNode); 
+	    }
+		lv_def_1_0=ruleConstantDefinition		{
+	        if ($current==null) {
+	            $current = factory.create(grammarAccess.getIdtFileRule().getType().getClassifier());
+	            associateNodeWithAstElement(currentNode.getParent(), $current);
+	        }
+	        try {
+	       		set(
+	       			$current, 
+	       			"def",
+	        		lv_def_1_0, 
+	        		"ConstantDefinition", 
+	        		currentNode);
+	        } catch (ValueConverterException vce) {
+				handleValueConverterException(vce);
+	        }
+	        currentNode = currentNode.getParent();
+	    }
+
+)
+)(
+(
+		{ 
+	        currentNode=createCompositeNode(grammarAccess.getIdtFileAccess().getIncludesIncludeDirectiveParserRuleCall_2_0(), currentNode); 
+	    }
+		lv_includes_2_0=ruleIncludeDirective		{
 	        if ($current==null) {
 	            $current = factory.create(grammarAccess.getIdtFileRule().getType().getClassifier());
 	            associateNodeWithAstElement(currentNode.getParent(), $current);
@@ -99,7 +147,7 @@ ruleIdtFile returns [EObject current=null]
 	       		add(
 	       			$current, 
 	       			"includes",
-	        		lv_includes_0_0, 
+	        		lv_includes_2_0, 
 	        		"IncludeDirective", 
 	        		currentNode);
 	        } catch (ValueConverterException vce) {
@@ -112,9 +160,9 @@ ruleIdtFile returns [EObject current=null]
 )*((
 (
 		{ 
-	        currentNode=createCompositeNode(grammarAccess.getIdtFileAccess().getConstantConstantDefinitionParserRuleCall_1_0_0(), currentNode); 
+	        currentNode=createCompositeNode(grammarAccess.getIdtFileAccess().getConstantConstantDefinitionParserRuleCall_3_0_0(), currentNode); 
 	    }
-		lv_constant_1_0=ruleConstantDefinition		{
+		lv_constant_3_0=ruleConstantDefinition		{
 	        if ($current==null) {
 	            $current = factory.create(grammarAccess.getIdtFileRule().getType().getClassifier());
 	            associateNodeWithAstElement(currentNode.getParent(), $current);
@@ -123,7 +171,7 @@ ruleIdtFile returns [EObject current=null]
 	       		add(
 	       			$current, 
 	       			"constant",
-	        		lv_constant_1_0, 
+	        		lv_constant_3_0, 
 	        		"ConstantDefinition", 
 	        		currentNode);
 	        } catch (ValueConverterException vce) {
@@ -137,9 +185,9 @@ ruleIdtFile returns [EObject current=null]
     |(
 (
 		{ 
-	        currentNode=createCompositeNode(grammarAccess.getIdtFileAccess().getTypeTypeDefinitionParserRuleCall_1_1_0(), currentNode); 
+	        currentNode=createCompositeNode(grammarAccess.getIdtFileAccess().getTypeTypeDefinitionParserRuleCall_3_1_0(), currentNode); 
 	    }
-		lv_type_2_0=ruleTypeDefinition		{
+		lv_type_4_0=ruleTypeDefinition		{
 	        if ($current==null) {
 	            $current = factory.create(grammarAccess.getIdtFileRule().getType().getClassifier());
 	            associateNodeWithAstElement(currentNode.getParent(), $current);
@@ -148,7 +196,7 @@ ruleIdtFile returns [EObject current=null]
 	       		add(
 	       			$current, 
 	       			"type",
-	        		lv_type_2_0, 
+	        		lv_type_4_0, 
 	        		"TypeDefinition", 
 	        		currentNode);
 	        } catch (ValueConverterException vce) {
@@ -158,7 +206,133 @@ ruleIdtFile returns [EObject current=null]
 	    }
 
 )
-))*)
+))*(
+(
+		{ 
+	        currentNode=createCompositeNode(grammarAccess.getIdtFileAccess().getEnddefConstantDefinitionEndParserRuleCall_4_0(), currentNode); 
+	    }
+		lv_enddef_5_0=ruleConstantDefinitionEnd		{
+	        if ($current==null) {
+	            $current = factory.create(grammarAccess.getIdtFileRule().getType().getClassifier());
+	            associateNodeWithAstElement(currentNode.getParent(), $current);
+	        }
+	        try {
+	       		set(
+	       			$current, 
+	       			"enddef",
+	        		lv_enddef_5_0, 
+	        		"ConstantDefinitionEnd", 
+	        		currentNode);
+	        } catch (ValueConverterException vce) {
+				handleValueConverterException(vce);
+	        }
+	        currentNode = currentNode.getParent();
+	    }
+
+)
+))
+;
+
+
+
+
+
+// Entry rule entryRuleConstantDefinitionBegin
+entryRuleConstantDefinitionBegin returns [EObject current=null] 
+	:
+	{ currentNode = createCompositeNode(grammarAccess.getConstantDefinitionBeginRule(), currentNode); }
+	 iv_ruleConstantDefinitionBegin=ruleConstantDefinitionBegin 
+	 { $current=$iv_ruleConstantDefinitionBegin.current; } 
+	 EOF 
+;
+
+// Rule ConstantDefinitionBegin
+ruleConstantDefinitionBegin returns [EObject current=null] 
+    @init { @SuppressWarnings("unused") EObject temp=null; setCurrentLookahead(); resetLookahead(); 
+    }
+    @after { resetLookahead(); 
+    	lastConsumedNode = currentNode;
+    }:
+(	'#ifndef' 
+    {
+        createLeafNode(grammarAccess.getConstantDefinitionBeginAccess().getIfndefKeyword_0(), null); 
+    }
+(
+(
+		lv_id_1_0=RULE_ID
+		{
+			createLeafNode(grammarAccess.getConstantDefinitionBeginAccess().getIdIDTerminalRuleCall_1_0(), "id"); 
+		}
+		{
+	        if ($current==null) {
+	            $current = factory.create(grammarAccess.getConstantDefinitionBeginRule().getType().getClassifier());
+	            associateNodeWithAstElement(currentNode, $current);
+	        }
+	        try {
+	       		set(
+	       			$current, 
+	       			"id",
+	        		lv_id_1_0, 
+	        		"ID", 
+	        		lastConsumedNode);
+	        } catch (ValueConverterException vce) {
+				handleValueConverterException(vce);
+	        }
+	    }
+
+)
+))
+;
+
+
+
+
+
+// Entry rule entryRuleConstantDefinitionEnd
+entryRuleConstantDefinitionEnd returns [EObject current=null] 
+	:
+	{ currentNode = createCompositeNode(grammarAccess.getConstantDefinitionEndRule(), currentNode); }
+	 iv_ruleConstantDefinitionEnd=ruleConstantDefinitionEnd 
+	 { $current=$iv_ruleConstantDefinitionEnd.current; } 
+	 EOF 
+;
+
+// Rule ConstantDefinitionEnd
+ruleConstantDefinitionEnd returns [EObject current=null] 
+    @init { @SuppressWarnings("unused") EObject temp=null; setCurrentLookahead(); resetLookahead(); 
+    }
+    @after { resetLookahead(); 
+    	lastConsumedNode = currentNode;
+    }:
+(	'#endif' 
+    {
+        createLeafNode(grammarAccess.getConstantDefinitionEndAccess().getEndifKeyword_0(), null); 
+    }
+(
+(
+		lv_id_1_0=RULE_ID
+		{
+			createLeafNode(grammarAccess.getConstantDefinitionEndAccess().getIdIDTerminalRuleCall_1_0(), "id"); 
+		}
+		{
+	        if ($current==null) {
+	            $current = factory.create(grammarAccess.getConstantDefinitionEndRule().getType().getClassifier());
+	            associateNodeWithAstElement(currentNode, $current);
+	        }
+	        try {
+	       		set(
+	       			$current, 
+	       			"id",
+	        		lv_id_1_0, 
+	        		"ID", 
+	        		lastConsumedNode);
+	        } catch (ValueConverterException vce) {
+				handleValueConverterException(vce);
+	        }
+	    }
+
+)
+))
 ;
 
 
@@ -1473,11 +1647,7 @@ ruleConstantDefinition returns [EObject current=null]
 	    }
 
 )
-)RULE_INT
-    { 
-    createLeafNode(grammarAccess.getConstantDefinitionAccess().getINTTerminalRuleCall_2(), null); 
-    }
-)
+))
 ;
 
 

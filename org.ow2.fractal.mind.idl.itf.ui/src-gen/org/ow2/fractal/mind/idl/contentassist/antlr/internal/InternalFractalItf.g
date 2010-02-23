@@ -2547,30 +2547,10 @@ rule__ConstantDefinition__Group__1
 { after(grammarAccess.getConstantDefinitionAccess().getIdAssignment_1()); }
 )
 
-	rule__ConstantDefinition__Group__2
 ;
 finally {
 	restoreStackSize(stackSize);
 }
-
-
-rule__ConstantDefinition__Group__2
-    @init {
-		int stackSize = keepStackSize();
-    }
-:
-(
-{ before(grammarAccess.getConstantDefinitionAccess().getINTTerminalRuleCall_2()); }
-	RULE_INT
-{ after(grammarAccess.getConstantDefinitionAccess().getINTTerminalRuleCall_2()); }
-)
-
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
-
 
 
 

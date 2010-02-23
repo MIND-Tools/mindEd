@@ -10,9 +10,18 @@
   <genPackages prefix="FractalIdt" basePackage="org.ow2.fractal.mind.idl" disposableProviderFactory="true"
       ecorePackage="FractalIdt.ecore#/">
     <genClasses ecoreClass="FractalIdt.ecore#//IdtFile">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference FractalIdt.ecore#//IdtFile/begindef"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference FractalIdt.ecore#//IdtFile/def"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference FractalIdt.ecore#//IdtFile/includes"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference FractalIdt.ecore#//IdtFile/constant"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference FractalIdt.ecore#//IdtFile/type"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference FractalIdt.ecore#//IdtFile/enddef"/>
+    </genClasses>
+    <genClasses ecoreClass="FractalIdt.ecore#//ConstantDefinitionBegin">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute FractalIdt.ecore#//ConstantDefinitionBegin/id"/>
+    </genClasses>
+    <genClasses ecoreClass="FractalIdt.ecore#//ConstantDefinitionEnd">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute FractalIdt.ecore#//ConstantDefinitionEnd/id"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

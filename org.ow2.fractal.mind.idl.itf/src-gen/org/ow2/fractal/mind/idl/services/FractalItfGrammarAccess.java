@@ -573,6 +573,7 @@ public class FractalItfGrammarAccess extends AbstractGrammarElementFinder {
 		//
 		//
 		//        //PointerSpecification:
+		//
 		////  qualifiedPointer+=(qualified_PointerSpecification)*;
 		////
 		////qualified_PointerSpecification:
@@ -615,6 +616,7 @@ public class FractalItfGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//DirectDeclarator:
 		//  (id=ID|"(" Declarator ")") ArraySpecification*;   //PointerSpecification:
+		//
 		////  qualifiedPointer+=(qualified_PointerSpecification)*;
 		////
 		////qualified_PointerSpecification:
@@ -718,13 +720,12 @@ public class FractalItfGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cDefineKeyword_0 = (Keyword)cGroup.eContents().get(0);
 		private final Assignment cIdAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final RuleCall cIdIDTerminalRuleCall_1_0 = (RuleCall)cIdAssignment_1.eContents().get(0);
-		private final RuleCall cINTTerminalRuleCall_2 = (RuleCall)cGroup.eContents().get(2);
 		
 		//ConstantDefinition:
-		//  "#define" id=ID INT;   // Interface definition part
+		//  "#define" id=ID;   // Interface definition part
 		public ParserRule getRule() { return rule; }
 
-		//"#define" id=ID INT
+		//"#define" id=ID
 		public Group getGroup() { return cGroup; }
 
 		//"#define"
@@ -735,9 +736,6 @@ public class FractalItfGrammarAccess extends AbstractGrammarElementFinder {
 
 		//ID
 		public RuleCall getIdIDTerminalRuleCall_1_0() { return cIdIDTerminalRuleCall_1_0; }
-
-		//INT
-		public RuleCall getINTTerminalRuleCall_2() { return cINTTerminalRuleCall_2; }
 	}
 
 	public class InterfaceDefinitionElements extends AbstractParserRuleElementFinder {
@@ -1491,6 +1489,7 @@ public class FractalItfGrammarAccess extends AbstractGrammarElementFinder {
 	//
 	//
 	//        //PointerSpecification:
+	//
 	////  qualifiedPointer+=(qualified_PointerSpecification)*;
 	////
 	////qualified_PointerSpecification:
@@ -1505,6 +1504,7 @@ public class FractalItfGrammarAccess extends AbstractGrammarElementFinder {
 
 	//DirectDeclarator:
 	//  (id=ID|"(" Declarator ")") ArraySpecification*;   //PointerSpecification:
+	//
 	////  qualifiedPointer+=(qualified_PointerSpecification)*;
 	////
 	////qualified_PointerSpecification:
@@ -1541,7 +1541,7 @@ public class FractalItfGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//ConstantDefinition:
-	//  "#define" id=ID INT;   // Interface definition part
+	//  "#define" id=ID;   // Interface definition part
 	public ConstantDefinitionElements getConstantDefinitionAccess() {
 		return (pConstantDefinition != null) ? pConstantDefinition : (pConstantDefinition = new ConstantDefinitionElements());
 	}

@@ -74,7 +74,7 @@ public class FractalItfFormatter extends AbstractDeclarativeFormatter {
 
 	protected void formatDefine(FractalItfGrammarAccess f, FormattingConfig c) {
 		c.setLinewrap().after(
-				f.getConstantDefinitionAccess().getINTTerminalRuleCall_2());
+				f.getConstantDefinitionAccess().getIdIDTerminalRuleCall_1_0());
 	}
 
 	/**

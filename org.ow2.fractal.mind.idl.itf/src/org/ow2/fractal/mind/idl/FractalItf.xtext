@@ -66,6 +66,7 @@ Declarators:
 
 Declarator:
   ('*' (typeQualifier+=TypeQualifier)*)* dc=DirectDeclarator; //PointerSpecification:
+
 //  qualifiedPointer+=(qualified_PointerSpecification)*;
 //
 //qualified_PointerSpecification:
@@ -81,9 +82,8 @@ ArraySpecification:
 FullyQualifiedName:
   ID ('.' ID)*; // Interface definition part
 
-
 ConstantDefinition:
-  "#define" id=ID INT;
+  "#define" id=ID;
 
 InterfaceDefinition:
   'interface' ("unmanaged")? fqn=FullyQualifiedName (":" fqn2=FullyQualifiedName)? '{' (

@@ -22,9 +22,12 @@ import org.ow2.fractal.mind.idl.fractalIDL.TypeDefinition;
  * <p>
  * The following features are supported:
  * <ul>
+ *   <li>{@link org.ow2.fractal.mind.idl.fractalIdt.IdtFile#getBegindef <em>Begindef</em>}</li>
+ *   <li>{@link org.ow2.fractal.mind.idl.fractalIdt.IdtFile#getDef <em>Def</em>}</li>
  *   <li>{@link org.ow2.fractal.mind.idl.fractalIdt.IdtFile#getIncludes <em>Includes</em>}</li>
  *   <li>{@link org.ow2.fractal.mind.idl.fractalIdt.IdtFile#getConstant <em>Constant</em>}</li>
  *   <li>{@link org.ow2.fractal.mind.idl.fractalIdt.IdtFile#getType <em>Type</em>}</li>
+ *   <li>{@link org.ow2.fractal.mind.idl.fractalIdt.IdtFile#getEnddef <em>Enddef</em>}</li>
  * </ul>
  * </p>
  *
@@ -34,6 +37,58 @@ import org.ow2.fractal.mind.idl.fractalIDL.TypeDefinition;
  */
 public interface IdtFile extends EObject
 {
+  /**
+   * Returns the value of the '<em><b>Begindef</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Begindef</em>' containment reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Begindef</em>' containment reference.
+   * @see #setBegindef(ConstantDefinitionBegin)
+   * @see org.ow2.fractal.mind.idl.fractalIdt.FractalIdtPackage#getIdtFile_Begindef()
+   * @model containment="true"
+   * @generated
+   */
+  ConstantDefinitionBegin getBegindef();
+
+  /**
+   * Sets the value of the '{@link org.ow2.fractal.mind.idl.fractalIdt.IdtFile#getBegindef <em>Begindef</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Begindef</em>' containment reference.
+   * @see #getBegindef()
+   * @generated
+   */
+  void setBegindef(ConstantDefinitionBegin value);
+
+  /**
+   * Returns the value of the '<em><b>Def</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Def</em>' containment reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Def</em>' containment reference.
+   * @see #setDef(ConstantDefinition)
+   * @see org.ow2.fractal.mind.idl.fractalIdt.FractalIdtPackage#getIdtFile_Def()
+   * @model containment="true"
+   * @generated
+   */
+  ConstantDefinition getDef();
+
+  /**
+   * Sets the value of the '{@link org.ow2.fractal.mind.idl.fractalIdt.IdtFile#getDef <em>Def</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Def</em>' containment reference.
+   * @see #getDef()
+   * @generated
+   */
+  void setDef(ConstantDefinition value);
+
   /**
    * Returns the value of the '<em><b>Includes</b></em>' containment reference list.
    * The list contents are of type {@link org.ow2.fractal.mind.idl.fractalIDL.IncludeDirective}.
@@ -81,5 +136,31 @@ public interface IdtFile extends EObject
    * @generated
    */
   EList<TypeDefinition> getType();
+
+  /**
+   * Returns the value of the '<em><b>Enddef</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Enddef</em>' containment reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Enddef</em>' containment reference.
+   * @see #setEnddef(ConstantDefinitionEnd)
+   * @see org.ow2.fractal.mind.idl.fractalIdt.FractalIdtPackage#getIdtFile_Enddef()
+   * @model containment="true"
+   * @generated
+   */
+  ConstantDefinitionEnd getEnddef();
+
+  /**
+   * Sets the value of the '{@link org.ow2.fractal.mind.idl.fractalIdt.IdtFile#getEnddef <em>Enddef</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Enddef</em>' containment reference.
+   * @see #getEnddef()
+   * @generated
+   */
+  void setEnddef(ConstantDefinitionEnd value);
 
 } // IdtFile

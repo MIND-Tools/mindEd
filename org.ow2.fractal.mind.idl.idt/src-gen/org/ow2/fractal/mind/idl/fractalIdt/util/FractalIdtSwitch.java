@@ -103,6 +103,20 @@ public class FractalIdtSwitch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case FractalIdtPackage.CONSTANT_DEFINITION_BEGIN:
+      {
+        ConstantDefinitionBegin constantDefinitionBegin = (ConstantDefinitionBegin)theEObject;
+        T result = caseConstantDefinitionBegin(constantDefinitionBegin);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case FractalIdtPackage.CONSTANT_DEFINITION_END:
+      {
+        ConstantDefinitionEnd constantDefinitionEnd = (ConstantDefinitionEnd)theEObject;
+        T result = caseConstantDefinitionEnd(constantDefinitionEnd);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       default: return defaultCase(theEObject);
     }
   }
@@ -119,6 +133,38 @@ public class FractalIdtSwitch<T>
    * @generated
    */
   public T caseIdtFile(IdtFile object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Constant Definition Begin</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Constant Definition Begin</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseConstantDefinitionBegin(ConstantDefinitionBegin object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Constant Definition End</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Constant Definition End</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseConstantDefinitionEnd(ConstantDefinitionEnd object)
   {
     return null;
   }

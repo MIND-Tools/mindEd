@@ -1,7 +1,16 @@
-grammar org.ow2.fractal.mind.idl.FractalIdt with org.ow2.fractal.mind.idl.FractalItf
+grammar org.ow2.fractal.mind.idl.FractalIdt with org.ow2.fractal.mind.idl.
+FractalItf
 
 generate fractalIdt "http://www.ow2.org/fractal/mind/idl/FractalIdt"
 
 IdtFile:
-  (includes+=IncludeDirective)* (constant+=ConstantDefinition|type+=TypeDefinition)*;
+  begindef=ConstantDefinitionBegin def=ConstantDefinition (includes+=
+  IncludeDirective)* (constant+=ConstantDefinition|type+=TypeDefinition)* enddef=
+  ConstantDefinitionEnd;
+
+ConstantDefinitionBegin:
+  '#ifndef' id=ID;
+
+ConstantDefinitionEnd:
+  '#endif' id=ID;
 	
