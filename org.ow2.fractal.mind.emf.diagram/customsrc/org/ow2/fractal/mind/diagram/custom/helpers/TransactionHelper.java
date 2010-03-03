@@ -1,7 +1,7 @@
 package org.ow2.fractal.mind.diagram.custom.helpers;
 
 /**
- * Not implemented yet. Transactions are needed to modify the domain model or any objet through
+ * Not implemented yet. Transactions are needed to modify the domain model or any object through
  * the TransactionalEditingDomain. This helper means to help doing this.
  * @author maroto
  *

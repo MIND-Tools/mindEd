@@ -9,11 +9,11 @@ import org.eclipse.swt.graphics.Color;
  * @author Olivier Marot
  *
  */
-public class ReferenceDefinitionCustomFigure extends AbstractComponentShape {
+public class ReferenceFigure extends AbstractComponentShape {
 
 	
 
-	public ReferenceDefinitionCustomFigure() {
+	public ReferenceFigure() {
 		super();
 	}
 	

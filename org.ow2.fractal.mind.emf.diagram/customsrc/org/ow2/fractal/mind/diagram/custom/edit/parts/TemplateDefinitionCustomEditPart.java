@@ -16,6 +16,7 @@ import org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure;
 import org.eclipse.gmf.runtime.notation.NotationPackage;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.swt.SWT;
+import org.ow2.fractal.mind.diagram.custom.edit.parts.generic.MindEditPart;
 import org.ow2.fractal.mind.diagram.custom.helpers.ComponentHelper;
 import org.ow2.fractal.mind.diagram.custom.layouts.ConstrainedFlowLayout;
 import org.ow2.fractal.mind.diagram.custom.layouts.IFractalSize;
@@ -26,6 +27,8 @@ import adl.diagram.part.MindVisualIDRegistry;
 
 public class TemplateDefinitionCustomEditPart extends
 		TemplateDefinitionEditPart {
+	
+	protected MindEditPart genericEditPart = MindEditPart.createGenericEditPart (this, VISUAL_ID);
 
 	public TemplateDefinitionCustomEditPart(View view) {
 		super(view);

@@ -17,6 +17,7 @@ import org.eclipse.gmf.runtime.draw2d.ui.figures.ConstrainedToolbarLayout;
 import org.eclipse.gmf.runtime.gef.ui.figures.DefaultSizeNodeFigure;
 import org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure;
 import org.eclipse.gmf.runtime.notation.View;
+import org.ow2.fractal.mind.diagram.custom.edit.parts.generic.MindEditPart;
 import org.ow2.fractal.mind.diagram.custom.edit.policies.MindSubCreationEditPolicy;
 import org.ow2.fractal.mind.diagram.custom.edit.policies.TemplateSpecifierCustomItemSemanticEditPolicy;
 import org.ow2.fractal.mind.diagram.custom.helpers.ComponentHelper;
@@ -40,6 +41,8 @@ public class TemplateSpecifierCustomEditPart extends TemplateSpecifierEditPart {
 	public TemplateSpecifierCustomEditPart(View view) {
 		super(view);
 	}
+	
+	protected MindEditPart genericEditPart = MindEditPart.createGenericEditPart (this, VISUAL_ID);
 	
 	@Override
 	protected void createDefaultEditPolicies() {

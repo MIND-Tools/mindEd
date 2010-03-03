@@ -75,10 +75,14 @@ public class ConstrainedFlowLayout extends FlowLayout {
 	}
 	
 	
-	@SuppressWarnings("unchecked")
+	
+	@SuppressWarnings("rawtypes")
 	public void layout(IFigure parent) {
 		Rectangle relativeArea = parent.getClientArea();
 		constrainedData.area = transposer.t(relativeArea);
+		
+		// parent may not be set yet
+		if (relativeArea.width == 0) return;
 
 		Iterator iterator = parent.getChildren().iterator();
 		int dx;

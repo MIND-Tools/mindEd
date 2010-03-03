@@ -172,7 +172,7 @@ public class ComponentHelper implements IFractalShape {
 	 * Calls the layout() method of the layout for all the sub figures
 	 * @param fig
 	 */
-	@SuppressWarnings("unchecked")
+	@SuppressWarnings("rawtypes")
 	public static void layoutAllChildren(IFigure fig) {
 		if (fig == null) return;
 		LayoutManager manager = fig.getLayoutManager();

@@ -12,11 +12,11 @@ import org.eclipse.gmf.runtime.notation.Node;
 import org.eclipse.gmf.runtime.notation.View;
 import org.ow2.fractal.mind.diagram.custom.helpers.CanonicalEditPolicyHelper;
 
-import adl.diagram.edit.policies.PrimitiveSubComponentCanonicalEditPolicy;
+import adl.diagram.edit.policies.SubComponentDefinition2CanonicalEditPolicy;
 import adl.diagram.part.MindVisualIDRegistry;
 
 public class PrimitiveSubComponentCustomCanonicalEditPolicy extends
-		PrimitiveSubComponentCanonicalEditPolicy {
+		SubComponentDefinition2CanonicalEditPolicy {
 
 	@Override
 	protected String getDefaultFactoryHint() {

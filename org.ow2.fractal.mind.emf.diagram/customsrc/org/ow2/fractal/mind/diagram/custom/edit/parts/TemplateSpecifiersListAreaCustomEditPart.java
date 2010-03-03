@@ -5,6 +5,7 @@ import org.eclipse.gef.EditPart;
 import org.eclipse.gef.EditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
 import org.eclipse.gmf.runtime.notation.View;
+import org.ow2.fractal.mind.diagram.custom.edit.parts.generic.MindEditPart;
 import org.ow2.fractal.mind.diagram.custom.edit.policies.CustomXYLayoutEditPolicy;
 import org.ow2.fractal.mind.diagram.custom.edit.policies.FixedChildrenLayoutEditPolicy;
 import org.ow2.fractal.mind.diagram.custom.edit.policies.TemplateSpecifiersListAreaCustomCanonicalEditPolicy;
@@ -14,6 +15,8 @@ import adl.diagram.edit.parts.TemplateSpecifiersListCompartmentTemplateSpecifier
 
 public class TemplateSpecifiersListAreaCustomEditPart extends
 		TemplateSpecifiersListCompartmentTemplateSpecifierListEditPart {
+	
+	protected MindEditPart genericEditPart = MindEditPart.createGenericEditPart (this, VISUAL_ID);
 
 	public TemplateSpecifiersListAreaCustomEditPart(View view) {
 		super(view);
@@ -22,11 +25,7 @@ public class TemplateSpecifiersListAreaCustomEditPart extends
 	@Override
 	protected void createDefaultEditPolicies() {
 		super.createDefaultEditPolicies();
-		installEditPolicy(EditPolicyRoles.CANONICAL_ROLE,
-				new TemplateSpecifiersListAreaCustomCanonicalEditPolicy());
-		removeEditPolicy(EditPolicy.LAYOUT_ROLE);
-		installEditPolicy(EditPolicy.LAYOUT_ROLE,
-				new FixedChildrenLayoutEditPolicy());
+		genericEditPart.installEditPolicies();
 	}
 	
 	@Override
@@ -48,13 +47,11 @@ public class TemplateSpecifiersListAreaCustomEditPart extends
 	
 	/**
 	 * Returns the layout manager to be used by this shape compartment.
-	 * This implemantion returns a ConstrainedFlowLayout instance.
 	 */
+	@Override
 	protected LayoutManager getLayoutManager() {
 		if (layoutManager == null) {
-			layoutManager = new ConstrainedFlowLayout(true);
-			((ConstrainedFlowLayout)layoutManager).setMinorSpacing(0);
-			((ConstrainedFlowLayout)layoutManager).setMajorSpacing(0);
+			layoutManager = genericEditPart.getLayoutManager(layoutManager);
 		}
 		return layoutManager;
 	}

@@ -39,6 +39,7 @@ import org.eclipse.ui.part.FileEditorInput;
 import org.ow2.fractal.mind.diagram.custom.action.CustomValidateAction;
 import org.ow2.fractal.mind.diagram.custom.edit.commands.MindDiagramUpdateAllCommand;
 
+import adl.custom.helpers.AdlDefinitionHelper;
 import adl.custom.impl.AdlDefinitionCustomImpl;
 import adl.diagram.part.Messages;
 import adl.diagram.part.MindDiagramEditorPlugin;
@@ -262,12 +263,12 @@ public class MindCustomDocumentProvider extends MindDocumentProvider {
 	
 	protected void restoreMainDefinitionAfterSave(AdlDefinitionCustomImpl root) {
 		if (root != null)
-			root.getHelper().restoreMainDefinition();
+			((AdlDefinitionHelper)root.getHelper()).restoreMainDefinition();
 	}
 
 	protected void prepareMainDefinitionBeforeSave(AdlDefinitionCustomImpl root) {
 		if (root != null)
-			root.getHelper().cleanMainDefinition();
+			((AdlDefinitionHelper)root.getHelper()).cleanMainDefinition();
 	}
 	
 }

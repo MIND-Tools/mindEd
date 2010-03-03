@@ -1,6 +1,6 @@
 package org.ow2.fractal.mind.diagram.custom.providers;
 
-import org.ow2.fractal.mind.diagram.custom.edit.parts.MindEditPartCustomFactory;
+import org.ow2.fractal.mind.diagram.custom.edit.parts.generic.MindEditPartCustomFactory;
 
 import adl.diagram.providers.MindEditPartProvider;
 

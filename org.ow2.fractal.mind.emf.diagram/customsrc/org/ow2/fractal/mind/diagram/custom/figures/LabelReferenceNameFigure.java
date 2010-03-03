@@ -10,7 +10,7 @@ import org.eclipse.swt.graphics.Color;
  * @author Olivier Marot
  *
  */
-public class LabelTitleReferenceDefinitionCustomFigure extends
+public class LabelReferenceNameFigure extends
 		AbstractComponentNameWrappingLabel {
 
 	protected static Dimension PREFERRED_SIZE = new Dimension(100,20);
@@ -19,7 +19,7 @@ public class LabelTitleReferenceDefinitionCustomFigure extends
 	protected static Color BORDER_COLOR = WHITE;
 	protected static Color FOREGROUND_COLOR = WHITE;
 	
-	public LabelTitleReferenceDefinitionCustomFigure() {
+	public LabelReferenceNameFigure() {
 		super();
 		//set title
 		this.setText(" Reference");

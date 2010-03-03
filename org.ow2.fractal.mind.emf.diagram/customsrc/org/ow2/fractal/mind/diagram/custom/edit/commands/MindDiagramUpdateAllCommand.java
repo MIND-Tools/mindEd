@@ -22,9 +22,9 @@ import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.ui.PlatformUI;
 import org.ow2.fractal.mind.diagram.custom.preferences.CustomGeneralPreferencePage;
 
+import adl.custom.helpers.AdlDefinitionHelper;
 import adl.custom.impl.AdlDefinitionCustomImpl;
 import adl.diagram.edit.parts.AdlDefinitionEditPart;
-import adl.diagram.edit.parts.CompositeAnonymousSubComponentEditPart;
 import adl.diagram.edit.parts.CompositeComponentDefinitionEditPart;
 import adl.diagram.edit.parts.CompositeSubComponentEditPart;
 import adl.diagram.part.MindDiagramEditorPlugin;
@@ -197,9 +197,9 @@ public class MindDiagramUpdateAllCommand extends MindDiagramUpdateCommand {
 		if (root != null)
 		{
 			// Delete all merged elements
-			root.getHelper().cleanMainDefinition();
+			((AdlDefinitionHelper)root.getHelper()).cleanMainDefinition();
 			// Redo the merge
-			root.getHelper().restoreMainDefinition();
+			((AdlDefinitionHelper)root.getHelper()).restoreMainDefinition();
 		}
 	}
 	/**
@@ -264,8 +264,6 @@ public class MindDiagramUpdateAllCommand extends MindDiagramUpdateCommand {
 		// instead of the figure
 		if (graphEP instanceof CompositeComponentDefinitionEditPart)
 			((CompositeComponentDefinitionEditPart)graphEP).getPrimaryShape().setVisible(false);
-		if (graphEP instanceof CompositeAnonymousSubComponentEditPart)
-			((CompositeAnonymousSubComponentEditPart)graphEP).getPrimaryShape().setVisible(false);
 		if (graphEP instanceof CompositeSubComponentEditPart)
 			((CompositeSubComponentEditPart)graphEP).getPrimaryShape().setVisible(false);
 		
@@ -279,13 +277,11 @@ public class MindDiagramUpdateAllCommand extends MindDiagramUpdateCommand {
 	 * @param editPart
 	 */
 	public void displayElement(EditPart editPart) {
-		// Do not display the element
+		// Display the element
 		GraphicalEditPart graphEP = (GraphicalEditPart) editPart;
 		graphEP.getFigure().setVisible(true);
 		if (graphEP instanceof CompositeComponentDefinitionEditPart)
 			((CompositeComponentDefinitionEditPart)graphEP).getPrimaryShape().setVisible(true);
-		if (graphEP instanceof CompositeAnonymousSubComponentEditPart)
-			((CompositeAnonymousSubComponentEditPart)graphEP).getPrimaryShape().setVisible(true);
 		if (graphEP instanceof CompositeSubComponentEditPart)
 			((CompositeSubComponentEditPart)graphEP).getPrimaryShape().setVisible(true);
 		

@@ -5,6 +5,7 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.gmf.runtime.common.core.command.CommandResult;
 import org.eclipse.gmf.runtime.emf.type.core.requests.ReorientRelationshipRequest;
 
+import adl.Body;
 import adl.CompositeComponentDefinition;
 import adl.InterfaceDefinition;
 import adl.diagram.edit.commands.BindingDefinitionReorientCommand;
@@ -24,7 +25,7 @@ public class BindingDefinitionCustomReorientCommand extends
 	@Override
 	protected CommandResult reorientSource() throws ExecutionException {
 		getLink().setInterfaceSource(getNewSource());
-		CompositeComponentDefinition container = BindingDefinitionCustomCreateCommand.deduceContainer(getNewSource(),getLink().getInterfaceTarget());
+		Body container = BindingDefinitionCustomCreateCommand.deduceContainer(getNewSource(),getLink().getInterfaceTarget());
 		if(container != getLink().eContainer())
 		{
 			container.getElements().add(getLink());
@@ -35,7 +36,7 @@ public class BindingDefinitionCustomReorientCommand extends
 	@Override
 	protected CommandResult reorientTarget() throws ExecutionException {
 		getLink().setInterfaceTarget(getNewTarget());
-		CompositeComponentDefinition container = BindingDefinitionCustomCreateCommand.deduceContainer(getLink().getInterfaceSource(),getNewTarget());
+		Body container = BindingDefinitionCustomCreateCommand.deduceContainer(getLink().getInterfaceSource(),getNewTarget());
 		if(container != getLink().eContainer())
 		{
 			container.getElements().add(getLink());

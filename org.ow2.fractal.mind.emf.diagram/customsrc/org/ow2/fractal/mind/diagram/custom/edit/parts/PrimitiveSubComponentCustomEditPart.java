@@ -15,6 +15,7 @@ import org.ow2.fractal.mind.diagram.custom.layouts.InterfaceBorderItemLocator;
 
 import adl.diagram.edit.parts.PrimitiveSubComponentCompartmentPrimitiveSubComponentBodyEditPart;
 import adl.diagram.edit.parts.PrimitiveSubComponentEditPart;
+import adl.diagram.edit.parts.SubComponentDefinition2EditPart;
 
 /**
  * Extends PrimitiveSubComponentEditPart to implement custom behavior
@@ -27,7 +28,7 @@ import adl.diagram.edit.parts.PrimitiveSubComponentEditPart;
  *
  */
 public class PrimitiveSubComponentCustomEditPart extends
-		PrimitiveSubComponentEditPart {
+		SubComponentDefinition2EditPart {
 
 	public PrimitiveSubComponentCustomEditPart(View view) {
 		super(view);

@@ -13,9 +13,9 @@ import org.eclipse.draw2d.geometry.Dimension;
 * @Version 
 * **/
 
-public class CFileCustomFigure extends CShape implements IFractalShape {
+public class FileCFigure extends CShape implements IFractalShape {
 	
-	public CFileCustomFigure(){
+	public FileCFigure(){
 		super();
 	}
 	

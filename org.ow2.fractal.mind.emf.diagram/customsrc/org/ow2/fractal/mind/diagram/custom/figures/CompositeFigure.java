@@ -11,7 +11,7 @@ import org.eclipse.swt.graphics.Color;
 * @date 20/08/2009
 * @Version 
 * **/
-public class CompositeComponentDefinitionCustomFigure extends
+public class CompositeFigure extends
 							AbstractComponentShape {
 
 	//Couleur de fond du component

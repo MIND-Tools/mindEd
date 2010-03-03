@@ -10,7 +10,6 @@ import org.eclipse.gmf.runtime.emf.type.core.IElementType;
 import org.eclipse.gmf.runtime.emf.type.core.requests.CreateElementRequest;
 import org.eclipse.gmf.runtime.notation.View;
 
-import adl.diagram.edit.parts.TemplateSubComponentEditPart;
 import adl.diagram.part.MindVisualIDRegistry;
 import adl.diagram.providers.MindElementTypes;
 
@@ -30,10 +29,10 @@ public class CustomDragDropEditPolicy extends DragDropEditPolicy {
 		
 		// This is the visual ID of the target edit part
 		int visualID = MindVisualIDRegistry.getVisualID(((View)((EditPart)request.getEditParts().get(0)).getModel()));
-		if (visualID == TemplateSubComponentEditPart.VISUAL_ID) {
-			// Prevent dropping in a template sub component
-			return getDropObjectsCommand(castToDropObjectsRequest(request));
-		}
+//		if (visualID == TemplateSubComponentEditPart.VISUAL_ID) {
+//			// Prevent dropping in a template sub component
+//			return getDropObjectsCommand(castToDropObjectsRequest(request));
+//		}
 		IElementType type = MindElementTypes.getElementType(visualID);
 		// Check if the item could be created in the container
 		CreateElementRequest r = new CreateElementRequest((EObject) getHost().getModel(), type);

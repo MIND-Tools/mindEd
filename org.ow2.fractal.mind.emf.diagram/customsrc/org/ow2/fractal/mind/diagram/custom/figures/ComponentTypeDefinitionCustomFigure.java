@@ -13,15 +13,15 @@ public class ComponentTypeDefinitionCustomFigure extends
 		AbstractComponentShape {
 
 	//Couleur de la bordure
-	protected static Color BORDER_COLOR = GRAY;
+	protected static Color borderColor = GRAY;
 	
 	//Couleur du body
-	protected static Color BODY_COLOR = LIGHT_GRAY;
+	protected static Color bodyAreaColor = LIGHT_GRAY;
 	
 	//Taille maximum du label
-	protected static Dimension LABEL_MAX_SIZE = new Dimension (5000,50);;
+	protected static Dimension nameLabelMaxSize = new Dimension (5000,50);;
 	
 	//Taille par défaut
-	protected static Dimension PREFERRED_SIZE = new Dimension (200,200);
+	protected static Dimension componentPreferredSize = new Dimension (200,200);
 	
 }

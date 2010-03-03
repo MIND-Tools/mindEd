@@ -10,6 +10,7 @@ import org.eclipse.gmf.runtime.emf.type.core.requests.CreateRelationshipRequest;
 
 import adl.AdlFactory;
 import adl.BindingDefinition;
+import adl.Body;
 import adl.CompositeComponentDefinition;
 import adl.InterfaceDefinition;
 import adl.diagram.edit.commands.BindingDefinitionCreateCommand;
@@ -29,7 +30,7 @@ public class BindingDefinitionCustomCreateCommand extends
 
 	private final EObject customTarget;
 	
-	private final CompositeComponentDefinition customContainer;
+	private final Body customContainer;
 
 	
 	public BindingDefinitionCustomCreateCommand(
@@ -137,11 +138,11 @@ public class BindingDefinitionCustomCreateCommand extends
 	}
 
 	@Override
-	public CompositeComponentDefinition getContainer() {
+	public Body getContainer() {
 		return customContainer;
 	}
 
-	public static CompositeComponentDefinition deduceContainer(EObject source,
+	public static Body deduceContainer(EObject source,
 			EObject target) {
 		// Find container element for the new link.
 		// Climb up by containment hierarchy starting from the source
@@ -153,22 +154,22 @@ public class BindingDefinitionCustomCreateCommand extends
 			target = tmpSource;
 		}
 		for (EObject sourceElement = source; sourceElement != null; sourceElement = sourceElement.eContainer()) {
-			if (sourceElement instanceof CompositeComponentDefinition) {
+			if (sourceElement instanceof Body) {
 				if(target!=null && target!=source)
 				{
 					for (EObject targetElement = target; targetElement != null; targetElement = targetElement.eContainer()) 
 					{
-						if (targetElement instanceof CompositeComponentDefinition) 
+						if (targetElement instanceof Body) 
 						{
 							if(targetElement==sourceElement)
 							{
-								return (CompositeComponentDefinition) targetElement;
+								return (Body) targetElement;
 							}
 						}
 					}
 				}
 				else
-						return (CompositeComponentDefinition) sourceElement;
+						return (Body) sourceElement;
 			}
 		}
 		return null;

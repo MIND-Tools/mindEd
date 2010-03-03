@@ -12,9 +12,9 @@ import org.eclipse.draw2d.geometry.Dimension;
 * @Version 
 * **/
 
-public class InlineCCustomFigure extends CShape implements IFractalShape {
+public class InlineCFigure extends CShape implements IFractalShape {
 
-	public InlineCCustomFigure(){
+	public InlineCFigure(){
 		super();
 	}
 	

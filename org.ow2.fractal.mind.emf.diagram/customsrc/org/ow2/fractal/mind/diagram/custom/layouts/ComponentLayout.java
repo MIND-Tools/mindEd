@@ -23,11 +23,11 @@ import org.ow2.fractal.mind.diagram.custom.figures.ContainerShape;
 public class ComponentLayout extends ConstrainedToolbarLayout implements IFractalSize {
 	
 	/**
-	 * The constrains map
+	 * The constraints map
 	 */
 	private Map<IFigure,Rectangle> constraints;
 	
-	@SuppressWarnings("unchecked")
+	
 	public void layout(IFigure figure) {
 		Rectangle clientArea = figure.getClientArea();
 		List children = figure.getChildren();

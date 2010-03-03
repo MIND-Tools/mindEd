@@ -14,8 +14,7 @@ import org.ow2.fractal.mind.diagram.custom.edit.policies.CustomDragDropEditPolic
 import org.ow2.fractal.mind.diagram.custom.helpers.ComponentHelper;
 import org.ow2.fractal.mind.diagram.custom.layouts.InterfaceBorderItemLocator;
 
-import adl.diagram.edit.parts.CompositeSubComponentCompartmentCompositeSubComponentBodyEditPart;
-import adl.diagram.edit.parts.CompositeSubComponentEditPart;
+import adl.diagram.edit.parts.SubComponentDefinitionEditPart;
 
 /**
  * Extends CompositeSubComponentEditPart to implement custom behavior
@@ -28,7 +27,7 @@ import adl.diagram.edit.parts.CompositeSubComponentEditPart;
  *
  */
 public class CompositeSubComponentCustomEditPart extends
-		CompositeSubComponentEditPart {
+SubComponentDefinitionEditPart {
 
 	
 
@@ -80,18 +79,18 @@ public class CompositeSubComponentCustomEditPart extends
 		return ComponentHelper.setupContentPane(nodeShape);
 	}
 	
-	@Override
-	protected boolean addFixedChild(EditPart childEditPart) {
-		if (childEditPart instanceof CompositeSubComponentCompartmentCompositeSubComponentBodyEditPart) {
-			IFigure body = getPrimaryShape().getFigureCompositeSubBodyArea();
-			// Custom body setup
-			ComponentHelper.setupBody(body);
-			body.add(((CompositeSubComponentCompartmentCompositeSubComponentBodyEditPart) childEditPart)
-							.getFigure());
-			return true;
-		}
-		return super.addFixedChild(childEditPart);
-	}
+//	@Override
+//	protected boolean addFixedChild(EditPart childEditPart) {
+//		if (childEditPart instanceof CompositeSubComponentCompartmentCompositeSubComponentBodyEditPart) {
+//			IFigure body = getPrimaryShape().getFigureCompositeSubBodyArea();
+//			// Custom body setup
+//			ComponentHelper.setupBody(body);
+//			body.add(((CompositeSubComponentCompartmentCompositeSubComponentBodyEditPart) childEditPart)
+//							.getFigure());
+//			return true;
+//		}
+//		return super.addFixedChild(childEditPart);
+//	}
 	
 	@Override
 	public DragTracker getDragTracker(Request request) {
