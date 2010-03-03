@@ -263,7 +263,7 @@
                   editorPattern="{0}"
                   editPattern="{0}">
                 <diagramLabel
-                    href="mind.gmfgraph#LabelCompositeReferenceName"/>
+                    href="mind.gmfgraph#LabelReferenceName"/>
                 <features
                     href="../../org.ow2.fractal.mind.emf/model/mind.ecore#//ComponentReference/referenceName"/>
               </labelMappings>
@@ -271,7 +271,7 @@
                   xsi:type="gmftool:CreationTool"
                   href="mind.gmftool#//@palette/@tools.3/@tools.2"/>
               <diagramNode
-                  href="mind.gmfgraph#ComponentReferenceDefinition"/>
+                  href="mind.gmfgraph#ReferenceDefinition"/>
               <children
                   compartment="//@nodes.0/@ownedChild/@children.2/@ownedChild/@children.0/@ownedChild/@compartments.0">
                 <containmentFeature
@@ -374,606 +374,231 @@
           </compartments>
         </ownedChild>
       </children>
-      <children>
-        <containmentFeature
-            href="../../org.ow2.fractal.mind.emf/model/mind.ecore#//ArchitectureDefinition/elements"/>
-        <childrenFeature
-            href="../../org.ow2.fractal.mind.emf/model/mind.ecore#//ArchitectureDefinition/elements"/>
-        <ownedChild>
-          <domainMetaElement
-              href="../../org.ow2.fractal.mind.emf/model/mind.ecore#//InterfaceDefinition"/>
-          <labelMappings
-              xsi:type="gmfmap:FeatureLabelMapping">
-            <diagramLabel
-                href="mind.gmfgraph#LabelInterfaceDefinitionName"/>
-            <features
-                href="../../org.ow2.fractal.mind.emf/model/mind.ecore#//InterfaceDefinition/name"/>
-          </labelMappings>
-          <tool
-              xsi:type="gmftool:CreationTool"
-              href="mind.gmftool#//@palette/@tools.3/@tools.0"/>
-          <diagramNode
-              href="mind.gmfgraph#InterfaceDefinition"/>
-        </ownedChild>
-      </children>
       <children
           compartment="//@nodes.0/@ownedChild/@compartments.0">
         <containmentFeature
-            href="../../org.ow2.fractal.mind.emf/model/mind.ecore#//ArchitectureDefinition/elements"/>
+            href="../../org.ow2.fractal.mind.emf/model/mind.ecore#//ArchitectureDefinition/body"/>
         <childrenFeature
-            href="../../org.ow2.fractal.mind.emf/model/mind.ecore#//ArchitectureDefinition/elements"/>
+            href="../../org.ow2.fractal.mind.emf/model/mind.ecore#//ArchitectureDefinition/body"/>
         <ownedChild>
           <domainMetaElement
-              href="../../org.ow2.fractal.mind.emf/model/mind.ecore#//TemplateSubComponent"/>
-          <domainInitializer
-              xsi:type="gmfmap:FeatureSeqInitializer">
-            <initializers
-                xsi:type="gmfmap:ReferenceNewElementSpec">
-              <feature
-                  xsi:type="ecore:EReference"
-                  href="../../org.ow2.fractal.mind.emf/model/mind.ecore#//ArchitectureDefinition/referenceDefinition"/>
-              <newElementInitializers>
-                <initializers
-                    xsi:type="gmfmap:FeatureValueSpec">
-                  <feature
-                      xsi:type="ecore:EAttribute"
-                      href="../../org.ow2.fractal.mind.emf/model/mind.ecore#//ComponentReference/referenceName"/>
-                  <value
-                      body="'reference_name'"/>
-                </initializers>
-                <elementClass
-                    href="../../org.ow2.fractal.mind.emf/model/mind.ecore#//CompositeReferenceDefinition"/>
-              </newElementInitializers>
-            </initializers>
-          </domainInitializer>
-          <labelMappings
-              xsi:type="gmfmap:FeatureLabelMapping">
-            <diagramLabel
-                href="mind.gmfgraph#LabelTemplateSubComponentName"/>
-            <features
-                href="../../org.ow2.fractal.mind.emf/model/mind.ecore#//ArchitectureDefinition/name"/>
-          </labelMappings>
+              href="../../org.ow2.fractal.mind.emf/model/mind.ecore#//CompositeBody"/>
           <tool
               xsi:type="gmftool:CreationTool"
-              href="mind.gmftool#//@palette/@tools.0/@tools.3"/>
+              href="mind.gmftool#//@palette/@tools.1/@tools.0"/>
           <diagramNode
-              href="mind.gmfgraph#TemplateSubComponent"/>
-          <children
-              referencedChild="//@nodes.0/@ownedChild/@children.5/@ownedChild/@children.6/@ownedChild">
-            <containmentFeature
-                href="../../org.ow2.fractal.mind.emf/model/mind.ecore#//ArchitectureDefinition/referenceDefinition"/>
-            <childrenFeature
-                href="../../org.ow2.fractal.mind.emf/model/mind.ecore#//ArchitectureDefinition/referenceDefinition"/>
-          </children>
-          <children
-              referencedChild="//@nodes.0/@ownedChild/@children.3/@ownedChild">
-            <containmentFeature
-                href="../../org.ow2.fractal.mind.emf/model/mind.ecore#//ArchitectureDefinition/elements"/>
-            <childrenFeature
-                href="../../org.ow2.fractal.mind.emf/model/mind.ecore#//ArchitectureDefinition/elements"/>
-          </children>
-          <children
-              referencedChild="//@nodes.1/@ownedChild/@children.3/@ownedChild">
-            <containmentFeature
-                href="../../org.ow2.fractal.mind.emf/model/mind.ecore#//ArchitectureDefinition/elements"/>
-            <childrenFeature
-                href="../../org.ow2.fractal.mind.emf/model/mind.ecore#//ArchitectureDefinition/elements"/>
-          </children>
-          <children
-              compartment="//@nodes.0/@ownedChild/@children.4/@ownedChild/@compartments.0"
-              referencedChild="//@nodes.0/@ownedChild/@children.5/@ownedChild">
-            <containmentFeature
-                href="../../org.ow2.fractal.mind.emf/model/mind.ecore#//ArchitectureDefinition/elements"/>
-            <childrenFeature
-                href="../../org.ow2.fractal.mind.emf/model/mind.ecore#//ArchitectureDefinition/elements"/>
-          </children>
-          <children
-              compartment="//@nodes.0/@ownedChild/@children.4/@ownedChild/@compartments.0"
-              referencedChild="//@nodes.0/@ownedChild/@children.6/@ownedChild">
-            <containmentFeature
-                href="../../org.ow2.fractal.mind.emf/model/mind.ecore#//ArchitectureDefinition/elements"/>
-            <childrenFeature
-                href="../../org.ow2.fractal.mind.emf/model/mind.ecore#//ArchitectureDefinition/elements"/>
-          </children>
-          <children
-              compartment="//@nodes.0/@ownedChild/@children.4/@ownedChild/@compartments.0"
-              referencedChild="//@nodes.1/@ownedChild/@children.2/@ownedChild">
-            <containmentFeature
-                href="../../org.ow2.fractal.mind.emf/model/mind.ecore#//ArchitectureDefinition/elements"/>
-            <childrenFeature
-                href="../../org.ow2.fractal.mind.emf/model/mind.ecore#//ArchitectureDefinition/elements"/>
-          </children>
-          <children
-              compartment="//@nodes.0/@ownedChild/@children.4/@ownedChild/@compartments.0"
-              referencedChild="//@nodes.1/@ownedChild/@children.1/@ownedChild">
-            <containmentFeature
-                href="../../org.ow2.fractal.mind.emf/model/mind.ecore#//ArchitectureDefinition/elements"/>
-            <childrenFeature
-                href="../../org.ow2.fractal.mind.emf/model/mind.ecore#//ArchitectureDefinition/elements"/>
-          </children>
-          <children
-              compartment="//@nodes.0/@ownedChild/@children.4/@ownedChild/@compartments.0"
-              referencedChild="//@nodes.0/@ownedChild/@children.7/@ownedChild">
-            <containmentFeature
-                href="../../org.ow2.fractal.mind.emf/model/mind.ecore#//ArchitectureDefinition/elements"/>
-            <childrenFeature
-                href="../../org.ow2.fractal.mind.emf/model/mind.ecore#//ArchitectureDefinition/elements"/>
-          </children>
-          <children
-              compartment="//@nodes.0/@ownedChild/@children.4/@ownedChild/@compartments.0"
-              referencedChild="//@nodes.0/@ownedChild/@children.8/@ownedChild">
-            <containmentFeature
-                href="../../org.ow2.fractal.mind.emf/model/mind.ecore#//ArchitectureDefinition/elements"/>
-            <childrenFeature
-                href="../../org.ow2.fractal.mind.emf/model/mind.ecore#//ArchitectureDefinition/elements"/>
-          </children>
-          <children
-              compartment="//@nodes.0/@ownedChild/@children.4/@ownedChild/@compartments.0"
-              referencedChild="//@nodes.0/@ownedChild/@children.4/@ownedChild">
-            <containmentFeature
-                href="../../org.ow2.fractal.mind.emf/model/mind.ecore#//ArchitectureDefinition/elements"/>
-            <childrenFeature
-                href="../../org.ow2.fractal.mind.emf/model/mind.ecore#//ArchitectureDefinition/elements"/>
-          </children>
-          <compartments
-              children="//@nodes.0/@ownedChild/@children.4/@ownedChild/@children.4 //@nodes.0/@ownedChild/@children.4/@ownedChild/@children.3 //@nodes.0/@ownedChild/@children.4/@ownedChild/@children.5 //@nodes.0/@ownedChild/@children.4/@ownedChild/@children.6 //@nodes.0/@ownedChild/@children.4/@ownedChild/@children.8 //@nodes.0/@ownedChild/@children.4/@ownedChild/@children.7 //@nodes.0/@ownedChild/@children.4/@ownedChild/@children.9">
-            <compartment
-                href="mind.gmfgraph#CompartmentTemplateSubBody"/>
-          </compartments>
-        </ownedChild>
-      </children>
-      <children
-          compartment="//@nodes.0/@ownedChild/@compartments.0">
-        <containmentFeature
-            href="../../org.ow2.fractal.mind.emf/model/mind.ecore#//ArchitectureDefinition/elements"/>
-        <childrenFeature
-            href="../../org.ow2.fractal.mind.emf/model/mind.ecore#//ArchitectureDefinition/elements"/>
-        <ownedChild>
-          <domainMetaElement
-              href="../../org.ow2.fractal.mind.emf/model/mind.ecore#//CompositeSubComponent"/>
-          <domainInitializer
-              xsi:type="gmfmap:FeatureSeqInitializer">
-            <initializers
-                xsi:type="gmfmap:ReferenceNewElementSpec">
-              <feature
-                  xsi:type="ecore:EReference"
-                  href="../../org.ow2.fractal.mind.emf/model/mind.ecore#//ArchitectureDefinition/referenceDefinition"/>
-              <newElementInitializers>
-                <initializers
-                    xsi:type="gmfmap:FeatureValueSpec">
-                  <feature
-                      xsi:type="ecore:EAttribute"
-                      href="../../org.ow2.fractal.mind.emf/model/mind.ecore#//ComponentReference/referenceName"/>
-                  <value
-                      body="'reference_name'"/>
-                </initializers>
-                <elementClass
-                    href="../../org.ow2.fractal.mind.emf/model/mind.ecore#//CompositeReferenceDefinition"/>
-              </newElementInitializers>
-            </initializers>
-          </domainInitializer>
-          <labelMappings
-              xsi:type="gmfmap:FeatureLabelMapping">
-            <diagramLabel
-                href="mind.gmfgraph#LabelCompositeSubComponentName"/>
-            <features
-                href="../../org.ow2.fractal.mind.emf/model/mind.ecore#//ArchitectureDefinition/name"/>
-          </labelMappings>
-          <tool
-              xsi:type="gmftool:CreationTool"
-              href="mind.gmftool#//@palette/@tools.0/@tools.0"/>
-          <diagramNode
-              href="mind.gmfgraph#CompositeSubComponent"/>
-          <children
-              referencedChild="//@nodes.0/@ownedChild/@children.3/@ownedChild">
-            <containmentFeature
-                href="../../org.ow2.fractal.mind.emf/model/mind.ecore#//ArchitectureDefinition/elements"/>
-            <childrenFeature
-                href="../../org.ow2.fractal.mind.emf/model/mind.ecore#//ArchitectureDefinition/elements"/>
-          </children>
-          <children
-              compartment="//@nodes.0/@ownedChild/@children.5/@ownedChild/@compartments.0"
-              referencedChild="//@nodes.0/@ownedChild/@children.5/@ownedChild">
-            <containmentFeature
-                href="../../org.ow2.fractal.mind.emf/model/mind.ecore#//ArchitectureDefinition/elements"/>
-            <childrenFeature
-                href="../../org.ow2.fractal.mind.emf/model/mind.ecore#//ArchitectureDefinition/elements"/>
-          </children>
-          <children
-              compartment="//@nodes.0/@ownedChild/@children.5/@ownedChild/@compartments.0"
-              referencedChild="//@nodes.0/@ownedChild/@children.6/@ownedChild">
-            <containmentFeature
-                href="../../org.ow2.fractal.mind.emf/model/mind.ecore#//ArchitectureDefinition/elements"/>
-            <childrenFeature
-                href="../../org.ow2.fractal.mind.emf/model/mind.ecore#//ArchitectureDefinition/elements"/>
-          </children>
-          <children
-              compartment="//@nodes.0/@ownedChild/@children.5/@ownedChild/@compartments.0"
-              referencedChild="//@nodes.0/@ownedChild/@children.7/@ownedChild">
-            <containmentFeature
-                href="../../org.ow2.fractal.mind.emf/model/mind.ecore#//ArchitectureDefinition/elements"/>
-            <childrenFeature
-                href="../../org.ow2.fractal.mind.emf/model/mind.ecore#//ArchitectureDefinition/elements"/>
-          </children>
-          <children
-              compartment="//@nodes.0/@ownedChild/@children.5/@ownedChild/@compartments.0"
-              referencedChild="//@nodes.0/@ownedChild/@children.8/@ownedChild">
-            <containmentFeature
-                href="../../org.ow2.fractal.mind.emf/model/mind.ecore#//ArchitectureDefinition/elements"/>
-            <childrenFeature
-                href="../../org.ow2.fractal.mind.emf/model/mind.ecore#//ArchitectureDefinition/elements"/>
-          </children>
-          <children
-              compartment="//@nodes.0/@ownedChild/@children.5/@ownedChild/@compartments.0"
-              referencedChild="//@nodes.0/@ownedChild/@children.4/@ownedChild">
-            <containmentFeature
-                href="../../org.ow2.fractal.mind.emf/model/mind.ecore#//ArchitectureDefinition/elements"/>
-            <childrenFeature
-                href="../../org.ow2.fractal.mind.emf/model/mind.ecore#//ArchitectureDefinition/elements"/>
-          </children>
+              href="mind.gmfgraph#Body"/>
           <children>
             <containmentFeature
-                href="../../org.ow2.fractal.mind.emf/model/mind.ecore#//ArchitectureDefinition/referenceDefinition"/>
+                href="../../org.ow2.fractal.mind.emf/model/mind.ecore#//Body/elements"/>
             <childrenFeature
-                href="../../org.ow2.fractal.mind.emf/model/mind.ecore#//ArchitectureDefinition/referenceDefinition"/>
+                href="../../org.ow2.fractal.mind.emf/model/mind.ecore#//Body/elements"/>
             <ownedChild>
               <domainMetaElement
-                  href="../../org.ow2.fractal.mind.emf/model/mind.ecore#//CompositeReferenceDefinition"/>
+                  href="../../org.ow2.fractal.mind.emf/model/mind.ecore#//InterfaceDefinition"/>
               <labelMappings
-                  xsi:type="gmfmap:FeatureLabelMapping"
-                  viewPattern="inherits from {0}"
-                  editorPattern="{0}"
-                  editPattern="{0}">
+                  xsi:type="gmfmap:FeatureLabelMapping">
                 <diagramLabel
-                    href="mind.gmfgraph#LabelReferenceName"/>
+                    href="mind.gmfgraph#LabelInterfaceDefinitionName"/>
                 <features
-                    href="../../org.ow2.fractal.mind.emf/model/mind.ecore#//ComponentReference/referenceName"/>
+                    href="../../org.ow2.fractal.mind.emf/model/mind.ecore#//InterfaceDefinition/name"/>
               </labelMappings>
               <tool
                   xsi:type="gmftool:CreationTool"
-                  href="mind.gmftool#//@palette/@tools.3/@tools.2"/>
+                  href="mind.gmftool#//@palette/@tools.3/@tools.0"/>
               <diagramNode
-                  href="mind.gmfgraph#ReferenceDefinition"/>
-              <children
-                  compartment="//@nodes.0/@ownedChild/@children.5/@ownedChild/@children.6/@ownedChild/@compartments.0">
-                <containmentFeature
-                    href="../../org.ow2.fractal.mind.emf/model/mind.ecore#//ComponentReference/argumentsList"/>
-                <childrenFeature
-                    href="../../org.ow2.fractal.mind.emf/model/mind.ecore#//ComponentReference/argumentsList"/>
-                <ownedChild>
-                  <domainMetaElement
-                      href="../../org.ow2.fractal.mind.emf/model/mind.ecore#//ArgumentDefinition"/>
-                  <labelMappings
-                      xsi:type="gmfmap:FeatureLabelMapping"
-                      viewPattern="{0}={1}"
-                      editorPattern=""
-                      editPattern="">
-                    <diagramLabel
-                        href="mind.gmfgraph#LabelArgumentDefinitionName"/>
-                    <features
-                        href="../../org.ow2.fractal.mind.emf/model/mind.ecore#//ArgumentDefinition/argumentName"/>
-                    <features
-                        href="../../org.ow2.fractal.mind.emf/model/mind.ecore#//ArgumentDefinition/argumentValue"/>
-                  </labelMappings>
-                  <tool
-                      xsi:type="gmftool:CreationTool"
-                      href="mind.gmftool#//@palette/@tools.0/@tools.4"/>
-                  <diagramNode
-                      href="mind.gmfgraph#ArgumentDefinition"/>
-                </ownedChild>
-              </children>
-              <children
-                  compartment="//@nodes.0/@ownedChild/@children.5/@ownedChild/@children.6/@ownedChild/@compartments.0"
-                  referencedChild="//@nodes.0/@ownedChild/@children.2/@ownedChild/@children.0/@ownedChild/@children.1/@ownedChild">
-                <containmentFeature
-                    href="../../org.ow2.fractal.mind.emf/model/mind.ecore#//ComponentReference/templatesList"/>
-                <childrenFeature
-                    href="../../org.ow2.fractal.mind.emf/model/mind.ecore#//ComponentReference/templatesList"/>
-              </children>
-              <compartments
-                  children="//@nodes.0/@ownedChild/@children.5/@ownedChild/@children.6/@ownedChild/@children.0 //@nodes.0/@ownedChild/@children.5/@ownedChild/@children.6/@ownedChild/@children.1">
-                <compartment
-                    href="mind.gmfgraph#CompartmentReferenceDefinitionArea"/>
-              </compartments>
+                  href="mind.gmfgraph#InterfaceDefinition"/>
             </ownedChild>
           </children>
-          <compartments
-              children="//@nodes.0/@ownedChild/@children.5/@ownedChild/@children.1 //@nodes.0/@ownedChild/@children.5/@ownedChild/@children.3 //@nodes.0/@ownedChild/@children.5/@ownedChild/@children.2 //@nodes.0/@ownedChild/@children.5/@ownedChild/@children.4 //@nodes.0/@ownedChild/@children.5/@ownedChild/@children.5">
-            <compartment
-                href="mind.gmfgraph#CompartmentCompositeSubComponentBody"/>
-          </compartments>
-        </ownedChild>
-      </children>
-      <children
-          compartment="//@nodes.0/@ownedChild/@compartments.0">
-        <containmentFeature
-            href="../../org.ow2.fractal.mind.emf/model/mind.ecore#//ArchitectureDefinition/elements"/>
-        <childrenFeature
-            href="../../org.ow2.fractal.mind.emf/model/mind.ecore#//ArchitectureDefinition/elements"/>
-        <ownedChild>
-          <domainMetaElement
-              href="../../org.ow2.fractal.mind.emf/model/mind.ecore#//CompositeAnonymousSubComponent"/>
-          <labelMappings
-              xsi:type="gmfmap:FeatureLabelMapping">
-            <diagramLabel
-                href="mind.gmfgraph#LabelCompositeAnonymousSubComponentName"/>
-            <features
-                href="../../org.ow2.fractal.mind.emf/model/mind.ecore#//ArchitectureDefinition/name"/>
-          </labelMappings>
-          <tool
-              xsi:type="gmftool:CreationTool"
-              href="mind.gmftool#//@palette/@tools.0/@tools.0"/>
-          <diagramNode
-              href="mind.gmfgraph#CompositeAnonymousSubComponent"/>
           <children
-              referencedChild="//@nodes.0/@ownedChild/@children.3/@ownedChild">
+              compartment="//@nodes.0/@ownedChild/@children.3/@ownedChild/@compartments.0">
             <containmentFeature
-                href="../../org.ow2.fractal.mind.emf/model/mind.ecore#//ArchitectureDefinition/elements"/>
+                href="../../org.ow2.fractal.mind.emf/model/mind.ecore#//Body/elements"/>
             <childrenFeature
-                href="../../org.ow2.fractal.mind.emf/model/mind.ecore#//ArchitectureDefinition/elements"/>
-          </children>
-          <children
-              compartment="//@nodes.0/@ownedChild/@children.6/@ownedChild/@compartments.0"
-              referencedChild="//@nodes.0/@ownedChild/@children.5/@ownedChild">
-            <containmentFeature
-                href="../../org.ow2.fractal.mind.emf/model/mind.ecore#//ArchitectureDefinition/elements"/>
-            <childrenFeature
-                href="../../org.ow2.fractal.mind.emf/model/mind.ecore#//ArchitectureDefinition/elements"/>
-          </children>
-          <children
-              compartment="//@nodes.0/@ownedChild/@children.6/@ownedChild/@compartments.0"
-              referencedChild="//@nodes.0/@ownedChild/@children.6/@ownedChild">
-            <containmentFeature
-                href="../../org.ow2.fractal.mind.emf/model/mind.ecore#//ArchitectureDefinition/elements"/>
-            <childrenFeature
-                href="../../org.ow2.fractal.mind.emf/model/mind.ecore#//ArchitectureDefinition/elements"/>
-          </children>
-          <children
-              compartment="//@nodes.0/@ownedChild/@children.6/@ownedChild/@compartments.0"
-              referencedChild="//@nodes.0/@ownedChild/@children.7/@ownedChild">
-            <containmentFeature
-                href="../../org.ow2.fractal.mind.emf/model/mind.ecore#//ArchitectureDefinition/elements"/>
-            <childrenFeature
-                href="../../org.ow2.fractal.mind.emf/model/mind.ecore#//ArchitectureDefinition/elements"/>
-          </children>
-          <children
-              compartment="//@nodes.0/@ownedChild/@children.6/@ownedChild/@compartments.0"
-              referencedChild="//@nodes.0/@ownedChild/@children.8/@ownedChild">
-            <containmentFeature
-                href="../../org.ow2.fractal.mind.emf/model/mind.ecore#//ArchitectureDefinition/elements"/>
-            <childrenFeature
-                href="../../org.ow2.fractal.mind.emf/model/mind.ecore#//ArchitectureDefinition/elements"/>
-          </children>
-          <children
-              referencedChild="//@nodes.0/@ownedChild/@children.5/@ownedChild/@children.6/@ownedChild">
-            <containmentFeature
-                href="../../org.ow2.fractal.mind.emf/model/mind.ecore#//ArchitectureDefinition/referenceDefinition"/>
-            <childrenFeature
-                href="../../org.ow2.fractal.mind.emf/model/mind.ecore#//ArchitectureDefinition/referenceDefinition"/>
-          </children>
-          <children
-              compartment="//@nodes.0/@ownedChild/@children.6/@ownedChild/@compartments.0"
-              referencedChild="//@nodes.0/@ownedChild/@children.4/@ownedChild">
-            <containmentFeature
-                href="../../org.ow2.fractal.mind.emf/model/mind.ecore#//ArchitectureDefinition/elements"/>
-            <childrenFeature
-                href="../../org.ow2.fractal.mind.emf/model/mind.ecore#//ArchitectureDefinition/elements"/>
-          </children>
-          <compartments
-              children="//@nodes.0/@ownedChild/@children.6/@ownedChild/@children.1 //@nodes.0/@ownedChild/@children.6/@ownedChild/@children.3 //@nodes.0/@ownedChild/@children.6/@ownedChild/@children.2 //@nodes.0/@ownedChild/@children.6/@ownedChild/@children.4 //@nodes.0/@ownedChild/@children.6/@ownedChild/@children.6">
-            <compartment
-                href="mind.gmfgraph#CompartmentCompositeAnonymousSubBody"/>
-          </compartments>
-        </ownedChild>
-      </children>
-      <children
-          compartment="//@nodes.0/@ownedChild/@compartments.0">
-        <containmentFeature
-            href="../../org.ow2.fractal.mind.emf/model/mind.ecore#//ArchitectureDefinition/elements"/>
-        <childrenFeature
-            href="../../org.ow2.fractal.mind.emf/model/mind.ecore#//ArchitectureDefinition/elements"/>
-        <ownedChild>
-          <domainMetaElement
-              href="../../org.ow2.fractal.mind.emf/model/mind.ecore#//PrimitiveSubComponent"/>
-          <domainInitializer
-              xsi:type="gmfmap:FeatureSeqInitializer">
-            <initializers
-                xsi:type="gmfmap:ReferenceNewElementSpec">
-              <feature
-                  xsi:type="ecore:EReference"
-                  href="../../org.ow2.fractal.mind.emf/model/mind.ecore#//ArchitectureDefinition/referenceDefinition"/>
-              <newElementInitializers>
-                <initializers
-                    xsi:type="gmfmap:FeatureValueSpec">
-                  <feature
-                      xsi:type="ecore:EAttribute"
-                      href="../../org.ow2.fractal.mind.emf/model/mind.ecore#//ComponentReference/referenceName"/>
-                  <value
-                      body="'reference_name'"/>
-                </initializers>
-                <elementClass
-                    href="../../org.ow2.fractal.mind.emf/model/mind.ecore#//PrimitiveReferenceDefinition"/>
-              </newElementInitializers>
-            </initializers>
-          </domainInitializer>
-          <labelMappings
-              xsi:type="gmfmap:FeatureLabelMapping">
-            <diagramLabel
-                href="mind.gmfgraph#LabelPrimitiveSubComponentName"/>
-            <features
-                href="../../org.ow2.fractal.mind.emf/model/mind.ecore#//ArchitectureDefinition/name"/>
-          </labelMappings>
-          <tool
-              xsi:type="gmftool:CreationTool"
-              href="mind.gmftool#//@palette/@tools.0/@tools.1"/>
-          <diagramNode
-              href="mind.gmfgraph#PrimitiveSubComponent"/>
-          <children
-              referencedChild="//@nodes.0/@ownedChild/@children.3/@ownedChild">
-            <containmentFeature
-                href="../../org.ow2.fractal.mind.emf/model/mind.ecore#//ArchitectureDefinition/elements"/>
-            <childrenFeature
-                href="../../org.ow2.fractal.mind.emf/model/mind.ecore#//ArchitectureDefinition/elements"/>
-          </children>
-          <children
-              compartment="//@nodes.0/@ownedChild/@children.7/@ownedChild/@compartments.0"
-              referencedChild="//@nodes.1/@ownedChild/@children.1/@ownedChild">
-            <containmentFeature
-                href="../../org.ow2.fractal.mind.emf/model/mind.ecore#//ArchitectureDefinition/elements"/>
-            <childrenFeature
-                href="../../org.ow2.fractal.mind.emf/model/mind.ecore#//ArchitectureDefinition/elements"/>
-          </children>
-          <children
-              compartment="//@nodes.0/@ownedChild/@children.7/@ownedChild/@compartments.0"
-              referencedChild="//@nodes.1/@ownedChild/@children.2/@ownedChild">
-            <containmentFeature
-                href="../../org.ow2.fractal.mind.emf/model/mind.ecore#//ArchitectureDefinition/elements"/>
-            <childrenFeature
-                href="../../org.ow2.fractal.mind.emf/model/mind.ecore#//ArchitectureDefinition/elements"/>
-          </children>
-          <children
-              referencedChild="//@nodes.1/@ownedChild/@children.3/@ownedChild">
-            <containmentFeature
-                href="../../org.ow2.fractal.mind.emf/model/mind.ecore#//ArchitectureDefinition/elements"/>
-            <childrenFeature
-                href="../../org.ow2.fractal.mind.emf/model/mind.ecore#//ArchitectureDefinition/elements"/>
-          </children>
-          <children
-              referencedChild="//@nodes.0/@ownedChild/@children.8/@ownedChild/@children.4/@ownedChild">
-            <containmentFeature
-                href="../../org.ow2.fractal.mind.emf/model/mind.ecore#//ArchitectureDefinition/referenceDefinition"/>
-            <childrenFeature
-                href="../../org.ow2.fractal.mind.emf/model/mind.ecore#//ArchitectureDefinition/referenceDefinition"/>
-          </children>
-          <compartments
-              children="//@nodes.0/@ownedChild/@children.7/@ownedChild/@children.2 //@nodes.0/@ownedChild/@children.7/@ownedChild/@children.1">
-            <compartment
-                href="mind.gmfgraph#CompartmentPrimitiveSubComponentBody"/>
-          </compartments>
-        </ownedChild>
-      </children>
-      <children
-          compartment="//@nodes.0/@ownedChild/@compartments.0">
-        <containmentFeature
-            href="../../org.ow2.fractal.mind.emf/model/mind.ecore#//ArchitectureDefinition/elements"/>
-        <childrenFeature
-            href="../../org.ow2.fractal.mind.emf/model/mind.ecore#//ArchitectureDefinition/elements"/>
-        <ownedChild>
-          <domainMetaElement
-              href="../../org.ow2.fractal.mind.emf/model/mind.ecore#//PrimitiveAnonymousSubComponent"/>
-          <labelMappings
-              xsi:type="gmfmap:FeatureLabelMapping"
-              viewPattern="">
-            <diagramLabel
-                href="mind.gmfgraph#LabelPrimitiveAnonymousSubComponentName"/>
-            <features
-                href="../../org.ow2.fractal.mind.emf/model/mind.ecore#//ArchitectureDefinition/name"/>
-          </labelMappings>
-          <tool
-              xsi:type="gmftool:CreationTool"
-              href="mind.gmftool#//@palette/@tools.0/@tools.1"/>
-          <diagramNode
-              href="mind.gmfgraph#PrimitiveAnonymousSubComponent"/>
-          <children
-              referencedChild="//@nodes.0/@ownedChild/@children.3/@ownedChild">
-            <containmentFeature
-                href="../../org.ow2.fractal.mind.emf/model/mind.ecore#//ArchitectureDefinition/elements"/>
-            <childrenFeature
-                href="../../org.ow2.fractal.mind.emf/model/mind.ecore#//ArchitectureDefinition/elements"/>
-          </children>
-          <children
-              compartment="//@nodes.0/@ownedChild/@children.8/@ownedChild/@compartments.0"
-              referencedChild="//@nodes.1/@ownedChild/@children.1/@ownedChild">
-            <containmentFeature
-                href="../../org.ow2.fractal.mind.emf/model/mind.ecore#//ArchitectureDefinition/elements"/>
-            <childrenFeature
-                href="../../org.ow2.fractal.mind.emf/model/mind.ecore#//ArchitectureDefinition/elements"/>
-          </children>
-          <children
-              compartment="//@nodes.0/@ownedChild/@children.8/@ownedChild/@compartments.0"
-              referencedChild="//@nodes.1/@ownedChild/@children.2/@ownedChild">
-            <containmentFeature
-                href="../../org.ow2.fractal.mind.emf/model/mind.ecore#//ArchitectureDefinition/elements"/>
-            <childrenFeature
-                href="../../org.ow2.fractal.mind.emf/model/mind.ecore#//ArchitectureDefinition/elements"/>
-          </children>
-          <children
-              referencedChild="//@nodes.1/@ownedChild/@children.3/@ownedChild">
-            <containmentFeature
-                href="../../org.ow2.fractal.mind.emf/model/mind.ecore#//ArchitectureDefinition/elements"/>
-            <childrenFeature
-                href="../../org.ow2.fractal.mind.emf/model/mind.ecore#//ArchitectureDefinition/elements"/>
-          </children>
-          <children
-              referencedChild="//@nodes.0/@ownedChild/@children.5/@ownedChild/@children.6/@ownedChild">
-            <containmentFeature
-                href="../../org.ow2.fractal.mind.emf/model/mind.ecore#//ArchitectureDefinition/referenceDefinition"/>
-            <childrenFeature
-                href="../../org.ow2.fractal.mind.emf/model/mind.ecore#//ArchitectureDefinition/referenceDefinition"/>
+                href="../../org.ow2.fractal.mind.emf/model/mind.ecore#//Body/elements"/>
             <ownedChild>
               <domainMetaElement
-                  href="../../org.ow2.fractal.mind.emf/model/mind.ecore#//PrimitiveReferenceDefinition"/>
+                  href="../../org.ow2.fractal.mind.emf/model/mind.ecore#//SubComponentDefinition"/>
               <labelMappings
                   xsi:type="gmfmap:FeatureLabelMapping"
-                  viewPattern="inherits from {0}"
-                  editorPattern="{0}"
-                  editPattern="{0}">
+                  editPattern="">
                 <diagramLabel
-                    href="mind.gmfgraph#LabelReferenceName"/>
+                    href="mind.gmfgraph#LabelCompositeSubComponentName"/>
                 <features
-                    href="../../org.ow2.fractal.mind.emf/model/mind.ecore#//ComponentReference/referenceName"/>
+                    href="../../org.ow2.fractal.mind.emf/model/mind.ecore#//ArchitectureDefinition/name"/>
               </labelMappings>
               <tool
                   xsi:type="gmftool:CreationTool"
-                  href="mind.gmftool#//@palette/@tools.3/@tools.2"/>
+                  href="mind.gmftool#//@palette/@tools.0/@tools.0"/>
               <diagramNode
-                  href="mind.gmfgraph#ReferenceDefinition"/>
-              <children
-                  compartment="//@nodes.0/@ownedChild/@children.8/@ownedChild/@children.4/@ownedChild/@compartments.0">
+                  href="mind.gmfgraph#CompositeSubComponent"/>
+              <children>
                 <containmentFeature
-                    href="../../org.ow2.fractal.mind.emf/model/mind.ecore#//ComponentReference/argumentsList"/>
+                    href="../../org.ow2.fractal.mind.emf/model/mind.ecore#//SubComponentDefinition/referenceDefinition"/>
                 <childrenFeature
-                    href="../../org.ow2.fractal.mind.emf/model/mind.ecore#//ComponentReference/argumentsList"/>
+                    href="../../org.ow2.fractal.mind.emf/model/mind.ecore#//SubComponentDefinition/referenceDefinition"/>
                 <ownedChild>
                   <domainMetaElement
-                      href="../../org.ow2.fractal.mind.emf/model/mind.ecore#//ArgumentDefinition"/>
+                      href="../../org.ow2.fractal.mind.emf/model/mind.ecore#//CompositeReferenceDefinition"/>
                   <labelMappings
                       xsi:type="gmfmap:FeatureLabelMapping"
-                      viewPattern="{0}={1}"
-                      editorPattern=""
-                      editPattern="">
+                      viewPattern="inherits from {0}"
+                      editorPattern="{0}"
+                      editPattern="{0}">
                     <diagramLabel
-                        href="mind.gmfgraph#LabelArgumentDefinitionName"/>
+                        href="mind.gmfgraph#LabelReferenceName"/>
                     <features
-                        href="../../org.ow2.fractal.mind.emf/model/mind.ecore#//ArgumentDefinition/argumentName"/>
-                    <features
-                        href="../../org.ow2.fractal.mind.emf/model/mind.ecore#//ArgumentDefinition/argumentValue"/>
+                        href="../../org.ow2.fractal.mind.emf/model/mind.ecore#//ComponentReference/referenceName"/>
                   </labelMappings>
                   <tool
                       xsi:type="gmftool:CreationTool"
-                      href="mind.gmftool#//@palette/@tools.0/@tools.4"/>
+                      href="mind.gmftool#//@palette/@tools.3/@tools.2"/>
                   <diagramNode
-                      href="mind.gmfgraph#ArgumentDefinition"/>
+                      href="mind.gmfgraph#ReferenceDefinition"/>
+                  <children
+                      compartment="//@nodes.0/@ownedChild/@children.3/@ownedChild/@children.1/@ownedChild/@children.0/@ownedChild/@compartments.0"
+                      referencedChild="//@nodes.0/@ownedChild/@children.2/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild">
+                    <containmentFeature
+                        href="../../org.ow2.fractal.mind.emf/model/mind.ecore#//ComponentReference/argumentsList"/>
+                    <childrenFeature
+                        href="../../org.ow2.fractal.mind.emf/model/mind.ecore#//ComponentReference/argumentsList"/>
+                  </children>
+                  <children
+                      referencedChild="//@nodes.0/@ownedChild/@children.2/@ownedChild/@children.0/@ownedChild/@children.1/@ownedChild">
+                    <containmentFeature
+                        href="../../org.ow2.fractal.mind.emf/model/mind.ecore#//ComponentReference/templatesList"/>
+                    <childrenFeature
+                        href="../../org.ow2.fractal.mind.emf/model/mind.ecore#//ComponentReference/templatesList"/>
+                  </children>
+                  <compartments
+                      children="//@nodes.0/@ownedChild/@children.3/@ownedChild/@children.1/@ownedChild/@children.0/@ownedChild/@children.0">
+                    <compartment
+                        href="mind.gmfgraph#CompartmentReferenceDefinitionArea"/>
+                  </compartments>
                 </ownedChild>
               </children>
-              <compartments
-                  children="//@nodes.0/@ownedChild/@children.8/@ownedChild/@children.4/@ownedChild/@children.0">
-                <compartment
-                    href="mind.gmfgraph#CompartmentReferenceDefinitionArea"/>
-              </compartments>
+              <children
+                  referencedChild="//@nodes.0/@ownedChild/@children.3/@ownedChild">
+                <containmentFeature
+                    href="../../org.ow2.fractal.mind.emf/model/mind.ecore#//ArchitectureDefinition/body"/>
+                <childrenFeature
+                    href="../../org.ow2.fractal.mind.emf/model/mind.ecore#//ArchitectureDefinition/body"/>
+              </children>
+            </ownedChild>
+          </children>
+          <children
+              compartment="//@nodes.0/@ownedChild/@children.3/@ownedChild/@compartments.0">
+            <containmentFeature
+                href="../../org.ow2.fractal.mind.emf/model/mind.ecore#//Body/elements"/>
+            <childrenFeature
+                href="../../org.ow2.fractal.mind.emf/model/mind.ecore#//Body/elements"/>
+            <ownedChild>
+              <domainMetaElement
+                  href="../../org.ow2.fractal.mind.emf/model/mind.ecore#//SubComponentDefinition"/>
+              <labelMappings
+                  xsi:type="gmfmap:FeatureLabelMapping"
+                  editorPattern="">
+                <diagramLabel
+                    href="mind.gmfgraph#LabelPrimitiveSubComponentName"/>
+                <features
+                    href="../../org.ow2.fractal.mind.emf/model/mind.ecore#//ArchitectureDefinition/name"/>
+              </labelMappings>
+              <tool
+                  xsi:type="gmftool:CreationTool"
+                  href="mind.gmftool#//@palette/@tools.0/@tools.1"/>
+              <diagramNode
+                  href="mind.gmfgraph#PrimitiveSubComponent"/>
+              <children>
+                <containmentFeature
+                    href="../../org.ow2.fractal.mind.emf/model/mind.ecore#//SubComponentDefinition/referenceDefinition"/>
+                <childrenFeature
+                    href="../../org.ow2.fractal.mind.emf/model/mind.ecore#//SubComponentDefinition/referenceDefinition"/>
+                <ownedChild>
+                  <domainMetaElement
+                      href="../../org.ow2.fractal.mind.emf/model/mind.ecore#//PrimitiveReferenceDefinition"/>
+                  <labelMappings
+                      xsi:type="gmfmap:FeatureLabelMapping"
+                      viewPattern="inherits from {0}"
+                      editorPattern="{0}"
+                      editPattern="{0}">
+                    <diagramLabel
+                        href="mind.gmfgraph#LabelReferenceName"/>
+                    <features
+                        href="../../org.ow2.fractal.mind.emf/model/mind.ecore#//ComponentReference/referenceName"/>
+                  </labelMappings>
+                  <tool
+                      xsi:type="gmftool:CreationTool"
+                      href="mind.gmftool#//@palette/@tools.3/@tools.2"/>
+                  <diagramNode
+                      href="mind.gmfgraph#ReferenceDefinition"/>
+                  <children
+                      compartment="//@nodes.0/@ownedChild/@children.3/@ownedChild/@children.2/@ownedChild/@children.0/@ownedChild/@compartments.0"
+                      referencedChild="//@nodes.0/@ownedChild/@children.2/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild">
+                    <containmentFeature
+                        href="../../org.ow2.fractal.mind.emf/model/mind.ecore#//ComponentReference/argumentsList"/>
+                    <childrenFeature
+                        href="../../org.ow2.fractal.mind.emf/model/mind.ecore#//ComponentReference/argumentsList"/>
+                  </children>
+                  <compartments
+                      children="//@nodes.0/@ownedChild/@children.3/@ownedChild/@children.2/@ownedChild/@children.0/@ownedChild/@children.0">
+                    <compartment
+                        href="mind.gmfgraph#CompartmentReferenceDefinitionArea"/>
+                  </compartments>
+                </ownedChild>
+              </children>
+              <children>
+                <containmentFeature
+                    href="../../org.ow2.fractal.mind.emf/model/mind.ecore#//ArchitectureDefinition/body"/>
+                <childrenFeature
+                    href="../../org.ow2.fractal.mind.emf/model/mind.ecore#//ArchitectureDefinition/body"/>
+                <ownedChild>
+                  <domainMetaElement
+                      href="../../org.ow2.fractal.mind.emf/model/mind.ecore#//PrimitiveBody"/>
+                  <diagramNode
+                      href="mind.gmfgraph#Body"/>
+                  <children
+                      referencedChild="//@nodes.0/@ownedChild/@children.3/@ownedChild/@children.0/@ownedChild">
+                    <containmentFeature
+                        href="../../org.ow2.fractal.mind.emf/model/mind.ecore#//Body/elements"/>
+                    <childrenFeature
+                        href="../../org.ow2.fractal.mind.emf/model/mind.ecore#//Body/elements"/>
+                  </children>
+                  <children
+                      referencedChild="//@nodes.1/@ownedChild/@children.2/@ownedChild/@children.2/@ownedChild">
+                    <containmentFeature
+                        href="../../org.ow2.fractal.mind.emf/model/mind.ecore#//Body/elements"/>
+                    <childrenFeature
+                        href="../../org.ow2.fractal.mind.emf/model/mind.ecore#//Body/elements"/>
+                  </children>
+                  <children
+                      referencedChild="//@nodes.1/@ownedChild/@children.2/@ownedChild/@children.1/@ownedChild">
+                    <containmentFeature
+                        href="../../org.ow2.fractal.mind.emf/model/mind.ecore#//Body/elements"/>
+                    <childrenFeature
+                        href="../../org.ow2.fractal.mind.emf/model/mind.ecore#//Body/elements"/>
+                  </children>
+                  <children
+                      referencedChild="//@nodes.1/@ownedChild/@children.2/@ownedChild/@children.0/@ownedChild">
+                    <containmentFeature
+                        href="../../org.ow2.fractal.mind.emf/model/mind.ecore#//Body/elements"/>
+                    <childrenFeature
+                        href="../../org.ow2.fractal.mind.emf/model/mind.ecore#//Body/elements"/>
+                  </children>
+                </ownedChild>
+              </children>
             </ownedChild>
           </children>
           <compartments
-              children="//@nodes.0/@ownedChild/@children.8/@ownedChild/@children.1 //@nodes.0/@ownedChild/@children.8/@ownedChild/@children.2">
+              children="//@nodes.0/@ownedChild/@children.3/@ownedChild/@children.1 //@nodes.0/@ownedChild/@children.3/@ownedChild/@children.2">
             <compartment
-                href="mind.gmfgraph#CompartmentPrimitiveAnonymousSubBody"/>
+                href="mind.gmfgraph#BodyCompartment"/>
           </compartments>
         </ownedChild>
       </children>
       <compartments
-          children="//@nodes.0/@ownedChild/@children.7 //@nodes.0/@ownedChild/@children.6 //@nodes.0/@ownedChild/@children.8 //@nodes.0/@ownedChild/@children.5 //@nodes.0/@ownedChild/@children.4">
+          children="//@nodes.0/@ownedChild/@children.3">
         <compartment
-            href="mind.gmfgraph#CompartmentCompositeComponentDefinitionBody"/>
+            href="mind.gmfgraph#CompositeCompartment"/>
       </compartments>
     </ownedChild>
   </nodes>
@@ -1001,155 +626,6 @@
             href="../../org.ow2.fractal.mind.emf/model/mind.ecore#//PrimitiveComponentDefinition/primitiveFormalArgumentsList"/>
         <childrenFeature
             href="../../org.ow2.fractal.mind.emf/model/mind.ecore#//PrimitiveComponentDefinition/primitiveFormalArgumentsList"/>
-      </children>
-      <children
-          compartment="//@nodes.1/@ownedChild/@compartments.0">
-        <containmentFeature
-            href="../../org.ow2.fractal.mind.emf/model/mind.ecore#//ArchitectureDefinition/elements"/>
-        <childrenFeature
-            href="../../org.ow2.fractal.mind.emf/model/mind.ecore#//ArchitectureDefinition/elements"/>
-        <ownedChild>
-          <domainMetaElement
-              href="../../org.ow2.fractal.mind.emf/model/mind.ecore#//ImplementationDefinition"/>
-          <labelMappings
-              readOnly="true">
-            <diagramLabel
-                href="mind.gmfgraph#LabelImplementationTitle"/>
-          </labelMappings>
-          <tool
-              xsi:type="gmftool:CreationTool"
-              href="mind.gmftool#//@palette/@tools.2/@tools.2"/>
-          <diagramNode
-              href="mind.gmfgraph#Implementation"/>
-          <children
-              compartment="//@nodes.1/@ownedChild/@children.1/@ownedChild/@compartments.0"
-              referencedChild="//@nodes.1/@ownedChild/@children.2/@ownedChild/@children.0/@ownedChild">
-            <containmentFeature
-                href="../../org.ow2.fractal.mind.emf/model/mind.ecore#//ImplementationDefinition/fileC"/>
-            <childrenFeature
-                href="../../org.ow2.fractal.mind.emf/model/mind.ecore#//ImplementationDefinition/fileC"/>
-          </children>
-          <children
-              compartment="//@nodes.1/@ownedChild/@children.1/@ownedChild/@compartments.0"
-              referencedChild="//@nodes.1/@ownedChild/@children.2/@ownedChild/@children.1/@ownedChild">
-            <containmentFeature
-                href="../../org.ow2.fractal.mind.emf/model/mind.ecore#//ImplementationDefinition/inlineCcode"/>
-            <childrenFeature
-                href="../../org.ow2.fractal.mind.emf/model/mind.ecore#//ImplementationDefinition/inlineCcode"/>
-          </children>
-          <compartments
-              children="//@nodes.1/@ownedChild/@children.1/@ownedChild/@children.0 //@nodes.1/@ownedChild/@children.1/@ownedChild/@children.1">
-            <compartment
-                href="mind.gmfgraph#CompartmentImplementationBodyArea"/>
-          </compartments>
-        </ownedChild>
-      </children>
-      <children
-          compartment="//@nodes.1/@ownedChild/@compartments.0">
-        <containmentFeature
-            href="../../org.ow2.fractal.mind.emf/model/mind.ecore#//ArchitectureDefinition/elements"/>
-        <childrenFeature
-            href="../../org.ow2.fractal.mind.emf/model/mind.ecore#//ArchitectureDefinition/elements"/>
-        <ownedChild>
-          <domainMetaElement
-              href="../../org.ow2.fractal.mind.emf/model/mind.ecore#//DataDefinition"/>
-          <labelMappings
-              readOnly="true">
-            <diagramLabel
-                href="mind.gmfgraph#LabelDataDefinitionTitle"/>
-          </labelMappings>
-          <tool
-              xsi:type="gmftool:CreationTool"
-              href="mind.gmftool#//@palette/@tools.2/@tools.1"/>
-          <diagramNode
-              href="mind.gmfgraph#DataDefinition"/>
-          <children
-              compartment="//@nodes.1/@ownedChild/@children.2/@ownedChild/@compartments.0">
-            <containmentFeature
-                href="../../org.ow2.fractal.mind.emf/model/mind.ecore#//DataDefinition/fileC"/>
-            <childrenFeature
-                href="../../org.ow2.fractal.mind.emf/model/mind.ecore#//DataDefinition/fileC"/>
-            <ownedChild>
-              <domainMetaElement
-                  href="../../org.ow2.fractal.mind.emf/model/mind.ecore#//FileC"/>
-              <labelMappings
-                  xsi:type="gmfmap:FeatureLabelMapping"
-                  viewPattern="{1}"
-                  editorPattern="{1}"
-                  editPattern="{1}">
-                <diagramLabel
-                    href="mind.gmfgraph#LabelFileC"/>
-                <features
-                    href="../../org.ow2.fractal.mind.emf/model/mind.ecore#//FileC/directory"/>
-                <features
-                    href="../../org.ow2.fractal.mind.emf/model/mind.ecore#//FileC/fileName"/>
-              </labelMappings>
-              <tool
-                  xsi:type="gmftool:CreationTool"
-                  href="mind.gmftool#//@palette/@tools.2/@tools.3"/>
-              <diagramNode
-                  href="mind.gmfgraph#FileC"/>
-            </ownedChild>
-          </children>
-          <children
-              compartment="//@nodes.1/@ownedChild/@children.2/@ownedChild/@compartments.0">
-            <containmentFeature
-                href="../../org.ow2.fractal.mind.emf/model/mind.ecore#//DataDefinition/inlineCcode"/>
-            <childrenFeature
-                href="../../org.ow2.fractal.mind.emf/model/mind.ecore#//DataDefinition/inlineCcode"/>
-            <ownedChild>
-              <domainMetaElement
-                  href="../../org.ow2.fractal.mind.emf/model/mind.ecore#//InlineCodeC"/>
-              <labelMappings
-                  xsi:type="gmfmap:FeatureLabelMapping"
-                  viewPattern="">
-                <diagramLabel
-                    href="mind.gmfgraph#LabelInlineC"/>
-                <features
-                    href="../../org.ow2.fractal.mind.emf/model/mind.ecore#//InlineCodeC/codeC"/>
-              </labelMappings>
-              <tool
-                  xsi:type="gmftool:CreationTool"
-                  href="mind.gmftool#//@palette/@tools.2/@tools.4"/>
-              <diagramNode
-                  href="mind.gmfgraph#InlineCcode"/>
-            </ownedChild>
-          </children>
-          <compartments
-              children="//@nodes.1/@ownedChild/@children.2/@ownedChild/@children.0 //@nodes.1/@ownedChild/@children.2/@ownedChild/@children.1">
-            <compartment
-                href="mind.gmfgraph#CompartmentDataDefinitionBodyArea"/>
-          </compartments>
-        </ownedChild>
-      </children>
-      <children>
-        <containmentFeature
-            href="../../org.ow2.fractal.mind.emf/model/mind.ecore#//ArchitectureDefinition/elements"/>
-        <childrenFeature
-            href="../../org.ow2.fractal.mind.emf/model/mind.ecore#//ArchitectureDefinition/elements"/>
-        <ownedChild>
-          <domainMetaElement
-              href="../../org.ow2.fractal.mind.emf/model/mind.ecore#//AttributeDefinition"/>
-          <labelMappings
-              xsi:type="gmfmap:FeatureLabelMapping"
-              viewPattern="({0}) {1} = {2}"
-              editorPattern="{0} {1} = {2}"
-              editPattern="{0} {1} = {2}">
-            <diagramLabel
-                href="mind.gmfgraph#LabelAttributeDefinitionContent"/>
-            <features
-                href="../../org.ow2.fractal.mind.emf/model/mind.ecore#//AttributeDefinition/type"/>
-            <features
-                href="../../org.ow2.fractal.mind.emf/model/mind.ecore#//AttributeDefinition/attributeName"/>
-            <features
-                href="../../org.ow2.fractal.mind.emf/model/mind.ecore#//AttributeDefinition/value"/>
-          </labelMappings>
-          <tool
-              xsi:type="gmftool:CreationTool"
-              href="mind.gmftool#//@palette/@tools.2/@tools.0"/>
-          <diagramNode
-              href="mind.gmfgraph#AttributeDefinition"/>
-        </ownedChild>
       </children>
       <children>
         <containmentFeature
@@ -1190,7 +666,7 @@
           <diagramNode
               href="mind.gmfgraph#ReferencesList"/>
           <children
-              compartment="//@nodes.1/@ownedChild/@children.4/@ownedChild/@compartments.0">
+              compartment="//@nodes.1/@ownedChild/@children.1/@ownedChild/@compartments.0">
             <containmentFeature
                 href="../../org.ow2.fractal.mind.emf/model/mind.ecore#//ReferencesList/references"/>
             <childrenFeature
@@ -1204,7 +680,7 @@
                   editorPattern="{0}"
                   editPattern="{0}">
                 <diagramLabel
-                    href="mind.gmfgraph#LabelCompositeReferenceName"/>
+                    href="mind.gmfgraph#LabelReferenceName"/>
                 <features
                     href="../../org.ow2.fractal.mind.emf/model/mind.ecore#//ComponentReference/referenceName"/>
               </labelMappings>
@@ -1212,61 +688,202 @@
                   xsi:type="gmftool:CreationTool"
                   href="mind.gmftool#//@palette/@tools.3/@tools.2"/>
               <diagramNode
-                  href="mind.gmfgraph#ComponentReferenceDefinition"/>
+                  href="mind.gmfgraph#ReferenceDefinition"/>
               <children
-                  compartment="//@nodes.1/@ownedChild/@children.4/@ownedChild/@children.0/@ownedChild/@compartments.0">
+                  compartment="//@nodes.1/@ownedChild/@children.1/@ownedChild/@children.0/@ownedChild/@compartments.0"
+                  referencedChild="//@nodes.0/@ownedChild/@children.2/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild">
                 <containmentFeature
                     href="../../org.ow2.fractal.mind.emf/model/mind.ecore#//ComponentReference/argumentsList"/>
                 <childrenFeature
                     href="../../org.ow2.fractal.mind.emf/model/mind.ecore#//ComponentReference/argumentsList"/>
-                <ownedChild>
-                  <domainMetaElement
-                      href="../../org.ow2.fractal.mind.emf/model/mind.ecore#//ArgumentDefinition"/>
-                  <labelMappings
-                      xsi:type="gmfmap:FeatureLabelMapping"
-                      viewPattern="{0}={1}"
-                      editorPattern=""
-                      editPattern="">
-                    <diagramLabel
-                        href="mind.gmfgraph#LabelArgumentDefinitionName"/>
-                    <features
-                        href="../../org.ow2.fractal.mind.emf/model/mind.ecore#//ArgumentDefinition/argumentName"/>
-                    <features
-                        href="../../org.ow2.fractal.mind.emf/model/mind.ecore#//ArgumentDefinition/argumentValue"/>
-                  </labelMappings>
-                  <tool
-                      xsi:type="gmftool:CreationTool"
-                      href="mind.gmftool#//@palette/@tools.0/@tools.4"/>
-                  <diagramNode
-                      href="mind.gmfgraph#ArgumentDefinition"/>
-                </ownedChild>
               </children>
               <compartments
-                  children="//@nodes.1/@ownedChild/@children.4/@ownedChild/@children.0/@ownedChild/@children.0">
+                  children="//@nodes.1/@ownedChild/@children.1/@ownedChild/@children.0/@ownedChild/@children.0">
                 <compartment
                     href="mind.gmfgraph#CompartmentComponentReferenceDefinitionArea"/>
               </compartments>
             </ownedChild>
           </children>
           <compartments
-              children="//@nodes.1/@ownedChild/@children.4/@ownedChild/@children.0">
+              children="//@nodes.1/@ownedChild/@children.1/@ownedChild/@children.0">
             <compartment
                 href="mind.gmfgraph#CompartmentReferencesListArea"/>
           </compartments>
         </ownedChild>
       </children>
-      <children
-          referencedChild="//@nodes.0/@ownedChild/@children.3/@ownedChild">
+      <children>
         <containmentFeature
-            href="../../org.ow2.fractal.mind.emf/model/mind.ecore#//ArchitectureDefinition/elements"/>
+            href="../../org.ow2.fractal.mind.emf/model/mind.ecore#//ArchitectureDefinition/body"/>
         <childrenFeature
-            href="../../org.ow2.fractal.mind.emf/model/mind.ecore#//ArchitectureDefinition/elements"/>
+            href="../../org.ow2.fractal.mind.emf/model/mind.ecore#//ArchitectureDefinition/body"/>
+        <ownedChild>
+          <domainMetaElement
+              href="../../org.ow2.fractal.mind.emf/model/mind.ecore#//PrimitiveBody"/>
+          <diagramNode
+              href="mind.gmfgraph#Body"/>
+          <children
+              compartment="//@nodes.1/@ownedChild/@children.2/@ownedChild/@compartments.0">
+            <containmentFeature
+                href="../../org.ow2.fractal.mind.emf/model/mind.ecore#//Body/elements"/>
+            <childrenFeature
+                href="../../org.ow2.fractal.mind.emf/model/mind.ecore#//Body/elements"/>
+            <ownedChild>
+              <domainMetaElement
+                  href="../../org.ow2.fractal.mind.emf/model/mind.ecore#//ImplementationDefinition"/>
+              <labelMappings
+                  readOnly="true">
+                <diagramLabel
+                    href="mind.gmfgraph#LabelImplementationTitle"/>
+              </labelMappings>
+              <tool
+                  xsi:type="gmftool:CreationTool"
+                  href="mind.gmftool#//@palette/@tools.2/@tools.2"/>
+              <diagramNode
+                  href="mind.gmfgraph#Implementation"/>
+              <children
+                  compartment="//@nodes.1/@ownedChild/@children.2/@ownedChild/@children.0/@ownedChild/@compartments.0"
+                  referencedChild="//@nodes.1/@ownedChild/@children.2/@ownedChild/@children.1/@ownedChild/@children.0/@ownedChild">
+                <containmentFeature
+                    href="../../org.ow2.fractal.mind.emf/model/mind.ecore#//ImplementationDefinition/fileC"/>
+                <childrenFeature
+                    href="../../org.ow2.fractal.mind.emf/model/mind.ecore#//ImplementationDefinition/fileC"/>
+              </children>
+              <children
+                  compartment="//@nodes.1/@ownedChild/@children.2/@ownedChild/@children.0/@ownedChild/@compartments.0"
+                  referencedChild="//@nodes.1/@ownedChild/@children.2/@ownedChild/@children.1/@ownedChild/@children.1/@ownedChild">
+                <containmentFeature
+                    href="../../org.ow2.fractal.mind.emf/model/mind.ecore#//ImplementationDefinition/inlineCcode"/>
+                <childrenFeature
+                    href="../../org.ow2.fractal.mind.emf/model/mind.ecore#//ImplementationDefinition/inlineCcode"/>
+              </children>
+              <compartments
+                  children="//@nodes.1/@ownedChild/@children.2/@ownedChild/@children.0/@ownedChild/@children.0 //@nodes.1/@ownedChild/@children.2/@ownedChild/@children.0/@ownedChild/@children.1">
+                <compartment
+                    href="mind.gmfgraph#CompartmentImplementationBodyArea"/>
+              </compartments>
+            </ownedChild>
+          </children>
+          <children
+              compartment="//@nodes.1/@ownedChild/@children.2/@ownedChild/@compartments.0">
+            <containmentFeature
+                href="../../org.ow2.fractal.mind.emf/model/mind.ecore#//Body/elements"/>
+            <childrenFeature
+                href="../../org.ow2.fractal.mind.emf/model/mind.ecore#//Body/elements"/>
+            <ownedChild>
+              <domainMetaElement
+                  href="../../org.ow2.fractal.mind.emf/model/mind.ecore#//DataDefinition"/>
+              <labelMappings
+                  readOnly="true">
+                <diagramLabel
+                    href="mind.gmfgraph#LabelDataDefinitionTitle"/>
+              </labelMappings>
+              <tool
+                  xsi:type="gmftool:CreationTool"
+                  href="mind.gmftool#//@palette/@tools.2/@tools.1"/>
+              <diagramNode
+                  href="mind.gmfgraph#DataDefinition"/>
+              <children
+                  compartment="//@nodes.1/@ownedChild/@children.2/@ownedChild/@children.1/@ownedChild/@compartments.0">
+                <containmentFeature
+                    href="../../org.ow2.fractal.mind.emf/model/mind.ecore#//DataDefinition/fileC"/>
+                <childrenFeature
+                    href="../../org.ow2.fractal.mind.emf/model/mind.ecore#//DataDefinition/fileC"/>
+                <ownedChild>
+                  <domainMetaElement
+                      href="../../org.ow2.fractal.mind.emf/model/mind.ecore#//FileC"/>
+                  <labelMappings
+                      xsi:type="gmfmap:FeatureLabelMapping"
+                      viewPattern="{0}{1}"
+                      editorPattern="{0} {1}"
+                      editPattern="{0} {1}">
+                    <diagramLabel
+                        href="mind.gmfgraph#LabelFileC"/>
+                    <features
+                        href="../../org.ow2.fractal.mind.emf/model/mind.ecore#//FileC/directory"/>
+                    <features
+                        href="../../org.ow2.fractal.mind.emf/model/mind.ecore#//FileC/fileName"/>
+                  </labelMappings>
+                  <tool
+                      xsi:type="gmftool:CreationTool"
+                      href="mind.gmftool#//@palette/@tools.2/@tools.3"/>
+                  <diagramNode
+                      href="mind.gmfgraph#FileC"/>
+                </ownedChild>
+              </children>
+              <children
+                  compartment="//@nodes.1/@ownedChild/@children.2/@ownedChild/@children.1/@ownedChild/@compartments.0">
+                <containmentFeature
+                    href="../../org.ow2.fractal.mind.emf/model/mind.ecore#//DataDefinition/inlineCcode"/>
+                <childrenFeature
+                    href="../../org.ow2.fractal.mind.emf/model/mind.ecore#//DataDefinition/inlineCcode"/>
+                <ownedChild>
+                  <domainMetaElement
+                      href="../../org.ow2.fractal.mind.emf/model/mind.ecore#//InlineCodeC"/>
+                  <labelMappings
+                      xsi:type="gmfmap:FeatureLabelMapping"
+                      viewPattern="">
+                    <diagramLabel
+                        href="mind.gmfgraph#LabelInlineC"/>
+                    <features
+                        href="../../org.ow2.fractal.mind.emf/model/mind.ecore#//InlineCodeC/codeC"/>
+                  </labelMappings>
+                  <tool
+                      xsi:type="gmftool:CreationTool"
+                      href="mind.gmftool#//@palette/@tools.2/@tools.4"/>
+                  <diagramNode
+                      href="mind.gmfgraph#InlineCcode"/>
+                </ownedChild>
+              </children>
+              <compartments
+                  children="//@nodes.1/@ownedChild/@children.2/@ownedChild/@children.1/@ownedChild/@children.0 //@nodes.1/@ownedChild/@children.2/@ownedChild/@children.1/@ownedChild/@children.1">
+                <compartment
+                    href="mind.gmfgraph#CompartmentDataDefinitionBodyArea"/>
+              </compartments>
+            </ownedChild>
+          </children>
+          <children>
+            <containmentFeature
+                href="../../org.ow2.fractal.mind.emf/model/mind.ecore#//Body/elements"/>
+            <childrenFeature
+                href="../../org.ow2.fractal.mind.emf/model/mind.ecore#//Body/elements"/>
+            <ownedChild>
+              <domainMetaElement
+                  href="../../org.ow2.fractal.mind.emf/model/mind.ecore#//AttributeDefinition"/>
+              <labelMappings
+                  xsi:type="gmfmap:FeatureLabelMapping"
+                  viewPattern="({0}) {1} = {2}"
+                  editorPattern="{0} {1} = {2}"
+                  editPattern="{0} {1} = {2}">
+                <diagramLabel
+                    href="mind.gmfgraph#LabelAttributeDefinitionContent"/>
+                <features
+                    href="../../org.ow2.fractal.mind.emf/model/mind.ecore#//AttributeDefinition/type"/>
+                <features
+                    href="../../org.ow2.fractal.mind.emf/model/mind.ecore#//AttributeDefinition/attributeName"/>
+                <features
+                    href="../../org.ow2.fractal.mind.emf/model/mind.ecore#//AttributeDefinition/value"/>
+              </labelMappings>
+              <tool
+                  xsi:type="gmftool:CreationTool"
+                  href="mind.gmftool#//@palette/@tools.2/@tools.0"/>
+              <diagramNode
+                  href="mind.gmfgraph#AttributeDefinition"/>
+            </ownedChild>
+          </children>
+          <children
+              referencedChild="//@nodes.0/@ownedChild/@children.3/@ownedChild/@children.0/@ownedChild">
+            <containmentFeature
+                href="../../org.ow2.fractal.mind.emf/model/mind.ecore#//Body/elements"/>
+            <childrenFeature
+                href="../../org.ow2.fractal.mind.emf/model/mind.ecore#//Body/elements"/>
+          </children>
+          <compartments
+              children="//@nodes.1/@ownedChild/@children.2/@ownedChild/@children.1 //@nodes.1/@ownedChild/@children.2/@ownedChild/@children.0">
+            <compartment
+                href="mind.gmfgraph#BodyCompartment"/>
+          </compartments>
+        </ownedChild>
       </children>
-      <compartments
-          children="//@nodes.1/@ownedChild/@children.2 //@nodes.1/@ownedChild/@children.1">
-        <compartment
-            href="mind.gmfgraph#CompartmentPrimitiveDefinitionBody"/>
-      </compartments>
     </ownedChild>
   </nodes>
   <nodes>
@@ -1336,7 +953,7 @@
                   editorPattern="{0}"
                   editPattern="{0}">
                 <diagramLabel
-                    href="mind.gmfgraph#LabelCompositeReferenceName"/>
+                    href="mind.gmfgraph#LabelReferenceName"/>
                 <features
                     href="../../org.ow2.fractal.mind.emf/model/mind.ecore#//ComponentReference/referenceName"/>
               </labelMappings>
@@ -1344,7 +961,7 @@
                   xsi:type="gmftool:CreationTool"
                   href="mind.gmftool#//@palette/@tools.3/@tools.2"/>
               <diagramNode
-                  href="mind.gmfgraph#ComponentReferenceDefinition"/>
+                  href="mind.gmfgraph#ReferenceDefinition"/>
             </ownedChild>
           </children>
           <compartments
@@ -1354,24 +971,36 @@
           </compartments>
         </ownedChild>
       </children>
-      <children
-          referencedChild="//@nodes.0/@ownedChild/@children.3/@ownedChild">
+      <children>
         <containmentFeature
-            href="../../org.ow2.fractal.mind.emf/model/mind.ecore#//ArchitectureDefinition/elements"/>
+            href="../../org.ow2.fractal.mind.emf/model/mind.ecore#//ArchitectureDefinition/body"/>
         <childrenFeature
-            href="../../org.ow2.fractal.mind.emf/model/mind.ecore#//ArchitectureDefinition/elements"/>
+            href="../../org.ow2.fractal.mind.emf/model/mind.ecore#//ArchitectureDefinition/body"/>
+        <ownedChild>
+          <domainMetaElement
+              href="../../org.ow2.fractal.mind.emf/model/mind.ecore#//TypeBody"/>
+          <diagramNode
+              href="mind.gmfgraph#Body"/>
+          <children
+              referencedChild="//@nodes.0/@ownedChild/@children.3/@ownedChild/@children.0/@ownedChild">
+            <containmentFeature
+                href="../../org.ow2.fractal.mind.emf/model/mind.ecore#//Body/elements"/>
+            <childrenFeature
+                href="../../org.ow2.fractal.mind.emf/model/mind.ecore#//Body/elements"/>
+          </children>
+          <compartments>
+            <compartment
+                href="mind.gmfgraph#BodyCompartment"/>
+          </compartments>
+        </ownedChild>
       </children>
-      <compartments>
-        <compartment
-            href="mind.gmfgraph#CompartmentComponentTypeBody"/>
-      </compartments>
     </ownedChild>
   </nodes>
   <links>
     <domainMetaElement
         href="../../org.ow2.fractal.mind.emf/model/mind.ecore#//BindingDefinition"/>
     <containmentFeature
-        href="../../org.ow2.fractal.mind.emf/model/mind.ecore#//ArchitectureDefinition/elements"/>
+        href="../../org.ow2.fractal.mind.emf/model/mind.ecore#//Body/elements"/>
     <tool
         xsi:type="gmftool:CreationTool"
         href="mind.gmftool#//@palette/@tools.3/@tools.1"/>
@@ -1413,59 +1042,6 @@
             xsi:type="gmfmap:DomainElementTarget">
           <element
               href="../../org.ow2.fractal.mind.emf/model/mind.ecore#//ComponentReference"/>
-        </target>
-      </audits>
-      <audits
-          name="Template sub component reference check"
-          description="This will check that a template sub component has a reference"
-          id="template_subcomponent_reference"
-          message="A template sub component needs a reference">
-        <rule
-            body="self.referenceDefinition&lt;>null"/>
-        <target
-            xsi:type="gmfmap:DomainElementTarget">
-          <element
-              href="../../org.ow2.fractal.mind.emf/model/mind.ecore#//TemplateSubComponent"/>
-        </target>
-      </audits>
-      <audits
-          name="Composite sub component reference check"
-          description="This will check if a sub component has a reference"
-          id="composite_subcomponent_referencecheck"
-          message="A subcomponent needs to reference a component">
-        <rule
-            body="self.referenceDefinition&lt;>null"/>
-        <target
-            xsi:type="gmfmap:DomainElementTarget">
-          <element
-              href="../../org.ow2.fractal.mind.emf/model/mind.ecore#//CompositeSubComponent"/>
-        </target>
-      </audits>
-      <audits
-          name="Primitive sub component reference check"
-          description="This will check if a sub component has a reference"
-          id="primitive_subcomponent_referencecheck"
-          message="A subcomponent needs to reference a component">
-        <rule
-            body="self.referenceDefinition&lt;>null"/>
-        <target
-            xsi:type="gmfmap:DomainElementTarget">
-          <element
-              href="../../org.ow2.fractal.mind.emf/model/mind.ecore#//PrimitiveSubComponent"/>
-        </target>
-      </audits>
-      <audits
-          name="template reference check"
-          description="This will check that a template specifier has a reference"
-          id="template_reference"
-          useInLiveMode="true"
-          message="A template needs a reference">
-        <rule
-            body="self.reference &lt;> null"/>
-        <target
-            xsi:type="gmfmap:DomainElementTarget">
-          <element
-              href="../../org.ow2.fractal.mind.emf/model/mind.ecore#//TemplateSpecifier"/>
         </target>
       </audits>
     </childContainers>

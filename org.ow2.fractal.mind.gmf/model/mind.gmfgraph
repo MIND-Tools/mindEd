@@ -131,6 +131,35 @@
           qualifiedClassName="org.ow2.fractal.mind.diagram.custom.figures.BindingCustomFigure"/>
     </descriptors>
     <descriptors
+        name="BodyFigure">
+      <actualFigure
+          xsi:type="gmfgraph:CustomFigure"
+          name="BodyFigure"
+          qualifiedClassName="org.ow2.fractal.mind.diagram.custom.figures.BodyCustomFigure">
+        <border
+            xsi:type="gmfgraph:CustomBorder"
+            qualifiedClassName="org.ow2.fractal.mind.diagram.custom.figures.ComponentBorder">
+          <attributes
+              name="color"
+              value="borderColor"/>
+        </border>
+        <children
+            xsi:type="gmfgraph:CustomFigure"
+            name="BodyCompartmentFigure"
+            qualifiedClassName="org.ow2.fractal.mind.diagram.custom.figures.BodyCompartmentCustomFigure">
+          <attributes
+              name="backgroundColor"
+              value="bodyAreaColor"/>
+        </children>
+      </actualFigure>
+      <accessors
+          accessor="getBodyFigure"
+          figure="//@figures.0/@descriptors.6/@actualFigure"/>
+      <accessors
+          accessor="getBodyCompartment"
+          figure="//@figures.0/@descriptors.6/@actualFigure/@children.0"/>
+    </descriptors>
+    <descriptors
         name="ComponentTypeDefinitionFigure">
       <actualFigure
           xsi:type="gmfgraph:CustomFigure"
@@ -141,7 +170,7 @@
             qualifiedClassName="org.ow2.fractal.mind.diagram.custom.figures.ComponentBorder">
           <attributes
               name="color"
-              value="BORDER_COLOR"/>
+              value="borderColor"/>
         </border>
         <children
             xsi:type="gmfgraph:CustomFigure"
@@ -149,7 +178,7 @@
             qualifiedClassName="org.ow2.fractal.mind.diagram.custom.figures.AbstractComponentNameWrappingLabel">
           <attributes
               name="maximumSize"
-              value="LABEL_MAX_SIZE"/>
+              value="nameLabelMaxSize"/>
         </children>
         <children
             xsi:type="gmfgraph:CustomFigure"
@@ -157,56 +186,20 @@
             qualifiedClassName="org.ow2.fractal.mind.diagram.custom.figures.ContainerShape">
           <attributes
               name="backgroundColor"
-              value="BODY_COLOR"/>
+              value="bodyAreaColor"/>
         </children>
         <attributes
             name="preferredSize"
-            value="PREFERRED_SIZE"/>
+            value="componentPreferredSize"/>
       </actualFigure>
       <accessors
           accessor="getLabelName"
-          figure="//@figures.0/@descriptors.6/@actualFigure/@children.0"/>
-      <accessors
-          accessor="getFigure"
-          figure="//@figures.0/@descriptors.6/@actualFigure"/>
-      <accessors
-          accessor="getBody"
-          figure="//@figures.0/@descriptors.6/@actualFigure/@children.1"/>
-    </descriptors>
-    <descriptors
-        name="ComponentReferenceDefinitionFigure">
-      <actualFigure
-          xsi:type="gmfgraph:CustomFigure"
-          name="ComponentReferenceDefinitionFigure"
-          qualifiedClassName="org.ow2.fractal.mind.diagram.custom.figures.ReferenceDefinitionCustomFigure">
-        <border
-            xsi:type="gmfgraph:CustomBorder"
-            qualifiedClassName="org.ow2.fractal.mind.diagram.custom.figures.ComponentBorder">
-          <attributes
-              name="color"
-              value="BORDER_COLOR"/>
-        </border>
-        <children
-            xsi:type="gmfgraph:CustomFigure"
-            name="LabelTitleComponentReferenceDefinition"
-            qualifiedClassName="org.ow2.fractal.mind.diagram.custom.figures.LabelTitleComponentReferenceDefinitionCustomFigure"/>
-        <children
-            xsi:type="gmfgraph:CustomFigure"
-            name="ComponentReferenceDefinitionArea"
-            qualifiedClassName="org.ow2.fractal.mind.diagram.custom.figures.ContainerShape">
-          <attributes
-              name="backgroundColor"
-              value="BACKGROUND_COLOR"/>
-        </children>
-        <attributes
-            name="preferredSize"
-            value="PREFERRED_SIZE"/>
-      </actualFigure>
-      <accessors
-          accessor="getLabel"
           figure="//@figures.0/@descriptors.7/@actualFigure/@children.0"/>
       <accessors
-          accessor="getArea"
+          accessor="getFigure"
+          figure="//@figures.0/@descriptors.7/@actualFigure"/>
+      <accessors
+          accessor="getBody"
           figure="//@figures.0/@descriptors.7/@actualFigure/@children.1"/>
     </descriptors>
     <descriptors
@@ -253,11 +246,11 @@
           figure="//@figures.0/@descriptors.8/@actualFigure/@children.1"/>
     </descriptors>
     <descriptors
-        name="CompositeComponentDefinitionFigure">
+        name="CompositeFigure">
       <actualFigure
           xsi:type="gmfgraph:CustomFigure"
-          name="CompositeComponentDefinitionCustomFigure"
-          qualifiedClassName="org.ow2.fractal.mind.diagram.custom.figures.CompositeComponentDefinitionCustomFigure">
+          name="CompositeFigure"
+          qualifiedClassName="org.ow2.fractal.mind.diagram.custom.figures.CompositeFigure">
         <border
             xsi:type="gmfgraph:CustomBorder"
             qualifiedClassName="org.ow2.fractal.mind.diagram.custom.figures.ComponentBorder">
@@ -267,7 +260,7 @@
         </border>
         <children
             xsi:type="gmfgraph:CustomFigure"
-            name="LabelCompositeComponentDefinitionName"
+            name="LabelCompositeName"
             qualifiedClassName="org.ow2.fractal.mind.diagram.custom.figures.AbstractComponentNameWrappingLabel">
           <attributes
               name="maximumSize"
@@ -275,7 +268,7 @@
         </children>
         <children
             xsi:type="gmfgraph:CustomFigure"
-            name="CompositeBodyArea"
+            name="CompositeArea"
             qualifiedClassName="org.ow2.fractal.mind.diagram.custom.figures.ContainerShape">
           <attributes
               name="backgroundColor"
@@ -286,14 +279,14 @@
             value="componentPreferredSize"/>
       </actualFigure>
       <accessors
-          accessor="getFigureLabelCompositeComponentDefinitionName"
+          accessor="getLabelCompositeName"
           figure="//@figures.0/@descriptors.9/@actualFigure/@children.0"/>
       <accessors
-          accessor="getFigureCompositeComponentDefinitionFigure"
+          accessor="getCompositeFigure"
           figure="//@figures.0/@descriptors.9/@actualFigure"/>
       <accessors
-          accessor="getFigureCompositeBodyArea"
-          figure="//@figures.0/@descriptors.9/@actualFigure/@children.1"/>
+          accessor="getCompositeArea"
+          figure="//@figures.0/@descriptors.10/@actualFigure/@children.1"/>
     </descriptors>
     <descriptors
         name="CompositeSubComponentFigure">
@@ -383,7 +376,7 @@
       <actualFigure
           xsi:type="gmfgraph:CustomFigure"
           name="FileCFigure"
-          qualifiedClassName="org.ow2.fractal.mind.diagram.custom.figures.CFileCustomFigure">
+          qualifiedClassName="org.ow2.fractal.mind.diagram.custom.figures.FileCFigure">
         <children
             xsi:type="gmfgraph:CustomFigure"
             name="LabelFileC"
@@ -393,7 +386,7 @@
             value="PREFERRED_SIZE"/>
       </actualFigure>
       <accessors
-          accessor="getFigureLabelFileCFigure"
+          accessor="getLabelFileC"
           figure="//@figures.0/@descriptors.12/@actualFigure/@children.0"/>
     </descriptors>
     <descriptors
@@ -479,14 +472,14 @@
           figure="//@figures.0/@descriptors.15/@actualFigure/@children.0"/>
     </descriptors>
     <descriptors
-        name="InlineCcodeFigure">
+        name="InlineCFigure">
       <actualFigure
           xsi:type="gmfgraph:CustomFigure"
           name="InlineCFigure"
-          qualifiedClassName="org.ow2.fractal.mind.diagram.custom.figures.InlineCCustomFigure">
+          qualifiedClassName="org.ow2.fractal.mind.diagram.custom.figures.InlineCFigure">
         <children
             xsi:type="gmfgraph:CustomFigure"
-            name="LabelInlineC"
+            name="InlineCLabel"
             qualifiedClassName="org.ow2.fractal.mind.diagram.custom.figures.MultiLineWrappingLabel">
           <attributes
               name="text"
@@ -497,7 +490,7 @@
             value="PREFERRED_SIZE"/>
       </actualFigure>
       <accessors
-          accessor="getFigureLabelInlineCFigure"
+          accessor="getLabelInlineC"
           figure="//@figures.0/@descriptors.16/@actualFigure/@children.0"/>
     </descriptors>
     <descriptors
@@ -651,25 +644,25 @@
           figure="//@figures.0/@descriptors.20/@actualFigure/@children.1"/>
     </descriptors>
     <descriptors
-        name="ReferenceDefinitionFigure">
+        name="ReferenceFigure">
       <actualFigure
           xsi:type="gmfgraph:CustomFigure"
-          name="ReferenceDefinitionFigure"
-          qualifiedClassName="org.ow2.fractal.mind.diagram.custom.figures.ReferenceDefinitionCustomFigure">
+          name="ReferenceFigure"
+          qualifiedClassName="org.ow2.fractal.mind.diagram.custom.figures.ReferenceFigure">
         <children
             xsi:type="gmfgraph:CustomFigure"
-            name="LabelReferenceDefinitionName"
-            qualifiedClassName="org.ow2.fractal.mind.diagram.custom.figures.LabelReferenceDefinitionNameCustomFigure"/>
+            name="LabelReferenceName"
+            qualifiedClassName="org.ow2.fractal.mind.diagram.custom.figures.LabelReferenceNameFigure"/>
         <children
             xsi:type="gmfgraph:CustomFigure"
-            name="ReferenceDefinitionArea"
+            name="ReferenceArea"
             qualifiedClassName="org.ow2.fractal.mind.diagram.custom.figures.ContainerShape"/>
       </actualFigure>
       <accessors
-          accessor="getFigureLabelReferenceDefinition"
+          accessor="getLabelReference"
           figure="//@figures.0/@descriptors.21/@actualFigure/@children.0"/>
       <accessors
-          accessor="getFigureReferenceDefinitionArea"
+          accessor="getReferenceArea"
           figure="//@figures.0/@descriptors.21/@actualFigure/@children.1"/>
     </descriptors>
     <descriptors
@@ -750,11 +743,11 @@
           figure="//@figures.0/@descriptors.24/@actualFigure/@children.0"/>
     </descriptors>
     <descriptors
-        name="TemplateSubComponentFigure">
+        name="SubComponentFigure">
       <actualFigure
           xsi:type="gmfgraph:CustomFigure"
-          name="TemplateSubComponentFigure"
-          qualifiedClassName="org.ow2.fractal.mind.diagram.custom.figures.TemplateSubComponentCustomFigure">
+          name="SubComponentFigure"
+          qualifiedClassName="org.ow2.fractal.mind.diagram.custom.figures.SubComponentCustomFigure">
         <border
             xsi:type="gmfgraph:CustomBorder"
             qualifiedClassName="org.ow2.fractal.mind.diagram.custom.figures.ComponentBorder">
@@ -764,7 +757,7 @@
         </border>
         <children
             xsi:type="gmfgraph:CustomFigure"
-            name="LabelTemplateSubComponentName"
+            name="LabelSubComponentName"
             qualifiedClassName="org.ow2.fractal.mind.diagram.custom.figures.AbstractComponentNameWrappingLabel">
           <attributes
               name="maximumSize"
@@ -772,7 +765,7 @@
         </children>
         <children
             xsi:type="gmfgraph:CustomFigure"
-            name="TemplateSubBodyArea"
+            name="SubComponentBody"
             qualifiedClassName="org.ow2.fractal.mind.diagram.custom.figures.ContainerShape">
           <attributes
               name="backgroundColor"
@@ -783,13 +776,13 @@
             value="componentPreferredSize"/>
       </actualFigure>
       <accessors
-          accessor="getFigureTemplateSubComponentFigure"
+          accessor="getSubComponentFigure"
           figure="//@figures.0/@descriptors.25/@actualFigure"/>
       <accessors
-          accessor="getFigureLabelTemplateSubComponentName"
+          accessor="getSubComponentName"
           figure="//@figures.0/@descriptors.25/@actualFigure/@children.0"/>
       <accessors
-          accessor="getFigureTemplateSubBodyArea"
+          accessor="getSubComponentBody"
           figure="//@figures.0/@descriptors.25/@actualFigure/@children.1"/>
     </descriptors>
     <descriptors
@@ -881,12 +874,16 @@
       name="PrimitiveComponentDefinition"
       figure="PrimitiveComponentDefinitionFigure"/>
   <nodes
+      name="Body"
+      figure="BodyFigure"
+      contentPane="//@figures.0/@descriptors.6/@accessors.1"/>
+  <nodes
       name="ImportsList"/>
   <nodes
       name="ImportDefinition"/>
   <nodes
       name="CompositeComponentDefinition"
-      figure="CompositeComponentDefinitionFigure"/>
+      figure="CompositeFigure"/>
   <nodes
       name="CompositeSubComponent"
       figure="CompositeSubComponentFigure"/>
@@ -912,7 +909,7 @@
       figure="FileCFigure"/>
   <nodes
       name="InlineCcode"
-      figure="InlineCcodeFigure"/>
+      figure="InlineCFigure"/>
   <nodes
       name="ComponentTypeDefinition"
       figure="ComponentTypeDefinitionFigure"/>
@@ -935,35 +932,41 @@
       resizeConstraint="NONE"
       contentPane="//@figures.0/@descriptors.22/@accessors.0"/>
   <nodes
-      name="ComponentReferenceDefinition"
-      figure="ComponentReferenceDefinitionFigure"
-      contentPane="//@figures.0/@descriptors.7/@accessors.1"/>
+      name="ComponentReferenceDefinition"/>
   <nodes
       name="AttributeDefinition"
       figure="AttributeDefinitionFigure"/>
   <nodes
-      name="TemplateSubComponent"
-      figure="TemplateSubComponentFigure"/>
+      name="CompositeSubComponent"
+      figure="SubComponentFigure"/>
   <nodes
       name="ReferenceDefinition"
-      figure="ReferenceDefinitionFigure"/>
+      figure="ReferenceFigure"/>
   <nodes
       name="TemplateReference"
       figure="TemplateReferenceFigure"
       contentPane="//@figures.0/@descriptors.27/@accessors.1"/>
+  <nodes
+      name="PrimitiveBody"
+      figure="BodyFigure"
+      affixedParentSide="NORTH"
+      contentPane="//@figures.0/@descriptors.6/@accessors.1"/>
+  <nodes
+      name="PrimitiveSubComponent"
+      figure="SubComponentFigure"/>
   <connections
       name="Binding"
       figure="BindingFigure"/>
   <compartments
-      name="CompartmentCompositeComponentDefinitionBody"
-      figure="CompositeComponentDefinitionFigure"
+      name="BodyCompartment"
+      figure="BodyFigure"
       collapsible="true"
-      accessor="//@figures.0/@descriptors.9/@accessors.2"/>
+      accessor="//@figures.0/@descriptors.6/@accessors.1"/>
   <compartments
-      name="CompartmentTemplateSubBody"
-      figure="TemplateSubComponentFigure"
+      name="CompartmentSubComponentBody"
+      figure="BodyFigure"
       collapsible="true"
-      accessor="//@figures.0/@descriptors.25/@accessors.2"/>
+      accessor="//@figures.0/@descriptors.6/@accessors.1"/>
   <compartments
       name="CompartmentPrimitiveComponentDataDefinition"
       figure="DataDefinitionFigure"
@@ -989,12 +992,10 @@
       accessor="//@figures.0/@descriptors.14/@accessors.0"/>
   <compartments
       name="CompartmentComponentReferenceDefinitionArea"
-      figure="ComponentReferenceDefinitionFigure"
-      collapsible="true"
-      accessor="//@figures.0/@descriptors.7/@accessors.1"/>
+      collapsible="true"/>
   <compartments
       name="CompartmentReferenceDefinitionArea"
-      figure="ReferenceDefinitionFigure"
+      figure="ReferenceFigure"
       collapsible="true"
       accessor="//@figures.0/@descriptors.21/@accessors.1"/>
   <compartments
@@ -1015,7 +1016,7 @@
   <compartments
       name="CompartmentComponentTypeBody"
       figure="ComponentTypeDefinitionFigure"
-      accessor="//@figures.0/@descriptors.6/@accessors.2"/>
+      accessor="//@figures.0/@descriptors.7/@accessors.2"/>
   <compartments
       name="CompartmentImportsListArea"
       collapsible="true"/>
@@ -1055,6 +1056,10 @@
       name="TemplateDefinitionArea"
       figure="TemplateDefinitionFigure"
       accessor="//@figures.0/@descriptors.26/@accessors.1"/>
+  <compartments
+      name="CompositeCompartment"
+      figure="CompositeFigure"
+      accessor="//@figures.0/@descriptors.9/@accessors.2"/>
   <labels
       name="LabelAnnotationElement"
       figure="AnnotationElementFigure"
@@ -1070,20 +1075,18 @@
   <labels
       name="LabelComponentTypeDefinitionName"
       figure="ComponentTypeDefinitionFigure"
-      accessor="//@figures.0/@descriptors.6/@accessors.0"/>
+      accessor="//@figures.0/@descriptors.7/@accessors.0"/>
   <labels
       name="LabelCompositeAnonymousSubComponentName"
       figure="CompositeAnonymousSubComponentFigure"
       accessor="//@figures.0/@descriptors.8/@accessors.0"/>
   <labels
       name="LabelCompositeComponentDefinitionName"
-      figure="CompositeComponentDefinitionFigure"
+      figure="CompositeFigure"
       accessor="//@figures.0/@descriptors.9/@accessors.0"/>
   <labels
       name="LabelCompositeReferenceName"
-      figure="ComponentReferenceDefinitionFigure"
-      elementIcon="false"
-      accessor="//@figures.0/@descriptors.7/@accessors.0"/>
+      elementIcon="false"/>
   <labels
       name="LabelCompositeSubComponentName"
       figure="CompositeSubComponentFigure"
@@ -1108,7 +1111,7 @@
       accessor="//@figures.0/@descriptors.15/@accessors.1"/>
   <labels
       name="LabelInlineC"
-      figure="InlineCcodeFigure"
+      figure="InlineCFigure"
       accessor="//@figures.0/@descriptors.16/@accessors.0"/>
   <labels
       name="LabelInterfaceDefinitionName"
@@ -1131,7 +1134,7 @@
       accessor="//@figures.0/@descriptors.20/@accessors.1"/>
   <labels
       name="LabelReferenceName"
-      figure="ReferenceDefinitionFigure"
+      figure="ReferenceFigure"
       accessor="//@figures.0/@descriptors.21/@accessors.0"/>
   <labels
       name="LabelReferencesListTitle"
@@ -1148,7 +1151,7 @@
       accessor="//@figures.0/@descriptors.23/@accessors.0"/>
   <labels
       name="LabelTemplateSubComponentName"
-      figure="TemplateSubComponentFigure"
+      figure="SubComponentFigure"
       accessor="//@figures.0/@descriptors.25/@accessors.1"/>
   <labels
       name="LabelTemplateReferenceName"
