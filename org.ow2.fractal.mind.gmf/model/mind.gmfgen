@@ -306,19 +306,20 @@
     </childNodes>
     <childNodes
         visualID="3098"
-        editPartClassName="TemplateReferenceEditPart"
-        itemSemanticEditPolicyClassName="TemplateReferenceItemSemanticEditPolicy"
+        editPartClassName="TemplateSpecifierReferenceEditPart"
+        itemSemanticEditPolicyClassName="TemplateSpecifierReferenceItemSemanticEditPolicy"
         notationViewFactoryClassName="TypeReferenceDefinitionViewFactory"
-        canonicalEditPolicyClassName="TemplateReferenceCanonicalEditPolicy"
-        graphicalNodeEditPolicyClassName="TemplateReferenceGraphicalNodeEditPolicy"
-        createCommandClassName="TemplateReferenceCreateCommand"
+        canonicalEditPolicyClassName="TemplateSpecifierReferenceCanonicalEditPolicy"
+        graphicalNodeEditPolicyClassName="TemplateSpecifierReferenceGraphicalNodeEditPolicy"
+        createCommandClassName="TemplateSpecifierReferenceCreateCommand"
         containers="//@diagram/@childNodes.1">
       <diagramRunTimeClass
           href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <elementType
           xsi:type="gmfgen:MetamodelType"
-          displayName="TemplateReference"
-          editHelperClassName="TemplateReferenceEditHelper"/>
+          uniqueIdentifier="org.ow2.fractal.mind.emf.diagram.TemplateSpecifierReference_3098"
+          displayName="TemplateSpecifierReference"
+          editHelperClassName="TemplateSpecifierReferenceEditHelper"/>
       <viewmap
           xsi:type="gmfgen:InnerClassViewmap"
           className="ReferenceFigure"
@@ -333,8 +334,8 @@
       </modelFacet>
       <labels
           visualID="5089"
-          editPartClassName="TemplateReferenceNameEditPart"
-          itemSemanticEditPolicyClassName="TemplateReferenceNameItemSemanticEditPolicy"
+          editPartClassName="TemplateSpecifierReferenceNameEditPart"
+          itemSemanticEditPolicyClassName="TemplateSpecifierReferenceNameItemSemanticEditPolicy"
           notationViewFactoryClassName="TypeReferenceDefinitionReferenceNameViewFactory"
           elementIcon="true">
         <diagramRunTimeClass
@@ -366,7 +367,9 @@
           href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <elementType
           xsi:type="gmfgen:MetamodelType"
-          editHelperClassName="FormalArgumentsListEditHelper"/>
+          uniqueIdentifier="org.ow2.fractal.mind.emf.diagram.CompositeFormalArgumentsList_3099"
+          displayName="CompositeFormalArgumentsList"
+          editHelperClassName="CompositeFormalArgumentsListEditHelper"/>
       <viewmap
           xsi:type="gmfgen:InnerClassViewmap"
           className="FormalArgumentsListFigure"
@@ -507,6 +510,7 @@
           href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <elementType
           xsi:type="gmfgen:MetamodelType"
+          uniqueIdentifier="org.ow2.fractal.mind.emf.diagram.CompositeReference_3102"
           displayName="CompositeReference"
           editHelperClassName="CompositeReferenceEditHelper"/>
       <viewmap
@@ -523,8 +527,8 @@
       </modelFacet>
       <labels
           visualID="5095"
-          editPartClassName="CompositeReferenceDefinitionReferenceNameEditPart"
-          itemSemanticEditPolicyClassName="CompositeReferenceDefinitionReferenceNameItemSemanticEditPolicy"
+          editPartClassName="CompositeReferenceNameEditPart"
+          itemSemanticEditPolicyClassName="CompositeReferenceNameItemSemanticEditPolicy"
           notationViewFactoryClassName="CompositeReferenceDefinitionReferenceNameViewFactory"
           elementIcon="true">
         <diagramRunTimeClass
@@ -665,21 +669,21 @@
     </childNodes>
     <childNodes
         visualID="3105"
-        editPartClassName="ComponentReferenceEditPart"
-        itemSemanticEditPolicyClassName="ComponentReferenceItemSemanticEditPolicy"
+        editPartClassName="TemplateDefinitionReferenceEditPart"
+        itemSemanticEditPolicyClassName="TemplateDefinitionReferenceItemSemanticEditPolicy"
         notationViewFactoryClassName="CompositeReferenceDefinitionViewFactory"
-        canonicalEditPolicyClassName="ComponentReferenceCanonicalEditPolicy"
+        canonicalEditPolicyClassName="TemplateDefinitionReferenceCanonicalEditPolicy"
         compartments="//@diagram/@compartments.6"
-        graphicalNodeEditPolicyClassName="ComponentReferenceGraphicalNodeEditPolicy"
-        createCommandClassName="ComponentReferenceCreateCommand"
+        graphicalNodeEditPolicyClassName="TemplateDefinitionReferenceGraphicalNodeEditPolicy"
+        createCommandClassName="TemplateDefinitionReferenceCreateCommand"
         containers="//@diagram/@compartments.5">
       <diagramRunTimeClass
           href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <elementType
           xsi:type="gmfgen:SpecializationType"
-          displayName="ComponentReference"
-          metamodelType="//@diagram/@childNodes.6/@elementType"
-          editHelperAdviceClassName=""/>
+          uniqueIdentifier="org.ow2.fractal.mind.emf.diagram.TemplateDefinitionReference_3105"
+          displayName="TemplateDefinitionReference"
+          metamodelType="//@diagram/@childNodes.6/@elementType"/>
       <viewmap
           xsi:type="gmfgen:InnerClassViewmap"
           className="ReferenceFigure"
@@ -694,8 +698,8 @@
       </modelFacet>
       <labels
           visualID="5093"
-          editPartClassName="ComponentReferenceNameEditPart"
-          itemSemanticEditPolicyClassName="ComponentReferenceNameItemSemanticEditPolicy"
+          editPartClassName="TemplateDefinitionReferenceNameEditPart"
+          itemSemanticEditPolicyClassName="TemplateDefinitionReferenceNameItemSemanticEditPolicy"
           notationViewFactoryClassName="CompositeReferenceDefinitionReferenceNameViewFactory"
           elementIcon="true">
         <diagramRunTimeClass
@@ -812,6 +816,7 @@
           href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <elementType
           xsi:type="gmfgen:MetamodelType"
+          uniqueIdentifier="org.ow2.fractal.mind.emf.diagram.CompositeSubComponent_3131"
           displayName="CompositeSubComponent"
           editHelperClassName="CompositeSubComponentEditHelper"/>
       <viewmap
@@ -862,6 +867,7 @@
           href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <elementType
           xsi:type="gmfgen:SpecializationType"
+          uniqueIdentifier="org.ow2.fractal.mind.emf.diagram.CompositeSubReference_3132"
           displayName="CompositeSubReference"
           metamodelType="//@diagram/@childNodes.6/@elementType"/>
       <viewmap
@@ -913,6 +919,7 @@
           href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <elementType
           xsi:type="gmfgen:SpecializationType"
+          uniqueIdentifier="org.ow2.fractal.mind.emf.diagram.PrimitiveSubComponent_3135"
           displayName="PrimitiveSubComponent"
           metamodelType="//@diagram/@childNodes.12/@elementType"/>
       <viewmap
@@ -962,6 +969,7 @@
           href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <elementType
           xsi:type="gmfgen:MetamodelType"
+          uniqueIdentifier="org.ow2.fractal.mind.emf.diagram.PrimitiveSubReference_3136"
           displayName="PrimitiveSubReference"
           editHelperClassName="PrimitiveSubReferenceEditHelper"/>
       <viewmap
@@ -1013,7 +1021,9 @@
           href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <elementType
           xsi:type="gmfgen:MetamodelType"
-          editHelperClassName="PrimitiveBodyEditHelper"/>
+          uniqueIdentifier="org.ow2.fractal.mind.emf.diagram.PrimitiveSubBody_3137"
+          displayName="PrimitiveSubBody"
+          editHelperClassName="PrimitiveSubBodyEditHelper"/>
       <viewmap
           xsi:type="gmfgen:InnerClassViewmap"
           className="BodyFigure"
@@ -1129,16 +1139,17 @@
         editPartClassName="DataFileCEditPart"
         itemSemanticEditPolicyClassName="DataFileCItemSemanticEditPolicy"
         notationViewFactoryClassName="FileCViewFactory"
-        canonicalEditPolicyClassName="DataFileCCanonicalEditPolicy"
+        canonicalEditPolicyClassName="FileCCanonicalEditPolicy"
         graphicalNodeEditPolicyClassName="DataFileCGraphicalNodeEditPolicy"
-        createCommandClassName="DataFileCCreateCommand"
+        createCommandClassName="FileCCreateCommand"
         containers="//@diagram/@compartments.10">
       <diagramRunTimeClass
           href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <elementType
           xsi:type="gmfgen:MetamodelType"
-          displayName="FileC"
-          editHelperClassName="FileCEditHelper"/>
+          uniqueIdentifier="org.ow2.fractal.mind.emf.diagram.DataFileC_3118"
+          displayName="DataFileC"
+          editHelperClassName="DataFileCEditHelper"/>
       <viewmap
           xsi:type="gmfgen:InnerClassViewmap"
           className="FileCFigure"
@@ -1153,8 +1164,8 @@
       </modelFacet>
       <labels
           visualID="5103"
-          editPartClassName="DataFileCLabelEditPart"
-          itemSemanticEditPolicyClassName="DataFileCLabelItemSemanticEditPolicy"
+          editPartClassName="DataFileCNameEditPart"
+          itemSemanticEditPolicyClassName="DataFileCNameItemSemanticEditPolicy"
           notationViewFactoryClassName="FileCDirectoryFileNameViewFactory"
           elementIcon="true">
         <diagramRunTimeClass
@@ -1189,8 +1200,9 @@
           href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <elementType
           xsi:type="gmfgen:MetamodelType"
-          displayName="InlineCodeC"
-          editHelperClassName="InlineCodeCEditHelper"/>
+          uniqueIdentifier="org.ow2.fractal.mind.emf.diagram.DataInlineCodeC_3119"
+          displayName="DataInlineCodeC"
+          editHelperClassName="DataInlineCodeCEditHelper"/>
       <viewmap
           xsi:type="gmfgen:InnerClassViewmap"
           className="InlineCFigure"
@@ -1205,8 +1217,8 @@
       </modelFacet>
       <labels
           visualID="5104"
-          editPartClassName="DataInlineCodeCLabelEditPart"
-          itemSemanticEditPolicyClassName="DataInlineCodeCLabelItemSemanticEditPolicy"
+          editPartClassName="DataInlineCodeCNameEditPart"
+          itemSemanticEditPolicyClassName="DataInlineCodeCNameItemSemanticEditPolicy"
           notationViewFactoryClassName="InlineCodeCCodeCViewFactory"
           elementIcon="true">
         <diagramRunTimeClass
@@ -1296,8 +1308,8 @@
       </modelFacet>
       <labels
           visualID="5100"
-          editPartClassName="FileCDirectoryFileNameEditPart"
-          itemSemanticEditPolicyClassName="FileCDirectoryFileNameItemSemanticEditPolicy"
+          editPartClassName="FileCNameEditPart"
+          itemSemanticEditPolicyClassName="FileCNameItemSemanticEditPolicy"
           notationViewFactoryClassName="FileCDirectoryFileNameViewFactory"
           elementIcon="true">
         <diagramRunTimeClass
@@ -1347,8 +1359,8 @@
       </modelFacet>
       <labels
           visualID="5101"
-          editPartClassName="InlineCodeCCodeCEditPart"
-          itemSemanticEditPolicyClassName="InlineCodeCCodeCItemSemanticEditPolicy"
+          editPartClassName="InlineCodeCNameEditPart"
+          itemSemanticEditPolicyClassName="InlineCodeCNameItemSemanticEditPolicy"
           notationViewFactoryClassName="InlineCodeCCodeCViewFactory"
           elementIcon="true">
         <diagramRunTimeClass
@@ -1380,6 +1392,8 @@
           href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <elementType
           xsi:type="gmfgen:SpecializationType"
+          uniqueIdentifier="org.ow2.fractal.mind.emf.diagram.PrimitiveFormalArgumentsList_3123"
+          displayName="PrimitiveFormalArgumentsList"
           metamodelType="//@diagram/@childNodes.3/@elementType"/>
       <viewmap
           xsi:type="gmfgen:InnerClassViewmap"
@@ -1491,8 +1505,10 @@
           href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <elementType
           xsi:type="gmfgen:SpecializationType"
+          uniqueIdentifier="org.ow2.fractal.mind.emf.diagram.PrimitiveReference_3125"
           displayName="PrimitiveReference"
-          metamodelType="//@diagram/@childNodes.15/@elementType"/>
+          metamodelType="//@diagram/@childNodes.15/@elementType"
+          editHelperAdviceClassName="PrimitiveReferenceEditHelper"/>
       <viewmap
           xsi:type="gmfgen:InnerClassViewmap"
           className="ReferenceFigure"
@@ -1543,7 +1559,8 @@
           href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <elementType
           xsi:type="gmfgen:SpecializationType"
-          metamodelType="//@diagram/@childNodes.16/@elementType"/>
+          metamodelType="//@diagram/@childNodes.16/@elementType"
+          editHelperAdviceClassName="PrimitiveBodyEditHelper"/>
       <viewmap
           xsi:type="gmfgen:InnerClassViewmap"
           className="BodyFigure"
@@ -1608,18 +1625,21 @@
     </childNodes>
     <childNodes
         visualID="3128"
-        editPartClassName="TypeReferenceDefinitionEditPart"
-        itemSemanticEditPolicyClassName="TypeReferenceDefinitionItemSemanticEditPolicy"
+        editPartClassName="TypeReferenceEditPart"
+        itemSemanticEditPolicyClassName="TypeReferenceItemSemanticEditPolicy"
         notationViewFactoryClassName="TypeReferenceDefinitionViewFactory"
-        canonicalEditPolicyClassName="TypeReferenceDefinitionCanonicalEditPolicy"
-        graphicalNodeEditPolicyClassName="TypeReferenceDefinitionGraphicalNodeEditPolicy"
-        createCommandClassName="TypeReferenceDefinitionCreateCommand"
+        canonicalEditPolicyClassName="TypeReferenceCanonicalEditPolicy"
+        graphicalNodeEditPolicyClassName="TypeReferenceGraphicalNodeEditPolicy"
+        createCommandClassName="TypeReferenceCreateCommand"
         containers="//@diagram/@compartments.16">
       <diagramRunTimeClass
           href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <elementType
           xsi:type="gmfgen:SpecializationType"
-          metamodelType="//@diagram/@childNodes.2/@elementType"/>
+          uniqueIdentifier="org.ow2.fractal.mind.emf.diagram.TypeReference_3128"
+          displayName="TypeReference"
+          metamodelType="//@diagram/@childNodes.2/@elementType"
+          editHelperAdviceClassName="TypeReferenceEditHelper"/>
       <viewmap
           xsi:type="gmfgen:InnerClassViewmap"
           className="ReferenceFigure"
@@ -1634,8 +1654,8 @@
       </modelFacet>
       <labels
           visualID="5118"
-          editPartClassName="TypeReferenceDefinitionNameEditPart"
-          itemSemanticEditPolicyClassName="TypeReferenceDefinitionNameItemSemanticEditPolicy"
+          editPartClassName="TypeReferenceNameEditPart"
+          itemSemanticEditPolicyClassName="TypeReferencNameItemSemanticEditPolicy"
           notationViewFactoryClassName="TypeReferenceDefinitionReferenceNameViewFactory"
           elementIcon="true">
         <diagramRunTimeClass
@@ -1856,10 +1876,10 @@
     </links>
     <compartments
         visualID="7096"
-        editPartClassName="CompositeComponentDefinitionCompositeCompartmentEditPart"
-        itemSemanticEditPolicyClassName="CompositeComponentDefinitionCompositeCompartmentItemSemanticEditPolicy"
+        editPartClassName="CompositeComponentCompartmentEditPart"
+        itemSemanticEditPolicyClassName="CompositeComponentCompartmentItemSemanticEditPolicy"
         notationViewFactoryClassName="CompositeComponentDefinitionCompositeCompartmentViewFactory"
-        canonicalEditPolicyClassName="CompositeComponentDefinitionCompositeCompartmentCanonicalEditPolicy"
+        canonicalEditPolicyClassName="CompositeComponentCompartmentCanonicalEditPolicy"
         childNodes="//@diagram/@childNodes.10"
         title="CompositeCompartment"
         canCollapse="false"
@@ -1875,10 +1895,10 @@
     </compartments>
     <compartments
         visualID="7065"
-        editPartClassName="TemplateSpecifiersListCompartmentTemplateSpecifierListEditPart"
-        itemSemanticEditPolicyClassName="TemplateSpecifiersListCompartmentTemplateSpecifierListItemSemanticEditPolicy"
+        editPartClassName="TemplateSpecifiersListCompartmentEditPart"
+        itemSemanticEditPolicyClassName="TemplateSpecifiersListCompartmentItemSemanticEditPolicy"
         notationViewFactoryClassName="TemplateSpecifiersListCompartmentTemplateSpecifierListViewFactory"
-        canonicalEditPolicyClassName="TemplateSpecifiersListCompartmentTemplateSpecifierListCanonicalEditPolicy"
+        canonicalEditPolicyClassName="TemplateSpecifiersListCompartmentCanonicalEditPolicy"
         childNodes="//@diagram/@childNodes.1"
         title="CompartmentTemplateSpecifierList"
         needsTitle="false"
@@ -1893,12 +1913,12 @@
     </compartments>
     <compartments
         visualID="7066"
-        editPartClassName="FormalArgumentsListCompartmentFormalArgumentsListEditPart"
-        itemSemanticEditPolicyClassName="FormalArgumentsListCompartmentFormalArgumentsListItemSemanticEditPolicy"
+        editPartClassName="CompositeFormalArgumentsListCompartmentEditPart"
+        itemSemanticEditPolicyClassName="CompositeFormalArgumentsListCompartmentItemSemanticEditPolicy"
         notationViewFactoryClassName="FormalArgumentsListCompartmentFormalArgumentsListViewFactory"
-        canonicalEditPolicyClassName="FormalArgumentsListCompartmentFormalArgumentsListCanonicalEditPolicy"
+        canonicalEditPolicyClassName="CompositeFormalArgumentsListCompartmentCanonicalEditPolicy"
         childNodes="//@diagram/@childNodes.4"
-        title="CompartmentFormalArgumentsList"
+        title="CompartmentCompositeFormalArgumentsList"
         needsTitle="false"
         node="//@diagram/@childNodes.3">
       <diagramRunTimeClass
@@ -1910,10 +1930,10 @@
     </compartments>
     <compartments
         visualID="7067"
-        editPartClassName="CompositeReferencesListCompartmentReferencesListAreaEditPart"
-        itemSemanticEditPolicyClassName="CompositeReferencesListCompartmentReferencesListAreaItemSemanticEditPolicy"
+        editPartClassName="CompositeReferencesListCompartmentAreaEditPart"
+        itemSemanticEditPolicyClassName="CompositeReferencesListCompartmentItemSemanticEditPolicy"
         notationViewFactoryClassName="CompositeReferencesListCompartmentReferencesListAreaViewFactory"
-        canonicalEditPolicyClassName="CompositeReferencesListCompartmentReferencesListAreaCanonicalEditPolicy"
+        canonicalEditPolicyClassName="CompositeReferencesListCompartmentCanonicalEditPolicy"
         childNodes="//@diagram/@childNodes.6"
         title="CompartmentReferencesListArea"
         needsTitle="false"
@@ -1928,10 +1948,10 @@
     </compartments>
     <compartments
         visualID="7068"
-        editPartClassName="CompositeReferenceDefinitionCompartmentComponentReferenceDefinitionAreaEditPart"
-        itemSemanticEditPolicyClassName="CompositeReferenceDefinitionCompartmentComponentReferenceDefinitionAreaItemSemanticEditPolicy"
+        editPartClassName="CompositeReferenceCompartmentEditPart"
+        itemSemanticEditPolicyClassName="CompositeReferenceCompartmentItemSemanticEditPolicy"
         notationViewFactoryClassName="CompositeReferenceDefinitionCompartmentComponentReferenceDefinitionAreaViewFactory"
-        canonicalEditPolicyClassName="CompositeReferenceDefinitionCompartmentComponentReferenceDefinitionAreaCanonicalEditPolicy"
+        canonicalEditPolicyClassName="CompositeReferenceCompartmentCanonicalEditPolicy"
         childNodes="//@diagram/@childNodes.7 //@diagram/@childNodes.8"
         title="CompartmentComponentReferenceDefinitionArea"
         needsTitle="false"
@@ -1944,10 +1964,10 @@
     </compartments>
     <compartments
         visualID="7069"
-        editPartClassName="TemplateDefinitionTemplateDefinitionAreaEditPart"
-        itemSemanticEditPolicyClassName="TemplateDefinitionTemplateDefinitionAreaItemSemanticEditPolicy"
+        editPartClassName="TemplateDefinitionCompartmentEditPart"
+        itemSemanticEditPolicyClassName="TemplateDefinitionCompartmentItemSemanticEditPolicy"
         notationViewFactoryClassName="TemplateDefinitionTemplateDefinitionAreaViewFactory"
-        canonicalEditPolicyClassName="TemplateDefinitionTemplateDefinitionAreaCanonicalEditPolicy"
+        canonicalEditPolicyClassName="TemplateDefinitionCompartmentCanonicalEditPolicy"
         childNodes="//@diagram/@childNodes.9"
         title="TemplateDefinitionArea"
         canCollapse="false"
@@ -1963,12 +1983,12 @@
     </compartments>
     <compartments
         visualID="7070"
-        editPartClassName="CompositeReferenceDefinitionCompartmentComponentReferenceDefinitionArea2EditPart"
-        itemSemanticEditPolicyClassName="CompositeReferenceDefinitionCompartmentComponentReferenceDefinitionArea2ItemSemanticEditPolicy"
+        editPartClassName="TemplateDefinitionReferenceCompartmentEditPart"
+        itemSemanticEditPolicyClassName="TemplateDefinitionReferenceCompartmentItemSemanticEditPolicy"
         notationViewFactoryClassName="CompositeReferenceDefinitionCompartmentComponentReferenceDefinitionAreaViewFactory"
-        canonicalEditPolicyClassName="CompositeReferenceDefinitionCompartmentComponentReferenceDefinitionArea2CanonicalEditPolicy"
+        canonicalEditPolicyClassName="TemplateDefinitionReferenceCompartmentCanonicalEditPolicy"
         childNodes="//@diagram/@childNodes.7 //@diagram/@childNodes.8"
-        title="CompartmentComponentReferenceDefinitionArea"
+        title="TemplateDefinitionReferenceCompartment"
         needsTitle="false"
         node="//@diagram/@childNodes.9">
       <diagramRunTimeClass
@@ -1979,10 +1999,10 @@
     </compartments>
     <compartments
         visualID="7097"
-        editPartClassName="CompositeBodyBodyCompartmentEditPart"
-        itemSemanticEditPolicyClassName="CompositeBodyBodyCompartmentItemSemanticEditPolicy"
+        editPartClassName="CompositeBodyCompartmentEditPart"
+        itemSemanticEditPolicyClassName="CompositeBodyCompartmentItemSemanticEditPolicy"
         notationViewFactoryClassName="CompositeBodyBodyCompartmentViewFactory"
-        canonicalEditPolicyClassName="CompositeBodyBodyCompartmentCanonicalEditPolicy"
+        canonicalEditPolicyClassName="CompositeBodyCompartmentCanonicalEditPolicy"
         childNodes="//@diagram/@childNodes.12 //@diagram/@childNodes.14"
         title="BodyCompartment"
         needsTitle="false"
@@ -1997,10 +2017,10 @@
     </compartments>
     <compartments
         visualID="7087"
-        editPartClassName="CompositeReferenceDefinitionCompartmentReferenceDefinitionAreaEditPart"
-        itemSemanticEditPolicyClassName="CompositeReferenceDefinitionCompartmentReferenceDefinitionAreaItemSemanticEditPolicy"
+        editPartClassName="CompositeSubReferenceCompartmentEditPart"
+        itemSemanticEditPolicyClassName="CompositeSubReferenceCompartmentItemSemanticEditPolicy"
         notationViewFactoryClassName="CompositeReferenceDefinitionCompartmentReferenceDefinitionAreaViewFactory"
-        canonicalEditPolicyClassName="CompositeReferenceDefinitionCompartmentReferenceDefinitionAreaCanonicalEditPolicy"
+        canonicalEditPolicyClassName="CompositeSubReferenceCompartmentCanonicalEditPolicy"
         childNodes="//@diagram/@childNodes.7"
         title="CompartmentReferenceDefinitionArea"
         needsTitle="false"
@@ -2014,12 +2034,12 @@
     </compartments>
     <compartments
         visualID="7089"
-        editPartClassName="PrimitiveReferenceDefinitionCompartmentReferenceDefinitionAreaEditPart"
-        itemSemanticEditPolicyClassName="PrimitiveReferenceDefinitionCompartmentReferenceDefinitionAreaItemSemanticEditPolicy"
+        editPartClassName="PrimitiveSubReferenceCompartmentEditPart"
+        itemSemanticEditPolicyClassName="PrimitiveSubReferenceCompartmentItemSemanticEditPolicy"
         notationViewFactoryClassName="PrimitiveReferenceDefinitionCompartmentReferenceDefinitionAreaViewFactory"
-        canonicalEditPolicyClassName="PrimitiveReferenceDefinitionCompartmentReferenceDefinitionAreaCanonicalEditPolicy"
+        canonicalEditPolicyClassName="PrimitiveSubReferenceCompartmentCanonicalEditPolicy"
         childNodes="//@diagram/@childNodes.7"
-        title="CompartmentReferenceDefinitionArea"
+        title="PrimitiveSubReferenceCompartment"
         needsTitle="false"
         node="//@diagram/@childNodes.15">
       <diagramRunTimeClass
@@ -2031,12 +2051,12 @@
     </compartments>
     <compartments
         visualID="7091"
-        editPartClassName="DataDefinitionCompartmentDataDefinitionBodyAreaEditPart"
-        itemSemanticEditPolicyClassName="DataDefinitionCompartmentDataDefinitionBodyAreaItemSemanticEditPolicy"
+        editPartClassName="DataDefinitionCompartmentEditPart"
+        itemSemanticEditPolicyClassName="DataDefinitionCompartmentItemSemanticEditPolicy"
         notationViewFactoryClassName="DataDefinitionCompartmentDataDefinitionBodyAreaViewFactory"
-        canonicalEditPolicyClassName="DataDefinitionCompartmentDataDefinitionBodyAreaCanonicalEditPolicy"
+        canonicalEditPolicyClassName="DataDefinitionCompartmentCanonicalEditPolicy"
         childNodes="//@diagram/@childNodes.19 //@diagram/@childNodes.20"
-        title="CompartmentDataDefinitionBodyArea"
+        title="DataDefinitionCompartment"
         needsTitle="false"
         node="//@diagram/@childNodes.18">
       <diagramRunTimeClass
@@ -2048,12 +2068,12 @@
     </compartments>
     <compartments
         visualID="7092"
-        editPartClassName="ImplementationDefinitionCompartmentImplementationBodyAreaEditPart"
-        itemSemanticEditPolicyClassName="ImplementationDefinitionCompartmentImplementationBodyAreaItemSemanticEditPolicy"
+        editPartClassName="ImplementationDefinitionCompartmentEditPart"
+        itemSemanticEditPolicyClassName="ImplementationDefinitionCompartmentItemSemanticEditPolicy"
         notationViewFactoryClassName="ImplementationDefinitionCompartmentImplementationBodyAreaViewFactory"
-        canonicalEditPolicyClassName="ImplementationDefinitionCompartmentImplementationBodyAreaCanonicalEditPolicy"
+        canonicalEditPolicyClassName="ImplementationDefinitionCompartmentCanonicalEditPolicy"
         childNodes="//@diagram/@childNodes.22 //@diagram/@childNodes.23"
-        title="CompartmentImplementationBodyArea"
+        title="ImplementationDefinitionCompartment"
         needsTitle="false"
         node="//@diagram/@childNodes.21">
       <diagramRunTimeClass
@@ -2065,12 +2085,12 @@
     </compartments>
     <compartments
         visualID="7081"
-        editPartClassName="FormalArgumentsListCompartmentFormalArgumentsList2EditPart"
-        itemSemanticEditPolicyClassName="FormalArgumentsListCompartmentFormalArgumentsList2ItemSemanticEditPolicy"
+        editPartClassName="PrimitiveFormalArgumentsListCompartmentEditPart"
+        itemSemanticEditPolicyClassName="PrimitiveFormalArgumentsListCompartmentItemSemanticEditPolicy"
         notationViewFactoryClassName="FormalArgumentsListCompartmentFormalArgumentsListViewFactory"
-        canonicalEditPolicyClassName="FormalArgumentsListCompartmentFormalArgumentsList2CanonicalEditPolicy"
+        canonicalEditPolicyClassName="PrimitiveFormalArgumentsListCompartmentCanonicalEditPolicy"
         childNodes="//@diagram/@childNodes.4"
-        title="CompartmentFormalArgumentsList"
+        title="PrimitiveFormalArgumentsListCompartment"
         needsTitle="false"
         node="//@diagram/@childNodes.24">
       <diagramRunTimeClass
@@ -2082,12 +2102,12 @@
     </compartments>
     <compartments
         visualID="7082"
-        editPartClassName="PrimitiveReferencesListCompartmentReferencesListAreaEditPart"
-        itemSemanticEditPolicyClassName="PrimitiveReferencesListCompartmentReferencesListAreaItemSemanticEditPolicy"
+        editPartClassName="PrimitiveReferencesListCompartmentEditPart"
+        itemSemanticEditPolicyClassName="PrimitiveReferencesListCompartmentItemSemanticEditPolicy"
         notationViewFactoryClassName="PrimitiveReferencesListCompartmentReferencesListAreaViewFactory"
-        canonicalEditPolicyClassName="PrimitiveReferencesListCompartmentReferencesListAreaCanonicalEditPolicy"
+        canonicalEditPolicyClassName="PrimitiveReferencesListCompartmentCanonicalEditPolicy"
         childNodes="//@diagram/@childNodes.26"
-        title="CompartmentReferencesListArea"
+        title="PrimitiveReferencesListCompartment"
         needsTitle="false"
         node="//@diagram/@childNodes.25"
         listLayout="false">
@@ -2100,12 +2120,12 @@
     </compartments>
     <compartments
         visualID="7083"
-        editPartClassName="PrimitiveReferenceDefinitionCompartmentComponentReferenceDefinitionAreaEditPart"
-        itemSemanticEditPolicyClassName="PrimitiveReferenceDefinitionCompartmentComponentReferenceDefinitionAreaItemSemanticEditPolicy"
+        editPartClassName="PrimitiveReferenceCompartmentEditPart"
+        itemSemanticEditPolicyClassName="PrimitiveReferenceCompartmentItemSemanticEditPolicy"
         notationViewFactoryClassName="PrimitiveReferenceDefinitionCompartmentComponentReferenceDefinitionAreaViewFactory"
-        canonicalEditPolicyClassName="PrimitiveReferenceDefinitionCompartmentComponentReferenceDefinitionAreaCanonicalEditPolicy"
+        canonicalEditPolicyClassName="PrimitiveReferenceCompartmentCanonicalEditPolicy"
         childNodes="//@diagram/@childNodes.7"
-        title="CompartmentComponentReferenceDefinitionArea"
+        title="PrimitiveReferenceCompartment"
         needsTitle="false"
         node="//@diagram/@childNodes.26">
       <diagramRunTimeClass
@@ -2116,10 +2136,10 @@
     </compartments>
     <compartments
         visualID="7093"
-        editPartClassName="PrimitiveBodyCompartmentPrimitiveDefinitionBodyEditPart"
-        itemSemanticEditPolicyClassName="PrimitiveBodyCompartmentPrimitiveDefinitionBodyItemSemanticEditPolicy"
-        notationViewFactoryClassName="PrimitiveBodyCompartmentPrimitiveDefinitionBodyViewFactory"
-        canonicalEditPolicyClassName="PrimitiveBodyCompartmentPrimitiveDefinitionBodyCanonicalEditPolicy"
+        editPartClassName="PrimitiveBodyCompartmentEditPart"
+        itemSemanticEditPolicyClassName="PrimitiveBodyCompartmentItemSemanticEditPolicy"
+        notationViewFactoryClassName="PrimitiveBodyBodyCompartmentViewFactory"
+        canonicalEditPolicyClassName="PrimitiveBodyCompartmentCanonicalEditPolicy"
         childNodes="//@diagram/@childNodes.21 //@diagram/@childNodes.18"
         title="BodyCompartment"
         needsTitle="false"
@@ -2134,12 +2154,12 @@
     </compartments>
     <compartments
         visualID="7085"
-        editPartClassName="TypeReferencesListCompartmentReferencesListAreaEditPart"
-        itemSemanticEditPolicyClassName="TypeReferencesListCompartmentReferencesListAreaItemSemanticEditPolicy"
+        editPartClassName="TypeReferencesListCompartmentEditPart"
+        itemSemanticEditPolicyClassName="TypeReferencesListCompartmentItemSemanticEditPolicy"
         notationViewFactoryClassName="TypeReferencesListCompartmentReferencesListAreaViewFactory"
-        canonicalEditPolicyClassName="TypeReferencesListCompartmentReferencesListAreaCanonicalEditPolicy"
+        canonicalEditPolicyClassName="TypeReferencesListCompartmentCanonicalEditPolicy"
         childNodes="//@diagram/@childNodes.29"
-        title="CompartmentReferencesListArea"
+        title="TypeReferencesListCompartment"
         needsTitle="false"
         node="//@diagram/@childNodes.28">
       <diagramRunTimeClass
@@ -2151,10 +2171,10 @@
     </compartments>
     <compartments
         visualID="7095"
-        editPartClassName="TypeBodyBodyCompartmentEditPart"
-        itemSemanticEditPolicyClassName="TypeBodyBodyCompartmentItemSemanticEditPolicy"
+        editPartClassName="TypeBodyCompartmentEditPart"
+        itemSemanticEditPolicyClassName="TypeBodyCompartmentItemSemanticEditPolicy"
         notationViewFactoryClassName="TypeBodyBodyCompartmentViewFactory"
-        canonicalEditPolicyClassName="TypeBodyBodyCompartmentCanonicalEditPolicy"
+        canonicalEditPolicyClassName="TypeBodyCompartmentCanonicalEditPolicy"
         title="BodyCompartment"
         needsTitle="false"
         node="//@diagram/@childNodes.30">
