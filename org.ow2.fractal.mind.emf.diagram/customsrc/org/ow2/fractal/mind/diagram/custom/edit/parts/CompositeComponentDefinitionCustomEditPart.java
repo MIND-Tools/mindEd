@@ -35,7 +35,7 @@ public class CompositeComponentDefinitionCustomEditPart extends
 	@Override
 	protected void createDefaultEditPolicies() {
 		super.createDefaultEditPolicies();
-		genericEditPart.installEditPolicies();
+		genericEditPart.createDefaultEditPolicies();
 	}
 	
 	@Override
