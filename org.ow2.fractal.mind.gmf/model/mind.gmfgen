@@ -576,8 +576,8 @@
       </modelFacet>
       <labels
           visualID="5092"
-          editPartClassName="ArgumentDefinitionArgumentNameArgumentValEditPart"
-          itemSemanticEditPolicyClassName="ArgumentDefinitionArgumentNameArgumentValItemSemanticEditPolicy"
+          editPartClassName="ArgumentDefinitionNamelEditPart"
+          itemSemanticEditPolicyClassName="ArgumentDefinitionNameItemSemanticEditPolicy"
           notationViewFactoryClassName="ArgumentDefinitionArgumentNameArgumentValueViewFactory"
           elementIcon="true">
         <diagramRunTimeClass
@@ -1065,8 +1065,8 @@
       </modelFacet>
       <labels
           visualID="5125"
-          editPartClassName="AttributeDefinitionTypeAttributeNameValueEditPart"
-          itemSemanticEditPolicyClassName="AttributeDefinitionTypeAttributeNameValueItemSemanticEditPolicy"
+          editPartClassName="AttributeDefinitionNameEditPart"
+          itemSemanticEditPolicyClassName="AttributeDefinitionNameItemSemanticEditPolicy"
           notationViewFactoryClassName="AttributeDefinitionTypeAttributeNameValueViewFactory"
           elementIcon="true">
         <diagramRunTimeClass
