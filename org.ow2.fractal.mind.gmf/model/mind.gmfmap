@@ -374,8 +374,7 @@
           </compartments>
         </ownedChild>
       </children>
-      <children
-          compartment="//@nodes.0/@ownedChild/@compartments.0">
+      <children>
         <containmentFeature
             href="../../org.ow2.fractal.mind.emf/model/mind.ecore#//ArchitectureDefinition/body"/>
         <childrenFeature
@@ -595,11 +594,6 @@
           </compartments>
         </ownedChild>
       </children>
-      <compartments
-          children="//@nodes.0/@ownedChild/@children.3">
-        <compartment
-            href="mind.gmfgraph#CompositeCompartment"/>
-      </compartments>
     </ownedChild>
   </nodes>
   <nodes>

@@ -266,27 +266,16 @@
               name="maximumSize"
               value="nameLabelMaxSize"/>
         </children>
-        <children
-            xsi:type="gmfgraph:CustomFigure"
-            name="CompositeArea"
-            qualifiedClassName="org.ow2.fractal.mind.diagram.custom.figures.ContainerShape">
-          <attributes
-              name="backgroundColor"
-              value="bodyAreaColor"/>
-        </children>
         <attributes
             name="preferredSize"
             value="componentPreferredSize"/>
       </actualFigure>
       <accessors
-          accessor="getLabelCompositeName"
+          accessor="getLabel"
           figure="//@figures.0/@descriptors.9/@actualFigure/@children.0"/>
       <accessors
-          accessor="getCompositeFigure"
+          accessor="getFigure"
           figure="//@figures.0/@descriptors.9/@actualFigure"/>
-      <accessors
-          accessor="getCompositeArea"
-          figure="//@figures.0/@descriptors.10/@actualFigure/@children.1"/>
     </descriptors>
     <descriptors
         name="CompositeSubComponentFigure">
@@ -1058,8 +1047,7 @@
       accessor="//@figures.0/@descriptors.26/@accessors.1"/>
   <compartments
       name="CompositeCompartment"
-      figure="CompositeFigure"
-      accessor="//@figures.0/@descriptors.9/@accessors.2"/>
+      figure="CompositeFigure"/>
   <labels
       name="LabelAnnotationElement"
       figure="AnnotationElementFigure"
