@@ -1,10 +1,14 @@
 package org.ow2.fractal.mind.diagram.custom.edit.parts.generic;
 
+import java.util.HashMap;
+import java.util.List;
+
 import org.eclipse.draw2d.IFigure;
 import org.eclipse.gef.DragTracker;
 import org.eclipse.gef.EditPart;
 import org.eclipse.gef.EditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.GraphicalEditPart;
+import org.eclipse.gmf.runtime.diagram.ui.editparts.ShapeCompartmentEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.CanonicalEditPolicy;
 import org.ow2.fractal.mind.diagram.custom.edit.parts.CompositeComponentDefinitionCustomEditPart;
 import org.ow2.fractal.mind.diagram.custom.edit.policies.CompositeComponentDefinitionCustomCanonicalEditPolicy;
@@ -16,27 +20,34 @@ import adl.diagram.part.MindDiagramEditorPlugin;
 
 public class MindEditPart {
 	
-	public static final int UNDEFINED = 0;
-	public static final int COMPONENT = 1;
-	public static final int LIST = 2;
-	public static final int BODY = 3;
-	public static final int INTERFACE = 4;
-	public static final int REFERENCE = 5;
-	public static final int ITEM = 6;
+	public static MindEditPart INSTANCE = new MindEditPart();
+	
+	protected static final int UNDEFINED = 0;
+	protected static final int COMPONENT = 1;
+	protected static final int LIST = 2;
+	protected static final int BODY = 3;
+	protected static final int INTERFACE = 4;
+	protected static final int REFERENCE = 5;
+	protected static final int ITEM = 6;
+	protected static final int COMPARTMENT = 8;
 	
 	public static String EDIT_POLICY_PACKAGE = "org.ow2.fractal.mind.diagram.custom.edit.policies.";
 	
 	protected GraphicalEditPart realEditPart;
 	protected int visualID;
 
-	public static MindEditPart createGenericEditPart(GraphicalEditPart editPart,int visualID) {
+	private HashMap<GraphicalEditPart,MindEditPart> editPartsMap = new HashMap<GraphicalEditPart,MindEditPart>();
+	
+	public MindEditPart createGenericEditPart(GraphicalEditPart editPart,int visualID) {
 		
 		int type = getType(visualID);
 		switch (type){
 		case UNDEFINED:
 			return null;
 		case COMPONENT:
-			return new MindComponentEditPart(editPart, visualID);
+			MindEditPart mindPart = new MindComponentEditPart(editPart, visualID);
+			editPartsMap.put(editPart, mindPart);
+			return mindPart;
 		}
 		return null;
 	}
@@ -55,10 +66,20 @@ public class MindEditPart {
 	}
 	
 	
-	public void createDefaultEditPolicies(){
-		
-	};
+	public MindEditPart getMindEditPartFor(EditPart editPart) {
+		return editPartsMap.get(editPart);
+	}
 	
+	
+	public EditPart getCompartment() {
+		List<EditPart> children = realEditPart.getChildren();
+		
+		for (EditPart child : children) {
+			if (getMindEditPartFor(child) instanceof MindCompartmentEditPart)
+				return child;
+		}
+		return null;
+	}
 
 	/**
 	 * Fetch the custom CanonicalEditPolicy for this edit part
@@ -148,5 +169,11 @@ public class MindEditPart {
 	public DragTracker getDragTracker(EditPart ep) {
 		return null;
 	}
+
+	public void refreshBounds() {};
+	
+	public void createDefaultEditPolicies() {};
+	
+	
 
 }

@@ -9,25 +9,25 @@ import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
 import org.eclipse.gmf.runtime.diagram.ui.figures.ResizableCompartmentFigure;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.ConstrainedToolbarLayout;
 import org.eclipse.gmf.runtime.notation.View;
-import org.ow2.fractal.mind.diagram.custom.edit.policies.CompositeReferenceAreaCustomCanonicalEditPolicy;
-import org.ow2.fractal.mind.diagram.custom.edit.policies.CompositeReferenceAreaCustomItemSemanticEditPolicy;
+import org.ow2.fractal.mind.diagram.custom.edit.policies.CompositeReferenceCompartmentCustomCanonicalEditPolicy;
+import org.ow2.fractal.mind.diagram.custom.edit.policies.CompositeReferenceCompartmentCustomItemSemanticEditPolicy;
 import org.ow2.fractal.mind.diagram.custom.edit.policies.FixedChildrenLayoutEditPolicy;
 import org.ow2.fractal.mind.diagram.custom.edit.policies.MindSubCreationEditPolicy;
 import org.ow2.fractal.mind.diagram.custom.edit.policies.MindSuperCreationEditPolicy;
 import org.ow2.fractal.mind.diagram.custom.helpers.ComponentHelper;
 import org.ow2.fractal.mind.diagram.custom.layouts.ConstrainedFlowLayout;
 
-import adl.diagram.edit.parts.CompositeReferenceDefinitionCompartmentComponentReferenceDefinitionAreaEditPart;
+import adl.diagram.edit.parts.CompositeReferenceCompartmentEditPart;
 
 /**
- * Area of a {@link CompositeReferenceDefinitionCustomEditPart}
+ * Area of a {@link CompositeReferenceCustomEditPart}
  * @author maroto
  *
  */
-public class CompositeReferenceAreaCustomEditPart extends
-		CompositeReferenceDefinitionCompartmentComponentReferenceDefinitionAreaEditPart {
+public class CompositeReferenceCompartmentCustomEditPart extends
+		CompositeReferenceCompartmentEditPart {
 
-	public CompositeReferenceAreaCustomEditPart(View view) {
+	public CompositeReferenceCompartmentCustomEditPart(View view) {
 		super(view);
 	}
 	
@@ -71,12 +71,12 @@ public class CompositeReferenceAreaCustomEditPart extends
 		installEditPolicy(EditPolicyRoles.CREATION_ROLE,
 				new MindSuperCreationEditPolicy());
 		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE,
-				new CompositeReferenceAreaCustomItemSemanticEditPolicy());
+				new CompositeReferenceCompartmentCustomItemSemanticEditPolicy());
 		// No drag and drop
 		removeEditPolicy(EditPolicyRoles.DRAG_DROP_ROLE);
 		// Custom canonical edit policy
 		installEditPolicy(EditPolicyRoles.CANONICAL_ROLE,
-				new CompositeReferenceAreaCustomCanonicalEditPolicy());
+				new CompositeReferenceCompartmentCustomCanonicalEditPolicy());
 	}
 	
 	protected LayoutEditPolicy createLayoutEditPolicy() {

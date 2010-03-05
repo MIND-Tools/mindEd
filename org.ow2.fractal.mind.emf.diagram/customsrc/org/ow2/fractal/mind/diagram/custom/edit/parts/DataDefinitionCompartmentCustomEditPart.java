@@ -2,10 +2,10 @@ package org.ow2.fractal.mind.diagram.custom.edit.parts;
 
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
 import org.eclipse.gmf.runtime.notation.View;
-import org.ow2.fractal.mind.diagram.custom.edit.policies.CompartmentDataDefinitionBodyCustomCanonicalEditPolicy;
+import org.ow2.fractal.mind.diagram.custom.edit.policies.DataDefinitionCompartmentCustomCanonicalEditPolicy;
 import org.ow2.fractal.mind.diagram.custom.edit.policies.CustomDragDropEditPolicy;
 
-import adl.diagram.edit.parts.DataDefinitionCompartmentDataDefinitionBodyAreaEditPart;
+import adl.diagram.edit.parts.DataDefinitionCompartmentEditPart;
 
 /**
  * Body compartment of a {@link DataDefinitionCustomEditPart}
@@ -13,10 +13,10 @@ import adl.diagram.edit.parts.DataDefinitionCompartmentDataDefinitionBodyAreaEdi
  * @author maroto
  *
  */
-public class CompartmentDataDefinitionBodyCustomEditPart extends
-		DataDefinitionCompartmentDataDefinitionBodyAreaEditPart {
+public class DataDefinitionCompartmentCustomEditPart extends
+		DataDefinitionCompartmentEditPart {
 
-	public CompartmentDataDefinitionBodyCustomEditPart(View view) {
+	public DataDefinitionCompartmentCustomEditPart(View view) {
 		super(view);
 	}
 	
@@ -25,7 +25,7 @@ public class CompartmentDataDefinitionBodyCustomEditPart extends
 		super.createDefaultEditPolicies();
 		// Custom canonical edit policy
 		installEditPolicy(EditPolicyRoles.CANONICAL_ROLE,
-				new CompartmentDataDefinitionBodyCustomCanonicalEditPolicy());
+				new DataDefinitionCompartmentCustomCanonicalEditPolicy());
 		// Extended drag and drop features
 		installEditPolicy(EditPolicyRoles.DRAG_DROP_ROLE,
 				new CustomDragDropEditPolicy());

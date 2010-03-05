@@ -3,7 +3,7 @@ package org.ow2.fractal.mind.diagram.custom.edit.parts;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.gmf.runtime.notation.View;
 
-import adl.diagram.edit.parts.ArgumentDefinitionArgumentNameArgumentValEditPart;
+import adl.diagram.edit.parts.ArgumentDefinitionNameEditPart;
 
 /**
  * Stands for the label of an ArgumentDefinition
@@ -11,7 +11,7 @@ import adl.diagram.edit.parts.ArgumentDefinitionArgumentNameArgumentValEditPart;
  *
  */
 public class ArgumentDefinitionNameCustomEditPart extends
-		ArgumentDefinitionArgumentNameArgumentValEditPart {
+		ArgumentDefinitionNameEditPart {
 
 	public ArgumentDefinitionNameCustomEditPart(View view) {
 		super(view);

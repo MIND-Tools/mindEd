@@ -15,6 +15,7 @@ import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.ConstrainedToolbarLayout;
 import org.eclipse.gmf.runtime.notation.NotationPackage;
 import org.eclipse.gmf.runtime.notation.View;
+import org.ow2.fractal.mind.diagram.custom.edit.parts.generic.MindEditPart;
 import org.ow2.fractal.mind.diagram.custom.edit.policies.CompositeReferenceDefinitionCustomItemSemanticEditPolicy;
 import org.ow2.fractal.mind.diagram.custom.edit.policies.CustomDragDropEditPolicy;
 import org.ow2.fractal.mind.diagram.custom.edit.policies.FixedChildrenLayoutEditPolicy;
@@ -25,9 +26,7 @@ import org.ow2.fractal.mind.diagram.custom.helpers.ComponentHelper;
 import org.ow2.fractal.mind.diagram.custom.layouts.ConstrainedFlowLayout;
 import org.ow2.fractal.mind.diagram.custom.layouts.IFractalSize;
 
-import adl.diagram.edit.parts.CompositeReferenceDefinitionCompartmentComponentReferenceDefinitionAreaEditPart;
-import adl.diagram.edit.parts.CompositeReferenceDefinitionEditPart;
-import adl.diagram.edit.parts.CompositeReferenceDefinitionReferenceNameEditPart;
+import adl.diagram.edit.parts.CompositeReferenceEditPart;
 import adl.diagram.part.MindVisualIDRegistry;
 
 /**
@@ -39,62 +38,36 @@ import adl.diagram.part.MindVisualIDRegistry;
  * @author maroto
  *
  */
-public class CompositeReferenceDefinitionCustomEditPart extends
-		CompositeReferenceDefinitionEditPart {
+public class CompositeReferenceCustomEditPart extends
+		CompositeReferenceEditPart {
 
-	public CompositeReferenceDefinitionCustomEditPart(View view) {
+	protected MindEditPart genericEditPart = MindEditPart.INSTANCE.createGenericEditPart (this, VISUAL_ID);
+	
+	public CompositeReferenceCustomEditPart(View view) {
 		super(view);
 	}
 	
 	@Override
 	protected IFigure setupContentPane(IFigure nodeShape) {
-		if (nodeShape.getLayoutManager() == null) {
-			// No spacing
-			ConstrainedFlowLayout layout = new ConstrainedFlowLayout(true);
-			nodeShape.setLayoutManager(layout);
-		}
-		return nodeShape; // use nodeShape itself as contentPane
+		IFigure shape = genericEditPart.setupContentPane(nodeShape);
+		if (shape != null) return shape;
+		return super.setupContentPane(nodeShape);
 	}
 	
 	@Override
 	protected void refreshBounds() {
-		// The height depends on the children inside the area of this ReferencesList
-		int width = -1;
-		int height = -1;
-		
-		// Get the area and its layout manager
-		CompositeReferenceAreaCustomEditPart pane = getPane();
-		LayoutManager areaLayout = null;
-		if (pane != null)
-			areaLayout = pane.getLayoutManager();
-		if (areaLayout != null && areaLayout instanceof ConstrainedFlowLayout) {
-			// The manager should be a ConstrainedFlowLayout
-			// It keeps the total height used so we can use it here
-			height = ((ConstrainedFlowLayout)areaLayout).getTotalHeight() +
-					IFractalSize.TITLE_HEIGHT;
-			if (pane.getChildren().size() > 0) height += 12;
-		}
-		
-		// Now set the constraint
-		Dimension size = new Dimension(width, height);
-		Point loc = new Point(0, 0);
-		((GraphicalEditPart) getParent()).setLayoutConstraint(
-			this,
-			getFigure(),
-			new Rectangle(loc, size));
-		
-		getParent().refresh();
+		genericEditPart.refreshBounds();
 	}
 	
 	/**
 	 * Get the area of the reference, which contains the children
 	 * @return the CompositeReferenceAreaCustomEditPart or null
 	 */
-	public CompositeReferenceAreaCustomEditPart getPane() {
+	public CompositeReferenceCompartmentCustomEditPart getPane() {
 		EditPart pane = getChildBySemanticHint(MindVisualIDRegistry
-				.getType(CompositeReferenceAreaCustomEditPart.VISUAL_ID));
-		if (pane instanceof CompositeReferenceAreaCustomEditPart)
-			return (CompositeReferenceAreaCustomEditPart) pane;
+				.getType(CompositeReferenceCompartmentCustomEditPart.VISUAL_ID));
+		if (pane instanceof CompositeReferenceCompartmentCustomEditPart)
+			return (CompositeReferenceCompartmentCustomEditPart) pane;
 		return null;
 	}
 	

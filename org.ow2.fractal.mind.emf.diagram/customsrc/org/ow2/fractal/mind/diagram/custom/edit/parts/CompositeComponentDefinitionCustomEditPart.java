@@ -26,7 +26,7 @@ import adl.diagram.edit.parts.CompositeComponentDefinitionEditPart;
 public class CompositeComponentDefinitionCustomEditPart extends
 		CompositeComponentDefinitionEditPart {
 	
-	protected MindEditPart genericEditPart = MindEditPart.createGenericEditPart (this, VISUAL_ID);
+	protected MindEditPart genericEditPart = MindEditPart.INSTANCE.createGenericEditPart (this, VISUAL_ID);
 	
 	public CompositeComponentDefinitionCustomEditPart(View view) {
 		super(view);

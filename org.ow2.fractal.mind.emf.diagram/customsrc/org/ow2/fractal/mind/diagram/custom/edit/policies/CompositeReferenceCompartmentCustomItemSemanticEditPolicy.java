@@ -4,11 +4,11 @@ import org.eclipse.gef.commands.Command;
 import org.eclipse.gmf.runtime.emf.type.core.requests.CreateElementRequest;
 import org.ow2.fractal.mind.diagram.custom.helpers.ItemSemanticEditPolicyHelper;
 
-import adl.diagram.edit.policies.CompositeReferenceDefinitionCompartmentComponentReferenceDefinitionAreaItemSemanticEditPolicy;
+import adl.diagram.edit.policies.CompositeReferenceCompartmentItemSemanticEditPolicy;
 
-public class CompositeReferenceAreaCustomItemSemanticEditPolicy
+public class CompositeReferenceCompartmentCustomItemSemanticEditPolicy
 		extends
-		CompositeReferenceDefinitionCompartmentComponentReferenceDefinitionAreaItemSemanticEditPolicy {
+		CompositeReferenceCompartmentItemSemanticEditPolicy {
 
 	@Override
 	protected Command getCreateCommand(CreateElementRequest req) {

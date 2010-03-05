@@ -2,7 +2,7 @@ package org.ow2.fractal.mind.diagram.custom.edit.parts;
 
 import org.eclipse.gmf.runtime.notation.View;
 
-import adl.diagram.edit.parts.FormalArgumentsListCompartmentFormalArgumentsListEditPart;
+import adl.diagram.edit.parts.CompositeFormalArgumentsListCompartmentEditPart;
 
 /**
  * Area of a {@link FormalArgumentsListCustomEditPart}<p>
@@ -11,10 +11,10 @@ import adl.diagram.edit.parts.FormalArgumentsListCompartmentFormalArgumentsListE
  * @author maroto
  *
  */
-public class CompartmentFormalArgumentsListAreaCustomEditPart extends
-		FormalArgumentsListCompartmentFormalArgumentsListEditPart {
+public class CompositeFormalArgumentsListCompartmentCustomEditPart extends
+		CompositeFormalArgumentsListCompartmentEditPart {
 
-	public CompartmentFormalArgumentsListAreaCustomEditPart(View view) {
+	public CompositeFormalArgumentsListCompartmentCustomEditPart(View view) {
 		super(view);
 	}
 

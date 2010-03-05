@@ -12,11 +12,12 @@ import org.eclipse.gmf.runtime.notation.Node;
 import org.eclipse.gmf.runtime.notation.View;
 import org.ow2.fractal.mind.diagram.custom.helpers.CanonicalEditPolicyHelper;
 
-import adl.diagram.edit.policies.DataDefinitionCompartmentDataDefinitionBodyAreaCanonicalEditPolicy;
+import adl.diagram.edit.policies.CompositeReferenceCompartmentCanonicalEditPolicy;
 import adl.diagram.part.MindVisualIDRegistry;
 
-public class CompartmentDataDefinitionBodyCustomCanonicalEditPolicy extends
-		DataDefinitionCompartmentDataDefinitionBodyAreaCanonicalEditPolicy {
+public class CompositeReferenceCompartmentCustomCanonicalEditPolicy
+		extends
+		CompositeReferenceCompartmentCanonicalEditPolicy {
 
 	@Override
 	protected String getDefaultFactoryHint() {
@@ -58,4 +59,5 @@ public class CompartmentDataDefinitionBodyCustomCanonicalEditPolicy extends
         }
         return list;
     }
+	
 }

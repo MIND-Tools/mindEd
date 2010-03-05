@@ -40,8 +40,8 @@ public class MindComponentEditPart extends MindEditPart {
 			realEditPart.installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE,
 					getItemSemanticEditPolicy());
 		
-//		realEditPart.installEditPolicy(EditPolicyRoles.CREATION_ROLE,
-//				new MindCreationEditPolicy());
+		realEditPart.installEditPolicy(EditPolicyRoles.CREATION_ROLE,
+				new MindCreationEditPolicy());
 		
 		realEditPart.installEditPolicy(EditPolicyRoles.DRAG_DROP_ROLE,
 				new CustomDragDropEditPolicy());
@@ -100,23 +100,6 @@ public class MindComponentEditPart extends MindEditPart {
 			compartment.setLayoutManager(layout);
 		}
 		return compartment; // use compartment itself as contentPane
-	}
-	
-	
-	public EditPart getCompartment() {
-		List<EditPart> children = realEditPart.getChildren();
-		
-//		for (EditPart child : children) {
-//			if (getMindEditPart(child) instanceof MindCompartmentEditPart)
-//				return child;
-//		}
-		
-		// Each editPart only has one compartment
-		for (EditPart child : children) {
-			if (child instanceof ShapeCompartmentEditPart)
-				return child;
-		}
-		return null;
 	}
 	
 	public IFigure getCompartmentFigure() {
