@@ -43,25 +43,9 @@ public class CompositeComponentDefinitionCustomEditPart extends
 		// Get a ComponentLayout
 		return genericEditPart.setupContentPane(nodeShape);
 	}
-
-	@Override
-	protected void addChildVisual(EditPart childEditPart, int index) {
-		if (genericEditPart.addChildVisual(childEditPart, index)) {
-			return;
-		}
-		super.addChildVisual(childEditPart, -1);
-	}
 	
 	@Override
 	protected boolean addFixedChild(EditPart childEditPart) {
-//		if (childEditPart instanceof CompositeComponentDefinitionCompartmentCompositeComponentDefinitionBodyEditPart) {
-//			IFigure body = getPrimaryShape().getFigureCompositeBodyArea();
-//			// Set the layout
-//			ComponentHelper.setupBody(body);
-//			body.add(((CompositeComponentDefinitionCompartmentCompositeComponentDefinitionBodyEditPart) childEditPart)
-//							.getFigure());
-//			return true;
-//		}
 		if (genericEditPart.addFixedChild(childEditPart)) return true;
 		return super.addFixedChild(childEditPart);
 	}
@@ -69,13 +53,7 @@ public class CompositeComponentDefinitionCustomEditPart extends
 	@Override
 	public DragTracker getDragTracker(Request request) {
 		// Extended drag and drop features
-		return ComponentHelper.getDragTracker(this);
-	}
-	
-	@Override
-	protected LayoutEditPolicy createLayoutEditPolicy() {
-		// Extended drag and drop features
-		return new ComponentLayoutEditPolicy();
+		return genericEditPart.getDragTracker(this);
 	}
 	
 

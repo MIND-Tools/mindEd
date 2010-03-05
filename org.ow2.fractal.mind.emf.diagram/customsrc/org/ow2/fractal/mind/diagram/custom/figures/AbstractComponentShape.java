@@ -2,6 +2,7 @@ package org.ow2.fractal.mind.diagram.custom.figures;
 
 import org.eclipse.draw2d.Border;
 import org.eclipse.draw2d.Graphics;
+import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.Shape;
 import org.eclipse.draw2d.geometry.Rectangle;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.RectangularDropShadowLineBorder;
@@ -70,4 +71,13 @@ public class AbstractComponentShape extends Shape implements IFractalShape {
 		result.setColor(GRAY);
 		return result;
 	}
+	/**
+	 *  Subclasses should override this method
+	 * Generated figures will do this if the accessor is called
+	 * getCompartment() in the .gmfgraph file
+	 */
+	
+	public IFigure getCompartment() {
+		return null;
+	};
 }

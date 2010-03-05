@@ -106,6 +106,10 @@ public class MindEditPartCustomFactory extends MindEditPartFactory {
 //			case ArgumentDefinitionEditPart.VISUAL_ID:
 //				return new ArgumentDefinitionCustomEditPart(view);
 //				
+//				// -- AttributeDefinition
+//			case AttributeDefinitionEditPart.VISUAL_ID:
+//				return new AttributeDefinitionCustomEditPart(view);
+//				
 //			case ArgumentDefinition2EditPart.VISUAL_ID:
 //				return new ArgumentDefinitionCustomEditPart(view);
 //				
@@ -126,15 +130,11 @@ public class MindEditPartCustomFactory extends MindEditPartFactory {
 //				
 //			case ArgumentDefinitionArgumentNameArgumentVal4EditPart.VISUAL_ID:
 //				return new ArgumentDefinitionNameCustomEditPart(view);
-//				
-//				// -- AttributeDefinition				
-//			case AttributeDefinitionEditPart.VISUAL_ID:
-//				return new AttributeDefinitionCustomEditPart(view);
-//				
-//				// -- BindingDefinition
+								
+				// -- BindingDefinition
 //			case BindingDefinitionEditPart.VISUAL_ID:
 //				return new BindingDefinitionCustomEditPart(view);
-//			
+			
 //				// -- ComponentTypeDefinition
 //			case ComponentTypeDefinitionEditPart.VISUAL_ID:
 //				return new ComponentTypeDefinitionCustomEditPart(view);
@@ -149,12 +149,12 @@ public class MindEditPartCustomFactory extends MindEditPartFactory {
 ////			case CompositeAnonymousSubComponentCompartmentCompositeAnonymousSubBodyEditPart.VISUAL_ID:
 ////				return new CompartmentCompositeAnonymousSubComponentBodyCustomEditPart(view);
 //			
-//				// -- CompositeComponentDefinition
-//			case CompositeComponentDefinitionEditPart.VISUAL_ID:
-//				return new CompositeComponentDefinitionCustomEditPart(view);
-////				
-////			case CompositeComponentDefinitionCompartmentCompositeComponentDefinitionBodyEditPart.VISUAL_ID:
-////				return new CompartmentCompositeComponentDefinitionBodyCustomEditPart(view);
+				// -- CompositeComponentDefinition
+			case CompositeComponentDefinitionEditPart.VISUAL_ID:
+				return new CompositeComponentDefinitionCustomEditPart(view);
+				
+//			case CompositeComponentCompartmentEditPart.VISUAL_ID:
+//				return new CompositeComponentCompartmentCustomEditPart(view);
 //				
 //				// -- CompositeReferenceDefinition
 //			case CompositeReferenceDefinitionEditPart.VISUAL_ID:

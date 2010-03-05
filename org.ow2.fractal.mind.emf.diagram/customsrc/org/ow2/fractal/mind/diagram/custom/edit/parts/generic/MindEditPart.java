@@ -1,8 +1,12 @@
 package org.ow2.fractal.mind.diagram.custom.edit.parts.generic;
 
+import org.eclipse.draw2d.IFigure;
+import org.eclipse.gef.DragTracker;
+import org.eclipse.gef.EditPart;
 import org.eclipse.gef.EditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.GraphicalEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.CanonicalEditPolicy;
+import org.ow2.fractal.mind.diagram.custom.edit.parts.CompositeComponentDefinitionCustomEditPart;
 import org.ow2.fractal.mind.diagram.custom.edit.policies.CompositeComponentDefinitionCustomCanonicalEditPolicy;
 
 import adl.diagram.edit.parts.CompositeComponentDefinitionEditPart;
@@ -20,11 +24,13 @@ public class MindEditPart {
 	public static final int REFERENCE = 5;
 	public static final int ITEM = 6;
 	
+	public static String EDIT_POLICY_PACKAGE = "org.ow2.fractal.mind.diagram.custom.edit.policies.";
+	
 	protected GraphicalEditPart realEditPart;
 	protected int visualID;
 
 	public static MindEditPart createGenericEditPart(GraphicalEditPart editPart,int visualID) {
-	
+		
 		int type = getType(visualID);
 		switch (type){
 		case UNDEFINED:
@@ -32,7 +38,6 @@ public class MindEditPart {
 		case COMPONENT:
 			return new MindComponentEditPart(editPart, visualID);
 		}
-		
 		return null;
 	}
 	
@@ -60,8 +65,10 @@ public class MindEditPart {
 	 * @return a new instance of this edit policy
 	 */
 	protected CanonicalEditPolicy getCanonicalEditPolicy() {
-		String editPolicyName = 
-			realEditPart.getClass().getName().replace("EditPart", "CustomCanonicalEditPolicy");
+		String simpleName = 
+			realEditPart.getClass().getSimpleName().replace("EditPart", "CanonicalEditPolicy");
+		String packageName = EDIT_POLICY_PACKAGE;
+		String editPolicyName = packageName.concat(simpleName);
 		
 		EditPolicy policy = getEditPolicyFromName(editPolicyName);
 		CanonicalEditPolicy canonicalPolicy = null;
@@ -80,8 +87,10 @@ public class MindEditPart {
 	 * @return a new instance of this edit policy
 	 */
 	protected MindBaseItemSemanticEditPolicy getItemSemanticEditPolicy() {
-		String editPolicyName = 
-			realEditPart.getClass().getName().replace("EditPart", "CustomItemSemanticEditPolicy");
+		String simpleName = 
+			realEditPart.getClass().getSimpleName().replace("EditPart", "ItemSemanticEditPolicy");
+		String packageName = EDIT_POLICY_PACKAGE;
+		String editPolicyName = packageName.concat(simpleName);
 		
 		EditPolicy policy = getEditPolicyFromName(editPolicyName);
 		MindBaseItemSemanticEditPolicy semanticPolicy = null;
@@ -105,31 +114,39 @@ public class MindEditPart {
 		Class editPolicyClass = null;
 		try {
 			editPolicyClass = Class.forName(editPolicyName);
+			EditPolicy editPolicy = (EditPolicy) editPolicyClass.newInstance();
+			return editPolicy;
+			
 		} catch (ClassNotFoundException e) {
-			// Try another way
-			switch(visualID) {
-			case CompositeComponentDefinitionEditPart.VISUAL_ID:
-				return new CompositeComponentDefinitionCustomCanonicalEditPolicy();
-			}
-			return null;
-		}
-		
-		EditPolicy editPolicy = null;
-				
-		try {
-			editPolicy = (EditPolicy) editPolicyClass.newInstance();
 		} catch (InstantiationException e) {
 			MindDiagramEditorPlugin.getInstance().logError("Edit policy instantiation error", e);
-			return null;
 		} catch (IllegalAccessException e) {
 			MindDiagramEditorPlugin.getInstance().logError("Illegal access instantiating edit policy", e);
-			return null;
 		} catch (ClassCastException e) {
 			MindDiagramEditorPlugin.getInstance().logError("Class is not an edit policy", e);
-			return null;
 		}
-		
-		return editPolicy;
+				
+		return null;
+	}
+
+
+	public IFigure setupContentPane(IFigure nodeShape) {
+		return null;
+	}
+
+
+	public boolean addChildVisual(EditPart childEditPart, int index) {
+		return false;
+	}
+
+
+	public boolean addFixedChild(EditPart childEditPart) {
+		return false;
+	}
+
+
+	public DragTracker getDragTracker(EditPart ep) {
+		return null;
 	}
 
 }

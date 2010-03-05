@@ -14,7 +14,6 @@ import org.ow2.fractal.mind.diagram.custom.edit.parts.BindingDefinitionCustomEdi
 
 import adl.diagram.edit.parts.AdlDefinitionEditPart;
 import adl.diagram.edit.parts.InterfaceDefinitionEditPart;
-import adl.diagram.edit.parts.TemplateSubComponentEditPart;
 import adl.impl.BindingDefinitionImpl;
 import adl.impl.InterfaceDefinitionImpl;
 
@@ -39,7 +38,6 @@ public class DragEditPartsCustomTracker extends DragEditPartsTrackerEx implement
 		// Prevent from dropping in canvas
 		if (getTargetEditPart() instanceof AdlDefinitionEditPart
 				&& !(getSourceEditPart().getParent() instanceof AdlDefinitionEditPart)) return;
-		if (getTargetEditPart() instanceof TemplateSubComponentEditPart) return;
 		
 		super.performDrag();
 		

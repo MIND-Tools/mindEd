@@ -14,6 +14,7 @@ import org.ow2.fractal.mind.diagram.custom.edit.policies.CustomDragDropEditPolic
 import org.ow2.fractal.mind.diagram.custom.helpers.ComponentHelper;
 import org.ow2.fractal.mind.diagram.custom.layouts.InterfaceBorderItemLocator;
 
+import adl.diagram.edit.parts.CompositeSubComponentEditPart;
 import adl.diagram.edit.parts.SubComponentDefinitionEditPart;
 
 /**
@@ -27,7 +28,7 @@ import adl.diagram.edit.parts.SubComponentDefinitionEditPart;
  *
  */
 public class CompositeSubComponentCustomEditPart extends
-SubComponentDefinitionEditPart {
+	CompositeSubComponentEditPart {
 
 	
 

@@ -7,8 +7,10 @@ import java.util.Map;
 import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.geometry.Dimension;
 import org.eclipse.draw2d.geometry.Rectangle;
+import org.eclipse.gmf.runtime.diagram.ui.figures.BorderedNodeFigure;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.ConstrainedToolbarLayout;
 import org.ow2.fractal.mind.diagram.custom.figures.AbstractComponentNameWrappingLabel;
+import org.ow2.fractal.mind.diagram.custom.figures.BodyCustomFigure;
 import org.ow2.fractal.mind.diagram.custom.figures.ContainerShape;
 
 /**
@@ -53,7 +55,7 @@ public class ComponentLayout extends ConstrainedToolbarLayout implements IFracta
 				totalTitlesHeight += TITLE_HEIGHT;
 			}
 			
-			else if (child instanceof ContainerShape) {
+			else if (child instanceof BorderedNodeFigure) {
 				// Body is the last to be computed, to let it fill the space left
 				body = child;
 			}
