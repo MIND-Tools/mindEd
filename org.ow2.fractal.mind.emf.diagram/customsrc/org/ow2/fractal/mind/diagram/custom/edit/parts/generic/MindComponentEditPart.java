@@ -1,22 +1,15 @@
 package org.ow2.fractal.mind.diagram.custom.edit.parts.generic;
 
 import org.eclipse.gmf.runtime.diagram.ui.editparts.GraphicalEditPart;
-import org.eclipse.gmf.runtime.diagram.ui.editpolicies.CanonicalEditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
-import org.ow2.fractal.mind.diagram.custom.edit.policies.CompositeSubComponentCustomCanonicalEditPolicy;
-import org.ow2.fractal.mind.diagram.custom.edit.policies.CompositeSubComponentCustomItemSemanticEditPolicy;
-import org.ow2.fractal.mind.diagram.custom.edit.policies.CustomDragDropEditPolicy;
-import org.ow2.fractal.mind.diagram.custom.edit.policies.MindCreationEditPolicy;
-
-import adl.diagram.edit.policies.MindBaseItemSemanticEditPolicy;
+import org.ow2.fractal.mind.diagram.custom.edit.policies.*;
 
 public class MindComponentEditPart extends MindEditPart {
-
-	GraphicalEditPart realEditPart;
 	
-	public MindComponentEditPart (GraphicalEditPart editPart) {
+	public MindComponentEditPart (GraphicalEditPart editPart, int vID) {
 		if (editPart == null) throw new NullPointerException();
 		realEditPart = editPart;
+		visualID = vID;
 	}
 	
 	@Override
@@ -38,11 +31,7 @@ public class MindComponentEditPart extends MindEditPart {
 	};
 	
 	
-	protected CanonicalEditPolicy getCanonicalEditPolicy() {
-		return null;
-	}
 	
-	protected MindBaseItemSemanticEditPolicy getItemSemanticEditPolicy() {
-		return null;
-	}
+	
+
 }

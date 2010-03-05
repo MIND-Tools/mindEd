@@ -78,13 +78,13 @@ public class MindEditPartCustomFactory extends MindEditPartFactory {
 	 */
 	@Override
 	public EditPart createEditPart(EditPart context, Object model) {
-//		if (model instanceof View) {
-//			View view = (View) model;
-//			switch (MindVisualIDRegistry.getVisualID(view)) {
-//			
-//				// -- AdlDefinition
-//			case AdlDefinitionEditPart.VISUAL_ID:
-//				return new AdlDefinitionCustomEditPart(view);
+		if (model instanceof View) {
+			View view = (View) model;
+			switch (MindVisualIDRegistry.getVisualID(view)) {
+			
+				// -- AdlDefinition
+			case AdlDefinitionEditPart.VISUAL_ID:
+				return new AdlDefinitionCustomEditPart(view);
 //			
 //				// -- AnnotationsList
 ////			case AnnotationsListEditPart.VISUAL_ID:
@@ -330,8 +330,8 @@ public class MindEditPartCustomFactory extends MindEditPartFactory {
 //			case TypeReferencesListCompartmentReferencesListAreaEditPart.VISUAL_ID:
 //				return new TypeReferencesListAreaCustomEditPart(view);
 //				
-//			}
-//		}
+			}
+		}
 		return super.createEditPart(context, model);
 	}
 
