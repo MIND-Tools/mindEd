@@ -153,10 +153,10 @@
         </children>
       </actualFigure>
       <accessors
-          accessor="getBodyFigure"
+          accessor="getFigure"
           figure="//@figures.0/@descriptors.6/@actualFigure"/>
       <accessors
-          accessor="getBodyCompartment"
+          accessor="getCompartment"
           figure="//@figures.0/@descriptors.6/@actualFigure/@children.0"/>
     </descriptors>
     <descriptors
@@ -567,27 +567,16 @@
               name="maximumSize"
               value="nameLabelMaxSize"/>
         </children>
-        <children
-            xsi:type="gmfgraph:CustomFigure"
-            name="PrimitiveBodyArea"
-            qualifiedClassName="org.ow2.fractal.mind.diagram.custom.figures.ContainerShape">
-          <attributes
-              name="backgroundColor"
-              value="bodyAreaColor"/>
-        </children>
         <attributes
             name="preferredSize"
             value="componentPreferredSize"/>
       </actualFigure>
       <accessors
-          accessor="getFigureLabelPrimitiveComponentDefinitionName"
+          accessor="getLabel"
           figure="//@figures.0/@descriptors.19/@actualFigure/@children.0"/>
       <accessors
-          accessor="getFigurePrimitiveComponentDefinitionFigure"
+          accessor="getFigure"
           figure="//@figures.0/@descriptors.19/@actualFigure"/>
-      <accessors
-          accessor="getFigurePrimitiveBodyArea"
-          figure="//@figures.0/@descriptors.19/@actualFigure/@children.1"/>
     </descriptors>
     <descriptors
         name="PrimitiveSubComponentFigure">
@@ -752,27 +741,16 @@
               name="maximumSize"
               value="nameLabelMaxSize"/>
         </children>
-        <children
-            xsi:type="gmfgraph:CustomFigure"
-            name="SubComponentBody"
-            qualifiedClassName="org.ow2.fractal.mind.diagram.custom.figures.ContainerShape">
-          <attributes
-              name="backgroundColor"
-              value="bodyAreaColor"/>
-        </children>
         <attributes
             name="preferredSize"
             value="componentPreferredSize"/>
       </actualFigure>
       <accessors
-          accessor="getSubComponentFigure"
+          accessor="getFigure"
           figure="//@figures.0/@descriptors.25/@actualFigure"/>
       <accessors
-          accessor="getSubComponentName"
+          accessor="getLabel"
           figure="//@figures.0/@descriptors.25/@actualFigure/@children.0"/>
-      <accessors
-          accessor="getSubComponentBody"
-          figure="//@figures.0/@descriptors.25/@actualFigure/@children.1"/>
     </descriptors>
     <descriptors
         name="TemplateDefinitionFigure">
@@ -972,8 +950,7 @@
   <compartments
       name="CompartmentPrimitiveDefinitionBody"
       figure="PrimitiveComponentDefinitionFigure"
-      collapsible="true"
-      accessor="//@figures.0/@descriptors.19/@accessors.2"/>
+      collapsible="true"/>
   <compartments
       name="CompartmentFormalArgumentsList"
       figure="FormalArgumentsListFigure"
