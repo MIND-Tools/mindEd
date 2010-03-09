@@ -288,8 +288,7 @@ public class FractalProposalProvider extends AbstractFractalProposalProvider {
 			// content assist using corresponding sub component
 			if (definition.getInterfaceTargetParentName() != null) {
 
-				Map<String, ArchitectureDefinition> map = getSubComponents(definition
-						.getHelper().getParentComponent());
+				Map<String, ArchitectureDefinition> map = getSubComponents(definition.getParentBody().getParentComponent());
 
 				// retrieve sub component
 				elt = map.get(definition.getInterfaceTargetParentName());
@@ -297,7 +296,7 @@ public class FractalProposalProvider extends AbstractFractalProposalProvider {
 			}
 			// content assist using current component
 			else
-				elt = definition.getHelper().getParentComponent();
+				elt = definition.getParentBody().getParentComponent();
 
 			Map<String, InterfaceDefinition> map = getInterfaces(elt,
 					Role.PROVIDES);
@@ -354,7 +353,7 @@ public class FractalProposalProvider extends AbstractFractalProposalProvider {
 			BindingDefinition definition = (BindingDefinition) model;
 
 			Map<String, ArchitectureDefinition> map = getSubComponents(definition
-					.getHelper().getParentComponent());
+					.getParentBody().getParentComponent());
 
 			// retrieve sub component
 			elt = map.get(definition.getInterfaceSourceParentName());

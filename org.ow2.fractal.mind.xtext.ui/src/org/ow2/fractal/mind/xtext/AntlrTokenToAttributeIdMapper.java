@@ -11,7 +11,6 @@ import org.eclipse.xtext.ui.common.editor.syntaxcoloring.antlr.AbstractAntlrToke
  *
  */
 public class AntlrTokenToAttributeIdMapper extends AbstractAntlrTokenToAttributeIdMapper{
-
 	
 	private static final Pattern QUOTED = Pattern.compile("(?:^'([^']*)'$)|(?:^\"([^\"]*)\")$", Pattern.MULTILINE);
 	private static final Pattern PUNCTUATION = Pattern.compile("\\p{Punct}*");
@@ -20,16 +19,31 @@ public class AntlrTokenToAttributeIdMapper extends AbstractAntlrTokenToAttribute
 	protected String calculateId(String tokenName, int tokenType) {
 		if("'0x'".equals(tokenName)) {
 			return LexicalHighlightingConfiguration.HEXA_ID;
-		}	
+		}
+		
+		// component definition
 		if("'composite'".equals(tokenName)) {
 			return LexicalHighlightingConfiguration.COMPOSITE_ID;
 		}		
 		if("'primitive'".equals(tokenName)) {
 			return LexicalHighlightingConfiguration.PRIMITIVE_ID;
 		}
-		if("'provides'".equals(tokenName)||"'requires'".equals(tokenName)) {
-			return LexicalHighlightingConfiguration.INTERFACE_ID;
-		}		
+		
+		// interfaces
+		if("'provides'".equals(tokenName)) {
+			return LexicalHighlightingConfiguration.PROVIDES_ID;
+		}			
+		if("'requires'".equals(tokenName)) {
+			return LexicalHighlightingConfiguration.REQUIRES_ID;
+		}			
+		if("'binds'".equals(tokenName)) {
+			return LexicalHighlightingConfiguration.BINDING_ID;
+		}
+		
+		// import
+		if("'import'".equals(tokenName)) {
+			return LexicalHighlightingConfiguration.IMPORT_ID;
+		}
 		
 		if(PUNCTUATION.matcher(tokenName).matches()) {
 			return LexicalHighlightingConfiguration.PUNCTUATION_ID;

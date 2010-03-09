@@ -12,7 +12,6 @@ Require-Bundle: org.ow2.fractal.mind.xtext;visibility:=reexport,
  org.eclipse.xtend,
  org.ow2.fractal.mind.emf.model.editor,
  org.ow2.fractal.mind.emf.model,
- org.ow2.fractal.mind.emf.diagram;bundle-version="0.2.0";resolution:=optional,
  org.eclipse.ui.editors,
  org.eclipse.ui,
  org.antlr.runtime
@@ -23,5 +22,6 @@ Export-Package: org.ow2.fractal.mind.xtext,
  org.ow2.fractal.mind.xtext.internal
 Bundle-Activator: org.ow2.fractal.mind.xtext.internal.FractalActivator
 Import-Package: org.apache.log4j,
+ org.ow2.fractal.mind.diagram.custom.figures,
  org.ow2.fractal.mind.ide,
  org.ow2.fractal.mind.ide.emf.mindide

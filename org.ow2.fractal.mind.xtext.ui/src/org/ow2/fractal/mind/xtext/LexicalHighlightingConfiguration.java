@@ -4,6 +4,8 @@ import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.RGB;
 import org.eclipse.xtext.ui.common.editor.syntaxcoloring.IHighlightingConfigurationAcceptor;
 import org.eclipse.xtext.ui.core.editor.utils.TextStyle;
+//import org.ow2.fractal.mind.diagram.custom.figures.IFractalShape;
+import org.ow2.fractal.mind.diagram.custom.figures.IFractalShape;
 
 /**
  * class which Attribute styles to IDs
@@ -23,39 +25,67 @@ public class LexicalHighlightingConfiguration extends
 	public static final String INVALID_TOKEN_ID = "error";
 	public static final String COMPOSITE_ID = "composite";
 	public static final String PRIMITIVE_ID = "primitive";
-	public static final String INTERFACE_ID = "interface";
+	
+	public static final String PROVIDES_ID = "provides";
+	public static final String REQUIRES_ID = "requires";
+	
+	public static final String IMPORT_ID = "import";
+	public static final String BINDING_ID = "binds";
+	
+	
 	public static final String HEXA_ID = "0x";
 
 	public void configure(IHighlightingConfigurationAcceptor acceptor) {
+		
 		acceptor.acceptDefaultHighlighting(KEYWORD_ID, "Keyword",
 				keywordTextStyle());
+		
 		acceptor.acceptDefaultHighlighting(PUNCTUATION_ID,
 				"Punctuation character", punctuationTextStyle());
+		
 		acceptor.acceptDefaultHighlighting(COMMENT_ID, "Comment",
 				commentTextStyle());
+		
 		acceptor.acceptDefaultHighlighting(STRING_ID, "String",
 				stringTextStyle());
+		
 		acceptor.acceptDefaultHighlighting(NUMBER_ID, "Number",
 				numberTextStyle());
+		
 		acceptor.acceptDefaultHighlighting(DEFAULT_ID, "Default",
 				defaultTextStyle());
+		
 		acceptor.acceptDefaultHighlighting(INVALID_TOKEN_ID, "Invalid Symbol",
 				errorTextStyle());
-		acceptor.acceptDefaultHighlighting(INTERFACE_ID, "interfaces keyword",
-				interfaceTextStyle());
-		acceptor.acceptDefaultHighlighting(COMPOSITE_ID, "composite",
-				compositeTextStyle());
-		acceptor.acceptDefaultHighlighting(PRIMITIVE_ID, "primitive",
-				primitiveTextStyle());
+		
 		acceptor.acceptDefaultHighlighting(HEXA_ID, "Hexadecimal",
 				numberTextStyle());
 		
 		// From SemanticHighlightingConfiguration
 		acceptor.acceptDefaultHighlighting(DATA_ID, "data/source style",
 				dataTextStyle());
+		
 		acceptor.acceptDefaultHighlighting(ANNOTATIONS_ID, "annotation style",
 				annotationTextStyle());
 
+		// Component definition
+		acceptor.acceptDefaultHighlighting(COMPOSITE_ID, "composite style",
+				compositeTextStyle());
+		
+		acceptor.acceptDefaultHighlighting(PRIMITIVE_ID, "primitive style",
+				primitiveTextStyle());
+		
+		// Interfaces
+		acceptor.acceptDefaultHighlighting(PROVIDES_ID, "provides style",
+				providesTextStyle());
+		acceptor.acceptDefaultHighlighting(REQUIRES_ID, "requires style",
+				requiresTextStyle());
+		acceptor.acceptDefaultHighlighting(BINDING_ID, "binding style",
+				bindingTextStyle());
+		
+		// Import
+		acceptor.acceptDefaultHighlighting(IMPORT_ID, "import style",
+				importTextStyle());
 	}
 
 	public TextStyle defaultTextStyle() {
@@ -65,26 +95,22 @@ public class LexicalHighlightingConfiguration extends
 		return textStyle;
 	}
 
-	public TextStyle interfaceTextStyle() {
-		TextStyle textStyle = defaultTextStyle().copy();
-		textStyle.setColor(new RGB(0, 0, 0));
-		textStyle.setStyle(SWT.BOLD);
-		return textStyle;
-	}
-
+	
+	// -- Component definition
 	public TextStyle compositeTextStyle() {
 		TextStyle textStyle = defaultTextStyle().copy();
-		textStyle.setColor(new RGB(200, 0, 0));
+		textStyle.setColor(IFractalShape.BLUE.getRGB());
 		textStyle.setStyle(SWT.BOLD);
 		return textStyle;
 	}
 
 	public TextStyle primitiveTextStyle() {
 		TextStyle textStyle = defaultTextStyle().copy();
-		textStyle.setColor(new RGB(200, 0, 0));
+		textStyle.setColor(IFractalShape.RED.getRGB());
 		textStyle.setStyle(SWT.BOLD);
 		return textStyle;
-	}
+	}	
+	// --
 
 	public TextStyle errorTextStyle() {
 		TextStyle textStyle = defaultTextStyle().copy();
@@ -121,5 +147,33 @@ public class LexicalHighlightingConfiguration extends
 		TextStyle textStyle = defaultTextStyle().copy();
 		return textStyle;
 	}
-
+	
+	// -- Interfaces 
+	public TextStyle providesTextStyle() {
+		TextStyle textStyle = defaultTextStyle().copy();
+		textStyle.setColor(IFractalShape.GREEN.getRGB());
+		textStyle.setStyle(SWT.BOLD);
+		return textStyle;
+	}
+	public TextStyle requiresTextStyle() {
+		TextStyle textStyle = defaultTextStyle().copy();
+		textStyle.setColor(IFractalShape.RED.getRGB());
+		textStyle.setStyle(SWT.BOLD);
+		return textStyle;
+	}
+	public TextStyle bindingTextStyle() {
+		TextStyle textStyle = defaultTextStyle().copy();
+		textStyle.setColor(IFractalShape.GRAY.getRGB());
+		textStyle.setStyle(SWT.BOLD);
+		return textStyle;
+	}
+	// --
+	
+	// Import 
+	public TextStyle importTextStyle() {
+		TextStyle textStyle = defaultTextStyle().copy();
+		textStyle.setColor(IFractalShape.GRAY.getRGB());
+		textStyle.setStyle(SWT.BOLD);
+		return textStyle;
+	}
 }
