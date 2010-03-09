@@ -13,6 +13,7 @@ import org.eclipse.xtext.RuleCall;
 import org.eclipse.xtext.ui.core.editor.contentassist.ContentAssistContext;
 import org.eclipse.xtext.ui.core.editor.contentassist.ICompletionProposalAcceptor;
 import org.ow2.fractal.mind.ide.MindModelManager;
+import org.ow2.fractal.mind.ide.ModelToProjectUtil;
 import org.ow2.fractal.mind.ide.emf.mindide.MindAdl;
 import org.ow2.fractal.mind.ide.emf.mindide.MindPackage;
 import org.ow2.fractal.mind.xtext.util.FractalUtil;
@@ -51,6 +52,42 @@ public class FractalProposalProvider extends AbstractFractalProposalProvider {
 	// -------------------------------------------------------------------------------//
 
 	/**
+	 * Content Assist for Interface definition
+	 * 
+	 * @see org.ow2.fractal.mind.xtext.contentassist.AbstractFractalProposalProvider#completeInterfaceDefinition_Signature(org.eclipse.emf.ecore.EObject,
+	 *      org.eclipse.xtext.Assignment,
+	 *      org.eclipse.xtext.ui.core.editor.contentassist.ContentAssistContext,
+	 *      org.eclipse.xtext.ui.core.editor.contentassist.ICompletionProposalAcceptor)
+	 */
+	
+	@Override
+	public void completeInterfaceDefinition_Signature(EObject model,
+			Assignment assignment, ContentAssistContext context,
+			ICompletionProposalAcceptor acceptor) {
+
+		// Only works if project is a Mind project
+		if (mindModel != null) {
+
+			String proposal;
+			ICompletionProposal completionProposal;
+
+			// Interfaces proposals
+
+			List<String> itf = ModelToProjectUtil.INSTANCE
+					.getInterfacesInProject();
+
+			for (String key : itf) {
+				proposal = key;
+				completionProposal = createCompletionProposal(proposal,
+						proposal + " - interface", getImage(model), context);
+
+				acceptor.accept(completionProposal);
+			}
+
+		}
+	}
+
+	/**
 	 * Content assist for import
 	 * 
 	 * @see org.ow2.fractal.mind.xtext.contentassist.AbstractFractalProposalProvider#completeImportDefinition_ImportName(org.eclipse.emf.ecore.EObject,
@@ -63,15 +100,15 @@ public class FractalProposalProvider extends AbstractFractalProposalProvider {
 	public void completeImportDefinition_ImportName(EObject model,
 			Assignment assignment, ContentAssistContext context,
 			ICompletionProposalAcceptor acceptor) {
-		
+
 		// Only works if project is a Mind project
 		if (mindModel != null) {
 
 			String proposal;
 			ICompletionProposal completionProposal;
-						
+
 			// Package proposals
-			
+
 			Map<String, List<MindPackage>> packages = mindModel.getMindModel()
 					.getAllPackages();
 
@@ -80,29 +117,27 @@ public class FractalProposalProvider extends AbstractFractalProposalProvider {
 
 			// Add packages registered for this project to proposals
 			// Filtering is done by Xtext automatically
-			
+
 			for (String key : packages.keySet()) {
 				proposal = key;
-				completionProposal = createCompletionProposal(
-						proposal + ".*;", proposal + ".* - package",
-						null, context);
+				completionProposal = createCompletionProposal(proposal + ".*;",
+						proposal + ".* - package", null, context);
 
 				acceptor.accept(completionProposal);
 			}
-			
-			
+
 			// Component proposals
-			
-			Collection<? extends MindAdl> components = mindModel.getMindModel().getAllComponents();
-			
-			for (MindAdl mindAdl : components){
+
+			Collection<? extends MindAdl> components = mindModel.getMindModel()
+					.getAllComponents();
+
+			for (MindAdl mindAdl : components) {
 				proposal = mindAdl.getQualifiedName();
-				completionProposal = createCompletionProposal(
-						proposal + ";", proposal + " - component",
-						null, context);
+				completionProposal = createCompletionProposal(proposal + ";",
+						proposal + " - component", null, context);
 
 				acceptor.accept(completionProposal);
-			}			
+			}
 		}
 	}
 
@@ -120,16 +155,17 @@ public class FractalProposalProvider extends AbstractFractalProposalProvider {
 			EObject model, Assignment assignment, ContentAssistContext context,
 			ICompletionProposalAcceptor acceptor) {
 
-		// We try to know if it's a sub component definition		
-		/*EObject eObject = model;
-		if( eObject instanceof TemplateSubComponentCustomImpl ){
-			this.completeTemplateSubComponent_ReferenceDefinition(model, assignment, context, acceptor);			
-		}		
-		// case of an extend compositeReferenceDefinition
-		else {*/				
-			completeExtends(model, assignment, context, acceptor);
-		//}
-		
+		// We try to know if it's a sub component definition
+		/*
+		 * EObject eObject = model; if( eObject instanceof
+		 * TemplateSubComponentCustomImpl ){
+		 * this.completeTemplateSubComponent_ReferenceDefinition(model,
+		 * assignment, context, acceptor); } // case of an extend
+		 * compositeReferenceDefinition else {
+		 */
+		completeExtends(model, assignment, context, acceptor);
+		// }
+
 	}
 
 	/**
@@ -149,7 +185,7 @@ public class FractalProposalProvider extends AbstractFractalProposalProvider {
 		completeExtends(model, assignment, context, acceptor);
 
 	}
-		
+
 	/**
 	 * Content assist for type reference definition
 	 * 
@@ -160,12 +196,12 @@ public class FractalProposalProvider extends AbstractFractalProposalProvider {
 	 */
 
 	@Override
-	public void completeTypeReferenceDefinition_ReferenceName(
-			EObject model, Assignment assignment, ContentAssistContext context,
+	public void completeTypeReferenceDefinition_ReferenceName(EObject model,
+			Assignment assignment, ContentAssistContext context,
 			ICompletionProposalAcceptor acceptor) {
-		
+
 		completeExtends(model, assignment, context, acceptor);
-		
+
 	}
 
 	/**
@@ -252,8 +288,8 @@ public class FractalProposalProvider extends AbstractFractalProposalProvider {
 			// content assist using corresponding sub component
 			if (definition.getInterfaceTargetParentName() != null) {
 
-				Map<String, ArchitectureDefinition> map = getSubComponents(definition.getHelper()
-						.getParentComponent());
+				Map<String, ArchitectureDefinition> map = getSubComponents(definition
+						.getHelper().getParentComponent());
 
 				// retrieve sub component
 				elt = map.get(definition.getInterfaceTargetParentName());
@@ -317,8 +353,8 @@ public class FractalProposalProvider extends AbstractFractalProposalProvider {
 			// retrieve binding definition
 			BindingDefinition definition = (BindingDefinition) model;
 
-			Map<String, ArchitectureDefinition> map = getSubComponents(definition.getHelper()
-					.getParentComponent());
+			Map<String, ArchitectureDefinition> map = getSubComponents(definition
+					.getHelper().getParentComponent());
 
 			// retrieve sub component
 			elt = map.get(definition.getInterfaceSourceParentName());
@@ -338,8 +374,7 @@ public class FractalProposalProvider extends AbstractFractalProposalProvider {
 		}
 
 	}
-	
-	
+
 	/**
 	 * Content assist for composite component definition name
 	 * 
@@ -350,10 +385,13 @@ public class FractalProposalProvider extends AbstractFractalProposalProvider {
 	 * 
 	 */
 	@Override
-	public void completeCompositeComponentDefinition_Name(EObject model, Assignment assignment, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {			
-		this.completeComponentDefinition_Name((AdlDefinitionCustomImpl) model.eContainer(), context, acceptor);					
+	public void completeCompositeComponentDefinition_Name(EObject model,
+			Assignment assignment, ContentAssistContext context,
+			ICompletionProposalAcceptor acceptor) {
+		this.completeComponentDefinition_Name((AdlDefinitionCustomImpl) model
+				.eContainer(), context, acceptor);
 	}
-	
+
 	/**
 	 * Content assist for primitive component definition name
 	 * 
@@ -364,10 +402,13 @@ public class FractalProposalProvider extends AbstractFractalProposalProvider {
 	 * 
 	 */
 	@Override
-	public void completePrimitiveComponentDefinition_Name(EObject model, Assignment assignment, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {			
-		this.completeComponentDefinition_Name((AdlDefinitionCustomImpl) model.eContainer(), context, acceptor);					
+	public void completePrimitiveComponentDefinition_Name(EObject model,
+			Assignment assignment, ContentAssistContext context,
+			ICompletionProposalAcceptor acceptor) {
+		this.completeComponentDefinition_Name((AdlDefinitionCustomImpl) model
+				.eContainer(), context, acceptor);
 	}
-	
+
 	/**
 	 * Content assist for component type definition name
 	 * 
@@ -378,27 +419,29 @@ public class FractalProposalProvider extends AbstractFractalProposalProvider {
 	 * 
 	 */
 	@Override
-	public void completeComponentTypeDefinition_Name(EObject model, Assignment assignment, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {			
-		this.completeComponentDefinition_Name((AdlDefinitionCustomImpl) model.eContainer(), context, acceptor);					
+	public void completeComponentTypeDefinition_Name(EObject model,
+			Assignment assignment, ContentAssistContext context,
+			ICompletionProposalAcceptor acceptor) {
+		this.completeComponentDefinition_Name((AdlDefinitionCustomImpl) model
+				.eContainer(), context, acceptor);
 	}
-
 
 	// -------------------------------------------------------------------------------//
 	// Custom methods
 	// -------------------------------------------------------------------------------//
 
-	
-	public void completeComponentDefinition_Name(AdlDefinitionCustomImpl adlDefinitionCustomImpl, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
-		
-		String fQN = FractalUtil.getFQNFromAdlDefinition(adlDefinitionCustomImpl);
-		
+	public void completeComponentDefinition_Name(
+			AdlDefinitionCustomImpl adlDefinitionCustomImpl,
+			ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
+
+		String fQN = FractalUtil
+				.getFQNFromAdlDefinition(adlDefinitionCustomImpl);
+
 		ICompletionProposal completionProposal = createCompletionProposal(fQN,
 				fQN, null, context);
 		acceptor.accept(completionProposal);
 	}
-	
-	
-	
+
 	/**
 	 * Creates a list of components to use in a binding proposal
 	 */
@@ -447,77 +490,77 @@ public class FractalProposalProvider extends AbstractFractalProposalProvider {
 
 	public void completeExtends(EObject model, Assignment assignment,
 			ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
-				
-		ArchitectureDefinition architectureDefinition = FractalUtil.getArchitecureDefinitionFromChild(model);
-		if (architectureDefinition== null)
+
+		ArchitectureDefinition architectureDefinition = FractalUtil
+				.getArchitecureDefinitionFromChild(model);
+		if (architectureDefinition == null)
 			return;
-				
+
 		// name of the package where this component is located
-		String packageName = FractalUtil.getPackageNameFromFQN(architectureDefinition.getName());
-		
+		String packageName = FractalUtil
+				.getPackageNameFromFQN(architectureDefinition.getName());
+
 		// fully qualified name of this component
 		String fQN = architectureDefinition.getName();
-				
+
 		// Retrieve all components declared for this mind project
 		Collection<? extends MindAdl> components = mindModel.getMindModel()
 				.getAllComponents();
-				
-		
-		
-		
+
 		// -- Remove this definition from the components
 		MindAdl toRemove = null;
-		for (MindAdl mindAdl : components){
-			if (mindAdl.getQualifiedName().equals(fQN)){
+		for (MindAdl mindAdl : components) {
+			if (mindAdl.getQualifiedName().equals(fQN)) {
 				toRemove = mindAdl;
 				break;
 			}
 		}
 		if (toRemove != null)
-			components.remove(toRemove);				
+			components.remove(toRemove);
 		// --
-		
-		
-		
-		// Restrict to components which are able to be extended by our definition
-		components = FractalUtil.filterAccordingToExtendValidity(architectureDefinition, components);
-		
-		
-		
-		// -- Change names for packages and components which are declared into import: FQN -> simple names
-		
+
+		// Restrict to components which are able to be extended by our
+		// definition
+		components = FractalUtil.filterAccordingToExtendValidity(
+				architectureDefinition, components);
+
+		// -- Change names for packages and components which are declared into
+		// import: FQN -> simple names
+
 		HashSet<String> importedPackAndComp = new HashSet<String>();
 
 		importedPackAndComp.add(packageName);
-				
-		Collection<String> imports = FractalUtil.getDeclaredImports((AdlDefinition)architectureDefinition.eContainer());
-		
+
+		Collection<String> imports = FractalUtil
+				.getDeclaredImports((AdlDefinition) architectureDefinition
+						.eContainer());
+
 		// avoid .* at the end of import packages.
 		for (String importName : imports) {
-			if (importName.endsWith(".*")){				
+			if (importName.endsWith(".*")) {
 				packageName = importName.substring(0, importName.length() - 2);
 				imports.remove(importName);
 				imports.add(packageName);
 			}
 		}
-		
+
 		importedPackAndComp.addAll(imports);
-				
-		HashSet<String> finalProposals = FractalUtil.convertFQNToSimpleNamesAccordingToImports(components, importedPackAndComp);
-		
+
+		HashSet<String> finalProposals = FractalUtil
+				.convertFQNToSimpleNamesAccordingToImports(components,
+						importedPackAndComp);
+
 		// --
-				
-		
-		
+
 		// -- Adding components proposals
 		ICompletionProposal completionProposal;
-		for (String componentName : finalProposals){
+		for (String componentName : finalProposals) {
 			completionProposal = createCompletionProposal(componentName,
 					componentName, null, context);
 			acceptor.accept(completionProposal);
 		}
 		// --
-		
+
 	}
 
 	/**
@@ -566,8 +609,8 @@ public class FractalProposalProvider extends AbstractFractalProposalProvider {
 				if (element instanceof adl.InterfaceDefinition) {
 					InterfaceDefinition def = (InterfaceDefinition) element;
 					// Keep interfaces of the given Role (provides or requires)
-					//TODO no more restriction
-					//if (def.getRole() == role)
+					// TODO no more restriction
+					// if (def.getRole() == role)
 					map.put(def.getName(), def);
 				}
 			}
@@ -576,50 +619,48 @@ public class FractalProposalProvider extends AbstractFractalProposalProvider {
 		return map;
 
 	}
-	
-	
+
 	/**
 	 * 
 	 * Template sub component proposal provider
 	 * 
 	 */
-	public void completeTemplateSubComponent_ReferenceName(EObject model, 
-			Assignment assignment, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
-				
-		// We get the Architecture Definition		
+	public void completeTemplateSubComponent_ReferenceName(EObject model,
+			Assignment assignment, ContentAssistContext context,
+			ICompletionProposalAcceptor acceptor) {
+
+		// We get the Architecture Definition
 		EObject eObject = model;
-		while ( !(eObject instanceof CompositeComponentDefinitionCustomImpl) ){
+		while (!(eObject instanceof CompositeComponentDefinitionCustomImpl)) {
 			try {
 				eObject = eObject.eContainer();
 			} catch (Exception e) {
 				// TODO: handle exception
 				// nothing to do here
 				return;
-			}			
-		}		
+			}
+		}
 		ArchitectureDefinition architectureDefinition = (ArchitectureDefinition) eObject;
-		
-		
-		// in order to get the template specifier names		
+
+		// in order to get the template specifier names
 		TemplateSpecifiersList templateSpecifierList = null;
-		for (EObject architectureContent : architectureDefinition.eContents()){
-			if ( architectureContent instanceof TemplateSpecifiersList ) {
+		for (EObject architectureContent : architectureDefinition.eContents()) {
+			if (architectureContent instanceof TemplateSpecifiersList) {
 				templateSpecifierList = (TemplateSpecifiersList) architectureContent;
 				break;
 			}
 		}
-			 
-				
+
 		// so, we can add names to the proposals
 		ICompletionProposal completionProposal;
 		String name;
-		for (EObject e : templateSpecifierList.eContents()){
+		for (EObject e : templateSpecifierList.eContents()) {
 			name = ((TemplateSpecifier) e).getName();
-			completionProposal = createCompletionProposal( name + " as",
-					name, getImage(architectureDefinition), context);
+			completionProposal = createCompletionProposal(name + " as", name,
+					getImage(architectureDefinition), context);
 			acceptor.accept(completionProposal);
 		}
-				
+
 	}
-	
+
 }
