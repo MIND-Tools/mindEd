@@ -21,47 +21,26 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.eclipse.emf.ecore.util.EDataTypeEList;
 
+import org.ow2.fractal.mind.idl.fractalIDL.AbstractDirectDeclarator;
 import org.ow2.fractal.mind.idl.fractalIDL.Declarator;
-import org.ow2.fractal.mind.idl.fractalIDL.DirectDeclarator;
 import org.ow2.fractal.mind.idl.fractalIDL.FractalIDLPackage;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Direct Declarator</b></em>'.
+ * An implementation of the model object '<em><b>Abstract Direct Declarator</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.ow2.fractal.mind.idl.fractalIDL.impl.DirectDeclaratorImpl#getId <em>Id</em>}</li>
- *   <li>{@link org.ow2.fractal.mind.idl.fractalIDL.impl.DirectDeclaratorImpl#getDec <em>Dec</em>}</li>
- *   <li>{@link org.ow2.fractal.mind.idl.fractalIDL.impl.DirectDeclaratorImpl#getArray <em>Array</em>}</li>
+ *   <li>{@link org.ow2.fractal.mind.idl.fractalIDL.impl.AbstractDirectDeclaratorImpl#getDec <em>Dec</em>}</li>
+ *   <li>{@link org.ow2.fractal.mind.idl.fractalIDL.impl.AbstractDirectDeclaratorImpl#getArray <em>Array</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class DirectDeclaratorImpl extends MinimalEObjectImpl.Container implements DirectDeclarator
+public class AbstractDirectDeclaratorImpl extends MinimalEObjectImpl.Container implements AbstractDirectDeclarator
 {
-  /**
-   * The default value of the '{@link #getId() <em>Id</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getId()
-   * @generated
-   * @ordered
-   */
-  protected static final String ID_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getId() <em>Id</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getId()
-   * @generated
-   * @ordered
-   */
-  protected String id = ID_EDEFAULT;
-
   /**
    * The cached value of the '{@link #getDec() <em>Dec</em>}' containment reference.
    * <!-- begin-user-doc -->
@@ -87,7 +66,7 @@ public class DirectDeclaratorImpl extends MinimalEObjectImpl.Container implement
    * <!-- end-user-doc -->
    * @generated
    */
-  protected DirectDeclaratorImpl()
+  protected AbstractDirectDeclaratorImpl()
   {
     super();
   }
@@ -100,30 +79,7 @@ public class DirectDeclaratorImpl extends MinimalEObjectImpl.Container implement
   @Override
   protected EClass eStaticClass()
   {
-    return FractalIDLPackage.Literals.DIRECT_DECLARATOR;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public String getId()
-  {
-    return id;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setId(String newId)
-  {
-    String oldId = id;
-    id = newId;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, FractalIDLPackage.DIRECT_DECLARATOR__ID, oldId, id));
+    return FractalIDLPackage.Literals.ABSTRACT_DIRECT_DECLARATOR;
   }
 
   /**
@@ -147,7 +103,7 @@ public class DirectDeclaratorImpl extends MinimalEObjectImpl.Container implement
     dec = newDec;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FractalIDLPackage.DIRECT_DECLARATOR__DEC, oldDec, newDec);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FractalIDLPackage.ABSTRACT_DIRECT_DECLARATOR__DEC, oldDec, newDec);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -164,14 +120,14 @@ public class DirectDeclaratorImpl extends MinimalEObjectImpl.Container implement
     {
       NotificationChain msgs = null;
       if (dec != null)
-        msgs = ((InternalEObject)dec).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FractalIDLPackage.DIRECT_DECLARATOR__DEC, null, msgs);
+        msgs = ((InternalEObject)dec).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FractalIDLPackage.ABSTRACT_DIRECT_DECLARATOR__DEC, null, msgs);
       if (newDec != null)
-        msgs = ((InternalEObject)newDec).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FractalIDLPackage.DIRECT_DECLARATOR__DEC, null, msgs);
+        msgs = ((InternalEObject)newDec).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FractalIDLPackage.ABSTRACT_DIRECT_DECLARATOR__DEC, null, msgs);
       msgs = basicSetDec(newDec, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, FractalIDLPackage.DIRECT_DECLARATOR__DEC, newDec, newDec));
+      eNotify(new ENotificationImpl(this, Notification.SET, FractalIDLPackage.ABSTRACT_DIRECT_DECLARATOR__DEC, newDec, newDec));
   }
 
   /**
@@ -183,7 +139,7 @@ public class DirectDeclaratorImpl extends MinimalEObjectImpl.Container implement
   {
     if (array == null)
     {
-      array = new EDataTypeEList<String>(String.class, this, FractalIDLPackage.DIRECT_DECLARATOR__ARRAY);
+      array = new EDataTypeEList<String>(String.class, this, FractalIDLPackage.ABSTRACT_DIRECT_DECLARATOR__ARRAY);
     }
     return array;
   }
@@ -198,7 +154,7 @@ public class DirectDeclaratorImpl extends MinimalEObjectImpl.Container implement
   {
     switch (featureID)
     {
-      case FractalIDLPackage.DIRECT_DECLARATOR__DEC:
+      case FractalIDLPackage.ABSTRACT_DIRECT_DECLARATOR__DEC:
         return basicSetDec(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
@@ -214,11 +170,9 @@ public class DirectDeclaratorImpl extends MinimalEObjectImpl.Container implement
   {
     switch (featureID)
     {
-      case FractalIDLPackage.DIRECT_DECLARATOR__ID:
-        return getId();
-      case FractalIDLPackage.DIRECT_DECLARATOR__DEC:
+      case FractalIDLPackage.ABSTRACT_DIRECT_DECLARATOR__DEC:
         return getDec();
-      case FractalIDLPackage.DIRECT_DECLARATOR__ARRAY:
+      case FractalIDLPackage.ABSTRACT_DIRECT_DECLARATOR__ARRAY:
         return getArray();
     }
     return super.eGet(featureID, resolve, coreType);
@@ -235,13 +189,10 @@ public class DirectDeclaratorImpl extends MinimalEObjectImpl.Container implement
   {
     switch (featureID)
     {
-      case FractalIDLPackage.DIRECT_DECLARATOR__ID:
-        setId((String)newValue);
-        return;
-      case FractalIDLPackage.DIRECT_DECLARATOR__DEC:
+      case FractalIDLPackage.ABSTRACT_DIRECT_DECLARATOR__DEC:
         setDec((Declarator)newValue);
         return;
-      case FractalIDLPackage.DIRECT_DECLARATOR__ARRAY:
+      case FractalIDLPackage.ABSTRACT_DIRECT_DECLARATOR__ARRAY:
         getArray().clear();
         getArray().addAll((Collection<? extends String>)newValue);
         return;
@@ -259,13 +210,10 @@ public class DirectDeclaratorImpl extends MinimalEObjectImpl.Container implement
   {
     switch (featureID)
     {
-      case FractalIDLPackage.DIRECT_DECLARATOR__ID:
-        setId(ID_EDEFAULT);
-        return;
-      case FractalIDLPackage.DIRECT_DECLARATOR__DEC:
+      case FractalIDLPackage.ABSTRACT_DIRECT_DECLARATOR__DEC:
         setDec((Declarator)null);
         return;
-      case FractalIDLPackage.DIRECT_DECLARATOR__ARRAY:
+      case FractalIDLPackage.ABSTRACT_DIRECT_DECLARATOR__ARRAY:
         getArray().clear();
         return;
     }
@@ -282,11 +230,9 @@ public class DirectDeclaratorImpl extends MinimalEObjectImpl.Container implement
   {
     switch (featureID)
     {
-      case FractalIDLPackage.DIRECT_DECLARATOR__ID:
-        return ID_EDEFAULT == null ? id != null : !ID_EDEFAULT.equals(id);
-      case FractalIDLPackage.DIRECT_DECLARATOR__DEC:
+      case FractalIDLPackage.ABSTRACT_DIRECT_DECLARATOR__DEC:
         return dec != null;
-      case FractalIDLPackage.DIRECT_DECLARATOR__ARRAY:
+      case FractalIDLPackage.ABSTRACT_DIRECT_DECLARATOR__ARRAY:
         return array != null && !array.isEmpty();
     }
     return super.eIsSet(featureID);
@@ -303,12 +249,10 @@ public class DirectDeclaratorImpl extends MinimalEObjectImpl.Container implement
     if (eIsProxy()) return super.toString();
 
     StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (id: ");
-    result.append(id);
-    result.append(", array: ");
+    result.append(" (array: ");
     result.append(array);
     result.append(')');
     return result.toString();
   }
 
-} //DirectDeclaratorImpl
+} //AbstractDirectDeclaratorImpl

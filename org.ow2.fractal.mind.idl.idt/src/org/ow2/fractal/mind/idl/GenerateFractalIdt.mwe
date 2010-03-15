@@ -31,11 +31,12 @@
 				fileExtensions="${file.extensions}"/>
 				
 			<!-- the following fragment tries to use the Antlr Generator fragment which can be installed via update manager from http://download.itemis.com/updates/ -->
-			<fragment class="org.eclipse.xtext.generator.AntlrDelegatingFragment" />
+			<!-- <fragment class="org.eclipse.xtext.generator.AntlrDelegatingFragment" /> -->
 			
 			<!-- If you don't want to use the Antlr fragment for some reason, remove the antlr fragment and uncomment the packrat parser fragment below.
 			<fragment class="org.eclipse.xtext.generator.parser.PackratParserFragment"/>
 			 -->
+			<fragment class="de.itemis.xtext.antlr.XtextAntlrGeneratorFragment"> <options backtrack="true" memoize="false" k="-1"/></fragment> 
 	
 			<!-- check-based API for validation -->
 			<!--
@@ -71,12 +72,12 @@
 			<!-- java-based API for content assistance -->
 			<fragment class="org.eclipse.xtext.ui.generator.contentAssist.JavaBasedContentAssistFragment"/>
 			<!-- the following fragment tries to use the Antlr based content assist fragment which can be downloaded from http://www.itemis.com 
-			     and will be ignored if it's not available. -->
+			     and will be ignored if it's not available.
 			<fragment class="org.eclipse.xtext.generator.DelegatingGeneratorFragment" 
 				delegate="de.itemis.xtext.antlr.XtextAntlrUiGeneratorFragment"
 				message="You are generating without ANTLR. It is highly recommended to download and use the plugin 'de.itemis.xtext.antlr' \n\t using the update site http://download.itemis.com/updates/.">
-			</fragment>
-			<!-- <fragment class="de.itemis.xtext.antlr.XtextAntlrUiGeneratorFragment"/> --> 
+			</fragment> -->
+			<fragment class="de.itemis.xtext.antlr.XtextAntlrUiGeneratorFragment"><options backtrack="true" memoize="false" k="-1"/></fragment>
 
 			<!-- builder integration -->
 			<fragment class="org.eclipse.xtext.generator.builder.BuilderIntegrationFragment"/>

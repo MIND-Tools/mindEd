@@ -171,6 +171,33 @@ public interface FractalIDLFactory extends EFactory
   Declarator createDeclarator();
 
   /**
+   * Returns a new object of class '<em>Abstract Declarator</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Abstract Declarator</em>'.
+   * @generated
+   */
+  AbstractDeclarator createAbstractDeclarator();
+
+  /**
+   * Returns a new object of class '<em>Pointer Specification</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Pointer Specification</em>'.
+   * @generated
+   */
+  PointerSpecification createPointerSpecification();
+
+  /**
+   * Returns a new object of class '<em>Qualified Pointer Specification</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Qualified Pointer Specification</em>'.
+   * @generated
+   */
+  Qualified_PointerSpecification createQualified_PointerSpecification();
+
+  /**
    * Returns a new object of class '<em>Direct Declarator</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -178,6 +205,15 @@ public interface FractalIDLFactory extends EFactory
    * @generated
    */
   DirectDeclarator createDirectDeclarator();
+
+  /**
+   * Returns a new object of class '<em>Abstract Direct Declarator</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Abstract Direct Declarator</em>'.
+   * @generated
+   */
+  AbstractDirectDeclarator createAbstractDirectDeclarator();
 
   /**
    * Returns a new object of class '<em>Constant Definition</em>'.

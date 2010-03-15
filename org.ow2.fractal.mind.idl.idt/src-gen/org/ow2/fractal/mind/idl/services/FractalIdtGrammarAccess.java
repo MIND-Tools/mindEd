@@ -390,15 +390,7 @@ public class FractalIdtGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//Declarator:
-	//  ("*" typeQualifier+=TypeQualifier*)* dc=DirectDeclarator; 
-	//
-	//
-	//        //PointerSpecification:
-	//
-	////  qualifiedPointer+=(qualified_PointerSpecification)*;
-	////
-	////qualified_PointerSpecification:
-	////  '*' (typeQualifier+=TypeQualifier)*;
+	//  pointer=PointerSpecification dc=DirectDeclarator;
 	public FractalItfGrammarAccess.DeclaratorElements getDeclaratorAccess() {
 		return gaFractalItf.getDeclaratorAccess();
 	}
@@ -407,19 +399,54 @@ public class FractalIdtGrammarAccess extends AbstractGrammarElementFinder {
 		return getDeclaratorAccess().getRule();
 	}
 
+	//AbstractDeclarator:
+	//  pointer=PointerSpecification dc=AbstractDirectDeclarator;
+	public FractalItfGrammarAccess.AbstractDeclaratorElements getAbstractDeclaratorAccess() {
+		return gaFractalItf.getAbstractDeclaratorAccess();
+	}
+	
+	public ParserRule getAbstractDeclaratorRule() {
+		return getAbstractDeclaratorAccess().getRule();
+	}
+
+	//PointerSpecification:
+	//  qualifiedPointer+=Qualified_PointerSpecification*;
+	public FractalItfGrammarAccess.PointerSpecificationElements getPointerSpecificationAccess() {
+		return gaFractalItf.getPointerSpecificationAccess();
+	}
+	
+	public ParserRule getPointerSpecificationRule() {
+		return getPointerSpecificationAccess().getRule();
+	}
+
+	//Qualified_PointerSpecification:
+	//  "*" typeQualifier+=TypeQualifier*;
+	public FractalItfGrammarAccess.Qualified_PointerSpecificationElements getQualified_PointerSpecificationAccess() {
+		return gaFractalItf.getQualified_PointerSpecificationAccess();
+	}
+	
+	public ParserRule getQualified_PointerSpecificationRule() {
+		return getQualified_PointerSpecificationAccess().getRule();
+	}
+
 	//DirectDeclarator:
-	//  (id=ID|"(" Declarator ")") ArraySpecification*;   //PointerSpecification:
-	//
-	////  qualifiedPointer+=(qualified_PointerSpecification)*;
-	////
-	////qualified_PointerSpecification:
-	////  '*' (typeQualifier+=TypeQualifier)*;
+	//  (id=ID|"(" dec=Declarator ")") array+=ArraySpecification*;
 	public FractalItfGrammarAccess.DirectDeclaratorElements getDirectDeclaratorAccess() {
 		return gaFractalItf.getDirectDeclaratorAccess();
 	}
 	
 	public ParserRule getDirectDeclaratorRule() {
 		return getDirectDeclaratorAccess().getRule();
+	}
+
+	//AbstractDirectDeclarator:
+	//  "(" dec=Declarator ")" array+=ArraySpecification*;
+	public FractalItfGrammarAccess.AbstractDirectDeclaratorElements getAbstractDirectDeclaratorAccess() {
+		return gaFractalItf.getAbstractDirectDeclaratorAccess();
+	}
+	
+	public ParserRule getAbstractDirectDeclaratorRule() {
+		return getAbstractDirectDeclaratorAccess().getRule();
 	}
 
 	//ArraySpecification returns ecore::EString:
@@ -489,7 +516,7 @@ public class FractalIdtGrammarAccess extends AbstractGrammarElementFinder {
 
 	//Parameter:
 	//  ParameterQualifier+=ParameterQualifier* qualifiedTypeSpec=
-	//  QualifiedTypeSpecification dec=Declarator;
+	//  QualifiedTypeSpecification (dec=Declarator|abstractDec=AbstractDeclarator);
 	public FractalItfGrammarAccess.ParameterElements getParameterAccess() {
 		return gaFractalItf.getParameterAccess();
 	}

@@ -561,45 +561,97 @@ public class FractalItfGrammarAccess extends AbstractGrammarElementFinder {
 	public class DeclaratorElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Declarator");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Group cGroup_0 = (Group)cGroup.eContents().get(0);
-		private final Keyword cAsteriskKeyword_0_0 = (Keyword)cGroup_0.eContents().get(0);
-		private final Assignment cTypeQualifierAssignment_0_1 = (Assignment)cGroup_0.eContents().get(1);
-		private final RuleCall cTypeQualifierTypeQualifierEnumRuleCall_0_1_0 = (RuleCall)cTypeQualifierAssignment_0_1.eContents().get(0);
+		private final Assignment cPointerAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final RuleCall cPointerPointerSpecificationParserRuleCall_0_0 = (RuleCall)cPointerAssignment_0.eContents().get(0);
 		private final Assignment cDcAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final RuleCall cDcDirectDeclaratorParserRuleCall_1_0 = (RuleCall)cDcAssignment_1.eContents().get(0);
 		
 		//Declarator:
-		//  ("*" typeQualifier+=TypeQualifier*)* dc=DirectDeclarator; 
-		//
-		//
-		//        //PointerSpecification:
-		//
-		////  qualifiedPointer+=(qualified_PointerSpecification)*;
-		////
-		////qualified_PointerSpecification:
-		////  '*' (typeQualifier+=TypeQualifier)*;
+		//  pointer=PointerSpecification dc=DirectDeclarator;
 		public ParserRule getRule() { return rule; }
 
-		//("*" typeQualifier+=TypeQualifier*)* dc=DirectDeclarator
+		//pointer=PointerSpecification dc=DirectDeclarator
 		public Group getGroup() { return cGroup; }
 
-		//("*" typeQualifier+=TypeQualifier*)*
-		public Group getGroup_0() { return cGroup_0; }
+		//pointer=PointerSpecification
+		public Assignment getPointerAssignment_0() { return cPointerAssignment_0; }
 
-		//"*"
-		public Keyword getAsteriskKeyword_0_0() { return cAsteriskKeyword_0_0; }
-
-		//typeQualifier+=TypeQualifier*
-		public Assignment getTypeQualifierAssignment_0_1() { return cTypeQualifierAssignment_0_1; }
-
-		//TypeQualifier
-		public RuleCall getTypeQualifierTypeQualifierEnumRuleCall_0_1_0() { return cTypeQualifierTypeQualifierEnumRuleCall_0_1_0; }
+		//PointerSpecification
+		public RuleCall getPointerPointerSpecificationParserRuleCall_0_0() { return cPointerPointerSpecificationParserRuleCall_0_0; }
 
 		//dc=DirectDeclarator
 		public Assignment getDcAssignment_1() { return cDcAssignment_1; }
 
 		//DirectDeclarator
 		public RuleCall getDcDirectDeclaratorParserRuleCall_1_0() { return cDcDirectDeclaratorParserRuleCall_1_0; }
+	}
+
+	public class AbstractDeclaratorElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "AbstractDeclarator");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Assignment cPointerAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final RuleCall cPointerPointerSpecificationParserRuleCall_0_0 = (RuleCall)cPointerAssignment_0.eContents().get(0);
+		private final Assignment cDcAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cDcAbstractDirectDeclaratorParserRuleCall_1_0 = (RuleCall)cDcAssignment_1.eContents().get(0);
+		
+		//AbstractDeclarator:
+		//  pointer=PointerSpecification dc=AbstractDirectDeclarator;
+		public ParserRule getRule() { return rule; }
+
+		//pointer=PointerSpecification dc=AbstractDirectDeclarator
+		public Group getGroup() { return cGroup; }
+
+		//pointer=PointerSpecification
+		public Assignment getPointerAssignment_0() { return cPointerAssignment_0; }
+
+		//PointerSpecification
+		public RuleCall getPointerPointerSpecificationParserRuleCall_0_0() { return cPointerPointerSpecificationParserRuleCall_0_0; }
+
+		//dc=AbstractDirectDeclarator
+		public Assignment getDcAssignment_1() { return cDcAssignment_1; }
+
+		//AbstractDirectDeclarator
+		public RuleCall getDcAbstractDirectDeclaratorParserRuleCall_1_0() { return cDcAbstractDirectDeclaratorParserRuleCall_1_0; }
+	}
+
+	public class PointerSpecificationElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "PointerSpecification");
+		private final Assignment cQualifiedPointerAssignment = (Assignment)rule.eContents().get(1);
+		private final RuleCall cQualifiedPointerQualified_PointerSpecificationParserRuleCall_0 = (RuleCall)cQualifiedPointerAssignment.eContents().get(0);
+		
+		//PointerSpecification:
+		//  qualifiedPointer+=Qualified_PointerSpecification*;
+		public ParserRule getRule() { return rule; }
+
+		//qualifiedPointer+=Qualified_PointerSpecification*
+		public Assignment getQualifiedPointerAssignment() { return cQualifiedPointerAssignment; }
+
+		//Qualified_PointerSpecification
+		public RuleCall getQualifiedPointerQualified_PointerSpecificationParserRuleCall_0() { return cQualifiedPointerQualified_PointerSpecificationParserRuleCall_0; }
+	}
+
+	public class Qualified_PointerSpecificationElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Qualified_PointerSpecification");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cAsteriskKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cTypeQualifierAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cTypeQualifierTypeQualifierEnumRuleCall_1_0 = (RuleCall)cTypeQualifierAssignment_1.eContents().get(0);
+		
+		//Qualified_PointerSpecification:
+		//  "*" typeQualifier+=TypeQualifier*;
+		public ParserRule getRule() { return rule; }
+
+		//"*" typeQualifier+=TypeQualifier*
+		public Group getGroup() { return cGroup; }
+
+		//"*"
+		public Keyword getAsteriskKeyword_0() { return cAsteriskKeyword_0; }
+
+		//typeQualifier+=TypeQualifier*
+		public Assignment getTypeQualifierAssignment_1() { return cTypeQualifierAssignment_1; }
+
+		//TypeQualifier
+		public RuleCall getTypeQualifierTypeQualifierEnumRuleCall_1_0() { return cTypeQualifierTypeQualifierEnumRuleCall_1_0; }
 	}
 
 	public class DirectDeclaratorElements extends AbstractParserRuleElementFinder {
@@ -610,23 +662,20 @@ public class FractalItfGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cIdIDTerminalRuleCall_0_0_0 = (RuleCall)cIdAssignment_0_0.eContents().get(0);
 		private final Group cGroup_0_1 = (Group)cAlternatives_0.eContents().get(1);
 		private final Keyword cLeftParenthesisKeyword_0_1_0 = (Keyword)cGroup_0_1.eContents().get(0);
-		private final RuleCall cDeclaratorParserRuleCall_0_1_1 = (RuleCall)cGroup_0_1.eContents().get(1);
+		private final Assignment cDecAssignment_0_1_1 = (Assignment)cGroup_0_1.eContents().get(1);
+		private final RuleCall cDecDeclaratorParserRuleCall_0_1_1_0 = (RuleCall)cDecAssignment_0_1_1.eContents().get(0);
 		private final Keyword cRightParenthesisKeyword_0_1_2 = (Keyword)cGroup_0_1.eContents().get(2);
-		private final RuleCall cArraySpecificationParserRuleCall_1 = (RuleCall)cGroup.eContents().get(1);
+		private final Assignment cArrayAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cArrayArraySpecificationParserRuleCall_1_0 = (RuleCall)cArrayAssignment_1.eContents().get(0);
 		
 		//DirectDeclarator:
-		//  (id=ID|"(" Declarator ")") ArraySpecification*;   //PointerSpecification:
-		//
-		////  qualifiedPointer+=(qualified_PointerSpecification)*;
-		////
-		////qualified_PointerSpecification:
-		////  '*' (typeQualifier+=TypeQualifier)*;
+		//  (id=ID|"(" dec=Declarator ")") array+=ArraySpecification*;
 		public ParserRule getRule() { return rule; }
 
-		//(id=ID|"(" Declarator ")") ArraySpecification*
+		//(id=ID|"(" dec=Declarator ")") array+=ArraySpecification*
 		public Group getGroup() { return cGroup; }
 
-		//id=ID|"(" Declarator ")"
+		//id=ID|"(" dec=Declarator ")"
 		public Alternatives getAlternatives_0() { return cAlternatives_0; }
 
 		//id=ID
@@ -635,20 +684,62 @@ public class FractalItfGrammarAccess extends AbstractGrammarElementFinder {
 		//ID
 		public RuleCall getIdIDTerminalRuleCall_0_0_0() { return cIdIDTerminalRuleCall_0_0_0; }
 
-		//"(" Declarator ")"
+		//"(" dec=Declarator ")"
 		public Group getGroup_0_1() { return cGroup_0_1; }
 
 		//"("
 		public Keyword getLeftParenthesisKeyword_0_1_0() { return cLeftParenthesisKeyword_0_1_0; }
 
+		//dec=Declarator
+		public Assignment getDecAssignment_0_1_1() { return cDecAssignment_0_1_1; }
+
 		//Declarator
-		public RuleCall getDeclaratorParserRuleCall_0_1_1() { return cDeclaratorParserRuleCall_0_1_1; }
+		public RuleCall getDecDeclaratorParserRuleCall_0_1_1_0() { return cDecDeclaratorParserRuleCall_0_1_1_0; }
 
 		//")"
 		public Keyword getRightParenthesisKeyword_0_1_2() { return cRightParenthesisKeyword_0_1_2; }
 
-		//ArraySpecification*
-		public RuleCall getArraySpecificationParserRuleCall_1() { return cArraySpecificationParserRuleCall_1; }
+		//array+=ArraySpecification*
+		public Assignment getArrayAssignment_1() { return cArrayAssignment_1; }
+
+		//ArraySpecification
+		public RuleCall getArrayArraySpecificationParserRuleCall_1_0() { return cArrayArraySpecificationParserRuleCall_1_0; }
+	}
+
+	public class AbstractDirectDeclaratorElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "AbstractDirectDeclarator");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cLeftParenthesisKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cDecAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cDecDeclaratorParserRuleCall_1_0 = (RuleCall)cDecAssignment_1.eContents().get(0);
+		private final Keyword cRightParenthesisKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Assignment cArrayAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cArrayArraySpecificationParserRuleCall_3_0 = (RuleCall)cArrayAssignment_3.eContents().get(0);
+		
+		//AbstractDirectDeclarator:
+		//  "(" dec=Declarator ")" array+=ArraySpecification*;
+		public ParserRule getRule() { return rule; }
+
+		//"(" dec=Declarator ")" array+=ArraySpecification*
+		public Group getGroup() { return cGroup; }
+
+		//"("
+		public Keyword getLeftParenthesisKeyword_0() { return cLeftParenthesisKeyword_0; }
+
+		//dec=Declarator
+		public Assignment getDecAssignment_1() { return cDecAssignment_1; }
+
+		//Declarator
+		public RuleCall getDecDeclaratorParserRuleCall_1_0() { return cDecDeclaratorParserRuleCall_1_0; }
+
+		//")"
+		public Keyword getRightParenthesisKeyword_2() { return cRightParenthesisKeyword_2; }
+
+		//array+=ArraySpecification*
+		public Assignment getArrayAssignment_3() { return cArrayAssignment_3; }
+
+		//ArraySpecification
+		public RuleCall getArrayArraySpecificationParserRuleCall_3_0() { return cArrayArraySpecificationParserRuleCall_3_0; }
 	}
 
 	public class ArraySpecificationElements extends AbstractParserRuleElementFinder {
@@ -929,16 +1020,19 @@ public class FractalItfGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cParameterQualifierParameterQualifierEnumRuleCall_0_0 = (RuleCall)cParameterQualifierAssignment_0.eContents().get(0);
 		private final Assignment cQualifiedTypeSpecAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final RuleCall cQualifiedTypeSpecQualifiedTypeSpecificationParserRuleCall_1_0 = (RuleCall)cQualifiedTypeSpecAssignment_1.eContents().get(0);
-		private final Assignment cDecAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cDecDeclaratorParserRuleCall_2_0 = (RuleCall)cDecAssignment_2.eContents().get(0);
+		private final Alternatives cAlternatives_2 = (Alternatives)cGroup.eContents().get(2);
+		private final Assignment cDecAssignment_2_0 = (Assignment)cAlternatives_2.eContents().get(0);
+		private final RuleCall cDecDeclaratorParserRuleCall_2_0_0 = (RuleCall)cDecAssignment_2_0.eContents().get(0);
+		private final Assignment cAbstractDecAssignment_2_1 = (Assignment)cAlternatives_2.eContents().get(1);
+		private final RuleCall cAbstractDecAbstractDeclaratorParserRuleCall_2_1_0 = (RuleCall)cAbstractDecAssignment_2_1.eContents().get(0);
 		
 		//Parameter:
 		//  ParameterQualifier+=ParameterQualifier* qualifiedTypeSpec=
-		//  QualifiedTypeSpecification dec=Declarator;
+		//  QualifiedTypeSpecification (dec=Declarator|abstractDec=AbstractDeclarator);
 		public ParserRule getRule() { return rule; }
 
 		//ParameterQualifier+=ParameterQualifier* qualifiedTypeSpec=
-		//QualifiedTypeSpecification dec=Declarator
+		//QualifiedTypeSpecification (dec=Declarator|abstractDec=AbstractDeclarator)
 		public Group getGroup() { return cGroup; }
 
 		//ParameterQualifier+=ParameterQualifier*
@@ -953,11 +1047,20 @@ public class FractalItfGrammarAccess extends AbstractGrammarElementFinder {
 		//QualifiedTypeSpecification
 		public RuleCall getQualifiedTypeSpecQualifiedTypeSpecificationParserRuleCall_1_0() { return cQualifiedTypeSpecQualifiedTypeSpecificationParserRuleCall_1_0; }
 
+		//dec=Declarator|abstractDec=AbstractDeclarator
+		public Alternatives getAlternatives_2() { return cAlternatives_2; }
+
 		//dec=Declarator
-		public Assignment getDecAssignment_2() { return cDecAssignment_2; }
+		public Assignment getDecAssignment_2_0() { return cDecAssignment_2_0; }
 
 		//Declarator
-		public RuleCall getDecDeclaratorParserRuleCall_2_0() { return cDecDeclaratorParserRuleCall_2_0; }
+		public RuleCall getDecDeclaratorParserRuleCall_2_0_0() { return cDecDeclaratorParserRuleCall_2_0_0; }
+
+		//abstractDec=AbstractDeclarator
+		public Assignment getAbstractDecAssignment_2_1() { return cAbstractDecAssignment_2_1; }
+
+		//AbstractDeclarator
+		public RuleCall getAbstractDecAbstractDeclaratorParserRuleCall_2_1_0() { return cAbstractDecAbstractDeclaratorParserRuleCall_2_1_0; }
 	}
 
 	public class IncludeDirectiveElements extends AbstractParserRuleElementFinder {
@@ -1253,7 +1356,11 @@ public class FractalItfGrammarAccess extends AbstractGrammarElementFinder {
 	private EnumMemberElements pEnumMember;
 	private DeclaratorsElements pDeclarators;
 	private DeclaratorElements pDeclarator;
+	private AbstractDeclaratorElements pAbstractDeclarator;
+	private PointerSpecificationElements pPointerSpecification;
+	private Qualified_PointerSpecificationElements pQualified_PointerSpecification;
 	private DirectDeclaratorElements pDirectDeclarator;
+	private AbstractDirectDeclaratorElements pAbstractDirectDeclarator;
 	private ArraySpecificationElements pArraySpecification;
 	private FullyQualifiedNameElements pFullyQualifiedName;
 	private ConstantDefinitionElements pConstantDefinition;
@@ -1485,15 +1592,7 @@ public class FractalItfGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//Declarator:
-	//  ("*" typeQualifier+=TypeQualifier*)* dc=DirectDeclarator; 
-	//
-	//
-	//        //PointerSpecification:
-	//
-	////  qualifiedPointer+=(qualified_PointerSpecification)*;
-	////
-	////qualified_PointerSpecification:
-	////  '*' (typeQualifier+=TypeQualifier)*;
+	//  pointer=PointerSpecification dc=DirectDeclarator;
 	public DeclaratorElements getDeclaratorAccess() {
 		return (pDeclarator != null) ? pDeclarator : (pDeclarator = new DeclaratorElements());
 	}
@@ -1502,19 +1601,54 @@ public class FractalItfGrammarAccess extends AbstractGrammarElementFinder {
 		return getDeclaratorAccess().getRule();
 	}
 
+	//AbstractDeclarator:
+	//  pointer=PointerSpecification dc=AbstractDirectDeclarator;
+	public AbstractDeclaratorElements getAbstractDeclaratorAccess() {
+		return (pAbstractDeclarator != null) ? pAbstractDeclarator : (pAbstractDeclarator = new AbstractDeclaratorElements());
+	}
+	
+	public ParserRule getAbstractDeclaratorRule() {
+		return getAbstractDeclaratorAccess().getRule();
+	}
+
+	//PointerSpecification:
+	//  qualifiedPointer+=Qualified_PointerSpecification*;
+	public PointerSpecificationElements getPointerSpecificationAccess() {
+		return (pPointerSpecification != null) ? pPointerSpecification : (pPointerSpecification = new PointerSpecificationElements());
+	}
+	
+	public ParserRule getPointerSpecificationRule() {
+		return getPointerSpecificationAccess().getRule();
+	}
+
+	//Qualified_PointerSpecification:
+	//  "*" typeQualifier+=TypeQualifier*;
+	public Qualified_PointerSpecificationElements getQualified_PointerSpecificationAccess() {
+		return (pQualified_PointerSpecification != null) ? pQualified_PointerSpecification : (pQualified_PointerSpecification = new Qualified_PointerSpecificationElements());
+	}
+	
+	public ParserRule getQualified_PointerSpecificationRule() {
+		return getQualified_PointerSpecificationAccess().getRule();
+	}
+
 	//DirectDeclarator:
-	//  (id=ID|"(" Declarator ")") ArraySpecification*;   //PointerSpecification:
-	//
-	////  qualifiedPointer+=(qualified_PointerSpecification)*;
-	////
-	////qualified_PointerSpecification:
-	////  '*' (typeQualifier+=TypeQualifier)*;
+	//  (id=ID|"(" dec=Declarator ")") array+=ArraySpecification*;
 	public DirectDeclaratorElements getDirectDeclaratorAccess() {
 		return (pDirectDeclarator != null) ? pDirectDeclarator : (pDirectDeclarator = new DirectDeclaratorElements());
 	}
 	
 	public ParserRule getDirectDeclaratorRule() {
 		return getDirectDeclaratorAccess().getRule();
+	}
+
+	//AbstractDirectDeclarator:
+	//  "(" dec=Declarator ")" array+=ArraySpecification*;
+	public AbstractDirectDeclaratorElements getAbstractDirectDeclaratorAccess() {
+		return (pAbstractDirectDeclarator != null) ? pAbstractDirectDeclarator : (pAbstractDirectDeclarator = new AbstractDirectDeclaratorElements());
+	}
+	
+	public ParserRule getAbstractDirectDeclaratorRule() {
+		return getAbstractDirectDeclaratorAccess().getRule();
 	}
 
 	//ArraySpecification returns ecore::EString:
@@ -1584,7 +1718,7 @@ public class FractalItfGrammarAccess extends AbstractGrammarElementFinder {
 
 	//Parameter:
 	//  ParameterQualifier+=ParameterQualifier* qualifiedTypeSpec=
-	//  QualifiedTypeSpecification dec=Declarator;
+	//  QualifiedTypeSpecification (dec=Declarator|abstractDec=AbstractDeclarator);
 	public ParameterElements getParameterAccess() {
 		return (pParameter != null) ? pParameter : (pParameter = new ParameterElements());
 	}

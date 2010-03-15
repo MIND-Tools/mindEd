@@ -92,14 +92,38 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="declaratorList" upperBound="-1"
         eType="#//Declarator" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Declarator" eSuperTypes="#//DirectDeclarator">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="typeQualifier" unique="false"
-        upperBound="-1" eType="#//TypeQualifier"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Declarator">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="pointer" eType="#//PointerSpecification"
+        containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="dc" eType="#//DirectDeclarator"
         containment="true"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="AbstractDeclarator">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="pointer" eType="#//PointerSpecification"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="dc" eType="#//AbstractDirectDeclarator"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="PointerSpecification">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="qualifiedPointer" upperBound="-1"
+        eType="#//Qualified_PointerSpecification" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Qualified_PointerSpecification">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="typeQualifier" unique="false"
+        upperBound="-1" eType="#//TypeQualifier"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DirectDeclarator">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="dec" eType="#//Declarator"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="array" unique="false" upperBound="-1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="AbstractDirectDeclarator">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="dec" eType="#//Declarator"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="array" unique="false" upperBound="-1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ConstantDefinition">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -129,6 +153,8 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="qualifiedTypeSpec" eType="#//QualifiedTypeSpecification"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="dec" eType="#//Declarator"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="abstractDec" eType="#//AbstractDeclarator"
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="ParameterQualifier">

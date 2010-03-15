@@ -14,6 +14,8 @@ import org.eclipse.emf.ecore.EReference;
 
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
+import org.ow2.fractal.mind.idl.fractalIDL.AbstractDeclarator;
+import org.ow2.fractal.mind.idl.fractalIDL.AbstractDirectDeclarator;
 import org.ow2.fractal.mind.idl.fractalIDL.ConstantDefinition;
 import org.ow2.fractal.mind.idl.fractalIDL.Declarator;
 import org.ow2.fractal.mind.idl.fractalIDL.Declarators;
@@ -32,7 +34,9 @@ import org.ow2.fractal.mind.idl.fractalIDL.MethodDefinition;
 import org.ow2.fractal.mind.idl.fractalIDL.Parameter;
 import org.ow2.fractal.mind.idl.fractalIDL.ParameterList;
 import org.ow2.fractal.mind.idl.fractalIDL.ParameterQualifier;
+import org.ow2.fractal.mind.idl.fractalIDL.PointerSpecification;
 import org.ow2.fractal.mind.idl.fractalIDL.QualifiedTypeSpecification;
+import org.ow2.fractal.mind.idl.fractalIDL.Qualified_PointerSpecification;
 import org.ow2.fractal.mind.idl.fractalIDL.StructMember;
 import org.ow2.fractal.mind.idl.fractalIDL.StructOrUnionDefinition;
 import org.ow2.fractal.mind.idl.fractalIDL.StructOrUnionSpecification;
@@ -168,7 +172,35 @@ public class FractalIDLPackageImpl extends EPackageImpl implements FractalIDLPac
    * <!-- end-user-doc -->
    * @generated
    */
+  private EClass abstractDeclaratorEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass pointerSpecificationEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass qualified_PointerSpecificationEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   private EClass directDeclaratorEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass abstractDirectDeclaratorEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -671,9 +703,9 @@ public class FractalIDLPackageImpl extends EPackageImpl implements FractalIDLPac
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getDeclarator_TypeQualifier()
+  public EReference getDeclarator_Pointer()
   {
-    return (EAttribute)declaratorEClass.getEStructuralFeatures().get(0);
+    return (EReference)declaratorEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -684,6 +716,76 @@ public class FractalIDLPackageImpl extends EPackageImpl implements FractalIDLPac
   public EReference getDeclarator_Dc()
   {
     return (EReference)declaratorEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getAbstractDeclarator()
+  {
+    return abstractDeclaratorEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getAbstractDeclarator_Pointer()
+  {
+    return (EReference)abstractDeclaratorEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getAbstractDeclarator_Dc()
+  {
+    return (EReference)abstractDeclaratorEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getPointerSpecification()
+  {
+    return pointerSpecificationEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getPointerSpecification_QualifiedPointer()
+  {
+    return (EReference)pointerSpecificationEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getQualified_PointerSpecification()
+  {
+    return qualified_PointerSpecificationEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getQualified_PointerSpecification_TypeQualifier()
+  {
+    return (EAttribute)qualified_PointerSpecificationEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -704,6 +806,56 @@ public class FractalIDLPackageImpl extends EPackageImpl implements FractalIDLPac
   public EAttribute getDirectDeclarator_Id()
   {
     return (EAttribute)directDeclaratorEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getDirectDeclarator_Dec()
+  {
+    return (EReference)directDeclaratorEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getDirectDeclarator_Array()
+  {
+    return (EAttribute)directDeclaratorEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getAbstractDirectDeclarator()
+  {
+    return abstractDirectDeclaratorEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getAbstractDirectDeclarator_Dec()
+  {
+    return (EReference)abstractDirectDeclaratorEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getAbstractDirectDeclarator_Array()
+  {
+    return (EAttribute)abstractDirectDeclaratorEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -881,6 +1033,16 @@ public class FractalIDLPackageImpl extends EPackageImpl implements FractalIDLPac
    * <!-- end-user-doc -->
    * @generated
    */
+  public EReference getParameter_AbstractDec()
+  {
+    return (EReference)parameterEClass.getEStructuralFeatures().get(3);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getIncludeDirective()
   {
     return includeDirectiveEClass;
@@ -1018,11 +1180,27 @@ public class FractalIDLPackageImpl extends EPackageImpl implements FractalIDLPac
     createEReference(declaratorsEClass, DECLARATORS__DECLARATOR_LIST);
 
     declaratorEClass = createEClass(DECLARATOR);
-    createEAttribute(declaratorEClass, DECLARATOR__TYPE_QUALIFIER);
+    createEReference(declaratorEClass, DECLARATOR__POINTER);
     createEReference(declaratorEClass, DECLARATOR__DC);
+
+    abstractDeclaratorEClass = createEClass(ABSTRACT_DECLARATOR);
+    createEReference(abstractDeclaratorEClass, ABSTRACT_DECLARATOR__POINTER);
+    createEReference(abstractDeclaratorEClass, ABSTRACT_DECLARATOR__DC);
+
+    pointerSpecificationEClass = createEClass(POINTER_SPECIFICATION);
+    createEReference(pointerSpecificationEClass, POINTER_SPECIFICATION__QUALIFIED_POINTER);
+
+    qualified_PointerSpecificationEClass = createEClass(QUALIFIED_POINTER_SPECIFICATION);
+    createEAttribute(qualified_PointerSpecificationEClass, QUALIFIED_POINTER_SPECIFICATION__TYPE_QUALIFIER);
 
     directDeclaratorEClass = createEClass(DIRECT_DECLARATOR);
     createEAttribute(directDeclaratorEClass, DIRECT_DECLARATOR__ID);
+    createEReference(directDeclaratorEClass, DIRECT_DECLARATOR__DEC);
+    createEAttribute(directDeclaratorEClass, DIRECT_DECLARATOR__ARRAY);
+
+    abstractDirectDeclaratorEClass = createEClass(ABSTRACT_DIRECT_DECLARATOR);
+    createEReference(abstractDirectDeclaratorEClass, ABSTRACT_DIRECT_DECLARATOR__DEC);
+    createEAttribute(abstractDirectDeclaratorEClass, ABSTRACT_DIRECT_DECLARATOR__ARRAY);
 
     constantDefinitionEClass = createEClass(CONSTANT_DEFINITION);
     createEAttribute(constantDefinitionEClass, CONSTANT_DEFINITION__ID);
@@ -1045,6 +1223,7 @@ public class FractalIDLPackageImpl extends EPackageImpl implements FractalIDLPac
     createEAttribute(parameterEClass, PARAMETER__PARAMETER_QUALIFIER);
     createEReference(parameterEClass, PARAMETER__QUALIFIED_TYPE_SPEC);
     createEReference(parameterEClass, PARAMETER__DEC);
+    createEReference(parameterEClass, PARAMETER__ABSTRACT_DEC);
 
     includeDirectiveEClass = createEClass(INCLUDE_DIRECTIVE);
     createEAttribute(includeDirectiveEClass, INCLUDE_DIRECTIVE__IMPORTED_URI);
@@ -1095,7 +1274,6 @@ public class FractalIDLPackageImpl extends EPackageImpl implements FractalIDLPac
     enumDefinitionEClass.getESuperTypes().add(this.getEnumSpecification());
     enumReferenceEClass.getESuperTypes().add(this.getEnumSpecification());
     enumMemberEClass.getESuperTypes().add(this.getEnumMemberList());
-    declaratorEClass.getESuperTypes().add(this.getDirectDeclarator());
 
     // Initialize classes and features; add operations and parameters
     initEClass(itfFileEClass, ItfFile.class, "ItfFile", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1150,11 +1328,27 @@ public class FractalIDLPackageImpl extends EPackageImpl implements FractalIDLPac
     initEReference(getDeclarators_DeclaratorList(), this.getDeclarator(), null, "declaratorList", null, 0, -1, Declarators.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(declaratorEClass, Declarator.class, "Declarator", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getDeclarator_TypeQualifier(), this.getTypeQualifier(), "typeQualifier", null, 0, -1, Declarator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getDeclarator_Pointer(), this.getPointerSpecification(), null, "pointer", null, 0, 1, Declarator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getDeclarator_Dc(), this.getDirectDeclarator(), null, "dc", null, 0, 1, Declarator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(abstractDeclaratorEClass, AbstractDeclarator.class, "AbstractDeclarator", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getAbstractDeclarator_Pointer(), this.getPointerSpecification(), null, "pointer", null, 0, 1, AbstractDeclarator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getAbstractDeclarator_Dc(), this.getAbstractDirectDeclarator(), null, "dc", null, 0, 1, AbstractDeclarator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(pointerSpecificationEClass, PointerSpecification.class, "PointerSpecification", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getPointerSpecification_QualifiedPointer(), this.getQualified_PointerSpecification(), null, "qualifiedPointer", null, 0, -1, PointerSpecification.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(qualified_PointerSpecificationEClass, Qualified_PointerSpecification.class, "Qualified_PointerSpecification", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getQualified_PointerSpecification_TypeQualifier(), this.getTypeQualifier(), "typeQualifier", null, 0, -1, Qualified_PointerSpecification.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(directDeclaratorEClass, DirectDeclarator.class, "DirectDeclarator", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getDirectDeclarator_Id(), ecorePackage.getEString(), "id", null, 0, 1, DirectDeclarator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getDirectDeclarator_Dec(), this.getDeclarator(), null, "dec", null, 0, 1, DirectDeclarator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getDirectDeclarator_Array(), ecorePackage.getEString(), "array", null, 0, -1, DirectDeclarator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(abstractDirectDeclaratorEClass, AbstractDirectDeclarator.class, "AbstractDirectDeclarator", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getAbstractDirectDeclarator_Dec(), this.getDeclarator(), null, "dec", null, 0, 1, AbstractDirectDeclarator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getAbstractDirectDeclarator_Array(), ecorePackage.getEString(), "array", null, 0, -1, AbstractDirectDeclarator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(constantDefinitionEClass, ConstantDefinition.class, "ConstantDefinition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getConstantDefinition_Id(), ecorePackage.getEString(), "id", null, 0, 1, ConstantDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1177,6 +1371,7 @@ public class FractalIDLPackageImpl extends EPackageImpl implements FractalIDLPac
     initEAttribute(getParameter_ParameterQualifier(), this.getParameterQualifier(), "ParameterQualifier", null, 0, -1, Parameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getParameter_QualifiedTypeSpec(), this.getQualifiedTypeSpecification(), null, "qualifiedTypeSpec", null, 0, 1, Parameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getParameter_Dec(), this.getDeclarator(), null, "dec", null, 0, 1, Parameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getParameter_AbstractDec(), this.getAbstractDeclarator(), null, "abstractDec", null, 0, 1, Parameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(includeDirectiveEClass, IncludeDirective.class, "IncludeDirective", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getIncludeDirective_ImportedURI(), ecorePackage.getEString(), "importedURI", null, 0, 1, IncludeDirective.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

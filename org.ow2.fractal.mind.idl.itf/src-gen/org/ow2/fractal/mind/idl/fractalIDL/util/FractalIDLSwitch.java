@@ -223,7 +223,27 @@ public class FractalIDLSwitch<T>
       {
         Declarator declarator = (Declarator)theEObject;
         T result = caseDeclarator(declarator);
-        if (result == null) result = caseDirectDeclarator(declarator);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case FractalIDLPackage.ABSTRACT_DECLARATOR:
+      {
+        AbstractDeclarator abstractDeclarator = (AbstractDeclarator)theEObject;
+        T result = caseAbstractDeclarator(abstractDeclarator);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case FractalIDLPackage.POINTER_SPECIFICATION:
+      {
+        PointerSpecification pointerSpecification = (PointerSpecification)theEObject;
+        T result = casePointerSpecification(pointerSpecification);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case FractalIDLPackage.QUALIFIED_POINTER_SPECIFICATION:
+      {
+        Qualified_PointerSpecification qualified_PointerSpecification = (Qualified_PointerSpecification)theEObject;
+        T result = caseQualified_PointerSpecification(qualified_PointerSpecification);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -231,6 +251,13 @@ public class FractalIDLSwitch<T>
       {
         DirectDeclarator directDeclarator = (DirectDeclarator)theEObject;
         T result = caseDirectDeclarator(directDeclarator);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case FractalIDLPackage.ABSTRACT_DIRECT_DECLARATOR:
+      {
+        AbstractDirectDeclarator abstractDirectDeclarator = (AbstractDirectDeclarator)theEObject;
+        T result = caseAbstractDirectDeclarator(abstractDirectDeclarator);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -537,6 +564,54 @@ public class FractalIDLSwitch<T>
   }
 
   /**
+   * Returns the result of interpreting the object as an instance of '<em>Abstract Declarator</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Abstract Declarator</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseAbstractDeclarator(AbstractDeclarator object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Pointer Specification</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Pointer Specification</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T casePointerSpecification(PointerSpecification object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Qualified Pointer Specification</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Qualified Pointer Specification</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseQualified_PointerSpecification(Qualified_PointerSpecification object)
+  {
+    return null;
+  }
+
+  /**
    * Returns the result of interpreting the object as an instance of '<em>Direct Declarator</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -548,6 +623,22 @@ public class FractalIDLSwitch<T>
    * @generated
    */
   public T caseDirectDeclarator(DirectDeclarator object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Abstract Direct Declarator</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Abstract Direct Declarator</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseAbstractDirectDeclarator(AbstractDirectDeclarator object)
   {
     return null;
   }

@@ -21,6 +21,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.eclipse.emf.ecore.util.EDataTypeEList;
 
+import org.ow2.fractal.mind.idl.fractalIDL.AbstractDeclarator;
 import org.ow2.fractal.mind.idl.fractalIDL.Declarator;
 import org.ow2.fractal.mind.idl.fractalIDL.FractalIDLPackage;
 import org.ow2.fractal.mind.idl.fractalIDL.Parameter;
@@ -37,6 +38,7 @@ import org.ow2.fractal.mind.idl.fractalIDL.QualifiedTypeSpecification;
  *   <li>{@link org.ow2.fractal.mind.idl.fractalIDL.impl.ParameterImpl#getParameterQualifier <em>Parameter Qualifier</em>}</li>
  *   <li>{@link org.ow2.fractal.mind.idl.fractalIDL.impl.ParameterImpl#getQualifiedTypeSpec <em>Qualified Type Spec</em>}</li>
  *   <li>{@link org.ow2.fractal.mind.idl.fractalIDL.impl.ParameterImpl#getDec <em>Dec</em>}</li>
+ *   <li>{@link org.ow2.fractal.mind.idl.fractalIDL.impl.ParameterImpl#getAbstractDec <em>Abstract Dec</em>}</li>
  * </ul>
  * </p>
  *
@@ -73,6 +75,16 @@ public class ParameterImpl extends MinimalEObjectImpl.Container implements Param
    * @ordered
    */
   protected Declarator dec;
+
+  /**
+   * The cached value of the '{@link #getAbstractDec() <em>Abstract Dec</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getAbstractDec()
+   * @generated
+   * @ordered
+   */
+  protected AbstractDeclarator abstractDec;
 
   /**
    * <!-- begin-user-doc -->
@@ -210,6 +222,54 @@ public class ParameterImpl extends MinimalEObjectImpl.Container implements Param
    * <!-- end-user-doc -->
    * @generated
    */
+  public AbstractDeclarator getAbstractDec()
+  {
+    return abstractDec;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetAbstractDec(AbstractDeclarator newAbstractDec, NotificationChain msgs)
+  {
+    AbstractDeclarator oldAbstractDec = abstractDec;
+    abstractDec = newAbstractDec;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FractalIDLPackage.PARAMETER__ABSTRACT_DEC, oldAbstractDec, newAbstractDec);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setAbstractDec(AbstractDeclarator newAbstractDec)
+  {
+    if (newAbstractDec != abstractDec)
+    {
+      NotificationChain msgs = null;
+      if (abstractDec != null)
+        msgs = ((InternalEObject)abstractDec).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FractalIDLPackage.PARAMETER__ABSTRACT_DEC, null, msgs);
+      if (newAbstractDec != null)
+        msgs = ((InternalEObject)newAbstractDec).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FractalIDLPackage.PARAMETER__ABSTRACT_DEC, null, msgs);
+      msgs = basicSetAbstractDec(newAbstractDec, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, FractalIDLPackage.PARAMETER__ABSTRACT_DEC, newAbstractDec, newAbstractDec));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   @Override
   public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
   {
@@ -219,6 +279,8 @@ public class ParameterImpl extends MinimalEObjectImpl.Container implements Param
         return basicSetQualifiedTypeSpec(null, msgs);
       case FractalIDLPackage.PARAMETER__DEC:
         return basicSetDec(null, msgs);
+      case FractalIDLPackage.PARAMETER__ABSTRACT_DEC:
+        return basicSetAbstractDec(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -239,6 +301,8 @@ public class ParameterImpl extends MinimalEObjectImpl.Container implements Param
         return getQualifiedTypeSpec();
       case FractalIDLPackage.PARAMETER__DEC:
         return getDec();
+      case FractalIDLPackage.PARAMETER__ABSTRACT_DEC:
+        return getAbstractDec();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -264,6 +328,9 @@ public class ParameterImpl extends MinimalEObjectImpl.Container implements Param
       case FractalIDLPackage.PARAMETER__DEC:
         setDec((Declarator)newValue);
         return;
+      case FractalIDLPackage.PARAMETER__ABSTRACT_DEC:
+        setAbstractDec((AbstractDeclarator)newValue);
+        return;
     }
     super.eSet(featureID, newValue);
   }
@@ -287,6 +354,9 @@ public class ParameterImpl extends MinimalEObjectImpl.Container implements Param
       case FractalIDLPackage.PARAMETER__DEC:
         setDec((Declarator)null);
         return;
+      case FractalIDLPackage.PARAMETER__ABSTRACT_DEC:
+        setAbstractDec((AbstractDeclarator)null);
+        return;
     }
     super.eUnset(featureID);
   }
@@ -307,6 +377,8 @@ public class ParameterImpl extends MinimalEObjectImpl.Container implements Param
         return qualifiedTypeSpec != null;
       case FractalIDLPackage.PARAMETER__DEC:
         return dec != null;
+      case FractalIDLPackage.PARAMETER__ABSTRACT_DEC:
+        return abstractDec != null;
     }
     return super.eIsSet(featureID);
   }

@@ -15,26 +15,26 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
-import org.ow2.fractal.mind.idl.fractalIDL.Declarator;
-import org.ow2.fractal.mind.idl.fractalIDL.DirectDeclarator;
+import org.ow2.fractal.mind.idl.fractalIDL.AbstractDeclarator;
+import org.ow2.fractal.mind.idl.fractalIDL.AbstractDirectDeclarator;
 import org.ow2.fractal.mind.idl.fractalIDL.FractalIDLPackage;
 import org.ow2.fractal.mind.idl.fractalIDL.PointerSpecification;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Declarator</b></em>'.
+ * An implementation of the model object '<em><b>Abstract Declarator</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.ow2.fractal.mind.idl.fractalIDL.impl.DeclaratorImpl#getPointer <em>Pointer</em>}</li>
- *   <li>{@link org.ow2.fractal.mind.idl.fractalIDL.impl.DeclaratorImpl#getDc <em>Dc</em>}</li>
+ *   <li>{@link org.ow2.fractal.mind.idl.fractalIDL.impl.AbstractDeclaratorImpl#getPointer <em>Pointer</em>}</li>
+ *   <li>{@link org.ow2.fractal.mind.idl.fractalIDL.impl.AbstractDeclaratorImpl#getDc <em>Dc</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class DeclaratorImpl extends MinimalEObjectImpl.Container implements Declarator
+public class AbstractDeclaratorImpl extends MinimalEObjectImpl.Container implements AbstractDeclarator
 {
   /**
    * The cached value of the '{@link #getPointer() <em>Pointer</em>}' containment reference.
@@ -54,14 +54,14 @@ public class DeclaratorImpl extends MinimalEObjectImpl.Container implements Decl
    * @generated
    * @ordered
    */
-  protected DirectDeclarator dc;
+  protected AbstractDirectDeclarator dc;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected DeclaratorImpl()
+  protected AbstractDeclaratorImpl()
   {
     super();
   }
@@ -74,7 +74,7 @@ public class DeclaratorImpl extends MinimalEObjectImpl.Container implements Decl
   @Override
   protected EClass eStaticClass()
   {
-    return FractalIDLPackage.Literals.DECLARATOR;
+    return FractalIDLPackage.Literals.ABSTRACT_DECLARATOR;
   }
 
   /**
@@ -98,7 +98,7 @@ public class DeclaratorImpl extends MinimalEObjectImpl.Container implements Decl
     pointer = newPointer;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FractalIDLPackage.DECLARATOR__POINTER, oldPointer, newPointer);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FractalIDLPackage.ABSTRACT_DECLARATOR__POINTER, oldPointer, newPointer);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -115,14 +115,14 @@ public class DeclaratorImpl extends MinimalEObjectImpl.Container implements Decl
     {
       NotificationChain msgs = null;
       if (pointer != null)
-        msgs = ((InternalEObject)pointer).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FractalIDLPackage.DECLARATOR__POINTER, null, msgs);
+        msgs = ((InternalEObject)pointer).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FractalIDLPackage.ABSTRACT_DECLARATOR__POINTER, null, msgs);
       if (newPointer != null)
-        msgs = ((InternalEObject)newPointer).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FractalIDLPackage.DECLARATOR__POINTER, null, msgs);
+        msgs = ((InternalEObject)newPointer).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FractalIDLPackage.ABSTRACT_DECLARATOR__POINTER, null, msgs);
       msgs = basicSetPointer(newPointer, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, FractalIDLPackage.DECLARATOR__POINTER, newPointer, newPointer));
+      eNotify(new ENotificationImpl(this, Notification.SET, FractalIDLPackage.ABSTRACT_DECLARATOR__POINTER, newPointer, newPointer));
   }
 
   /**
@@ -130,7 +130,7 @@ public class DeclaratorImpl extends MinimalEObjectImpl.Container implements Decl
    * <!-- end-user-doc -->
    * @generated
    */
-  public DirectDeclarator getDc()
+  public AbstractDirectDeclarator getDc()
   {
     return dc;
   }
@@ -140,13 +140,13 @@ public class DeclaratorImpl extends MinimalEObjectImpl.Container implements Decl
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetDc(DirectDeclarator newDc, NotificationChain msgs)
+  public NotificationChain basicSetDc(AbstractDirectDeclarator newDc, NotificationChain msgs)
   {
-    DirectDeclarator oldDc = dc;
+    AbstractDirectDeclarator oldDc = dc;
     dc = newDc;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FractalIDLPackage.DECLARATOR__DC, oldDc, newDc);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FractalIDLPackage.ABSTRACT_DECLARATOR__DC, oldDc, newDc);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -157,20 +157,20 @@ public class DeclaratorImpl extends MinimalEObjectImpl.Container implements Decl
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setDc(DirectDeclarator newDc)
+  public void setDc(AbstractDirectDeclarator newDc)
   {
     if (newDc != dc)
     {
       NotificationChain msgs = null;
       if (dc != null)
-        msgs = ((InternalEObject)dc).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FractalIDLPackage.DECLARATOR__DC, null, msgs);
+        msgs = ((InternalEObject)dc).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FractalIDLPackage.ABSTRACT_DECLARATOR__DC, null, msgs);
       if (newDc != null)
-        msgs = ((InternalEObject)newDc).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FractalIDLPackage.DECLARATOR__DC, null, msgs);
+        msgs = ((InternalEObject)newDc).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FractalIDLPackage.ABSTRACT_DECLARATOR__DC, null, msgs);
       msgs = basicSetDc(newDc, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, FractalIDLPackage.DECLARATOR__DC, newDc, newDc));
+      eNotify(new ENotificationImpl(this, Notification.SET, FractalIDLPackage.ABSTRACT_DECLARATOR__DC, newDc, newDc));
   }
 
   /**
@@ -183,9 +183,9 @@ public class DeclaratorImpl extends MinimalEObjectImpl.Container implements Decl
   {
     switch (featureID)
     {
-      case FractalIDLPackage.DECLARATOR__POINTER:
+      case FractalIDLPackage.ABSTRACT_DECLARATOR__POINTER:
         return basicSetPointer(null, msgs);
-      case FractalIDLPackage.DECLARATOR__DC:
+      case FractalIDLPackage.ABSTRACT_DECLARATOR__DC:
         return basicSetDc(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
@@ -201,9 +201,9 @@ public class DeclaratorImpl extends MinimalEObjectImpl.Container implements Decl
   {
     switch (featureID)
     {
-      case FractalIDLPackage.DECLARATOR__POINTER:
+      case FractalIDLPackage.ABSTRACT_DECLARATOR__POINTER:
         return getPointer();
-      case FractalIDLPackage.DECLARATOR__DC:
+      case FractalIDLPackage.ABSTRACT_DECLARATOR__DC:
         return getDc();
     }
     return super.eGet(featureID, resolve, coreType);
@@ -219,11 +219,11 @@ public class DeclaratorImpl extends MinimalEObjectImpl.Container implements Decl
   {
     switch (featureID)
     {
-      case FractalIDLPackage.DECLARATOR__POINTER:
+      case FractalIDLPackage.ABSTRACT_DECLARATOR__POINTER:
         setPointer((PointerSpecification)newValue);
         return;
-      case FractalIDLPackage.DECLARATOR__DC:
-        setDc((DirectDeclarator)newValue);
+      case FractalIDLPackage.ABSTRACT_DECLARATOR__DC:
+        setDc((AbstractDirectDeclarator)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -239,11 +239,11 @@ public class DeclaratorImpl extends MinimalEObjectImpl.Container implements Decl
   {
     switch (featureID)
     {
-      case FractalIDLPackage.DECLARATOR__POINTER:
+      case FractalIDLPackage.ABSTRACT_DECLARATOR__POINTER:
         setPointer((PointerSpecification)null);
         return;
-      case FractalIDLPackage.DECLARATOR__DC:
-        setDc((DirectDeclarator)null);
+      case FractalIDLPackage.ABSTRACT_DECLARATOR__DC:
+        setDc((AbstractDirectDeclarator)null);
         return;
     }
     super.eUnset(featureID);
@@ -259,12 +259,12 @@ public class DeclaratorImpl extends MinimalEObjectImpl.Container implements Decl
   {
     switch (featureID)
     {
-      case FractalIDLPackage.DECLARATOR__POINTER:
+      case FractalIDLPackage.ABSTRACT_DECLARATOR__POINTER:
         return pointer != null;
-      case FractalIDLPackage.DECLARATOR__DC:
+      case FractalIDLPackage.ABSTRACT_DECLARATOR__DC:
         return dc != null;
     }
     return super.eIsSet(featureID);
   }
 
-} //DeclaratorImpl
+} //AbstractDeclaratorImpl

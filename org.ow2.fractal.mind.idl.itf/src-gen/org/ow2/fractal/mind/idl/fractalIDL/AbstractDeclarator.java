@@ -10,22 +10,22 @@ import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>Declarator</b></em>'.
+ * A representation of the model object '<em><b>Abstract Declarator</b></em>'.
  * <!-- end-user-doc -->
  *
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link org.ow2.fractal.mind.idl.fractalIDL.Declarator#getPointer <em>Pointer</em>}</li>
- *   <li>{@link org.ow2.fractal.mind.idl.fractalIDL.Declarator#getDc <em>Dc</em>}</li>
+ *   <li>{@link org.ow2.fractal.mind.idl.fractalIDL.AbstractDeclarator#getPointer <em>Pointer</em>}</li>
+ *   <li>{@link org.ow2.fractal.mind.idl.fractalIDL.AbstractDeclarator#getDc <em>Dc</em>}</li>
  * </ul>
  * </p>
  *
- * @see org.ow2.fractal.mind.idl.fractalIDL.FractalIDLPackage#getDeclarator()
+ * @see org.ow2.fractal.mind.idl.fractalIDL.FractalIDLPackage#getAbstractDeclarator()
  * @model
  * @generated
  */
-public interface Declarator extends EObject
+public interface AbstractDeclarator extends EObject
 {
   /**
    * Returns the value of the '<em><b>Pointer</b></em>' containment reference.
@@ -37,14 +37,14 @@ public interface Declarator extends EObject
    * <!-- end-user-doc -->
    * @return the value of the '<em>Pointer</em>' containment reference.
    * @see #setPointer(PointerSpecification)
-   * @see org.ow2.fractal.mind.idl.fractalIDL.FractalIDLPackage#getDeclarator_Pointer()
+   * @see org.ow2.fractal.mind.idl.fractalIDL.FractalIDLPackage#getAbstractDeclarator_Pointer()
    * @model containment="true"
    * @generated
    */
   PointerSpecification getPointer();
 
   /**
-   * Sets the value of the '{@link org.ow2.fractal.mind.idl.fractalIDL.Declarator#getPointer <em>Pointer</em>}' containment reference.
+   * Sets the value of the '{@link org.ow2.fractal.mind.idl.fractalIDL.AbstractDeclarator#getPointer <em>Pointer</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @param value the new value of the '<em>Pointer</em>' containment reference.
@@ -62,21 +62,21 @@ public interface Declarator extends EObject
    * </p>
    * <!-- end-user-doc -->
    * @return the value of the '<em>Dc</em>' containment reference.
-   * @see #setDc(DirectDeclarator)
-   * @see org.ow2.fractal.mind.idl.fractalIDL.FractalIDLPackage#getDeclarator_Dc()
+   * @see #setDc(AbstractDirectDeclarator)
+   * @see org.ow2.fractal.mind.idl.fractalIDL.FractalIDLPackage#getAbstractDeclarator_Dc()
    * @model containment="true"
    * @generated
    */
-  DirectDeclarator getDc();
+  AbstractDirectDeclarator getDc();
 
   /**
-   * Sets the value of the '{@link org.ow2.fractal.mind.idl.fractalIDL.Declarator#getDc <em>Dc</em>}' containment reference.
+   * Sets the value of the '{@link org.ow2.fractal.mind.idl.fractalIDL.AbstractDeclarator#getDc <em>Dc</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @param value the new value of the '<em>Dc</em>' containment reference.
    * @see #getDc()
    * @generated
    */
-  void setDc(DirectDeclarator value);
+  void setDc(AbstractDirectDeclarator value);
 
-} // Declarator
+} // AbstractDeclarator
