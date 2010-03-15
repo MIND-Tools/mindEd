@@ -1088,13 +1088,13 @@ public class MindModelImpl implements MindModel {
 			} catch (CoreException e) {
 				MindIdeCore.log(e, "remove c source folder " + src);
 			}
-			if (src.exists()) {
-				try {
-					src.delete(true, null);
-				} catch (CoreException e) {
-					MindIdeCore.log(e, "Cannot delete folder "+src);
-				}
-			}
+//			if (src.exists()) {
+//				try {
+//					src.delete(true, null);
+//				} catch (CoreException e) {
+//					MindIdeCore.log(e, "Cannot delete folder "+src);
+//				}
+//			}
 			MindRootSrc rs = UtilMindIde.findRootSrc(mindProject.getRepo(), src.getFullPath());
 			if (rs != null)
 				remove(rs);
