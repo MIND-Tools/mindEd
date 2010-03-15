@@ -41,6 +41,8 @@ public class MindcPreferencePage
 	public void createFieldEditors() {
 		addField(new DirectoryFieldEditor(PreferenceConstants.P_MINDC_LOCATION, 
 				"&Mindc location:", getFieldEditorParent()));
+		addField(new StringFieldEditor(PreferenceConstants.P_MINDC_MAIN_CLASS, 
+				"&Mindc main class:", getFieldEditorParent()));
 	}
 
 	/* (non-Javadoc)
