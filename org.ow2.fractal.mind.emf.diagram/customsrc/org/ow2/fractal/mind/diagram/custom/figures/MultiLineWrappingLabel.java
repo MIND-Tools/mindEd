@@ -139,7 +139,7 @@ public class MultiLineWrappingLabel extends AbstractComponentNameWrappingLabel {
         }
     }
     
-    TextFlow getTextFlow() {
+    protected TextFlow getTextFlow() {
         return (TextFlow) flowPage.getChildren().get(0);
     }
     

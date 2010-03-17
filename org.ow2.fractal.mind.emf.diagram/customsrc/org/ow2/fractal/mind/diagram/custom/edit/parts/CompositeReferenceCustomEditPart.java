@@ -59,43 +59,13 @@ public class CompositeReferenceCustomEditPart extends
 		genericEditPart.refreshBounds();
 	}
 	
-	/**
-	 * Get the area of the reference, which contains the children
-	 * @return the CompositeReferenceAreaCustomEditPart or null
-	 */
-	public CompositeReferenceCompartmentCustomEditPart getPane() {
-		EditPart pane = getChildBySemanticHint(MindVisualIDRegistry
-				.getType(CompositeReferenceCompartmentCustomEditPart.VISUAL_ID));
-		if (pane instanceof CompositeReferenceCompartmentCustomEditPart)
-			return (CompositeReferenceCompartmentCustomEditPart) pane;
-		return null;
-	}
-	
 	@Override
 	public void createDefaultEditPolicies() {
 		super.createDefaultEditPolicies();
-		// Extended layout features
-		installEditPolicy(EditPolicy.LAYOUT_ROLE,
-				createLayoutEditPolicy());
-		// Extended creation features
-		installEditPolicy(EditPolicyRoles.CREATION_ROLE,
-				new MindSuperCreationEditPolicy());
-		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE,
-				new CompositeReferenceDefinitionCustomItemSemanticEditPolicy());
-		// Extended drag and drop features
-		installEditPolicy(EditPolicyRoles.DRAG_DROP_ROLE,
-				new CustomDragDropEditPolicy());
-		// To open the referenced component on double clic
-		installEditPolicy(EditPolicyRoles.OPEN_ROLE, 
-				new OpenDefinitionEditPolicy());
+		genericEditPart.createDefaultEditPolicies();
 	}
 	
-	protected LayoutEditPolicy createLayoutEditPolicy() {
-		// This edit policy does not allow children to be dragged
-		return new FixedChildrenLayoutEditPolicy();
-	}
 	
-
 	@Override
 	public void activate() {
 		super.activate();
@@ -107,22 +77,7 @@ public class CompositeReferenceCustomEditPart extends
 	
 	
 	protected boolean addFixedChild(EditPart childEditPart) {
-		if (childEditPart instanceof CompositeReferenceDefinitionReferenceNameEditPart) {
-			((CompositeReferenceDefinitionReferenceNameEditPart) childEditPart)
-					.setLabel(getPrimaryShape().getLabel());
-			// To open the referenced component on double clic
-			childEditPart.installEditPolicy(EditPolicyRoles.OPEN_ROLE, new OpenDefinitionEditPolicy());
-			return true;
-		}
-		if (childEditPart instanceof CompositeReferenceDefinitionCompartmentComponentReferenceDefinitionAreaEditPart) {
-			IFigure pane = getPrimaryShape().getArea();
-			setupContentPane(pane);
-			pane.add(((CompositeReferenceDefinitionCompartmentComponentReferenceDefinitionAreaEditPart) childEditPart)
-							.getFigure());
-			// To open the referenced component on double clic
-			childEditPart.installEditPolicy(EditPolicyRoles.OPEN_ROLE, new OpenDefinitionEditPolicy());
-			return true;
-		}
+		if (genericEditPart.addFixedChild(childEditPart)) return true;
 		return false;
 	}
 	

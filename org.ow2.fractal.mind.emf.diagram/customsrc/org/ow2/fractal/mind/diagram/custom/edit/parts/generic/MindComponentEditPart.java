@@ -21,24 +21,16 @@ import org.ow2.fractal.mind.diagram.custom.layouts.ComponentLayout;
 import org.ow2.fractal.mind.diagram.custom.layouts.InterfaceBorderItemLocator;
 import org.ow2.fractal.mind.diagram.custom.providers.CustomDragEditPartsTracker;
 
-public class MindComponentEditPart extends MindEditPart {
+public class MindComponentEditPart extends MindItemEditPart {
 	
 	public MindComponentEditPart (GraphicalEditPart editPart, int vID) {
-		if (editPart == null) throw new NullPointerException();
-		realEditPart = editPart;
-		visualID = vID;
+		super(editPart, vID);
+		MIND_TYPE = TYPE_COMPONENT;
 	}
 	
 	@Override
 	public void createDefaultEditPolicies(){
-		
-		if (getCanonicalEditPolicy() != null)
-			realEditPart.installEditPolicy(EditPolicyRoles.CANONICAL_ROLE,
-					getCanonicalEditPolicy());
-		
-		if (getItemSemanticEditPolicy() != null)
-			realEditPart.installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE,
-					getItemSemanticEditPolicy());
+		super.createDefaultEditPolicies();
 		
 		realEditPart.installEditPolicy(EditPolicyRoles.CREATION_ROLE,
 				new MindCreationEditPolicy());
@@ -76,7 +68,7 @@ public class MindComponentEditPart extends MindEditPart {
 	
 	@Override
 	public boolean addFixedChild(EditPart childEditPart) {
-		if (childEditPart instanceof ShapeCompartmentEditPart) {
+		if (getMindEditPartFor(childEditPart) instanceof MindCompartmentEditPart) {
 			IFigure compartment = getCompartmentFigure();
 			if (compartment == null) return false;
 			// Set the layout

@@ -1,91 +1,87 @@
 package org.ow2.fractal.mind.diagram.custom.edit.parts.generic;
 
-import java.util.HashMap;
-import java.util.List;
-
 import org.eclipse.draw2d.IFigure;
+import org.eclipse.draw2d.LayoutManager;
 import org.eclipse.gef.DragTracker;
 import org.eclipse.gef.EditPart;
 import org.eclipse.gef.EditPolicy;
+import org.eclipse.gef.editpolicies.LayoutEditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.GraphicalEditPart;
-import org.eclipse.gmf.runtime.diagram.ui.editparts.ShapeCompartmentEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.CanonicalEditPolicy;
-import org.ow2.fractal.mind.diagram.custom.edit.parts.CompositeComponentDefinitionCustomEditPart;
-import org.ow2.fractal.mind.diagram.custom.edit.policies.CompositeComponentDefinitionCustomCanonicalEditPolicy;
-
-import adl.diagram.edit.parts.CompositeComponentDefinitionEditPart;
+import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
+import adl.diagram.edit.parts.*;
 import adl.diagram.edit.policies.MindBaseItemSemanticEditPolicy;
 import adl.diagram.part.MindDiagramEditorPlugin;
 
 
-public class MindEditPart {
+public abstract class MindEditPart {
 	
-	public static MindEditPart INSTANCE = new MindEditPart();
-	
-	protected static final int UNDEFINED = 0;
-	protected static final int COMPONENT = 1;
-	protected static final int LIST = 2;
-	protected static final int BODY = 3;
-	protected static final int INTERFACE = 4;
-	protected static final int REFERENCE = 5;
-	protected static final int ITEM = 6;
-	protected static final int COMPARTMENT = 8;
+	public static final int TYPE_UNDEFINED = 0;
+	public static final int TYPE_COMPONENT = 1;
+	public static final int TYPE_LIST = 2;
+	public static final int TYPE_BODY = 3;
+	public static final int TYPE_INTERFACE = 4;
+	public static final int TYPE_REFERENCE = 5;
+	public static final int TYPE_ITEM = 6;
+	public static final int TYPE_COMPARTMENT = 8;
 	
 	public static String EDIT_POLICY_PACKAGE = "org.ow2.fractal.mind.diagram.custom.edit.policies.";
 	
 	protected GraphicalEditPart realEditPart;
 	protected int visualID;
-
-	private HashMap<GraphicalEditPart,MindEditPart> editPartsMap = new HashMap<GraphicalEditPart,MindEditPart>();
-	
-	public MindEditPart createGenericEditPart(GraphicalEditPart editPart,int visualID) {
-		
-		int type = getType(visualID);
-		switch (type){
-		case UNDEFINED:
-			return null;
-		case COMPONENT:
-			MindEditPart mindPart = new MindComponentEditPart(editPart, visualID);
-			editPartsMap.put(editPart, mindPart);
-			return mindPart;
-		}
-		return null;
-	}
+	public int MIND_TYPE = TYPE_UNDEFINED;
 	
 	
-	public static int getType(int visualID) {
-		int type = UNDEFINED;
+	public static int getMindType(int visualID) {
+		int type = TYPE_UNDEFINED;
 		switch (visualID) {
 		
 		case CompositeComponentDefinitionEditPart.VISUAL_ID:
-			return COMPONENT;
+			return TYPE_COMPONENT;
 			
+		case CompositeReferenceEditPart.VISUAL_ID:
+			return TYPE_REFERENCE;
+			
+		case CompositeReferenceCompartmentEditPart.VISUAL_ID:
+			return TYPE_COMPARTMENT;
+			
+		case InterfaceDefinitionEditPart.VISUAL_ID:
+			return TYPE_INTERFACE;
 		}
 		
 		return type;
 	}
 	
 	
-	public MindEditPart getMindEditPartFor(EditPart editPart) {
-		return editPartsMap.get(editPart);
+	public static int getMindType(EditPart editPart) {
+		MindEditPart mindEP = getMindEditPartFor(editPart);
+		if (mindEP == null) return TYPE_UNDEFINED;
+		return mindEP.MIND_TYPE;
 	}
 	
 	
-	public EditPart getCompartment() {
-		List<EditPart> children = realEditPart.getChildren();
+	public static MindEditPart getMindEditPartFor(EditPart editPart) {
+		return MindEditPartFactory.INSTANCE.getMindEditPartFor(editPart);
+	}
+	
+	
+	public void createDefaultEditPolicies() {
 		
-		for (EditPart child : children) {
-			if (getMindEditPartFor(child) instanceof MindCompartmentEditPart)
-				return child;
-		}
-		return null;
+		if (getCustomItemSemanticEditPolicy() != null)
+			realEditPart.installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE,
+					getCustomItemSemanticEditPolicy());
+		
+		if (getCustomCanonicalEditPolicy() != null)
+			realEditPart.installEditPolicy(EditPolicyRoles.CANONICAL_ROLE,
+					getCustomCanonicalEditPolicy());
 	}
-
+	
+	
 	/**
 	 * Fetch the custom CanonicalEditPolicy for this edit part
-	 * @return a new instance of this edit policy
+	 * @return a new instance of this edit policy or null if it does not exist
 	 */
-	protected CanonicalEditPolicy getCanonicalEditPolicy() {
+	protected CanonicalEditPolicy getCustomCanonicalEditPolicy() {
 		String simpleName = 
 			realEditPart.getClass().getSimpleName().replace("EditPart", "CanonicalEditPolicy");
 		String packageName = EDIT_POLICY_PACKAGE;
@@ -103,11 +99,12 @@ public class MindEditPart {
 		return canonicalPolicy;
 	}
 	
+	
 	/**
 	 * Fetch the custom ItemSemanticEditPolicy for this edit part
-	 * @return a new instance of this edit policy
+	 * @return a new instance of this edit policy or null if it does not exist
 	 */
-	protected MindBaseItemSemanticEditPolicy getItemSemanticEditPolicy() {
+	protected MindBaseItemSemanticEditPolicy getCustomItemSemanticEditPolicy() {
 		String simpleName = 
 			realEditPart.getClass().getSimpleName().replace("EditPart", "ItemSemanticEditPolicy");
 		String packageName = EDIT_POLICY_PACKAGE;
@@ -149,31 +146,18 @@ public class MindEditPart {
 				
 		return null;
 	}
-
-
-	public IFigure setupContentPane(IFigure nodeShape) {
-		return null;
-	}
-
-
-	public boolean addChildVisual(EditPart childEditPart, int index) {
-		return false;
-	}
-
-
-	public boolean addFixedChild(EditPart childEditPart) {
-		return false;
-	}
-
-
-	public DragTracker getDragTracker(EditPart ep) {
-		return null;
-	}
-
-	public void refreshBounds() {};
-	
-	public void createDefaultEditPolicies() {};
 	
 	
+	public abstract void activate();
+	public abstract GraphicalEditPart getCompartment();
+	public abstract LayoutManager getLayoutManager();
+	public abstract IFigure setupContentPane(IFigure nodeShape);
+	public abstract boolean addChildVisual(EditPart childEditPart, int index);
+	public abstract boolean addFixedChild(EditPart childEditPart);
+	public abstract DragTracker getDragTracker(EditPart ep);
+	public abstract void refreshBounds();
+	public abstract void setLayoutManager(IFigure figure);
+	public abstract void refresh();
+	public abstract LayoutEditPolicy createLayoutEditPolicy();
 
 }

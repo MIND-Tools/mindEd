@@ -9,6 +9,7 @@ import org.eclipse.gef.Request;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
 import org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure;
 import org.eclipse.gmf.runtime.notation.View;
+import org.ow2.fractal.mind.diagram.custom.edit.parts.generic.MindEditPart;
 import org.ow2.fractal.mind.diagram.custom.edit.policies.InterfaceDefinitionCustomItemSemanticEditPolicy;
 import org.ow2.fractal.mind.diagram.custom.figures.InterfaceDefinitionShape;
 import org.ow2.fractal.mind.diagram.custom.helpers.ComponentHelper;
@@ -34,27 +35,18 @@ import adl.diagram.edit.parts.InterfaceDefinitionEditPart;
 
 public class InterfaceDefinitionCustomEditPart extends
 		InterfaceDefinitionEditPart {
+	
+	protected MindEditPart genericEditPart = MindEditPart.INSTANCE.createGenericEditPart (this, VISUAL_ID);
 
 	@Override
 	public DragTracker getDragTracker(Request request) {
-		return new BorderItemDragTracker(this);
+		return genericEditPart.getDragTracker(this);
 	}
 
 	public InterfaceDefinitionCustomEditPart(View view) {
 		super(view);
 	}
 
-	protected void createDefaultEditPolicies() {
-		super.createDefaultEditPolicies();
-		// Extended drag and drop features
-		installEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE,
-				getPrimaryDragEditPolicy());
-		// Extended creation features
-		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE,
-				new InterfaceDefinitionCustomItemSemanticEditPolicy());
-		installEditPolicy(EditPolicy.LAYOUT_ROLE, createLayoutEditPolicy());		
-	}
-	
 	private InterfaceDefinitionShape interfaceDefinitionShape; 
 	
 	/**
@@ -136,8 +128,14 @@ public class InterfaceDefinitionCustomEditPart extends
 	@Override
 	public void activate() {
 		super.activate();
-		if (ComponentHelper.isMerged(this)) 
-				ComponentHelper.handleMergedElement(this);
+		genericEditPart.activate();
 	}
+	
+	protected void createDefaultEditPolicies() {
+		super.createDefaultEditPolicies();
+		genericEditPart.createDefaultEditPolicies();	
+	}
+	
+	
 	
 }

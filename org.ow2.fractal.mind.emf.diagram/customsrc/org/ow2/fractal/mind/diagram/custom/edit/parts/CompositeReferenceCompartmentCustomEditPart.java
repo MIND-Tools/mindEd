@@ -9,6 +9,7 @@ import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
 import org.eclipse.gmf.runtime.diagram.ui.figures.ResizableCompartmentFigure;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.ConstrainedToolbarLayout;
 import org.eclipse.gmf.runtime.notation.View;
+import org.ow2.fractal.mind.diagram.custom.edit.parts.generic.MindEditPart;
 import org.ow2.fractal.mind.diagram.custom.edit.policies.CompositeReferenceCompartmentCustomCanonicalEditPolicy;
 import org.ow2.fractal.mind.diagram.custom.edit.policies.CompositeReferenceCompartmentCustomItemSemanticEditPolicy;
 import org.ow2.fractal.mind.diagram.custom.edit.policies.FixedChildrenLayoutEditPolicy;
@@ -27,61 +28,29 @@ import adl.diagram.edit.parts.CompositeReferenceCompartmentEditPart;
 public class CompositeReferenceCompartmentCustomEditPart extends
 		CompositeReferenceCompartmentEditPart {
 
+	protected MindEditPart genericEditPart = MindEditPart.INSTANCE.createGenericEditPart (this, VISUAL_ID);
+	
 	public CompositeReferenceCompartmentCustomEditPart(View view) {
 		super(view);
 	}
-	
-	/**
-	 * Remember the layout manager
-	 */
-	protected LayoutManager layoutManager; 
-	
 		
 	@Override
 	public IFigure createFigure() {
-		ResizableCompartmentFigure result = (ResizableCompartmentFigure) super
-				.createFigure();
+		ResizableCompartmentFigure result =
+			(ResizableCompartmentFigure) super.createFigure();
 		// Change the layout manager
-		result.setLayoutManager(getLayoutManager());
+		genericEditPart.setLayoutManager(result);
 		return result;
 	}
 
-	/**
-	 * Implements a ConstrainedToolbarLayout
-	 * @return
-	 */
-	protected LayoutManager getLayoutManager() {
-		if (layoutManager == null) {
-			layoutManager = new ConstrainedFlowLayout(false);
-			((ConstrainedFlowLayout)layoutManager).setMinorSpacing(0);
-			((ConstrainedFlowLayout)layoutManager).setMajorSpacing(0);
-			((ConstrainedFlowLayout)layoutManager).setObserveVisibility(true);
-			((ConstrainedFlowLayout)layoutManager).setMinorAlignment(ConstrainedFlowLayout.ALIGN_LEFTTOP);
-			((ConstrainedFlowLayout)layoutManager).setMajorAlignment(ConstrainedFlowLayout.ALIGN_LEFTTOP);
-		}
-		return layoutManager;
-	}
+	
 	
 	@Override
 	public void createDefaultEditPolicies() {
 		super.createDefaultEditPolicies();
-		// Extended layout features
-		installEditPolicy(EditPolicy.LAYOUT_ROLE, createLayoutEditPolicy());
-		// Extended creation features
-		installEditPolicy(EditPolicyRoles.CREATION_ROLE,
-				new MindSuperCreationEditPolicy());
-		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE,
-				new CompositeReferenceCompartmentCustomItemSemanticEditPolicy());
-		// No drag and drop
-		removeEditPolicy(EditPolicyRoles.DRAG_DROP_ROLE);
-		// Custom canonical edit policy
-		installEditPolicy(EditPolicyRoles.CANONICAL_ROLE,
-				new CompositeReferenceCompartmentCustomCanonicalEditPolicy());
+		genericEditPart.createDefaultEditPolicies();
 	}
 	
-	protected LayoutEditPolicy createLayoutEditPolicy() {
-		return new FixedChildrenLayoutEditPolicy();
-	}
 
 	@Override
 	protected void addChild(EditPart childEditPart, int index) {
@@ -103,11 +72,9 @@ public class CompositeReferenceCompartmentCustomEditPart extends
 	@Override
 	public void activate() {
 		super.activate();
-		if (ComponentHelper.isMerged(this)) 
-			// If the component is merged handle custom behaviour
-			ComponentHelper.handleMergedElement(this);
-		getParent().refresh();
+		genericEditPart.activate();
 	}
+	
 	
 	@Override
 	public void refresh() {
