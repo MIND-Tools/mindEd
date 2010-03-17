@@ -156,6 +156,7 @@
       itemSemanticEditPolicyClassName="AdlDefinitionItemSemanticEditPolicy"
       canonicalEditPolicyClassName="AdlDefinitionCanonicalEditPolicy"
       iconProviderPriority="Low"
+      editPartFactoryClassName="EditPartFactory"
       validationProviderPriority="Low"
       validationEnabled="true"
       validationDecorators="true"
