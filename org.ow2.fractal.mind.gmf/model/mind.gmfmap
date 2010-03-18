@@ -545,45 +545,12 @@
                   </compartments>
                 </ownedChild>
               </children>
-              <children>
+              <children
+                  referencedChild="//@nodes.1/@ownedChild/@children.2/@ownedChild">
                 <containmentFeature
                     href="../../org.ow2.fractal.mind.emf/model/mind.ecore#//ArchitectureDefinition/body"/>
                 <childrenFeature
                     href="../../org.ow2.fractal.mind.emf/model/mind.ecore#//ArchitectureDefinition/body"/>
-                <ownedChild>
-                  <domainMetaElement
-                      href="../../org.ow2.fractal.mind.emf/model/mind.ecore#//PrimitiveBody"/>
-                  <diagramNode
-                      href="mind.gmfgraph#Body"/>
-                  <children
-                      referencedChild="//@nodes.0/@ownedChild/@children.3/@ownedChild/@children.0/@ownedChild">
-                    <containmentFeature
-                        href="../../org.ow2.fractal.mind.emf/model/mind.ecore#//Body/elements"/>
-                    <childrenFeature
-                        href="../../org.ow2.fractal.mind.emf/model/mind.ecore#//Body/elements"/>
-                  </children>
-                  <children
-                      referencedChild="//@nodes.1/@ownedChild/@children.2/@ownedChild/@children.2/@ownedChild">
-                    <containmentFeature
-                        href="../../org.ow2.fractal.mind.emf/model/mind.ecore#//Body/elements"/>
-                    <childrenFeature
-                        href="../../org.ow2.fractal.mind.emf/model/mind.ecore#//Body/elements"/>
-                  </children>
-                  <children
-                      referencedChild="//@nodes.1/@ownedChild/@children.2/@ownedChild/@children.1/@ownedChild">
-                    <containmentFeature
-                        href="../../org.ow2.fractal.mind.emf/model/mind.ecore#//Body/elements"/>
-                    <childrenFeature
-                        href="../../org.ow2.fractal.mind.emf/model/mind.ecore#//Body/elements"/>
-                  </children>
-                  <children
-                      referencedChild="//@nodes.1/@ownedChild/@children.2/@ownedChild/@children.0/@ownedChild">
-                    <containmentFeature
-                        href="../../org.ow2.fractal.mind.emf/model/mind.ecore#//Body/elements"/>
-                    <childrenFeature
-                        href="../../org.ow2.fractal.mind.emf/model/mind.ecore#//Body/elements"/>
-                  </children>
-                </ownedChild>
               </children>
             </ownedChild>
           </children>

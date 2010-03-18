@@ -221,7 +221,11 @@
   </childNodeTraces>
   <childNodeTraces
       visualID="3137"
-      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http://org.ow2.fractal/mind/mind.ecore/0.2.0' and _eClass_.name = 'PrimitiveBody') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http://org.ow2.fractal/mind/mind.ecore/0.2.0' and _eClass_.name = 'ArchitectureDefinition') and _containmentMF_.name = 'body')"/>
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http://org.ow2.fractal/mind/mind.ecore/0.2.0' and _eClass_.name = 'PrimitiveBody') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http://org.ow2.fractal/mind/mind.ecore/0.2.0' and _eClass_.name = 'ArchitectureDefinition') and _containmentMF_.name = 'body')">
+    <compartmentTraces
+        visualID="7098"
+        queryText="true"/>
+  </childNodeTraces>
   <childNodeTraces
       visualID="3138"
       queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http://org.ow2.fractal/mind/mind.ecore/0.2.0' and _eClass_.name = 'AttributeDefinition') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http://org.ow2.fractal/mind/mind.ecore/0.2.0' and _eClass_.name = 'Body') and _containmentMF_.name = 'elements')">
@@ -247,13 +251,6 @@
         queryText="true"/>
     <compartmentTraces
         visualID="7092"
-        queryText="true"/>
-  </childNodeTraces>
-  <childNodeTraces
-      visualID="3141"
-      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http://org.ow2.fractal/mind/mind.ecore/0.2.0' and _eClass_.name = 'PrimitiveBody') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http://org.ow2.fractal/mind/mind.ecore/0.2.0' and _eClass_.name = 'ArchitectureDefinition') and _containmentMF_.name = 'body')">
-    <compartmentTraces
-        visualID="7093"
         queryText="true"/>
   </childNodeTraces>
   <childNodeTraces
