@@ -1897,7 +1897,7 @@
     </compartments>
     <compartments
         visualID="7067"
-        editPartClassName="CompositeReferencesListCompartmentAreaEditPart"
+        editPartClassName="CompositeReferencesListCompartmentEditPart"
         itemSemanticEditPolicyClassName="CompositeReferencesListCompartmentItemSemanticEditPolicy"
         notationViewFactoryClassName="CompositeReferencesListCompartmentReferencesListAreaViewFactory"
         canonicalEditPolicyClassName="CompositeReferencesListCompartmentCanonicalEditPolicy"
