@@ -150,7 +150,6 @@ public class MindEditPartFactory implements MindTypes {
 			// -- Body
 		case CompositeBodyEditPart.VISUAL_ID:
 		case PrimitiveBodyEditPart.VISUAL_ID:
-		case PrimitiveSubBodyEditPart.VISUAL_ID:
 		case TypeBodyEditPart.VISUAL_ID:
 			return TYPE_BODY;
 			

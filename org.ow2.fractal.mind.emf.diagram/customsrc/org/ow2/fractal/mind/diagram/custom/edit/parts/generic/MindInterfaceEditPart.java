@@ -2,6 +2,7 @@ package org.ow2.fractal.mind.diagram.custom.edit.parts.generic;
 
 import org.eclipse.gef.DragTracker;
 import org.eclipse.gef.EditPart;
+import org.eclipse.gef.Request;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.GraphicalEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
 import org.ow2.fractal.mind.diagram.custom.providers.BorderItemDragTracker;
@@ -25,8 +26,8 @@ public class MindInterfaceEditPart extends MindEditPart {
 	}
 
 	@Override
-	public DragTracker getDragTracker(EditPart ep) {
-		return new BorderItemDragTracker(ep);
+	public DragTracker getDragTracker(Request request) {
+		return new BorderItemDragTracker(realEditPart);
 	}
 	
 	

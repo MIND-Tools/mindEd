@@ -5,6 +5,7 @@ import org.eclipse.draw2d.LayoutManager;
 import org.eclipse.gef.DragTracker;
 import org.eclipse.gef.EditPart;
 import org.eclipse.gef.EditPolicy;
+import org.eclipse.gef.Request;
 import org.eclipse.gef.editpolicies.LayoutEditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.GraphicalEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.CanonicalEditPolicy;
@@ -128,7 +129,7 @@ public abstract class AbstractMindEditPart implements MindTypes {
 	public abstract IFigure setupContentPane(IFigure nodeShape);
 	public abstract boolean addChildVisual(EditPart childEditPart, int index);
 	public abstract boolean addFixedChild(EditPart childEditPart);
-	public abstract DragTracker getDragTracker(EditPart ep);
+	public abstract DragTracker getDragTracker(Request request);
 	public abstract Boolean refreshBounds();
 	public abstract void setLayoutManager(IFigure figure);
 	public abstract void refresh();

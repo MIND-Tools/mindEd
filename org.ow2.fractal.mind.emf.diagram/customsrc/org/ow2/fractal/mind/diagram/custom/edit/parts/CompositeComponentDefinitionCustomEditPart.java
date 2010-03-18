@@ -41,8 +41,10 @@ public class CompositeComponentDefinitionCustomEditPart extends
 	
 	@Override
 	protected IFigure setupContentPane(IFigure nodeShape) {
-		// Get a ComponentLayout
-		return genericEditPart.setupContentPane(nodeShape);
+		IFigure shape = genericEditPart.setupContentPane(nodeShape);
+		if (shape == null)
+			shape = super.setupContentPane(nodeShape);
+		return shape;
 	}
 	
 	@Override
@@ -53,17 +55,17 @@ public class CompositeComponentDefinitionCustomEditPart extends
 	
 	@Override
 	public DragTracker getDragTracker(Request request) {
-		// Extended drag and drop features
-		return genericEditPart.getDragTracker(this);
+		DragTracker tracker = genericEditPart.getDragTracker(request);
+		if (tracker == null)
+			tracker = super.getDragTracker(request);
+		return tracker;
 	}
 	
 
 	@Override
 	public void activate() {
 		super.activate();
-		if (ComponentHelper.isMerged(this)) 
-			// If the component is merged handle custom behaviour
-			ComponentHelper.handleMergedElement(this);
+		genericEditPart.activate();
 	}
 	
 	

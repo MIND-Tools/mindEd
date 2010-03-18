@@ -6,6 +6,7 @@ import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.LayoutManager;
 import org.eclipse.gef.DragTracker;
 import org.eclipse.gef.EditPart;
+import org.eclipse.gef.Request;
 import org.eclipse.gef.editpolicies.LayoutEditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.GraphicalEditPart;
 import org.ow2.fractal.mind.diagram.custom.helpers.ComponentHelper;
@@ -69,7 +70,7 @@ public class MindEditPart extends AbstractMindEditPart {
 	}
 
 
-	public DragTracker getDragTracker(EditPart ep) {
+	public DragTracker getDragTracker(Request request) {
 		return null;
 	}
 

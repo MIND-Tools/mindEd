@@ -8,6 +8,7 @@ import org.eclipse.draw2d.IFigure;
 import org.eclipse.gef.DragTracker;
 import org.eclipse.gef.EditPart;
 import org.eclipse.gef.EditPolicy;
+import org.eclipse.gef.Request;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.CompartmentEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.GraphicalEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.ShapeCompartmentEditPart;
@@ -65,8 +66,8 @@ public class MindComponentEditPart extends MindEditPart {
 	 * @param ep
 	 * @return
 	 */
-	public DragTracker getDragTracker(EditPart ep) {
-		return new CustomDragEditPartsTracker(ep);
+	public DragTracker getDragTracker(Request request) {
+		return new CustomDragEditPartsTracker(realEditPart);
 	}
 	
 	@Override
