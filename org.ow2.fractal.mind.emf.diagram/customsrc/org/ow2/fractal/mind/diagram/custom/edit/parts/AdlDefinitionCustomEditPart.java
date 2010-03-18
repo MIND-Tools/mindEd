@@ -1,9 +1,8 @@
 package org.ow2.fractal.mind.diagram.custom.edit.parts;
 
-import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
 import org.eclipse.gmf.runtime.notation.View;
-import org.ow2.fractal.mind.diagram.custom.edit.policies.AdlDefinitionCustomCanonicalEditPolicy;
-
+import org.ow2.fractal.mind.diagram.custom.edit.parts.generic.MindEditPart;
+import org.ow2.fractal.mind.diagram.custom.edit.parts.generic.MindEditPartFactory;
 import adl.diagram.edit.parts.AdlDefinitionEditPart;
 
 /**
@@ -14,18 +13,16 @@ import adl.diagram.edit.parts.AdlDefinitionEditPart;
  */
 public class AdlDefinitionCustomEditPart extends AdlDefinitionEditPart {
 
+	protected MindEditPart genericEditPart = MindEditPartFactory.INSTANCE.createGenericEditPart (this, VISUAL_ID);
+	
 	public AdlDefinitionCustomEditPart(View view) {
 		super(view);
 	}
 	
-	/**
-	 * Implements custom edit policies
-	 */
 	@Override
-	protected void createDefaultEditPolicies() {
+	public void createDefaultEditPolicies() {
 		super.createDefaultEditPolicies();
-		installEditPolicy(EditPolicyRoles.CANONICAL_ROLE,
-				new AdlDefinitionCustomCanonicalEditPolicy());
+		genericEditPart.createDefaultEditPolicies();
 	}
 	
 

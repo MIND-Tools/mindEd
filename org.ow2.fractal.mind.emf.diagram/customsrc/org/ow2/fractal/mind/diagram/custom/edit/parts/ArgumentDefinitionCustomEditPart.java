@@ -1,19 +1,10 @@
 package org.ow2.fractal.mind.diagram.custom.edit.parts;
 
-import org.eclipse.draw2d.GridData;
 import org.eclipse.draw2d.IFigure;
-import org.eclipse.draw2d.geometry.Dimension;
-import org.eclipse.draw2d.geometry.Point;
-import org.eclipse.draw2d.geometry.Rectangle;
-import org.eclipse.gmf.runtime.diagram.ui.editparts.GraphicalEditPart;
-import org.eclipse.gmf.runtime.draw2d.ui.figures.ConstrainedToolbarLayout;
-import org.eclipse.gmf.runtime.gef.ui.figures.DefaultSizeNodeFigure;
-import org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure;
-import org.eclipse.gmf.runtime.notation.NotationPackage;
+import org.eclipse.gef.editpolicies.LayoutEditPolicy;
 import org.eclipse.gmf.runtime.notation.View;
-import org.eclipse.swt.SWT;
-import org.ow2.fractal.mind.diagram.custom.helpers.ComponentHelper;
-
+import org.ow2.fractal.mind.diagram.custom.edit.parts.generic.MindEditPart;
+import org.ow2.fractal.mind.diagram.custom.edit.parts.generic.MindEditPartFactory;
 import adl.diagram.edit.parts.ArgumentDefinitionEditPart;
 
 /**
@@ -29,53 +20,53 @@ public class ArgumentDefinitionCustomEditPart extends
 		super(view);
 	}
 	
-	/**
-	 * Height of 15 means one line. Generated size was 40,40
-	 */
-	@Override
-	protected NodeFigure createNodePlate() {
-		//set default size
-		DefaultSizeNodeFigure result = new DefaultSizeNodeFigure(100, 15);
-		return result;
-	}
+//	/**
+//	 * Height of 15 means one line. Generated size was 40,40
+//	 */
+//	@Override
+//	protected NodeFigure createNodePlate() {
+//		//set default size
+//		DefaultSizeNodeFigure result = new DefaultSizeNodeFigure(100, 15);
+//		return result;
+//	}
+	
+	protected MindEditPart genericEditPart = MindEditPartFactory.INSTANCE.createGenericEditPart (this, VISUAL_ID);
+	
 	
 	/**
-	 * Default layout is OK but we don't want the spacing
+	 * Custom constraint for the custom layout
 	 */
+	public void refreshBounds() {
+		if (genericEditPart.refreshBounds() == false)
+			super.refreshBounds();
+	}
+
+	/**
+	 * Implements custom policies
+	 */
+	@Override
+	protected void createDefaultEditPolicies() {
+		super.createDefaultEditPolicies();
+		genericEditPart.createDefaultEditPolicies();
+	}
+	
 	@Override
 	protected IFigure setupContentPane(IFigure nodeShape) {
-		if (nodeShape.getLayoutManager() == null) {
-			//no spacing anymore
-			ConstrainedToolbarLayout layout = new ConstrainedToolbarLayout();
-			nodeShape.setLayoutManager(layout);
-		}
-		return nodeShape; // use nodeShape itself as contentPane
-	}
-	
-	/**
-	 * Refresh the bounds and sets a grid constraint
-	 */
-	@Override
-	public void refreshBounds() {
-		int width = ((Integer) getStructuralFeatureValue(NotationPackage.eINSTANCE.getSize_Width())).intValue();
-		int height = ((Integer) getStructuralFeatureValue(NotationPackage.eINSTANCE.getSize_Height())).intValue();
-		Dimension size = new Dimension(width, height);
-		int x = ((Integer) getStructuralFeatureValue(NotationPackage.eINSTANCE.getLocation_X())).intValue();
-		int y = ((Integer) getStructuralFeatureValue(NotationPackage.eINSTANCE.getLocation_Y())).intValue();
-		Point loc = new Point(x, y);
-		getFigure().setBounds(new Rectangle(loc,size));
-		//The layout constraint is a GridData
-		((GraphicalEditPart) getParent()).setLayoutConstraint(
-		this,
-		getFigure(),
-		new GridData(SWT.LEFT,SWT.BEGINNING,false,false,1,1));
+		return genericEditPart.setupContentPane(nodeShape);
 	}
 
 	@Override
+	protected LayoutEditPolicy createLayoutEditPolicy() {
+		LayoutEditPolicy glep = genericEditPart.createLayoutEditPolicy();
+		if (glep == null)
+			glep = super.createLayoutEditPolicy();
+		return glep;
+	}
+	
+	@Override
 	public void activate() {
 		super.activate();
-		if (ComponentHelper.isMerged(this)) 
-				ComponentHelper.handleMergedElement(this);
+		genericEditPart.activate();
 	}
 
 }

@@ -13,6 +13,8 @@ public interface IFractalSize {
 	
 	public static int DEFAULT_LABEL_HEIGHT = 16;
 	
+	public static int ITEM_HEIGHT = DEFAULT_LABEL_HEIGHT;
+	
 	// The default size of a title label
 	public static int TITLE_HEIGHT = 20;
 	

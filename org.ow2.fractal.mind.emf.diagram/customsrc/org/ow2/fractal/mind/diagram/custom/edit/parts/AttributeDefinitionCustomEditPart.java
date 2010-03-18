@@ -1,18 +1,10 @@
 package org.ow2.fractal.mind.diagram.custom.edit.parts;
 
-import org.eclipse.draw2d.geometry.Rectangle;
-import org.eclipse.gef.EditPolicy;
+import org.eclipse.draw2d.IFigure;
 import org.eclipse.gef.editpolicies.LayoutEditPolicy;
-import org.eclipse.gmf.runtime.diagram.ui.editparts.GraphicalEditPart;
-import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
 import org.eclipse.gmf.runtime.notation.View;
-import org.ow2.fractal.mind.diagram.custom.edit.policies.AttributeDefinitionCustomItemSemanticEditPolicy;
-import org.ow2.fractal.mind.diagram.custom.edit.policies.FixedChildrenLayoutEditPolicy;
-import org.ow2.fractal.mind.diagram.custom.edit.policies.MindSubCreationEditPolicy;
-import org.ow2.fractal.mind.diagram.custom.edit.policies.NoDragDropEditPolicy;
-import org.ow2.fractal.mind.diagram.custom.figures.AttributeDefinitionCustomFigure;
-import org.ow2.fractal.mind.diagram.custom.helpers.ComponentHelper;
-
+import org.ow2.fractal.mind.diagram.custom.edit.parts.generic.MindEditPart;
+import org.ow2.fractal.mind.diagram.custom.edit.parts.generic.MindEditPartFactory;
 import adl.diagram.edit.parts.AttributeDefinitionEditPart;
 
 /**
@@ -24,20 +16,19 @@ import adl.diagram.edit.parts.AttributeDefinitionEditPart;
 public class AttributeDefinitionCustomEditPart extends
 		AttributeDefinitionEditPart {
 	
-
 	public AttributeDefinitionCustomEditPart(View view) {
 		super(view);
 	}
+	
+	protected MindEditPart genericEditPart = MindEditPartFactory.INSTANCE.createGenericEditPart (this, VISUAL_ID);
+	
 	
 	/**
 	 * Custom constraint for the custom layout
 	 */
 	public void refreshBounds() {
-		((GraphicalEditPart) getParent()).setLayoutConstraint(
-		this,
-		getFigure(),
-		new Rectangle(-1,-1,-1,AttributeDefinitionCustomFigure.ATTRIBUTE_HEIGHT)
-		);
+		if (genericEditPart.refreshBounds() == false)
+			super.refreshBounds();
 	}
 
 	/**
@@ -46,29 +37,26 @@ public class AttributeDefinitionCustomEditPart extends
 	@Override
 	protected void createDefaultEditPolicies() {
 		super.createDefaultEditPolicies();
-		// No drag and drop
-		removeEditPolicy(EditPolicyRoles.DRAG_DROP_ROLE);
-		installEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE,
-				new NoDragDropEditPolicy());
-		// Extended creation features
-		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE,
-				new AttributeDefinitionCustomItemSemanticEditPolicy());
-		installEditPolicy(EditPolicyRoles.CREATION_ROLE,
-				new MindSubCreationEditPolicy());
-		
+		genericEditPart.createDefaultEditPolicies();
+	}
+	
+	@Override
+	protected IFigure setupContentPane(IFigure nodeShape) {
+		return genericEditPart.setupContentPane(nodeShape);
 	}
 
 	@Override
 	protected LayoutEditPolicy createLayoutEditPolicy() {
-		LayoutEditPolicy lep = new FixedChildrenLayoutEditPolicy();
-		return lep;
+		LayoutEditPolicy glep = genericEditPart.createLayoutEditPolicy();
+		if (glep == null)
+			glep = super.createLayoutEditPolicy();
+		return glep;
 	}
 	
 	@Override
 	public void activate() {
 		super.activate();
-		if (ComponentHelper.isMerged(this)) 
-				ComponentHelper.handleMergedElement(this);
+		genericEditPart.activate();
 	}
 	
 }

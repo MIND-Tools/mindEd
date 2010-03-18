@@ -8,6 +8,7 @@ import org.eclipse.gef.editpolicies.LayoutEditPolicy;
 import org.eclipse.gmf.runtime.notation.View;
 import org.ow2.fractal.mind.diagram.custom.edit.parts.generic.MindComponentEditPart;
 import org.ow2.fractal.mind.diagram.custom.edit.parts.generic.MindEditPart;
+import org.ow2.fractal.mind.diagram.custom.edit.parts.generic.MindEditPartFactory;
 import org.ow2.fractal.mind.diagram.custom.edit.policies.ComponentLayoutEditPolicy;
 import org.ow2.fractal.mind.diagram.custom.helpers.ComponentHelper;
 
@@ -26,7 +27,7 @@ import adl.diagram.edit.parts.CompositeComponentDefinitionEditPart;
 public class CompositeComponentDefinitionCustomEditPart extends
 		CompositeComponentDefinitionEditPart {
 	
-	protected MindEditPart genericEditPart = MindEditPart.INSTANCE.createGenericEditPart (this, VISUAL_ID);
+	protected MindEditPart genericEditPart = MindEditPartFactory.INSTANCE.createGenericEditPart (this, VISUAL_ID);
 	
 	public CompositeComponentDefinitionCustomEditPart(View view) {
 		super(view);

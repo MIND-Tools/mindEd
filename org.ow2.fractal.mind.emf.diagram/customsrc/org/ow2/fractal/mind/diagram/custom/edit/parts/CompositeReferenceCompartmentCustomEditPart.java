@@ -10,6 +10,7 @@ import org.eclipse.gmf.runtime.diagram.ui.figures.ResizableCompartmentFigure;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.ConstrainedToolbarLayout;
 import org.eclipse.gmf.runtime.notation.View;
 import org.ow2.fractal.mind.diagram.custom.edit.parts.generic.MindEditPart;
+import org.ow2.fractal.mind.diagram.custom.edit.parts.generic.MindEditPartFactory;
 import org.ow2.fractal.mind.diagram.custom.edit.policies.CompositeReferenceCompartmentCustomCanonicalEditPolicy;
 import org.ow2.fractal.mind.diagram.custom.edit.policies.CompositeReferenceCompartmentCustomItemSemanticEditPolicy;
 import org.ow2.fractal.mind.diagram.custom.edit.policies.FixedChildrenLayoutEditPolicy;
@@ -28,7 +29,7 @@ import adl.diagram.edit.parts.CompositeReferenceCompartmentEditPart;
 public class CompositeReferenceCompartmentCustomEditPart extends
 		CompositeReferenceCompartmentEditPart {
 
-	protected MindEditPart genericEditPart = MindEditPart.INSTANCE.createGenericEditPart (this, VISUAL_ID);
+	protected MindEditPart genericEditPart = MindEditPartFactory.INSTANCE.createGenericEditPart (this, VISUAL_ID);
 	
 	public CompositeReferenceCompartmentCustomEditPart(View view) {
 		super(view);

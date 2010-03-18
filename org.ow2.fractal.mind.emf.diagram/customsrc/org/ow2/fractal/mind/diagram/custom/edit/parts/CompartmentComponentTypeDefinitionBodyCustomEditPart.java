@@ -2,11 +2,13 @@ package org.ow2.fractal.mind.diagram.custom.edit.parts;
 
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
 import org.eclipse.gmf.runtime.notation.View;
+import org.ow2.fractal.mind.diagram.custom.edit.parts.generic.MindEditPart;
+import org.ow2.fractal.mind.diagram.custom.edit.parts.generic.MindEditPartFactory;
 import org.ow2.fractal.mind.diagram.custom.edit.policies.CompartmentComponentTypeDefinitionBodyCustomItemSemanticEditPolicy;
 import org.ow2.fractal.mind.diagram.custom.edit.policies.CustomDragDropEditPolicy;
 import org.ow2.fractal.mind.diagram.custom.edit.policies.MindSubCreationEditPolicy;
 
-import adl.diagram.edit.parts.ComponentTypeDefinitionCompartmentComponentTypeBodyEditPart;
+import adl.diagram.edit.parts.TypeBodyCompartmentEditPart;
 
 /**
  * Body compartment of a {@link ComponentTypeDefinitionCustomEditPart}
@@ -14,25 +16,19 @@ import adl.diagram.edit.parts.ComponentTypeDefinitionCompartmentComponentTypeBod
  * @author maroto
  *
  */
-public class CompartmentComponentTypeDefinitionBodyCustomEditPart extends
-		ComponentTypeDefinitionCompartmentComponentTypeBodyEditPart {
+public class TypeBodyCompartmentCustomEditPart extends
+		TypeBodyCompartmentEditPart {
 
-	public CompartmentComponentTypeDefinitionBodyCustomEditPart(View view) {
+	public TypeBodyCompartmentCustomEditPart(View view) {
 		super(view);
 	}
+	
+	protected MindEditPart genericEditPart = MindEditPartFactory.INSTANCE.createGenericEditPart (this, VISUAL_ID);
 	
 	@Override
 	public void createDefaultEditPolicies() {
 		super.createDefaultEditPolicies();
-		// Extended creation features
-		installEditPolicy(EditPolicyRoles.CREATION_ROLE,
-				new MindSubCreationEditPolicy());
-		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE,
-				new CompartmentComponentTypeDefinitionBodyCustomItemSemanticEditPolicy());
-		// Customized drag and drop features
-		installEditPolicy(
-				EditPolicyRoles.DRAG_DROP_ROLE,
-				new CustomDragDropEditPolicy());
+		genericEditPart.createDefaultEditPolicies();
 	}
 
 }

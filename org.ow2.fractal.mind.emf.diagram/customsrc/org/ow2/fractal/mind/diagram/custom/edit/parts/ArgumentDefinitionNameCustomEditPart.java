@@ -2,6 +2,8 @@ package org.ow2.fractal.mind.diagram.custom.edit.parts;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.gmf.runtime.notation.View;
+import org.ow2.fractal.mind.diagram.custom.edit.parts.generic.MindEditPart;
+import org.ow2.fractal.mind.diagram.custom.edit.parts.generic.MindEditPartFactory;
 
 import adl.diagram.edit.parts.ArgumentDefinitionNameEditPart;
 
@@ -13,6 +15,8 @@ import adl.diagram.edit.parts.ArgumentDefinitionNameEditPart;
 public class ArgumentDefinitionNameCustomEditPart extends
 		ArgumentDefinitionNameEditPart {
 
+	protected MindEditPart genericEditPart = MindEditPartFactory.INSTANCE.createGenericEditPart (this, VISUAL_ID);
+	
 	public ArgumentDefinitionNameCustomEditPart(View view) {
 		super(view);
 	}

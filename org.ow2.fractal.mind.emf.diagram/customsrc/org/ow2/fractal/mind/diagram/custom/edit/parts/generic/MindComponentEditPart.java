@@ -21,11 +21,14 @@ import org.ow2.fractal.mind.diagram.custom.layouts.ComponentLayout;
 import org.ow2.fractal.mind.diagram.custom.layouts.InterfaceBorderItemLocator;
 import org.ow2.fractal.mind.diagram.custom.providers.CustomDragEditPartsTracker;
 
-public class MindComponentEditPart extends MindItemEditPart {
+public class MindComponentEditPart extends MindEditPart {
 	
 	public MindComponentEditPart (GraphicalEditPart editPart, int vID) {
-		super(editPart, vID);
-		MIND_TYPE = TYPE_COMPONENT;
+		super(editPart, vID, TYPE_COMPONENT);
+	}
+	
+	public MindComponentEditPart(GraphicalEditPart editPart, int vID, int mindType) {
+		super(editPart, vID, mindType);
 	}
 	
 	@Override
