@@ -1,46 +1,34 @@
 package org.ow2.fractal.mind.diagram.custom.edit.parts;
 
-import org.eclipse.draw2d.IFigure;
+import org.eclipse.draw2d.LayoutManager;
 import org.eclipse.gef.DragTracker;
+import org.eclipse.gef.EditPart;
 import org.eclipse.gef.Request;
 import org.eclipse.gmf.runtime.notation.View;
 import org.ow2.fractal.mind.diagram.custom.edit.parts.generic.MindEditPart;
 import org.ow2.fractal.mind.diagram.custom.edit.parts.generic.MindGenericEditPartFactory;
-import adl.diagram.edit.parts.PrimitiveReferencesListEditPart;
+import adl.diagram.edit.parts.PrimitiveSubReferenceCompartmentEditPart;
 
-public class PrimitiveReferencesListCustomEditPart extends
-		PrimitiveReferencesListEditPart {
+public class PrimitiveSubReferenceCompartmentCustomEditPart extends
+		PrimitiveSubReferenceCompartmentEditPart {
 
-	public PrimitiveReferencesListCustomEditPart(View view) {
+	public PrimitiveSubReferenceCompartmentCustomEditPart(View view) {
 		super(view);
 	}
 	
 	protected MindEditPart genericEditPart = MindGenericEditPartFactory.INSTANCE.createGenericEditPart (this, VISUAL_ID);
 	
 	@Override
-	protected IFigure setupContentPane(IFigure nodeShape) {
-		IFigure shape = genericEditPart.setupContentPane(nodeShape);
-		if (shape != null) return shape;
-		return super.setupContentPane(nodeShape);
-	}
-	
 	public void refresh() {
 		super.refresh();
 		genericEditPart.refresh();
 	}
-	
-	@Override
-	protected void refreshBounds() {
-		genericEditPart.refreshBounds();
-	}
-	
 
 	@Override
 	public void createDefaultEditPolicies() {
 		super.createDefaultEditPolicies();
 		genericEditPart.createDefaultEditPolicies();
 	}
-	
 	
 	public DragTracker getDragTracker(Request request) {
 		DragTracker tracker = genericEditPart.getDragTracker(request);
@@ -49,11 +37,33 @@ public class PrimitiveReferencesListCustomEditPart extends
 		return tracker;
 	}
 	
-	
 	@Override
 	public void activate() {
 		super.activate();
 		genericEditPart.activate();
 	}
-
+	
+	@Override
+	protected LayoutManager getLayoutManager() {
+		LayoutManager layoutManager = genericEditPart.getLayoutManager();
+		if (layoutManager == null) {
+			layoutManager = super.getLayoutManager();
+		}
+		return layoutManager;
+	}
+	
+	@Override
+	protected void addChild(EditPart childEditPart, int index) {
+		super.addChild(childEditPart, index);
+		// A listener should be implemented on the parent instead
+		getParent().refresh();
+	}
+	
+	@Override
+	protected void removeChild(EditPart childEditPart) {
+		super.removeChild(childEditPart);
+		// A listener should be implemented on the parent instead
+		getParent().refresh();
+	}
+	
 }

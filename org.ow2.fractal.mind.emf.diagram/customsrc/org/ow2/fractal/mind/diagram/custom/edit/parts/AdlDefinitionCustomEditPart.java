@@ -2,7 +2,7 @@ package org.ow2.fractal.mind.diagram.custom.edit.parts;
 
 import org.eclipse.gmf.runtime.notation.View;
 import org.ow2.fractal.mind.diagram.custom.edit.parts.generic.MindEditPart;
-import org.ow2.fractal.mind.diagram.custom.edit.parts.generic.MindEditPartFactory;
+import org.ow2.fractal.mind.diagram.custom.edit.parts.generic.MindGenericEditPartFactory;
 import adl.diagram.edit.parts.AdlDefinitionEditPart;
 
 /**
@@ -13,7 +13,7 @@ import adl.diagram.edit.parts.AdlDefinitionEditPart;
  */
 public class AdlDefinitionCustomEditPart extends AdlDefinitionEditPart {
 
-	protected MindEditPart genericEditPart = MindEditPartFactory.INSTANCE.createGenericEditPart (this, VISUAL_ID);
+	protected MindEditPart genericEditPart = MindGenericEditPartFactory.INSTANCE.createGenericEditPart (this, VISUAL_ID);
 	
 	public AdlDefinitionCustomEditPart(View view) {
 		super(view);

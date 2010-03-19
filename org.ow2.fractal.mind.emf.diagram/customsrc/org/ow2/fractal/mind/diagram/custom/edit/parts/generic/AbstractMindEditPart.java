@@ -24,7 +24,7 @@ public abstract class AbstractMindEditPart implements MindTypes {
 	
 	
 	public static int getMindType(int visualID) {
-		return MindEditPartFactory.getMindType(visualID);
+		return MindGenericEditPartFactory.getMindType(visualID);
 	}
 	
 	
@@ -36,7 +36,7 @@ public abstract class AbstractMindEditPart implements MindTypes {
 	
 	
 	public static MindEditPart getMindEditPartFor(EditPart editPart) {
-		return MindEditPartFactory.INSTANCE.getMindEditPartFor(editPart);
+		return MindGenericEditPartFactory.INSTANCE.getMindEditPartFor(editPart);
 	}
 	
 	

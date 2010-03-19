@@ -4,8 +4,9 @@ import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.geometry.Dimension;
 import org.eclipse.draw2d.geometry.Point;
 import org.eclipse.draw2d.geometry.Rectangle;
+import org.eclipse.gef.DragTracker;
 import org.eclipse.gef.EditPolicy;
-import org.eclipse.gef.editpolicies.LayoutEditPolicy;
+import org.eclipse.gef.Request;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.GraphicalEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
 import org.ow2.fractal.mind.diagram.custom.edit.policies.FixedChildrenLayoutEditPolicy;
@@ -13,6 +14,7 @@ import org.ow2.fractal.mind.diagram.custom.edit.policies.MindSubCreationEditPoli
 import org.ow2.fractal.mind.diagram.custom.edit.policies.NoDragDropEditPolicy;
 import org.ow2.fractal.mind.diagram.custom.layouts.ConstrainedFlowLayout;
 import org.ow2.fractal.mind.diagram.custom.layouts.IFractalSize;
+import org.ow2.fractal.mind.diagram.custom.providers.NoDragTracker;
 
 public class MindListEditPart extends MindEditPart {
 
@@ -40,12 +42,8 @@ public class MindListEditPart extends MindEditPart {
 				new NoDragDropEditPolicy());
 		realEditPart.installEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE,
 				new NoDragDropEditPolicy());
-	}
-	
-	
-	public LayoutEditPolicy createLayoutEditPolicy() {
-		// Does not allow children to be moved
-		return new FixedChildrenLayoutEditPolicy();
+		realEditPart.installEditPolicy(EditPolicy.LAYOUT_ROLE,
+				new FixedChildrenLayoutEditPolicy());
 	}
 
 	
@@ -61,6 +59,10 @@ public class MindListEditPart extends MindEditPart {
 		refreshBounds();
 	}
 	
+	public DragTracker getDragTracker(Request request) {
+		// Do not allow drag and drop
+		return new NoDragTracker(realEditPart);
+	}
 	
 	@Override
 	public Boolean refreshBounds() {

@@ -4,7 +4,10 @@ import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.geometry.Dimension;
 import org.eclipse.draw2d.geometry.Point;
 import org.eclipse.draw2d.geometry.Rectangle;
+import org.eclipse.gef.DragTracker;
+import org.eclipse.gef.EditPart;
 import org.eclipse.gef.EditPolicy;
+import org.eclipse.gef.Request;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.GraphicalEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
 import org.ow2.fractal.mind.diagram.custom.edit.policies.CustomDragDropEditPolicy;
@@ -13,6 +16,7 @@ import org.ow2.fractal.mind.diagram.custom.edit.policies.MindSuperCreationEditPo
 import org.ow2.fractal.mind.diagram.custom.edit.policies.OpenDefinitionEditPolicy;
 import org.ow2.fractal.mind.diagram.custom.layouts.ConstrainedFlowLayout;
 import org.ow2.fractal.mind.diagram.custom.layouts.IFractalSize;
+import org.ow2.fractal.mind.diagram.custom.providers.NoDragTracker;
 
 public class MindReferenceEditPart extends MindEditPart {
 
@@ -31,6 +35,13 @@ public class MindReferenceEditPart extends MindEditPart {
 		super(editPart, vID, mindType);
 	}
 	
+	
+	@Override
+	public DragTracker getDragTracker(Request request) {
+		// No drag and drop allowed
+		return new NoDragTracker(realEditPart);
+	}
+	
 
 	@Override
 	public void createDefaultEditPolicies() {
@@ -40,8 +51,6 @@ public class MindReferenceEditPart extends MindEditPart {
 		// Extended creation features
 		realEditPart.installEditPolicy(EditPolicyRoles.CREATION_ROLE,
 				new MindSuperCreationEditPolicy());
-		realEditPart.installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE,
-				getCustomItemSemanticEditPolicy());
 		// Extended drag and drop features
 		realEditPart.installEditPolicy(EditPolicyRoles.DRAG_DROP_ROLE,
 				new CustomDragDropEditPolicy());
@@ -86,6 +95,13 @@ public class MindReferenceEditPart extends MindEditPart {
 		realEditPart.getParent().refresh();
 		
 		return true;
+	}
+	
+	@Override
+	public boolean addFixedChild(EditPart childEditPart) {
+		// To open the referenced definition on double clic
+		childEditPart.installEditPolicy(EditPolicyRoles.OPEN_ROLE, new OpenDefinitionEditPolicy());
+		return false;
 	}
 	
 }

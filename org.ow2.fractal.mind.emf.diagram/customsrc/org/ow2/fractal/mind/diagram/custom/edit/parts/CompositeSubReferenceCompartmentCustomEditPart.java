@@ -7,22 +7,21 @@ import org.eclipse.gef.Request;
 import org.eclipse.gmf.runtime.notation.View;
 import org.ow2.fractal.mind.diagram.custom.edit.parts.generic.MindEditPart;
 import org.ow2.fractal.mind.diagram.custom.edit.parts.generic.MindGenericEditPartFactory;
-import adl.diagram.edit.parts.CompositeReferenceCompartmentEditPart;
+import adl.diagram.edit.parts.CompositeSubReferenceCompartmentEditPart;
 
 /**
- * Area of a {@link CompositeReferenceCustomEditPart}
- * @author maroto
- *
+ * This is the area of a CompositeSingleReferenceDefinition
+ * @children arguments, templates
  */
-public class CompositeReferenceCompartmentCustomEditPart extends
-		CompositeReferenceCompartmentEditPart {
+public class CompositeSubReferenceCompartmentCustomEditPart extends
+				CompositeSubReferenceCompartmentEditPart {
 
-	protected MindEditPart genericEditPart = MindGenericEditPartFactory.INSTANCE.createGenericEditPart (this, VISUAL_ID);
-	
-	public CompositeReferenceCompartmentCustomEditPart(View view) {
+	public CompositeSubReferenceCompartmentCustomEditPart(View view) {
 		super(view);
 	}
-		
+	
+	protected MindEditPart genericEditPart = MindGenericEditPartFactory.INSTANCE.createGenericEditPart (this, VISUAL_ID);
+	
 	@Override
 	public void refresh() {
 		super.refresh();
@@ -57,21 +56,44 @@ public class CompositeReferenceCompartmentCustomEditPart extends
 		return layoutManager;
 	}
 	
-
 	@Override
 	protected void addChild(EditPart childEditPart, int index) {
 		super.addChild(childEditPart, index);
-		// Should implement a listener instead
-		// and use handleChildAdded
+		// A listener should be implemented on the parent instead
 		getParent().refresh();
 	}
 	
 	@Override
 	protected void removeChild(EditPart childEditPart) {
 		super.removeChild(childEditPart);
-		// Should implement a listener instead
-		// and use handleChildRemoved
+		// A listener should be implemented on the parent instead
 		getParent().refresh();
 	}
+	
+	
+	
+//	/**
+//	 * Remember the layout manager
+//	 */
+//	protected LayoutManager layoutManager; 
+//	
+//		
+	
+//
+//	/**
+//	 * Implements a ConstrainedToolbarLayout
+//	 * @return
+//	 */
+//	protected LayoutManager getLayoutManager() {
+//		if (layoutManager == null) {
+//			layoutManager = new ConstrainedFlowLayout(false);
+//			((ConstrainedFlowLayout)layoutManager).setMinorSpacing(0);
+//			((ConstrainedFlowLayout)layoutManager).setMajorSpacing(0);
+//			((ConstrainedFlowLayout)layoutManager).setObserveVisibility(true);
+//			((ConstrainedFlowLayout)layoutManager).setMinorAlignment(ConstrainedFlowLayout.ALIGN_LEFTTOP);
+//			((ConstrainedFlowLayout)layoutManager).setMajorAlignment(ConstrainedFlowLayout.ALIGN_LEFTTOP);
+//		}
+//		return layoutManager;
+//	}
 
 }

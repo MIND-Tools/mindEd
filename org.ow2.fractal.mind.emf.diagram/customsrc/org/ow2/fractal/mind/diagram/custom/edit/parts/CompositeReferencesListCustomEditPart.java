@@ -4,10 +4,9 @@ package org.ow2.fractal.mind.diagram.custom.edit.parts;
 import org.eclipse.draw2d.IFigure;
 import org.eclipse.gef.DragTracker;
 import org.eclipse.gef.Request;
-import org.eclipse.gef.editpolicies.LayoutEditPolicy;
 import org.eclipse.gmf.runtime.notation.View;
 import org.ow2.fractal.mind.diagram.custom.edit.parts.generic.MindEditPart;
-import org.ow2.fractal.mind.diagram.custom.providers.NoDragTracker;
+import org.ow2.fractal.mind.diagram.custom.edit.parts.generic.MindGenericEditPartFactory;
 
 import adl.diagram.edit.parts.CompositeReferencesListEditPart;
 
@@ -21,11 +20,11 @@ import adl.diagram.edit.parts.CompositeReferencesListEditPart;
 public class CompositeReferencesListCustomEditPart extends
 		CompositeReferencesListEditPart {
 	
-	protected MindEditPart genericEditPart = MindEditPart.INSTANCE.createGenericEditPart (this, VISUAL_ID);
-	
 	public CompositeReferencesListCustomEditPart(View view) {
 		super(view);
 	}	
+	
+	protected MindEditPart genericEditPart = MindGenericEditPartFactory.INSTANCE.createGenericEditPart (this, VISUAL_ID);
 	
 	@Override
 	protected IFigure setupContentPane(IFigure nodeShape) {
@@ -44,7 +43,6 @@ public class CompositeReferencesListCustomEditPart extends
 		genericEditPart.refreshBounds();
 	}
 	
-	
 
 	@Override
 	public void createDefaultEditPolicies() {
@@ -52,14 +50,14 @@ public class CompositeReferencesListCustomEditPart extends
 		genericEditPart.createDefaultEditPolicies();
 	}
 	
-	protected LayoutEditPolicy createLayoutEditPolicy() {
-		return genericEditPart.createLayoutEditPolicy();
-	}
 	
 	public DragTracker getDragTracker(Request request) {
-		// Do not allow drag and drop
-		return new NoDragTracker(this);
+		DragTracker tracker = genericEditPart.getDragTracker(request);
+		if (tracker == null)
+			tracker = super.getDragTracker(request);
+		return tracker;
 	}
+	
 	
 	@Override
 	public void activate() {

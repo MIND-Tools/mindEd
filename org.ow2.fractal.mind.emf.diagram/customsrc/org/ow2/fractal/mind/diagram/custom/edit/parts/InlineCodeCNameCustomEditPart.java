@@ -4,8 +4,10 @@ import org.eclipse.gef.tools.DirectEditManager;
 import org.eclipse.gmf.runtime.diagram.ui.tools.TextDirectEditManager;
 import org.eclipse.gmf.runtime.gef.ui.internal.parts.WrapTextCellEditor;
 import org.eclipse.gmf.runtime.notation.View;
+import org.ow2.fractal.mind.diagram.custom.edit.parts.generic.MindEditPart;
+import org.ow2.fractal.mind.diagram.custom.edit.parts.generic.MindGenericEditPartFactory;
 
-import adl.diagram.edit.parts.InlineCodeCCodeCEditPart;
+import adl.diagram.edit.parts.InlineCodeCNameEditPart;
 import adl.diagram.edit.parts.MindEditPartFactory;
 
 /**
@@ -13,12 +15,14 @@ import adl.diagram.edit.parts.MindEditPartFactory;
  * @Author mao
  */
 
-@SuppressWarnings("restriction")
-public class InlineCodeCCodeCCustomEditPart extends InlineCodeCCodeCEditPart {
 
-	public InlineCodeCCodeCCustomEditPart(View view) {
+public class InlineCodeCNameCustomEditPart extends InlineCodeCNameEditPart {
+
+	public InlineCodeCNameCustomEditPart(View view) {
 		super(view);
 	}
+	
+	protected MindEditPart genericEditPart = MindGenericEditPartFactory.INSTANCE.createGenericEditPart (this, VISUAL_ID);
 	
 	//We need the boolean to know if the manager must be set or get
 	protected boolean managerIsSet = false;

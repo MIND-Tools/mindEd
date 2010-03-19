@@ -7,19 +7,12 @@ import org.eclipse.gef.Request;
 import org.eclipse.gmf.runtime.notation.View;
 import org.ow2.fractal.mind.diagram.custom.edit.parts.generic.MindEditPart;
 import org.ow2.fractal.mind.diagram.custom.edit.parts.generic.MindGenericEditPartFactory;
-import adl.diagram.edit.parts.FileCEditPart;
+import adl.diagram.edit.parts.PrimitiveSubReferenceEditPart;
 
+public class PrimitiveSubReferenceCustomEditPart extends
+		PrimitiveSubReferenceEditPart {
 
-/** 
- * This is a reference to a .c file, contained in a DataDefinition or an ImplementationDefinition
- * @author maroto
- *
- */
-
-public class FileCCustomEditPart extends
-		FileCEditPart {
-	
-	public FileCCustomEditPart(View view) {
+	public PrimitiveSubReferenceCustomEditPart(View view) {
 		super(view);
 	}
 	

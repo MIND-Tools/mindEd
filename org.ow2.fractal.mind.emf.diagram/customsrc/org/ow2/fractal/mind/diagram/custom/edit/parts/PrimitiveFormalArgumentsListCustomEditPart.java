@@ -6,12 +6,18 @@ import org.eclipse.gef.Request;
 import org.eclipse.gmf.runtime.notation.View;
 import org.ow2.fractal.mind.diagram.custom.edit.parts.generic.MindEditPart;
 import org.ow2.fractal.mind.diagram.custom.edit.parts.generic.MindGenericEditPartFactory;
-import adl.diagram.edit.parts.PrimitiveReferencesListEditPart;
+import adl.diagram.edit.parts.PrimitiveFormalArgumentsListEditPart;
 
-public class PrimitiveReferencesListCustomEditPart extends
-		PrimitiveReferencesListEditPart {
+/**
+ * This is a list of formal arguments, defined in a CompositeComponentDefinition 
+ * or in a PrimitiveComponentDefinition
+ * @author maroto
+ *
+ */
+public class PrimitiveFormalArgumentsListCustomEditPart extends
+		PrimitiveFormalArgumentsListEditPart {
 
-	public PrimitiveReferencesListCustomEditPart(View view) {
+	public PrimitiveFormalArgumentsListCustomEditPart(View view) {
 		super(view);
 	}
 	
@@ -55,5 +61,30 @@ public class PrimitiveReferencesListCustomEditPart extends
 		super.activate();
 		genericEditPart.activate();
 	}
+	
+//	@Override
+//	protected boolean addFixedChild(EditPart childEditPart) {
+//		if (childEditPart instanceof FormalArgumentsListCompartmentFormalArgumentsList2EditPart) {
+//			IFigure pane = getPrimaryShape().getFigureFormalArgumentsArea();
+//			setupContentPane(pane); 
+//			pane.add(((FormalArgumentsListCompartmentFormalArgumentsListEditPart) childEditPart)
+//							.getFigure());
+//			return true;
+//		}
+//		return super.addFixedChild(childEditPart);
+//	}
+//	
+//	@Override
+//	protected IFigure getContentPaneFor(IGraphicalEditPart editPart) {
+//		if (editPart instanceof FormalArgumentsListCompartmentFormalArgumentsList2EditPart) {
+//			return getPrimaryShape().getFigureFormalArgumentsArea();
+//		}
+//		return super.getContentPane();
+//	}
+//	
+//	public EditPolicy getPrimaryDragEditPolicy() {
+//		// No drag and drop allowed
+//		return new NoDragDropEditPolicy();
+//	}
 
 }

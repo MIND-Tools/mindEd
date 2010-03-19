@@ -10,7 +10,8 @@ Bundle-Localization: plugin
 Export-Package: adl.diagram.edit.parts,
  adl.diagram.part,
  adl.diagram.providers,
- org.ow2.fractal.mind.emf.diagram.custom.util
+ org.ow2.fractal.mind.emf.diagram.custom.util,
+ org.ow2.fractal.mind.diagram.custom.figures
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.core.resources,
  org.eclipse.core.expressions,

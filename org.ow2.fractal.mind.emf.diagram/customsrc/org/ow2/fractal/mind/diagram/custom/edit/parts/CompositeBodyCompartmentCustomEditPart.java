@@ -3,7 +3,7 @@ package org.ow2.fractal.mind.diagram.custom.edit.parts;
 import org.eclipse.draw2d.LayoutManager;
 import org.eclipse.gmf.runtime.notation.View;
 import org.ow2.fractal.mind.diagram.custom.edit.parts.generic.MindEditPart;
-import org.ow2.fractal.mind.diagram.custom.edit.parts.generic.MindEditPartFactory;
+import org.ow2.fractal.mind.diagram.custom.edit.parts.generic.MindGenericEditPartFactory;
 import adl.diagram.edit.parts.CompositeBodyCompartmentEditPart;
 
 public class CompositeBodyCompartmentCustomEditPart extends
@@ -13,7 +13,7 @@ public class CompositeBodyCompartmentCustomEditPart extends
 		super(view);
 	}
 
-	protected MindEditPart genericEditPart = MindEditPartFactory.INSTANCE.createGenericEditPart (this, VISUAL_ID);
+	protected MindEditPart genericEditPart = MindGenericEditPartFactory.INSTANCE.createGenericEditPart (this, VISUAL_ID);
 	
 	@Override
 	protected void createDefaultEditPolicies() {

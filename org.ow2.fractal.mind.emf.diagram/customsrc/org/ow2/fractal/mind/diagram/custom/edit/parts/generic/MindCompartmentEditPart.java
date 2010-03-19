@@ -1,13 +1,7 @@
 package org.ow2.fractal.mind.diagram.custom.edit.parts.generic;
 
-import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.LayoutManager;
-import org.eclipse.gef.EditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.GraphicalEditPart;
-import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
-import org.ow2.fractal.mind.diagram.custom.edit.policies.FixedChildrenLayoutEditPolicy;
-import org.ow2.fractal.mind.diagram.custom.edit.policies.MindSuperCreationEditPolicy;
-import org.ow2.fractal.mind.diagram.custom.layouts.ConstrainedFlowLayout;
 
 public class MindCompartmentEditPart extends MindEditPart {
 

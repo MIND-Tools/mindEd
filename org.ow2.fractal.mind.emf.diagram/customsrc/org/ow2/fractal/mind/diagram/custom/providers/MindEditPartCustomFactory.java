@@ -15,7 +15,7 @@ import adl.diagram.part.MindVisualIDRegistry;
  * @author maroto
  *
  */
-public class EditPartCustomFactory extends MindEditPartFactory {
+public class MindEditPartCustomFactory extends MindEditPartFactory {
 
 	/**
 	 * Overrides createEditPart to return custom edit parts instead of generated edit parts.

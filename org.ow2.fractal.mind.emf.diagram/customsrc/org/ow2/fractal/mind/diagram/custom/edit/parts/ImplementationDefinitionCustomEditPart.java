@@ -1,7 +1,8 @@
 package org.ow2.fractal.mind.diagram.custom.edit.parts;
 
 import org.eclipse.gmf.runtime.notation.View;
-import org.ow2.fractal.mind.diagram.custom.helpers.ComponentHelper;
+import org.ow2.fractal.mind.diagram.custom.edit.parts.generic.MindEditPart;
+import org.ow2.fractal.mind.diagram.custom.edit.parts.generic.MindGenericEditPartFactory;
 
 import adl.diagram.edit.parts.ImplementationDefinitionEditPart;
 
@@ -18,12 +19,18 @@ public class ImplementationDefinitionCustomEditPart extends
 		super(view);
 	}
 	
+	protected MindEditPart genericEditPart = MindGenericEditPartFactory.INSTANCE.createGenericEditPart (this, VISUAL_ID);
+	
+	@Override
+	protected void createDefaultEditPolicies() {
+		super.createDefaultEditPolicies();
+		genericEditPart.createDefaultEditPolicies();
+	}
+	
 	@Override
 	public void activate() {
 		super.activate();
-		if (ComponentHelper.isMerged(this)) 
-			// If the component is merged, handle custom behaviour
-			ComponentHelper.handleMergedElement(this);
+		genericEditPart.activate();
 	}
 
 }

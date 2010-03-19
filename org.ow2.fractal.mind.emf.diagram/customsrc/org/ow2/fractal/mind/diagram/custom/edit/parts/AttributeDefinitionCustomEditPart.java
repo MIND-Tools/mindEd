@@ -4,7 +4,7 @@ import org.eclipse.draw2d.IFigure;
 import org.eclipse.gef.editpolicies.LayoutEditPolicy;
 import org.eclipse.gmf.runtime.notation.View;
 import org.ow2.fractal.mind.diagram.custom.edit.parts.generic.MindEditPart;
-import org.ow2.fractal.mind.diagram.custom.edit.parts.generic.MindEditPartFactory;
+import org.ow2.fractal.mind.diagram.custom.edit.parts.generic.MindGenericEditPartFactory;
 import adl.diagram.edit.parts.AttributeDefinitionEditPart;
 
 /**
@@ -20,7 +20,7 @@ public class AttributeDefinitionCustomEditPart extends
 		super(view);
 	}
 	
-	protected MindEditPart genericEditPart = MindEditPartFactory.INSTANCE.createGenericEditPart (this, VISUAL_ID);
+	protected MindEditPart genericEditPart = MindGenericEditPartFactory.INSTANCE.createGenericEditPart (this, VISUAL_ID);
 	
 	
 	/**

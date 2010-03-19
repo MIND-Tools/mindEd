@@ -7,19 +7,13 @@ import org.eclipse.gef.Request;
 import org.eclipse.gmf.runtime.notation.View;
 import org.ow2.fractal.mind.diagram.custom.edit.parts.generic.MindEditPart;
 import org.ow2.fractal.mind.diagram.custom.edit.parts.generic.MindGenericEditPartFactory;
-import adl.diagram.edit.parts.FileCEditPart;
+import org.ow2.fractal.mind.diagram.custom.helpers.ComponentHelper;
+import adl.diagram.edit.parts.PrimitiveReferenceEditPart;
 
+public class PrimitiveReferenceCustomEditPart extends
+		PrimitiveReferenceEditPart {
 
-/** 
- * This is a reference to a .c file, contained in a DataDefinition or an ImplementationDefinition
- * @author maroto
- *
- */
-
-public class FileCCustomEditPart extends
-		FileCEditPart {
-	
-	public FileCCustomEditPart(View view) {
+	public PrimitiveReferenceCustomEditPart(View view) {
 		super(view);
 	}
 	
@@ -51,10 +45,21 @@ public class FileCCustomEditPart extends
 		return tracker;
 	}
 	
-	protected boolean addFixedChild(EditPart childEditPart) {
-		if (genericEditPart.addFixedChild(childEditPart))
-			return true;
-		return super.addFixedChild(childEditPart);
+	
+	@Override
+	public void activate() {
+		super.activate();
+		if (ComponentHelper.isMerged(this)) 
+			// If the component is merged handle custom behaviour
+			ComponentHelper.handleMergedElement(this);
+		refreshBounds();
 	}
+	
+	
+	protected boolean addFixedChild(EditPart childEditPart) {
+		if (genericEditPart.addFixedChild(childEditPart)) return true;
+		return false;
+	}
+	
 
 }

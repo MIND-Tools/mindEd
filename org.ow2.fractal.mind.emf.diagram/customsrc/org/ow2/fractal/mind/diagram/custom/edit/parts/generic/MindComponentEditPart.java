@@ -2,24 +2,17 @@ package org.ow2.fractal.mind.diagram.custom.edit.parts.generic;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
-import java.util.List;
-
 import org.eclipse.draw2d.IFigure;
 import org.eclipse.gef.DragTracker;
 import org.eclipse.gef.EditPart;
 import org.eclipse.gef.EditPolicy;
 import org.eclipse.gef.Request;
-import org.eclipse.gmf.runtime.diagram.ui.editparts.CompartmentEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.GraphicalEditPart;
-import org.eclipse.gmf.runtime.diagram.ui.editparts.ShapeCompartmentEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.ConstrainedToolbarLayout;
-import org.ow2.fractal.mind.diagram.custom.edit.parts.InterfaceDefinitionCustomEditPart;
 import org.ow2.fractal.mind.diagram.custom.edit.policies.*;
 import org.ow2.fractal.mind.diagram.custom.figures.AbstractComponentShape;
-import org.ow2.fractal.mind.diagram.custom.figures.ContainerShape;
 import org.ow2.fractal.mind.diagram.custom.layouts.ComponentLayout;
-import org.ow2.fractal.mind.diagram.custom.layouts.InterfaceBorderItemLocator;
 import org.ow2.fractal.mind.diagram.custom.providers.CustomDragEditPartsTracker;
 
 public class MindComponentEditPart extends MindEditPart {
@@ -72,15 +65,15 @@ public class MindComponentEditPart extends MindEditPart {
 	
 	@Override
 	public boolean addFixedChild(EditPart childEditPart) {
-		if (getMindEditPartFor(childEditPart) instanceof MindCompartmentEditPart) {
-			IFigure compartment = getCompartmentFigure();
-			if (compartment == null) return false;
-			// Set the layout
-			setupCompartment(compartment);
-			compartment.add(((GraphicalEditPart) childEditPart)
-							.getFigure());
-			return true;
-		}
+//		if (getMindEditPartFor(childEditPart) instanceof MindCompartmentEditPart) {
+//			IFigure compartment = getCompartmentFigure();
+//			if (compartment == null) return false;
+//			// Set the layout
+//			setupCompartment(compartment);
+//			compartment.add(((GraphicalEditPart) childEditPart)
+//							.getFigure());
+//			return true;
+//		}
 		return false;
 	}
 	

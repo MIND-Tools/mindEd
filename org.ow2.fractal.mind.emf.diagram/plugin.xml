@@ -248,7 +248,7 @@
       <viewProvider class="adl.diagram.providers.MindViewProvider">
          <Priority name="Lowest"/>
          <context viewClass="org.eclipse.gmf.runtime.notation.Diagram" semanticHints="Mind"/>
-         <context viewClass="org.eclipse.gmf.runtime.notation.Node" semanticHints="2007,2008,2009,3096,3097,3098,3099,3100,3101,3102,3103,3104,3105,3129,3130,3131,3132,3135,3136,3137,3138,3139,3118,3119,3140,3115,3116,3123,3124,3125,3141,3127,3128,3142"/>
+         <context viewClass="org.eclipse.gmf.runtime.notation.Node" semanticHints="2007,2008,2009,3096,3097,3098,3099,3100,3101,3102,3103,3104,3105,3129,3130,3131,3132,3135,3136,3137,3140,3115,3116,3139,3118,3119,3138,3123,3124,3125,3127,3128,3142"/>
          <context viewClass="org.eclipse.gmf.runtime.notation.Edge" semanticHints="4003"/>
       </viewProvider>
    </extension>
@@ -507,48 +507,8 @@
                name="%metatype.name.PrimitiveBody_3137"
                kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
                eclass="PrimitiveBody"
-               edithelper="adl.diagram.edit.helpers.PrimitiveSubBodyEditHelper">
+               edithelper="adl.diagram.edit.helpers.PrimitiveBodyEditHelper">
             <param name="semanticHint" value="3137"/>
-         </metamodelType>
-      </metamodel>
-      <metamodel nsURI="http://org.ow2.fractal/mind/mind.ecore/0.2.0">
-         <metamodelType
-               id="org.ow2.fractal.mind.emf.diagram.AttributeDefinition_3138"
-               name="%metatype.name.AttributeDefinition_3138"
-               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
-               eclass="AttributeDefinition"
-               edithelper="adl.diagram.edit.helpers.AttributeDefinitionEditHelper">
-            <param name="semanticHint" value="3138"/>
-         </metamodelType>
-      </metamodel>
-      <metamodel nsURI="http://org.ow2.fractal/mind/mind.ecore/0.2.0">
-         <metamodelType
-               id="org.ow2.fractal.mind.emf.diagram.DataDefinition_3139"
-               name="%metatype.name.DataDefinition_3139"
-               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
-               eclass="DataDefinition"
-               edithelper="adl.diagram.edit.helpers.DataDefinitionEditHelper">
-            <param name="semanticHint" value="3139"/>
-         </metamodelType>
-      </metamodel>
-      <metamodel nsURI="http://org.ow2.fractal/mind/mind.ecore/0.2.0">
-         <metamodelType
-               id="org.ow2.fractal.mind.emf.diagram.FileC_3118"
-               name="%metatype.name.FileC_3118"
-               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
-               eclass="FileC"
-               edithelper="adl.diagram.edit.helpers.DataFileCEditHelper">
-            <param name="semanticHint" value="3118"/>
-         </metamodelType>
-      </metamodel>
-      <metamodel nsURI="http://org.ow2.fractal/mind/mind.ecore/0.2.0">
-         <metamodelType
-               id="org.ow2.fractal.mind.emf.diagram.InlineCodeC_3119"
-               name="%metatype.name.InlineCodeC_3119"
-               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
-               eclass="InlineCodeC"
-               edithelper="adl.diagram.edit.helpers.DataInlineCodeCEditHelper">
-            <param name="semanticHint" value="3119"/>
          </metamodelType>
       </metamodel>
       <metamodel nsURI="http://org.ow2.fractal/mind/mind.ecore/0.2.0">
@@ -562,22 +522,62 @@
          </metamodelType>
       </metamodel>
       <metamodel nsURI="http://org.ow2.fractal/mind/mind.ecore/0.2.0">
-         <specializationType
+         <metamodelType
                id="org.ow2.fractal.mind.emf.diagram.FileC_3115"
                name="%metatype.name.FileC_3115"
-               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
-            <specializes id="org.ow2.fractal.mind.emf.diagram.FileC_3118"/>
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="FileC"
+               edithelper="adl.diagram.edit.helpers.FileCEditHelper">
             <param name="semanticHint" value="3115"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://org.ow2.fractal/mind/mind.ecore/0.2.0">
+         <metamodelType
+               id="org.ow2.fractal.mind.emf.diagram.InlineCodeC_3116"
+               name="%metatype.name.InlineCodeC_3116"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="InlineCodeC"
+               edithelper="adl.diagram.edit.helpers.InlineCodeCEditHelper">
+            <param name="semanticHint" value="3116"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://org.ow2.fractal/mind/mind.ecore/0.2.0">
+         <metamodelType
+               id="org.ow2.fractal.mind.emf.diagram.DataDefinition_3139"
+               name="%metatype.name.DataDefinition_3139"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="DataDefinition"
+               edithelper="adl.diagram.edit.helpers.DataDefinitionEditHelper">
+            <param name="semanticHint" value="3139"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://org.ow2.fractal/mind/mind.ecore/0.2.0">
+         <specializationType
+               id="org.ow2.fractal.mind.emf.diagram.FileC_3118"
+               name="%metatype.name.FileC_3118"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
+            <specializes id="org.ow2.fractal.mind.emf.diagram.FileC_3115"/>
+            <param name="semanticHint" value="3118"/>
          </specializationType>
       </metamodel>
       <metamodel nsURI="http://org.ow2.fractal/mind/mind.ecore/0.2.0">
          <specializationType
-               id="org.ow2.fractal.mind.emf.diagram.InlineCodeC_3116"
-               name="%metatype.name.InlineCodeC_3116"
+               id="org.ow2.fractal.mind.emf.diagram.InlineCodeC_3119"
+               name="%metatype.name.InlineCodeC_3119"
                kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
-            <specializes id="org.ow2.fractal.mind.emf.diagram.InlineCodeC_3119"/>
-            <param name="semanticHint" value="3116"/>
+            <specializes id="org.ow2.fractal.mind.emf.diagram.InlineCodeC_3116"/>
+            <param name="semanticHint" value="3119"/>
          </specializationType>
+      </metamodel>
+      <metamodel nsURI="http://org.ow2.fractal/mind/mind.ecore/0.2.0">
+         <metamodelType
+               id="org.ow2.fractal.mind.emf.diagram.AttributeDefinition_3138"
+               name="%metatype.name.AttributeDefinition_3138"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="AttributeDefinition"
+               edithelper="adl.diagram.edit.helpers.AttributeDefinitionEditHelper">
+            <param name="semanticHint" value="3138"/>
+         </metamodelType>
       </metamodel>
       <metamodel nsURI="http://org.ow2.fractal/mind/mind.ecore/0.2.0">
          <specializationType
@@ -606,16 +606,6 @@
                edithelperadvice="adl.diagram.edit.helpers.PrimitiveReferenceEditHelper">
             <specializes id="org.ow2.fractal.mind.emf.diagram.PrimitiveReferenceDefinition_3136"/>
             <param name="semanticHint" value="3125"/>
-         </specializationType>
-      </metamodel>
-      <metamodel nsURI="http://org.ow2.fractal/mind/mind.ecore/0.2.0">
-         <specializationType
-               id="org.ow2.fractal.mind.emf.diagram.PrimitiveBody_3141"
-               name="%metatype.name.PrimitiveBody_3141"
-               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
-               edithelperadvice="adl.diagram.edit.helpers.PrimitiveBodyEditHelper">
-            <specializes id="org.ow2.fractal.mind.emf.diagram.PrimitiveBody_3137"/>
-            <param name="semanticHint" value="3141"/>
          </specializationType>
       </metamodel>
       <metamodel nsURI="http://org.ow2.fractal/mind/mind.ecore/0.2.0">
@@ -691,17 +681,16 @@
          <elementType ref="org.ow2.fractal.mind.emf.diagram.SubComponentDefinition_3135"/>
          <elementType ref="org.ow2.fractal.mind.emf.diagram.PrimitiveReferenceDefinition_3136"/>
          <elementType ref="org.ow2.fractal.mind.emf.diagram.PrimitiveBody_3137"/>
-         <elementType ref="org.ow2.fractal.mind.emf.diagram.AttributeDefinition_3138"/>
-         <elementType ref="org.ow2.fractal.mind.emf.diagram.DataDefinition_3139"/>
-         <elementType ref="org.ow2.fractal.mind.emf.diagram.FileC_3118"/>
-         <elementType ref="org.ow2.fractal.mind.emf.diagram.InlineCodeC_3119"/>
          <elementType ref="org.ow2.fractal.mind.emf.diagram.ImplementationDefinition_3140"/>
          <elementType ref="org.ow2.fractal.mind.emf.diagram.FileC_3115"/>
          <elementType ref="org.ow2.fractal.mind.emf.diagram.InlineCodeC_3116"/>
+         <elementType ref="org.ow2.fractal.mind.emf.diagram.DataDefinition_3139"/>
+         <elementType ref="org.ow2.fractal.mind.emf.diagram.FileC_3118"/>
+         <elementType ref="org.ow2.fractal.mind.emf.diagram.InlineCodeC_3119"/>
+         <elementType ref="org.ow2.fractal.mind.emf.diagram.AttributeDefinition_3138"/>
          <elementType ref="org.ow2.fractal.mind.emf.diagram.FormalArgumentsList_3123"/>
          <elementType ref="org.ow2.fractal.mind.emf.diagram.PrimitiveReferencesList_3124"/>
          <elementType ref="org.ow2.fractal.mind.emf.diagram.PrimitiveReferenceDefinition_3125"/>
-         <elementType ref="org.ow2.fractal.mind.emf.diagram.PrimitiveBody_3141"/>
          <elementType ref="org.ow2.fractal.mind.emf.diagram.TypeReferencesList_3127"/>
          <elementType ref="org.ow2.fractal.mind.emf.diagram.TypeReferenceDefinition_3128"/>
          <elementType ref="org.ow2.fractal.mind.emf.diagram.TypeBody_3142"/>

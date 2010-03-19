@@ -33,7 +33,7 @@ public class MindListCompartmentEditPart extends MindCompartmentEditPart {
 		realEditPart.removeEditPolicy(EditPolicyRoles.DRAG_DROP_ROLE);
 	}
 	
-	
+	@Override
 	public void setLayoutManager(IFigure figure) {
 		figure.setLayoutManager(getLayoutManager());
 	}
@@ -43,6 +43,7 @@ public class MindListCompartmentEditPart extends MindCompartmentEditPart {
 	 * Implements a ConstrainedToolbarLayout
 	 * @return
 	 */
+	@Override
 	public LayoutManager getLayoutManager() {
 		if (layoutManager == null) {
 			layoutManager = new ConstrainedFlowLayout(false);

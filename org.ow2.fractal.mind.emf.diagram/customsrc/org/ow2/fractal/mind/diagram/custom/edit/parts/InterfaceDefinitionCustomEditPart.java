@@ -4,17 +4,12 @@ import org.eclipse.draw2d.StackLayout;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.gef.DragTracker;
-import org.eclipse.gef.EditPolicy;
 import org.eclipse.gef.Request;
-import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
 import org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure;
 import org.eclipse.gmf.runtime.notation.View;
 import org.ow2.fractal.mind.diagram.custom.edit.parts.generic.MindEditPart;
-import org.ow2.fractal.mind.diagram.custom.edit.policies.InterfaceDefinitionCustomItemSemanticEditPolicy;
+import org.ow2.fractal.mind.diagram.custom.edit.parts.generic.MindGenericEditPartFactory;
 import org.ow2.fractal.mind.diagram.custom.figures.InterfaceDefinitionShape;
-import org.ow2.fractal.mind.diagram.custom.helpers.ComponentHelper;
-import org.ow2.fractal.mind.diagram.custom.providers.BorderItemDragTracker;
-
 import adl.InterfaceDefinition;
 import adl.Role;
 import adl.diagram.edit.parts.InterfaceDefinitionEditPart;
@@ -36,15 +31,26 @@ import adl.diagram.edit.parts.InterfaceDefinitionEditPart;
 public class InterfaceDefinitionCustomEditPart extends
 		InterfaceDefinitionEditPart {
 	
-	protected MindEditPart genericEditPart = MindEditPart.INSTANCE.createGenericEditPart (this, VISUAL_ID);
-
-	@Override
-	public DragTracker getDragTracker(Request request) {
-		return genericEditPart.getDragTracker(this);
-	}
-
 	public InterfaceDefinitionCustomEditPart(View view) {
 		super(view);
+	}
+
+	protected MindEditPart genericEditPart = MindGenericEditPartFactory.INSTANCE.createGenericEditPart (this, VISUAL_ID);
+	
+	@Override
+	public DragTracker getDragTracker(Request request) {
+		return genericEditPart.getDragTracker(request);
+	}
+	
+	@Override
+	public void activate() {
+		super.activate();
+		genericEditPart.activate();
+	}
+	
+	protected void createDefaultEditPolicies() {
+		super.createDefaultEditPolicies();
+		genericEditPart.createDefaultEditPolicies();	
 	}
 
 	private InterfaceDefinitionShape interfaceDefinitionShape; 
@@ -123,17 +129,6 @@ public class InterfaceDefinitionCustomEditPart extends
 			}
 		}
 		super.handleNotificationEvent(notification);
-	}
-	
-	@Override
-	public void activate() {
-		super.activate();
-		genericEditPart.activate();
-	}
-	
-	protected void createDefaultEditPolicies() {
-		super.createDefaultEditPolicies();
-		genericEditPart.createDefaultEditPolicies();	
 	}
 	
 	
