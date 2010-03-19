@@ -1,55 +1,88 @@
 package org.ow2.fractal.mind.diagram.custom.edit.parts;
 
 import org.eclipse.draw2d.IFigure;
+import org.eclipse.gef.DragTracker;
 import org.eclipse.gef.EditPart;
-import org.eclipse.gef.EditPolicy;
-import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
-import org.eclipse.gmf.runtime.draw2d.ui.figures.ConstrainedToolbarLayout;
-import org.eclipse.gmf.runtime.gef.ui.figures.DefaultSizeNodeFigure;
-import org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure;
+import org.eclipse.gef.Request;
 import org.eclipse.gmf.runtime.notation.View;
-import org.ow2.fractal.mind.diagram.custom.edit.policies.MindSubCreationEditPolicy;
-import org.ow2.fractal.mind.diagram.custom.edit.policies.NoDragDropEditPolicy;
-import org.ow2.fractal.mind.diagram.custom.edit.policies.OpenDefinitionEditPolicy;
+import org.ow2.fractal.mind.diagram.custom.edit.parts.generic.MindEditPart;
+import org.ow2.fractal.mind.diagram.custom.edit.parts.generic.MindGenericEditPartFactory;
+import org.ow2.fractal.mind.diagram.custom.helpers.ComponentHelper;
 
-import adl.diagram.edit.parts.TypeReferenceDefinition2EditPart;
+import adl.diagram.edit.parts.TemplateSpecifierReferenceEditPart;
 
 public class TemplateSpecifierReferenceCustomEditPart extends
-		TypeReferenceDefinition2EditPart {
+		TemplateSpecifierReferenceEditPart {
 
 	public TemplateSpecifierReferenceCustomEditPart(View view) {
 		super(view);
 	}
 	
-	@Override
-	protected NodeFigure createNodePlate() {
-		//set default size
-		DefaultSizeNodeFigure result = new DefaultSizeNodeFigure(100, 20);
-		return result;
-	}
+	protected MindEditPart genericEditPart = MindGenericEditPartFactory.INSTANCE.createGenericEditPart (this, VISUAL_ID);
 	
 	@Override
 	protected IFigure setupContentPane(IFigure nodeShape) {
-		if (nodeShape.getLayoutManager() == null) {
-			//no spacing anymore
-			ConstrainedToolbarLayout layout = new ConstrainedToolbarLayout();
-			nodeShape.setLayoutManager(layout);
-		}
-		return nodeShape; // use nodeShape itself as contentPane
+		IFigure shape = genericEditPart.setupContentPane(nodeShape);
+		if (shape != null) return shape;
+		return super.setupContentPane(nodeShape);
+	}
+	
+	@Override
+	protected void refreshBounds() {
+		genericEditPart.refreshBounds();
 	}
 	
 	@Override
 	public void createDefaultEditPolicies() {
 		super.createDefaultEditPolicies();
-		installEditPolicy(EditPolicy.LAYOUT_ROLE, createLayoutEditPolicy());
-		installEditPolicy(EditPolicyRoles.CREATION_ROLE,
-				new MindSubCreationEditPolicy());
-		installEditPolicy(EditPolicyRoles.DRAG_DROP_ROLE,
-				new NoDragDropEditPolicy());
-		installEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE,
-				new NoDragDropEditPolicy());
-		installEditPolicy(EditPolicyRoles.OPEN_ROLE, 
-				new OpenDefinitionEditPolicy());
+		genericEditPart.createDefaultEditPolicies();
+	}
+	
+	@Override
+	public DragTracker getDragTracker(Request request) {
+		DragTracker tracker = genericEditPart.getDragTracker(request);
+		if (tracker == null)
+			tracker = super.getDragTracker(request);
+		return tracker;
+	}
+	
+	
+	@Override
+	public void activate() {
+		super.activate();
+		if (ComponentHelper.isMerged(this)) 
+			// If the component is merged handle custom behaviour
+			ComponentHelper.handleMergedElement(this);
+		refreshBounds();
+	}
+	
+	
+	protected boolean addFixedChild(EditPart childEditPart) {
+		if (genericEditPart.addFixedChild(childEditPart)) return true;
+		return false;
+	}
+	
+	
+	@Override
+	protected void addChild(EditPart childEditPart, int index) {
+		super.addChild(childEditPart, index);
+		// Should implement a listener instead
+		// and use handleChildAdded
+		getParent().refresh();
+	}
+	
+	@Override
+	protected void removeChild(EditPart childEditPart) {
+		super.removeChild(childEditPart);
+		// Should implement a listener instead
+		// and use handleChildRemoved
+		getParent().refresh();
+	}
+	
+	@Override
+	public void refresh() {
+		super.refresh();
+		getParent().refresh();
 	}
 
 }

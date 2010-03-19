@@ -1,8 +1,10 @@
 package org.ow2.fractal.mind.diagram.custom.edit.parts;
 
+import org.eclipse.draw2d.LayoutManager;
 import org.eclipse.gmf.runtime.notation.View;
 import org.ow2.fractal.mind.diagram.custom.edit.parts.generic.MindEditPart;
-import org.ow2.fractal.mind.diagram.custom.edit.parts.generic.MindEditPartFactory;
+import org.ow2.fractal.mind.diagram.custom.edit.parts.generic.MindGenericEditPartFactory;
+
 import adl.diagram.edit.parts.TypeBodyCompartmentEditPart;
 
 /**
@@ -18,12 +20,21 @@ public class TypeBodyCompartmentCustomEditPart extends
 		super(view);
 	}
 	
-	protected MindEditPart genericEditPart = MindEditPartFactory.INSTANCE.createGenericEditPart (this, VISUAL_ID);
+protected MindEditPart genericEditPart = MindGenericEditPartFactory.INSTANCE.createGenericEditPart (this, VISUAL_ID);
 	
 	@Override
-	public void createDefaultEditPolicies() {
+	protected void createDefaultEditPolicies() {
 		super.createDefaultEditPolicies();
 		genericEditPart.createDefaultEditPolicies();
+	}
+	
+	
+	@Override
+	protected LayoutManager getLayoutManager() {
+		LayoutManager lm = genericEditPart.getLayoutManager();
+		if (lm == null)
+			lm = super.getLayoutManager();
+		return lm;
 	}
 
 }

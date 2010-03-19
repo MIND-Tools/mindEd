@@ -8,17 +8,25 @@ import org.eclipse.gmf.runtime.notation.View;
 import org.ow2.fractal.mind.diagram.custom.edit.parts.generic.MindEditPart;
 import org.ow2.fractal.mind.diagram.custom.edit.parts.generic.MindGenericEditPartFactory;
 import org.ow2.fractal.mind.diagram.custom.helpers.ComponentHelper;
-import adl.diagram.edit.parts.TemplateDefinitionEditPart;
 
-public class TemplateDefinitionCustomEditPart extends
-		TemplateDefinitionEditPart {
-	
-	public TemplateDefinitionCustomEditPart(View view) {
+import adl.diagram.edit.parts.TypeReferenceEditPart;
+
+/**
+ * Extends TypeReferenceDefinitionEditPart to implement custom behavior
+ * - disable spacing
+ * - set default size
+ * @author maroto
+ *
+ */
+public class TypeReferenceCustomEditPart extends
+		TypeReferenceEditPart {
+
+	public TypeReferenceCustomEditPart(View view) {
 		super(view);
 	}
 	
-	protected MindEditPart genericEditPart = MindGenericEditPartFactory.INSTANCE.createGenericEditPart (this, VISUAL_ID);
-
+protected MindEditPart genericEditPart = MindGenericEditPartFactory.INSTANCE.createGenericEditPart (this, VISUAL_ID);
+	
 	@Override
 	protected IFigure setupContentPane(IFigure nodeShape) {
 		IFigure shape = genericEditPart.setupContentPane(nodeShape);
@@ -83,4 +91,5 @@ public class TemplateDefinitionCustomEditPart extends
 		super.refresh();
 		getParent().refresh();
 	}
+	
 }

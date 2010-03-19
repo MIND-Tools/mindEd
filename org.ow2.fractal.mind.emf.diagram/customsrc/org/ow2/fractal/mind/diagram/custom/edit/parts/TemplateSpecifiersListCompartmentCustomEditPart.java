@@ -1,53 +1,27 @@
 package org.ow2.fractal.mind.diagram.custom.edit.parts;
 
-import org.eclipse.draw2d.IFigure;
+import org.eclipse.draw2d.LayoutManager;
 import org.eclipse.gef.DragTracker;
 import org.eclipse.gef.EditPart;
 import org.eclipse.gef.Request;
 import org.eclipse.gmf.runtime.notation.View;
 import org.ow2.fractal.mind.diagram.custom.edit.parts.generic.MindEditPart;
 import org.ow2.fractal.mind.diagram.custom.edit.parts.generic.MindGenericEditPartFactory;
-import adl.diagram.edit.parts.PrimitiveSubComponentEditPart;
+import adl.diagram.edit.parts.TemplateSpecifiersListCompartmentEditPart;
 
-/**
- * Extends PrimitiveSubComponentEditPart to implement custom behavior
- * - recognize child's custom edit part
- * - disable spacing
- * - set child's default size
- * - implement interface's custom behavior
- * - change the binding's container in case of drag & drop
- * @author maroto
- *
- */
-public class PrimitiveSubComponentCustomEditPart extends
-		PrimitiveSubComponentEditPart {
-
-	public PrimitiveSubComponentCustomEditPart(View view) {
+public class TemplateSpecifiersListCompartmentCustomEditPart extends
+		TemplateSpecifiersListCompartmentEditPart {
+	
+	public TemplateSpecifiersListCompartmentCustomEditPart(View view) {
 		super(view);
 	}
-	
+
 	protected MindEditPart genericEditPart = MindGenericEditPartFactory.INSTANCE.createGenericEditPart (this, VISUAL_ID);
-	
 	
 	@Override
 	protected void createDefaultEditPolicies() {
 		super.createDefaultEditPolicies();
 		genericEditPart.createDefaultEditPolicies();
-	}
-	
-		
-	@Override
-	protected IFigure setupContentPane(IFigure nodeShape) {
-		IFigure shape = genericEditPart.setupContentPane(nodeShape);
-		if (shape == null)
-			shape = super.setupContentPane(nodeShape);
-		return shape;
-	}
-	
-	@Override
-	protected boolean addFixedChild(EditPart childEditPart) {
-		if (genericEditPart.addFixedChild(childEditPart)) return true;
-		return super.addFixedChild(childEditPart);
 	}
 	
 	@Override
@@ -62,6 +36,30 @@ public class PrimitiveSubComponentCustomEditPart extends
 	public void activate() {
 		super.activate();
 		genericEditPart.activate();
+	}
+
+	
+	@Override
+	protected LayoutManager getLayoutManager() {
+		LayoutManager layoutManager = genericEditPart.getLayoutManager();
+		if (layoutManager == null) {
+			layoutManager = super.getLayoutManager();
+		}
+		return layoutManager;
+	}
+	
+	@Override
+	protected void addChild(EditPart childEditPart, int index) {
+		super.addChild(childEditPart, index);
+		// A listener should be implemented on the parent instead
+		getParent().refresh();
+	}
+	
+	@Override
+	protected void removeChild(EditPart childEditPart) {
+		super.removeChild(childEditPart);
+		// A listener should be implemented on the parent instead
+		getParent().refresh();
 	}
 
 }

@@ -103,11 +103,12 @@ public abstract class AbstractMindEditPart implements MindTypes {
 	 * @param editPolicyName
 	 * @return a new instance of the edit policy
 	 */
+	@SuppressWarnings("unchecked")
 	protected EditPolicy getEditPolicyFromName (String editPolicyName) {
-		Class editPolicyClass = null;
+		Class<? extends EditPolicy> editPolicyClass = null;
 		try {
-			editPolicyClass = Class.forName(editPolicyName);
-			EditPolicy editPolicy = (EditPolicy) editPolicyClass.newInstance();
+			editPolicyClass = (Class<? extends EditPolicy>) Class.forName(editPolicyName);
+			EditPolicy editPolicy = editPolicyClass.newInstance();
 			return editPolicy;
 			
 		} catch (ClassNotFoundException e) {
