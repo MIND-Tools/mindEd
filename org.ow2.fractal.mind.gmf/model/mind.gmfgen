@@ -1855,7 +1855,8 @@
         childNodes="//@diagram/@childNodes.4"
         title="CompartmentFormalArgumentsList"
         needsTitle="false"
-        node="//@diagram/@childNodes.3">
+        node="//@diagram/@childNodes.3"
+        listLayout="false">
       <diagramRunTimeClass
           href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <viewmap
@@ -1890,7 +1891,8 @@
         childNodes="//@diagram/@childNodes.7 //@diagram/@childNodes.8"
         title="CompartmentComponentReferenceDefinitionArea"
         needsTitle="false"
-        node="//@diagram/@childNodes.6">
+        node="//@diagram/@childNodes.6"
+        listLayout="false">
       <diagramRunTimeClass
           href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <viewmap
@@ -1925,7 +1927,8 @@
         childNodes="//@diagram/@childNodes.7 //@diagram/@childNodes.8"
         title="CompartmentComponentReferenceDefinitionArea"
         needsTitle="false"
-        node="//@diagram/@childNodes.9">
+        node="//@diagram/@childNodes.9"
+        listLayout="false">
       <diagramRunTimeClass
           href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <viewmap
@@ -1959,7 +1962,8 @@
         childNodes="//@diagram/@childNodes.7"
         title="CompartmentReferenceDefinitionArea"
         needsTitle="false"
-        node="//@diagram/@childNodes.13">
+        node="//@diagram/@childNodes.13"
+        listLayout="false">
       <diagramRunTimeClass
           href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <viewmap
@@ -1976,7 +1980,8 @@
         childNodes="//@diagram/@childNodes.7"
         title="CompartmentReferenceDefinitionArea"
         needsTitle="false"
-        node="//@diagram/@childNodes.15">
+        node="//@diagram/@childNodes.15"
+        listLayout="false">
       <diagramRunTimeClass
           href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <viewmap
@@ -1988,6 +1993,7 @@
         visualID="7098"
         editPartClassName="PrimitiveBodyCompartmentEditPart"
         itemSemanticEditPolicyClassName="PrimitiveBodyCompartmentItemSemanticEditPolicy"
+        notationViewFactoryClassName="PrimitiveBodyBodyCompartmentViewFactory"
         canonicalEditPolicyClassName="PrimitiveBodyCompartmentCanonicalEditPolicy"
         childNodes="//@diagram/@childNodes.17 //@diagram/@childNodes.20"
         title="BodyCompartment"
@@ -2010,7 +2016,8 @@
         childNodes="//@diagram/@childNodes.18 //@diagram/@childNodes.19"
         title="CompartmentImplementationBodyArea"
         needsTitle="false"
-        node="//@diagram/@childNodes.17">
+        node="//@diagram/@childNodes.17"
+        listLayout="false">
       <diagramRunTimeClass
           href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <viewmap
@@ -2027,7 +2034,8 @@
         childNodes="//@diagram/@childNodes.21 //@diagram/@childNodes.22"
         title="CompartmentDataDefinitionBodyArea"
         needsTitle="false"
-        node="//@diagram/@childNodes.20">
+        node="//@diagram/@childNodes.20"
+        listLayout="false">
       <diagramRunTimeClass
           href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <viewmap
@@ -2044,7 +2052,8 @@
         childNodes="//@diagram/@childNodes.4"
         title="CompartmentFormalArgumentsList"
         needsTitle="false"
-        node="//@diagram/@childNodes.24">
+        node="//@diagram/@childNodes.24"
+        listLayout="false">
       <diagramRunTimeClass
           href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <viewmap
@@ -2079,7 +2088,8 @@
         childNodes="//@diagram/@childNodes.7"
         title="CompartmentComponentReferenceDefinitionArea"
         needsTitle="false"
-        node="//@diagram/@childNodes.26">
+        node="//@diagram/@childNodes.26"
+        listLayout="false">
       <diagramRunTimeClass
           href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <viewmap
@@ -2095,7 +2105,8 @@
         childNodes="//@diagram/@childNodes.28"
         title="CompartmentReferencesListArea"
         needsTitle="false"
-        node="//@diagram/@childNodes.27">
+        node="//@diagram/@childNodes.27"
+        listLayout="false">
       <diagramRunTimeClass
           href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <viewmap
@@ -2111,7 +2122,8 @@
         canonicalEditPolicyClassName="TypeBodyCompartmentCanonicalEditPolicy"
         title="BodyCompartment"
         needsTitle="false"
-        node="//@diagram/@childNodes.29">
+        node="//@diagram/@childNodes.29"
+        listLayout="false">
       <diagramRunTimeClass
           href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <viewmap
