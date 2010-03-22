@@ -11,6 +11,25 @@
     <ownedChild>
       <domainMetaElement
           href="../../org.ow2.fractal.mind.emf/model/mind.ecore#//CompositeComponentDefinition"/>
+      <domainInitializer
+          xsi:type="gmfmap:FeatureSeqInitializer">
+        <initializers
+            xsi:type="gmfmap:ReferenceNewElementSpec">
+          <feature
+              xsi:type="ecore:EReference"
+              href="../../org.ow2.fractal.mind.emf/model/mind.ecore#//ArchitectureDefinition/body"/>
+          <newElementInitializers>
+            <initializers
+                xsi:type="gmfmap:FeatureValueSpec">
+              <feature
+                  xsi:type="ecore:EAttribute"
+                  href="../../org.ow2.fractal.mind.emf/model/mind.ecore#//MergedObject/merged"/>
+              <value
+                  body="false"/>
+            </initializers>
+          </newElementInitializers>
+        </initializers>
+      </domainInitializer>
       <labelMappings
           xsi:type="gmfmap:FeatureLabelMapping"
           viewPattern=""

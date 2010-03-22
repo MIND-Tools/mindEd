@@ -2,7 +2,7 @@
 <gmfgen:GenEditorGenerator xmi:version="2.0"
     xmlns:xmi="http://www.omg.org/XMI"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xmlns:gmfgen="http://www.eclipse.org/gmf/2009/GenModel">
+    xmlns:gmfgen="http://www.eclipse.org/gmf/2009/GenModel" templateDirectory="/org.ow2.fractal.mind.emf.diagram/templates">
   <audits>
     <categories
         id="mindaudits"
@@ -37,7 +37,7 @@
         name="Primitive reference name check"
         description="This will check if a reference's name is correct"
         id="reference_namecheck"
-        rule="//@expressionProviders/@providers.0/@expressions.8"
+        rule="//@expressionProviders/@providers.0/@expressions.9"
         message="Reference name not valid"
         category="//@audits/@categories.1">
       <target
@@ -51,7 +51,7 @@
         name="Component name check"
         description="This will check if a component's name is correct"
         id="component_namecheck"
-        rule="//@expressionProviders/@providers.0/@expressions.9"
+        rule="//@expressionProviders/@providers.0/@expressions.10"
         message="Component name not valid"
         category="//@audits/@categories.2">
       <target
@@ -65,7 +65,7 @@
         name="interface_name_check"
         description="This will check that all interfaces have a name"
         id="interface_name_check"
-        rule="//@expressionProviders/@providers.0/@expressions.10"
+        rule="//@expressionProviders/@providers.0/@expressions.11"
         message="Interface must have a name"
         category="//@audits/@categories.2">
       <target
@@ -79,7 +79,7 @@
         name="inline_pattern"
         description="This will check that an inline c code begins and ends with double curly brackets"
         id="inline_pattern"
-        rule="//@expressionProviders/@providers.0/@expressions.11"
+        rule="//@expressionProviders/@providers.0/@expressions.12"
         message="Inline code must begin and end with double curly brackets"
         category="//@audits/@categories.3">
       <target
@@ -93,7 +93,7 @@
         name="data_content"
         description="This will check that datas only has one content"
         id="data_content"
-        rule="//@expressionProviders/@providers.0/@expressions.12"
+        rule="//@expressionProviders/@providers.0/@expressions.13"
         message="Data must be File or Inline"
         useInLiveMode="true"
         category="//@audits/@categories.3">
@@ -108,7 +108,7 @@
         name="source_not_empty"
         description="This will check that an implementation is not empty"
         id="source_not_empty"
-        rule="//@expressionProviders/@providers.0/@expressions.13"
+        rule="//@expressionProviders/@providers.0/@expressions.14"
         message="Source must not be empty"
         category="//@audits/@categories.3">
       <target
@@ -122,7 +122,7 @@
         name="source_content"
         description="This will check that sources only has one content"
         id="source_content"
-        rule="//@expressionProviders/@providers.0/@expressions.14"
+        rule="//@expressionProviders/@providers.0/@expressions.15"
         message="Source must be File or Inline"
         useInLiveMode="true"
         category="//@audits/@categories.3">
@@ -137,7 +137,7 @@
         name="adl_not_empty"
         description="This will check that the adl is not empty"
         id="adl_not_empty"
-        rule="//@expressionProviders/@providers.0/@expressions.15"
+        rule="//@expressionProviders/@providers.0/@expressions.16"
         message="There must be at least one element"
         category="//@audits/@categories.4">
       <target
@@ -210,7 +210,7 @@
             <newElementInitializers>
               <initializers
                   xsi:type="gmfgen:GenFeatureValueSpec"
-                  value="//@expressionProviders/@providers.0/@expressions.0">
+                  value="//@expressionProviders/@providers.0/@expressions.1">
                 <feature
                     href="../../org.ow2.fractal.mind.emf/model/mind.genmodel#//adl/TemplateSpecifier/name"/>
               </initializers>
@@ -221,7 +221,7 @@
                 <newElementInitializers>
                   <initializers
                       xsi:type="gmfgen:GenFeatureValueSpec"
-                      value="//@expressionProviders/@providers.0/@expressions.1">
+                      value="//@expressionProviders/@providers.0/@expressions.2">
                     <feature
                         href="../../org.ow2.fractal.mind.emf/model/mind.genmodel#//adl/ComponentReference/referenceName"/>
                   </initializers>
@@ -272,7 +272,7 @@
             <newElementInitializers>
               <initializers
                   xsi:type="gmfgen:GenFeatureValueSpec"
-                  value="//@expressionProviders/@providers.0/@expressions.2">
+                  value="//@expressionProviders/@providers.0/@expressions.3">
                 <feature
                     href="../../org.ow2.fractal.mind.emf/model/mind.genmodel#//adl/ComponentReference/referenceName"/>
               </initializers>
@@ -391,7 +391,7 @@
             <newElementInitializers>
               <initializers
                   xsi:type="gmfgen:GenFeatureValueSpec"
-                  value="//@expressionProviders/@providers.0/@expressions.3">
+                  value="//@expressionProviders/@providers.0/@expressions.4">
                 <feature
                     href="../../org.ow2.fractal.mind.emf/model/mind.genmodel#//adl/FormalArgument/name"/>
               </initializers>
@@ -483,7 +483,7 @@
             <newElementInitializers>
               <initializers
                   xsi:type="gmfgen:GenFeatureValueSpec"
-                  value="//@expressionProviders/@providers.0/@expressions.4">
+                  value="//@expressionProviders/@providers.0/@expressions.5">
                 <feature
                     href="../../org.ow2.fractal.mind.emf/model/mind.genmodel#//adl/ComponentReference/referenceName"/>
               </initializers>
@@ -631,7 +631,7 @@
             <newElementInitializers>
               <initializers
                   xsi:type="gmfgen:GenFeatureValueSpec"
-                  value="//@expressionProviders/@providers.0/@expressions.5">
+                  value="//@expressionProviders/@providers.0/@expressions.6">
                 <feature
                     href="../../org.ow2.fractal.mind.emf/model/mind.genmodel#//adl/ComponentReference/referenceName"/>
               </initializers>
@@ -1405,7 +1405,7 @@
             <newElementInitializers>
               <initializers
                   xsi:type="gmfgen:GenFeatureValueSpec"
-                  value="//@expressionProviders/@providers.0/@expressions.3">
+                  value="//@expressionProviders/@providers.0/@expressions.4">
                 <feature
                     href="../../org.ow2.fractal.mind.emf/model/mind.genmodel#//adl/FormalArgument/name"/>
               </initializers>
@@ -1452,7 +1452,7 @@
             <newElementInitializers>
               <initializers
                   xsi:type="gmfgen:GenFeatureValueSpec"
-                  value="//@expressionProviders/@providers.0/@expressions.6">
+                  value="//@expressionProviders/@providers.0/@expressions.7">
                 <feature
                     href="../../org.ow2.fractal.mind.emf/model/mind.genmodel#//adl/ComponentReference/referenceName"/>
               </initializers>
@@ -1464,8 +1464,8 @@
       </modelFacet>
       <labels
           visualID="5116"
-          editPartClassName="LabelTitleReferencesListCustomEditPart"
-          itemSemanticEditPolicyClassName="LabelTitleReferencesListCustomItemSemanticEditPolicy"
+          editPartClassName="LabelTitleReferencesListEditPart"
+          itemSemanticEditPolicyClassName="LabelTitleReferencesListItemSemanticEditPolicy"
           notationViewFactoryClassName="PrimitiveReferencesListLabelViewFactory"
           elementIcon="true">
         <diagramRunTimeClass
@@ -1568,7 +1568,7 @@
             <newElementInitializers>
               <initializers
                   xsi:type="gmfgen:GenFeatureValueSpec"
-                  value="//@expressionProviders/@providers.0/@expressions.7">
+                  value="//@expressionProviders/@providers.0/@expressions.8">
                 <feature
                     href="../../org.ow2.fractal.mind.emf/model/mind.genmodel#//adl/ComponentReference/referenceName"/>
               </initializers>
@@ -1684,6 +1684,22 @@
             href="../../org.ow2.fractal.mind.emf/model/mind.genmodel#//adl/AdlDefinition/architecturedefinition"/>
         <childMetaFeature
             href="../../org.ow2.fractal.mind.emf/model/mind.genmodel#//adl/AdlDefinition/architecturedefinition"/>
+        <modelElementInitializer
+            xsi:type="gmfgen:GenFeatureSeqInitializer">
+          <initializers
+              xsi:type="gmfgen:GenReferenceNewElementSpec">
+            <feature
+                href="../../org.ow2.fractal.mind.emf/model/mind.genmodel#//adl/ArchitectureDefinition/body"/>
+            <newElementInitializers>
+              <initializers
+                  xsi:type="gmfgen:GenFeatureValueSpec"
+                  value="//@expressionProviders/@providers.0/@expressions.0">
+                <feature
+                    href="../../org.ow2.fractal.mind.emf/model/mind.genmodel#//adl/MergedObject/merged"/>
+              </initializers>
+            </newElementInitializers>
+          </initializers>
+        </modelElementInitializer>
       </modelFacet>
       <labels
           visualID="5113"
@@ -2443,6 +2459,8 @@
   <expressionProviders>
     <providers
         xsi:type="gmfgen:GenExpressionInterpreter">
+      <expressions
+          body="false"/>
       <expressions
           body="'template_name'"/>
       <expressions
