@@ -159,11 +159,6 @@ public class FractalIDLAdapterFactory extends AdapterFactoryImpl
         return createDeclaratorAdapter();
       }
       @Override
-      public Adapter caseAbstractDeclarator(AbstractDeclarator object)
-      {
-        return createAbstractDeclaratorAdapter();
-      }
-      @Override
       public Adapter casePointerSpecification(PointerSpecification object)
       {
         return createPointerSpecificationAdapter();
@@ -177,11 +172,6 @@ public class FractalIDLAdapterFactory extends AdapterFactoryImpl
       public Adapter caseDirectDeclarator(DirectDeclarator object)
       {
         return createDirectDeclaratorAdapter();
-      }
-      @Override
-      public Adapter caseAbstractDirectDeclarator(AbstractDirectDeclarator object)
-      {
-        return createAbstractDirectDeclaratorAdapter();
       }
       @Override
       public Adapter caseConstantDefinition(ConstantDefinition object)
@@ -212,6 +202,31 @@ public class FractalIDLAdapterFactory extends AdapterFactoryImpl
       public Adapter caseIncludeDirective(IncludeDirective object)
       {
         return createIncludeDirectiveAdapter();
+      }
+      @Override
+      public Adapter caseAnnotations(Annotations object)
+      {
+        return createAnnotationsAdapter();
+      }
+      @Override
+      public Adapter caseAnnotation(Annotation object)
+      {
+        return createAnnotationAdapter();
+      }
+      @Override
+      public Adapter caseAnnotationParameters(AnnotationParameters object)
+      {
+        return createAnnotationParametersAdapter();
+      }
+      @Override
+      public Adapter caseAnnotationValuePairs(AnnotationValuePairs object)
+      {
+        return createAnnotationValuePairsAdapter();
+      }
+      @Override
+      public Adapter caseAnnotationValuePair(AnnotationValuePair object)
+      {
+        return createAnnotationValuePairAdapter();
       }
       @Override
       public Adapter defaultCase(EObject object)
@@ -476,21 +491,6 @@ public class FractalIDLAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.ow2.fractal.mind.idl.fractalIDL.AbstractDeclarator <em>Abstract Declarator</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.ow2.fractal.mind.idl.fractalIDL.AbstractDeclarator
-   * @generated
-   */
-  public Adapter createAbstractDeclaratorAdapter()
-  {
-    return null;
-  }
-
-  /**
    * Creates a new adapter for an object of class '{@link org.ow2.fractal.mind.idl.fractalIDL.PointerSpecification <em>Pointer Specification</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -531,21 +531,6 @@ public class FractalIDLAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createDirectDeclaratorAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link org.ow2.fractal.mind.idl.fractalIDL.AbstractDirectDeclarator <em>Abstract Direct Declarator</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.ow2.fractal.mind.idl.fractalIDL.AbstractDirectDeclarator
-   * @generated
-   */
-  public Adapter createAbstractDirectDeclaratorAdapter()
   {
     return null;
   }
@@ -636,6 +621,81 @@ public class FractalIDLAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createIncludeDirectiveAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.ow2.fractal.mind.idl.fractalIDL.Annotations <em>Annotations</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.ow2.fractal.mind.idl.fractalIDL.Annotations
+   * @generated
+   */
+  public Adapter createAnnotationsAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.ow2.fractal.mind.idl.fractalIDL.Annotation <em>Annotation</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.ow2.fractal.mind.idl.fractalIDL.Annotation
+   * @generated
+   */
+  public Adapter createAnnotationAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.ow2.fractal.mind.idl.fractalIDL.AnnotationParameters <em>Annotation Parameters</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.ow2.fractal.mind.idl.fractalIDL.AnnotationParameters
+   * @generated
+   */
+  public Adapter createAnnotationParametersAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.ow2.fractal.mind.idl.fractalIDL.AnnotationValuePairs <em>Annotation Value Pairs</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.ow2.fractal.mind.idl.fractalIDL.AnnotationValuePairs
+   * @generated
+   */
+  public Adapter createAnnotationValuePairsAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.ow2.fractal.mind.idl.fractalIDL.AnnotationValuePair <em>Annotation Value Pair</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.ow2.fractal.mind.idl.fractalIDL.AnnotationValuePair
+   * @generated
+   */
+  public Adapter createAnnotationValuePairAdapter()
   {
     return null;
   }

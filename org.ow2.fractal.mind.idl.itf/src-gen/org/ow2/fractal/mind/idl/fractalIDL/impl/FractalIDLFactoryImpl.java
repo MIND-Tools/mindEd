@@ -85,17 +85,20 @@ public class FractalIDLFactoryImpl extends EFactoryImpl implements FractalIDLFac
       case FractalIDLPackage.ENUM_MEMBER: return createEnumMember();
       case FractalIDLPackage.DECLARATORS: return createDeclarators();
       case FractalIDLPackage.DECLARATOR: return createDeclarator();
-      case FractalIDLPackage.ABSTRACT_DECLARATOR: return createAbstractDeclarator();
       case FractalIDLPackage.POINTER_SPECIFICATION: return createPointerSpecification();
       case FractalIDLPackage.QUALIFIED_POINTER_SPECIFICATION: return createQualified_PointerSpecification();
       case FractalIDLPackage.DIRECT_DECLARATOR: return createDirectDeclarator();
-      case FractalIDLPackage.ABSTRACT_DIRECT_DECLARATOR: return createAbstractDirectDeclarator();
       case FractalIDLPackage.CONSTANT_DEFINITION: return createConstantDefinition();
       case FractalIDLPackage.INTERFACE_DEFINITION: return createInterfaceDefinition();
       case FractalIDLPackage.METHOD_DEFINITION: return createMethodDefinition();
       case FractalIDLPackage.PARAMETER_LIST: return createParameterList();
       case FractalIDLPackage.PARAMETER: return createParameter();
       case FractalIDLPackage.INCLUDE_DIRECTIVE: return createIncludeDirective();
+      case FractalIDLPackage.ANNOTATIONS: return createAnnotations();
+      case FractalIDLPackage.ANNOTATION: return createAnnotation();
+      case FractalIDLPackage.ANNOTATION_PARAMETERS: return createAnnotationParameters();
+      case FractalIDLPackage.ANNOTATION_VALUE_PAIRS: return createAnnotationValuePairs();
+      case FractalIDLPackage.ANNOTATION_VALUE_PAIR: return createAnnotationValuePair();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
     }
@@ -324,17 +327,6 @@ public class FractalIDLFactoryImpl extends EFactoryImpl implements FractalIDLFac
    * <!-- end-user-doc -->
    * @generated
    */
-  public AbstractDeclarator createAbstractDeclarator()
-  {
-    AbstractDeclaratorImpl abstractDeclarator = new AbstractDeclaratorImpl();
-    return abstractDeclarator;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public PointerSpecification createPointerSpecification()
   {
     PointerSpecificationImpl pointerSpecification = new PointerSpecificationImpl();
@@ -361,17 +353,6 @@ public class FractalIDLFactoryImpl extends EFactoryImpl implements FractalIDLFac
   {
     DirectDeclaratorImpl directDeclarator = new DirectDeclaratorImpl();
     return directDeclarator;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public AbstractDirectDeclarator createAbstractDirectDeclarator()
-  {
-    AbstractDirectDeclaratorImpl abstractDirectDeclarator = new AbstractDirectDeclaratorImpl();
-    return abstractDirectDeclarator;
   }
 
   /**
@@ -438,6 +419,61 @@ public class FractalIDLFactoryImpl extends EFactoryImpl implements FractalIDLFac
   {
     IncludeDirectiveImpl includeDirective = new IncludeDirectiveImpl();
     return includeDirective;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Annotations createAnnotations()
+  {
+    AnnotationsImpl annotations = new AnnotationsImpl();
+    return annotations;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Annotation createAnnotation()
+  {
+    AnnotationImpl annotation = new AnnotationImpl();
+    return annotation;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public AnnotationParameters createAnnotationParameters()
+  {
+    AnnotationParametersImpl annotationParameters = new AnnotationParametersImpl();
+    return annotationParameters;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public AnnotationValuePairs createAnnotationValuePairs()
+  {
+    AnnotationValuePairsImpl annotationValuePairs = new AnnotationValuePairsImpl();
+    return annotationValuePairs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public AnnotationValuePair createAnnotationValuePair()
+  {
+    AnnotationValuePairImpl annotationValuePair = new AnnotationValuePairImpl();
+    return annotationValuePair;
   }
 
   /**

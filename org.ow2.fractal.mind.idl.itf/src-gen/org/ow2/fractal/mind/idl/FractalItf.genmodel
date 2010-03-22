@@ -67,6 +67,7 @@
     </genClasses>
     <genClasses ecoreClass="FractalItf.ecore#//StructorUnionReference"/>
     <genClasses ecoreClass="FractalItf.ecore#//StructMember">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference FractalItf.ecore#//StructMember/annotations"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference FractalItf.ecore#//StructMember/qualType"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference FractalItf.ecore#//StructMember/dec"/>
     </genClasses>
@@ -80,6 +81,7 @@
     <genClasses ecoreClass="FractalItf.ecore#//EnumMemberList"/>
     <genClasses ecoreClass="FractalItf.ecore#//EnumMember">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference FractalItf.ecore#//EnumMember/enumMember"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference FractalItf.ecore#//EnumMember/annotations"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute FractalItf.ecore#//EnumMember/id"/>
     </genClasses>
     <genClasses ecoreClass="FractalItf.ecore#//Declarators">
@@ -89,10 +91,6 @@
     <genClasses ecoreClass="FractalItf.ecore#//Declarator">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference FractalItf.ecore#//Declarator/pointer"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference FractalItf.ecore#//Declarator/dc"/>
-    </genClasses>
-    <genClasses ecoreClass="FractalItf.ecore#//AbstractDeclarator">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference FractalItf.ecore#//AbstractDeclarator/pointer"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference FractalItf.ecore#//AbstractDeclarator/dc"/>
     </genClasses>
     <genClasses ecoreClass="FractalItf.ecore#//PointerSpecification">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference FractalItf.ecore#//PointerSpecification/qualifiedPointer"/>
@@ -105,19 +103,17 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference FractalItf.ecore#//DirectDeclarator/dec"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute FractalItf.ecore#//DirectDeclarator/array"/>
     </genClasses>
-    <genClasses ecoreClass="FractalItf.ecore#//AbstractDirectDeclarator">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference FractalItf.ecore#//AbstractDirectDeclarator/dec"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute FractalItf.ecore#//AbstractDirectDeclarator/array"/>
-    </genClasses>
     <genClasses ecoreClass="FractalItf.ecore#//ConstantDefinition">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute FractalItf.ecore#//ConstantDefinition/id"/>
     </genClasses>
     <genClasses ecoreClass="FractalItf.ecore#//InterfaceDefinition">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference FractalItf.ecore#//InterfaceDefinition/annotations"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute FractalItf.ecore#//InterfaceDefinition/fqn"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute FractalItf.ecore#//InterfaceDefinition/fqn2"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference FractalItf.ecore#//InterfaceDefinition/methodDef"/>
     </genClasses>
     <genClasses ecoreClass="FractalItf.ecore#//MethodDefinition">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference FractalItf.ecore#//MethodDefinition/annotations"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference FractalItf.ecore#//MethodDefinition/qualifiedTypeSpec"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute FractalItf.ecore#//MethodDefinition/id"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference FractalItf.ecore#//MethodDefinition/ParameterList"/>
@@ -127,14 +123,33 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference FractalItf.ecore#//ParameterList/params"/>
     </genClasses>
     <genClasses ecoreClass="FractalItf.ecore#//Parameter">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference FractalItf.ecore#//Parameter/annotations"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute FractalItf.ecore#//Parameter/ParameterQualifier"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference FractalItf.ecore#//Parameter/qualifiedTypeSpec"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference FractalItf.ecore#//Parameter/dec"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference FractalItf.ecore#//Parameter/abstractDec"/>
     </genClasses>
     <genClasses ecoreClass="FractalItf.ecore#//IncludeDirective">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute FractalItf.ecore#//IncludeDirective/importedURI"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute FractalItf.ecore#//IncludeDirective/includeID"/>
+    </genClasses>
+    <genClasses ecoreClass="FractalItf.ecore#//Annotations">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference FractalItf.ecore#//Annotations/annotations"/>
+    </genClasses>
+    <genClasses ecoreClass="FractalItf.ecore#//Annotation">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute FractalItf.ecore#//Annotation/fqn"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference FractalItf.ecore#//Annotation/annotationParamaters"/>
+    </genClasses>
+    <genClasses ecoreClass="FractalItf.ecore#//AnnotationParameters">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference FractalItf.ecore#//AnnotationParameters/valuePair"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute FractalItf.ecore#//AnnotationParameters/value"/>
+    </genClasses>
+    <genClasses ecoreClass="FractalItf.ecore#//AnnotationValuePairs">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference FractalItf.ecore#//AnnotationValuePairs/first"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference FractalItf.ecore#//AnnotationValuePairs/listValue"/>
+    </genClasses>
+    <genClasses ecoreClass="FractalItf.ecore#//AnnotationValuePair">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute FractalItf.ecore#//AnnotationValuePair/id"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute FractalItf.ecore#//AnnotationValuePair/value"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

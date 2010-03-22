@@ -44,7 +44,7 @@ StructOrUnion:
   'struct'|'union';
 
 StructMember:
-  qualType=QualifiedTypeSpecification dec=Declarators (':' INT)? ';';
+  annotations=Annotations qualType=QualifiedTypeSpecification dec=Declarators (':' INT)? ';';
 
 EnumSpecification:
   EnumDefinition|EnumReference;
@@ -59,28 +59,26 @@ EnumMemberList:
   EnumMember (',' enumMember+=EnumMember)*;
 
 EnumMember:
-  id=ID ('=' INT)?;
+  annotations=Annotations id=ID ('=' INT)?;
 
 Declarators:
   dec=Declarator (',' declaratorList+=Declarator)*;
 
 Declarator:
-  pointer=PointerSpecification dc=DirectDeclarator;
-  
+  pointer=PointerSpecification dc=DirectDeclarator; /*
 AbstractDeclarator:
   pointer=PointerSpecification dc=AbstractDirectDeclarator;
+  */
 
 PointerSpecification:
-  (qualifiedPointer+=Qualified_PointerSpecification)*;
+  {PointerSpecification} qualifiedPointer+=Qualified_PointerSpecification*;
 
 Qualified_PointerSpecification:
-  '*'(typeQualifier+=TypeQualifier)*;
+  {Qualified_PointerSpecification} '*' typeQualifier+=TypeQualifier*;
 
 DirectDeclarator:
-  (id=ID|'(' dec=Declarator ')') (array+=ArraySpecification)*;
-
-AbstractDirectDeclarator:
-  '(' dec=Declarator ')' (array+=ArraySpecification)*;
+  (id=ID|'(' dec=Declarator ')') array+=ArraySpecification*; /*AbstractDirectDeclarator:
+  '(' dec=AbstractDeclarator ')' array+=ArraySpecification*;*/
 
 ArraySpecification:
   '[' (INT|ID) ']';
@@ -88,35 +86,54 @@ ArraySpecification:
 FullyQualifiedName:
   ID ('.' ID)*; // Interface definition part
 
+
 ConstantDefinition:
   "#define" id=ID;
 
 InterfaceDefinition:
-  'interface' ("unmanaged")? fqn=FullyQualifiedName (":" fqn2=FullyQualifiedName)? '{' (
-  methodDef+=MethodDefinition)* '}';
+  annotations=Annotations 'interface' ("unmanaged")? fqn=FullyQualifiedName (":" fqn2=
+  FullyQualifiedName)? '{' (methodDef+=MethodDefinition)* '}';
 
 MethodDefinition:
-  qualifiedTypeSpec=QualifiedTypeSpecification id=ID ('(' ('void')? ')'|'('
+  annotations=Annotations qualifiedTypeSpec=QualifiedTypeSpecification id=ID ('(' ('void')? ')'|'('
   ParameterList=ParameterList ')') ';';
 
 ParameterList:
   param=Parameter (',' params+=Parameter)* (',' '...')?;
 
 Parameter:
-  (ParameterQualifier+=ParameterQualifier)* qualifiedTypeSpec=
-  QualifiedTypeSpecification (dec=Declarator|abstractDec=AbstractDeclarator);
+  annotations=Annotations ParameterQualifier+=ParameterQualifier* qualifiedTypeSpec=
+  QualifiedTypeSpecification dec=Declarator?;
 
 enum ParameterQualifier:
   in | out; // include directive
 
 
 IncludeDirective:
-  '#include'  (importedURI=STRING|includeID=IncludeLib);
-  
+  '#include' (importedURI=STRING|includeID=IncludeLib);
+
 terminal IncludeLib:
-	'<'ID'.'ID'>';
-	
-  
+  '<' ID '.' ID '>';
 
+Annotations:
+  {Annotations} annotations+=Annotation*;
 
+Annotation:
+  '@' fqn=FullyQualifiedName annotationParamaters=AnnotationParameters?;
+
+AnnotationParameters:
+  {AnnotationParameters} '(' (valuePair=AnnotationValuePairs|value=AnnotationValue)?
+  ')';
+
+AnnotationValuePairs:
+  first=AnnotationValuePair (',' listValue+=AnnotationValuePair)*;
+
+AnnotationValuePair:
+  id=ID '=' value=AnnotationValue;
+
+AnnotationValue:
+  INT|'null'|Boolean|ID;
+
+terminal Boolean:
+  'true' | 'false';
 

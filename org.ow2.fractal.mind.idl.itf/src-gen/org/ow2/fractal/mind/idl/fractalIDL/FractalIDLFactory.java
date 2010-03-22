@@ -171,15 +171,6 @@ public interface FractalIDLFactory extends EFactory
   Declarator createDeclarator();
 
   /**
-   * Returns a new object of class '<em>Abstract Declarator</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Abstract Declarator</em>'.
-   * @generated
-   */
-  AbstractDeclarator createAbstractDeclarator();
-
-  /**
    * Returns a new object of class '<em>Pointer Specification</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -205,15 +196,6 @@ public interface FractalIDLFactory extends EFactory
    * @generated
    */
   DirectDeclarator createDirectDeclarator();
-
-  /**
-   * Returns a new object of class '<em>Abstract Direct Declarator</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Abstract Direct Declarator</em>'.
-   * @generated
-   */
-  AbstractDirectDeclarator createAbstractDirectDeclarator();
 
   /**
    * Returns a new object of class '<em>Constant Definition</em>'.
@@ -268,6 +250,51 @@ public interface FractalIDLFactory extends EFactory
    * @generated
    */
   IncludeDirective createIncludeDirective();
+
+  /**
+   * Returns a new object of class '<em>Annotations</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Annotations</em>'.
+   * @generated
+   */
+  Annotations createAnnotations();
+
+  /**
+   * Returns a new object of class '<em>Annotation</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Annotation</em>'.
+   * @generated
+   */
+  Annotation createAnnotation();
+
+  /**
+   * Returns a new object of class '<em>Annotation Parameters</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Annotation Parameters</em>'.
+   * @generated
+   */
+  AnnotationParameters createAnnotationParameters();
+
+  /**
+   * Returns a new object of class '<em>Annotation Value Pairs</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Annotation Value Pairs</em>'.
+   * @generated
+   */
+  AnnotationValuePairs createAnnotationValuePairs();
+
+  /**
+   * Returns a new object of class '<em>Annotation Value Pair</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Annotation Value Pair</em>'.
+   * @generated
+   */
+  AnnotationValuePair createAnnotationValuePair();
 
   /**
    * Returns the package supported by this factory.

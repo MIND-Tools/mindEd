@@ -15,6 +15,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
+import org.ow2.fractal.mind.idl.fractalIDL.Annotations;
 import org.ow2.fractal.mind.idl.fractalIDL.FractalIDLPackage;
 import org.ow2.fractal.mind.idl.fractalIDL.MethodDefinition;
 import org.ow2.fractal.mind.idl.fractalIDL.ParameterList;
@@ -27,6 +28,7 @@ import org.ow2.fractal.mind.idl.fractalIDL.QualifiedTypeSpecification;
  * <p>
  * The following features are implemented:
  * <ul>
+ *   <li>{@link org.ow2.fractal.mind.idl.fractalIDL.impl.MethodDefinitionImpl#getAnnotations <em>Annotations</em>}</li>
  *   <li>{@link org.ow2.fractal.mind.idl.fractalIDL.impl.MethodDefinitionImpl#getQualifiedTypeSpec <em>Qualified Type Spec</em>}</li>
  *   <li>{@link org.ow2.fractal.mind.idl.fractalIDL.impl.MethodDefinitionImpl#getId <em>Id</em>}</li>
  *   <li>{@link org.ow2.fractal.mind.idl.fractalIDL.impl.MethodDefinitionImpl#getParameterList <em>Parameter List</em>}</li>
@@ -37,6 +39,16 @@ import org.ow2.fractal.mind.idl.fractalIDL.QualifiedTypeSpecification;
  */
 public class MethodDefinitionImpl extends MinimalEObjectImpl.Container implements MethodDefinition
 {
+  /**
+   * The cached value of the '{@link #getAnnotations() <em>Annotations</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getAnnotations()
+   * @generated
+   * @ordered
+   */
+  protected Annotations annotations;
+
   /**
    * The cached value of the '{@link #getQualifiedTypeSpec() <em>Qualified Type Spec</em>}' containment reference.
    * <!-- begin-user-doc -->
@@ -96,6 +108,54 @@ public class MethodDefinitionImpl extends MinimalEObjectImpl.Container implement
   protected EClass eStaticClass()
   {
     return FractalIDLPackage.Literals.METHOD_DEFINITION;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Annotations getAnnotations()
+  {
+    return annotations;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetAnnotations(Annotations newAnnotations, NotificationChain msgs)
+  {
+    Annotations oldAnnotations = annotations;
+    annotations = newAnnotations;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FractalIDLPackage.METHOD_DEFINITION__ANNOTATIONS, oldAnnotations, newAnnotations);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setAnnotations(Annotations newAnnotations)
+  {
+    if (newAnnotations != annotations)
+    {
+      NotificationChain msgs = null;
+      if (annotations != null)
+        msgs = ((InternalEObject)annotations).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FractalIDLPackage.METHOD_DEFINITION__ANNOTATIONS, null, msgs);
+      if (newAnnotations != null)
+        msgs = ((InternalEObject)newAnnotations).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FractalIDLPackage.METHOD_DEFINITION__ANNOTATIONS, null, msgs);
+      msgs = basicSetAnnotations(newAnnotations, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, FractalIDLPackage.METHOD_DEFINITION__ANNOTATIONS, newAnnotations, newAnnotations));
   }
 
   /**
@@ -227,6 +287,8 @@ public class MethodDefinitionImpl extends MinimalEObjectImpl.Container implement
   {
     switch (featureID)
     {
+      case FractalIDLPackage.METHOD_DEFINITION__ANNOTATIONS:
+        return basicSetAnnotations(null, msgs);
       case FractalIDLPackage.METHOD_DEFINITION__QUALIFIED_TYPE_SPEC:
         return basicSetQualifiedTypeSpec(null, msgs);
       case FractalIDLPackage.METHOD_DEFINITION__PARAMETER_LIST:
@@ -245,6 +307,8 @@ public class MethodDefinitionImpl extends MinimalEObjectImpl.Container implement
   {
     switch (featureID)
     {
+      case FractalIDLPackage.METHOD_DEFINITION__ANNOTATIONS:
+        return getAnnotations();
       case FractalIDLPackage.METHOD_DEFINITION__QUALIFIED_TYPE_SPEC:
         return getQualifiedTypeSpec();
       case FractalIDLPackage.METHOD_DEFINITION__ID:
@@ -265,6 +329,9 @@ public class MethodDefinitionImpl extends MinimalEObjectImpl.Container implement
   {
     switch (featureID)
     {
+      case FractalIDLPackage.METHOD_DEFINITION__ANNOTATIONS:
+        setAnnotations((Annotations)newValue);
+        return;
       case FractalIDLPackage.METHOD_DEFINITION__QUALIFIED_TYPE_SPEC:
         setQualifiedTypeSpec((QualifiedTypeSpecification)newValue);
         return;
@@ -288,6 +355,9 @@ public class MethodDefinitionImpl extends MinimalEObjectImpl.Container implement
   {
     switch (featureID)
     {
+      case FractalIDLPackage.METHOD_DEFINITION__ANNOTATIONS:
+        setAnnotations((Annotations)null);
+        return;
       case FractalIDLPackage.METHOD_DEFINITION__QUALIFIED_TYPE_SPEC:
         setQualifiedTypeSpec((QualifiedTypeSpecification)null);
         return;
@@ -311,6 +381,8 @@ public class MethodDefinitionImpl extends MinimalEObjectImpl.Container implement
   {
     switch (featureID)
     {
+      case FractalIDLPackage.METHOD_DEFINITION__ANNOTATIONS:
+        return annotations != null;
       case FractalIDLPackage.METHOD_DEFINITION__QUALIFIED_TYPE_SPEC:
         return qualifiedTypeSpec != null;
       case FractalIDLPackage.METHOD_DEFINITION__ID:

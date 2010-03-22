@@ -18,10 +18,10 @@ import org.eclipse.emf.ecore.EObject;
  * <p>
  * The following features are supported:
  * <ul>
+ *   <li>{@link org.ow2.fractal.mind.idl.fractalIDL.Parameter#getAnnotations <em>Annotations</em>}</li>
  *   <li>{@link org.ow2.fractal.mind.idl.fractalIDL.Parameter#getParameterQualifier <em>Parameter Qualifier</em>}</li>
  *   <li>{@link org.ow2.fractal.mind.idl.fractalIDL.Parameter#getQualifiedTypeSpec <em>Qualified Type Spec</em>}</li>
  *   <li>{@link org.ow2.fractal.mind.idl.fractalIDL.Parameter#getDec <em>Dec</em>}</li>
- *   <li>{@link org.ow2.fractal.mind.idl.fractalIDL.Parameter#getAbstractDec <em>Abstract Dec</em>}</li>
  * </ul>
  * </p>
  *
@@ -31,6 +31,32 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface Parameter extends EObject
 {
+  /**
+   * Returns the value of the '<em><b>Annotations</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Annotations</em>' containment reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Annotations</em>' containment reference.
+   * @see #setAnnotations(Annotations)
+   * @see org.ow2.fractal.mind.idl.fractalIDL.FractalIDLPackage#getParameter_Annotations()
+   * @model containment="true"
+   * @generated
+   */
+  Annotations getAnnotations();
+
+  /**
+   * Sets the value of the '{@link org.ow2.fractal.mind.idl.fractalIDL.Parameter#getAnnotations <em>Annotations</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Annotations</em>' containment reference.
+   * @see #getAnnotations()
+   * @generated
+   */
+  void setAnnotations(Annotations value);
+
   /**
    * Returns the value of the '<em><b>Parameter Qualifier</b></em>' attribute list.
    * The list contents are of type {@link org.ow2.fractal.mind.idl.fractalIDL.ParameterQualifier}.
@@ -100,31 +126,5 @@ public interface Parameter extends EObject
    * @generated
    */
   void setDec(Declarator value);
-
-  /**
-   * Returns the value of the '<em><b>Abstract Dec</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Abstract Dec</em>' containment reference isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Abstract Dec</em>' containment reference.
-   * @see #setAbstractDec(AbstractDeclarator)
-   * @see org.ow2.fractal.mind.idl.fractalIDL.FractalIDLPackage#getParameter_AbstractDec()
-   * @model containment="true"
-   * @generated
-   */
-  AbstractDeclarator getAbstractDec();
-
-  /**
-   * Sets the value of the '{@link org.ow2.fractal.mind.idl.fractalIDL.Parameter#getAbstractDec <em>Abstract Dec</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Abstract Dec</em>' containment reference.
-   * @see #getAbstractDec()
-   * @generated
-   */
-  void setAbstractDec(AbstractDeclarator value);
 
 } // Parameter

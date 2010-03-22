@@ -15,6 +15,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
+import org.ow2.fractal.mind.idl.fractalIDL.Annotations;
 import org.ow2.fractal.mind.idl.fractalIDL.Declarators;
 import org.ow2.fractal.mind.idl.fractalIDL.FractalIDLPackage;
 import org.ow2.fractal.mind.idl.fractalIDL.QualifiedTypeSpecification;
@@ -27,6 +28,7 @@ import org.ow2.fractal.mind.idl.fractalIDL.StructMember;
  * <p>
  * The following features are implemented:
  * <ul>
+ *   <li>{@link org.ow2.fractal.mind.idl.fractalIDL.impl.StructMemberImpl#getAnnotations <em>Annotations</em>}</li>
  *   <li>{@link org.ow2.fractal.mind.idl.fractalIDL.impl.StructMemberImpl#getQualType <em>Qual Type</em>}</li>
  *   <li>{@link org.ow2.fractal.mind.idl.fractalIDL.impl.StructMemberImpl#getDec <em>Dec</em>}</li>
  * </ul>
@@ -36,6 +38,16 @@ import org.ow2.fractal.mind.idl.fractalIDL.StructMember;
  */
 public class StructMemberImpl extends MinimalEObjectImpl.Container implements StructMember
 {
+  /**
+   * The cached value of the '{@link #getAnnotations() <em>Annotations</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getAnnotations()
+   * @generated
+   * @ordered
+   */
+  protected Annotations annotations;
+
   /**
    * The cached value of the '{@link #getQualType() <em>Qual Type</em>}' containment reference.
    * <!-- begin-user-doc -->
@@ -75,6 +87,54 @@ public class StructMemberImpl extends MinimalEObjectImpl.Container implements St
   protected EClass eStaticClass()
   {
     return FractalIDLPackage.Literals.STRUCT_MEMBER;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Annotations getAnnotations()
+  {
+    return annotations;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetAnnotations(Annotations newAnnotations, NotificationChain msgs)
+  {
+    Annotations oldAnnotations = annotations;
+    annotations = newAnnotations;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FractalIDLPackage.STRUCT_MEMBER__ANNOTATIONS, oldAnnotations, newAnnotations);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setAnnotations(Annotations newAnnotations)
+  {
+    if (newAnnotations != annotations)
+    {
+      NotificationChain msgs = null;
+      if (annotations != null)
+        msgs = ((InternalEObject)annotations).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FractalIDLPackage.STRUCT_MEMBER__ANNOTATIONS, null, msgs);
+      if (newAnnotations != null)
+        msgs = ((InternalEObject)newAnnotations).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FractalIDLPackage.STRUCT_MEMBER__ANNOTATIONS, null, msgs);
+      msgs = basicSetAnnotations(newAnnotations, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, FractalIDLPackage.STRUCT_MEMBER__ANNOTATIONS, newAnnotations, newAnnotations));
   }
 
   /**
@@ -183,6 +243,8 @@ public class StructMemberImpl extends MinimalEObjectImpl.Container implements St
   {
     switch (featureID)
     {
+      case FractalIDLPackage.STRUCT_MEMBER__ANNOTATIONS:
+        return basicSetAnnotations(null, msgs);
       case FractalIDLPackage.STRUCT_MEMBER__QUAL_TYPE:
         return basicSetQualType(null, msgs);
       case FractalIDLPackage.STRUCT_MEMBER__DEC:
@@ -201,6 +263,8 @@ public class StructMemberImpl extends MinimalEObjectImpl.Container implements St
   {
     switch (featureID)
     {
+      case FractalIDLPackage.STRUCT_MEMBER__ANNOTATIONS:
+        return getAnnotations();
       case FractalIDLPackage.STRUCT_MEMBER__QUAL_TYPE:
         return getQualType();
       case FractalIDLPackage.STRUCT_MEMBER__DEC:
@@ -219,6 +283,9 @@ public class StructMemberImpl extends MinimalEObjectImpl.Container implements St
   {
     switch (featureID)
     {
+      case FractalIDLPackage.STRUCT_MEMBER__ANNOTATIONS:
+        setAnnotations((Annotations)newValue);
+        return;
       case FractalIDLPackage.STRUCT_MEMBER__QUAL_TYPE:
         setQualType((QualifiedTypeSpecification)newValue);
         return;
@@ -239,6 +306,9 @@ public class StructMemberImpl extends MinimalEObjectImpl.Container implements St
   {
     switch (featureID)
     {
+      case FractalIDLPackage.STRUCT_MEMBER__ANNOTATIONS:
+        setAnnotations((Annotations)null);
+        return;
       case FractalIDLPackage.STRUCT_MEMBER__QUAL_TYPE:
         setQualType((QualifiedTypeSpecification)null);
         return;
@@ -259,6 +329,8 @@ public class StructMemberImpl extends MinimalEObjectImpl.Container implements St
   {
     switch (featureID)
     {
+      case FractalIDLPackage.STRUCT_MEMBER__ANNOTATIONS:
+        return annotations != null;
       case FractalIDLPackage.STRUCT_MEMBER__QUAL_TYPE:
         return qualType != null;
       case FractalIDLPackage.STRUCT_MEMBER__DEC:
