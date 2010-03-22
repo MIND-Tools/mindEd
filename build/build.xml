@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- ====================================================================== 
+     26 févr. 2010 10:03:39                                                        
+
+     mind-IDE    
+     build generated files emf, gmf, xtext ...
+                   
+     Stephane Chomat, ADELE                                                                
+     ====================================================================== -->
+<project name="mind-IDE" default="generate" xmlns:gmf="http://ecliptical.ca/gmf/ant">
+	<description>
+            build generated files emf, gmf, xtext ...
+    </description>
+
+	<!-- ================================= 
+          target: generate              
+         ================================= -->
+	<target name="generate" depends="" description="build generated files emf, gmf, xtext ...">
+		<property name="model-dir" value="${basedir}/../org.ow2.fractal.mind.emf/model">
+		</property>
+		<property name="emf-project" value="${basedir}/../org.ow2.fractal.mind.emf.model" />
+		<property name="emf-edit-project" value="${basedir}/../org.ow2.fractal.mind.emf.model.edit" />
+		<property name="emf-editor-project" value="${basedir}/../org.ow2.fractal.mind.emf.model.editor" />
+		<property name="gmf-project" value ="${basedir}/../org.ow2.fractal.mind.gmf"/>
+		<emf.Ecore2Java genModel="${model-dir}/mind.genmodel" model="${model-dir}/mind.ecore" reconcilegenmodel="keep" generatejavacode="true" generateeditorproject="true" generateeditproject="true">
+		</emf.Ecore2Java>
+		<gmf:GenerateDiagramCode gmfgenPath="${gmf-project}/model/mind.gmfgen" />
+	</target>
+
+	<target name="clean">
+		<property name="model-dir" value="${basedir}/../org.ow2.fractal.mind.emf/model">
+		</property>
+		<property name="emf-project" value="${basedir}/../org.ow2.fractal.mind.emf.model" />
+		<property name="emf-edit-project" value="${basedir}/../org.ow2.fractal.mind.emf.model.edit" />
+		<property name="emf-editor-project" value="${basedir}/../org.ow2.fractal.mind.emf.model.editor" />
+		<property name="org.ow2.fractal.mind.emf.diagram" value="${basedir}/../org.ow2.fractal.mind.emf.diagram" />
+				
+		<delete dir="${emf-project}/src"/>
+		<mkdir dir="${emf-project}/src" />
+		<delete dir="${emf-edit-project}/src"/>
+		<mkdir dir="${emf-edit-project}/src" />
+		<delete dir="${emf-editor-project}/src"/>
+		<mkdir dir="${emf-editor-project}/src" />
+		<delete dir="${org.ow2.fractal.mind.gmf}/src"/>
+		<mkdir dir="${org.ow2.fractal.mind.emf.diagram}/src" />
+
+	</target>
+
+</project>
