@@ -9,6 +9,8 @@ import org.eclipse.gmf.runtime.diagram.ui.requests.EditCommandRequestWrapper;
 import org.eclipse.gmf.runtime.emf.type.core.requests.CreateElementRequest;
 import org.eclipse.gmf.runtime.notation.View;
 
+import adl.diagram.edit.parts.AdlDefinitionEditPart;
+
 /**
  * Helper to provide static methods for item semantic edit policies.
  * @author maroto
@@ -37,6 +39,8 @@ public class ItemSemanticEditPolicyHelper {
 				(cmd == null)
 				&&
 				!(host instanceof AbstractBorderedShapeEditPart)
+				&&
+				!(host instanceof AdlDefinitionEditPart)
 				)
 		{
 			// Get the parent and set it to the request's container

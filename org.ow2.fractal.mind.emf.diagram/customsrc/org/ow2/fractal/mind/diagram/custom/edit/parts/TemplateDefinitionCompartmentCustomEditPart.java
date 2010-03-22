@@ -53,26 +53,5 @@ public class TemplateDefinitionCompartmentCustomEditPart extends
 		return layoutManager;
 	}
 	
-	@Override
-	protected void handleNotificationEvent(Notification event) {
-		super.handleNotificationEvent(event);
-		getParent().refresh();
-	}
-
-	@Override
-	protected void addChild(EditPart childEditPart, int index) {
-		super.addChild(childEditPart, index);
-		// Should implement a listener instead
-		// and use handleChildAdded
-		getParent().refresh();
-	}
-	
-	@Override
-	protected void removeChild(EditPart childEditPart) {
-		super.removeChild(childEditPart);
-		// Should implement a listener instead
-		// and use handleChildRemoved
-		getParent().refresh();
-	}
 
 }

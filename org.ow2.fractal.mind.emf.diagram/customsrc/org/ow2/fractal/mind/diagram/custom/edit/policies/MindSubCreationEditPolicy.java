@@ -27,7 +27,10 @@ import org.eclipse.gmf.runtime.diagram.ui.requests.RefreshConnectionsRequest;
 import org.eclipse.gmf.runtime.emf.commands.core.command.CompositeTransactionalCommand;
 import org.eclipse.gmf.runtime.emf.type.core.requests.CreateElementRequest;
 import org.eclipse.gmf.runtime.notation.View;
+import org.ow2.fractal.mind.diagram.custom.edit.parts.generic.MindComponentEditPart;
+import org.ow2.fractal.mind.diagram.custom.edit.parts.generic.MindGenericEditPartFactory;
 
+import adl.diagram.edit.parts.AdlDefinitionEditPart;
 import adl.diagram.part.MindVisualIDRegistry;
 
 /**
@@ -44,7 +47,6 @@ public class MindSubCreationEditPolicy extends
 		CreationEditPolicy {
 
 	
-	@SuppressWarnings("unchecked")
 	protected Command getCreateElementAndViewCommand(CreateViewAndElementRequest request) {
 		// get the element descriptor
 		CreateElementRequestAdapter requestAdapter =
@@ -118,7 +120,6 @@ public class MindSubCreationEditPolicy extends
 	
 	
 	
-	@SuppressWarnings("unchecked")
 	protected Command getCreateCommand(CreateViewRequest request) {
 
         TransactionalEditingDomain editingDomain = ((IGraphicalEditPart) getHost())
@@ -163,7 +164,10 @@ public class MindSubCreationEditPolicy extends
 							MindVisualIDRegistry.getVisualID(semanticHint))
 					)
 					&& 
-					!(virtualHost instanceof AbstractBorderedShapeEditPart)
+					!(MindGenericEditPartFactory.INSTANCE.getMindEditPartFor(virtualHost)
+							instanceof MindComponentEditPart)
+					&&
+					!(virtualHost instanceof AdlDefinitionEditPart)
 					) 
 			{
 				virtualHost = virtualHost.getParent();

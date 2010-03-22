@@ -9,11 +9,11 @@ import adl.diagram.edit.parts.CompositeBodyEditPart;
 
 public class CompositeBodyCustomEditPart extends CompositeBodyEditPart {
 
-	protected MindEditPart genericEditPart = MindGenericEditPartFactory.INSTANCE.createGenericEditPart (this, VISUAL_ID);
-	
 	public CompositeBodyCustomEditPart(View view) {
 		super(view);
 	}
+	
+	protected MindEditPart genericEditPart = MindGenericEditPartFactory.INSTANCE.createGenericEditPart (this, VISUAL_ID);
 	
 	@Override
 	public void createDefaultEditPolicies() {

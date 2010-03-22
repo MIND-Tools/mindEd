@@ -13,7 +13,6 @@ import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
 import adl.diagram.edit.policies.MindBaseItemSemanticEditPolicy;
 import adl.diagram.part.MindDiagramEditorPlugin;
 
-
 public abstract class AbstractMindEditPart implements MindTypes {
 	
 	public static String EDIT_POLICY_PACKAGE = "org.ow2.fractal.mind.diagram.custom.edit.policies.";

@@ -60,27 +60,4 @@ public class TemplateDefinitionReferenceCustomEditPart extends
 		if (genericEditPart.addFixedChild(childEditPart)) return true;
 		return false;
 	}
-	
-	
-	@Override
-	protected void addChild(EditPart childEditPart, int index) {
-		super.addChild(childEditPart, index);
-		// Should implement a listener instead
-		// and use handleChildAdded
-		getParent().refresh();
-	}
-	
-	@Override
-	protected void removeChild(EditPart childEditPart) {
-		super.removeChild(childEditPart);
-		// Should implement a listener instead
-		// and use handleChildRemoved
-		getParent().refresh();
-	}
-	
-	@Override
-	public void refresh() {
-		super.refresh();
-		getParent().refresh();
-	}
 }

@@ -72,29 +72,29 @@ public class MindReferenceEditPart extends MindEditPart {
 	
 	@Override
 	public Boolean refreshBounds() {
-		// The height depends on the children inside the area of this ReferencesList
-		int width = -1;
-		int height = -1;
+//		// The height depends on the children inside the area of this ReferencesList
+//		int width = -1;
+//		int height = -1;
+//		
+//		if (areaLayoutManager != null && areaLayoutManager instanceof ConstrainedFlowLayout) {
+//			// The manager should be a ConstrainedFlowLayout
+//			// It keeps the total height used so we can use it here
+//			height = areaLayoutManager.getTotalHeight() +
+//					IFractalSize.TITLE_HEIGHT;
+//			if (getCompartment().getChildren().size() > 0) height += 12;
+//		}
+//		
+//		// Now set the constraint
+//		Dimension size = new Dimension(width, height);
+//		Point loc = new Point(0, 0);
+//		((GraphicalEditPart)realEditPart.getParent()).setLayoutConstraint(
+//			realEditPart,
+//			realEditPart.getFigure(),
+//			new Rectangle(loc, size));
+//		
+//		realEditPart.getParent().refresh();
 		
-		if (areaLayoutManager != null && areaLayoutManager instanceof ConstrainedFlowLayout) {
-			// The manager should be a ConstrainedFlowLayout
-			// It keeps the total height used so we can use it here
-			height = areaLayoutManager.getTotalHeight() +
-					IFractalSize.TITLE_HEIGHT;
-			if (getCompartment().getChildren().size() > 0) height += 12;
-		}
-		
-		// Now set the constraint
-		Dimension size = new Dimension(width, height);
-		Point loc = new Point(0, 0);
-		((GraphicalEditPart)realEditPart.getParent()).setLayoutConstraint(
-			realEditPart,
-			realEditPart.getFigure(),
-			new Rectangle(loc, size));
-		
-		realEditPart.getParent().refresh();
-		
-		return true;
+		return false;
 	}
 	
 	@Override

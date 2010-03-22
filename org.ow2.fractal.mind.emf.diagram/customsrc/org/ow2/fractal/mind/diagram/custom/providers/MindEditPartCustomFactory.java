@@ -2,8 +2,7 @@ package org.ow2.fractal.mind.diagram.custom.providers;
 
 import org.eclipse.gef.EditPart;
 import org.eclipse.gmf.runtime.notation.View;
-import org.ow2.fractal.mind.diagram.custom.edit.parts.AdlDefinitionCustomEditPart;
-import org.ow2.fractal.mind.diagram.custom.edit.parts.CompositeComponentDefinitionCustomEditPart;
+import org.ow2.fractal.mind.diagram.custom.edit.parts.*;
 import adl.diagram.edit.parts.*;
 import adl.diagram.part.MindVisualIDRegistry;
 
@@ -28,11 +27,7 @@ public class MindEditPartCustomFactory extends MindEditPartFactory {
 			View view = (View) model;
 			switch (MindVisualIDRegistry.getVisualID(view)) {
 			
-				// -- AdlDefinition
-			case AdlDefinitionEditPart.VISUAL_ID:
-				return new AdlDefinitionCustomEditPart(view);
-			
-				// -- AnnotationsList
+			// -- AnnotationsList
 //			case AnnotationsListEditPart.VISUAL_ID:
 //				return new AnnotationsListCustomEditPart(view);
 //			
@@ -48,234 +43,238 @@ public class MindEditPartCustomFactory extends MindEditPartFactory {
 //			case AnnotationCompartmentAnnotationAreaEditPart.VISUAL_ID:
 //				return new AnnotationCompartmentAreaCustomEditPart(view);
 			
-				// -- ArgumentDefinition
-			case ArgumentDefinitionEditPart.VISUAL_ID:
-				return new ArgumentDefinitionCustomEditPart(view);
 				
-				// -- AttributeDefinition
-			case AttributeDefinitionEditPart.VISUAL_ID:
-				return new AttributeDefinitionCustomEditPart(view);
-				
-			case ArgumentDefinition2EditPart.VISUAL_ID:
-				return new ArgumentDefinitionCustomEditPart(view);
-				
-			case ArgumentDefinition3EditPart.VISUAL_ID:
-				return new ArgumentDefinitionCustomEditPart(view);
-				
-			case ArgumentDefinition4EditPart.VISUAL_ID:
-				return new ArgumentDefinitionCustomEditPart(view);
-				
-			case ArgumentDefinitionArgumentNameArgumentValEditPart.VISUAL_ID:
-				return new ArgumentDefinitionNameCustomEditPart(view);
-				
-			case ArgumentDefinitionArgumentNameArgumentVal2EditPart.VISUAL_ID:
-				return new ArgumentDefinitionNameCustomEditPart(view);
-				
-			case ArgumentDefinitionArgumentNameArgumentVal3EditPart.VISUAL_ID:
-				return new ArgumentDefinitionNameCustomEditPart(view);
-				
-			case ArgumentDefinitionArgumentNameArgumentVal4EditPart.VISUAL_ID:
-				return new ArgumentDefinitionNameCustomEditPart(view);
-								
-				// -- BindingDefinition
-			case BindingDefinitionEditPart.VISUAL_ID:
-				return new BindingDefinitionCustomEditPart(view);
 			
-				// -- ComponentTypeDefinition
-			case ComponentTypeDefinitionEditPart.VISUAL_ID:
-				return new ComponentTypeDefinitionCustomEditPart(view);
-//				
-//			case ComponentTypeDefinitionCompartmentComponentTypeBodyEditPart.VISUAL_ID:
-//				return new CompartmentComponentTypeDefinitionBodyCustomEditPart(view);
-				
-				// -- CompositeAnonymousSubComponent
-//			case CompositeAnonymousSubComponentEditPart.VISUAL_ID:
-//				return new CompositeAnonymousSubComponentCustomEditPart(view);
-//				
-//			case CompositeAnonymousSubComponentCompartmentCompositeAnonymousSubBodyEditPart.VISUAL_ID:
-//				return new CompartmentCompositeAnonymousSubComponentBodyCustomEditPart(view);
-			
-				// -- CompositeComponentDefinition
+			case AdlDefinitionEditPart.VISUAL_ID:
+				return new AdlDefinitionCustomEditPart(view);
+
 			case CompositeComponentDefinitionEditPart.VISUAL_ID:
 				return new CompositeComponentDefinitionCustomEditPart(view);
-				
-			case CompositeComponentCompartmentEditPart.VISUAL_ID:
-				return new CompositeComponentCompartmentCustomEditPart(view);
-				
-				// -- CompositeReferenceDefinition
-			case CompositeReferenceDefinitionEditPart.VISUAL_ID:
-				return new CompositeReferenceDefinitionCustomEditPart(view);
-					
-			case CompositeReferenceDefinitionCompartmentComponentReferenceDefinitionAreaEditPart.VISUAL_ID:
-				return new CompositeReferenceAreaCustomEditPart(view);
-					
-				// -- CompositeReferencesList
-			case CompositeReferencesListEditPart.VISUAL_ID:
-				return new CompositeReferencesListCustomEditPart(view);
-				
-			case CompositeReferencesListCompartmentReferencesListAreaEditPart.VISUAL_ID:
-				return new CompositeReferencesListAreaCustomEditPart(view);
-				
-				// -- CompositeSingleReference
-			case CompositeReferenceDefinition2EditPart.VISUAL_ID:
-				return new CompositeSingleReferenceDefinitionCustomEditPart(view);
-				
-			case CompositeReferenceDefinitionCompartmentComponentReferenceDefinitionArea2EditPart.VISUAL_ID:
-				return new CompositeSingleReferenceDefinitionAreaCustomEditPart(view);
-				
-				// -- TemplateReference
-			case CompositeReferenceDefinition3EditPart.VISUAL_ID:
-				return new TemplateReferenceDefinitionCustomEditPart(view);
-				
-			case CompositeReferenceDefinitionCompartmentReferenceDefinitionAreaEditPart.VISUAL_ID:
-				return new TemplateReferenceAreaCustomEditPart(view);
-				
-				// -- CompositeSubComponent
-			case SubComponentDefinitionEditPart.VISUAL_ID:
-				return new CompositeSubComponentCustomEditPart(view);
-				
-//			case CompositeSubComponentCompartmentCompositeSubComponentBodyEditPart.VISUAL_ID:
-//				return new CompartmentCompositeSubComponentBodyCustomEditPart(view);
-				
-				// -- DataDefinition
-			case DataDefinitionCompartmentDataDefinitionBodyAreaEditPart.VISUAL_ID:
-				return new CompartmentDataDefinitionBodyCustomEditPart(view);
-				
-				// -- FileC
-			case FileCEditPart.VISUAL_ID:
-				return new FileCCustomEditPart(view);
-				
-			case FileC2EditPart.VISUAL_ID:
-				return new FileCCustomEditPart(view);
-				
-			case FileCDirectoryFileNameEditPart.VISUAL_ID:
-				return new FileCFileNameCustomEditPart(view);
-				
-			case FileCDirectoryFileName2EditPart.VISUAL_ID:
-				return new FileCFileNameCustomEditPart(view);
-				
-				// -- FormalArgument
-			case FormalArgumentEditPart.VISUAL_ID:
-				return new FormalArgumentCustomEditPart(view);
-				
-				// -- FormalArgumentsList
-			case FormalArgumentsListEditPart.VISUAL_ID:
-				return new FormalArgumentsListCustomEditPart(view);
-				
-			case FormalArgumentsList2EditPart.VISUAL_ID:
-				return new FormalArgumentsListCustomEditPart(view);
-				
-			case FormalArgumentsListCompartmentFormalArgumentsListEditPart.VISUAL_ID:
-				return new FormalArgumentsListAreaCustomEditPart(view);
-				
-			case FormalArgumentsListCompartmentFormalArgumentsList2EditPart.VISUAL_ID:
-				return new FormalArgumentsListAreaCustomEditPart(view);
-				
-				// -- ImplementationDefinition
-			case ImplementationDefinitionCompartmentImplementationBodyAreaEditPart.VISUAL_ID:
-				return new CompartmentImplementationDefinitionBodyCustomEditPart(view);
-				
-				// -- InlineCodeC
-			case InlineCodeCEditPart.VISUAL_ID:
-				return new InlineCodeCCustomEditPart(view);
-				
-			case InlineCodeCCodeCEditPart.VISUAL_ID:
-				return new InlineCodeCCodeCCustomEditPart(view);
-				
-			case InlineCodeC2EditPart.VISUAL_ID:
-				return new InlineCodeCCustomEditPart(view);
-				
-			case InlineCodeCCodeC2EditPart.VISUAL_ID:
-				return new InlineCodeCCodeCCustomEditPart(view);
-				
-				// -- InterfaceDefinition
-			case InterfaceDefinitionEditPart.VISUAL_ID:
-				return new InterfaceDefinitionCustomEditPart(view);
-				
-				// -- PrimitiveAnonymousSubComponent
-//			case PrimitiveAnonymousSubComponentEditPart.VISUAL_ID:
-//				return new PrimitiveAnonymousSubComponentCustomEditPart(view);
-//				
-//			case PrimitiveAnonymousSubComponentCompartmentPrimitiveAnonymousSubBodyEditPart.VISUAL_ID:
-//				return new CompartmentPrimitiveAnonymousSubComponentBodyCustomEditPart(view);
-				
-				// -- PrimitiveComponentDefinition
+
+			case CompositeComponentDefinitionNameEditPart.VISUAL_ID:
+				return new CompositeComponentDefinitionNameEditPart(view);
+
 			case PrimitiveComponentDefinitionEditPart.VISUAL_ID:
 				return new PrimitiveComponentDefinitionCustomEditPart(view);
-				
-//			case PrimitiveComponentDefinitionCompartmentPrimitiveDefinitionBodyEditPart.VISUAL_ID:
-//				return new CompartmentPrimitiveComponentDefinitionBodyCustomEditPart(view);
-				
-				// -- PrimitiveReferenceDefinition
-			case PrimitiveReferenceDefinition2EditPart.VISUAL_ID:
-				return new PrimitiveReferenceDefinitionCustomEditPart(view);
-				
-			case PrimitiveReferenceDefinitionCompartmentComponentReferenceDefinitionAreaEditPart.VISUAL_ID:
-				return new PrimitiveReferenceAreaCustomEditPart(view);
-				
-				// -- PrimitiveSingleReferenceDefinition
-			case PrimitiveReferenceDefinitionEditPart.VISUAL_ID:
-				return new PrimitiveSingleReferenceDefinitionCustomEditPart(view);
-				
-			case PrimitiveReferenceDefinitionCompartmentReferenceDefinitionAreaEditPart.VISUAL_ID:
-				return new PrimitiveSingleReferenceDefinitionAreaCustomEditPart(view);
-				
-				// -- PrimitiveReferencesList
-			case PrimitiveReferencesListEditPart.VISUAL_ID:
-				return new PrimitiveReferencesListCustomEditPart(view);
-				
-			case PrimitiveReferencesListCompartmentReferencesListAreaEditPart.VISUAL_ID:
-				return new PrimitiveReferencesListAreaCustomEditPart(view);
-				
-				// -- PrimitiveSubComponent
-			case SubComponentDefinition2EditPart.VISUAL_ID:
-				return new PrimitiveSubComponentCustomEditPart(view);
-				
-//			case PrimitiveSubComponentCompartmentPrimitiveSubComponentBodyEditPart.VISUAL_ID:
-//				return new CompartmentPrimitiveSubComponentBodyCustomEditPart(view);
-				
-				// -- TemplateDefinition
-			case TemplateDefinitionEditPart.VISUAL_ID:
-				return new TemplateDefinitionCustomEditPart(view);
-				
-			case TemplateDefinitionNameEditPart.VISUAL_ID:
-				return new TemplateDefinitionNameCustomEditPart(view);
-			
-			case TemplateDefinitionTemplateDefinitionAreaEditPart.VISUAL_ID:
-				return new TemplateDefinitionAreaCustomEditPart(view);
-				
-				// -- TemplateSpecifier
-			case TemplateSpecifierEditPart.VISUAL_ID:
-				return new TemplateSpecifierCustomEditPart(view);
-				
-			case TemplateSpecifierNameEditPart.VISUAL_ID:
-				return new TemplateSpecifierNameCustomEditPart(view);
-				
-				// -- TemplateSpecifiersList
+
+			case PrimitiveComponentDefinitionNameEditPart.VISUAL_ID:
+				return new PrimitiveComponentDefinitionNameEditPart(view);
+
+			case ComponentTypeDefinitionEditPart.VISUAL_ID:
+				return new ComponentTypeDefinitionCustomEditPart(view);
+
+			case ComponentTypeDefinitionNameEditPart.VISUAL_ID:
+				return new ComponentTypeDefinitionNameEditPart(view);
+
 			case TemplateSpecifiersListEditPart.VISUAL_ID:
 				return new TemplateSpecifiersListCustomEditPart(view);
-				
-			case TemplateSpecifiersListCompartmentTemplateSpecifierListEditPart.VISUAL_ID:
-				return new TemplateSpecifiersListAreaCustomEditPart(view);
-				
-				// -- TemplateSubComponent
-//			case TemplateSubComponentEditPart.VISUAL_ID:
-//				return new GenericSubComponentCustomEditPart(view);
-				
-				// -- TypeReferenceDefinition
-			case TypeReferenceDefinitionEditPart.VISUAL_ID:
-				return new TypeReferenceDefinitionCustomEditPart(view);
-				
-			case TypeReferenceDefinition2EditPart.VISUAL_ID:
+
+			case TemplateSpecifierEditPart.VISUAL_ID:
+				return new TemplateSpecifierCustomEditPart(view);
+
+			case TemplateSpecifierNameEditPart.VISUAL_ID:
+				return new TemplateSpecifierNameCustomEditPart(view);
+
+			case TemplateSpecifierReferenceEditPart.VISUAL_ID:
 				return new TemplateSpecifierReferenceCustomEditPart(view);
-				
-				// -- TypeReferencesList
+
+			case TemplateSpecifierReferenceNameEditPart.VISUAL_ID:
+				return new TemplateSpecifierReferenceNameEditPart(view);
+
+			case CompositeFormalArgumentsListEditPart.VISUAL_ID:
+				return new CompositeFormalArgumentsListCustomEditPart(view);
+
+			case FormalArgumentEditPart.VISUAL_ID:
+				return new FormalArgumentCustomEditPart(view);
+
+			case FormalArgumentNameEditPart.VISUAL_ID:
+				return new FormalArgumentNameEditPart(view);
+
+			case CompositeReferencesListEditPart.VISUAL_ID:
+				return new CompositeReferencesListCustomEditPart(view);
+
+			case CompositeReferenceEditPart.VISUAL_ID:
+				return new CompositeReferenceCustomEditPart(view);
+
+			case CompositeReferenceNameEditPart.VISUAL_ID:
+				return new CompositeReferenceNameEditPart(view);
+
+			case ArgumentDefinitionEditPart.VISUAL_ID:
+				return new ArgumentDefinitionCustomEditPart(view);
+
+			case ArgumentDefinitionNameEditPart.VISUAL_ID:
+				return new ArgumentDefinitionNameCustomEditPart(view);
+
+			case TemplateDefinitionEditPart.VISUAL_ID:
+				return new TemplateDefinitionCustomEditPart(view);
+
+			case TemplateDefinitionNameEditPart.VISUAL_ID:
+				return new TemplateDefinitionNameCustomEditPart(view);
+
+			case TemplateDefinitionReferenceEditPart.VISUAL_ID:
+				return new TemplateDefinitionReferenceCustomEditPart(view);
+
+			case TemplateDefinitionReferenceNameEditPart.VISUAL_ID:
+				return new TemplateDefinitionReferenceNameEditPart(view);
+
+			case CompositeBodyEditPart.VISUAL_ID:
+				return new CompositeBodyCustomEditPart(view);
+
+			case InterfaceDefinitionEditPart.VISUAL_ID:
+				return new InterfaceDefinitionCustomEditPart(view);
+
+			case InterfaceDefinitionNameEditPart.VISUAL_ID:
+				return new InterfaceDefinitionNameEditPart(view);
+
+			case CompositeSubComponentEditPart.VISUAL_ID:
+				return new CompositeSubComponentCustomEditPart(view);
+
+			case CompositeSubComponentNameEditPart.VISUAL_ID:
+				return new CompositeSubComponentNameEditPart(view);
+
+			case CompositeSubReferenceEditPart.VISUAL_ID:
+				return new CompositeSubReferenceCustomEditPart(view);
+
+			case CompositeSubReferenceNameEditPart.VISUAL_ID:
+				return new CompositeSubReferenceNameEditPart(view);
+
+			case PrimitiveSubComponentEditPart.VISUAL_ID:
+				return new PrimitiveSubComponentCustomEditPart(view);
+
+			case PrimitiveSubComponentNameEditPart.VISUAL_ID:
+				return new PrimitiveSubComponentNameEditPart(view);
+
+			case PrimitiveSubReferenceEditPart.VISUAL_ID:
+				return new PrimitiveSubReferenceCustomEditPart(view);
+
+			case PrimitiveSubReferenceNameEditPart.VISUAL_ID:
+				return new PrimitiveSubReferenceNameEditPart(view);
+
+			case PrimitiveBodyEditPart.VISUAL_ID:
+				return new PrimitiveBodyCustomEditPart(view);
+
+			case ImplementationDefinitionEditPart.VISUAL_ID:
+				return new ImplementationDefinitionCustomEditPart(view);
+
+			case LabelImplementationTitleEditPart.VISUAL_ID:
+				return new LabelImplementationTitleEditPart(view);
+
+			case FileCEditPart.VISUAL_ID:
+				return new FileCCustomEditPart(view);
+
+			case FileCNameEditPart.VISUAL_ID:
+				return new FileCNameCustomEditPart(view);
+
+			case InlineCodeCEditPart.VISUAL_ID:
+				return new InlineCodeCCustomEditPart(view);
+
+			case InlineCodeCNameEditPart.VISUAL_ID:
+				return new InlineCodeCNameCustomEditPart(view);
+
+			case DataDefinitionEditPart.VISUAL_ID:
+				return new DataDefinitionCustomEditPart(view);
+
+			case LabelDataDefinitionTitleEditPart.VISUAL_ID:
+				return new LabelDataDefinitionTitleEditPart(view);
+
+			case DataFileCEditPart.VISUAL_ID:
+				return new FileCCustomEditPart(view);
+
+			case DataFileCNameEditPart.VISUAL_ID:
+				return new FileCNameCustomEditPart(view);
+
+			case DataInlineCodeCEditPart.VISUAL_ID:
+				return new InlineCodeCCustomEditPart(view);
+
+			case DataInlineCodeCNameEditPart.VISUAL_ID:
+				return new InlineCodeCNameCustomEditPart(view);
+
+			case AttributeDefinitionEditPart.VISUAL_ID:
+				return new AttributeDefinitionCustomEditPart(view);
+
+			case AttributeDefinitionNameEditPart.VISUAL_ID:
+				return new AttributeDefinitionNameEditPart(view);
+
+			case PrimitiveFormalArgumentsListEditPart.VISUAL_ID:
+				return new PrimitiveFormalArgumentsListCustomEditPart(view);
+
+			case PrimitiveReferencesListEditPart.VISUAL_ID:
+				return new PrimitiveReferencesListCustomEditPart(view);
+
+			case LabelTitleReferencesListEditPart.VISUAL_ID:
+				return new LabelTitleReferencesListEditPart(view);
+
+			case PrimitiveReferenceEditPart.VISUAL_ID:
+				return new PrimitiveReferenceCustomEditPart(view);
+
+			case PrimitiveReferenceNameEditPart.VISUAL_ID:
+				return new PrimitiveReferenceNameEditPart(view);
+
 			case TypeReferencesListEditPart.VISUAL_ID:
 				return new TypeReferencesListCustomEditPart(view);
-				
-			case TypeReferencesListCompartmentReferencesListAreaEditPart.VISUAL_ID:
-				return new TypeReferencesListAreaCustomEditPart(view);
-				
+
+			case TypeReferenceEditPart.VISUAL_ID:
+				return new TypeReferenceCustomEditPart(view);
+
+			case TypeReferenceNameEditPart.VISUAL_ID:
+				return new TypeReferenceNameEditPart(view);
+
+			case TypeBodyEditPart.VISUAL_ID:
+				return new TypeBodyCustomEditPart(view);
+
+			case TemplateSpecifiersListCompartmentEditPart.VISUAL_ID:
+				return new TemplateSpecifiersListCompartmentCustomEditPart(view);
+
+			case CompositeFormalArgumentsListCompartmentEditPart.VISUAL_ID:
+				return new CompositeFormalArgumentsListCompartmentCustomEditPart(view);
+
+			case CompositeReferencesListCompartmentEditPart.VISUAL_ID:
+				return new CompositeReferencesListCompartmentCustomEditPart(view);
+
+			case CompositeReferenceCompartmentEditPart.VISUAL_ID:
+				return new CompositeReferenceCompartmentCustomEditPart(view);
+
+			case TemplateDefinitionCompartmentEditPart.VISUAL_ID:
+				return new TemplateDefinitionCompartmentCustomEditPart(view);
+
+			case TemplateDefinitionReferenceCompartmentEditPart.VISUAL_ID:
+				return new TemplateDefinitionReferenceCompartmentCustomEditPart(view);
+
+			case CompositeBodyCompartmentEditPart.VISUAL_ID:
+				return new CompositeBodyCompartmentCustomEditPart(view);
+
+			case CompositeSubReferenceCompartmentEditPart.VISUAL_ID:
+				return new CompositeSubReferenceCompartmentCustomEditPart(view);
+
+			case PrimitiveSubReferenceCompartmentEditPart.VISUAL_ID:
+				return new PrimitiveSubReferenceCompartmentCustomEditPart(view);
+
+			case PrimitiveBodyCompartmentEditPart.VISUAL_ID:
+				return new PrimitiveBodyCompartmentCustomEditPart(view);
+
+			case ImplementationDefinitionCompartmentEditPart.VISUAL_ID:
+				return new ImplementationDefinitionCompartmentCustomEditPart(view);
+
+			case DataDefinitionCompartmentEditPart.VISUAL_ID:
+				return new DataDefinitionCompartmentCustomEditPart(view);
+
+			case PrimitiveFormalArgumentsListCompartmentEditPart.VISUAL_ID:
+				return new PrimitiveFormalArgumentsListCompartmentCustomEditPart(view);
+
+			case PrimitiveReferencesListCompartmentEditPart.VISUAL_ID:
+				return new PrimitiveReferencesListCompartmentCustomEditPart(view);
+
+			case PrimitiveReferenceCompartmentEditPart.VISUAL_ID:
+				return new PrimitiveReferenceCompartmentCustomEditPart(view);
+
+			case TypeReferencesListCompartmentEditPart.VISUAL_ID:
+				return new TypeReferencesListCompartmentCustomEditPart(view);
+
+			case TypeBodyCompartmentEditPart.VISUAL_ID:
+				return new TypeBodyCompartmentCustomEditPart(view);
+
+			case BindingDefinitionEditPart.VISUAL_ID:
+				return new BindingDefinitionCustomEditPart(view);
 			}
 		}
 		return super.createEditPart(context, model);

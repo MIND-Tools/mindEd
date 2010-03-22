@@ -51,11 +51,5 @@ public class PrimitiveReferencesListCompartmentCustomEditPart extends
 		}
 		return layoutManager;
 	}
-	
-	@Override
-	protected void handleNotificationEvent(Notification event) {
-		super.handleNotificationEvent(event);
-		getParent().refresh();
-	}
 
 }

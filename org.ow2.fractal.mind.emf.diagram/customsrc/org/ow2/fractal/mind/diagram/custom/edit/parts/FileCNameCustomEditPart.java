@@ -11,9 +11,9 @@ import adl.diagram.edit.parts.FileCNameEditPart;
  * Custom class created only for convenience or future use
  * @Author maroto
  */
-public class FileCFileNameCustomEditPart extends FileCNameEditPart {
+public class FileCNameCustomEditPart extends FileCNameEditPart {
 
-	public FileCFileNameCustomEditPart(View view) {
+	public FileCNameCustomEditPart(View view) {
 		super(view);
 	}
 	

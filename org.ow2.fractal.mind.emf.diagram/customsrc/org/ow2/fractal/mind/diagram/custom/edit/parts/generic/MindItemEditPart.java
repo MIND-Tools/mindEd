@@ -2,11 +2,8 @@ package org.ow2.fractal.mind.diagram.custom.edit.parts.generic;
 
 import java.util.List;
 
-import org.eclipse.draw2d.GridData;
 import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.LayoutManager;
-import org.eclipse.draw2d.geometry.Dimension;
-import org.eclipse.draw2d.geometry.Point;
 import org.eclipse.draw2d.geometry.Rectangle;
 import org.eclipse.gef.DragTracker;
 import org.eclipse.gef.EditPart;
@@ -15,12 +12,8 @@ import org.eclipse.gef.editpolicies.LayoutEditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.GraphicalEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.ConstrainedToolbarLayout;
-import org.eclipse.gmf.runtime.notation.NotationPackage;
-import org.eclipse.swt.SWT;
-import org.ow2.fractal.mind.diagram.custom.edit.policies.AttributeDefinitionCustomItemSemanticEditPolicy;
 import org.ow2.fractal.mind.diagram.custom.edit.policies.MindSubCreationEditPolicy;
 import org.ow2.fractal.mind.diagram.custom.edit.policies.NoDragDropEditPolicy;
-import org.ow2.fractal.mind.diagram.custom.figures.AttributeDefinitionCustomFigure;
 import org.ow2.fractal.mind.diagram.custom.helpers.ComponentHelper;
 import org.ow2.fractal.mind.diagram.custom.layouts.IFractalSize;
 
@@ -42,8 +35,8 @@ public class MindItemEditPart extends MindEditPart {
 		realEditPart.installEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE,
 				new NoDragDropEditPolicy());
 		// Extended creation features
-		realEditPart.installEditPolicy(EditPolicyRoles.CREATION_ROLE,
-				new MindSubCreationEditPolicy());
+//		realEditPart.installEditPolicy(EditPolicyRoles.CREATION_ROLE,
+//				new MindSubCreationEditPolicy());
 		
 	}
 	
@@ -62,15 +55,6 @@ public class MindItemEditPart extends MindEditPart {
 		if (ComponentHelper.isMerged(realEditPart)) 
 			// If the component is merged handle custom behaviour
 			ComponentHelper.handleMergedElement(realEditPart);
-	}
-	
-	
-	public LayoutManager getLayoutManager() {
-		try {
-			return realEditPart.getFigure().getLayoutManager();
-		}catch(NullPointerException e) {
-			return null;
-		}
 	}
 	
 	/**
@@ -113,13 +97,13 @@ public class MindItemEditPart extends MindEditPart {
 //		realEditPart,
 //		realEditPart.getFigure(),
 //		new GridData(SWT.LEFT,SWT.BEGINNING,false,false,1,1));
-		
-		((GraphicalEditPart) realEditPart.getParent()).setLayoutConstraint(
-				realEditPart,
-				realEditPart.getFigure(),
-				new Rectangle(-1,-1,-1,IFractalSize.ITEM_HEIGHT)
-				);
-		return true;
+//		
+//		((GraphicalEditPart) realEditPart.getParent()).setLayoutConstraint(
+//				realEditPart,
+//				realEditPart.getFigure(),
+//				new Rectangle(-1,-1,-1,IFractalSize.ITEM_HEIGHT)
+//				);
+		return false;
 	}
 	
 	public void setLayoutManager(IFigure figure) {}

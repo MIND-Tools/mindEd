@@ -23,10 +23,5 @@ public class TemplateSpecifierNameCustomEditPart extends
 
 	protected MindEditPart genericEditPart = MindGenericEditPartFactory.INSTANCE.createGenericEditPart (this, VISUAL_ID);
 	
-	public void notifyChanged(Notification notification) {
-		super.notifyChanged(notification);
-		//refresh the label on change
-		this.refreshLabel();
-	}
 
 }

@@ -3,7 +3,6 @@ package org.ow2.fractal.mind.diagram.custom.edit.policies;
 import java.util.List;
 
 import org.eclipse.gef.EditPart;
-import org.eclipse.gmf.runtime.diagram.ui.editparts.AbstractBorderedShapeEditPart;
 import org.eclipse.gmf.runtime.notation.View;
 
 import adl.diagram.part.MindVisualIDRegistry;
