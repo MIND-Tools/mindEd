@@ -48,3 +48,4 @@ Export-Package: org.ow2.fractal.mind.ide,
 Bundle-ActivationPolicy: lazy
 Bundle-Activator: org.ow2.fractal.mind.ide.MindActivator
 Bundle-Vendor: Partenaire Minalogic
+Require-Bundle: org.ow2.mind.fractal-adl-bundle;bundle-version="0.2.0"

@@ -13,8 +13,12 @@ public class MindPreference implements IPreferenceChangeListener {
 	
 	private IEclipsePreferences _preference;
 
-	String getMindCLocation() {
+	public String getMindCLocation() {
 		return getPreferences().get(PreferenceConstants.P_MINDC_LOCATION, null);
+	}
+	
+	public String getMindCMainClass() {
+		return getPreferences().get(PreferenceConstants.P_MINDC_MAIN_CLASS, null);
 	}
 
 	public IEclipsePreferences getPreferences() {
@@ -31,8 +35,8 @@ public class MindPreference implements IPreferenceChangeListener {
 
 	@Override
 	public void preferenceChange(PreferenceChangeEvent event) {
-		event.getKey().equals(PreferenceConstants.P_MINDC_LOCATION);
-		CDTUtil.changeMINDCLocation((String) event.getNewValue());
+		if (event.getKey().equals(PreferenceConstants.P_MINDC_LOCATION))
+			CDTUtil.changeMINDCLocation((String) event.getNewValue());
 	}
 
 	public void dispose() {

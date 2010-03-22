@@ -7,6 +7,8 @@ public class PreferenceConstants {
 
 	public static final String P_MINDC_LOCATION = "mindcLocation";
 
+	public static final String P_MINDC_MAIN_CLASS = "mindcMainClass";
+
 	public static final String P_BOOLEAN = "booleanPreference";
 
 	public static final String P_CHOICE = "choicePreference";
