@@ -20,10 +20,15 @@ public class CPLScannerExtensionConfiguration extends
 	}
 
 	public CPLScannerExtensionConfiguration() {
-		addMacro("COMP_DATA", "");
-		addMacro("COMP_TYPE", "");
-		addMacro("METHOD(adl_itf, idl_itf)", "(idl_itf)");
+		addMacro("METH(adl_itf, idl_itf)", "(adl_itf, idl_itf)");
 		addMacro("METH(itf)", "(itf)");
+		addMacro("METH_PTR(itf)", "(itf)");
+		addMacro("PRIVATE", "");
+		addMacro("PRIVATE.parameter", ".parameter");
+		addMacro("ATTR(attr)", "(attr)");
+		addMacro("CALL(itfName,methName)", "(methName)");
+		addMacro("CALL(methName)", "(methName)");
+		addMacro("CALL_PTR(methName)", "(methName)");
 	}
 
 }
