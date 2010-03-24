@@ -10,6 +10,8 @@ import org.eclipse.gef.editpolicies.LayoutEditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.GraphicalEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.CanonicalEditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
+import org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure;
+
 import adl.diagram.edit.policies.MindBaseItemSemanticEditPolicy;
 import adl.diagram.part.MindDiagramEditorPlugin;
 
@@ -134,5 +136,6 @@ public abstract class AbstractMindEditPart implements MindTypes {
 	public abstract void setLayoutManager(IFigure figure);
 	public abstract void refresh();
 	public abstract LayoutEditPolicy createLayoutEditPolicy();
+	public abstract NodeFigure createNodePlate();
 
 }

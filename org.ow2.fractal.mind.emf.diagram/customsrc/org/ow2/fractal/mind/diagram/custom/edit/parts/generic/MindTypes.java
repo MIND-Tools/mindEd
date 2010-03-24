@@ -16,4 +16,12 @@ public interface MindTypes {
 	public static final int TYPE_BINDING = 9;
 	public static final int TYPE_LABEL = 10;
 	
+	
+	public static final int COMPONENT_UNDEFINED = 100;
+	public static final int COMPONENT_COMPOSITE = 110;
+	public static final int COMPONENT_SUB_COMPOSITE = 111;
+	public static final int COMPONENT_PRIMITIVE = 120;
+	public static final int COMPONENT_SUB_PRIMITIVE = 121;
+	public static final int COMPONENT_TYPE = 130;
+	
 }

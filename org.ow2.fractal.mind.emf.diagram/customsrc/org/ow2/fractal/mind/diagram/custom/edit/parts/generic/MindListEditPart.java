@@ -1,10 +1,14 @@
 package org.ow2.fractal.mind.diagram.custom.edit.parts.generic;
 
+import java.util.List;
+
 import org.eclipse.draw2d.IFigure;
+import org.eclipse.draw2d.LayoutManager;
 import org.eclipse.draw2d.geometry.Dimension;
 import org.eclipse.draw2d.geometry.Point;
 import org.eclipse.draw2d.geometry.Rectangle;
 import org.eclipse.gef.DragTracker;
+import org.eclipse.gef.EditPart;
 import org.eclipse.gef.EditPolicy;
 import org.eclipse.gef.Request;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.GraphicalEditPart;
@@ -69,41 +73,37 @@ public class MindListEditPart extends MindEditPart {
 	public Boolean refreshBounds() {
 		// The height depends on the children inside the area of this ReferencesList
 //		int width = ((Integer) realEditPart.getStructuralFeatureValue(NotationPackage.eINSTANCE.getSize_Width())).intValue();
-//		int width = -1;
-//		int height = -1;
+		int width = -1;
+		int height = -1;
 		
 		// Get the area and its layout manager
-//		GraphicalEditPart pane = getCompartment();
-//		LayoutManager areaLayout = null;
-//		if (pane != null)
-//			areaLayout = getMindEditPartFor(pane).getLayoutManager();
-//		if (areaLayout != null && areaLayout instanceof ConstrainedFlowLayout) {
-//			// The manager should be a ConstrainedFlowLayout
-//			// It keeps the total height used so we can use it here
-//			layoutAllChildren(pane.getFigure());
-//			height = ((ConstrainedFlowLayout)areaLayout).getTotalHeight() +
-//					IFractalSize.TITLE_HEIGHT + 6;
-//		}
+		GraphicalEditPart pane = getCompartment();
+		LayoutManager areaLayout = null;
+		if (pane != null)
+			areaLayout = getMindEditPartFor(pane).getLayoutManager();
+		if (areaLayout != null && areaLayout instanceof ConstrainedFlowLayout) {
+			// The manager should be a ConstrainedFlowLayout
+			// It keeps the total height used so we can use it here
+			layoutAllChildren(realEditPart.getContentPane());
+			areaLayout.layout(pane.getFigure());
+			height = ((ConstrainedFlowLayout)areaLayout).getTotalHeight() +
+					IFractalSize.TITLE_HEIGHT;
+			
+		}
+		else if (areaLayout != null){
+			List<EditPart> children = pane.getChildren();
+			int nbChildren = children.size();
+			height = IFractalSize.TITLE_HEIGHT + IFractalSize.TITLE_HEIGHT * nbChildren + 12;
+		}
 		
-//		if (areaLayoutManager != null && areaLayoutManager instanceof ConstrainedFlowLayout) {
-//			// The manager should be a ConstrainedFlowLayout
-//			// It keeps the total height used so we can use it here
-//			height = areaLayoutManager.getTotalHeight() +
-//					IFractalSize.TITLE_HEIGHT;
-//			if (getCompartment().getChildren().size() > 0) height += 12;
-//		}
-//		
-//		// Now set the constraint
-//		Dimension size = new Dimension(width, height);
-//		Point loc = new Point(0, 0);
-//		((GraphicalEditPart) realEditPart.getParent()).setLayoutConstraint(
-//			realEditPart,
-//			realEditPart.getFigure(),
-//			new Rectangle(loc, size));
+		// Now set the constraint
+		Dimension size = new Dimension(width, height);
+		Point loc = new Point(0, 0);
+		((GraphicalEditPart) realEditPart.getParent()).setLayoutConstraint(
+			realEditPart,
+			realEditPart.getFigure(),
+			new Rectangle(loc, size));
 		
-		return false;
+		return true;
 	}
-	
-	
-	
 }

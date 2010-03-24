@@ -4,6 +4,7 @@ import org.eclipse.draw2d.IFigure;
 import org.eclipse.gef.DragTracker;
 import org.eclipse.gef.EditPart;
 import org.eclipse.gef.Request;
+import org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure;
 import org.eclipse.gmf.runtime.notation.View;
 import org.ow2.fractal.mind.diagram.custom.edit.parts.generic.MindEditPart;
 import org.ow2.fractal.mind.diagram.custom.edit.parts.generic.MindGenericEditPartFactory;
@@ -56,16 +57,27 @@ public class TemplateSpecifierCustomEditPart extends TemplateSpecifierEditPart {
 	@Override
 	public void activate() {
 		super.activate();
-		if (ComponentHelper.isMerged(this)) 
-			// If the component is merged handle custom behaviour
-			ComponentHelper.handleMergedElement(this);
-		refreshBounds();
+		genericEditPart.activate();
 	}
 	
 	
 	protected boolean addFixedChild(EditPart childEditPart) {
 		if (genericEditPart.addFixedChild(childEditPart)) return true;
 		return super.addFixedChild(childEditPart);
+	}
+	
+
+	
+	public void refresh() {
+		super.refresh();
+		genericEditPart.refresh();
+	}
+	
+	public NodeFigure createNodePlate() {
+		NodeFigure fig = genericEditPart.createNodePlate();
+		if (fig == null)
+			fig = super.createNodePlate();
+		return fig;
 	}
 	
 }

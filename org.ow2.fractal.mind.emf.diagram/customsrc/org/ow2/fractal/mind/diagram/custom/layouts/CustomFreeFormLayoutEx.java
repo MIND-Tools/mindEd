@@ -24,7 +24,6 @@ public class CustomFreeFormLayoutEx extends FreeFormLayoutEx {
 	}
 	
 	
-	@SuppressWarnings("unchecked")
 	public void layout(IFigure parent) {
         Iterator children = parent.getChildren().iterator();
         Point offset = getOrigin(parent);

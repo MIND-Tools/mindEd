@@ -24,4 +24,12 @@ public class TemplateSpecifierNameCustomEditPart extends
 	protected MindEditPart genericEditPart = MindGenericEditPartFactory.INSTANCE.createGenericEditPart (this, VISUAL_ID);
 	
 
+	
+//	public void refresh() {
+//		super.refresh();
+//		genericEditPart.refresh();
+//	}
+	
+	
+
 }

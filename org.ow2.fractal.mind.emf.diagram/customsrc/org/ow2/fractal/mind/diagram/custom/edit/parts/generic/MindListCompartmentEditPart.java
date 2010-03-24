@@ -40,7 +40,7 @@ public class MindListCompartmentEditPart extends MindCompartmentEditPart {
 	
 	
 	/**
-	 * Implements a ConstrainedToolbarLayout
+	 * Implements a ConstrainedFlowLayout
 	 * @return
 	 */
 	@Override

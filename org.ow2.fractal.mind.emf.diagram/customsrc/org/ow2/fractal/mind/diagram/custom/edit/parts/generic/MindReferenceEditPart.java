@@ -1,6 +1,9 @@
 package org.ow2.fractal.mind.diagram.custom.edit.parts.generic;
 
+import java.util.List;
+
 import org.eclipse.draw2d.IFigure;
+import org.eclipse.draw2d.LayoutManager;
 import org.eclipse.draw2d.geometry.Dimension;
 import org.eclipse.draw2d.geometry.Point;
 import org.eclipse.draw2d.geometry.Rectangle;
@@ -10,22 +13,20 @@ import org.eclipse.gef.EditPolicy;
 import org.eclipse.gef.Request;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.GraphicalEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
+import org.eclipse.gmf.runtime.draw2d.ui.figures.ConstrainedToolbarLayout;
+import org.eclipse.gmf.runtime.gef.ui.figures.DefaultSizeNodeFigure;
+import org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure;
 import org.ow2.fractal.mind.diagram.custom.edit.policies.CustomDragDropEditPolicy;
 import org.ow2.fractal.mind.diagram.custom.edit.policies.FixedChildrenLayoutEditPolicy;
+import org.ow2.fractal.mind.diagram.custom.edit.policies.MindSubCreationEditPolicy;
 import org.ow2.fractal.mind.diagram.custom.edit.policies.MindSuperCreationEditPolicy;
 import org.ow2.fractal.mind.diagram.custom.edit.policies.OpenDefinitionEditPolicy;
+import org.ow2.fractal.mind.diagram.custom.helpers.ComponentHelper;
 import org.ow2.fractal.mind.diagram.custom.layouts.ConstrainedFlowLayout;
 import org.ow2.fractal.mind.diagram.custom.layouts.IFractalSize;
 import org.ow2.fractal.mind.diagram.custom.providers.NoDragTracker;
 
 public class MindReferenceEditPart extends MindEditPart {
-
-	
-	/**
-	 * This is the layout used for this edit part's compartment
-	 */
-	ConstrainedFlowLayout areaLayoutManager = new ConstrainedFlowLayout(true);
-	
 	
 	public MindReferenceEditPart (GraphicalEditPart editPart, int vID) {
 		super(editPart, vID, TYPE_REFERENCE);
@@ -61,10 +62,18 @@ public class MindReferenceEditPart extends MindEditPart {
 	}
 	
 	
+	public NodeFigure createNodePlate() {
+		DefaultSizeNodeFigure result = new DefaultSizeNodeFigure(100,15);
+		return result;
+	}
+	
+	
 	@Override
 	public IFigure setupContentPane(IFigure nodeShape) {
 		if (nodeShape.getLayoutManager() == null) {
-			nodeShape.setLayoutManager(areaLayoutManager);
+			ConstrainedToolbarLayout layout = new ConstrainedToolbarLayout();
+			layout.setSpacing(2);
+			nodeShape.setLayoutManager(layout);
 		}
 		return nodeShape; // use nodeShape itself as contentPane
 	}
@@ -72,29 +81,26 @@ public class MindReferenceEditPart extends MindEditPart {
 	
 	@Override
 	public Boolean refreshBounds() {
-//		// The height depends on the children inside the area of this ReferencesList
-//		int width = -1;
-//		int height = -1;
-//		
-//		if (areaLayoutManager != null && areaLayoutManager instanceof ConstrainedFlowLayout) {
-//			// The manager should be a ConstrainedFlowLayout
-//			// It keeps the total height used so we can use it here
-//			height = areaLayoutManager.getTotalHeight() +
-//					IFractalSize.TITLE_HEIGHT;
-//			if (getCompartment().getChildren().size() > 0) height += 12;
-//		}
-//		
-//		// Now set the constraint
-//		Dimension size = new Dimension(width, height);
-//		Point loc = new Point(0, 0);
-//		((GraphicalEditPart)realEditPart.getParent()).setLayoutConstraint(
-//			realEditPart,
-//			realEditPart.getFigure(),
-//			new Rectangle(loc, size));
-//		
-//		realEditPart.getParent().refresh();
+		// The height depends on the children inside the area of this ReferencesList
+		int width = -1;
 		
-		return false;
+		List<EditPart> children = realEditPart.getChildren();
+		int nbChildren = children.size();
+		
+		int height = 20 * nbChildren;
+		
+		// Now set the constraint
+		Dimension size = new Dimension(width, height);
+		Point loc = new Point(0, 0);
+		((GraphicalEditPart)realEditPart.getParent()).setLayoutConstraint(
+			realEditPart,
+			realEditPart.getFigure(),
+			new Rectangle(loc, size));
+		
+		realEditPart.getParent().refresh();
+		
+
+		return true;
 	}
 	
 	@Override

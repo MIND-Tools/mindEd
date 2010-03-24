@@ -3,6 +3,7 @@ package org.ow2.fractal.mind.diagram.custom.edit.parts.generic;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import org.eclipse.draw2d.IFigure;
+import org.eclipse.draw2d.geometry.Dimension;
 import org.eclipse.gef.DragTracker;
 import org.eclipse.gef.EditPart;
 import org.eclipse.gef.EditPolicy;
@@ -10,10 +11,13 @@ import org.eclipse.gef.Request;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.GraphicalEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.ConstrainedToolbarLayout;
+import org.eclipse.swt.graphics.Color;
 import org.ow2.fractal.mind.diagram.custom.edit.policies.*;
 import org.ow2.fractal.mind.diagram.custom.figures.AbstractComponentShape;
+import org.ow2.fractal.mind.diagram.custom.figures.IFractalShape;
 import org.ow2.fractal.mind.diagram.custom.layouts.ComponentLayout;
 import org.ow2.fractal.mind.diagram.custom.providers.CustomDragEditPartsTracker;
+import adl.diagram.edit.parts.*;
 
 public class MindComponentEditPart extends MindEditPart {
 	
@@ -113,6 +117,67 @@ public class MindComponentEditPart extends MindEditPart {
 		} 
 		
 		return null;
+	}
+	
+	public int getComponentType() {
+		if (realEditPart instanceof CompositeComponentDefinitionEditPart)
+			return COMPONENT_COMPOSITE;
+		if (realEditPart instanceof CompositeSubComponentEditPart)
+			return COMPONENT_SUB_COMPOSITE;
+		if (realEditPart instanceof PrimitiveComponentDefinitionEditPart)
+			return COMPONENT_PRIMITIVE;
+		if (realEditPart instanceof PrimitiveSubComponentEditPart)
+			return COMPONENT_SUB_PRIMITIVE;
+		if (realEditPart instanceof ComponentTypeDefinitionEditPart)
+			return COMPONENT_TYPE;
+		return COMPONENT_UNDEFINED;
+	}
+	
+	
+	public Color getMindBorderColor() {
+		switch(getComponentType()) {
+		case COMPONENT_COMPOSITE:
+			return IFractalShape.BLUE;
+		case COMPONENT_SUB_COMPOSITE:
+			return IFractalShape.PURPLE;
+		case COMPONENT_PRIMITIVE:
+			return IFractalShape.RED;
+		case COMPONENT_SUB_PRIMITIVE:
+			return IFractalShape.ORANGE;
+		case COMPONENT_TYPE:
+			return IFractalShape.GRAY;
+		}
+		return IFractalShape.GRAY;
+	}
+	
+	public Color getMindBackgroundColor() {
+		switch(getComponentType()) {
+		case COMPONENT_COMPOSITE:
+			return IFractalShape.LIGHT_BLUE;
+		case COMPONENT_SUB_COMPOSITE:
+			return IFractalShape.LIGHT_PURPLE;
+		case COMPONENT_PRIMITIVE:
+			return IFractalShape.LIGHT_RED;
+		case COMPONENT_SUB_PRIMITIVE:
+			return IFractalShape.LIGHT_ORANGE;
+		case COMPONENT_TYPE:
+			return IFractalShape.LIGHT_GRAY;
+		}
+		return IFractalShape.LIGHT_GRAY;
+	}
+	
+	public Dimension getMindPreferredSize() {
+		switch(getComponentType()) {
+		case COMPONENT_COMPOSITE:
+		case COMPONENT_PRIMITIVE:
+		case COMPONENT_TYPE:
+			return new Dimension(500,500);
+		case COMPONENT_SUB_COMPOSITE:
+		case COMPONENT_SUB_PRIMITIVE:
+			return new Dimension(200,200);
+		default :
+			return super.getMindPreferredSize();	
+		}
 	}
 	
 }

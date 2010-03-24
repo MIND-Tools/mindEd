@@ -47,5 +47,25 @@ public class TemplateSpecifiersListCompartmentCustomEditPart extends
 		}
 		return layoutManager;
 	}
+	
+	public void refresh() {
+		super.refresh();
+		genericEditPart.refresh();
+	}
+	
+	
+	
+	@Override
+	protected void addChild(EditPart childEditPart, int index) {
+		super.addChild(childEditPart, index);
+		getParent().refresh();
+	}
+	
+	@Override
+	protected void removeChild(EditPart childEditPart) {
+		super.removeChild(childEditPart);
+		getParent().refresh();
+	}
+	
 
 }

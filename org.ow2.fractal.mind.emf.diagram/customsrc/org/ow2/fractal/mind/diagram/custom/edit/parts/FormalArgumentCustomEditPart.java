@@ -1,5 +1,7 @@
 package org.ow2.fractal.mind.diagram.custom.edit.parts;
 
+import org.eclipse.draw2d.IFigure;
+import org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure;
 import org.eclipse.gmf.runtime.notation.View;
 import org.ow2.fractal.mind.diagram.custom.edit.parts.generic.MindEditPart;
 import org.ow2.fractal.mind.diagram.custom.edit.parts.generic.MindGenericEditPartFactory;
@@ -25,23 +27,32 @@ public class FormalArgumentCustomEditPart extends FormalArgumentEditPart {
 		genericEditPart.createDefaultEditPolicies();
 	}
 	
+	public void refreshBounds() {
+		if (genericEditPart.refreshBounds() == false)
+			super.refreshBounds();
+	}
 	
-//	@Override
-//	protected NodeFigure createNodePlate() {
-//		//Set fixed size
-//		DefaultSizeNodeFigure result = new DefaultSizeNodeFigure(100, 15);
-//		return result;
-//	}
+	public void refresh() {
+		super.refresh();
+		genericEditPart.refresh();
+	}
 	
-//	@Override
-//	protected IFigure setupContentPane(IFigure nodeShape) {
-//		if (nodeShape.getLayoutManager() == null) {
-//			//No spacing anymore
-//			ConstrainedToolbarLayout layout = new ConstrainedToolbarLayout();
-//			nodeShape.setLayoutManager(layout);
-//		}
-//		return nodeShape; // use nodeShape itself as contentPane
-//	}
+	
+	@Override
+	protected NodeFigure createNodePlate() {
+		NodeFigure result = genericEditPart.createNodePlate();
+		if (result == null)
+			result = super.createNodePlate();
+		return result;
+	}
+	
+	@Override
+	protected IFigure setupContentPane(IFigure nodeShape) {
+		IFigure result = genericEditPart.setupContentPane(nodeShape);
+		if (result == null)
+			result = super.setupContentPane(nodeShape);
+		return result;
+	}
 	
 	
 

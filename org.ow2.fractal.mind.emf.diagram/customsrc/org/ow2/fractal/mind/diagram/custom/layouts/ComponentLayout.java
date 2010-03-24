@@ -10,8 +10,6 @@ import org.eclipse.draw2d.geometry.Rectangle;
 import org.eclipse.gmf.runtime.diagram.ui.figures.BorderedNodeFigure;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.ConstrainedToolbarLayout;
 import org.ow2.fractal.mind.diagram.custom.figures.AbstractComponentNameWrappingLabel;
-import org.ow2.fractal.mind.diagram.custom.figures.BodyCustomFigure;
-import org.ow2.fractal.mind.diagram.custom.figures.ContainerShape;
 
 /**
  * Custom layout for our diagram editor.<p>
@@ -30,6 +28,7 @@ public class ComponentLayout extends ConstrainedToolbarLayout implements IFracta
 	private Map<IFigure,Rectangle> constraints;
 	
 	
+	@SuppressWarnings("rawtypes")
 	public void layout(IFigure figure) {
 		Rectangle clientArea = figure.getClientArea();
 		List children = figure.getChildren();

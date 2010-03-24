@@ -4,6 +4,8 @@ import java.util.List;
 
 import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.LayoutManager;
+import org.eclipse.draw2d.geometry.Dimension;
+import org.eclipse.draw2d.geometry.Point;
 import org.eclipse.draw2d.geometry.Rectangle;
 import org.eclipse.gef.DragTracker;
 import org.eclipse.gef.EditPart;
@@ -12,6 +14,9 @@ import org.eclipse.gef.editpolicies.LayoutEditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.GraphicalEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.ConstrainedToolbarLayout;
+import org.eclipse.gmf.runtime.gef.ui.figures.DefaultSizeNodeFigure;
+import org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure;
+import org.eclipse.gmf.runtime.notation.NotationPackage;
 import org.ow2.fractal.mind.diagram.custom.edit.policies.MindSubCreationEditPolicy;
 import org.ow2.fractal.mind.diagram.custom.edit.policies.NoDragDropEditPolicy;
 import org.ow2.fractal.mind.diagram.custom.helpers.ComponentHelper;
@@ -35,8 +40,8 @@ public class MindItemEditPart extends MindEditPart {
 		realEditPart.installEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE,
 				new NoDragDropEditPolicy());
 		// Extended creation features
-//		realEditPart.installEditPolicy(EditPolicyRoles.CREATION_ROLE,
-//				new MindSubCreationEditPolicy());
+		realEditPart.installEditPolicy(EditPolicyRoles.CREATION_ROLE,
+				new MindSubCreationEditPolicy());
 		
 	}
 	
@@ -48,13 +53,6 @@ public class MindItemEditPart extends MindEditPart {
 				return (GraphicalEditPart)child;
 		}
 		return null;
-	}
-	
-	
-	public void activate() {
-		if (ComponentHelper.isMerged(realEditPart)) 
-			// If the component is merged handle custom behaviour
-			ComponentHelper.handleMergedElement(realEditPart);
 	}
 	
 	/**
@@ -83,6 +81,16 @@ public class MindItemEditPart extends MindEditPart {
 	public DragTracker getDragTracker(EditPart ep) {
 		return null;
 	}
+	
+	public void refresh() {
+		super.refresh();
+		refreshBounds();
+	}
+	
+	public NodeFigure createNodePlate() {
+		DefaultSizeNodeFigure result = new DefaultSizeNodeFigure(100,15);
+		return result;
+	}
 
 	public Boolean refreshBounds() {
 //		int width = ((Integer) realEditPart.getStructuralFeatureValue(NotationPackage.eINSTANCE.getSize_Width())).intValue();
@@ -91,25 +99,24 @@ public class MindItemEditPart extends MindEditPart {
 //		int x = ((Integer) realEditPart.getStructuralFeatureValue(NotationPackage.eINSTANCE.getLocation_X())).intValue();
 //		int y = ((Integer) realEditPart.getStructuralFeatureValue(NotationPackage.eINSTANCE.getLocation_Y())).intValue();
 //		Point loc = new Point(x, y);
-//		realEditPart.getFigure().setBounds(new Rectangle(loc,size));
-//		//The layout constraint is a GridData
-//		((GraphicalEditPart) realEditPart.getParent()).setLayoutConstraint(
-//		realEditPart,
-//		realEditPart.getFigure(),
-//		new GridData(SWT.LEFT,SWT.BEGINNING,false,false,1,1));
-//		
-//		((GraphicalEditPart) realEditPart.getParent()).setLayoutConstraint(
-//				realEditPart,
-//				realEditPart.getFigure(),
-//				new Rectangle(-1,-1,-1,IFractalSize.ITEM_HEIGHT)
-//				);
-		return false;
+		
+		int width = 100;
+		int height = IFractalSize.TITLE_HEIGHT;
+		Dimension size = new Dimension(width, height);
+		int x = ((Integer) realEditPart.getStructuralFeatureValue(NotationPackage.eINSTANCE.getLocation_X())).intValue();
+		int y = ((Integer) realEditPart.getStructuralFeatureValue(NotationPackage.eINSTANCE.getLocation_Y())).intValue();
+		Point loc = new Point(x, y);
+		
+		realEditPart.getFigure().setBounds(new Rectangle(loc,size));
+		((GraphicalEditPart) realEditPart.getParent()).setLayoutConstraint(
+				realEditPart,
+				realEditPart.getFigure(),
+				new Rectangle(loc,size)
+				);
+		return true;
 	}
 	
 	public void setLayoutManager(IFigure figure) {}
-
-
-	public void refresh() {}
 
 	public LayoutEditPolicy createLayoutEditPolicy() {
 		return null;

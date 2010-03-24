@@ -3,6 +3,7 @@ package org.ow2.fractal.mind.diagram.custom.edit.parts;
 
 import org.eclipse.draw2d.IFigure;
 import org.eclipse.gef.DragTracker;
+import org.eclipse.gef.EditPart;
 import org.eclipse.gef.Request;
 import org.eclipse.gmf.runtime.notation.View;
 import org.ow2.fractal.mind.diagram.custom.edit.parts.generic.MindEditPart;
@@ -63,6 +64,19 @@ public class CompositeReferencesListCustomEditPart extends
 	public void activate() {
 		super.activate();
 		genericEditPart.activate();
+	}
+	
+
+	@Override
+	protected boolean addFixedChild(EditPart childEditPart) {
+		if (genericEditPart.addFixedChild(childEditPart)) return true;
+		return super.addFixedChild(childEditPart);
+	}
+	
+	@Override
+	protected boolean removeFixedChild(EditPart childEditPart) {
+		if (genericEditPart.removeFixedChild(childEditPart)) return true;
+		return super.removeFixedChild(childEditPart);
 	}
 
 }
