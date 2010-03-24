@@ -35,7 +35,7 @@
           viewPattern=""
           editPattern="">
         <diagramLabel
-            href="mind.gmfgraph#LabelCompositeComponentDefinitionName"/>
+            href="mind.gmfgraph#LabelCompositeName"/>
         <features
             href="../../org.ow2.fractal.mind.emf/model/mind.ecore#//ArchitectureDefinition/name"/>
       </labelMappings>
@@ -441,7 +441,7 @@
                   xsi:type="gmfmap:FeatureLabelMapping"
                   editPattern="">
                 <diagramLabel
-                    href="mind.gmfgraph#LabelCompositeSubComponentName"/>
+                    href="mind.gmfgraph#LabelCompositeName"/>
                 <features
                     href="../../org.ow2.fractal.mind.emf/model/mind.ecore#//ArchitectureDefinition/name"/>
               </labelMappings>

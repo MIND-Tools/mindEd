@@ -141,7 +141,7 @@
             qualifiedClassName="org.ow2.fractal.mind.diagram.custom.figures.ComponentBorder">
           <attributes
               name="color"
-              value="borderColor"/>
+              value="getMindBorderColor()"/>
         </border>
         <children
             xsi:type="gmfgraph:CustomFigure"
@@ -149,7 +149,7 @@
             qualifiedClassName="org.ow2.fractal.mind.diagram.custom.figures.BodyCompartmentCustomFigure">
           <attributes
               name="backgroundColor"
-              value="bodyAreaColor"/>
+              value="getMindBackgroundColor()"/>
         </children>
       </actualFigure>
       <accessors
@@ -246,29 +246,25 @@
           figure="//@figures.0/@descriptors.8/@actualFigure/@children.1"/>
     </descriptors>
     <descriptors
-        name="CompositeFigure">
+        name="ComponentFigure">
       <actualFigure
           xsi:type="gmfgraph:CustomFigure"
-          name="CompositeFigure"
-          qualifiedClassName="org.ow2.fractal.mind.diagram.custom.figures.CompositeFigure">
+          name="ComponentFigure"
+          qualifiedClassName="org.ow2.fractal.mind.diagram.custom.figures.ComponentFigure">
         <border
             xsi:type="gmfgraph:CustomBorder"
             qualifiedClassName="org.ow2.fractal.mind.diagram.custom.figures.ComponentBorder">
           <attributes
               name="color"
-              value="borderColor"/>
+              value="getMindBorderColor()"/>
         </border>
         <children
             xsi:type="gmfgraph:CustomFigure"
-            name="LabelCompositeName"
-            qualifiedClassName="org.ow2.fractal.mind.diagram.custom.figures.AbstractComponentNameWrappingLabel">
-          <attributes
-              name="maximumSize"
-              value="nameLabelMaxSize"/>
-        </children>
+            name="LabelComponentName"
+            qualifiedClassName="org.ow2.fractal.mind.diagram.custom.figures.AbstractComponentNameWrappingLabel"/>
         <attributes
             name="preferredSize"
-            value="componentPreferredSize"/>
+            value="getMindPreferredSize()"/>
       </actualFigure>
       <accessors
           accessor="getLabel"
@@ -627,6 +623,13 @@
           xsi:type="gmfgraph:CustomFigure"
           name="ReferenceFigure"
           qualifiedClassName="org.ow2.fractal.mind.diagram.custom.figures.ReferenceFigure">
+        <border
+            xsi:type="gmfgraph:CustomBorder"
+            qualifiedClassName="org.ow2.fractal.mind.diagram.custom.figures.ComponentBorder">
+          <attributes
+              name="color"
+              value="borderColor"/>
+        </border>
         <children
             xsi:type="gmfgraph:CustomFigure"
             name="LabelReferenceName"
@@ -850,10 +853,10 @@
       name="ImportDefinition"/>
   <nodes
       name="CompositeComponentDefinition"
-      figure="CompositeFigure"/>
+      figure="ComponentFigure"/>
   <nodes
       name="CompositeSubComponent"
-      figure="CompositeSubComponentFigure"/>
+      figure="ComponentFigure"/>
   <nodes
       name="BindingDefinition"
       figure="BindingFigure"/>
@@ -1024,7 +1027,7 @@
       accessor="//@figures.0/@descriptors.26/@accessors.1"/>
   <compartments
       name="CompositeCompartment"
-      figure="CompositeFigure"/>
+      figure="ComponentFigure"/>
   <labels
       name="LabelAnnotationElement"
       figure="AnnotationElementFigure"
@@ -1046,8 +1049,8 @@
       figure="CompositeAnonymousSubComponentFigure"
       accessor="//@figures.0/@descriptors.8/@accessors.0"/>
   <labels
-      name="LabelCompositeComponentDefinitionName"
-      figure="CompositeFigure"
+      name="LabelCompositeName"
+      figure="ComponentFigure"
       accessor="//@figures.0/@descriptors.9/@accessors.0"/>
   <labels
       name="LabelCompositeReferenceName"
