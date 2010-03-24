@@ -1,0 +1,68 @@
+«IMPORT 'http://www.eclipse.org/gmf/2009/GenModel'»
+«EXTENSION xpt::diagram::ViewmapAttributesUtils»
+«EXTENSION xpt::diagram::editparts::Utils»
+«EXTENSION xpt::diagram::Utils»
+«DEFINE getMindEditpart FOR gmfgen::GenNode-»
+	«EXPAND xpt::Common::generatedMemberComment»
+	protected org.ow2.fractal.mind.diagram.custom.edit.parts.generic.MindEditPart genericEditPart = org.ow2.fractal.mind.diagram.custom.edit.parts.generic.MindGenericEditPartFactory.INSTANCE.createGenericEditPart (this, VISUAL_ID);
+	
+	«EXPAND xpt::Common::generatedMemberComment»
+	public org.ow2.fractal.mind.diagram.custom.edit.parts.generic.MindEditPart getGenericEditPart() {
+		return genericEditPart;
+	}
+«ENDDEFINE»
+
+
+
+«AROUND addFixedChild FOR gmfgen::GenNode-»
+	«EXPAND getMindEditpart»
+	
+	«EXPAND xpt::Common::generatedMemberComment»
+	protected boolean addFixedChild(org.eclipse.gef.EditPart childEditPart) {
+		if (getGenericEditPart().addFixedChild(childEditPart)) return true;
+«FOREACH getInnerFixedLabels(self) AS label»«LET label.viewmap.oclAsType(gmfgen::ParentAssignedViewmap) AS childViewmap-»
+		if (childEditPart instanceof «label.getEditPartQualifiedClassName()») {
+			((«label.getEditPartQualifiedClassName()») childEditPart).«EXPAND impl::diagram::editparts::TextAware::labelSetterName FOR childViewmap»(getPrimaryShape().«childViewmap.getterName»());
+			return true;
+		}
+«ENDLET»«ENDFOREACH-»
+«FOREACH getPinnedCompartments(self) AS compartment»«LET compartment.viewmap.oclAsType(gmfgen::ParentAssignedViewmap) AS childViewmap-»
+		if (childEditPart instanceof «compartment.getEditPartQualifiedClassName()») {
+			org.eclipse.draw2d.IFigure pane = getPrimaryShape().«childViewmap.getterName»();
+			setupContentPane(pane); // FIXME each comparment should handle his content pane in his own way 
+			pane.add(((«compartment.getEditPartQualifiedClassName()») childEditPart).getFigure());
+			return true;
+		}	
+«ENDLET»«ENDFOREACH-»
+«FOREACH getSideAffixedChildren(self) AS child-»
+		if (childEditPart instanceof «child.getEditPartQualifiedClassName()») {
+			org.eclipse.gmf.runtime.diagram.ui.figures.BorderItemLocator locator = new org.eclipse.gmf.runtime.diagram.ui.figures.BorderItemLocator(getMainFigure(), org.eclipse.draw2d.PositionConstants.«child.preferredSideName»);
+			getBorderedFigure().getBorderItemContainer().add(((«child.getEditPartQualifiedClassName()») childEditPart).getFigure(), locator);
+			return true;
+		}
+«ENDFOREACH-»
+		return false;
+	}
+«ENDAROUND»
+
+
+«AROUND innerClassDeclaration FOR gmfgen::InnerClassViewmap»
+	«EXPAND xpt::Common::generatedMemberComment»
+	protected org.eclipse.swt.graphics.Color getMindBorderColor() {
+		return genericEditPart.getMindBorderColor();
+	}
+	
+	«EXPAND xpt::Common::generatedMemberComment»
+	protected org.eclipse.swt.graphics.Color getMindBackgroundColor() {
+		return genericEditPart.getMindBackgroundColor();
+	}
+	
+	«EXPAND xpt::Common::generatedMemberComment»
+	protected org.eclipse.draw2d.geometry.Dimension getMindPreferredSize() {
+		return genericEditPart.getMindPreferredSize();
+	}
+	
+	«classBody»
+«ENDAROUND»
+
+

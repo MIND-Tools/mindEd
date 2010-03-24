@@ -1,0 +1,5 @@
+﻿
+«AROUND handleNotificationEventBody FOR gmfgen::GenNodeLabel-»
+	«targetDef.proceed()»
+	refresh();
+«ENDAROUND»
