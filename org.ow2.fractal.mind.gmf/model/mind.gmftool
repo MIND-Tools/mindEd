@@ -35,6 +35,10 @@
         <largeIcon
             xsi:type="gmftool:DefaultImage"/>
       </tools>
+      <tools
+          xsi:type="gmftool:CreationTool"
+          title="Body"
+          description="Create new Body"/>
     </tools>
     <tools
         xsi:type="gmftool:ToolGroup"

@@ -842,7 +842,7 @@
       figure="PrimitiveAnonymousSubComponentFigure"/>
   <nodes
       name="PrimitiveComponentDefinition"
-      figure="PrimitiveComponentDefinitionFigure"/>
+      figure="ComponentFigure"/>
   <nodes
       name="Body"
       figure="BodyFigure"
@@ -860,9 +860,6 @@
   <nodes
       name="BindingDefinition"
       figure="BindingFigure"/>
-  <nodes
-      name="PrimitiveSubComponent"
-      figure="PrimitiveSubComponentFigure"/>
   <nodes
       name="TemplateSpecifier"
       figure="TemplateSpecifierFigure"
@@ -910,7 +907,7 @@
       name="CompositeSubComponent"
       figure="SubComponentFigure"/>
   <nodes
-      name="ReferenceDefinition"
+      name="CompositeReferenceDefinition"
       figure="ReferenceFigure"/>
   <nodes
       name="TemplateReference"
@@ -923,7 +920,10 @@
       contentPane="//@figures.0/@descriptors.6/@accessors.1"/>
   <nodes
       name="PrimitiveSubComponent"
-      figure="SubComponentFigure"/>
+      figure="ComponentFigure"/>
+  <nodes
+      name="PrimitiveReferenceDefinition"
+      figure="ReferenceFigure"/>
   <connections
       name="Binding"
       figure="BindingFigure"/>
@@ -1049,7 +1049,7 @@
       figure="CompositeAnonymousSubComponentFigure"
       accessor="//@figures.0/@descriptors.8/@accessors.0"/>
   <labels
-      name="LabelCompositeName"
+      name="LabelComponentName"
       figure="ComponentFigure"
       accessor="//@figures.0/@descriptors.9/@accessors.0"/>
   <labels
