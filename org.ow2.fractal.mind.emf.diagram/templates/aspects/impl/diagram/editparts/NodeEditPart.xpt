@@ -2,7 +2,7 @@
 «EXTENSION xpt::diagram::ViewmapAttributesUtils»
 «EXTENSION xpt::diagram::editparts::Utils»
 «EXTENSION xpt::diagram::Utils»
-«DEFINE getMindEditpart FOR gmfgen::GenNode-»
+«DEFINE getMindEditpart FOR gmfgen::InnerClassViewmap»
 	«EXPAND xpt::Common::generatedMemberComment»
 	protected org.ow2.fractal.mind.diagram.custom.edit.parts.generic.MindEditPart genericEditPart = org.ow2.fractal.mind.diagram.custom.edit.parts.generic.MindGenericEditPartFactory.INSTANCE.createGenericEditPart (this, VISUAL_ID);
 	
@@ -12,11 +12,7 @@
 	}
 «ENDDEFINE»
 
-
-
 «AROUND addFixedChild FOR gmfgen::GenNode-»
-	«EXPAND getMindEditpart»
-	
 	«EXPAND xpt::Common::generatedMemberComment»
 	protected boolean addFixedChild(org.eclipse.gef.EditPart childEditPart) {
 		if (getGenericEditPart().addFixedChild(childEditPart)) return true;
@@ -47,6 +43,9 @@
 
 
 «AROUND innerClassDeclaration FOR gmfgen::InnerClassViewmap»
+	
+	«EXPAND getMindEditpart»
+	
 	«EXPAND xpt::Common::generatedMemberComment»
 	protected org.eclipse.swt.graphics.Color getMindBorderColor() {
 		return genericEditPart.getMindBorderColor();

@@ -30,8 +30,6 @@ public class ArgumentDefinitionCustomEditPart extends
 //		return result;
 //	}
 	
-	protected MindEditPart genericEditPart = MindGenericEditPartFactory.INSTANCE.createGenericEditPart (this, VISUAL_ID);
-	
 	
 	/**
 	 * Custom constraint for the custom layout

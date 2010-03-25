@@ -34,8 +34,7 @@ public class InterfaceDefinitionCustomEditPart extends
 	public InterfaceDefinitionCustomEditPart(View view) {
 		super(view);
 	}
-
-	protected MindEditPart genericEditPart = MindGenericEditPartFactory.INSTANCE.createGenericEditPart (this, VISUAL_ID);
+	
 	
 	@Override
 	public DragTracker getDragTracker(Request request) {

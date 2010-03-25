@@ -8,6 +8,7 @@ import org.eclipse.gmf.runtime.diagram.ui.editparts.AbstractBorderedShapeEditPar
 import org.eclipse.gmf.runtime.diagram.ui.requests.EditCommandRequestWrapper;
 import org.eclipse.gmf.runtime.emf.type.core.requests.CreateElementRequest;
 import org.eclipse.gmf.runtime.notation.View;
+import org.ow2.fractal.mind.diagram.custom.edit.parts.generic.*;
 
 import adl.diagram.edit.parts.AdlDefinitionEditPart;
 
@@ -38,7 +39,7 @@ public class ItemSemanticEditPolicyHelper {
 		while (
 				(cmd == null)
 				&&
-				!(host instanceof AbstractBorderedShapeEditPart)
+				!(MindGenericEditPartFactory.INSTANCE.getMindEditPartFor(host) instanceof MindComponentEditPart)
 				&&
 				!(host instanceof AdlDefinitionEditPart)
 				)

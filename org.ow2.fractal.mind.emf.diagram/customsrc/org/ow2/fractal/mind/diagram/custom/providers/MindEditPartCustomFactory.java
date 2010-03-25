@@ -242,13 +242,7 @@ public class MindEditPartCustomFactory extends MindEditPartFactory {
 
 			case CompositeBodyCompartmentEditPart.VISUAL_ID:
 				return new CompositeBodyCompartmentCustomEditPart(view);
-
-			case CompositeSubReferenceCompartmentEditPart.VISUAL_ID:
-				return new CompositeSubReferenceCompartmentCustomEditPart(view);
-
-			case PrimitiveSubReferenceCompartmentEditPart.VISUAL_ID:
-				return new PrimitiveSubReferenceCompartmentCustomEditPart(view);
-
+				
 			case PrimitiveBodyCompartmentEditPart.VISUAL_ID:
 				return new PrimitiveBodyCompartmentCustomEditPart(view);
 

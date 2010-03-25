@@ -28,9 +28,6 @@ public class CompositeSubComponentCustomEditPart extends
 		super(view);
 	}
 	
-	protected MindEditPart genericEditPart = MindGenericEditPartFactory.INSTANCE.createGenericEditPart (this, VISUAL_ID);
-	
-	
 	@Override
 	protected void createDefaultEditPolicies() {
 		super.createDefaultEditPolicies();
@@ -64,6 +61,13 @@ public class CompositeSubComponentCustomEditPart extends
 	public void activate() {
 		super.activate();
 		genericEditPart.activate();
+	}
+
+
+	@Override
+	protected void addChild(EditPart child, int index) {
+		super.addChild(child, index);
+		refresh();
 	}
 	
 	

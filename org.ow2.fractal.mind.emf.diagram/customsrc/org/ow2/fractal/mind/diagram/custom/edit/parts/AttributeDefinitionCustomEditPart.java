@@ -20,8 +20,6 @@ public class AttributeDefinitionCustomEditPart extends
 		super(view);
 	}
 	
-	protected MindEditPart genericEditPart = MindGenericEditPartFactory.INSTANCE.createGenericEditPart (this, VISUAL_ID);
-	
 	
 	/**
 	 * Custom constraint for the custom layout

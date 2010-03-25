@@ -8,6 +8,7 @@ import org.eclipse.gef.DragTracker;
 import org.eclipse.gef.EditPart;
 import org.eclipse.gef.EditPolicy;
 import org.eclipse.gef.Request;
+import org.eclipse.gmf.runtime.diagram.ui.editparts.AbstractBorderedShapeEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.GraphicalEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.ConstrainedToolbarLayout;
@@ -15,18 +16,32 @@ import org.eclipse.swt.graphics.Color;
 import org.ow2.fractal.mind.diagram.custom.edit.policies.*;
 import org.ow2.fractal.mind.diagram.custom.figures.AbstractComponentShape;
 import org.ow2.fractal.mind.diagram.custom.figures.IFractalShape;
+import org.ow2.fractal.mind.diagram.custom.helpers.ComponentHelper;
 import org.ow2.fractal.mind.diagram.custom.layouts.ComponentLayout;
 import org.ow2.fractal.mind.diagram.custom.providers.CustomDragEditPartsTracker;
+import org.ow2.fractal.mind.diagram.custom.providers.DragEditPartsCustomTracker;
+import org.ow2.fractal.mind.diagram.custom.providers.NoDragTracker;
+
 import adl.diagram.edit.parts.*;
 
 public class MindComponentEditPart extends MindEditPart {
+
+	/**
+	 * The edit part if it is a BorderedShapeEditPart
+	 * May be null.
+	 */
+	AbstractBorderedShapeEditPart borderedEditPart;
 	
 	public MindComponentEditPart (GraphicalEditPart editPart, int vID) {
 		super(editPart, vID, TYPE_COMPONENT);
+		if (editPart instanceof AbstractBorderedShapeEditPart)
+			borderedEditPart = (AbstractBorderedShapeEditPart) editPart;
 	}
 	
 	public MindComponentEditPart(GraphicalEditPart editPart, int vID, int mindType) {
 		super(editPart, vID, mindType);
+		if (editPart instanceof AbstractBorderedShapeEditPart)
+			borderedEditPart = (AbstractBorderedShapeEditPart) editPart;
 	}
 	
 	@Override
@@ -34,7 +49,7 @@ public class MindComponentEditPart extends MindEditPart {
 		super.createDefaultEditPolicies();
 		
 		realEditPart.installEditPolicy(EditPolicyRoles.CREATION_ROLE,
-				new MindCreationEditPolicy());
+				new MindSubCreationEditPolicy());
 		
 		realEditPart.installEditPolicy(EditPolicyRoles.DRAG_DROP_ROLE,
 				new CustomDragDropEditPolicy());
@@ -42,6 +57,11 @@ public class MindComponentEditPart extends MindEditPart {
 		realEditPart.installEditPolicy(EditPolicy.LAYOUT_ROLE,
 				new ComponentLayoutEditPolicy());
 	};
+	
+	
+	public DragTracker getDragTracker(EditPart ep) {
+		return new DragEditPartsCustomTracker(ep);
+	}
 	
 	
 	/**
@@ -56,15 +76,6 @@ public class MindComponentEditPart extends MindEditPart {
 			nodeShape.setLayoutManager(layout);
 		}
 		return nodeShape; // use nodeShape itself as contentPane
-	}
-	
-	/**
-	 * Call this to implement our custom drag tracker which gives us extended drag and drop features
-	 * @param ep
-	 * @return
-	 */
-	public DragTracker getDragTracker(Request request) {
-		return new CustomDragEditPartsTracker(realEditPart);
 	}
 	
 	@Override
@@ -179,5 +190,13 @@ public class MindComponentEditPart extends MindEditPart {
 			return super.getMindPreferredSize();	
 		}
 	}
+	
+	@Override
+	public void activate() {
+		super.activate();
+		realEditPart.refresh();
+	}
+	
+	
 	
 }

@@ -51,11 +51,7 @@ public class MindEditPart extends AbstractMindEditPart {
 	
 	
 	public LayoutManager getLayoutManager() {
-		try {
-			return realEditPart.getFigure().getLayoutManager();
-		}catch(NullPointerException e) {
-			return null;
-		}
+		return null;
 	}
 	
 	/**

@@ -15,8 +15,6 @@ import adl.diagram.edit.parts.ArgumentDefinitionNameEditPart;
 public class ArgumentDefinitionNameCustomEditPart extends
 		ArgumentDefinitionNameEditPart {
 
-	protected MindEditPart genericEditPart = MindGenericEditPartFactory.INSTANCE.createGenericEditPart (this, VISUAL_ID);
-	
 	public ArgumentDefinitionNameCustomEditPart(View view) {
 		super(view);
 	}

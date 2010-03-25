@@ -1,7 +1,14 @@
 package org.ow2.fractal.mind.diagram.custom.edit.parts.generic;
 
+import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.LayoutManager;
+import org.eclipse.gef.EditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.GraphicalEditPart;
+import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
+import org.eclipse.gmf.runtime.draw2d.ui.figures.ConstrainedToolbarLayout;
+import org.ow2.fractal.mind.diagram.custom.edit.policies.FixedChildrenLayoutEditPolicy;
+import org.ow2.fractal.mind.diagram.custom.edit.policies.MindSuperCreationEditPolicy;
+import org.ow2.fractal.mind.diagram.custom.layouts.ConstrainedFlowLayout;
 
 public class MindCompartmentEditPart extends MindEditPart {
 
@@ -19,5 +26,36 @@ public class MindCompartmentEditPart extends MindEditPart {
 	}
 	
 	
+	@Override
+	public void createDefaultEditPolicies(){
+		super.createDefaultEditPolicies();
+		// Extended layout features
+		realEditPart.installEditPolicy(EditPolicy.LAYOUT_ROLE,
+				new FixedChildrenLayoutEditPolicy());
+		// Extended creation features
+		realEditPart.installEditPolicy(EditPolicyRoles.CREATION_ROLE,
+				new MindSuperCreationEditPolicy());
+		// No drag and drop
+		realEditPart.removeEditPolicy(EditPolicyRoles.DRAG_DROP_ROLE);
+	}
+	
+	
+	@Override
+	public void setLayoutManager(IFigure figure) {
+		figure.setLayoutManager(getLayoutManager());
+	}
+	
+	
+	/**
+	 * Implements a ConstrainedFlowLayout
+	 * @return
+	 */
+	@Override
+	public LayoutManager getLayoutManager() {
+		if (layoutManager == null) {
+			layoutManager = new ConstrainedToolbarLayout();
+		}
+		return layoutManager;
+	}
 
 }

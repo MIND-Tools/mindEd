@@ -4,47 +4,57 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
 import org.eclipse.draw2d.IFigure;
-import org.eclipse.draw2d.geometry.Dimension;
+import org.eclipse.gef.DragTracker;
 import org.eclipse.gef.EditPart;
+import org.eclipse.gef.EditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.AbstractBorderedShapeEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.GraphicalEditPart;
+import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.ConstrainedToolbarLayout;
 import org.eclipse.swt.graphics.Color;
-import org.ow2.fractal.mind.diagram.custom.edit.parts.InterfaceDefinitionCustomEditPart;
+import org.ow2.fractal.mind.diagram.custom.edit.policies.MindSubCreationEditPolicy;
+import org.ow2.fractal.mind.diagram.custom.edit.policies.NoDragDropEditPolicy;
 import org.ow2.fractal.mind.diagram.custom.figures.AbstractComponentShape;
 import org.ow2.fractal.mind.diagram.custom.figures.IFractalShape;
 import org.ow2.fractal.mind.diagram.custom.layouts.InterfaceBorderItemLocator;
+import org.ow2.fractal.mind.diagram.custom.providers.NoDragTracker;
+
+import adl.diagram.edit.parts.InterfaceDefinitionEditPart;
 
 public class MindBodyEditPart extends MindEditPart {
 	
-	protected AbstractBorderedShapeEditPart realEditPart;
 	protected MindComponentEditPart parentComponent;
 
 	public MindBodyEditPart(GraphicalEditPart editPart, int vID) {
 		super(editPart, vID, TYPE_BODY);
-		if (editPart instanceof AbstractBorderedShapeEditPart) {
-			realEditPart = (AbstractBorderedShapeEditPart) editPart;
-			MindEditPart parent = getMindEditPartFor(realEditPart.getParent());
-			if (parent instanceof MindComponentEditPart)
-				parentComponent = (MindComponentEditPart) parent;
-		}
-		else throw new IllegalArgumentException();
+		setParentComponent();
 	}
 	
 	public MindBodyEditPart(GraphicalEditPart editPart, int vID, int mindType) {
 		super(editPart, vID, mindType);
-		if (editPart instanceof AbstractBorderedShapeEditPart) {
-			realEditPart = (AbstractBorderedShapeEditPart) editPart;
-			MindEditPart parent = getMindEditPartFor(realEditPart.getParent());
-			if (parent instanceof MindComponentEditPart)
-				parentComponent = (MindComponentEditPart) parent;
-		}
-		else throw new IllegalArgumentException();
+		setParentComponent();
+	}
+	
+	protected void setParentComponent() {
+		MindEditPart parent = getMindEditPartFor(realEditPart.getParent());
+		if (parent instanceof MindComponentEditPart)
+			parentComponent = (MindComponentEditPart) parent;
 	}
 
 	@Override
 	public void createDefaultEditPolicies() {
 		super.createDefaultEditPolicies();
+		// Extended creation features
+		realEditPart.installEditPolicy(
+				EditPolicyRoles.CREATION_ROLE,
+				new MindSubCreationEditPolicy());
+		realEditPart.removeEditPolicy(EditPolicyRoles.DRAG_DROP_ROLE);
+		realEditPart.installEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE,
+				new NoDragDropEditPolicy());
+	}
+	
+	public DragTracker getDragTracker(EditPart ep) {
+		return new NoDragTracker(ep);
 	}
 	
 	@Override
@@ -62,10 +72,14 @@ public class MindBodyEditPart extends MindEditPart {
 		{
 			//Make interfaces stick to the component's border
 			//Use InterfaceBorderItemLocator
+			if (getParentComponent() == null) return false;
+			AbstractBorderedShapeEditPart parentBorderedEditPart = parentComponent.borderedEditPart;
+			if (parentBorderedEditPart == null) return false;
 			InterfaceBorderItemLocator locator = new InterfaceBorderItemLocator(
-					realEditPart.getMainFigure());
-			realEditPart.getBorderedFigure().getBorderItemContainer().add(
-					((InterfaceDefinitionCustomEditPart) childEditPart).getFigure(), locator);
+					parentBorderedEditPart.getMainFigure()); 
+			parentBorderedEditPart.getBorderedFigure().getBorderItemContainer().add(
+					((InterfaceDefinitionEditPart) childEditPart).getFigure(), locator);
+			
 			return true;
 		}
 		return false;

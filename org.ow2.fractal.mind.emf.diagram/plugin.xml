@@ -248,7 +248,7 @@
       <viewProvider class="adl.diagram.providers.MindViewProvider">
          <Priority name="Lowest"/>
          <context viewClass="org.eclipse.gmf.runtime.notation.Diagram" semanticHints="Mind"/>
-         <context viewClass="org.eclipse.gmf.runtime.notation.Node" semanticHints="2007,2008,2009,3096,3097,3098,3099,3100,3101,3102,3103,3104,3105,3129,3130,3131,3132,3135,3136,3137,3140,3115,3116,3139,3118,3119,3138,3123,3124,3125,3127,3128,3142"/>
+         <context viewClass="org.eclipse.gmf.runtime.notation.Node" semanticHints="2007,2008,2009,3096,3097,3098,3099,3100,3101,3102,3103,3104,3105,3129,3130,3131,3132,3143,3135,3136,3137,3140,3115,3116,3139,3118,3119,3138,3123,3124,3125,3127,3128,3142"/>
          <context viewClass="org.eclipse.gmf.runtime.notation.Edge" semanticHints="4003"/>
       </viewProvider>
    </extension>
@@ -483,6 +483,16 @@
          </specializationType>
       </metamodel>
       <metamodel nsURI="http://org.ow2.fractal/mind/mind.ecore/0.2.0">
+         <metamodelType
+               id="org.ow2.fractal.mind.emf.diagram.Body_3143"
+               name="%metatype.name.Body_3143"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="Body"
+               edithelper="adl.diagram.edit.helpers.BodyEditHelper">
+            <param name="semanticHint" value="3143"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://org.ow2.fractal/mind/mind.ecore/0.2.0">
          <specializationType
                id="org.ow2.fractal.mind.emf.diagram.SubComponentDefinition_3135"
                name="%metatype.name.SubComponentDefinition_3135"
@@ -678,6 +688,7 @@
          <elementType ref="org.ow2.fractal.mind.emf.diagram.InterfaceDefinition_3130"/>
          <elementType ref="org.ow2.fractal.mind.emf.diagram.SubComponentDefinition_3131"/>
          <elementType ref="org.ow2.fractal.mind.emf.diagram.CompositeReferenceDefinition_3132"/>
+         <elementType ref="org.ow2.fractal.mind.emf.diagram.Body_3143"/>
          <elementType ref="org.ow2.fractal.mind.emf.diagram.SubComponentDefinition_3135"/>
          <elementType ref="org.ow2.fractal.mind.emf.diagram.PrimitiveReferenceDefinition_3136"/>
          <elementType ref="org.ow2.fractal.mind.emf.diagram.PrimitiveBody_3137"/>

@@ -1,6 +1,8 @@
 package org.ow2.fractal.mind.diagram.custom.edit.parts;
 
 import org.eclipse.draw2d.LayoutManager;
+import org.eclipse.gef.DragTracker;
+import org.eclipse.gef.Request;
 import org.eclipse.gmf.runtime.notation.View;
 import org.ow2.fractal.mind.diagram.custom.edit.parts.generic.MindEditPart;
 import org.ow2.fractal.mind.diagram.custom.edit.parts.generic.MindGenericEditPartFactory;
@@ -30,6 +32,15 @@ public class PrimitiveBodyCompartmentCustomEditPart extends
 		if (lm == null)
 			lm = super.getLayoutManager();
 		return lm;
+	}
+	
+	
+	@Override
+	public DragTracker getDragTracker(Request request) {
+		DragTracker tracker = genericEditPart.getDragTracker(request);
+		if (tracker == null)
+			tracker = super.getDragTracker(request);
+		return tracker;
 	}
 
 }
