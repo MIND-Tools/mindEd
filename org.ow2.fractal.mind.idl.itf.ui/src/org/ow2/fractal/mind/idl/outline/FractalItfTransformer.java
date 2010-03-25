@@ -2,9 +2,13 @@ package org.ow2.fractal.mind.idl.outline;
 
 import java.util.List;
 
+import org.eclipse.emf.common.util.BasicEList;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.xtext.ui.common.editor.outline.ContentOutlineNode;
 import org.eclipse.xtext.ui.common.editor.outline.transformer.AbstractDeclarativeSemanticModelTransformer;
+import org.ow2.fractal.mind.idl.fractalIDL.Annotation;
+import org.ow2.fractal.mind.idl.fractalIDL.Annotations;
 import org.ow2.fractal.mind.idl.fractalIDL.ConstantDefinition;
 import org.ow2.fractal.mind.idl.fractalIDL.EnumDefinition;
 import org.ow2.fractal.mind.idl.fractalIDL.EnumReference;
@@ -22,11 +26,9 @@ import org.ow2.fractal.mind.idl.fractalIDL.TypedefSpecification;
  * @author Damien Fournier
  */
 
-
-//-----------------------//
+// -----------------------//
 // Customize Nodes label //
-//-----------------------//
-
+// -----------------------//
 
 public class FractalItfTransformer extends
 		AbstractDeclarativeSemanticModelTransformer {
@@ -63,6 +65,24 @@ public class FractalItfTransformer extends
 		ContentOutlineNode node = super.newOutlineNode(obj, parentNode);
 		// Add 'interface' to the label
 		node.setLabel("interface " + obj.getFqn());
+		return node;
+	}
+
+	/**
+	 * Customize outline label for Annotation object
+	 * 
+	 * @param obj
+	 *            - model object
+	 * @param parentNode
+	 *            - parent node
+	 * @return Custom node for the Outline view
+	 */
+
+	public ContentOutlineNode createNode(Annotation obj,
+			ContentOutlineNode parentNode) {
+		ContentOutlineNode node = super.newOutlineNode(obj, parentNode);
+		// Add 'Annotation' to the label
+		node.setLabel("@" + obj.getFqn());
 		return node;
 	}
 
@@ -143,12 +163,14 @@ public class FractalItfTransformer extends
 		node.setLabel("enum " + obj.getId());
 		return node;
 	}
-	
+
 	/**
 	 * Customize outline label for enumeration
 	 * 
-	 * @param obj - model object
-	 * @param parentNode - parent node
+	 * @param obj
+	 *            - model object
+	 * @param parentNode
+	 *            - parent node
 	 * @return Custom node for the Outline view
 	 */
 
@@ -158,12 +180,14 @@ public class FractalItfTransformer extends
 		node.setLabel("enum " + obj.getId());
 		return node;
 	}
-	
+
 	/**
 	 * Customize outline label for methods
 	 * 
-	 * @param obj - model object
-	 * @param parentNode - parent node
+	 * @param obj
+	 *            - model object
+	 * @param parentNode
+	 *            - parent node
 	 * @return Custom node for the Outline view
 	 */
 
@@ -214,12 +238,14 @@ public class FractalItfTransformer extends
 		node.setLabel(label);
 		return node;
 	}
-	
+
 	/**
 	 * Customize outline label for includes
 	 * 
-	 * @param obj - model object
-	 * @param parentNode - parent node
+	 * @param obj
+	 *            - model object
+	 * @param parentNode
+	 *            - parent node
 	 * @return Custom node for the Outline view
 	 */
 
@@ -232,13 +258,11 @@ public class FractalItfTransformer extends
 		node.setLabel(label);
 		return node;
 	}
-	
-	
-	//--------------------------//
-	// Customize Children nodes //
-	//--------------------------//
-	
 
+	// --------------------------//
+	// Customize Children nodes //
+	// --------------------------//
+	
 	public List<EObject> getChildren(ConstantDefinition obj) {
 		return NO_CHILDREN;
 	}
@@ -265,5 +289,37 @@ public class FractalItfTransformer extends
 
 	public List<EObject> getChildren(ItfFile obj) {
 		return obj.eContents();
+	}
+
+	/**
+	 * Return Children Elements of Interface definition in outline view
+	 * 
+	 * @param obj
+	 * @return
+	 */
+
+	public List<EObject> getChildren(InterfaceDefinition obj) {
+
+		// Create a new List
+		EList<EObject> list = new BasicEList<EObject>();
+
+		// Retrieve contents of an InterfaceDefinition Element
+		EList<EObject> content = obj.eContents();
+
+		for (EObject eObject : content) {
+			// If it is a 'Annotations' EObject then ignore
+			// But add Annotations child the the list
+			if (eObject instanceof Annotations) {
+				Annotations annotation = (Annotations) eObject;
+				for (EObject eObjectContent : annotation.eContents()) {
+					list.add(eObjectContent);
+				}
+			} else
+				// else add curent eObject
+				list.add(eObject);
+		}
+
+		return list;
+
 	}
 }

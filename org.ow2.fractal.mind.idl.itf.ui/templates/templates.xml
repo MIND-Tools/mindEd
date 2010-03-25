@@ -9,6 +9,12 @@ typedef struct ${type_name} {
 };
 </template>
 
+
+<!-- Template proposal for structural enum -->
+<template autoinsert="true" context="org.ow2.fractal.mind.idl.FractalItf.EnumSpecification" deleted="false" description="enum definition" enabled="true" name="enum" id="enum">
+enum ${name} { ${element} };
+</template>
+
 <!-- Template proposal for interface definition-->
 <template autoinsert="true" context="org.ow2.fractal.mind.idl.FractalItf.InterfaceDefinition" deleted="false" description="interface definition" enabled="true" name="interface definition" id="idf_interface">
 interface ${interface_name} {
