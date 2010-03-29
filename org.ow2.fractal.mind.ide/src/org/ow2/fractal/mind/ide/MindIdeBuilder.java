@@ -7,8 +7,12 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLClassLoader;
 import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
+import org.eclipse.core.resources.IFolder;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IResource;
 import org.eclipse.core.resources.IResourceDelta;
@@ -16,11 +20,18 @@ import org.eclipse.core.resources.IncrementalProjectBuilder;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.Status;
+import org.eclipse.emf.common.util.EList;
 import org.objectweb.fractal.adl.ADLException;
 import org.objectweb.fractal.adl.CompilerError;
 import org.objectweb.fractal.adl.StaticJavaGenerator.InvalidCommandLineException;
 import org.ow2.fractal.mind.ide.emf.mindide.MindFile;
 import org.ow2.fractal.mind.ide.emf.mindide.MindObject;
+import org.ow2.fractal.mind.ide.emf.mindide.MindPackage;
+import org.ow2.fractal.mind.ide.emf.mindide.MindPathEntry;
+import org.ow2.fractal.mind.ide.emf.mindide.MindPathKind;
+import org.ow2.fractal.mind.ide.emf.mindide.MindProject;
+import org.ow2.fractal.mind.ide.emf.mindide.MindRootSrc;
+import org.ow2.fractal.mind.ide.emf.mindide.MindidePackage;
 
 /**
  * Mind builder. Do noting in lot 1. Keeping for next lot.
@@ -38,15 +49,28 @@ public class MindIdeBuilder extends IncrementalProjectBuilder {
 	@Override
 	protected IProject[] build(int kind, Map args, IProgressMonitor monitor)
 			throws CoreException {
-		return null;
+		IProject currentProject = getProject();
+		if (currentProject == null || !currentProject.isAccessible()) return new IProject[0];
+
+		MindProject mp = MindIdeCore.get(currentProject);
+		if (mp == null) return new IProject[0];
+		
+		
+		IResourceDelta delta = getDelta(currentProject);
+		if (delta == null) {
+			fullBuild(monitor, mp.getAllFiles());
+		} else  {
+			incrementalBuild(delta, monitor, mp);
+		} 
+		return new IProject[0];
 	}	
 
-	protected void fullBuild(final IProgressMonitor monitor, Map<IResource, MindObject> mapResourceToMind)
+	protected void fullBuild(final IProgressMonitor monitor, EList<MindFile> mindFiles)
 			throws CoreException {
 	}
 
 	protected void incrementalBuild(IResourceDelta delta,
-			IProgressMonitor monitor, Map<IResource, MindObject> mapResourceToMind) throws CoreException {
+			IProgressMonitor monitor, MindProject mp) throws CoreException {
 	}
 	
 	private static final String MINDC_METHOD = "nonExitMain";
@@ -75,7 +99,62 @@ public class MindIdeBuilder extends IncrementalProjectBuilder {
 		return mindCClassLoader;
 	}
 	
+	public static void computeResolvedMindPath(MindProject mp, Set<MindObject> visited, Set<MindObject> path) {
+		if (visited.contains(mp)) return;
+		visited.add(mp);
+		for (MindPathEntry mpe : mp.getMindpathentries()) {
+			if (mpe.getEntryKind() == MindPathKind.SOURCE) {
+				MindRootSrc mrs = (MindRootSrc) mpe.getResolvedBy();
+				if (mrs != null) {
+					path.add(mrs);
+				}
+			} else if (mpe.getEntryKind() == MindPathKind.PROJECT) {
+				MindProject mp2 = (MindProject) mpe.getResolvedBy();
+				if (mp2 != null) {
+					computeResolvedMindPath(mp2, visited, path);
+				}
+			} else if (mpe.getEntryKind() == MindPathKind.IMPORT_PACKAGE) {
+				MindPackage p = (MindPackage) mpe.getResolvedBy();
+				MindRootSrc rs;
+				MindProject mp2;
+				if (p != null && ((rs = p.getRootsrc()) != null) && ((mp2 = rs.getProject()) != null)) {
+					computeResolvedMindPath(mp2, visited, path);
+				}
+			}
+		}
+	}
 	
+	public static void checkFile(IProject project, List<MindFile> filesToCheck) throws InvalidCommandLineException, ADLException {
+		MindProject mp = MindIdeCore.get(project);
+		if (mp == null) return;
+		ArrayList<String> args = new ArrayList<String>();
+		
+		Set<MindObject> visited = new HashSet<MindObject>();
+		Set<MindObject> path = new HashSet<MindObject>();
+		computeResolvedMindPath(mp, visited, path);
+		for (MindObject mo : path) {
+			if (mo instanceof MindRootSrc) {
+				IFolder f = MindIdeCore.getResource((MindRootSrc)mo);
+				if (f.exists())
+					args.add("-S="+f.getLocation().toOSString());
+			}
+		}
+		args.add("-o="+project.getLocation().append("build").toOSString());
+		args.add("--check-adl");
+		
+		for (MindFile mf : filesToCheck) {
+			if (mf.eClass() == MindidePackage.Literals.MIND_ADL) {
+				args.add(mf.getQualifiedName());
+			}
+		}
+		
+		System.out.println("Call mindc :");
+		for (String a : args) {
+			System.out.println("   "+a);
+		}
+		
+		MindIdeBuilder.mindc((String[]) args.toArray(new String[args.size()]));		
+	}
 	/**
 	 * class : org.ow2.mind.Launcher
 method: public static void nonExitMain(final String... args)
