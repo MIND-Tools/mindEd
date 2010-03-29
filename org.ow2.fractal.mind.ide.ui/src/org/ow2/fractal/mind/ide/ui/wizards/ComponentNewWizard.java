@@ -134,19 +134,8 @@ public class ComponentNewWizard extends Wizard implements INewWizard {
 		adl.setKind(kind);
 		adl.setPackage(p);
 		if (kind == ComponentKind.PRIMITIVE) {
-			String cfileName = componentName.substring(0, 1).toLowerCase()
-					+ componentName.substring(1);
-			final IFile cfile = container.getFile(new Path(cfileName + ".c")); //$NON-NLS-1$
-			try {
-				InputStream stream = openCContentStream(adl);
-				if (cfile.exists()) {
-					//file.setContents(stream, true, true, monitor);
-				} else {
-					cfile.create(stream, true, monitor);
-				}
-				stream.close();
-			} catch (IOException e) {
-			}
+			MindIdeCore.createCTemplate(container, 
+					componentName, adl.getQualifiedName(), monitor);
 		}
 		InputStream stream = openContentStream(adl);
 		if (file.exists()) {
@@ -168,6 +157,8 @@ public class ComponentNewWizard extends Wizard implements INewWizard {
 		monitor.worked(1);
 	}
 
+	
+
 //	// -- Debut modif Olivier Marot
 	static private void createDiagram(IProgressMonitor monitor, MindAdl adl) {
 		monitor.setTaskName("Creating and opening diagram");
@@ -178,10 +169,7 @@ public class ComponentNewWizard extends Wizard implements INewWizard {
 	}
 	// -- Fin modif Olivier Marot
 	
-	private InputStream openCContentStream(MindAdl adl) {
-		return new ByteArrayInputStream(new TemplatePrimitiveC().generate(adl).getBytes());
-	}
-
+	
 	private void create(IContainer container, IProgressMonitor monitor) throws CoreException {
 		Assert.isNotNull(container);
 		if (container.exists()) return;
