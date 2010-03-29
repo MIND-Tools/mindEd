@@ -35,6 +35,10 @@
             file="topics_Concepts.xml">
       </toc>
       <toc
+            file="contexts_MIND_UI.xml"
+            primary="false">
+      </toc>
+      <!--toc
             file="tocgettingstarted.xml">
       </toc>
       <toc
@@ -45,7 +49,7 @@
       </toc>
       <toc
             file="toctasks.xml">
-      </toc>
+      </toc-->
    </extension>
 
 </plugin>

@@ -16,6 +16,10 @@
 		<topic label="Adl text editor" href="concepts/mind_text_editor.htm"/>
 		<topic label="Mind diagram editor" href="concepts/mind_diagram_editor.htm"/>
 	</topic>
+ <topic label="Editing IDL">
+    <topic label="IDL text editor">
+    </topic>
+ </topic>
 	<topic label="Navigation aids" href="concepts/cdt_o_nav.htm"> 
 		<topic label="Outline View" href="concepts/cdt_c_outlineview.htm"/> 
 		<topic label="Project File views" href="concepts/cdt_c_proj_file_views.htm"/> 

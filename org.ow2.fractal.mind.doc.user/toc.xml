@@ -2,15 +2,17 @@
 <?NLS TYPE="org.eclipse.help.toc"?>
 <!-- Defines topics that will be inserted under the C/C++ Development User Guide menu-->
 
-<toc id="cdt" label="Mind Development User Guide" topic="concepts/mind_o_home.htm">
+<toc id="mind" label="Mind Development User Guide" topic="concepts/mind_o_home.htm">
 
-	<topic label="Before you begin"  href="concepts/cdt_c_before_you_begin.htm"/>
+	<topic label="Before you begin"  href="concepts/mind_c_before_you_begin.htm"/>
 
-	<topic label="Getting Started" href="getting_started/mind_o_tutorial.htm">
-		<link toc="tocgettingstarted.xml" />
-	</topic>
+	<topic label="What&apos;s new in Mind IDE 0.2"  href="concepts/mind_c_whatsnew.htm"/>
 	
-	<topic label="Concepts" href="concepts/cdt_o_concepts.htm">
+	
+	
+	<!-- 
+	
+	<topic label="Concepts" href="concepts/mind_o_concepts.htm">
 		<link toc="topics_Concepts.xml" />
 	</topic>
 	
@@ -18,12 +20,18 @@
 		<link toc="topics_Tasks.xml" />
 	</topic>
 	
+	<topic label="Getting Started" href="getting_started/mind_o_tutorial.htm">
+		<link toc="tocgettingstarted.xml" />
+	</topic>
+	
 	<topic label="Reference"  href="reference/cdt_o_ref.htm">
 		<link toc="topics_Reference.xml" />
 	</topic>
 	
-	<topic label="What&apos;s new in Mind IDE 0.1"  href="concepts/cdt_c_whatsnew.htm"/>
+	-->
 	
-	<topic label="Legal" href="notices.html"/>
+	
+	
+	<!-- <topic label="Legal" href="notices.html"/> -->
 	
 </toc>
