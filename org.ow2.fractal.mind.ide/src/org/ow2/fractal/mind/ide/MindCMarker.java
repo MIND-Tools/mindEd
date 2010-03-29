@@ -8,7 +8,7 @@ import org.eclipse.core.runtime.CoreException;
 
 public class MindCMarker {
 	
-	private final static String MARKER_ID 			= MindActivator.ID+".mindcProblem";
+	private final static String MARKER_ID 			= "org.ow2.fractal.mind.ide.mindcProblem";
 	
 	private final static String MARKER_DESCRIPTION 	= "description";
 	private final static String MARKER_PARAMETERS 	= "parameters";

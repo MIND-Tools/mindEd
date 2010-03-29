@@ -52,6 +52,14 @@ public class MindIdeBuilder extends IncrementalProjectBuilder {
 	
 
 	@Override
+	protected void clean(IProgressMonitor monitor) throws CoreException {
+		IProject currentProject = getProject();
+		if (currentProject == null || !currentProject.isAccessible()) return ;
+		
+		MindCMarker.unmark(currentProject, false, IResource.DEPTH_INFINITE);
+	}
+	
+	@Override
 	protected IProject[] build(int kind, Map args, IProgressMonitor monitor)
 			throws CoreException {
 		IProject currentProject = getProject();
@@ -66,6 +74,10 @@ public class MindIdeBuilder extends IncrementalProjectBuilder {
 			// full build
 			for (MindFile mf : mp.getAllFiles()) {
 				try {
+					if (mf.eClass() != MindidePackage.Literals.MIND_ADL) continue;
+					
+					IResource mfRsc = MindIdeCore.getResource(mf);
+					MindCMarker.unmark(mfRsc, false, IResource.DEPTH_ZERO);
 					checkFile(currentProject, Collections.singletonList(mf));
 				} catch (InvalidCommandLineException e) {
 					addError(currentProject, mf, e);
@@ -96,6 +108,8 @@ public class MindIdeBuilder extends IncrementalProjectBuilder {
 			//incrementalBuild
 			for (MindFile mf : adls) {
 				try {
+					IResource mfRsc = MindIdeCore.getResource(mf);
+					MindCMarker.unmark(mfRsc, false, IResource.DEPTH_ZERO);
 					checkFile(currentProject, Collections.singletonList(mf));
 				} catch (InvalidCommandLineException e) {
 					addError(currentProject, mf, e);
@@ -128,9 +142,8 @@ public class MindIdeBuilder extends IncrementalProjectBuilder {
 		MindCMarker.setSeverity(marker, IMarker.SEVERITY_ERROR);
 		marker.setAttribute(IMarker.CHAR_START, charStart);
 		marker.setAttribute(IMarker.CHAR_END, charEnd);
-		marker.setAttribute(IMarker.LINE_NUMBER, locator.getBeginLine());
+		marker.setAttribute(IMarker.LINE_NUMBER, locator.getBeginLine()+1);
 		MindCMarker.setDescription(marker, error.getMessage());
-		
 		e.printStackTrace();
 	}
 	
