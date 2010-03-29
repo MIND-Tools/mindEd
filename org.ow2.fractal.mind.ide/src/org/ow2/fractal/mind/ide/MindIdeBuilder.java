@@ -7,15 +7,18 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLClassLoader;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
 import org.eclipse.core.resources.IFolder;
+import org.eclipse.core.resources.IMarker;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IResource;
 import org.eclipse.core.resources.IResourceDelta;
+import org.eclipse.core.resources.IResourceDeltaVisitor;
 import org.eclipse.core.resources.IncrementalProjectBuilder;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IProgressMonitor;
@@ -24,6 +27,8 @@ import org.eclipse.emf.common.util.EList;
 import org.objectweb.fractal.adl.ADLException;
 import org.objectweb.fractal.adl.CompilerError;
 import org.objectweb.fractal.adl.StaticJavaGenerator.InvalidCommandLineException;
+import org.objectweb.fractal.adl.error.Error;
+import org.objectweb.fractal.adl.error.ErrorLocator;
 import org.ow2.fractal.mind.ide.emf.mindide.MindFile;
 import org.ow2.fractal.mind.ide.emf.mindide.MindObject;
 import org.ow2.fractal.mind.ide.emf.mindide.MindPackage;
@@ -39,8 +44,8 @@ import org.ow2.fractal.mind.ide.emf.mindide.MindidePackage;
  *
  */
 public class MindIdeBuilder extends IncrementalProjectBuilder {
-
-/**
+	
+	/**
  * ID of mind ide builder.
  */
 	public static final String BUILDER_ID = "org.ow2.fractal.mind.cadse.builder";
@@ -58,19 +63,75 @@ public class MindIdeBuilder extends IncrementalProjectBuilder {
 		
 		IResourceDelta delta = getDelta(currentProject);
 		if (delta == null) {
-			fullBuild(monitor, mp.getAllFiles());
+			// full build
+			for (MindFile mf : mp.getAllFiles()) {
+				try {
+					checkFile(currentProject, Collections.singletonList(mf));
+				} catch (InvalidCommandLineException e) {
+					addError(currentProject, mf, e);
+				} catch (ADLException e) {
+					addError(currentProject, mf, e);
+				}
+			}
+			
 		} else  {
-			incrementalBuild(delta, monitor, mp);
+			final List<MindFile> adls = new ArrayList<MindFile>();
+			
+			IResourceDeltaVisitor visitor = new IResourceDeltaVisitor() {
+				
+				@Override
+				public boolean visit(IResourceDelta delta) throws CoreException {
+					IResource r = delta.getResource();
+					if (r == null) return false;
+					if (r.getType() == IResource.FOLDER)
+						return true;
+					MindObject mo = MindIdeCore.get(r);
+					if (mo != null && (mo.eClass() == MindidePackage.Literals.MIND_ADL))
+						adls.add((MindFile) mo);
+					return false;
+				}
+			};
+			
+			delta.accept(visitor );
+			//incrementalBuild
+			for (MindFile mf : adls) {
+				try {
+					checkFile(currentProject, Collections.singletonList(mf));
+				} catch (InvalidCommandLineException e) {
+					addError(currentProject, mf, e);
+				} catch (ADLException e) {
+					addError(currentProject, mf, e);
+				}
+			}
 		} 
 		return new IProject[0];
 	}	
 
-	protected void fullBuild(final IProgressMonitor monitor, EList<MindFile> mindFiles)
-			throws CoreException {
+	private void addError(IProject currentProject, MindFile mf,
+			InvalidCommandLineException e) throws CoreException {
+		IResource mfRsc = MindIdeCore.getResource(mf);
+		
+		IMarker marker = MindCMarker.mark(mfRsc);
+		MindCMarker.setSeverity(marker, IMarker.SEVERITY_ERROR);
+		MindCMarker.setDescription(marker, e.getMessage());
 	}
-
-	protected void incrementalBuild(IResourceDelta delta,
-			IProgressMonitor monitor, MindProject mp) throws CoreException {
+	
+	private void addError(IProject currentProject, MindFile mf,
+			ADLException e) throws CoreException {
+		Error error = e.getError();
+		ErrorLocator locator = error.getLocator();
+		int charEnd = 0, charStart = 0;
+		
+		IResource mfRsc = MindIdeCore.getResource(mf);
+		
+		IMarker marker = MindCMarker.mark(mfRsc);
+		MindCMarker.setSeverity(marker, IMarker.SEVERITY_ERROR);
+		marker.setAttribute(IMarker.CHAR_START, charStart);
+		marker.setAttribute(IMarker.CHAR_END, charEnd);
+		marker.setAttribute(IMarker.LINE_NUMBER, locator.getBeginLine());
+		MindCMarker.setDescription(marker, error.getMessage());
+		
+		e.printStackTrace();
 	}
 	
 	private static final String MINDC_METHOD = "nonExitMain";

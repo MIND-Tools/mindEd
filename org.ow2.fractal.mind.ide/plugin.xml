@@ -30,15 +30,17 @@
       </requires-nature>
    </extension>
       <extension
-         id="xmlProblem"
-         name="XML Problem"
+         id="mindcProblem"
+         name="Mindc Problem"
          point="org.eclipse.core.resources.markers">
       <super
             type="org.eclipse.core.resources.problemmarker">
       </super>
       <persistent
             value="true">
-      </persistent>
+      </persistent>      
+       <attribute name="description"/>
+       <attribute name="parameters"/>
    </extension>
       <extension
             point="org.eclipse.emf.ecore.factory_override">
