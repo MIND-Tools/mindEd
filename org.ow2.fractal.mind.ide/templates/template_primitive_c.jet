@@ -1,8 +1,6 @@
-<%@ jet package="org.ow2.fractal.mind.ide.template" class="TemplatePrimitiveC" skeleton="mindadl.skeleton" %>
-<%
- String qualifiedname = adl.getQualifiedName();
-%>
+<%@ jet package="org.ow2.fractal.mind.ide.template" class="TemplatePrimitiveC" skeleton="mindadl3.skeleton" %>
+
 // -----------------------------------------------------------------------------
-// Implementation of the primitive <%=qualifiedname%>.
+// Implementation of the primitive <%=qn%>.
 // -----------------------------------------------------------------------------
 

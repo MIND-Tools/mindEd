@@ -1,7 +1,9 @@
 package org.ow2.fractal.mind.ide;
 
+import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.net.URI;
 import java.util.logging.Level;
@@ -25,6 +27,7 @@ import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.core.runtime.Path;
 import org.eclipse.core.runtime.Status;
 import org.eclipse.osgi.util.NLS;
+import org.ow2.fractal.mind.ide.emf.mindide.MindAdl;
 import org.ow2.fractal.mind.ide.emf.mindide.MindAllRepo;
 import org.ow2.fractal.mind.ide.emf.mindide.MindFile;
 import org.ow2.fractal.mind.ide.emf.mindide.MindObject;
@@ -37,6 +40,7 @@ import org.ow2.fractal.mind.ide.emf.mindide.MindRootSrc;
 import org.ow2.fractal.mind.ide.emf.mindide.MindideFactory;
 import org.ow2.fractal.mind.ide.emf.mindide.MindidePackage;
 import org.ow2.fractal.mind.ide.impl.CDTUtil;
+import org.ow2.fractal.mind.ide.template.TemplatePrimitiveC;
 
 /**
  * This class is static. Default access point to manipulate ide model.
@@ -381,14 +385,43 @@ public class MindIdeCore {
 		create(container.getParent(), monitor);
 		Assert.isTrue(container.getType() == IResource.FOLDER);
 		((IFolder)container).create(false, true, monitor);
-		
 	}
-
-	
 
 	static private void throwCoreException(String message) throws CoreException {
 		IStatus status =
 			new Status(IStatus.ERROR, MindActivator.ID, IStatus.OK, message, null);
 		throw new CoreException(status);
 	}
+	
+	/**
+	 * Create a file .c with a template.
+	 * 
+	 * @param container where put the file c
+	 * @param componentName the componant of the adl or the name of file c
+	 * @param qn reference to qualified name of the component
+	 * @param monitor
+	 * @throws CoreException
+	 */
+	static public void createCTemplate(IContainer container, String componentName, String qn,
+			IProgressMonitor monitor)
+			throws CoreException {
+		String cfileName = componentName.substring(0, 1).toLowerCase()
+				+ componentName.substring(1);
+		final IFile cfile = container.getFile(new Path(cfileName + ".c")); //$NON-NLS-1$
+		try {
+			InputStream stream = openCContentStream(qn);
+			if (cfile.exists()) {
+				//file.setContents(stream, true, true, monitor);
+			} else {
+				cfile.create(stream, true, monitor);
+			}
+			stream.close();
+		} catch (IOException e) {
+		}
+	}
+	
+	static private InputStream openCContentStream(String qn) {
+		return new ByteArrayInputStream(new TemplatePrimitiveC().generate(qn).getBytes());
+	}
+
 }
