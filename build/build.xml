@@ -14,6 +14,8 @@
 
 	<!-- ================================= 
           target: generate              
+	  install this support  http://www.eclipticalsoftware.com/updates/site.xml
+	  run this ant script in running eclipse
          ================================= -->
 	<target name="generate" depends="" description="build generated files emf, gmf, xtext ...">
 		<property name="model-dir" value="${basedir}/../org.ow2.fractal.mind.emf/model">
@@ -24,7 +26,17 @@
 		<property name="gmf-project" value ="${basedir}/../org.ow2.fractal.mind.gmf"/>
 		<emf.Ecore2Java genModel="${model-dir}/mind.genmodel" model="${model-dir}/mind.ecore" reconcilegenmodel="keep" generatejavacode="true" generateeditorproject="true" generateeditproject="true">
 		</emf.Ecore2Java>
-		<gmf:GenerateDiagramCode gmfgenPath="${gmf-project}/model/mind.gmfgen" />
+		<gmf:GenerateDiagramCode gmfgenPath="${gmf-project}/model/mind.gmfgen" ignoreLoadErrors="true" ignoreValidationErrors="true" />
+		
+		
+		<echo message="Generating source code from xText grammar (using oAW)"/>
+		<taskdef name="workflow" classname="org.openarchitectureware.workflow.ant.WorkflowAntTask">
+			<classpath refid="@dot.classpath"/>
+		</taskdef>
+		<workflow file="src/generate.oaw" fork="true">
+			<classpath refid="@dot.classpath"/>
+		</workflow>
+
 	</target>
 
 	<target name="clean">
