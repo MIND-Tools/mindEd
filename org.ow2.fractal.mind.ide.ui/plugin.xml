@@ -45,6 +45,11 @@
                enablesFor="+"
                id="org.ow2.fractal.mind.build.ui.addRemoveNatureAction">
          </action>
+         <action
+               class="org.ow2.fractal.mind.ide.ui.BuildAction"
+               id="org.ow2.fractal.mind.ide.ui.action1"
+               label="Build">
+         </action>
       </objectContribution>
    </extension>
    <extension
