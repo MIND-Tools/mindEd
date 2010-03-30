@@ -600,8 +600,8 @@ public class FractalIdtGrammarAccess extends AbstractGrammarElementFinder {
 		return getAnnotationValuePairAccess().getRule();
 	}
 
-	//AnnotationValue returns ecore::EString:
-	//  INT|"null"|Boolean|ID;
+	//AnnotationValue:
+	//  signedINT|"null"|Boolean|ID|Annotation|ArrayAnnotationValue|STRING;
 	public FractalItfGrammarAccess.AnnotationValueElements getAnnotationValueAccess() {
 		return gaFractalItf.getAnnotationValueAccess();
 	}
@@ -610,11 +610,31 @@ public class FractalIdtGrammarAccess extends AbstractGrammarElementFinder {
 		return getAnnotationValueAccess().getRule();
 	}
 
+	//ArrayAnnotationValue:
+	//  "{" (firstValue=AnnotationValue ("," values+=AnnotationValue)*)? "}";
+	public FractalItfGrammarAccess.ArrayAnnotationValueElements getArrayAnnotationValueAccess() {
+		return gaFractalItf.getArrayAnnotationValueAccess();
+	}
+	
+	public ParserRule getArrayAnnotationValueRule() {
+		return getArrayAnnotationValueAccess().getRule();
+	}
+
 	//terminal Boolean:
 	//  "true" | "false";
 	public TerminalRule getBooleanRule() {
 		return gaFractalItf.getBooleanRule();
 	} 
+
+	//signedINT returns ecore::EString:
+	//  ("+"|"-")? INT;
+	public FractalItfGrammarAccess.SignedINTElements getSignedINTAccess() {
+		return gaFractalItf.getSignedINTAccess();
+	}
+	
+	public ParserRule getSignedINTRule() {
+		return getSignedINTAccess().getRule();
+	}
 
 	//terminal ID:
 	//  "^"? ("a".."z" | "A".."Z" | "_") ("a".."z" | "A".."Z" | "_" | "0".."9")*;

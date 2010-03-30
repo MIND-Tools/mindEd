@@ -6,7 +6,6 @@
  */
 package org.ow2.fractal.mind.idl.fractalIDL;
 
-import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -25,7 +24,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model
  * @generated
  */
-public interface Annotation extends EObject
+public interface Annotation extends AnnotationValue
 {
   /**
    * Returns the value of the '<em><b>Fqn</b></em>' attribute.

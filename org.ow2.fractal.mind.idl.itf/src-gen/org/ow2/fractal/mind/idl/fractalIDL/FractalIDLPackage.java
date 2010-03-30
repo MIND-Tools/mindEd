@@ -1150,6 +1150,25 @@ public interface FractalIDLPackage extends EPackage
   int ANNOTATIONS_FEATURE_COUNT = 1;
 
   /**
+   * The meta object id for the '{@link org.ow2.fractal.mind.idl.fractalIDL.impl.AnnotationValueImpl <em>Annotation Value</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.ow2.fractal.mind.idl.fractalIDL.impl.AnnotationValueImpl
+   * @see org.ow2.fractal.mind.idl.fractalIDL.impl.FractalIDLPackageImpl#getAnnotationValue()
+   * @generated
+   */
+  int ANNOTATION_VALUE = 30;
+
+  /**
+   * The number of structural features of the '<em>Annotation Value</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ANNOTATION_VALUE_FEATURE_COUNT = 0;
+
+  /**
    * The meta object id for the '{@link org.ow2.fractal.mind.idl.fractalIDL.impl.AnnotationImpl <em>Annotation</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1166,7 +1185,7 @@ public interface FractalIDLPackage extends EPackage
    * @generated
    * @ordered
    */
-  int ANNOTATION__FQN = 0;
+  int ANNOTATION__FQN = ANNOTATION_VALUE_FEATURE_COUNT + 0;
 
   /**
    * The feature id for the '<em><b>Annotation Paramaters</b></em>' containment reference.
@@ -1175,7 +1194,7 @@ public interface FractalIDLPackage extends EPackage
    * @generated
    * @ordered
    */
-  int ANNOTATION__ANNOTATION_PARAMATERS = 1;
+  int ANNOTATION__ANNOTATION_PARAMATERS = ANNOTATION_VALUE_FEATURE_COUNT + 1;
 
   /**
    * The number of structural features of the '<em>Annotation</em>' class.
@@ -1184,7 +1203,7 @@ public interface FractalIDLPackage extends EPackage
    * @generated
    * @ordered
    */
-  int ANNOTATION_FEATURE_COUNT = 2;
+  int ANNOTATION_FEATURE_COUNT = ANNOTATION_VALUE_FEATURE_COUNT + 2;
 
   /**
    * The meta object id for the '{@link org.ow2.fractal.mind.idl.fractalIDL.impl.AnnotationParametersImpl <em>Annotation Parameters</em>}' class.
@@ -1206,7 +1225,7 @@ public interface FractalIDLPackage extends EPackage
   int ANNOTATION_PARAMETERS__VALUE_PAIR = 0;
 
   /**
-   * The feature id for the '<em><b>Value</b></em>' attribute.
+   * The feature id for the '<em><b>Value</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -1280,7 +1299,7 @@ public interface FractalIDLPackage extends EPackage
   int ANNOTATION_VALUE_PAIR__ID = 0;
 
   /**
-   * The feature id for the '<em><b>Value</b></em>' attribute.
+   * The feature id for the '<em><b>Value</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -1298,6 +1317,43 @@ public interface FractalIDLPackage extends EPackage
   int ANNOTATION_VALUE_PAIR_FEATURE_COUNT = 2;
 
   /**
+   * The meta object id for the '{@link org.ow2.fractal.mind.idl.fractalIDL.impl.ArrayAnnotationValueImpl <em>Array Annotation Value</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.ow2.fractal.mind.idl.fractalIDL.impl.ArrayAnnotationValueImpl
+   * @see org.ow2.fractal.mind.idl.fractalIDL.impl.FractalIDLPackageImpl#getArrayAnnotationValue()
+   * @generated
+   */
+  int ARRAY_ANNOTATION_VALUE = 31;
+
+  /**
+   * The feature id for the '<em><b>First Value</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ARRAY_ANNOTATION_VALUE__FIRST_VALUE = ANNOTATION_VALUE_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Values</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ARRAY_ANNOTATION_VALUE__VALUES = ANNOTATION_VALUE_FEATURE_COUNT + 1;
+
+  /**
+   * The number of structural features of the '<em>Array Annotation Value</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ARRAY_ANNOTATION_VALUE_FEATURE_COUNT = ANNOTATION_VALUE_FEATURE_COUNT + 2;
+
+  /**
    * The meta object id for the '{@link org.ow2.fractal.mind.idl.fractalIDL.TypeQualifier <em>Type Qualifier</em>}' enum.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1305,7 +1361,7 @@ public interface FractalIDLPackage extends EPackage
    * @see org.ow2.fractal.mind.idl.fractalIDL.impl.FractalIDLPackageImpl#getTypeQualifier()
    * @generated
    */
-  int TYPE_QUALIFIER = 30;
+  int TYPE_QUALIFIER = 32;
 
   /**
    * The meta object id for the '{@link org.ow2.fractal.mind.idl.fractalIDL.TypeSpecifier <em>Type Specifier</em>}' enum.
@@ -1315,7 +1371,7 @@ public interface FractalIDLPackage extends EPackage
    * @see org.ow2.fractal.mind.idl.fractalIDL.impl.FractalIDLPackageImpl#getTypeSpecifier()
    * @generated
    */
-  int TYPE_SPECIFIER = 31;
+  int TYPE_SPECIFIER = 33;
 
   /**
    * The meta object id for the '{@link org.ow2.fractal.mind.idl.fractalIDL.ParameterQualifier <em>Parameter Qualifier</em>}' enum.
@@ -1325,7 +1381,7 @@ public interface FractalIDLPackage extends EPackage
    * @see org.ow2.fractal.mind.idl.fractalIDL.impl.FractalIDLPackageImpl#getParameterQualifier()
    * @generated
    */
-  int PARAMETER_QUALIFIER = 32;
+  int PARAMETER_QUALIFIER = 34;
 
 
   /**
@@ -2170,15 +2226,15 @@ public interface FractalIDLPackage extends EPackage
   EReference getAnnotationParameters_ValuePair();
 
   /**
-   * Returns the meta object for the attribute '{@link org.ow2.fractal.mind.idl.fractalIDL.AnnotationParameters#getValue <em>Value</em>}'.
+   * Returns the meta object for the containment reference '{@link org.ow2.fractal.mind.idl.fractalIDL.AnnotationParameters#getValue <em>Value</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Value</em>'.
+   * @return the meta object for the containment reference '<em>Value</em>'.
    * @see org.ow2.fractal.mind.idl.fractalIDL.AnnotationParameters#getValue()
    * @see #getAnnotationParameters()
    * @generated
    */
-  EAttribute getAnnotationParameters_Value();
+  EReference getAnnotationParameters_Value();
 
   /**
    * Returns the meta object for class '{@link org.ow2.fractal.mind.idl.fractalIDL.AnnotationValuePairs <em>Annotation Value Pairs</em>}'.
@@ -2234,15 +2290,57 @@ public interface FractalIDLPackage extends EPackage
   EAttribute getAnnotationValuePair_Id();
 
   /**
-   * Returns the meta object for the attribute '{@link org.ow2.fractal.mind.idl.fractalIDL.AnnotationValuePair#getValue <em>Value</em>}'.
+   * Returns the meta object for the containment reference '{@link org.ow2.fractal.mind.idl.fractalIDL.AnnotationValuePair#getValue <em>Value</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Value</em>'.
+   * @return the meta object for the containment reference '<em>Value</em>'.
    * @see org.ow2.fractal.mind.idl.fractalIDL.AnnotationValuePair#getValue()
    * @see #getAnnotationValuePair()
    * @generated
    */
-  EAttribute getAnnotationValuePair_Value();
+  EReference getAnnotationValuePair_Value();
+
+  /**
+   * Returns the meta object for class '{@link org.ow2.fractal.mind.idl.fractalIDL.AnnotationValue <em>Annotation Value</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Annotation Value</em>'.
+   * @see org.ow2.fractal.mind.idl.fractalIDL.AnnotationValue
+   * @generated
+   */
+  EClass getAnnotationValue();
+
+  /**
+   * Returns the meta object for class '{@link org.ow2.fractal.mind.idl.fractalIDL.ArrayAnnotationValue <em>Array Annotation Value</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Array Annotation Value</em>'.
+   * @see org.ow2.fractal.mind.idl.fractalIDL.ArrayAnnotationValue
+   * @generated
+   */
+  EClass getArrayAnnotationValue();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.ow2.fractal.mind.idl.fractalIDL.ArrayAnnotationValue#getFirstValue <em>First Value</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>First Value</em>'.
+   * @see org.ow2.fractal.mind.idl.fractalIDL.ArrayAnnotationValue#getFirstValue()
+   * @see #getArrayAnnotationValue()
+   * @generated
+   */
+  EReference getArrayAnnotationValue_FirstValue();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link org.ow2.fractal.mind.idl.fractalIDL.ArrayAnnotationValue#getValues <em>Values</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Values</em>'.
+   * @see org.ow2.fractal.mind.idl.fractalIDL.ArrayAnnotationValue#getValues()
+   * @see #getArrayAnnotationValue()
+   * @generated
+   */
+  EReference getArrayAnnotationValue_Values();
 
   /**
    * Returns the meta object for enum '{@link org.ow2.fractal.mind.idl.fractalIDL.TypeQualifier <em>Type Qualifier</em>}'.
@@ -2986,12 +3084,12 @@ public interface FractalIDLPackage extends EPackage
     EReference ANNOTATION_PARAMETERS__VALUE_PAIR = eINSTANCE.getAnnotationParameters_ValuePair();
 
     /**
-     * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Value</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute ANNOTATION_PARAMETERS__VALUE = eINSTANCE.getAnnotationParameters_Value();
+    EReference ANNOTATION_PARAMETERS__VALUE = eINSTANCE.getAnnotationParameters_Value();
 
     /**
      * The meta object literal for the '{@link org.ow2.fractal.mind.idl.fractalIDL.impl.AnnotationValuePairsImpl <em>Annotation Value Pairs</em>}' class.
@@ -3038,12 +3136,48 @@ public interface FractalIDLPackage extends EPackage
     EAttribute ANNOTATION_VALUE_PAIR__ID = eINSTANCE.getAnnotationValuePair_Id();
 
     /**
-     * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Value</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute ANNOTATION_VALUE_PAIR__VALUE = eINSTANCE.getAnnotationValuePair_Value();
+    EReference ANNOTATION_VALUE_PAIR__VALUE = eINSTANCE.getAnnotationValuePair_Value();
+
+    /**
+     * The meta object literal for the '{@link org.ow2.fractal.mind.idl.fractalIDL.impl.AnnotationValueImpl <em>Annotation Value</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.ow2.fractal.mind.idl.fractalIDL.impl.AnnotationValueImpl
+     * @see org.ow2.fractal.mind.idl.fractalIDL.impl.FractalIDLPackageImpl#getAnnotationValue()
+     * @generated
+     */
+    EClass ANNOTATION_VALUE = eINSTANCE.getAnnotationValue();
+
+    /**
+     * The meta object literal for the '{@link org.ow2.fractal.mind.idl.fractalIDL.impl.ArrayAnnotationValueImpl <em>Array Annotation Value</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.ow2.fractal.mind.idl.fractalIDL.impl.ArrayAnnotationValueImpl
+     * @see org.ow2.fractal.mind.idl.fractalIDL.impl.FractalIDLPackageImpl#getArrayAnnotationValue()
+     * @generated
+     */
+    EClass ARRAY_ANNOTATION_VALUE = eINSTANCE.getArrayAnnotationValue();
+
+    /**
+     * The meta object literal for the '<em><b>First Value</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference ARRAY_ANNOTATION_VALUE__FIRST_VALUE = eINSTANCE.getArrayAnnotationValue_FirstValue();
+
+    /**
+     * The meta object literal for the '<em><b>Values</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference ARRAY_ANNOTATION_VALUE__VALUES = eINSTANCE.getArrayAnnotationValue_Values();
 
     /**
      * The meta object literal for the '{@link org.ow2.fractal.mind.idl.fractalIDL.TypeQualifier <em>Type Qualifier</em>}' enum.

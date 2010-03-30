@@ -25,6 +25,8 @@ public class InternalFractalIdtLexer extends Lexer {
     public static final int T22=22;
     public static final int T21=21;
     public static final int T20=20;
+    public static final int T62=62;
+    public static final int T63=63;
     public static final int RULE_INCLUDELIB=7;
     public static final int RULE_INT=5;
     public static final int T38=38;
@@ -42,7 +44,7 @@ public class InternalFractalIdtLexer extends Lexer {
     public static final int T49=49;
     public static final int T48=48;
     public static final int T43=43;
-    public static final int Tokens=62;
+    public static final int Tokens=64;
     public static final int RULE_SL_COMMENT=10;
     public static final int T42=42;
     public static final int T41=41;
@@ -562,11 +564,10 @@ public class InternalFractalIdtLexer extends Lexer {
     public final void mT39() throws RecognitionException {
         try {
             int _type = T39;
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:36:5: ( 'const' )
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:36:7: 'const'
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:36:5: ( '+' )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:36:7: '+'
             {
-            match("const"); 
-
+            match('+'); 
 
             }
 
@@ -581,11 +582,10 @@ public class InternalFractalIdtLexer extends Lexer {
     public final void mT40() throws RecognitionException {
         try {
             int _type = T40;
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:37:5: ( 'volatile' )
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:37:7: 'volatile'
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:37:5: ( '-' )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:37:7: '-'
             {
-            match("volatile"); 
-
+            match('-'); 
 
             }
 
@@ -600,10 +600,10 @@ public class InternalFractalIdtLexer extends Lexer {
     public final void mT41() throws RecognitionException {
         try {
             int _type = T41;
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:38:5: ( 'char' )
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:38:7: 'char'
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:38:5: ( 'const' )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:38:7: 'const'
             {
-            match("char"); 
+            match("const"); 
 
 
             }
@@ -619,10 +619,10 @@ public class InternalFractalIdtLexer extends Lexer {
     public final void mT42() throws RecognitionException {
         try {
             int _type = T42;
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:39:5: ( 'short' )
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:39:7: 'short'
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:39:5: ( 'volatile' )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:39:7: 'volatile'
             {
-            match("short"); 
+            match("volatile"); 
 
 
             }
@@ -638,10 +638,10 @@ public class InternalFractalIdtLexer extends Lexer {
     public final void mT43() throws RecognitionException {
         try {
             int _type = T43;
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:40:5: ( 'int' )
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:40:7: 'int'
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:40:5: ( 'char' )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:40:7: 'char'
             {
-            match("int"); 
+            match("char"); 
 
 
             }
@@ -657,10 +657,10 @@ public class InternalFractalIdtLexer extends Lexer {
     public final void mT44() throws RecognitionException {
         try {
             int _type = T44;
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:41:5: ( 'long' )
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:41:7: 'long'
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:41:5: ( 'short' )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:41:7: 'short'
             {
-            match("long"); 
+            match("short"); 
 
 
             }
@@ -676,10 +676,10 @@ public class InternalFractalIdtLexer extends Lexer {
     public final void mT45() throws RecognitionException {
         try {
             int _type = T45;
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:42:5: ( 'float' )
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:42:7: 'float'
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:42:5: ( 'int' )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:42:7: 'int'
             {
-            match("float"); 
+            match("int"); 
 
 
             }
@@ -695,10 +695,10 @@ public class InternalFractalIdtLexer extends Lexer {
     public final void mT46() throws RecognitionException {
         try {
             int _type = T46;
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:43:5: ( 'double' )
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:43:7: 'double'
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:43:5: ( 'long' )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:43:7: 'long'
             {
-            match("double"); 
+            match("long"); 
 
 
             }
@@ -714,10 +714,10 @@ public class InternalFractalIdtLexer extends Lexer {
     public final void mT47() throws RecognitionException {
         try {
             int _type = T47;
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:44:5: ( 'signed' )
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:44:7: 'signed'
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:44:5: ( 'float' )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:44:7: 'float'
             {
-            match("signed"); 
+            match("float"); 
 
 
             }
@@ -733,10 +733,10 @@ public class InternalFractalIdtLexer extends Lexer {
     public final void mT48() throws RecognitionException {
         try {
             int _type = T48;
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:45:5: ( 'unsigned' )
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:45:7: 'unsigned'
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:45:5: ( 'double' )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:45:7: 'double'
             {
-            match("unsigned"); 
+            match("double"); 
 
 
             }
@@ -752,10 +752,10 @@ public class InternalFractalIdtLexer extends Lexer {
     public final void mT49() throws RecognitionException {
         try {
             int _type = T49;
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:46:5: ( 'string' )
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:46:7: 'string'
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:46:5: ( 'signed' )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:46:7: 'signed'
             {
-            match("string"); 
+            match("signed"); 
 
 
             }
@@ -771,10 +771,10 @@ public class InternalFractalIdtLexer extends Lexer {
     public final void mT50() throws RecognitionException {
         try {
             int _type = T50;
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:47:5: ( 'int8_t' )
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:47:7: 'int8_t'
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:47:5: ( 'unsigned' )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:47:7: 'unsigned'
             {
-            match("int8_t"); 
+            match("unsigned"); 
 
 
             }
@@ -790,10 +790,10 @@ public class InternalFractalIdtLexer extends Lexer {
     public final void mT51() throws RecognitionException {
         try {
             int _type = T51;
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:48:5: ( 'uint8_t' )
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:48:7: 'uint8_t'
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:48:5: ( 'string' )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:48:7: 'string'
             {
-            match("uint8_t"); 
+            match("string"); 
 
 
             }
@@ -809,10 +809,10 @@ public class InternalFractalIdtLexer extends Lexer {
     public final void mT52() throws RecognitionException {
         try {
             int _type = T52;
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:49:5: ( 'int16_t' )
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:49:7: 'int16_t'
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:49:5: ( 'int8_t' )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:49:7: 'int8_t'
             {
-            match("int16_t"); 
+            match("int8_t"); 
 
 
             }
@@ -828,10 +828,10 @@ public class InternalFractalIdtLexer extends Lexer {
     public final void mT53() throws RecognitionException {
         try {
             int _type = T53;
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:50:5: ( 'uint16_t' )
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:50:7: 'uint16_t'
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:50:5: ( 'uint8_t' )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:50:7: 'uint8_t'
             {
-            match("uint16_t"); 
+            match("uint8_t"); 
 
 
             }
@@ -847,10 +847,10 @@ public class InternalFractalIdtLexer extends Lexer {
     public final void mT54() throws RecognitionException {
         try {
             int _type = T54;
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:51:5: ( 'int32_t' )
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:51:7: 'int32_t'
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:51:5: ( 'int16_t' )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:51:7: 'int16_t'
             {
-            match("int32_t"); 
+            match("int16_t"); 
 
 
             }
@@ -866,10 +866,10 @@ public class InternalFractalIdtLexer extends Lexer {
     public final void mT55() throws RecognitionException {
         try {
             int _type = T55;
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:52:5: ( 'uint32_t' )
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:52:7: 'uint32_t'
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:52:5: ( 'uint16_t' )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:52:7: 'uint16_t'
             {
-            match("uint32_t"); 
+            match("uint16_t"); 
 
 
             }
@@ -885,10 +885,10 @@ public class InternalFractalIdtLexer extends Lexer {
     public final void mT56() throws RecognitionException {
         try {
             int _type = T56;
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:53:5: ( 'int64_t' )
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:53:7: 'int64_t'
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:53:5: ( 'int32_t' )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:53:7: 'int32_t'
             {
-            match("int64_t"); 
+            match("int32_t"); 
 
 
             }
@@ -904,10 +904,10 @@ public class InternalFractalIdtLexer extends Lexer {
     public final void mT57() throws RecognitionException {
         try {
             int _type = T57;
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:54:5: ( 'uint64_t' )
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:54:7: 'uint64_t'
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:54:5: ( 'uint32_t' )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:54:7: 'uint32_t'
             {
-            match("uint64_t"); 
+            match("uint32_t"); 
 
 
             }
@@ -923,10 +923,10 @@ public class InternalFractalIdtLexer extends Lexer {
     public final void mT58() throws RecognitionException {
         try {
             int _type = T58;
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:55:5: ( 'intptr_t' )
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:55:7: 'intptr_t'
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:55:5: ( 'int64_t' )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:55:7: 'int64_t'
             {
-            match("intptr_t"); 
+            match("int64_t"); 
 
 
             }
@@ -942,10 +942,10 @@ public class InternalFractalIdtLexer extends Lexer {
     public final void mT59() throws RecognitionException {
         try {
             int _type = T59;
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:56:5: ( 'uintptr_t' )
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:56:7: 'uintptr_t'
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:56:5: ( 'uint64_t' )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:56:7: 'uint64_t'
             {
-            match("uintptr_t"); 
+            match("uint64_t"); 
 
 
             }
@@ -961,10 +961,10 @@ public class InternalFractalIdtLexer extends Lexer {
     public final void mT60() throws RecognitionException {
         try {
             int _type = T60;
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:57:5: ( 'in' )
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:57:7: 'in'
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:57:5: ( 'intptr_t' )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:57:7: 'intptr_t'
             {
-            match("in"); 
+            match("intptr_t"); 
 
 
             }
@@ -980,10 +980,10 @@ public class InternalFractalIdtLexer extends Lexer {
     public final void mT61() throws RecognitionException {
         try {
             int _type = T61;
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:58:5: ( 'out' )
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:58:7: 'out'
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:58:5: ( 'uintptr_t' )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:58:7: 'uintptr_t'
             {
-            match("out"); 
+            match("uintptr_t"); 
 
 
             }
@@ -995,12 +995,50 @@ public class InternalFractalIdtLexer extends Lexer {
     }
     // $ANTLR end T61
 
+    // $ANTLR start T62
+    public final void mT62() throws RecognitionException {
+        try {
+            int _type = T62;
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:59:5: ( 'in' )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:59:7: 'in'
+            {
+            match("in"); 
+
+
+            }
+
+            this.type = _type;
+        }
+        finally {
+        }
+    }
+    // $ANTLR end T62
+
+    // $ANTLR start T63
+    public final void mT63() throws RecognitionException {
+        try {
+            int _type = T63;
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:60:5: ( 'out' )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:60:7: 'out'
+            {
+            match("out"); 
+
+
+            }
+
+            this.type = _type;
+        }
+        finally {
+        }
+    }
+    // $ANTLR end T63
+
     // $ANTLR start RULE_INCLUDELIB
     public final void mRULE_INCLUDELIB() throws RecognitionException {
         try {
             int _type = RULE_INCLUDELIB;
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3067:17: ( '<' RULE_ID '.' RULE_ID '>' )
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3067:19: '<' RULE_ID '.' RULE_ID '>'
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3209:17: ( '<' RULE_ID '.' RULE_ID '>' )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3209:19: '<' RULE_ID '.' RULE_ID '>'
             {
             match('<'); 
             mRULE_ID(); 
@@ -1021,10 +1059,10 @@ public class InternalFractalIdtLexer extends Lexer {
     public final void mRULE_BOOLEAN() throws RecognitionException {
         try {
             int _type = RULE_BOOLEAN;
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3069:14: ( ( 'true' | 'false' ) )
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3069:16: ( 'true' | 'false' )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3211:14: ( ( 'true' | 'false' ) )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3211:16: ( 'true' | 'false' )
             {
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3069:16: ( 'true' | 'false' )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3211:16: ( 'true' | 'false' )
             int alt1=2;
             int LA1_0 = input.LA(1);
 
@@ -1036,13 +1074,13 @@ public class InternalFractalIdtLexer extends Lexer {
             }
             else {
                 NoViableAltException nvae =
-                    new NoViableAltException("3069:16: ( 'true' | 'false' )", 1, 0, input);
+                    new NoViableAltException("3211:16: ( 'true' | 'false' )", 1, 0, input);
 
                 throw nvae;
             }
             switch (alt1) {
                 case 1 :
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3069:17: 'true'
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3211:17: 'true'
                     {
                     match("true"); 
 
@@ -1050,7 +1088,7 @@ public class InternalFractalIdtLexer extends Lexer {
                     }
                     break;
                 case 2 :
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3069:24: 'false'
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3211:24: 'false'
                     {
                     match("false"); 
 
@@ -1074,10 +1112,10 @@ public class InternalFractalIdtLexer extends Lexer {
     public final void mRULE_ID() throws RecognitionException {
         try {
             int _type = RULE_ID;
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3071:9: ( ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )* )
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3071:11: ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3213:9: ( ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )* )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3213:11: ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
             {
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3071:11: ( '^' )?
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3213:11: ( '^' )?
             int alt2=2;
             int LA2_0 = input.LA(1);
 
@@ -1086,7 +1124,7 @@ public class InternalFractalIdtLexer extends Lexer {
             }
             switch (alt2) {
                 case 1 :
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3071:11: '^'
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3213:11: '^'
                     {
                     match('^'); 
 
@@ -1105,7 +1143,7 @@ public class InternalFractalIdtLexer extends Lexer {
                 recover(mse);    throw mse;
             }
 
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3071:40: ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3213:40: ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
             loop3:
             do {
                 int alt3=2;
@@ -1153,10 +1191,10 @@ public class InternalFractalIdtLexer extends Lexer {
     public final void mRULE_INT() throws RecognitionException {
         try {
             int _type = RULE_INT;
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3073:10: ( ( '0' .. '9' )+ )
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3073:12: ( '0' .. '9' )+
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3215:10: ( ( '0' .. '9' )+ )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3215:12: ( '0' .. '9' )+
             {
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3073:12: ( '0' .. '9' )+
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3215:12: ( '0' .. '9' )+
             int cnt4=0;
             loop4:
             do {
@@ -1170,7 +1208,7 @@ public class InternalFractalIdtLexer extends Lexer {
 
                 switch (alt4) {
             	case 1 :
-            	    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3073:13: '0' .. '9'
+            	    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3215:13: '0' .. '9'
             	    {
             	    matchRange('0','9'); 
 
@@ -1200,10 +1238,10 @@ public class InternalFractalIdtLexer extends Lexer {
     public final void mRULE_STRING() throws RecognitionException {
         try {
             int _type = RULE_STRING;
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3075:13: ( ( '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' ) )
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3075:15: ( '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3217:13: ( ( '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' ) )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3217:15: ( '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
             {
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3075:15: ( '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3217:15: ( '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
             int alt7=2;
             int LA7_0 = input.LA(1);
 
@@ -1215,16 +1253,16 @@ public class InternalFractalIdtLexer extends Lexer {
             }
             else {
                 NoViableAltException nvae =
-                    new NoViableAltException("3075:15: ( '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )", 7, 0, input);
+                    new NoViableAltException("3217:15: ( '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )", 7, 0, input);
 
                 throw nvae;
             }
             switch (alt7) {
                 case 1 :
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3075:16: '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"'
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3217:16: '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"'
                     {
                     match('\"'); 
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3075:20: ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )*
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3217:20: ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )*
                     loop5:
                     do {
                         int alt5=3;
@@ -1240,7 +1278,7 @@ public class InternalFractalIdtLexer extends Lexer {
 
                         switch (alt5) {
                     	case 1 :
-                    	    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3075:21: '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' )
+                    	    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3217:21: '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' )
                     	    {
                     	    match('\\'); 
                     	    if ( input.LA(1)=='\"'||input.LA(1)=='\''||input.LA(1)=='\\'||input.LA(1)=='b'||input.LA(1)=='f'||input.LA(1)=='n'||input.LA(1)=='r'||input.LA(1)=='t' ) {
@@ -1257,7 +1295,7 @@ public class InternalFractalIdtLexer extends Lexer {
                     	    }
                     	    break;
                     	case 2 :
-                    	    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3075:62: ~ ( ( '\\\\' | '\"' ) )
+                    	    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3217:62: ~ ( ( '\\\\' | '\"' ) )
                     	    {
                     	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='!')||(input.LA(1)>='#' && input.LA(1)<='[')||(input.LA(1)>=']' && input.LA(1)<='\uFFFE') ) {
                     	        input.consume();
@@ -1283,10 +1321,10 @@ public class InternalFractalIdtLexer extends Lexer {
                     }
                     break;
                 case 2 :
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3075:82: '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )* '\\''
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3217:82: '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )* '\\''
                     {
                     match('\''); 
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3075:87: ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )*
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3217:87: ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )*
                     loop6:
                     do {
                         int alt6=3;
@@ -1302,7 +1340,7 @@ public class InternalFractalIdtLexer extends Lexer {
 
                         switch (alt6) {
                     	case 1 :
-                    	    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3075:88: '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' )
+                    	    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3217:88: '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' )
                     	    {
                     	    match('\\'); 
                     	    if ( input.LA(1)=='\"'||input.LA(1)=='\''||input.LA(1)=='\\'||input.LA(1)=='b'||input.LA(1)=='f'||input.LA(1)=='n'||input.LA(1)=='r'||input.LA(1)=='t' ) {
@@ -1319,7 +1357,7 @@ public class InternalFractalIdtLexer extends Lexer {
                     	    }
                     	    break;
                     	case 2 :
-                    	    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3075:129: ~ ( ( '\\\\' | '\\'' ) )
+                    	    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3217:129: ~ ( ( '\\\\' | '\\'' ) )
                     	    {
                     	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='&')||(input.LA(1)>='(' && input.LA(1)<='[')||(input.LA(1)>=']' && input.LA(1)<='\uFFFE') ) {
                     	        input.consume();
@@ -1361,12 +1399,12 @@ public class InternalFractalIdtLexer extends Lexer {
     public final void mRULE_ML_COMMENT() throws RecognitionException {
         try {
             int _type = RULE_ML_COMMENT;
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3077:17: ( '/*' ( options {greedy=false; } : . )* '*/' )
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3077:19: '/*' ( options {greedy=false; } : . )* '*/'
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3219:17: ( '/*' ( options {greedy=false; } : . )* '*/' )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3219:19: '/*' ( options {greedy=false; } : . )* '*/'
             {
             match("/*"); 
 
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3077:24: ( options {greedy=false; } : . )*
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3219:24: ( options {greedy=false; } : . )*
             loop8:
             do {
                 int alt8=2;
@@ -1391,7 +1429,7 @@ public class InternalFractalIdtLexer extends Lexer {
 
                 switch (alt8) {
             	case 1 :
-            	    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3077:52: .
+            	    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3219:52: .
             	    {
             	    matchAny(); 
 
@@ -1419,12 +1457,12 @@ public class InternalFractalIdtLexer extends Lexer {
     public final void mRULE_SL_COMMENT() throws RecognitionException {
         try {
             int _type = RULE_SL_COMMENT;
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3079:17: ( '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )? )
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3079:19: '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )?
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3221:17: ( '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )? )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3221:19: '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )?
             {
             match("//"); 
 
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3079:24: (~ ( ( '\\n' | '\\r' ) ) )*
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3221:24: (~ ( ( '\\n' | '\\r' ) ) )*
             loop9:
             do {
                 int alt9=2;
@@ -1437,7 +1475,7 @@ public class InternalFractalIdtLexer extends Lexer {
 
                 switch (alt9) {
             	case 1 :
-            	    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3079:24: ~ ( ( '\\n' | '\\r' ) )
+            	    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3221:24: ~ ( ( '\\n' | '\\r' ) )
             	    {
             	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='\t')||(input.LA(1)>='\u000B' && input.LA(1)<='\f')||(input.LA(1)>='\u000E' && input.LA(1)<='\uFFFE') ) {
             	        input.consume();
@@ -1458,7 +1496,7 @@ public class InternalFractalIdtLexer extends Lexer {
                 }
             } while (true);
 
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3079:40: ( ( '\\r' )? '\\n' )?
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3221:40: ( ( '\\r' )? '\\n' )?
             int alt11=2;
             int LA11_0 = input.LA(1);
 
@@ -1467,9 +1505,9 @@ public class InternalFractalIdtLexer extends Lexer {
             }
             switch (alt11) {
                 case 1 :
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3079:41: ( '\\r' )? '\\n'
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3221:41: ( '\\r' )? '\\n'
                     {
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3079:41: ( '\\r' )?
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3221:41: ( '\\r' )?
                     int alt10=2;
                     int LA10_0 = input.LA(1);
 
@@ -1478,7 +1516,7 @@ public class InternalFractalIdtLexer extends Lexer {
                     }
                     switch (alt10) {
                         case 1 :
-                            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3079:41: '\\r'
+                            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3221:41: '\\r'
                             {
                             match('\r'); 
 
@@ -1508,10 +1546,10 @@ public class InternalFractalIdtLexer extends Lexer {
     public final void mRULE_WS() throws RecognitionException {
         try {
             int _type = RULE_WS;
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3081:9: ( ( ' ' | '\\t' | '\\r' | '\\n' )+ )
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3081:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3223:9: ( ( ' ' | '\\t' | '\\r' | '\\n' )+ )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3223:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
             {
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3081:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3223:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
             int cnt12=0;
             loop12:
             do {
@@ -1564,8 +1602,8 @@ public class InternalFractalIdtLexer extends Lexer {
     public final void mRULE_ANY_OTHER() throws RecognitionException {
         try {
             int _type = RULE_ANY_OTHER;
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3083:16: ( . )
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3083:18: .
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3225:16: ( . )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3225:18: .
             {
             matchAny(); 
 
@@ -1579,25 +1617,25 @@ public class InternalFractalIdtLexer extends Lexer {
     // $ANTLR end RULE_ANY_OTHER
 
     public void mTokens() throws RecognitionException {
-        // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1:8: ( T13 | T14 | T15 | T16 | T17 | T18 | T19 | T20 | T21 | T22 | T23 | T24 | T25 | T26 | T27 | T28 | T29 | T30 | T31 | T32 | T33 | T34 | T35 | T36 | T37 | T38 | T39 | T40 | T41 | T42 | T43 | T44 | T45 | T46 | T47 | T48 | T49 | T50 | T51 | T52 | T53 | T54 | T55 | T56 | T57 | T58 | T59 | T60 | T61 | RULE_INCLUDELIB | RULE_BOOLEAN | RULE_ID | RULE_INT | RULE_STRING | RULE_ML_COMMENT | RULE_SL_COMMENT | RULE_WS | RULE_ANY_OTHER )
-        int alt13=58;
+        // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1:8: ( T13 | T14 | T15 | T16 | T17 | T18 | T19 | T20 | T21 | T22 | T23 | T24 | T25 | T26 | T27 | T28 | T29 | T30 | T31 | T32 | T33 | T34 | T35 | T36 | T37 | T38 | T39 | T40 | T41 | T42 | T43 | T44 | T45 | T46 | T47 | T48 | T49 | T50 | T51 | T52 | T53 | T54 | T55 | T56 | T57 | T58 | T59 | T60 | T61 | T62 | T63 | RULE_INCLUDELIB | RULE_BOOLEAN | RULE_ID | RULE_INT | RULE_STRING | RULE_ML_COMMENT | RULE_SL_COMMENT | RULE_WS | RULE_ANY_OTHER )
+        int alt13=60;
         int LA13_0 = input.LA(1);
 
         if ( (LA13_0=='#') ) {
             switch ( input.LA(2) ) {
             case 'i':
                 {
-                int LA13_36 = input.LA(3);
+                int LA13_38 = input.LA(3);
 
-                if ( (LA13_36=='f') ) {
+                if ( (LA13_38=='f') ) {
                     alt13=1;
                 }
-                else if ( (LA13_36=='n') ) {
+                else if ( (LA13_38=='n') ) {
                     alt13=24;
                 }
                 else {
                     NoViableAltException nvae =
-                        new NoViableAltException("1:1: Tokens : ( T13 | T14 | T15 | T16 | T17 | T18 | T19 | T20 | T21 | T22 | T23 | T24 | T25 | T26 | T27 | T28 | T29 | T30 | T31 | T32 | T33 | T34 | T35 | T36 | T37 | T38 | T39 | T40 | T41 | T42 | T43 | T44 | T45 | T46 | T47 | T48 | T49 | T50 | T51 | T52 | T53 | T54 | T55 | T56 | T57 | T58 | T59 | T60 | T61 | RULE_INCLUDELIB | RULE_BOOLEAN | RULE_ID | RULE_INT | RULE_STRING | RULE_ML_COMMENT | RULE_SL_COMMENT | RULE_WS | RULE_ANY_OTHER );", 13, 36, input);
+                        new NoViableAltException("1:1: Tokens : ( T13 | T14 | T15 | T16 | T17 | T18 | T19 | T20 | T21 | T22 | T23 | T24 | T25 | T26 | T27 | T28 | T29 | T30 | T31 | T32 | T33 | T34 | T35 | T36 | T37 | T38 | T39 | T40 | T41 | T42 | T43 | T44 | T45 | T46 | T47 | T48 | T49 | T50 | T51 | T52 | T53 | T54 | T55 | T56 | T57 | T58 | T59 | T60 | T61 | T62 | T63 | RULE_INCLUDELIB | RULE_BOOLEAN | RULE_ID | RULE_INT | RULE_STRING | RULE_ML_COMMENT | RULE_SL_COMMENT | RULE_WS | RULE_ANY_OTHER );", 13, 38, input);
 
                     throw nvae;
                 }
@@ -1614,7 +1652,7 @@ public class InternalFractalIdtLexer extends Lexer {
                 }
                 break;
             default:
-                alt13=58;}
+                alt13=60;}
 
         }
         else if ( (LA13_0==';') ) {
@@ -1624,70 +1662,70 @@ public class InternalFractalIdtLexer extends Lexer {
             switch ( input.LA(2) ) {
             case 'r':
                 {
-                int LA13_40 = input.LA(3);
+                int LA13_42 = input.LA(3);
 
-                if ( (LA13_40=='u') ) {
-                    int LA13_80 = input.LA(4);
+                if ( (LA13_42=='u') ) {
+                    int LA13_84 = input.LA(4);
 
-                    if ( (LA13_80=='e') ) {
-                        int LA13_102 = input.LA(5);
+                    if ( (LA13_84=='e') ) {
+                        int LA13_106 = input.LA(5);
 
-                        if ( ((LA13_102>='0' && LA13_102<='9')||(LA13_102>='A' && LA13_102<='Z')||LA13_102=='_'||(LA13_102>='a' && LA13_102<='z')) ) {
-                            alt13=52;
+                        if ( ((LA13_106>='0' && LA13_106<='9')||(LA13_106>='A' && LA13_106<='Z')||LA13_106=='_'||(LA13_106>='a' && LA13_106<='z')) ) {
+                            alt13=54;
                         }
                         else {
-                            alt13=51;}
+                            alt13=53;}
                     }
                     else {
-                        alt13=52;}
+                        alt13=54;}
                 }
                 else {
-                    alt13=52;}
+                    alt13=54;}
                 }
                 break;
             case 'y':
                 {
-                int LA13_41 = input.LA(3);
+                int LA13_43 = input.LA(3);
 
-                if ( (LA13_41=='p') ) {
-                    int LA13_81 = input.LA(4);
+                if ( (LA13_43=='p') ) {
+                    int LA13_85 = input.LA(4);
 
-                    if ( (LA13_81=='e') ) {
-                        int LA13_103 = input.LA(5);
+                    if ( (LA13_85=='e') ) {
+                        int LA13_107 = input.LA(5);
 
-                        if ( (LA13_103=='d') ) {
-                            int LA13_131 = input.LA(6);
+                        if ( (LA13_107=='d') ) {
+                            int LA13_135 = input.LA(6);
 
-                            if ( (LA13_131=='e') ) {
-                                int LA13_160 = input.LA(7);
+                            if ( (LA13_135=='e') ) {
+                                int LA13_164 = input.LA(7);
 
-                                if ( (LA13_160=='f') ) {
-                                    int LA13_183 = input.LA(8);
+                                if ( (LA13_164=='f') ) {
+                                    int LA13_187 = input.LA(8);
 
-                                    if ( ((LA13_183>='0' && LA13_183<='9')||(LA13_183>='A' && LA13_183<='Z')||LA13_183=='_'||(LA13_183>='a' && LA13_183<='z')) ) {
-                                        alt13=52;
+                                    if ( ((LA13_187>='0' && LA13_187<='9')||(LA13_187>='A' && LA13_187<='Z')||LA13_187=='_'||(LA13_187>='a' && LA13_187<='z')) ) {
+                                        alt13=54;
                                     }
                                     else {
                                         alt13=4;}
                                 }
                                 else {
-                                    alt13=52;}
+                                    alt13=54;}
                             }
                             else {
-                                alt13=52;}
+                                alt13=54;}
                         }
                         else {
-                            alt13=52;}
+                            alt13=54;}
                     }
                     else {
-                        alt13=52;}
+                        alt13=54;}
                 }
                 else {
-                    alt13=52;}
+                    alt13=54;}
                 }
                 break;
             default:
-                alt13=52;}
+                alt13=54;}
 
         }
         else if ( (LA13_0=='{') ) {
@@ -1698,266 +1736,150 @@ public class InternalFractalIdtLexer extends Lexer {
         }
         else if ( (LA13_0=='s') ) {
             switch ( input.LA(2) ) {
-            case 't':
-                {
-                int LA13_45 = input.LA(3);
-
-                if ( (LA13_45=='r') ) {
-                    switch ( input.LA(4) ) {
-                    case 'u':
-                        {
-                        int LA13_104 = input.LA(5);
-
-                        if ( (LA13_104=='c') ) {
-                            int LA13_132 = input.LA(6);
-
-                            if ( (LA13_132=='t') ) {
-                                int LA13_161 = input.LA(7);
-
-                                if ( ((LA13_161>='0' && LA13_161<='9')||(LA13_161>='A' && LA13_161<='Z')||LA13_161=='_'||(LA13_161>='a' && LA13_161<='z')) ) {
-                                    alt13=52;
-                                }
-                                else {
-                                    alt13=7;}
-                            }
-                            else {
-                                alt13=52;}
-                        }
-                        else {
-                            alt13=52;}
-                        }
-                        break;
-                    case 'i':
-                        {
-                        int LA13_105 = input.LA(5);
-
-                        if ( (LA13_105=='n') ) {
-                            int LA13_133 = input.LA(6);
-
-                            if ( (LA13_133=='g') ) {
-                                int LA13_162 = input.LA(7);
-
-                                if ( ((LA13_162>='0' && LA13_162<='9')||(LA13_162>='A' && LA13_162<='Z')||LA13_162=='_'||(LA13_162>='a' && LA13_162<='z')) ) {
-                                    alt13=52;
-                                }
-                                else {
-                                    alt13=37;}
-                            }
-                            else {
-                                alt13=52;}
-                        }
-                        else {
-                            alt13=52;}
-                        }
-                        break;
-                    default:
-                        alt13=52;}
-
-                }
-                else {
-                    alt13=52;}
-                }
-                break;
-            case 'h':
-                {
-                int LA13_46 = input.LA(3);
-
-                if ( (LA13_46=='o') ) {
-                    int LA13_83 = input.LA(4);
-
-                    if ( (LA13_83=='r') ) {
-                        int LA13_106 = input.LA(5);
-
-                        if ( (LA13_106=='t') ) {
-                            int LA13_134 = input.LA(6);
-
-                            if ( ((LA13_134>='0' && LA13_134<='9')||(LA13_134>='A' && LA13_134<='Z')||LA13_134=='_'||(LA13_134>='a' && LA13_134<='z')) ) {
-                                alt13=52;
-                            }
-                            else {
-                                alt13=30;}
-                        }
-                        else {
-                            alt13=52;}
-                    }
-                    else {
-                        alt13=52;}
-                }
-                else {
-                    alt13=52;}
-                }
-                break;
             case 'i':
                 {
                 int LA13_47 = input.LA(3);
 
                 if ( (LA13_47=='g') ) {
-                    int LA13_84 = input.LA(4);
+                    int LA13_86 = input.LA(4);
 
-                    if ( (LA13_84=='n') ) {
-                        int LA13_107 = input.LA(5);
+                    if ( (LA13_86=='n') ) {
+                        int LA13_108 = input.LA(5);
 
-                        if ( (LA13_107=='e') ) {
-                            int LA13_135 = input.LA(6);
+                        if ( (LA13_108=='e') ) {
+                            int LA13_136 = input.LA(6);
 
-                            if ( (LA13_135=='d') ) {
-                                int LA13_164 = input.LA(7);
+                            if ( (LA13_136=='d') ) {
+                                int LA13_165 = input.LA(7);
 
-                                if ( ((LA13_164>='0' && LA13_164<='9')||(LA13_164>='A' && LA13_164<='Z')||LA13_164=='_'||(LA13_164>='a' && LA13_164<='z')) ) {
-                                    alt13=52;
+                                if ( ((LA13_165>='0' && LA13_165<='9')||(LA13_165>='A' && LA13_165<='Z')||LA13_165=='_'||(LA13_165>='a' && LA13_165<='z')) ) {
+                                    alt13=54;
                                 }
                                 else {
-                                    alt13=35;}
+                                    alt13=37;}
                             }
                             else {
-                                alt13=52;}
+                                alt13=54;}
                         }
                         else {
-                            alt13=52;}
+                            alt13=54;}
                     }
                     else {
-                        alt13=52;}
+                        alt13=54;}
                 }
                 else {
-                    alt13=52;}
+                    alt13=54;}
+                }
+                break;
+            case 't':
+                {
+                int LA13_48 = input.LA(3);
+
+                if ( (LA13_48=='r') ) {
+                    switch ( input.LA(4) ) {
+                    case 'u':
+                        {
+                        int LA13_109 = input.LA(5);
+
+                        if ( (LA13_109=='c') ) {
+                            int LA13_137 = input.LA(6);
+
+                            if ( (LA13_137=='t') ) {
+                                int LA13_166 = input.LA(7);
+
+                                if ( ((LA13_166>='0' && LA13_166<='9')||(LA13_166>='A' && LA13_166<='Z')||LA13_166=='_'||(LA13_166>='a' && LA13_166<='z')) ) {
+                                    alt13=54;
+                                }
+                                else {
+                                    alt13=7;}
+                            }
+                            else {
+                                alt13=54;}
+                        }
+                        else {
+                            alt13=54;}
+                        }
+                        break;
+                    case 'i':
+                        {
+                        int LA13_110 = input.LA(5);
+
+                        if ( (LA13_110=='n') ) {
+                            int LA13_138 = input.LA(6);
+
+                            if ( (LA13_138=='g') ) {
+                                int LA13_167 = input.LA(7);
+
+                                if ( ((LA13_167>='0' && LA13_167<='9')||(LA13_167>='A' && LA13_167<='Z')||LA13_167=='_'||(LA13_167>='a' && LA13_167<='z')) ) {
+                                    alt13=54;
+                                }
+                                else {
+                                    alt13=39;}
+                            }
+                            else {
+                                alt13=54;}
+                        }
+                        else {
+                            alt13=54;}
+                        }
+                        break;
+                    default:
+                        alt13=54;}
+
+                }
+                else {
+                    alt13=54;}
+                }
+                break;
+            case 'h':
+                {
+                int LA13_49 = input.LA(3);
+
+                if ( (LA13_49=='o') ) {
+                    int LA13_88 = input.LA(4);
+
+                    if ( (LA13_88=='r') ) {
+                        int LA13_111 = input.LA(5);
+
+                        if ( (LA13_111=='t') ) {
+                            int LA13_139 = input.LA(6);
+
+                            if ( ((LA13_139>='0' && LA13_139<='9')||(LA13_139>='A' && LA13_139<='Z')||LA13_139=='_'||(LA13_139>='a' && LA13_139<='z')) ) {
+                                alt13=54;
+                            }
+                            else {
+                                alt13=32;}
+                        }
+                        else {
+                            alt13=54;}
+                    }
+                    else {
+                        alt13=54;}
+                }
+                else {
+                    alt13=54;}
                 }
                 break;
             default:
-                alt13=52;}
+                alt13=54;}
 
         }
         else if ( (LA13_0=='u') ) {
             switch ( input.LA(2) ) {
             case 'i':
                 {
-                int LA13_48 = input.LA(3);
+                int LA13_50 = input.LA(3);
 
-                if ( (LA13_48=='n') ) {
-                    int LA13_85 = input.LA(4);
+                if ( (LA13_50=='n') ) {
+                    int LA13_89 = input.LA(4);
 
-                    if ( (LA13_85=='t') ) {
+                    if ( (LA13_89=='t') ) {
                         switch ( input.LA(5) ) {
-                        case 'p':
-                            {
-                            int LA13_136 = input.LA(6);
-
-                            if ( (LA13_136=='t') ) {
-                                int LA13_165 = input.LA(7);
-
-                                if ( (LA13_165=='r') ) {
-                                    int LA13_187 = input.LA(8);
-
-                                    if ( (LA13_187=='_') ) {
-                                        int LA13_203 = input.LA(9);
-
-                                        if ( (LA13_203=='t') ) {
-                                            int LA13_216 = input.LA(10);
-
-                                            if ( ((LA13_216>='0' && LA13_216<='9')||(LA13_216>='A' && LA13_216<='Z')||LA13_216=='_'||(LA13_216>='a' && LA13_216<='z')) ) {
-                                                alt13=52;
-                                            }
-                                            else {
-                                                alt13=47;}
-                                        }
-                                        else {
-                                            alt13=52;}
-                                    }
-                                    else {
-                                        alt13=52;}
-                                }
-                                else {
-                                    alt13=52;}
-                            }
-                            else {
-                                alt13=52;}
-                            }
-                            break;
-                        case '3':
-                            {
-                            int LA13_137 = input.LA(6);
-
-                            if ( (LA13_137=='2') ) {
-                                int LA13_166 = input.LA(7);
-
-                                if ( (LA13_166=='_') ) {
-                                    int LA13_188 = input.LA(8);
-
-                                    if ( (LA13_188=='t') ) {
-                                        int LA13_204 = input.LA(9);
-
-                                        if ( ((LA13_204>='0' && LA13_204<='9')||(LA13_204>='A' && LA13_204<='Z')||LA13_204=='_'||(LA13_204>='a' && LA13_204<='z')) ) {
-                                            alt13=52;
-                                        }
-                                        else {
-                                            alt13=43;}
-                                    }
-                                    else {
-                                        alt13=52;}
-                                }
-                                else {
-                                    alt13=52;}
-                            }
-                            else {
-                                alt13=52;}
-                            }
-                            break;
                         case '6':
-                            {
-                            int LA13_138 = input.LA(6);
-
-                            if ( (LA13_138=='4') ) {
-                                int LA13_167 = input.LA(7);
-
-                                if ( (LA13_167=='_') ) {
-                                    int LA13_189 = input.LA(8);
-
-                                    if ( (LA13_189=='t') ) {
-                                        int LA13_205 = input.LA(9);
-
-                                        if ( ((LA13_205>='0' && LA13_205<='9')||(LA13_205>='A' && LA13_205<='Z')||LA13_205=='_'||(LA13_205>='a' && LA13_205<='z')) ) {
-                                            alt13=52;
-                                        }
-                                        else {
-                                            alt13=45;}
-                                    }
-                                    else {
-                                        alt13=52;}
-                                }
-                                else {
-                                    alt13=52;}
-                            }
-                            else {
-                                alt13=52;}
-                            }
-                            break;
-                        case '8':
-                            {
-                            int LA13_139 = input.LA(6);
-
-                            if ( (LA13_139=='_') ) {
-                                int LA13_168 = input.LA(7);
-
-                                if ( (LA13_168=='t') ) {
-                                    int LA13_190 = input.LA(8);
-
-                                    if ( ((LA13_190>='0' && LA13_190<='9')||(LA13_190>='A' && LA13_190<='Z')||LA13_190=='_'||(LA13_190>='a' && LA13_190<='z')) ) {
-                                        alt13=52;
-                                    }
-                                    else {
-                                        alt13=39;}
-                                }
-                                else {
-                                    alt13=52;}
-                            }
-                            else {
-                                alt13=52;}
-                            }
-                            break;
-                        case '1':
                             {
                             int LA13_140 = input.LA(6);
 
-                            if ( (LA13_140=='6') ) {
+                            if ( (LA13_140=='4') ) {
                                 int LA13_169 = input.LA(7);
 
                                 if ( (LA13_169=='_') ) {
@@ -1967,153 +1889,269 @@ public class InternalFractalIdtLexer extends Lexer {
                                         int LA13_207 = input.LA(9);
 
                                         if ( ((LA13_207>='0' && LA13_207<='9')||(LA13_207>='A' && LA13_207<='Z')||LA13_207=='_'||(LA13_207>='a' && LA13_207<='z')) ) {
-                                            alt13=52;
+                                            alt13=54;
                                         }
                                         else {
-                                            alt13=41;}
+                                            alt13=47;}
                                     }
                                     else {
-                                        alt13=52;}
+                                        alt13=54;}
                                 }
                                 else {
-                                    alt13=52;}
+                                    alt13=54;}
                             }
                             else {
-                                alt13=52;}
+                                alt13=54;}
+                            }
+                            break;
+                        case '3':
+                            {
+                            int LA13_141 = input.LA(6);
+
+                            if ( (LA13_141=='2') ) {
+                                int LA13_170 = input.LA(7);
+
+                                if ( (LA13_170=='_') ) {
+                                    int LA13_192 = input.LA(8);
+
+                                    if ( (LA13_192=='t') ) {
+                                        int LA13_208 = input.LA(9);
+
+                                        if ( ((LA13_208>='0' && LA13_208<='9')||(LA13_208>='A' && LA13_208<='Z')||LA13_208=='_'||(LA13_208>='a' && LA13_208<='z')) ) {
+                                            alt13=54;
+                                        }
+                                        else {
+                                            alt13=45;}
+                                    }
+                                    else {
+                                        alt13=54;}
+                                }
+                                else {
+                                    alt13=54;}
+                            }
+                            else {
+                                alt13=54;}
+                            }
+                            break;
+                        case '8':
+                            {
+                            int LA13_142 = input.LA(6);
+
+                            if ( (LA13_142=='_') ) {
+                                int LA13_171 = input.LA(7);
+
+                                if ( (LA13_171=='t') ) {
+                                    int LA13_193 = input.LA(8);
+
+                                    if ( ((LA13_193>='0' && LA13_193<='9')||(LA13_193>='A' && LA13_193<='Z')||LA13_193=='_'||(LA13_193>='a' && LA13_193<='z')) ) {
+                                        alt13=54;
+                                    }
+                                    else {
+                                        alt13=41;}
+                                }
+                                else {
+                                    alt13=54;}
+                            }
+                            else {
+                                alt13=54;}
+                            }
+                            break;
+                        case 'p':
+                            {
+                            int LA13_143 = input.LA(6);
+
+                            if ( (LA13_143=='t') ) {
+                                int LA13_172 = input.LA(7);
+
+                                if ( (LA13_172=='r') ) {
+                                    int LA13_194 = input.LA(8);
+
+                                    if ( (LA13_194=='_') ) {
+                                        int LA13_210 = input.LA(9);
+
+                                        if ( (LA13_210=='t') ) {
+                                            int LA13_222 = input.LA(10);
+
+                                            if ( ((LA13_222>='0' && LA13_222<='9')||(LA13_222>='A' && LA13_222<='Z')||LA13_222=='_'||(LA13_222>='a' && LA13_222<='z')) ) {
+                                                alt13=54;
+                                            }
+                                            else {
+                                                alt13=49;}
+                                        }
+                                        else {
+                                            alt13=54;}
+                                    }
+                                    else {
+                                        alt13=54;}
+                                }
+                                else {
+                                    alt13=54;}
+                            }
+                            else {
+                                alt13=54;}
+                            }
+                            break;
+                        case '1':
+                            {
+                            int LA13_144 = input.LA(6);
+
+                            if ( (LA13_144=='6') ) {
+                                int LA13_173 = input.LA(7);
+
+                                if ( (LA13_173=='_') ) {
+                                    int LA13_195 = input.LA(8);
+
+                                    if ( (LA13_195=='t') ) {
+                                        int LA13_211 = input.LA(9);
+
+                                        if ( ((LA13_211>='0' && LA13_211<='9')||(LA13_211>='A' && LA13_211<='Z')||LA13_211=='_'||(LA13_211>='a' && LA13_211<='z')) ) {
+                                            alt13=54;
+                                        }
+                                        else {
+                                            alt13=43;}
+                                    }
+                                    else {
+                                        alt13=54;}
+                                }
+                                else {
+                                    alt13=54;}
+                            }
+                            else {
+                                alt13=54;}
                             }
                             break;
                         default:
-                            alt13=52;}
+                            alt13=54;}
 
                     }
                     else {
-                        alt13=52;}
+                        alt13=54;}
                 }
                 else {
-                    alt13=52;}
+                    alt13=54;}
                 }
                 break;
             case 'n':
                 {
                 switch ( input.LA(3) ) {
-                case 's':
-                    {
-                    int LA13_86 = input.LA(4);
-
-                    if ( (LA13_86=='i') ) {
-                        int LA13_109 = input.LA(5);
-
-                        if ( (LA13_109=='g') ) {
-                            int LA13_141 = input.LA(6);
-
-                            if ( (LA13_141=='n') ) {
-                                int LA13_170 = input.LA(7);
-
-                                if ( (LA13_170=='e') ) {
-                                    int LA13_192 = input.LA(8);
-
-                                    if ( (LA13_192=='d') ) {
-                                        int LA13_208 = input.LA(9);
-
-                                        if ( ((LA13_208>='0' && LA13_208<='9')||(LA13_208>='A' && LA13_208<='Z')||LA13_208=='_'||(LA13_208>='a' && LA13_208<='z')) ) {
-                                            alt13=52;
-                                        }
-                                        else {
-                                            alt13=36;}
-                                    }
-                                    else {
-                                        alt13=52;}
-                                }
-                                else {
-                                    alt13=52;}
-                            }
-                            else {
-                                alt13=52;}
-                        }
-                        else {
-                            alt13=52;}
-                    }
-                    else {
-                        alt13=52;}
-                    }
-                    break;
                 case 'm':
                     {
-                    int LA13_87 = input.LA(4);
+                    int LA13_90 = input.LA(4);
 
-                    if ( (LA13_87=='a') ) {
-                        int LA13_110 = input.LA(5);
+                    if ( (LA13_90=='a') ) {
+                        int LA13_113 = input.LA(5);
 
-                        if ( (LA13_110=='n') ) {
-                            int LA13_142 = input.LA(6);
+                        if ( (LA13_113=='n') ) {
+                            int LA13_145 = input.LA(6);
 
-                            if ( (LA13_142=='a') ) {
-                                int LA13_171 = input.LA(7);
+                            if ( (LA13_145=='a') ) {
+                                int LA13_174 = input.LA(7);
 
-                                if ( (LA13_171=='g') ) {
-                                    int LA13_193 = input.LA(8);
+                                if ( (LA13_174=='g') ) {
+                                    int LA13_196 = input.LA(8);
 
-                                    if ( (LA13_193=='e') ) {
-                                        int LA13_209 = input.LA(9);
+                                    if ( (LA13_196=='e') ) {
+                                        int LA13_212 = input.LA(9);
 
-                                        if ( (LA13_209=='d') ) {
-                                            int LA13_221 = input.LA(10);
+                                        if ( (LA13_212=='d') ) {
+                                            int LA13_224 = input.LA(10);
 
-                                            if ( ((LA13_221>='0' && LA13_221<='9')||(LA13_221>='A' && LA13_221<='Z')||LA13_221=='_'||(LA13_221>='a' && LA13_221<='z')) ) {
-                                                alt13=52;
+                                            if ( ((LA13_224>='0' && LA13_224<='9')||(LA13_224>='A' && LA13_224<='Z')||LA13_224=='_'||(LA13_224>='a' && LA13_224<='z')) ) {
+                                                alt13=54;
                                             }
                                             else {
                                                 alt13=21;}
                                         }
                                         else {
-                                            alt13=52;}
+                                            alt13=54;}
                                     }
                                     else {
-                                        alt13=52;}
+                                        alt13=54;}
                                 }
                                 else {
-                                    alt13=52;}
+                                    alt13=54;}
                             }
                             else {
-                                alt13=52;}
+                                alt13=54;}
                         }
                         else {
-                            alt13=52;}
+                            alt13=54;}
                     }
                     else {
-                        alt13=52;}
+                        alt13=54;}
                     }
                     break;
                 case 'i':
                     {
-                    int LA13_88 = input.LA(4);
+                    int LA13_91 = input.LA(4);
 
-                    if ( (LA13_88=='o') ) {
-                        int LA13_111 = input.LA(5);
+                    if ( (LA13_91=='o') ) {
+                        int LA13_114 = input.LA(5);
 
-                        if ( (LA13_111=='n') ) {
-                            int LA13_143 = input.LA(6);
+                        if ( (LA13_114=='n') ) {
+                            int LA13_146 = input.LA(6);
 
-                            if ( ((LA13_143>='0' && LA13_143<='9')||(LA13_143>='A' && LA13_143<='Z')||LA13_143=='_'||(LA13_143>='a' && LA13_143<='z')) ) {
-                                alt13=52;
+                            if ( ((LA13_146>='0' && LA13_146<='9')||(LA13_146>='A' && LA13_146<='Z')||LA13_146=='_'||(LA13_146>='a' && LA13_146<='z')) ) {
+                                alt13=54;
                             }
                             else {
                                 alt13=8;}
                         }
                         else {
-                            alt13=52;}
+                            alt13=54;}
                     }
                     else {
-                        alt13=52;}
+                        alt13=54;}
+                    }
+                    break;
+                case 's':
+                    {
+                    int LA13_92 = input.LA(4);
+
+                    if ( (LA13_92=='i') ) {
+                        int LA13_115 = input.LA(5);
+
+                        if ( (LA13_115=='g') ) {
+                            int LA13_147 = input.LA(6);
+
+                            if ( (LA13_147=='n') ) {
+                                int LA13_176 = input.LA(7);
+
+                                if ( (LA13_176=='e') ) {
+                                    int LA13_197 = input.LA(8);
+
+                                    if ( (LA13_197=='d') ) {
+                                        int LA13_213 = input.LA(9);
+
+                                        if ( ((LA13_213>='0' && LA13_213<='9')||(LA13_213>='A' && LA13_213<='Z')||LA13_213=='_'||(LA13_213>='a' && LA13_213<='z')) ) {
+                                            alt13=54;
+                                        }
+                                        else {
+                                            alt13=38;}
+                                    }
+                                    else {
+                                        alt13=54;}
+                                }
+                                else {
+                                    alt13=54;}
+                            }
+                            else {
+                                alt13=54;}
+                        }
+                        else {
+                            alt13=54;}
+                    }
+                    else {
+                        alt13=54;}
                     }
                     break;
                 default:
-                    alt13=52;}
+                    alt13=54;}
 
                 }
                 break;
             default:
-                alt13=52;}
+                alt13=54;}
 
         }
         else if ( (LA13_0==':') ) {
@@ -2123,28 +2161,28 @@ public class InternalFractalIdtLexer extends Lexer {
             int LA13_9 = input.LA(2);
 
             if ( (LA13_9=='n') ) {
-                int LA13_51 = input.LA(3);
+                int LA13_53 = input.LA(3);
 
-                if ( (LA13_51=='u') ) {
-                    int LA13_89 = input.LA(4);
+                if ( (LA13_53=='u') ) {
+                    int LA13_93 = input.LA(4);
 
-                    if ( (LA13_89=='m') ) {
-                        int LA13_112 = input.LA(5);
+                    if ( (LA13_93=='m') ) {
+                        int LA13_116 = input.LA(5);
 
-                        if ( ((LA13_112>='0' && LA13_112<='9')||(LA13_112>='A' && LA13_112<='Z')||LA13_112=='_'||(LA13_112>='a' && LA13_112<='z')) ) {
-                            alt13=52;
+                        if ( ((LA13_116>='0' && LA13_116<='9')||(LA13_116>='A' && LA13_116<='Z')||LA13_116=='_'||(LA13_116>='a' && LA13_116<='z')) ) {
+                            alt13=54;
                         }
                         else {
                             alt13=10;}
                     }
                     else {
-                        alt13=52;}
+                        alt13=54;}
                 }
                 else {
-                    alt13=52;}
+                    alt13=54;}
             }
             else {
-                alt13=52;}
+                alt13=54;}
         }
         else if ( (LA13_0==',') ) {
             alt13=11;
@@ -2184,134 +2222,6 @@ public class InternalFractalIdtLexer extends Lexer {
                 case 't':
                     {
                     switch ( input.LA(4) ) {
-                    case '1':
-                        {
-                        int LA13_113 = input.LA(5);
-
-                        if ( (LA13_113=='6') ) {
-                            int LA13_145 = input.LA(6);
-
-                            if ( (LA13_145=='_') ) {
-                                int LA13_173 = input.LA(7);
-
-                                if ( (LA13_173=='t') ) {
-                                    int LA13_194 = input.LA(8);
-
-                                    if ( ((LA13_194>='0' && LA13_194<='9')||(LA13_194>='A' && LA13_194<='Z')||LA13_194=='_'||(LA13_194>='a' && LA13_194<='z')) ) {
-                                        alt13=52;
-                                    }
-                                    else {
-                                        alt13=40;}
-                                }
-                                else {
-                                    alt13=52;}
-                            }
-                            else {
-                                alt13=52;}
-                        }
-                        else {
-                            alt13=52;}
-                        }
-                        break;
-                    case 'e':
-                        {
-                        int LA13_114 = input.LA(5);
-
-                        if ( (LA13_114=='r') ) {
-                            int LA13_146 = input.LA(6);
-
-                            if ( (LA13_146=='f') ) {
-                                int LA13_174 = input.LA(7);
-
-                                if ( (LA13_174=='a') ) {
-                                    int LA13_195 = input.LA(8);
-
-                                    if ( (LA13_195=='c') ) {
-                                        int LA13_211 = input.LA(9);
-
-                                        if ( (LA13_211=='e') ) {
-                                            int LA13_222 = input.LA(10);
-
-                                            if ( ((LA13_222>='0' && LA13_222<='9')||(LA13_222>='A' && LA13_222<='Z')||LA13_222=='_'||(LA13_222>='a' && LA13_222<='z')) ) {
-                                                alt13=52;
-                                            }
-                                            else {
-                                                alt13=20;}
-                                        }
-                                        else {
-                                            alt13=52;}
-                                    }
-                                    else {
-                                        alt13=52;}
-                                }
-                                else {
-                                    alt13=52;}
-                            }
-                            else {
-                                alt13=52;}
-                        }
-                        else {
-                            alt13=52;}
-                        }
-                        break;
-                    case '3':
-                        {
-                        int LA13_115 = input.LA(5);
-
-                        if ( (LA13_115=='2') ) {
-                            int LA13_147 = input.LA(6);
-
-                            if ( (LA13_147=='_') ) {
-                                int LA13_175 = input.LA(7);
-
-                                if ( (LA13_175=='t') ) {
-                                    int LA13_196 = input.LA(8);
-
-                                    if ( ((LA13_196>='0' && LA13_196<='9')||(LA13_196>='A' && LA13_196<='Z')||LA13_196=='_'||(LA13_196>='a' && LA13_196<='z')) ) {
-                                        alt13=52;
-                                    }
-                                    else {
-                                        alt13=42;}
-                                }
-                                else {
-                                    alt13=52;}
-                            }
-                            else {
-                                alt13=52;}
-                        }
-                        else {
-                            alt13=52;}
-                        }
-                        break;
-                    case '6':
-                        {
-                        int LA13_116 = input.LA(5);
-
-                        if ( (LA13_116=='4') ) {
-                            int LA13_148 = input.LA(6);
-
-                            if ( (LA13_148=='_') ) {
-                                int LA13_176 = input.LA(7);
-
-                                if ( (LA13_176=='t') ) {
-                                    int LA13_197 = input.LA(8);
-
-                                    if ( ((LA13_197>='0' && LA13_197<='9')||(LA13_197>='A' && LA13_197<='Z')||LA13_197=='_'||(LA13_197>='a' && LA13_197<='z')) ) {
-                                        alt13=52;
-                                    }
-                                    else {
-                                        alt13=44;}
-                                }
-                                else {
-                                    alt13=52;}
-                            }
-                            else {
-                                alt13=52;}
-                        }
-                        else {
-                            alt13=52;}
-                        }
-                        break;
                     case '8':
                         {
                         int LA13_117 = input.LA(5);
@@ -2323,16 +2233,16 @@ public class InternalFractalIdtLexer extends Lexer {
                                 int LA13_177 = input.LA(7);
 
                                 if ( ((LA13_177>='0' && LA13_177<='9')||(LA13_177>='A' && LA13_177<='Z')||LA13_177=='_'||(LA13_177>='a' && LA13_177<='z')) ) {
-                                    alt13=52;
+                                    alt13=54;
                                 }
                                 else {
-                                    alt13=38;}
+                                    alt13=40;}
                             }
                             else {
-                                alt13=52;}
+                                alt13=54;}
                         }
                         else {
-                            alt13=52;}
+                            alt13=54;}
                         }
                         break;
                     case 'p':
@@ -2352,22 +2262,150 @@ public class InternalFractalIdtLexer extends Lexer {
                                         int LA13_214 = input.LA(9);
 
                                         if ( ((LA13_214>='0' && LA13_214<='9')||(LA13_214>='A' && LA13_214<='Z')||LA13_214=='_'||(LA13_214>='a' && LA13_214<='z')) ) {
-                                            alt13=52;
+                                            alt13=54;
                                         }
                                         else {
-                                            alt13=46;}
+                                            alt13=48;}
                                     }
                                     else {
-                                        alt13=52;}
+                                        alt13=54;}
                                 }
                                 else {
-                                    alt13=52;}
+                                    alt13=54;}
                             }
                             else {
-                                alt13=52;}
+                                alt13=54;}
                         }
                         else {
-                            alt13=52;}
+                            alt13=54;}
+                        }
+                        break;
+                    case '1':
+                        {
+                        int LA13_119 = input.LA(5);
+
+                        if ( (LA13_119=='6') ) {
+                            int LA13_151 = input.LA(6);
+
+                            if ( (LA13_151=='_') ) {
+                                int LA13_179 = input.LA(7);
+
+                                if ( (LA13_179=='t') ) {
+                                    int LA13_200 = input.LA(8);
+
+                                    if ( ((LA13_200>='0' && LA13_200<='9')||(LA13_200>='A' && LA13_200<='Z')||LA13_200=='_'||(LA13_200>='a' && LA13_200<='z')) ) {
+                                        alt13=54;
+                                    }
+                                    else {
+                                        alt13=42;}
+                                }
+                                else {
+                                    alt13=54;}
+                            }
+                            else {
+                                alt13=54;}
+                        }
+                        else {
+                            alt13=54;}
+                        }
+                        break;
+                    case '3':
+                        {
+                        int LA13_120 = input.LA(5);
+
+                        if ( (LA13_120=='2') ) {
+                            int LA13_152 = input.LA(6);
+
+                            if ( (LA13_152=='_') ) {
+                                int LA13_180 = input.LA(7);
+
+                                if ( (LA13_180=='t') ) {
+                                    int LA13_201 = input.LA(8);
+
+                                    if ( ((LA13_201>='0' && LA13_201<='9')||(LA13_201>='A' && LA13_201<='Z')||LA13_201=='_'||(LA13_201>='a' && LA13_201<='z')) ) {
+                                        alt13=54;
+                                    }
+                                    else {
+                                        alt13=44;}
+                                }
+                                else {
+                                    alt13=54;}
+                            }
+                            else {
+                                alt13=54;}
+                        }
+                        else {
+                            alt13=54;}
+                        }
+                        break;
+                    case 'e':
+                        {
+                        int LA13_121 = input.LA(5);
+
+                        if ( (LA13_121=='r') ) {
+                            int LA13_153 = input.LA(6);
+
+                            if ( (LA13_153=='f') ) {
+                                int LA13_181 = input.LA(7);
+
+                                if ( (LA13_181=='a') ) {
+                                    int LA13_202 = input.LA(8);
+
+                                    if ( (LA13_202=='c') ) {
+                                        int LA13_217 = input.LA(9);
+
+                                        if ( (LA13_217=='e') ) {
+                                            int LA13_227 = input.LA(10);
+
+                                            if ( ((LA13_227>='0' && LA13_227<='9')||(LA13_227>='A' && LA13_227<='Z')||LA13_227=='_'||(LA13_227>='a' && LA13_227<='z')) ) {
+                                                alt13=54;
+                                            }
+                                            else {
+                                                alt13=20;}
+                                        }
+                                        else {
+                                            alt13=54;}
+                                    }
+                                    else {
+                                        alt13=54;}
+                                }
+                                else {
+                                    alt13=54;}
+                            }
+                            else {
+                                alt13=54;}
+                        }
+                        else {
+                            alt13=54;}
+                        }
+                        break;
+                    case '6':
+                        {
+                        int LA13_122 = input.LA(5);
+
+                        if ( (LA13_122=='4') ) {
+                            int LA13_154 = input.LA(6);
+
+                            if ( (LA13_154=='_') ) {
+                                int LA13_182 = input.LA(7);
+
+                                if ( (LA13_182=='t') ) {
+                                    int LA13_203 = input.LA(8);
+
+                                    if ( ((LA13_203>='0' && LA13_203<='9')||(LA13_203>='A' && LA13_203<='Z')||LA13_203=='_'||(LA13_203>='a' && LA13_203<='z')) ) {
+                                        alt13=54;
+                                    }
+                                    else {
+                                        alt13=46;}
+                                }
+                                else {
+                                    alt13=54;}
+                            }
+                            else {
+                                alt13=54;}
+                        }
+                        else {
+                            alt13=54;}
                         }
                         break;
                     case '0':
@@ -2428,11 +2466,11 @@ public class InternalFractalIdtLexer extends Lexer {
                     case 'y':
                     case 'z':
                         {
-                        alt13=52;
+                        alt13=54;
                         }
                         break;
                     default:
-                        alt13=31;}
+                        alt13=33;}
 
                     }
                     break;
@@ -2499,15 +2537,15 @@ public class InternalFractalIdtLexer extends Lexer {
                 case 'y':
                 case 'z':
                     {
-                    alt13=52;
+                    alt13=54;
                     }
                     break;
                 default:
-                    alt13=48;}
+                    alt13=50;}
 
             }
             else {
-                alt13=52;}
+                alt13=54;}
         }
         else if ( (LA13_0=='v') ) {
             int LA13_19 = input.LA(2);
@@ -2516,68 +2554,68 @@ public class InternalFractalIdtLexer extends Lexer {
                 switch ( input.LA(3) ) {
                 case 'i':
                     {
-                    int LA13_92 = input.LA(4);
+                    int LA13_96 = input.LA(4);
 
-                    if ( (LA13_92=='d') ) {
-                        int LA13_120 = input.LA(5);
+                    if ( (LA13_96=='d') ) {
+                        int LA13_124 = input.LA(5);
 
-                        if ( ((LA13_120>='0' && LA13_120<='9')||(LA13_120>='A' && LA13_120<='Z')||LA13_120=='_'||(LA13_120>='a' && LA13_120<='z')) ) {
-                            alt13=52;
+                        if ( ((LA13_124>='0' && LA13_124<='9')||(LA13_124>='A' && LA13_124<='Z')||LA13_124=='_'||(LA13_124>='a' && LA13_124<='z')) ) {
+                            alt13=54;
                         }
                         else {
                             alt13=22;}
                     }
                     else {
-                        alt13=52;}
+                        alt13=54;}
                     }
                     break;
                 case 'l':
                     {
-                    int LA13_93 = input.LA(4);
+                    int LA13_97 = input.LA(4);
 
-                    if ( (LA13_93=='a') ) {
-                        int LA13_121 = input.LA(5);
+                    if ( (LA13_97=='a') ) {
+                        int LA13_125 = input.LA(5);
 
-                        if ( (LA13_121=='t') ) {
-                            int LA13_152 = input.LA(6);
+                        if ( (LA13_125=='t') ) {
+                            int LA13_156 = input.LA(6);
 
-                            if ( (LA13_152=='i') ) {
-                                int LA13_179 = input.LA(7);
+                            if ( (LA13_156=='i') ) {
+                                int LA13_183 = input.LA(7);
 
-                                if ( (LA13_179=='l') ) {
-                                    int LA13_200 = input.LA(8);
+                                if ( (LA13_183=='l') ) {
+                                    int LA13_204 = input.LA(8);
 
-                                    if ( (LA13_200=='e') ) {
-                                        int LA13_215 = input.LA(9);
+                                    if ( (LA13_204=='e') ) {
+                                        int LA13_219 = input.LA(9);
 
-                                        if ( ((LA13_215>='0' && LA13_215<='9')||(LA13_215>='A' && LA13_215<='Z')||LA13_215=='_'||(LA13_215>='a' && LA13_215<='z')) ) {
-                                            alt13=52;
+                                        if ( ((LA13_219>='0' && LA13_219<='9')||(LA13_219>='A' && LA13_219<='Z')||LA13_219=='_'||(LA13_219>='a' && LA13_219<='z')) ) {
+                                            alt13=54;
                                         }
                                         else {
-                                            alt13=28;}
+                                            alt13=30;}
                                     }
                                     else {
-                                        alt13=52;}
+                                        alt13=54;}
                                 }
                                 else {
-                                    alt13=52;}
+                                    alt13=54;}
                             }
                             else {
-                                alt13=52;}
+                                alt13=54;}
                         }
                         else {
-                            alt13=52;}
+                            alt13=54;}
                     }
                     else {
-                        alt13=52;}
+                        alt13=54;}
                     }
                     break;
                 default:
-                    alt13=52;}
+                    alt13=54;}
 
             }
             else {
-                alt13=52;}
+                alt13=54;}
         }
         else if ( (LA13_0=='@') ) {
             alt13=25;
@@ -2586,305 +2624,311 @@ public class InternalFractalIdtLexer extends Lexer {
             int LA13_21 = input.LA(2);
 
             if ( (LA13_21=='u') ) {
-                int LA13_64 = input.LA(3);
+                int LA13_66 = input.LA(3);
 
-                if ( (LA13_64=='l') ) {
-                    int LA13_94 = input.LA(4);
+                if ( (LA13_66=='l') ) {
+                    int LA13_98 = input.LA(4);
 
-                    if ( (LA13_94=='l') ) {
-                        int LA13_122 = input.LA(5);
+                    if ( (LA13_98=='l') ) {
+                        int LA13_126 = input.LA(5);
 
-                        if ( ((LA13_122>='0' && LA13_122<='9')||(LA13_122>='A' && LA13_122<='Z')||LA13_122=='_'||(LA13_122>='a' && LA13_122<='z')) ) {
-                            alt13=52;
+                        if ( ((LA13_126>='0' && LA13_126<='9')||(LA13_126>='A' && LA13_126<='Z')||LA13_126=='_'||(LA13_126>='a' && LA13_126<='z')) ) {
+                            alt13=54;
                         }
                         else {
                             alt13=26;}
                     }
                     else {
-                        alt13=52;}
+                        alt13=54;}
                 }
                 else {
-                    alt13=52;}
+                    alt13=54;}
             }
             else {
-                alt13=52;}
+                alt13=54;}
+        }
+        else if ( (LA13_0=='+') ) {
+            alt13=27;
+        }
+        else if ( (LA13_0=='-') ) {
+            alt13=28;
         }
         else if ( (LA13_0=='c') ) {
             switch ( input.LA(2) ) {
-            case 'h':
-                {
-                int LA13_65 = input.LA(3);
-
-                if ( (LA13_65=='a') ) {
-                    int LA13_95 = input.LA(4);
-
-                    if ( (LA13_95=='r') ) {
-                        int LA13_123 = input.LA(5);
-
-                        if ( ((LA13_123>='0' && LA13_123<='9')||(LA13_123>='A' && LA13_123<='Z')||LA13_123=='_'||(LA13_123>='a' && LA13_123<='z')) ) {
-                            alt13=52;
-                        }
-                        else {
-                            alt13=29;}
-                    }
-                    else {
-                        alt13=52;}
-                }
-                else {
-                    alt13=52;}
-                }
-                break;
             case 'o':
-                {
-                int LA13_66 = input.LA(3);
-
-                if ( (LA13_66=='n') ) {
-                    int LA13_96 = input.LA(4);
-
-                    if ( (LA13_96=='s') ) {
-                        int LA13_124 = input.LA(5);
-
-                        if ( (LA13_124=='t') ) {
-                            int LA13_155 = input.LA(6);
-
-                            if ( ((LA13_155>='0' && LA13_155<='9')||(LA13_155>='A' && LA13_155<='Z')||LA13_155=='_'||(LA13_155>='a' && LA13_155<='z')) ) {
-                                alt13=52;
-                            }
-                            else {
-                                alt13=27;}
-                        }
-                        else {
-                            alt13=52;}
-                    }
-                    else {
-                        alt13=52;}
-                }
-                else {
-                    alt13=52;}
-                }
-                break;
-            default:
-                alt13=52;}
-
-        }
-        else if ( (LA13_0=='l') ) {
-            int LA13_23 = input.LA(2);
-
-            if ( (LA13_23=='o') ) {
-                int LA13_67 = input.LA(3);
-
-                if ( (LA13_67=='n') ) {
-                    int LA13_97 = input.LA(4);
-
-                    if ( (LA13_97=='g') ) {
-                        int LA13_125 = input.LA(5);
-
-                        if ( ((LA13_125>='0' && LA13_125<='9')||(LA13_125>='A' && LA13_125<='Z')||LA13_125=='_'||(LA13_125>='a' && LA13_125<='z')) ) {
-                            alt13=52;
-                        }
-                        else {
-                            alt13=32;}
-                    }
-                    else {
-                        alt13=52;}
-                }
-                else {
-                    alt13=52;}
-            }
-            else {
-                alt13=52;}
-        }
-        else if ( (LA13_0=='f') ) {
-            switch ( input.LA(2) ) {
-            case 'a':
-                {
-                int LA13_68 = input.LA(3);
-
-                if ( (LA13_68=='l') ) {
-                    int LA13_98 = input.LA(4);
-
-                    if ( (LA13_98=='s') ) {
-                        int LA13_126 = input.LA(5);
-
-                        if ( (LA13_126=='e') ) {
-                            int LA13_157 = input.LA(6);
-
-                            if ( ((LA13_157>='0' && LA13_157<='9')||(LA13_157>='A' && LA13_157<='Z')||LA13_157=='_'||(LA13_157>='a' && LA13_157<='z')) ) {
-                                alt13=52;
-                            }
-                            else {
-                                alt13=51;}
-                        }
-                        else {
-                            alt13=52;}
-                    }
-                    else {
-                        alt13=52;}
-                }
-                else {
-                    alt13=52;}
-                }
-                break;
-            case 'l':
                 {
                 int LA13_69 = input.LA(3);
 
-                if ( (LA13_69=='o') ) {
+                if ( (LA13_69=='n') ) {
                     int LA13_99 = input.LA(4);
 
-                    if ( (LA13_99=='a') ) {
+                    if ( (LA13_99=='s') ) {
                         int LA13_127 = input.LA(5);
 
                         if ( (LA13_127=='t') ) {
                             int LA13_158 = input.LA(6);
 
                             if ( ((LA13_158>='0' && LA13_158<='9')||(LA13_158>='A' && LA13_158<='Z')||LA13_158=='_'||(LA13_158>='a' && LA13_158<='z')) ) {
-                                alt13=52;
+                                alt13=54;
                             }
                             else {
-                                alt13=33;}
+                                alt13=29;}
                         }
                         else {
-                            alt13=52;}
+                            alt13=54;}
                     }
                     else {
-                        alt13=52;}
+                        alt13=54;}
                 }
                 else {
-                    alt13=52;}
+                    alt13=54;}
+                }
+                break;
+            case 'h':
+                {
+                int LA13_70 = input.LA(3);
+
+                if ( (LA13_70=='a') ) {
+                    int LA13_100 = input.LA(4);
+
+                    if ( (LA13_100=='r') ) {
+                        int LA13_128 = input.LA(5);
+
+                        if ( ((LA13_128>='0' && LA13_128<='9')||(LA13_128>='A' && LA13_128<='Z')||LA13_128=='_'||(LA13_128>='a' && LA13_128<='z')) ) {
+                            alt13=54;
+                        }
+                        else {
+                            alt13=31;}
+                    }
+                    else {
+                        alt13=54;}
+                }
+                else {
+                    alt13=54;}
                 }
                 break;
             default:
-                alt13=52;}
+                alt13=54;}
 
         }
-        else if ( (LA13_0=='d') ) {
+        else if ( (LA13_0=='l') ) {
             int LA13_25 = input.LA(2);
 
             if ( (LA13_25=='o') ) {
-                int LA13_70 = input.LA(3);
-
-                if ( (LA13_70=='u') ) {
-                    int LA13_100 = input.LA(4);
-
-                    if ( (LA13_100=='b') ) {
-                        int LA13_128 = input.LA(5);
-
-                        if ( (LA13_128=='l') ) {
-                            int LA13_159 = input.LA(6);
-
-                            if ( (LA13_159=='e') ) {
-                                int LA13_182 = input.LA(7);
-
-                                if ( ((LA13_182>='0' && LA13_182<='9')||(LA13_182>='A' && LA13_182<='Z')||LA13_182=='_'||(LA13_182>='a' && LA13_182<='z')) ) {
-                                    alt13=52;
-                                }
-                                else {
-                                    alt13=34;}
-                            }
-                            else {
-                                alt13=52;}
-                        }
-                        else {
-                            alt13=52;}
-                    }
-                    else {
-                        alt13=52;}
-                }
-                else {
-                    alt13=52;}
-            }
-            else {
-                alt13=52;}
-        }
-        else if ( (LA13_0=='o') ) {
-            int LA13_26 = input.LA(2);
-
-            if ( (LA13_26=='u') ) {
                 int LA13_71 = input.LA(3);
 
-                if ( (LA13_71=='t') ) {
+                if ( (LA13_71=='n') ) {
                     int LA13_101 = input.LA(4);
 
-                    if ( ((LA13_101>='0' && LA13_101<='9')||(LA13_101>='A' && LA13_101<='Z')||LA13_101=='_'||(LA13_101>='a' && LA13_101<='z')) ) {
-                        alt13=52;
+                    if ( (LA13_101=='g') ) {
+                        int LA13_129 = input.LA(5);
+
+                        if ( ((LA13_129>='0' && LA13_129<='9')||(LA13_129>='A' && LA13_129<='Z')||LA13_129=='_'||(LA13_129>='a' && LA13_129<='z')) ) {
+                            alt13=54;
+                        }
+                        else {
+                            alt13=34;}
                     }
                     else {
-                        alt13=49;}
+                        alt13=54;}
                 }
                 else {
-                    alt13=52;}
+                    alt13=54;}
             }
             else {
-                alt13=52;}
+                alt13=54;}
         }
-        else if ( (LA13_0=='<') ) {
-            int LA13_27 = input.LA(2);
-
-            if ( ((LA13_27>='A' && LA13_27<='Z')||(LA13_27>='^' && LA13_27<='_')||(LA13_27>='a' && LA13_27<='z')) ) {
-                alt13=50;
-            }
-            else {
-                alt13=58;}
-        }
-        else if ( (LA13_0=='^') ) {
-            int LA13_28 = input.LA(2);
-
-            if ( ((LA13_28>='A' && LA13_28<='Z')||LA13_28=='_'||(LA13_28>='a' && LA13_28<='z')) ) {
-                alt13=52;
-            }
-            else {
-                alt13=58;}
-        }
-        else if ( ((LA13_0>='A' && LA13_0<='Z')||LA13_0=='_'||(LA13_0>='a' && LA13_0<='b')||(LA13_0>='g' && LA13_0<='h')||(LA13_0>='j' && LA13_0<='k')||LA13_0=='m'||(LA13_0>='p' && LA13_0<='r')||(LA13_0>='w' && LA13_0<='z')) ) {
-            alt13=52;
-        }
-        else if ( ((LA13_0>='0' && LA13_0<='9')) ) {
-            alt13=53;
-        }
-        else if ( (LA13_0=='\"') ) {
-            int LA13_31 = input.LA(2);
-
-            if ( ((LA13_31>='\u0000' && LA13_31<='\uFFFE')) ) {
-                alt13=54;
-            }
-            else {
-                alt13=58;}
-        }
-        else if ( (LA13_0=='\'') ) {
-            int LA13_32 = input.LA(2);
-
-            if ( ((LA13_32>='\u0000' && LA13_32<='\uFFFE')) ) {
-                alt13=54;
-            }
-            else {
-                alt13=58;}
-        }
-        else if ( (LA13_0=='/') ) {
+        else if ( (LA13_0=='f') ) {
             switch ( input.LA(2) ) {
-            case '/':
+            case 'a':
                 {
-                alt13=56;
+                int LA13_72 = input.LA(3);
+
+                if ( (LA13_72=='l') ) {
+                    int LA13_102 = input.LA(4);
+
+                    if ( (LA13_102=='s') ) {
+                        int LA13_130 = input.LA(5);
+
+                        if ( (LA13_130=='e') ) {
+                            int LA13_161 = input.LA(6);
+
+                            if ( ((LA13_161>='0' && LA13_161<='9')||(LA13_161>='A' && LA13_161<='Z')||LA13_161=='_'||(LA13_161>='a' && LA13_161<='z')) ) {
+                                alt13=54;
+                            }
+                            else {
+                                alt13=53;}
+                        }
+                        else {
+                            alt13=54;}
+                    }
+                    else {
+                        alt13=54;}
+                }
+                else {
+                    alt13=54;}
                 }
                 break;
-            case '*':
+            case 'l':
                 {
-                alt13=55;
+                int LA13_73 = input.LA(3);
+
+                if ( (LA13_73=='o') ) {
+                    int LA13_103 = input.LA(4);
+
+                    if ( (LA13_103=='a') ) {
+                        int LA13_131 = input.LA(5);
+
+                        if ( (LA13_131=='t') ) {
+                            int LA13_162 = input.LA(6);
+
+                            if ( ((LA13_162>='0' && LA13_162<='9')||(LA13_162>='A' && LA13_162<='Z')||LA13_162=='_'||(LA13_162>='a' && LA13_162<='z')) ) {
+                                alt13=54;
+                            }
+                            else {
+                                alt13=35;}
+                        }
+                        else {
+                            alt13=54;}
+                    }
+                    else {
+                        alt13=54;}
+                }
+                else {
+                    alt13=54;}
                 }
                 break;
             default:
-                alt13=58;}
+                alt13=54;}
+
+        }
+        else if ( (LA13_0=='d') ) {
+            int LA13_27 = input.LA(2);
+
+            if ( (LA13_27=='o') ) {
+                int LA13_74 = input.LA(3);
+
+                if ( (LA13_74=='u') ) {
+                    int LA13_104 = input.LA(4);
+
+                    if ( (LA13_104=='b') ) {
+                        int LA13_132 = input.LA(5);
+
+                        if ( (LA13_132=='l') ) {
+                            int LA13_163 = input.LA(6);
+
+                            if ( (LA13_163=='e') ) {
+                                int LA13_186 = input.LA(7);
+
+                                if ( ((LA13_186>='0' && LA13_186<='9')||(LA13_186>='A' && LA13_186<='Z')||LA13_186=='_'||(LA13_186>='a' && LA13_186<='z')) ) {
+                                    alt13=54;
+                                }
+                                else {
+                                    alt13=36;}
+                            }
+                            else {
+                                alt13=54;}
+                        }
+                        else {
+                            alt13=54;}
+                    }
+                    else {
+                        alt13=54;}
+                }
+                else {
+                    alt13=54;}
+            }
+            else {
+                alt13=54;}
+        }
+        else if ( (LA13_0=='o') ) {
+            int LA13_28 = input.LA(2);
+
+            if ( (LA13_28=='u') ) {
+                int LA13_75 = input.LA(3);
+
+                if ( (LA13_75=='t') ) {
+                    int LA13_105 = input.LA(4);
+
+                    if ( ((LA13_105>='0' && LA13_105<='9')||(LA13_105>='A' && LA13_105<='Z')||LA13_105=='_'||(LA13_105>='a' && LA13_105<='z')) ) {
+                        alt13=54;
+                    }
+                    else {
+                        alt13=51;}
+                }
+                else {
+                    alt13=54;}
+            }
+            else {
+                alt13=54;}
+        }
+        else if ( (LA13_0=='<') ) {
+            int LA13_29 = input.LA(2);
+
+            if ( ((LA13_29>='A' && LA13_29<='Z')||(LA13_29>='^' && LA13_29<='_')||(LA13_29>='a' && LA13_29<='z')) ) {
+                alt13=52;
+            }
+            else {
+                alt13=60;}
+        }
+        else if ( (LA13_0=='^') ) {
+            int LA13_30 = input.LA(2);
+
+            if ( ((LA13_30>='A' && LA13_30<='Z')||LA13_30=='_'||(LA13_30>='a' && LA13_30<='z')) ) {
+                alt13=54;
+            }
+            else {
+                alt13=60;}
+        }
+        else if ( ((LA13_0>='A' && LA13_0<='Z')||LA13_0=='_'||(LA13_0>='a' && LA13_0<='b')||(LA13_0>='g' && LA13_0<='h')||(LA13_0>='j' && LA13_0<='k')||LA13_0=='m'||(LA13_0>='p' && LA13_0<='r')||(LA13_0>='w' && LA13_0<='z')) ) {
+            alt13=54;
+        }
+        else if ( ((LA13_0>='0' && LA13_0<='9')) ) {
+            alt13=55;
+        }
+        else if ( (LA13_0=='\"') ) {
+            int LA13_33 = input.LA(2);
+
+            if ( ((LA13_33>='\u0000' && LA13_33<='\uFFFE')) ) {
+                alt13=56;
+            }
+            else {
+                alt13=60;}
+        }
+        else if ( (LA13_0=='\'') ) {
+            int LA13_34 = input.LA(2);
+
+            if ( ((LA13_34>='\u0000' && LA13_34<='\uFFFE')) ) {
+                alt13=56;
+            }
+            else {
+                alt13=60;}
+        }
+        else if ( (LA13_0=='/') ) {
+            switch ( input.LA(2) ) {
+            case '*':
+                {
+                alt13=57;
+                }
+                break;
+            case '/':
+                {
+                alt13=58;
+                }
+                break;
+            default:
+                alt13=60;}
 
         }
         else if ( ((LA13_0>='\t' && LA13_0<='\n')||LA13_0=='\r'||LA13_0==' ') ) {
-            alt13=57;
+            alt13=59;
         }
-        else if ( ((LA13_0>='\u0000' && LA13_0<='\b')||(LA13_0>='\u000B' && LA13_0<='\f')||(LA13_0>='\u000E' && LA13_0<='\u001F')||LA13_0=='!'||(LA13_0>='$' && LA13_0<='&')||LA13_0=='+'||LA13_0=='-'||(LA13_0>='>' && LA13_0<='?')||LA13_0=='\\'||LA13_0=='`'||LA13_0=='|'||(LA13_0>='~' && LA13_0<='\uFFFE')) ) {
-            alt13=58;
+        else if ( ((LA13_0>='\u0000' && LA13_0<='\b')||(LA13_0>='\u000B' && LA13_0<='\f')||(LA13_0>='\u000E' && LA13_0<='\u001F')||LA13_0=='!'||(LA13_0>='$' && LA13_0<='&')||(LA13_0>='>' && LA13_0<='?')||LA13_0=='\\'||LA13_0=='`'||LA13_0=='|'||(LA13_0>='~' && LA13_0<='\uFFFE')) ) {
+            alt13=60;
         }
         else {
             NoViableAltException nvae =
-                new NoViableAltException("1:1: Tokens : ( T13 | T14 | T15 | T16 | T17 | T18 | T19 | T20 | T21 | T22 | T23 | T24 | T25 | T26 | T27 | T28 | T29 | T30 | T31 | T32 | T33 | T34 | T35 | T36 | T37 | T38 | T39 | T40 | T41 | T42 | T43 | T44 | T45 | T46 | T47 | T48 | T49 | T50 | T51 | T52 | T53 | T54 | T55 | T56 | T57 | T58 | T59 | T60 | T61 | RULE_INCLUDELIB | RULE_BOOLEAN | RULE_ID | RULE_INT | RULE_STRING | RULE_ML_COMMENT | RULE_SL_COMMENT | RULE_WS | RULE_ANY_OTHER );", 13, 0, input);
+                new NoViableAltException("1:1: Tokens : ( T13 | T14 | T15 | T16 | T17 | T18 | T19 | T20 | T21 | T22 | T23 | T24 | T25 | T26 | T27 | T28 | T29 | T30 | T31 | T32 | T33 | T34 | T35 | T36 | T37 | T38 | T39 | T40 | T41 | T42 | T43 | T44 | T45 | T46 | T47 | T48 | T49 | T50 | T51 | T52 | T53 | T54 | T55 | T56 | T57 | T58 | T59 | T60 | T61 | T62 | T63 | RULE_INCLUDELIB | RULE_BOOLEAN | RULE_ID | RULE_INT | RULE_STRING | RULE_ML_COMMENT | RULE_SL_COMMENT | RULE_WS | RULE_ANY_OTHER );", 13, 0, input);
 
             throw nvae;
         }
@@ -3233,63 +3277,77 @@ public class InternalFractalIdtLexer extends Lexer {
                 }
                 break;
             case 50 :
-                // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1:206: RULE_INCLUDELIB
+                // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1:206: T62
+                {
+                mT62(); 
+
+                }
+                break;
+            case 51 :
+                // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1:210: T63
+                {
+                mT63(); 
+
+                }
+                break;
+            case 52 :
+                // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1:214: RULE_INCLUDELIB
                 {
                 mRULE_INCLUDELIB(); 
 
                 }
                 break;
-            case 51 :
-                // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1:222: RULE_BOOLEAN
+            case 53 :
+                // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1:230: RULE_BOOLEAN
                 {
                 mRULE_BOOLEAN(); 
 
                 }
                 break;
-            case 52 :
-                // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1:235: RULE_ID
+            case 54 :
+                // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1:243: RULE_ID
                 {
                 mRULE_ID(); 
 
                 }
                 break;
-            case 53 :
-                // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1:243: RULE_INT
+            case 55 :
+                // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1:251: RULE_INT
                 {
                 mRULE_INT(); 
 
                 }
                 break;
-            case 54 :
-                // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1:252: RULE_STRING
+            case 56 :
+                // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1:260: RULE_STRING
                 {
                 mRULE_STRING(); 
 
                 }
                 break;
-            case 55 :
-                // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1:264: RULE_ML_COMMENT
+            case 57 :
+                // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1:272: RULE_ML_COMMENT
                 {
                 mRULE_ML_COMMENT(); 
 
                 }
                 break;
-            case 56 :
-                // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1:280: RULE_SL_COMMENT
+            case 58 :
+                // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1:288: RULE_SL_COMMENT
                 {
                 mRULE_SL_COMMENT(); 
 
                 }
                 break;
-            case 57 :
-                // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1:296: RULE_WS
+            case 59 :
+                // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1:304: RULE_WS
                 {
                 mRULE_WS(); 
 
                 }
                 break;
-            case 58 :
-                // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1:304: RULE_ANY_OTHER
+            case 60 :
+                // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1:312: RULE_ANY_OTHER
                 {
                 mRULE_ANY_OTHER(); 
 

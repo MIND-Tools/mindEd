@@ -44,7 +44,8 @@ StructOrUnion:
   'struct'|'union';
 
 StructMember:
-  annotations=Annotations qualType=QualifiedTypeSpecification dec=Declarators (':' INT)? ';';
+  annotations=Annotations qualType=QualifiedTypeSpecification dec=Declarators (':' INT
+  )? ';';
 
 EnumSpecification:
   EnumDefinition|EnumReference;
@@ -95,8 +96,8 @@ InterfaceDefinition:
   FullyQualifiedName)? '{' (methodDef+=MethodDefinition)* '}';
 
 MethodDefinition:
-  annotations=Annotations qualifiedTypeSpec=QualifiedTypeSpecification id=ID ('(' ('void')? ')'|'('
-  ParameterList=ParameterList ')') ';';
+  annotations=Annotations qualifiedTypeSpec=QualifiedTypeSpecification id=ID ('(' (
+  'void')? ')'|'(' ParameterList=ParameterList ')') ';';
 
 ParameterList:
   param=Parameter (',' params+=Parameter)* (',' '...')?;
@@ -132,8 +133,14 @@ AnnotationValuePair:
   id=ID '=' value=AnnotationValue;
 
 AnnotationValue:
-  INT|'null'|Boolean|ID;
+  signedINT|'null'|Boolean|ID|Annotation|ArrayAnnotationValue|STRING;
+
+ArrayAnnotationValue:
+ '{' (firstValue=AnnotationValue (',' values+=AnnotationValue)*)? '}';
 
 terminal Boolean:
   'true' | 'false';
+ 
+signedINT :
+('+'|'-')?INT;
 

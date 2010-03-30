@@ -300,6 +300,7 @@ public class FractalIDLSwitch<T>
       {
         Annotation annotation = (Annotation)theEObject;
         T result = caseAnnotation(annotation);
+        if (result == null) result = caseAnnotationValue(annotation);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -321,6 +322,21 @@ public class FractalIDLSwitch<T>
       {
         AnnotationValuePair annotationValuePair = (AnnotationValuePair)theEObject;
         T result = caseAnnotationValuePair(annotationValuePair);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case FractalIDLPackage.ANNOTATION_VALUE:
+      {
+        AnnotationValue annotationValue = (AnnotationValue)theEObject;
+        T result = caseAnnotationValue(annotationValue);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case FractalIDLPackage.ARRAY_ANNOTATION_VALUE:
+      {
+        ArrayAnnotationValue arrayAnnotationValue = (ArrayAnnotationValue)theEObject;
+        T result = caseArrayAnnotationValue(arrayAnnotationValue);
+        if (result == null) result = caseAnnotationValue(arrayAnnotationValue);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -804,6 +820,38 @@ public class FractalIDLSwitch<T>
    * @generated
    */
   public T caseAnnotationValuePair(AnnotationValuePair object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Annotation Value</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Annotation Value</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseAnnotationValue(AnnotationValue object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Array Annotation Value</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Array Annotation Value</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseArrayAnnotationValue(ArrayAnnotationValue object)
   {
     return null;
   }

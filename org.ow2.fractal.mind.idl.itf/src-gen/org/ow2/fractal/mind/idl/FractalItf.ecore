@@ -165,7 +165,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="annotations" upperBound="-1"
         eType="#//Annotation" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Annotation">
+  <eClassifiers xsi:type="ecore:EClass" name="Annotation" eSuperTypes="#//AnnotationValue">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="fqn" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="annotationParamaters" eType="#//AnnotationParameters"
         containment="true"/>
@@ -173,7 +173,8 @@
   <eClassifiers xsi:type="ecore:EClass" name="AnnotationParameters">
     <eStructuralFeatures xsi:type="ecore:EReference" name="valuePair" eType="#//AnnotationValuePairs"
         containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="value" eType="#//AnnotationValue"
+        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="AnnotationValuePairs">
     <eStructuralFeatures xsi:type="ecore:EReference" name="first" eType="#//AnnotationValuePair"
@@ -183,6 +184,14 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="AnnotationValuePair">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="value" eType="#//AnnotationValue"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="AnnotationValue"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ArrayAnnotationValue" eSuperTypes="#//AnnotationValue">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="firstValue" eType="#//AnnotationValue"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="values" upperBound="-1"
+        eType="#//AnnotationValue" containment="true"/>
   </eClassifiers>
 </ecore:EPackage>

@@ -50,6 +50,7 @@ public class FractalIdtParser extends AbstractContentAssistParser {
 					put(grammarAccess.getIncludeDirectiveAccess().getAlternatives_1(), "rule__IncludeDirective__Alternatives_1");
 					put(grammarAccess.getAnnotationParametersAccess().getAlternatives_2(), "rule__AnnotationParameters__Alternatives_2");
 					put(grammarAccess.getAnnotationValueAccess().getAlternatives(), "rule__AnnotationValue__Alternatives");
+					put(grammarAccess.getSignedINTAccess().getAlternatives_0(), "rule__SignedINT__Alternatives_0");
 					put(grammarAccess.getTypeQualifierAccess().getAlternatives(), "rule__TypeQualifier__Alternatives");
 					put(grammarAccess.getTypeSpecifierAccess().getAlternatives(), "rule__TypeSpecifier__Alternatives");
 					put(grammarAccess.getParameterQualifierAccess().getAlternatives(), "rule__ParameterQualifier__Alternatives");
@@ -97,6 +98,10 @@ public class FractalIdtParser extends AbstractContentAssistParser {
 					put(grammarAccess.getAnnotationValuePairsAccess().getGroup(), "rule__AnnotationValuePairs__Group__0");
 					put(grammarAccess.getAnnotationValuePairsAccess().getGroup_1(), "rule__AnnotationValuePairs__Group_1__0");
 					put(grammarAccess.getAnnotationValuePairAccess().getGroup(), "rule__AnnotationValuePair__Group__0");
+					put(grammarAccess.getArrayAnnotationValueAccess().getGroup(), "rule__ArrayAnnotationValue__Group__0");
+					put(grammarAccess.getArrayAnnotationValueAccess().getGroup_1(), "rule__ArrayAnnotationValue__Group_1__0");
+					put(grammarAccess.getArrayAnnotationValueAccess().getGroup_1_1(), "rule__ArrayAnnotationValue__Group_1_1__0");
+					put(grammarAccess.getSignedINTAccess().getGroup(), "rule__SignedINT__Group__0");
 					put(grammarAccess.getIdtFileAccess().getBegindefAssignment_0(), "rule__IdtFile__BegindefAssignment_0");
 					put(grammarAccess.getIdtFileAccess().getDefAssignment_1(), "rule__IdtFile__DefAssignment_1");
 					put(grammarAccess.getIdtFileAccess().getIncludesAssignment_2(), "rule__IdtFile__IncludesAssignment_2");
@@ -164,6 +169,8 @@ public class FractalIdtParser extends AbstractContentAssistParser {
 					put(grammarAccess.getAnnotationValuePairsAccess().getListValueAssignment_1_1(), "rule__AnnotationValuePairs__ListValueAssignment_1_1");
 					put(grammarAccess.getAnnotationValuePairAccess().getIdAssignment_0(), "rule__AnnotationValuePair__IdAssignment_0");
 					put(grammarAccess.getAnnotationValuePairAccess().getValueAssignment_2(), "rule__AnnotationValuePair__ValueAssignment_2");
+					put(grammarAccess.getArrayAnnotationValueAccess().getFirstValueAssignment_1_0(), "rule__ArrayAnnotationValue__FirstValueAssignment_1_0");
+					put(grammarAccess.getArrayAnnotationValueAccess().getValuesAssignment_1_1_1(), "rule__ArrayAnnotationValue__ValuesAssignment_1_1_1");
 				}
 			};
 		}

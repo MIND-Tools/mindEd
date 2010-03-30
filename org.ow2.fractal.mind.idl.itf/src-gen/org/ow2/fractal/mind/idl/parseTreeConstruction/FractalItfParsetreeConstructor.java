@@ -65,6 +65,8 @@ protected class ThisRootNode extends RootToken {
 			case 27: return new AnnotationParameters_Group(this, this, 27, inst);
 			case 28: return new AnnotationValuePairs_Group(this, this, 28, inst);
 			case 29: return new AnnotationValuePair_Group(this, this, 29, inst);
+			case 30: return new AnnotationValue_Alternatives(this, this, 30, inst);
+			case 31: return new ArrayAnnotationValue_Group(this, this, 31, inst);
 			default: return null;
 		}	
 	}	
@@ -4947,7 +4949,7 @@ protected class AnnotationParameters_ValueAssignment_2_1 extends AssignmentToken
     @Override
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new AnnotationParameters_LeftParenthesisKeyword_1(parent, this, 0, inst);
+			case 0: return new AnnotationValue_Alternatives(this, this, 0, inst);
 			default: return null;
 		}	
 	}	
@@ -4956,14 +4958,26 @@ protected class AnnotationParameters_ValueAssignment_2_1 extends AssignmentToken
 	protected IInstanceDescription tryConsumeVal() {
 		if((value = current.getConsumable("value",true)) == null) return null;
 		IInstanceDescription obj = current.cloneAndConsume("value");
-		if(Boolean.TRUE.booleanValue()) { // org::eclipse::xtext::impl::RuleCallImpl FIXME: check if value is valid for datatype rule
-			type = AssignmentType.DRC;
-			element = grammarAccess.getAnnotationParametersAccess().getValueAnnotationValueParserRuleCall_2_1_0();
-			return obj;
+		if(value instanceof EObject) { // org::eclipse::xtext::impl::RuleCallImpl
+			IInstanceDescription param = getDescr((EObject)value);
+			if(param.isInstanceOf(grammarAccess.getAnnotationValueRule().getType().getClassifier())) {
+				type = AssignmentType.PRC;
+				element = grammarAccess.getAnnotationParametersAccess().getValueAnnotationValueParserRuleCall_2_1_0(); 
+				consumed = obj;
+				return param;
+			}
 		}
 		return null;
 	}
 
+    @Override
+	public AbstractToken createParentFollower(AbstractToken next,	int actIndex, int index, IInstanceDescription inst) {
+		if(value == inst.getDelegate() && !inst.isConsumed()) return null;
+		switch(index) {
+			case 0: return new AnnotationParameters_LeftParenthesisKeyword_1(parent, next, actIndex, consumed);
+			default: return null;
+		}	
+	}	
 }
 
 
@@ -5274,7 +5288,7 @@ protected class AnnotationValuePair_ValueAssignment_2 extends AssignmentToken  {
     @Override
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new AnnotationValuePair_EqualsSignKeyword_1(parent, this, 0, inst);
+			case 0: return new AnnotationValue_Alternatives(this, this, 0, inst);
 			default: return null;
 		}	
 	}	
@@ -5283,18 +5297,493 @@ protected class AnnotationValuePair_ValueAssignment_2 extends AssignmentToken  {
 	protected IInstanceDescription tryConsumeVal() {
 		if((value = current.getConsumable("value",true)) == null) return null;
 		IInstanceDescription obj = current.cloneAndConsume("value");
-		if(Boolean.TRUE.booleanValue()) { // org::eclipse::xtext::impl::RuleCallImpl FIXME: check if value is valid for datatype rule
-			type = AssignmentType.DRC;
-			element = grammarAccess.getAnnotationValuePairAccess().getValueAnnotationValueParserRuleCall_2_0();
-			return obj;
+		if(value instanceof EObject) { // org::eclipse::xtext::impl::RuleCallImpl
+			IInstanceDescription param = getDescr((EObject)value);
+			if(param.isInstanceOf(grammarAccess.getAnnotationValueRule().getType().getClassifier())) {
+				type = AssignmentType.PRC;
+				element = grammarAccess.getAnnotationValuePairAccess().getValueAnnotationValueParserRuleCall_2_0(); 
+				consumed = obj;
+				return param;
+			}
 		}
 		return null;
 	}
 
+    @Override
+	public AbstractToken createParentFollower(AbstractToken next,	int actIndex, int index, IInstanceDescription inst) {
+		if(value == inst.getDelegate() && !inst.isConsumed()) return null;
+		switch(index) {
+			case 0: return new AnnotationValuePair_EqualsSignKeyword_1(parent, next, actIndex, consumed);
+			default: return null;
+		}	
+	}	
 }
 
 
 /************ end Rule AnnotationValuePair ****************/
+
+
+/************ begin Rule AnnotationValue ****************
+ *
+ * AnnotationValue:
+ *   signedINT|"null"|Boolean|ID|Annotation|ArrayAnnotationValue|STRING;
+ *
+ **/
+
+// signedINT|"null"|Boolean|ID|Annotation|ArrayAnnotationValue|STRING
+protected class AnnotationValue_Alternatives extends AlternativesToken {
+
+	public AnnotationValue_Alternatives(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Alternatives getGrammarElement() {
+		return grammarAccess.getAnnotationValueAccess().getAlternatives();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new AnnotationValue_SignedINTParserRuleCall_0(parent, this, 0, inst);
+			case 1: return new AnnotationValue_NullKeyword_1(parent, this, 1, inst);
+			case 2: return new AnnotationValue_BooleanTerminalRuleCall_2(parent, this, 2, inst);
+			case 3: return new AnnotationValue_IDTerminalRuleCall_3(parent, this, 3, inst);
+			case 4: return new AnnotationValue_AnnotationParserRuleCall_4(parent, this, 4, inst);
+			case 5: return new AnnotationValue_ArrayAnnotationValueParserRuleCall_5(parent, this, 5, inst);
+			case 6: return new AnnotationValue_STRINGTerminalRuleCall_6(parent, this, 6, inst);
+			default: return null;
+		}	
+	}	
+		
+    @Override
+	public IInstanceDescription tryConsume() {
+		if(!current.isInstanceOf(grammarAccess.getAnnotationValueRule().getType().getClassifier())) return null;
+		return tryConsumeVal();
+	}
+}
+
+// signedINT
+protected class AnnotationValue_SignedINTParserRuleCall_0 extends UnassignedTextToken {
+
+	public AnnotationValue_SignedINTParserRuleCall_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public RuleCall getGrammarElement() {
+		return grammarAccess.getAnnotationValueAccess().getSignedINTParserRuleCall_0();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			default: return parent.createParentFollower(this, index, index, inst);
+		}	
+	}	
+		
+}
+
+// "null"
+protected class AnnotationValue_NullKeyword_1 extends KeywordToken  {
+	
+	public AnnotationValue_NullKeyword_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Keyword getGrammarElement() {
+		return grammarAccess.getAnnotationValueAccess().getNullKeyword_1();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			default: return parent.createParentFollower(this, index, index, inst);
+		}	
+	}	
+		
+}
+
+// Boolean
+protected class AnnotationValue_BooleanTerminalRuleCall_2 extends UnassignedTextToken {
+
+	public AnnotationValue_BooleanTerminalRuleCall_2(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public RuleCall getGrammarElement() {
+		return grammarAccess.getAnnotationValueAccess().getBooleanTerminalRuleCall_2();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			default: return parent.createParentFollower(this, index, index, inst);
+		}	
+	}	
+		
+}
+
+// ID
+protected class AnnotationValue_IDTerminalRuleCall_3 extends UnassignedTextToken {
+
+	public AnnotationValue_IDTerminalRuleCall_3(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public RuleCall getGrammarElement() {
+		return grammarAccess.getAnnotationValueAccess().getIDTerminalRuleCall_3();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			default: return parent.createParentFollower(this, index, index, inst);
+		}	
+	}	
+		
+}
+
+// Annotation
+protected class AnnotationValue_AnnotationParserRuleCall_4 extends RuleCallToken {
+	
+	public AnnotationValue_AnnotationParserRuleCall_4(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public RuleCall getGrammarElement() {
+		return grammarAccess.getAnnotationValueAccess().getAnnotationParserRuleCall_4();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new Annotation_Group(this, this, 0, inst);
+			default: return null;
+		}	
+	}	
+		
+    @Override
+	protected IInstanceDescription tryConsumeVal() {
+		if(checkForRecursion(Annotation_Group.class, current)) return null;
+		if(!current.isInstanceOf(grammarAccess.getAnnotationRule().getType().getClassifier())) return null;
+		return current;
+	}
+	
+    @Override
+	public AbstractToken createParentFollower(AbstractToken next,	int actIndex, int index, IInstanceDescription inst) {
+		switch(index) {
+			default: return parent.createParentFollower(next, actIndex , index, inst);
+		}	
+	}	
+}
+
+// ArrayAnnotationValue
+protected class AnnotationValue_ArrayAnnotationValueParserRuleCall_5 extends RuleCallToken {
+	
+	public AnnotationValue_ArrayAnnotationValueParserRuleCall_5(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public RuleCall getGrammarElement() {
+		return grammarAccess.getAnnotationValueAccess().getArrayAnnotationValueParserRuleCall_5();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new ArrayAnnotationValue_Group(this, this, 0, inst);
+			default: return null;
+		}	
+	}	
+		
+    @Override
+	protected IInstanceDescription tryConsumeVal() {
+		if(checkForRecursion(ArrayAnnotationValue_Group.class, current)) return null;
+		if(!current.isInstanceOf(grammarAccess.getArrayAnnotationValueRule().getType().getClassifier())) return null;
+		return current;
+	}
+	
+    @Override
+	public AbstractToken createParentFollower(AbstractToken next,	int actIndex, int index, IInstanceDescription inst) {
+		switch(index) {
+			default: return parent.createParentFollower(next, actIndex , index, inst);
+		}	
+	}	
+}
+
+// STRING
+protected class AnnotationValue_STRINGTerminalRuleCall_6 extends UnassignedTextToken {
+
+	public AnnotationValue_STRINGTerminalRuleCall_6(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public RuleCall getGrammarElement() {
+		return grammarAccess.getAnnotationValueAccess().getSTRINGTerminalRuleCall_6();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			default: return parent.createParentFollower(this, index, index, inst);
+		}	
+	}	
+		
+}
+
+
+/************ end Rule AnnotationValue ****************/
+
+
+/************ begin Rule ArrayAnnotationValue ****************
+ *
+ * ArrayAnnotationValue:
+ *   "{" (firstValue=AnnotationValue ("," values+=AnnotationValue)*)? "}";
+ *
+ **/
+
+// "{" (firstValue=AnnotationValue ("," values+=AnnotationValue)*)? "}"
+protected class ArrayAnnotationValue_Group extends GroupToken {
+	
+	public ArrayAnnotationValue_Group(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Group getGrammarElement() {
+		return grammarAccess.getArrayAnnotationValueAccess().getGroup();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new ArrayAnnotationValue_RightCurlyBracketKeyword_2(parent, this, 0, inst);
+			default: return null;
+		}	
+	}	
+		
+    @Override
+	public IInstanceDescription tryConsume() {
+		if(!current.isInstanceOf(grammarAccess.getArrayAnnotationValueRule().getType().getClassifier())) return null;
+		return tryConsumeVal();
+	}
+}
+
+// "{"
+protected class ArrayAnnotationValue_LeftCurlyBracketKeyword_0 extends KeywordToken  {
+	
+	public ArrayAnnotationValue_LeftCurlyBracketKeyword_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Keyword getGrammarElement() {
+		return grammarAccess.getArrayAnnotationValueAccess().getLeftCurlyBracketKeyword_0();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			default: return parent.createParentFollower(this, index, index, inst);
+		}	
+	}	
+		
+}
+
+// (firstValue=AnnotationValue ("," values+=AnnotationValue)*)?
+protected class ArrayAnnotationValue_Group_1 extends GroupToken {
+	
+	public ArrayAnnotationValue_Group_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Group getGrammarElement() {
+		return grammarAccess.getArrayAnnotationValueAccess().getGroup_1();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new ArrayAnnotationValue_Group_1_1(parent, this, 0, inst);
+			case 1: return new ArrayAnnotationValue_FirstValueAssignment_1_0(parent, this, 1, inst);
+			default: return null;
+		}	
+	}	
+		
+}
+
+// firstValue=AnnotationValue
+protected class ArrayAnnotationValue_FirstValueAssignment_1_0 extends AssignmentToken  {
+	
+	public ArrayAnnotationValue_FirstValueAssignment_1_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Assignment getGrammarElement() {
+		return grammarAccess.getArrayAnnotationValueAccess().getFirstValueAssignment_1_0();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new AnnotationValue_Alternatives(this, this, 0, inst);
+			default: return null;
+		}	
+	}	
+		
+    @Override	
+	protected IInstanceDescription tryConsumeVal() {
+		if((value = current.getConsumable("firstValue",true)) == null) return null;
+		IInstanceDescription obj = current.cloneAndConsume("firstValue");
+		if(value instanceof EObject) { // org::eclipse::xtext::impl::RuleCallImpl
+			IInstanceDescription param = getDescr((EObject)value);
+			if(param.isInstanceOf(grammarAccess.getAnnotationValueRule().getType().getClassifier())) {
+				type = AssignmentType.PRC;
+				element = grammarAccess.getArrayAnnotationValueAccess().getFirstValueAnnotationValueParserRuleCall_1_0_0(); 
+				consumed = obj;
+				return param;
+			}
+		}
+		return null;
+	}
+
+    @Override
+	public AbstractToken createParentFollower(AbstractToken next,	int actIndex, int index, IInstanceDescription inst) {
+		if(value == inst.getDelegate() && !inst.isConsumed()) return null;
+		switch(index) {
+			case 0: return new ArrayAnnotationValue_LeftCurlyBracketKeyword_0(parent, next, actIndex, consumed);
+			default: return null;
+		}	
+	}	
+}
+
+// ("," values+=AnnotationValue)*
+protected class ArrayAnnotationValue_Group_1_1 extends GroupToken {
+	
+	public ArrayAnnotationValue_Group_1_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Group getGrammarElement() {
+		return grammarAccess.getArrayAnnotationValueAccess().getGroup_1_1();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new ArrayAnnotationValue_ValuesAssignment_1_1_1(parent, this, 0, inst);
+			default: return null;
+		}	
+	}	
+		
+}
+
+// ","
+protected class ArrayAnnotationValue_CommaKeyword_1_1_0 extends KeywordToken  {
+	
+	public ArrayAnnotationValue_CommaKeyword_1_1_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Keyword getGrammarElement() {
+		return grammarAccess.getArrayAnnotationValueAccess().getCommaKeyword_1_1_0();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new ArrayAnnotationValue_Group_1_1(parent, this, 0, inst);
+			case 1: return new ArrayAnnotationValue_FirstValueAssignment_1_0(parent, this, 1, inst);
+			default: return null;
+		}	
+	}	
+		
+}
+
+// values+=AnnotationValue
+protected class ArrayAnnotationValue_ValuesAssignment_1_1_1 extends AssignmentToken  {
+	
+	public ArrayAnnotationValue_ValuesAssignment_1_1_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Assignment getGrammarElement() {
+		return grammarAccess.getArrayAnnotationValueAccess().getValuesAssignment_1_1_1();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new AnnotationValue_Alternatives(this, this, 0, inst);
+			default: return null;
+		}	
+	}	
+		
+    @Override	
+	protected IInstanceDescription tryConsumeVal() {
+		if((value = current.getConsumable("values",false)) == null) return null;
+		IInstanceDescription obj = current.cloneAndConsume("values");
+		if(value instanceof EObject) { // org::eclipse::xtext::impl::RuleCallImpl
+			IInstanceDescription param = getDescr((EObject)value);
+			if(param.isInstanceOf(grammarAccess.getAnnotationValueRule().getType().getClassifier())) {
+				type = AssignmentType.PRC;
+				element = grammarAccess.getArrayAnnotationValueAccess().getValuesAnnotationValueParserRuleCall_1_1_1_0(); 
+				consumed = obj;
+				return param;
+			}
+		}
+		return null;
+	}
+
+    @Override
+	public AbstractToken createParentFollower(AbstractToken next,	int actIndex, int index, IInstanceDescription inst) {
+		if(value == inst.getDelegate() && !inst.isConsumed()) return null;
+		switch(index) {
+			case 0: return new ArrayAnnotationValue_CommaKeyword_1_1_0(parent, next, actIndex, consumed);
+			default: return null;
+		}	
+	}	
+}
+
+
+
+// "}"
+protected class ArrayAnnotationValue_RightCurlyBracketKeyword_2 extends KeywordToken  {
+	
+	public ArrayAnnotationValue_RightCurlyBracketKeyword_2(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Keyword getGrammarElement() {
+		return grammarAccess.getArrayAnnotationValueAccess().getRightCurlyBracketKeyword_2();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new ArrayAnnotationValue_Group_1(parent, this, 0, inst);
+			case 1: return new ArrayAnnotationValue_LeftCurlyBracketKeyword_0(parent, this, 1, inst);
+			default: return null;
+		}	
+	}	
+		
+}
+
+
+/************ end Rule ArrayAnnotationValue ****************/
 
 
 }

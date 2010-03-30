@@ -16,9 +16,11 @@ import org.eclipse.emf.ecore.impl.EPackageImpl;
 
 import org.ow2.fractal.mind.idl.fractalIDL.Annotation;
 import org.ow2.fractal.mind.idl.fractalIDL.AnnotationParameters;
+import org.ow2.fractal.mind.idl.fractalIDL.AnnotationValue;
 import org.ow2.fractal.mind.idl.fractalIDL.AnnotationValuePair;
 import org.ow2.fractal.mind.idl.fractalIDL.AnnotationValuePairs;
 import org.ow2.fractal.mind.idl.fractalIDL.Annotations;
+import org.ow2.fractal.mind.idl.fractalIDL.ArrayAnnotationValue;
 import org.ow2.fractal.mind.idl.fractalIDL.ConstantDefinition;
 import org.ow2.fractal.mind.idl.fractalIDL.Declarator;
 import org.ow2.fractal.mind.idl.fractalIDL.Declarators;
@@ -267,6 +269,20 @@ public class FractalIDLPackageImpl extends EPackageImpl implements FractalIDLPac
    * @generated
    */
   private EClass annotationValuePairEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass annotationValueEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass arrayAnnotationValueEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -1147,9 +1163,9 @@ public class FractalIDLPackageImpl extends EPackageImpl implements FractalIDLPac
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getAnnotationParameters_Value()
+  public EReference getAnnotationParameters_Value()
   {
-    return (EAttribute)annotationParametersEClass.getEStructuralFeatures().get(1);
+    return (EReference)annotationParametersEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -1207,9 +1223,49 @@ public class FractalIDLPackageImpl extends EPackageImpl implements FractalIDLPac
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getAnnotationValuePair_Value()
+  public EReference getAnnotationValuePair_Value()
   {
-    return (EAttribute)annotationValuePairEClass.getEStructuralFeatures().get(1);
+    return (EReference)annotationValuePairEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getAnnotationValue()
+  {
+    return annotationValueEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getArrayAnnotationValue()
+  {
+    return arrayAnnotationValueEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getArrayAnnotationValue_FirstValue()
+  {
+    return (EReference)arrayAnnotationValueEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getArrayAnnotationValue_Values()
+  {
+    return (EReference)arrayAnnotationValueEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -1378,7 +1434,7 @@ public class FractalIDLPackageImpl extends EPackageImpl implements FractalIDLPac
 
     annotationParametersEClass = createEClass(ANNOTATION_PARAMETERS);
     createEReference(annotationParametersEClass, ANNOTATION_PARAMETERS__VALUE_PAIR);
-    createEAttribute(annotationParametersEClass, ANNOTATION_PARAMETERS__VALUE);
+    createEReference(annotationParametersEClass, ANNOTATION_PARAMETERS__VALUE);
 
     annotationValuePairsEClass = createEClass(ANNOTATION_VALUE_PAIRS);
     createEReference(annotationValuePairsEClass, ANNOTATION_VALUE_PAIRS__FIRST);
@@ -1386,7 +1442,13 @@ public class FractalIDLPackageImpl extends EPackageImpl implements FractalIDLPac
 
     annotationValuePairEClass = createEClass(ANNOTATION_VALUE_PAIR);
     createEAttribute(annotationValuePairEClass, ANNOTATION_VALUE_PAIR__ID);
-    createEAttribute(annotationValuePairEClass, ANNOTATION_VALUE_PAIR__VALUE);
+    createEReference(annotationValuePairEClass, ANNOTATION_VALUE_PAIR__VALUE);
+
+    annotationValueEClass = createEClass(ANNOTATION_VALUE);
+
+    arrayAnnotationValueEClass = createEClass(ARRAY_ANNOTATION_VALUE);
+    createEReference(arrayAnnotationValueEClass, ARRAY_ANNOTATION_VALUE__FIRST_VALUE);
+    createEReference(arrayAnnotationValueEClass, ARRAY_ANNOTATION_VALUE__VALUES);
 
     // Create enums
     typeQualifierEEnum = createEEnum(TYPE_QUALIFIER);
@@ -1433,6 +1495,8 @@ public class FractalIDLPackageImpl extends EPackageImpl implements FractalIDLPac
     enumDefinitionEClass.getESuperTypes().add(this.getEnumSpecification());
     enumReferenceEClass.getESuperTypes().add(this.getEnumSpecification());
     enumMemberEClass.getESuperTypes().add(this.getEnumMemberList());
+    annotationEClass.getESuperTypes().add(this.getAnnotationValue());
+    arrayAnnotationValueEClass.getESuperTypes().add(this.getAnnotationValue());
 
     // Initialize classes and features; add operations and parameters
     initEClass(itfFileEClass, ItfFile.class, "ItfFile", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1541,7 +1605,7 @@ public class FractalIDLPackageImpl extends EPackageImpl implements FractalIDLPac
 
     initEClass(annotationParametersEClass, AnnotationParameters.class, "AnnotationParameters", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getAnnotationParameters_ValuePair(), this.getAnnotationValuePairs(), null, "valuePair", null, 0, 1, AnnotationParameters.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getAnnotationParameters_Value(), ecorePackage.getEString(), "value", null, 0, 1, AnnotationParameters.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getAnnotationParameters_Value(), this.getAnnotationValue(), null, "value", null, 0, 1, AnnotationParameters.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(annotationValuePairsEClass, AnnotationValuePairs.class, "AnnotationValuePairs", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getAnnotationValuePairs_First(), this.getAnnotationValuePair(), null, "first", null, 0, 1, AnnotationValuePairs.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1549,7 +1613,13 @@ public class FractalIDLPackageImpl extends EPackageImpl implements FractalIDLPac
 
     initEClass(annotationValuePairEClass, AnnotationValuePair.class, "AnnotationValuePair", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getAnnotationValuePair_Id(), ecorePackage.getEString(), "id", null, 0, 1, AnnotationValuePair.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getAnnotationValuePair_Value(), ecorePackage.getEString(), "value", null, 0, 1, AnnotationValuePair.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getAnnotationValuePair_Value(), this.getAnnotationValue(), null, "value", null, 0, 1, AnnotationValuePair.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(annotationValueEClass, AnnotationValue.class, "AnnotationValue", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+    initEClass(arrayAnnotationValueEClass, ArrayAnnotationValue.class, "ArrayAnnotationValue", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getArrayAnnotationValue_FirstValue(), this.getAnnotationValue(), null, "firstValue", null, 0, 1, ArrayAnnotationValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getArrayAnnotationValue_Values(), this.getAnnotationValue(), null, "values", null, 0, -1, ArrayAnnotationValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     // Initialize enums and add enum literals
     initEEnum(typeQualifierEEnum, TypeQualifier.class, "TypeQualifier");

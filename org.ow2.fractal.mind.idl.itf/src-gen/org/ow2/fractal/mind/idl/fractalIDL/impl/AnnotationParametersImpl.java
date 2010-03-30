@@ -16,6 +16,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.ow2.fractal.mind.idl.fractalIDL.AnnotationParameters;
+import org.ow2.fractal.mind.idl.fractalIDL.AnnotationValue;
 import org.ow2.fractal.mind.idl.fractalIDL.AnnotationValuePairs;
 import org.ow2.fractal.mind.idl.fractalIDL.FractalIDLPackage;
 
@@ -46,24 +47,14 @@ public class AnnotationParametersImpl extends MinimalEObjectImpl.Container imple
   protected AnnotationValuePairs valuePair;
 
   /**
-   * The default value of the '{@link #getValue() <em>Value</em>}' attribute.
+   * The cached value of the '{@link #getValue() <em>Value</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getValue()
    * @generated
    * @ordered
    */
-  protected static final String VALUE_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getValue() <em>Value</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getValue()
-   * @generated
-   * @ordered
-   */
-  protected String value = VALUE_EDEFAULT;
+  protected AnnotationValue value;
 
   /**
    * <!-- begin-user-doc -->
@@ -139,7 +130,7 @@ public class AnnotationParametersImpl extends MinimalEObjectImpl.Container imple
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getValue()
+  public AnnotationValue getValue()
   {
     return value;
   }
@@ -149,12 +140,37 @@ public class AnnotationParametersImpl extends MinimalEObjectImpl.Container imple
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setValue(String newValue)
+  public NotificationChain basicSetValue(AnnotationValue newValue, NotificationChain msgs)
   {
-    String oldValue = value;
+    AnnotationValue oldValue = value;
     value = newValue;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, FractalIDLPackage.ANNOTATION_PARAMETERS__VALUE, oldValue, value));
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FractalIDLPackage.ANNOTATION_PARAMETERS__VALUE, oldValue, newValue);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setValue(AnnotationValue newValue)
+  {
+    if (newValue != value)
+    {
+      NotificationChain msgs = null;
+      if (value != null)
+        msgs = ((InternalEObject)value).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FractalIDLPackage.ANNOTATION_PARAMETERS__VALUE, null, msgs);
+      if (newValue != null)
+        msgs = ((InternalEObject)newValue).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FractalIDLPackage.ANNOTATION_PARAMETERS__VALUE, null, msgs);
+      msgs = basicSetValue(newValue, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, FractalIDLPackage.ANNOTATION_PARAMETERS__VALUE, newValue, newValue));
   }
 
   /**
@@ -169,6 +185,8 @@ public class AnnotationParametersImpl extends MinimalEObjectImpl.Container imple
     {
       case FractalIDLPackage.ANNOTATION_PARAMETERS__VALUE_PAIR:
         return basicSetValuePair(null, msgs);
+      case FractalIDLPackage.ANNOTATION_PARAMETERS__VALUE:
+        return basicSetValue(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -205,7 +223,7 @@ public class AnnotationParametersImpl extends MinimalEObjectImpl.Container imple
         setValuePair((AnnotationValuePairs)newValue);
         return;
       case FractalIDLPackage.ANNOTATION_PARAMETERS__VALUE:
-        setValue((String)newValue);
+        setValue((AnnotationValue)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -225,7 +243,7 @@ public class AnnotationParametersImpl extends MinimalEObjectImpl.Container imple
         setValuePair((AnnotationValuePairs)null);
         return;
       case FractalIDLPackage.ANNOTATION_PARAMETERS__VALUE:
-        setValue(VALUE_EDEFAULT);
+        setValue((AnnotationValue)null);
         return;
     }
     super.eUnset(featureID);
@@ -244,26 +262,9 @@ public class AnnotationParametersImpl extends MinimalEObjectImpl.Container imple
       case FractalIDLPackage.ANNOTATION_PARAMETERS__VALUE_PAIR:
         return valuePair != null;
       case FractalIDLPackage.ANNOTATION_PARAMETERS__VALUE:
-        return VALUE_EDEFAULT == null ? value != null : !VALUE_EDEFAULT.equals(value);
+        return value != null;
     }
     return super.eIsSet(featureID);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public String toString()
-  {
-    if (eIsProxy()) return super.toString();
-
-    StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (value: ");
-    result.append(value);
-    result.append(')');
-    return result.toString();
   }
 
 } //AnnotationParametersImpl

@@ -297,6 +297,24 @@ public interface FractalIDLFactory extends EFactory
   AnnotationValuePair createAnnotationValuePair();
 
   /**
+   * Returns a new object of class '<em>Annotation Value</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Annotation Value</em>'.
+   * @generated
+   */
+  AnnotationValue createAnnotationValue();
+
+  /**
+   * Returns a new object of class '<em>Array Annotation Value</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Array Annotation Value</em>'.
+   * @generated
+   */
+  ArrayAnnotationValue createArrayAnnotationValue();
+
+  /**
    * Returns the package supported by this factory.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

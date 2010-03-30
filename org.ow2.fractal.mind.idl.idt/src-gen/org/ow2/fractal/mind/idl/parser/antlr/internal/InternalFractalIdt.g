@@ -2841,50 +2841,192 @@ ruleAnnotationValuePair returns [EObject current=null]
 
 
 // Entry rule entryRuleAnnotationValue
-entryRuleAnnotationValue returns [String current=null] 
+entryRuleAnnotationValue returns [EObject current=null] 
 	:
-	{ currentNode = createCompositeNode(grammarAccess.getAnnotationValueRule(), currentNode); } 
+	{ currentNode = createCompositeNode(grammarAccess.getAnnotationValueRule(), currentNode); }
 	 iv_ruleAnnotationValue=ruleAnnotationValue 
-	 { $current=$iv_ruleAnnotationValue.current.getText(); }  
+	 { $current=$iv_ruleAnnotationValue.current; } 
 	 EOF 
 ;
 
 // Rule AnnotationValue
-ruleAnnotationValue returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] 
+ruleAnnotationValue returns [EObject current=null] 
+    @init { @SuppressWarnings("unused") EObject temp=null; setCurrentLookahead(); resetLookahead(); 
+    }
+    @after { resetLookahead(); 
+    	lastConsumedNode = currentNode;
+    }:
+(rulesignedINT
+    |	'null' 
+    {
+        createLeafNode(grammarAccess.getAnnotationValueAccess().getNullKeyword_1(), null); 
+    }
+
+    |RULE_BOOLEAN
+    { 
+    createLeafNode(grammarAccess.getAnnotationValueAccess().getBooleanTerminalRuleCall_2(), null); 
+    }
+
+    |RULE_ID
+    { 
+    createLeafNode(grammarAccess.getAnnotationValueAccess().getIDTerminalRuleCall_3(), null); 
+    }
+
+    |
+	{ 
+	  /* */ 
+	}
+    { 
+        currentNode=createCompositeNode(grammarAccess.getAnnotationValueAccess().getAnnotationParserRuleCall_4(), currentNode); 
+    }
+    this_Annotation_4=ruleAnnotation
+    { 
+        $current = $this_Annotation_4.current; 
+        currentNode = currentNode.getParent();
+    }
+
+    |
+	{ 
+	  /* */ 
+	}
+    { 
+        currentNode=createCompositeNode(grammarAccess.getAnnotationValueAccess().getArrayAnnotationValueParserRuleCall_5(), currentNode); 
+    }
+    this_ArrayAnnotationValue_5=ruleArrayAnnotationValue
+    { 
+        $current = $this_ArrayAnnotationValue_5.current; 
+        currentNode = currentNode.getParent();
+    }
+
+    |RULE_STRING
+    { 
+    createLeafNode(grammarAccess.getAnnotationValueAccess().getSTRINGTerminalRuleCall_6(), null); 
+    }
+)
+;
+
+
+
+
+
+// Entry rule entryRuleArrayAnnotationValue
+entryRuleArrayAnnotationValue returns [EObject current=null] 
+	:
+	{ currentNode = createCompositeNode(grammarAccess.getArrayAnnotationValueRule(), currentNode); }
+	 iv_ruleArrayAnnotationValue=ruleArrayAnnotationValue 
+	 { $current=$iv_ruleArrayAnnotationValue.current; } 
+	 EOF 
+;
+
+// Rule ArrayAnnotationValue
+ruleArrayAnnotationValue returns [EObject current=null] 
+    @init { @SuppressWarnings("unused") EObject temp=null; setCurrentLookahead(); resetLookahead(); 
+    }
+    @after { resetLookahead(); 
+    	lastConsumedNode = currentNode;
+    }:
+(	'{' 
+    {
+        createLeafNode(grammarAccess.getArrayAnnotationValueAccess().getLeftCurlyBracketKeyword_0(), null); 
+    }
+((
+(
+		{ 
+	        currentNode=createCompositeNode(grammarAccess.getArrayAnnotationValueAccess().getFirstValueAnnotationValueParserRuleCall_1_0_0(), currentNode); 
+	    }
+		lv_firstValue_1_0=ruleAnnotationValue		{
+	        if ($current==null) {
+	            $current = factory.create(grammarAccess.getArrayAnnotationValueRule().getType().getClassifier());
+	            associateNodeWithAstElement(currentNode.getParent(), $current);
+	        }
+	        try {
+	       		set(
+	       			$current, 
+	       			"firstValue",
+	        		lv_firstValue_1_0, 
+	        		"AnnotationValue", 
+	        		currentNode);
+	        } catch (ValueConverterException vce) {
+				handleValueConverterException(vce);
+	        }
+	        currentNode = currentNode.getParent();
+	    }
+
+)
+)(	',' 
+    {
+        createLeafNode(grammarAccess.getArrayAnnotationValueAccess().getCommaKeyword_1_1_0(), null); 
+    }
+(
+(
+		{ 
+	        currentNode=createCompositeNode(grammarAccess.getArrayAnnotationValueAccess().getValuesAnnotationValueParserRuleCall_1_1_1_0(), currentNode); 
+	    }
+		lv_values_3_0=ruleAnnotationValue		{
+	        if ($current==null) {
+	            $current = factory.create(grammarAccess.getArrayAnnotationValueRule().getType().getClassifier());
+	            associateNodeWithAstElement(currentNode.getParent(), $current);
+	        }
+	        try {
+	       		add(
+	       			$current, 
+	       			"values",
+	        		lv_values_3_0, 
+	        		"AnnotationValue", 
+	        		currentNode);
+	        } catch (ValueConverterException vce) {
+				handleValueConverterException(vce);
+	        }
+	        currentNode = currentNode.getParent();
+	    }
+
+)
+))*)?	'}' 
+    {
+        createLeafNode(grammarAccess.getArrayAnnotationValueAccess().getRightCurlyBracketKeyword_2(), null); 
+    }
+)
+;
+
+
+
+
+
+// Entry rule entryRulesignedINT
+entryRulesignedINT returns [String current=null] 
+	:
+	{ currentNode = createCompositeNode(grammarAccess.getSignedINTRule(), currentNode); } 
+	 iv_rulesignedINT=rulesignedINT 
+	 { $current=$iv_rulesignedINT.current.getText(); }  
+	 EOF 
+;
+
+// Rule signedINT
+rulesignedINT returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] 
     @init { setCurrentLookahead(); resetLookahead(); 
     }
     @after { resetLookahead(); 
 	    lastConsumedNode = currentNode;
     }:
-(    this_INT_0=RULE_INT    {
-		$current.merge(this_INT_0);
-    }
-
-    { 
-    createLeafNode(grammarAccess.getAnnotationValueAccess().getINTTerminalRuleCall_0(), null); 
+((
+	kw='+' 
+    {
+        $current.merge(kw);
+        createLeafNode(grammarAccess.getSignedINTAccess().getPlusSignKeyword_0_0(), null); 
     }
 
     |
-	kw='null' 
+	kw='-' 
     {
         $current.merge(kw);
-        createLeafNode(grammarAccess.getAnnotationValueAccess().getNullKeyword_1(), null); 
+        createLeafNode(grammarAccess.getSignedINTAccess().getHyphenMinusKeyword_0_1(), null); 
     }
-
-    |    this_Boolean_2=RULE_BOOLEAN    {
-		$current.merge(this_Boolean_2);
-    }
-
-    { 
-    createLeafNode(grammarAccess.getAnnotationValueAccess().getBooleanTerminalRuleCall_2(), null); 
-    }
-
-    |    this_ID_3=RULE_ID    {
-		$current.merge(this_ID_3);
+)?    this_INT_2=RULE_INT    {
+		$current.merge(this_INT_2);
     }
 
     { 
-    createLeafNode(grammarAccess.getAnnotationValueAccess().getIDTerminalRuleCall_3(), null); 
+    createLeafNode(grammarAccess.getSignedINTAccess().getINTTerminalRuleCall_1(), null); 
     }
 )
     ;

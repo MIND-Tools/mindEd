@@ -290,6 +290,10 @@ public class FractalItfTransformer extends
 	public List<EObject> getChildren(ItfFile obj) {
 		return obj.eContents();
 	}
+	
+	public List<EObject> getChildren(Annotation obj) {
+		return NO_CHILDREN;
+	}
 
 	/**
 	 * Return Children Elements of Interface definition in outline view
@@ -322,4 +326,5 @@ public class FractalItfTransformer extends
 		return list;
 
 	}
+
 }

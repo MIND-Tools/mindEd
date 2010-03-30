@@ -99,6 +99,8 @@ public class FractalIDLFactoryImpl extends EFactoryImpl implements FractalIDLFac
       case FractalIDLPackage.ANNOTATION_PARAMETERS: return createAnnotationParameters();
       case FractalIDLPackage.ANNOTATION_VALUE_PAIRS: return createAnnotationValuePairs();
       case FractalIDLPackage.ANNOTATION_VALUE_PAIR: return createAnnotationValuePair();
+      case FractalIDLPackage.ANNOTATION_VALUE: return createAnnotationValue();
+      case FractalIDLPackage.ARRAY_ANNOTATION_VALUE: return createArrayAnnotationValue();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
     }
@@ -474,6 +476,28 @@ public class FractalIDLFactoryImpl extends EFactoryImpl implements FractalIDLFac
   {
     AnnotationValuePairImpl annotationValuePair = new AnnotationValuePairImpl();
     return annotationValuePair;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public AnnotationValue createAnnotationValue()
+  {
+    AnnotationValueImpl annotationValue = new AnnotationValueImpl();
+    return annotationValue;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public ArrayAnnotationValue createArrayAnnotationValue()
+  {
+    ArrayAnnotationValueImpl arrayAnnotationValue = new ArrayAnnotationValueImpl();
+    return arrayAnnotationValue;
   }
 
   /**

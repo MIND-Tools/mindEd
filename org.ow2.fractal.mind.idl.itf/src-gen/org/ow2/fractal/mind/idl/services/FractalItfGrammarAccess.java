@@ -1264,20 +1264,23 @@ public class FractalItfGrammarAccess extends AbstractGrammarElementFinder {
 	public class AnnotationValueElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "AnnotationValue");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final RuleCall cINTTerminalRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
+		private final RuleCall cSignedINTParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
 		private final Keyword cNullKeyword_1 = (Keyword)cAlternatives.eContents().get(1);
 		private final RuleCall cBooleanTerminalRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
 		private final RuleCall cIDTerminalRuleCall_3 = (RuleCall)cAlternatives.eContents().get(3);
+		private final RuleCall cAnnotationParserRuleCall_4 = (RuleCall)cAlternatives.eContents().get(4);
+		private final RuleCall cArrayAnnotationValueParserRuleCall_5 = (RuleCall)cAlternatives.eContents().get(5);
+		private final RuleCall cSTRINGTerminalRuleCall_6 = (RuleCall)cAlternatives.eContents().get(6);
 		
-		//AnnotationValue returns ecore::EString:
-		//  INT|"null"|Boolean|ID;
+		//AnnotationValue:
+		//  signedINT|"null"|Boolean|ID|Annotation|ArrayAnnotationValue|STRING;
 		public ParserRule getRule() { return rule; }
 
-		//INT|"null"|Boolean|ID
+		//signedINT|"null"|Boolean|ID|Annotation|ArrayAnnotationValue|STRING
 		public Alternatives getAlternatives() { return cAlternatives; }
 
-		//INT
-		public RuleCall getINTTerminalRuleCall_0() { return cINTTerminalRuleCall_0; }
+		//signedINT
+		public RuleCall getSignedINTParserRuleCall_0() { return cSignedINTParserRuleCall_0; }
 
 		//"null"
 		public Keyword getNullKeyword_1() { return cNullKeyword_1; }
@@ -1287,6 +1290,91 @@ public class FractalItfGrammarAccess extends AbstractGrammarElementFinder {
 
 		//ID
 		public RuleCall getIDTerminalRuleCall_3() { return cIDTerminalRuleCall_3; }
+
+		//Annotation
+		public RuleCall getAnnotationParserRuleCall_4() { return cAnnotationParserRuleCall_4; }
+
+		//ArrayAnnotationValue
+		public RuleCall getArrayAnnotationValueParserRuleCall_5() { return cArrayAnnotationValueParserRuleCall_5; }
+
+		//STRING
+		public RuleCall getSTRINGTerminalRuleCall_6() { return cSTRINGTerminalRuleCall_6; }
+	}
+
+	public class ArrayAnnotationValueElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "ArrayAnnotationValue");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cLeftCurlyBracketKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
+		private final Assignment cFirstValueAssignment_1_0 = (Assignment)cGroup_1.eContents().get(0);
+		private final RuleCall cFirstValueAnnotationValueParserRuleCall_1_0_0 = (RuleCall)cFirstValueAssignment_1_0.eContents().get(0);
+		private final Group cGroup_1_1 = (Group)cGroup_1.eContents().get(1);
+		private final Keyword cCommaKeyword_1_1_0 = (Keyword)cGroup_1_1.eContents().get(0);
+		private final Assignment cValuesAssignment_1_1_1 = (Assignment)cGroup_1_1.eContents().get(1);
+		private final RuleCall cValuesAnnotationValueParserRuleCall_1_1_1_0 = (RuleCall)cValuesAssignment_1_1_1.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		
+		//ArrayAnnotationValue:
+		//  "{" (firstValue=AnnotationValue ("," values+=AnnotationValue)*)? "}";
+		public ParserRule getRule() { return rule; }
+
+		//"{" (firstValue=AnnotationValue ("," values+=AnnotationValue)*)? "}"
+		public Group getGroup() { return cGroup; }
+
+		//"{"
+		public Keyword getLeftCurlyBracketKeyword_0() { return cLeftCurlyBracketKeyword_0; }
+
+		//(firstValue=AnnotationValue ("," values+=AnnotationValue)*)?
+		public Group getGroup_1() { return cGroup_1; }
+
+		//firstValue=AnnotationValue
+		public Assignment getFirstValueAssignment_1_0() { return cFirstValueAssignment_1_0; }
+
+		//AnnotationValue
+		public RuleCall getFirstValueAnnotationValueParserRuleCall_1_0_0() { return cFirstValueAnnotationValueParserRuleCall_1_0_0; }
+
+		//("," values+=AnnotationValue)*
+		public Group getGroup_1_1() { return cGroup_1_1; }
+
+		//","
+		public Keyword getCommaKeyword_1_1_0() { return cCommaKeyword_1_1_0; }
+
+		//values+=AnnotationValue
+		public Assignment getValuesAssignment_1_1_1() { return cValuesAssignment_1_1_1; }
+
+		//AnnotationValue
+		public RuleCall getValuesAnnotationValueParserRuleCall_1_1_1_0() { return cValuesAnnotationValueParserRuleCall_1_1_1_0; }
+
+		//"}"
+		public Keyword getRightCurlyBracketKeyword_2() { return cRightCurlyBracketKeyword_2; }
+	}
+
+	public class SignedINTElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "signedINT");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Alternatives cAlternatives_0 = (Alternatives)cGroup.eContents().get(0);
+		private final Keyword cPlusSignKeyword_0_0 = (Keyword)cAlternatives_0.eContents().get(0);
+		private final Keyword cHyphenMinusKeyword_0_1 = (Keyword)cAlternatives_0.eContents().get(1);
+		private final RuleCall cINTTerminalRuleCall_1 = (RuleCall)cGroup.eContents().get(1);
+		
+		//signedINT returns ecore::EString:
+		//  ("+"|"-")? INT;
+		public ParserRule getRule() { return rule; }
+
+		//("+"|"-")? INT
+		public Group getGroup() { return cGroup; }
+
+		//("+"|"-")?
+		public Alternatives getAlternatives_0() { return cAlternatives_0; }
+
+		//"+"
+		public Keyword getPlusSignKeyword_0_0() { return cPlusSignKeyword_0_0; }
+
+		//"-"
+		public Keyword getHyphenMinusKeyword_0_1() { return cHyphenMinusKeyword_0_1; }
+
+		//INT
+		public RuleCall getINTTerminalRuleCall_1() { return cINTTerminalRuleCall_1; }
 	}
 	
 	
@@ -1565,7 +1653,9 @@ public class FractalItfGrammarAccess extends AbstractGrammarElementFinder {
 	private AnnotationValuePairsElements pAnnotationValuePairs;
 	private AnnotationValuePairElements pAnnotationValuePair;
 	private AnnotationValueElements pAnnotationValue;
+	private ArrayAnnotationValueElements pArrayAnnotationValue;
 	private TerminalRule tBoolean;
+	private SignedINTElements pSignedINT;
 	
 	private final GrammarProvider grammarProvider;
 
@@ -1997,8 +2087,8 @@ public class FractalItfGrammarAccess extends AbstractGrammarElementFinder {
 		return getAnnotationValuePairAccess().getRule();
 	}
 
-	//AnnotationValue returns ecore::EString:
-	//  INT|"null"|Boolean|ID;
+	//AnnotationValue:
+	//  signedINT|"null"|Boolean|ID|Annotation|ArrayAnnotationValue|STRING;
 	public AnnotationValueElements getAnnotationValueAccess() {
 		return (pAnnotationValue != null) ? pAnnotationValue : (pAnnotationValue = new AnnotationValueElements());
 	}
@@ -2007,11 +2097,31 @@ public class FractalItfGrammarAccess extends AbstractGrammarElementFinder {
 		return getAnnotationValueAccess().getRule();
 	}
 
+	//ArrayAnnotationValue:
+	//  "{" (firstValue=AnnotationValue ("," values+=AnnotationValue)*)? "}";
+	public ArrayAnnotationValueElements getArrayAnnotationValueAccess() {
+		return (pArrayAnnotationValue != null) ? pArrayAnnotationValue : (pArrayAnnotationValue = new ArrayAnnotationValueElements());
+	}
+	
+	public ParserRule getArrayAnnotationValueRule() {
+		return getArrayAnnotationValueAccess().getRule();
+	}
+
 	//terminal Boolean:
 	//  "true" | "false";
 	public TerminalRule getBooleanRule() {
 		return (tBoolean != null) ? tBoolean : (tBoolean = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "Boolean"));
 	} 
+
+	//signedINT returns ecore::EString:
+	//  ("+"|"-")? INT;
+	public SignedINTElements getSignedINTAccess() {
+		return (pSignedINT != null) ? pSignedINT : (pSignedINT = new SignedINTElements());
+	}
+	
+	public ParserRule getSignedINTRule() {
+		return getSignedINTAccess().getRule();
+	}
 
 	//terminal ID:
 	//  "^"? ("a".."z" | "A".."Z" | "_") ("a".."z" | "A".."Z" | "_" | "0".."9")*;

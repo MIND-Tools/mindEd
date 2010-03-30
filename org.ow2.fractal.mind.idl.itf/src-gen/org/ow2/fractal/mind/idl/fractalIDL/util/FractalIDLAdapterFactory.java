@@ -229,6 +229,16 @@ public class FractalIDLAdapterFactory extends AdapterFactoryImpl
         return createAnnotationValuePairAdapter();
       }
       @Override
+      public Adapter caseAnnotationValue(AnnotationValue object)
+      {
+        return createAnnotationValueAdapter();
+      }
+      @Override
+      public Adapter caseArrayAnnotationValue(ArrayAnnotationValue object)
+      {
+        return createArrayAnnotationValueAdapter();
+      }
+      @Override
       public Adapter defaultCase(EObject object)
       {
         return createEObjectAdapter();
@@ -696,6 +706,36 @@ public class FractalIDLAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createAnnotationValuePairAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.ow2.fractal.mind.idl.fractalIDL.AnnotationValue <em>Annotation Value</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.ow2.fractal.mind.idl.fractalIDL.AnnotationValue
+   * @generated
+   */
+  public Adapter createAnnotationValueAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.ow2.fractal.mind.idl.fractalIDL.ArrayAnnotationValue <em>Array Annotation Value</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.ow2.fractal.mind.idl.fractalIDL.ArrayAnnotationValue
+   * @generated
+   */
+  public Adapter createArrayAnnotationValueAdapter()
   {
     return null;
   }

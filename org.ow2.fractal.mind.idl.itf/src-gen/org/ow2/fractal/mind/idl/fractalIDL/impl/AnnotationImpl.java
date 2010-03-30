@@ -13,7 +13,6 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.ow2.fractal.mind.idl.fractalIDL.Annotation;
 import org.ow2.fractal.mind.idl.fractalIDL.AnnotationParameters;
@@ -33,7 +32,7 @@ import org.ow2.fractal.mind.idl.fractalIDL.FractalIDLPackage;
  *
  * @generated
  */
-public class AnnotationImpl extends MinimalEObjectImpl.Container implements Annotation
+public class AnnotationImpl extends AnnotationValueImpl implements Annotation
 {
   /**
    * The default value of the '{@link #getFqn() <em>Fqn</em>}' attribute.

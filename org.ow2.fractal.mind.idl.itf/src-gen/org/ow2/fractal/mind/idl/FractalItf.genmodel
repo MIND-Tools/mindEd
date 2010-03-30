@@ -141,7 +141,7 @@
     </genClasses>
     <genClasses ecoreClass="FractalItf.ecore#//AnnotationParameters">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference FractalItf.ecore#//AnnotationParameters/valuePair"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute FractalItf.ecore#//AnnotationParameters/value"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference FractalItf.ecore#//AnnotationParameters/value"/>
     </genClasses>
     <genClasses ecoreClass="FractalItf.ecore#//AnnotationValuePairs">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference FractalItf.ecore#//AnnotationValuePairs/first"/>
@@ -149,7 +149,12 @@
     </genClasses>
     <genClasses ecoreClass="FractalItf.ecore#//AnnotationValuePair">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute FractalItf.ecore#//AnnotationValuePair/id"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute FractalItf.ecore#//AnnotationValuePair/value"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference FractalItf.ecore#//AnnotationValuePair/value"/>
+    </genClasses>
+    <genClasses ecoreClass="FractalItf.ecore#//AnnotationValue"/>
+    <genClasses ecoreClass="FractalItf.ecore#//ArrayAnnotationValue">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference FractalItf.ecore#//ArrayAnnotationValue/firstValue"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference FractalItf.ecore#//ArrayAnnotationValue/values"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>
