@@ -44,8 +44,8 @@ StructOrUnion:
   'struct'|'union';
 
 StructMember:
-  annotations=Annotations qualType=QualifiedTypeSpecification dec=Declarators (':' INT
-  )? ';';
+  annotations=Annotations qualType=QualifiedTypeSpecification dec=Declarators (':'
+  constExpr=ConstantExpression)? ';';
 
 EnumSpecification:
   EnumDefinition|EnumReference;
@@ -60,7 +60,7 @@ EnumMemberList:
   EnumMember (',' enumMember+=EnumMember)*;
 
 EnumMember:
-  annotations=Annotations id=ID ('=' INT)?;
+  annotations=Annotations id=ID ('=' constExpr=ConstantExpression)?;
 
 Declarators:
   dec=Declarator (',' declaratorList+=Declarator)*;
@@ -82,7 +82,7 @@ DirectDeclarator:
   '(' dec=AbstractDeclarator ')' array+=ArraySpecification*;*/
 
 ArraySpecification:
-  '[' (INT|ID) ']';
+  '[' constExpr=ConstantExpression ']';
 
 FullyQualifiedName:
   ID ('.' ID)*; // Interface definition part
@@ -136,11 +136,72 @@ AnnotationValue:
   signedINT|'null'|Boolean|ID|Annotation|ArrayAnnotationValue|STRING;
 
 ArrayAnnotationValue:
- '{' (firstValue=AnnotationValue (',' values+=AnnotationValue)*)? '}';
+  '{' (firstValue=AnnotationValue (',' values+=AnnotationValue)*)? '}';
 
 terminal Boolean:
   'true' | 'false';
- 
-signedINT :
-('+'|'-')?INT;
 
+signedINT:
+  ('+'|'-')? INT;
+
+ConstantExpression:
+  LogicalOrExpression;
+
+LogicalOrExpression:
+  leftExpr=LogicalAndExpression ('||' rightExpr=LogicalOrExpression)?;
+
+LogicalAndExpression:
+  leftExpr=OrExpression ('&&' rightExpr=LogicalAndExpression)?;
+
+OrExpression:
+  leftExpr=XorExpression ('|' rightExpr=OrExpression)?;
+
+XorExpression:
+  leftExpr=AndExpression ('^' rightExpr=XorExpression)?;
+
+AndExpression:
+  leftExpr=ShiftExpression ('&' rightExpr=AndExpression)?;
+
+ShiftExpression:
+  leftExpr=AdditiveExpression (op=ShiftOperation rightExpr=ShiftExpression)?;
+
+AdditiveExpression:
+  leftExpr=MulExpression (op=AdditiveOperation rightExpr=AdditiveExpression)?;
+
+MulExpression:
+  leftExpr=CastExpression (op=MulOperation rightExpr=MulExpression)?;
+
+CastExpression:
+  '(' type=QualifiedTypeSpecification ')' expr=CastExpression|unaryExpr=
+  UnaryExpression;
+
+UnaryExpression:
+  (unaryExpr=UnaryOperation)? primaryExpr=PrimaryExpression;
+
+PrimaryExpression:
+  literal=Literal|'(' ConstantExpression ')';
+
+Literal:
+  ID|STRING|FloatingPointLiteral|ref=[ConstantDefinition|ID];
+
+ShiftOperation:
+  '<<'|'>>';
+
+AdditiveOperation:
+  '+'|'-';
+
+MulOperation:
+  '*'|'/'|'%';
+
+UnaryOperation:
+  '&'|'*'|'+'|'-'|'~'|'!';
+
+FloatingPointLiteral:
+  INT+ '.' INT* (Exponent)? ('f' | 'F' | 'd' | 'D')?
+  | '.' INT+ (Exponent)? ('f' | 'F' | 'd' | 'D')? 
+  | INT+ Exponent ('f' | 'F' | 'd' | 'D')? 
+  | INT+ Exponent? ('f' | 'F' | 'd' | 'D') ;
+
+terminal Exponent:
+  ('e' | 'E') ('+' | '-')? INT+;
+  

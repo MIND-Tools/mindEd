@@ -198,6 +198,15 @@ public interface FractalIDLFactory extends EFactory
   DirectDeclarator createDirectDeclarator();
 
   /**
+   * Returns a new object of class '<em>Array Specification</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Array Specification</em>'.
+   * @generated
+   */
+  ArraySpecification createArraySpecification();
+
+  /**
    * Returns a new object of class '<em>Constant Definition</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -313,6 +322,123 @@ public interface FractalIDLFactory extends EFactory
    * @generated
    */
   ArrayAnnotationValue createArrayAnnotationValue();
+
+  /**
+   * Returns a new object of class '<em>Constant Expression</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Constant Expression</em>'.
+   * @generated
+   */
+  ConstantExpression createConstantExpression();
+
+  /**
+   * Returns a new object of class '<em>Logical Or Expression</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Logical Or Expression</em>'.
+   * @generated
+   */
+  LogicalOrExpression createLogicalOrExpression();
+
+  /**
+   * Returns a new object of class '<em>Logical And Expression</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Logical And Expression</em>'.
+   * @generated
+   */
+  LogicalAndExpression createLogicalAndExpression();
+
+  /**
+   * Returns a new object of class '<em>Or Expression</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Or Expression</em>'.
+   * @generated
+   */
+  OrExpression createOrExpression();
+
+  /**
+   * Returns a new object of class '<em>Xor Expression</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Xor Expression</em>'.
+   * @generated
+   */
+  XorExpression createXorExpression();
+
+  /**
+   * Returns a new object of class '<em>And Expression</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>And Expression</em>'.
+   * @generated
+   */
+  AndExpression createAndExpression();
+
+  /**
+   * Returns a new object of class '<em>Shift Expression</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Shift Expression</em>'.
+   * @generated
+   */
+  ShiftExpression createShiftExpression();
+
+  /**
+   * Returns a new object of class '<em>Additive Expression</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Additive Expression</em>'.
+   * @generated
+   */
+  AdditiveExpression createAdditiveExpression();
+
+  /**
+   * Returns a new object of class '<em>Mul Expression</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Mul Expression</em>'.
+   * @generated
+   */
+  MulExpression createMulExpression();
+
+  /**
+   * Returns a new object of class '<em>Cast Expression</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Cast Expression</em>'.
+   * @generated
+   */
+  CastExpression createCastExpression();
+
+  /**
+   * Returns a new object of class '<em>Unary Expression</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Unary Expression</em>'.
+   * @generated
+   */
+  UnaryExpression createUnaryExpression();
+
+  /**
+   * Returns a new object of class '<em>Primary Expression</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Primary Expression</em>'.
+   * @generated
+   */
+  PrimaryExpression createPrimaryExpression();
+
+  /**
+   * Returns a new object of class '<em>Literal</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Literal</em>'.
+   * @generated
+   */
+  Literal createLiteral();
 
   /**
    * Returns the package supported by this factory.

@@ -88,6 +88,7 @@ public class FractalIDLFactoryImpl extends EFactoryImpl implements FractalIDLFac
       case FractalIDLPackage.POINTER_SPECIFICATION: return createPointerSpecification();
       case FractalIDLPackage.QUALIFIED_POINTER_SPECIFICATION: return createQualified_PointerSpecification();
       case FractalIDLPackage.DIRECT_DECLARATOR: return createDirectDeclarator();
+      case FractalIDLPackage.ARRAY_SPECIFICATION: return createArraySpecification();
       case FractalIDLPackage.CONSTANT_DEFINITION: return createConstantDefinition();
       case FractalIDLPackage.INTERFACE_DEFINITION: return createInterfaceDefinition();
       case FractalIDLPackage.METHOD_DEFINITION: return createMethodDefinition();
@@ -101,6 +102,19 @@ public class FractalIDLFactoryImpl extends EFactoryImpl implements FractalIDLFac
       case FractalIDLPackage.ANNOTATION_VALUE_PAIR: return createAnnotationValuePair();
       case FractalIDLPackage.ANNOTATION_VALUE: return createAnnotationValue();
       case FractalIDLPackage.ARRAY_ANNOTATION_VALUE: return createArrayAnnotationValue();
+      case FractalIDLPackage.CONSTANT_EXPRESSION: return createConstantExpression();
+      case FractalIDLPackage.LOGICAL_OR_EXPRESSION: return createLogicalOrExpression();
+      case FractalIDLPackage.LOGICAL_AND_EXPRESSION: return createLogicalAndExpression();
+      case FractalIDLPackage.OR_EXPRESSION: return createOrExpression();
+      case FractalIDLPackage.XOR_EXPRESSION: return createXorExpression();
+      case FractalIDLPackage.AND_EXPRESSION: return createAndExpression();
+      case FractalIDLPackage.SHIFT_EXPRESSION: return createShiftExpression();
+      case FractalIDLPackage.ADDITIVE_EXPRESSION: return createAdditiveExpression();
+      case FractalIDLPackage.MUL_EXPRESSION: return createMulExpression();
+      case FractalIDLPackage.CAST_EXPRESSION: return createCastExpression();
+      case FractalIDLPackage.UNARY_EXPRESSION: return createUnaryExpression();
+      case FractalIDLPackage.PRIMARY_EXPRESSION: return createPrimaryExpression();
+      case FractalIDLPackage.LITERAL: return createLiteral();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
     }
@@ -362,6 +376,17 @@ public class FractalIDLFactoryImpl extends EFactoryImpl implements FractalIDLFac
    * <!-- end-user-doc -->
    * @generated
    */
+  public ArraySpecification createArraySpecification()
+  {
+    ArraySpecificationImpl arraySpecification = new ArraySpecificationImpl();
+    return arraySpecification;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public ConstantDefinition createConstantDefinition()
   {
     ConstantDefinitionImpl constantDefinition = new ConstantDefinitionImpl();
@@ -498,6 +523,149 @@ public class FractalIDLFactoryImpl extends EFactoryImpl implements FractalIDLFac
   {
     ArrayAnnotationValueImpl arrayAnnotationValue = new ArrayAnnotationValueImpl();
     return arrayAnnotationValue;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public ConstantExpression createConstantExpression()
+  {
+    ConstantExpressionImpl constantExpression = new ConstantExpressionImpl();
+    return constantExpression;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public LogicalOrExpression createLogicalOrExpression()
+  {
+    LogicalOrExpressionImpl logicalOrExpression = new LogicalOrExpressionImpl();
+    return logicalOrExpression;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public LogicalAndExpression createLogicalAndExpression()
+  {
+    LogicalAndExpressionImpl logicalAndExpression = new LogicalAndExpressionImpl();
+    return logicalAndExpression;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public OrExpression createOrExpression()
+  {
+    OrExpressionImpl orExpression = new OrExpressionImpl();
+    return orExpression;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public XorExpression createXorExpression()
+  {
+    XorExpressionImpl xorExpression = new XorExpressionImpl();
+    return xorExpression;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public AndExpression createAndExpression()
+  {
+    AndExpressionImpl andExpression = new AndExpressionImpl();
+    return andExpression;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public ShiftExpression createShiftExpression()
+  {
+    ShiftExpressionImpl shiftExpression = new ShiftExpressionImpl();
+    return shiftExpression;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public AdditiveExpression createAdditiveExpression()
+  {
+    AdditiveExpressionImpl additiveExpression = new AdditiveExpressionImpl();
+    return additiveExpression;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public MulExpression createMulExpression()
+  {
+    MulExpressionImpl mulExpression = new MulExpressionImpl();
+    return mulExpression;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public CastExpression createCastExpression()
+  {
+    CastExpressionImpl castExpression = new CastExpressionImpl();
+    return castExpression;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public UnaryExpression createUnaryExpression()
+  {
+    UnaryExpressionImpl unaryExpression = new UnaryExpressionImpl();
+    return unaryExpression;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public PrimaryExpression createPrimaryExpression()
+  {
+    PrimaryExpressionImpl primaryExpression = new PrimaryExpressionImpl();
+    return primaryExpression;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Literal createLiteral()
+  {
+    LiteralImpl literal = new LiteralImpl();
+    return literal;
   }
 
   /**

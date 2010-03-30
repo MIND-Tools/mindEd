@@ -19,8 +19,10 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
-import org.eclipse.emf.ecore.util.EDataTypeEList;
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 
+import org.ow2.fractal.mind.idl.fractalIDL.ArraySpecification;
 import org.ow2.fractal.mind.idl.fractalIDL.Declarator;
 import org.ow2.fractal.mind.idl.fractalIDL.DirectDeclarator;
 import org.ow2.fractal.mind.idl.fractalIDL.FractalIDLPackage;
@@ -73,14 +75,14 @@ public class DirectDeclaratorImpl extends MinimalEObjectImpl.Container implement
   protected Declarator dec;
 
   /**
-   * The cached value of the '{@link #getArray() <em>Array</em>}' attribute list.
+   * The cached value of the '{@link #getArray() <em>Array</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getArray()
    * @generated
    * @ordered
    */
-  protected EList<String> array;
+  protected EList<ArraySpecification> array;
 
   /**
    * <!-- begin-user-doc -->
@@ -179,11 +181,11 @@ public class DirectDeclaratorImpl extends MinimalEObjectImpl.Container implement
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<String> getArray()
+  public EList<ArraySpecification> getArray()
   {
     if (array == null)
     {
-      array = new EDataTypeEList<String>(String.class, this, FractalIDLPackage.DIRECT_DECLARATOR__ARRAY);
+      array = new EObjectContainmentEList<ArraySpecification>(ArraySpecification.class, this, FractalIDLPackage.DIRECT_DECLARATOR__ARRAY);
     }
     return array;
   }
@@ -200,6 +202,8 @@ public class DirectDeclaratorImpl extends MinimalEObjectImpl.Container implement
     {
       case FractalIDLPackage.DIRECT_DECLARATOR__DEC:
         return basicSetDec(null, msgs);
+      case FractalIDLPackage.DIRECT_DECLARATOR__ARRAY:
+        return ((InternalEList<?>)getArray()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -243,7 +247,7 @@ public class DirectDeclaratorImpl extends MinimalEObjectImpl.Container implement
         return;
       case FractalIDLPackage.DIRECT_DECLARATOR__ARRAY:
         getArray().clear();
-        getArray().addAll((Collection<? extends String>)newValue);
+        getArray().addAll((Collection<? extends ArraySpecification>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -305,8 +309,6 @@ public class DirectDeclaratorImpl extends MinimalEObjectImpl.Container implement
     StringBuffer result = new StringBuffer(super.toString());
     result.append(" (id: ");
     result.append(id);
-    result.append(", array: ");
-    result.append(array);
     result.append(')');
     return result.toString();
   }

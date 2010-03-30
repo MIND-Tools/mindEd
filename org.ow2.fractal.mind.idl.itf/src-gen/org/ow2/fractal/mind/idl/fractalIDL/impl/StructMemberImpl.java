@@ -16,6 +16,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.ow2.fractal.mind.idl.fractalIDL.Annotations;
+import org.ow2.fractal.mind.idl.fractalIDL.ConstantExpression;
 import org.ow2.fractal.mind.idl.fractalIDL.Declarators;
 import org.ow2.fractal.mind.idl.fractalIDL.FractalIDLPackage;
 import org.ow2.fractal.mind.idl.fractalIDL.QualifiedTypeSpecification;
@@ -31,6 +32,7 @@ import org.ow2.fractal.mind.idl.fractalIDL.StructMember;
  *   <li>{@link org.ow2.fractal.mind.idl.fractalIDL.impl.StructMemberImpl#getAnnotations <em>Annotations</em>}</li>
  *   <li>{@link org.ow2.fractal.mind.idl.fractalIDL.impl.StructMemberImpl#getQualType <em>Qual Type</em>}</li>
  *   <li>{@link org.ow2.fractal.mind.idl.fractalIDL.impl.StructMemberImpl#getDec <em>Dec</em>}</li>
+ *   <li>{@link org.ow2.fractal.mind.idl.fractalIDL.impl.StructMemberImpl#getConstExpr <em>Const Expr</em>}</li>
  * </ul>
  * </p>
  *
@@ -67,6 +69,16 @@ public class StructMemberImpl extends MinimalEObjectImpl.Container implements St
    * @ordered
    */
   protected Declarators dec;
+
+  /**
+   * The cached value of the '{@link #getConstExpr() <em>Const Expr</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getConstExpr()
+   * @generated
+   * @ordered
+   */
+  protected ConstantExpression constExpr;
 
   /**
    * <!-- begin-user-doc -->
@@ -238,6 +250,54 @@ public class StructMemberImpl extends MinimalEObjectImpl.Container implements St
    * <!-- end-user-doc -->
    * @generated
    */
+  public ConstantExpression getConstExpr()
+  {
+    return constExpr;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetConstExpr(ConstantExpression newConstExpr, NotificationChain msgs)
+  {
+    ConstantExpression oldConstExpr = constExpr;
+    constExpr = newConstExpr;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FractalIDLPackage.STRUCT_MEMBER__CONST_EXPR, oldConstExpr, newConstExpr);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setConstExpr(ConstantExpression newConstExpr)
+  {
+    if (newConstExpr != constExpr)
+    {
+      NotificationChain msgs = null;
+      if (constExpr != null)
+        msgs = ((InternalEObject)constExpr).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FractalIDLPackage.STRUCT_MEMBER__CONST_EXPR, null, msgs);
+      if (newConstExpr != null)
+        msgs = ((InternalEObject)newConstExpr).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FractalIDLPackage.STRUCT_MEMBER__CONST_EXPR, null, msgs);
+      msgs = basicSetConstExpr(newConstExpr, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, FractalIDLPackage.STRUCT_MEMBER__CONST_EXPR, newConstExpr, newConstExpr));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   @Override
   public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
   {
@@ -249,6 +309,8 @@ public class StructMemberImpl extends MinimalEObjectImpl.Container implements St
         return basicSetQualType(null, msgs);
       case FractalIDLPackage.STRUCT_MEMBER__DEC:
         return basicSetDec(null, msgs);
+      case FractalIDLPackage.STRUCT_MEMBER__CONST_EXPR:
+        return basicSetConstExpr(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -269,6 +331,8 @@ public class StructMemberImpl extends MinimalEObjectImpl.Container implements St
         return getQualType();
       case FractalIDLPackage.STRUCT_MEMBER__DEC:
         return getDec();
+      case FractalIDLPackage.STRUCT_MEMBER__CONST_EXPR:
+        return getConstExpr();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -291,6 +355,9 @@ public class StructMemberImpl extends MinimalEObjectImpl.Container implements St
         return;
       case FractalIDLPackage.STRUCT_MEMBER__DEC:
         setDec((Declarators)newValue);
+        return;
+      case FractalIDLPackage.STRUCT_MEMBER__CONST_EXPR:
+        setConstExpr((ConstantExpression)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -315,6 +382,9 @@ public class StructMemberImpl extends MinimalEObjectImpl.Container implements St
       case FractalIDLPackage.STRUCT_MEMBER__DEC:
         setDec((Declarators)null);
         return;
+      case FractalIDLPackage.STRUCT_MEMBER__CONST_EXPR:
+        setConstExpr((ConstantExpression)null);
+        return;
     }
     super.eUnset(featureID);
   }
@@ -335,6 +405,8 @@ public class StructMemberImpl extends MinimalEObjectImpl.Container implements St
         return qualType != null;
       case FractalIDLPackage.STRUCT_MEMBER__DEC:
         return dec != null;
+      case FractalIDLPackage.STRUCT_MEMBER__CONST_EXPR:
+        return constExpr != null;
     }
     return super.eIsSet(featureID);
   }

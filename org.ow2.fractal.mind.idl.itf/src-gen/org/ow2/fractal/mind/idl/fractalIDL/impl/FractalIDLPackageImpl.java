@@ -14,6 +14,8 @@ import org.eclipse.emf.ecore.EReference;
 
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
+import org.ow2.fractal.mind.idl.fractalIDL.AdditiveExpression;
+import org.ow2.fractal.mind.idl.fractalIDL.AndExpression;
 import org.ow2.fractal.mind.idl.fractalIDL.Annotation;
 import org.ow2.fractal.mind.idl.fractalIDL.AnnotationParameters;
 import org.ow2.fractal.mind.idl.fractalIDL.AnnotationValue;
@@ -21,7 +23,10 @@ import org.ow2.fractal.mind.idl.fractalIDL.AnnotationValuePair;
 import org.ow2.fractal.mind.idl.fractalIDL.AnnotationValuePairs;
 import org.ow2.fractal.mind.idl.fractalIDL.Annotations;
 import org.ow2.fractal.mind.idl.fractalIDL.ArrayAnnotationValue;
+import org.ow2.fractal.mind.idl.fractalIDL.ArraySpecification;
+import org.ow2.fractal.mind.idl.fractalIDL.CastExpression;
 import org.ow2.fractal.mind.idl.fractalIDL.ConstantDefinition;
+import org.ow2.fractal.mind.idl.fractalIDL.ConstantExpression;
 import org.ow2.fractal.mind.idl.fractalIDL.Declarator;
 import org.ow2.fractal.mind.idl.fractalIDL.Declarators;
 import org.ow2.fractal.mind.idl.fractalIDL.DirectDeclarator;
@@ -35,13 +40,20 @@ import org.ow2.fractal.mind.idl.fractalIDL.FractalIDLPackage;
 import org.ow2.fractal.mind.idl.fractalIDL.IncludeDirective;
 import org.ow2.fractal.mind.idl.fractalIDL.InterfaceDefinition;
 import org.ow2.fractal.mind.idl.fractalIDL.ItfFile;
+import org.ow2.fractal.mind.idl.fractalIDL.Literal;
+import org.ow2.fractal.mind.idl.fractalIDL.LogicalAndExpression;
+import org.ow2.fractal.mind.idl.fractalIDL.LogicalOrExpression;
 import org.ow2.fractal.mind.idl.fractalIDL.MethodDefinition;
+import org.ow2.fractal.mind.idl.fractalIDL.MulExpression;
+import org.ow2.fractal.mind.idl.fractalIDL.OrExpression;
 import org.ow2.fractal.mind.idl.fractalIDL.Parameter;
 import org.ow2.fractal.mind.idl.fractalIDL.ParameterList;
 import org.ow2.fractal.mind.idl.fractalIDL.ParameterQualifier;
 import org.ow2.fractal.mind.idl.fractalIDL.PointerSpecification;
+import org.ow2.fractal.mind.idl.fractalIDL.PrimaryExpression;
 import org.ow2.fractal.mind.idl.fractalIDL.QualifiedTypeSpecification;
 import org.ow2.fractal.mind.idl.fractalIDL.Qualified_PointerSpecification;
+import org.ow2.fractal.mind.idl.fractalIDL.ShiftExpression;
 import org.ow2.fractal.mind.idl.fractalIDL.StructMember;
 import org.ow2.fractal.mind.idl.fractalIDL.StructOrUnionDefinition;
 import org.ow2.fractal.mind.idl.fractalIDL.StructOrUnionSpecification;
@@ -51,6 +63,8 @@ import org.ow2.fractal.mind.idl.fractalIDL.TypeQualifier;
 import org.ow2.fractal.mind.idl.fractalIDL.TypeSpecification;
 import org.ow2.fractal.mind.idl.fractalIDL.TypeSpecifier;
 import org.ow2.fractal.mind.idl.fractalIDL.TypedefSpecification;
+import org.ow2.fractal.mind.idl.fractalIDL.UnaryExpression;
+import org.ow2.fractal.mind.idl.fractalIDL.XorExpression;
 
 /**
  * <!-- begin-user-doc -->
@@ -198,6 +212,13 @@ public class FractalIDLPackageImpl extends EPackageImpl implements FractalIDLPac
    * <!-- end-user-doc -->
    * @generated
    */
+  private EClass arraySpecificationEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   private EClass constantDefinitionEClass = null;
 
   /**
@@ -283,6 +304,97 @@ public class FractalIDLPackageImpl extends EPackageImpl implements FractalIDLPac
    * @generated
    */
   private EClass arrayAnnotationValueEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass constantExpressionEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass logicalOrExpressionEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass logicalAndExpressionEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass orExpressionEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass xorExpressionEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass andExpressionEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass shiftExpressionEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass additiveExpressionEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass mulExpressionEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass castExpressionEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass unaryExpressionEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass primaryExpressionEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass literalEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -623,6 +735,16 @@ public class FractalIDLPackageImpl extends EPackageImpl implements FractalIDLPac
    * <!-- end-user-doc -->
    * @generated
    */
+  public EReference getStructMember_ConstExpr()
+  {
+    return (EReference)structMemberEClass.getEStructuralFeatures().get(3);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getEnumSpecification()
   {
     return enumSpecificationEClass;
@@ -716,6 +838,16 @@ public class FractalIDLPackageImpl extends EPackageImpl implements FractalIDLPac
   public EAttribute getEnumMember_Id()
   {
     return (EAttribute)enumMemberEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getEnumMember_ConstExpr()
+  {
+    return (EReference)enumMemberEClass.getEStructuralFeatures().get(3);
   }
 
   /**
@@ -853,9 +985,29 @@ public class FractalIDLPackageImpl extends EPackageImpl implements FractalIDLPac
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getDirectDeclarator_Array()
+  public EReference getDirectDeclarator_Array()
   {
-    return (EAttribute)directDeclaratorEClass.getEStructuralFeatures().get(2);
+    return (EReference)directDeclaratorEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getArraySpecification()
+  {
+    return arraySpecificationEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getArraySpecification_ConstExpr()
+  {
+    return (EReference)arraySpecificationEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -1273,6 +1425,396 @@ public class FractalIDLPackageImpl extends EPackageImpl implements FractalIDLPac
    * <!-- end-user-doc -->
    * @generated
    */
+  public EClass getConstantExpression()
+  {
+    return constantExpressionEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getLogicalOrExpression()
+  {
+    return logicalOrExpressionEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getLogicalOrExpression_LeftExpr()
+  {
+    return (EReference)logicalOrExpressionEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getLogicalOrExpression_RightExpr()
+  {
+    return (EReference)logicalOrExpressionEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getLogicalAndExpression()
+  {
+    return logicalAndExpressionEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getLogicalAndExpression_LeftExpr()
+  {
+    return (EReference)logicalAndExpressionEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getLogicalAndExpression_RightExpr()
+  {
+    return (EReference)logicalAndExpressionEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getOrExpression()
+  {
+    return orExpressionEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getOrExpression_LeftExpr()
+  {
+    return (EReference)orExpressionEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getOrExpression_RightExpr()
+  {
+    return (EReference)orExpressionEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getXorExpression()
+  {
+    return xorExpressionEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getXorExpression_LeftExpr()
+  {
+    return (EReference)xorExpressionEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getXorExpression_RightExpr()
+  {
+    return (EReference)xorExpressionEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getAndExpression()
+  {
+    return andExpressionEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getAndExpression_LeftExpr()
+  {
+    return (EReference)andExpressionEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getAndExpression_RightExpr()
+  {
+    return (EReference)andExpressionEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getShiftExpression()
+  {
+    return shiftExpressionEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getShiftExpression_LeftExpr()
+  {
+    return (EReference)shiftExpressionEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getShiftExpression_Op()
+  {
+    return (EAttribute)shiftExpressionEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getShiftExpression_RightExpr()
+  {
+    return (EReference)shiftExpressionEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getAdditiveExpression()
+  {
+    return additiveExpressionEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getAdditiveExpression_LeftExpr()
+  {
+    return (EReference)additiveExpressionEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getAdditiveExpression_Op()
+  {
+    return (EAttribute)additiveExpressionEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getAdditiveExpression_RightExpr()
+  {
+    return (EReference)additiveExpressionEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getMulExpression()
+  {
+    return mulExpressionEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getMulExpression_LeftExpr()
+  {
+    return (EReference)mulExpressionEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getMulExpression_Op()
+  {
+    return (EAttribute)mulExpressionEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getMulExpression_RightExpr()
+  {
+    return (EReference)mulExpressionEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getCastExpression()
+  {
+    return castExpressionEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getCastExpression_Type()
+  {
+    return (EReference)castExpressionEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getCastExpression_Expr()
+  {
+    return (EReference)castExpressionEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getCastExpression_UnaryExpr()
+  {
+    return (EReference)castExpressionEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getUnaryExpression()
+  {
+    return unaryExpressionEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getUnaryExpression_UnaryExpr()
+  {
+    return (EAttribute)unaryExpressionEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getUnaryExpression_PrimaryExpr()
+  {
+    return (EReference)unaryExpressionEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getPrimaryExpression()
+  {
+    return primaryExpressionEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getPrimaryExpression_Literal()
+  {
+    return (EReference)primaryExpressionEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getLiteral()
+  {
+    return literalEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getLiteral_Ref()
+  {
+    return (EReference)literalEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EEnum getTypeQualifier()
   {
     return typeQualifierEEnum;
@@ -1361,6 +1903,7 @@ public class FractalIDLPackageImpl extends EPackageImpl implements FractalIDLPac
     createEReference(structMemberEClass, STRUCT_MEMBER__ANNOTATIONS);
     createEReference(structMemberEClass, STRUCT_MEMBER__QUAL_TYPE);
     createEReference(structMemberEClass, STRUCT_MEMBER__DEC);
+    createEReference(structMemberEClass, STRUCT_MEMBER__CONST_EXPR);
 
     enumSpecificationEClass = createEClass(ENUM_SPECIFICATION);
     createEAttribute(enumSpecificationEClass, ENUM_SPECIFICATION__ID);
@@ -1376,6 +1919,7 @@ public class FractalIDLPackageImpl extends EPackageImpl implements FractalIDLPac
     createEReference(enumMemberEClass, ENUM_MEMBER__ENUM_MEMBER);
     createEReference(enumMemberEClass, ENUM_MEMBER__ANNOTATIONS);
     createEAttribute(enumMemberEClass, ENUM_MEMBER__ID);
+    createEReference(enumMemberEClass, ENUM_MEMBER__CONST_EXPR);
 
     declaratorsEClass = createEClass(DECLARATORS);
     createEReference(declaratorsEClass, DECLARATORS__DEC);
@@ -1394,7 +1938,10 @@ public class FractalIDLPackageImpl extends EPackageImpl implements FractalIDLPac
     directDeclaratorEClass = createEClass(DIRECT_DECLARATOR);
     createEAttribute(directDeclaratorEClass, DIRECT_DECLARATOR__ID);
     createEReference(directDeclaratorEClass, DIRECT_DECLARATOR__DEC);
-    createEAttribute(directDeclaratorEClass, DIRECT_DECLARATOR__ARRAY);
+    createEReference(directDeclaratorEClass, DIRECT_DECLARATOR__ARRAY);
+
+    arraySpecificationEClass = createEClass(ARRAY_SPECIFICATION);
+    createEReference(arraySpecificationEClass, ARRAY_SPECIFICATION__CONST_EXPR);
 
     constantDefinitionEClass = createEClass(CONSTANT_DEFINITION);
     createEAttribute(constantDefinitionEClass, CONSTANT_DEFINITION__ID);
@@ -1450,6 +1997,58 @@ public class FractalIDLPackageImpl extends EPackageImpl implements FractalIDLPac
     createEReference(arrayAnnotationValueEClass, ARRAY_ANNOTATION_VALUE__FIRST_VALUE);
     createEReference(arrayAnnotationValueEClass, ARRAY_ANNOTATION_VALUE__VALUES);
 
+    constantExpressionEClass = createEClass(CONSTANT_EXPRESSION);
+
+    logicalOrExpressionEClass = createEClass(LOGICAL_OR_EXPRESSION);
+    createEReference(logicalOrExpressionEClass, LOGICAL_OR_EXPRESSION__LEFT_EXPR);
+    createEReference(logicalOrExpressionEClass, LOGICAL_OR_EXPRESSION__RIGHT_EXPR);
+
+    logicalAndExpressionEClass = createEClass(LOGICAL_AND_EXPRESSION);
+    createEReference(logicalAndExpressionEClass, LOGICAL_AND_EXPRESSION__LEFT_EXPR);
+    createEReference(logicalAndExpressionEClass, LOGICAL_AND_EXPRESSION__RIGHT_EXPR);
+
+    orExpressionEClass = createEClass(OR_EXPRESSION);
+    createEReference(orExpressionEClass, OR_EXPRESSION__LEFT_EXPR);
+    createEReference(orExpressionEClass, OR_EXPRESSION__RIGHT_EXPR);
+
+    xorExpressionEClass = createEClass(XOR_EXPRESSION);
+    createEReference(xorExpressionEClass, XOR_EXPRESSION__LEFT_EXPR);
+    createEReference(xorExpressionEClass, XOR_EXPRESSION__RIGHT_EXPR);
+
+    andExpressionEClass = createEClass(AND_EXPRESSION);
+    createEReference(andExpressionEClass, AND_EXPRESSION__LEFT_EXPR);
+    createEReference(andExpressionEClass, AND_EXPRESSION__RIGHT_EXPR);
+
+    shiftExpressionEClass = createEClass(SHIFT_EXPRESSION);
+    createEReference(shiftExpressionEClass, SHIFT_EXPRESSION__LEFT_EXPR);
+    createEAttribute(shiftExpressionEClass, SHIFT_EXPRESSION__OP);
+    createEReference(shiftExpressionEClass, SHIFT_EXPRESSION__RIGHT_EXPR);
+
+    additiveExpressionEClass = createEClass(ADDITIVE_EXPRESSION);
+    createEReference(additiveExpressionEClass, ADDITIVE_EXPRESSION__LEFT_EXPR);
+    createEAttribute(additiveExpressionEClass, ADDITIVE_EXPRESSION__OP);
+    createEReference(additiveExpressionEClass, ADDITIVE_EXPRESSION__RIGHT_EXPR);
+
+    mulExpressionEClass = createEClass(MUL_EXPRESSION);
+    createEReference(mulExpressionEClass, MUL_EXPRESSION__LEFT_EXPR);
+    createEAttribute(mulExpressionEClass, MUL_EXPRESSION__OP);
+    createEReference(mulExpressionEClass, MUL_EXPRESSION__RIGHT_EXPR);
+
+    castExpressionEClass = createEClass(CAST_EXPRESSION);
+    createEReference(castExpressionEClass, CAST_EXPRESSION__TYPE);
+    createEReference(castExpressionEClass, CAST_EXPRESSION__EXPR);
+    createEReference(castExpressionEClass, CAST_EXPRESSION__UNARY_EXPR);
+
+    unaryExpressionEClass = createEClass(UNARY_EXPRESSION);
+    createEAttribute(unaryExpressionEClass, UNARY_EXPRESSION__UNARY_EXPR);
+    createEReference(unaryExpressionEClass, UNARY_EXPRESSION__PRIMARY_EXPR);
+
+    primaryExpressionEClass = createEClass(PRIMARY_EXPRESSION);
+    createEReference(primaryExpressionEClass, PRIMARY_EXPRESSION__LITERAL);
+
+    literalEClass = createEClass(LITERAL);
+    createEReference(literalEClass, LITERAL__REF);
+
     // Create enums
     typeQualifierEEnum = createEEnum(TYPE_QUALIFIER);
     typeSpecifierEEnum = createEEnum(TYPE_SPECIFIER);
@@ -1497,6 +2096,8 @@ public class FractalIDLPackageImpl extends EPackageImpl implements FractalIDLPac
     enumMemberEClass.getESuperTypes().add(this.getEnumMemberList());
     annotationEClass.getESuperTypes().add(this.getAnnotationValue());
     arrayAnnotationValueEClass.getESuperTypes().add(this.getAnnotationValue());
+    constantExpressionEClass.getESuperTypes().add(this.getPrimaryExpression());
+    logicalOrExpressionEClass.getESuperTypes().add(this.getConstantExpression());
 
     // Initialize classes and features; add operations and parameters
     initEClass(itfFileEClass, ItfFile.class, "ItfFile", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1532,6 +2133,7 @@ public class FractalIDLPackageImpl extends EPackageImpl implements FractalIDLPac
     initEReference(getStructMember_Annotations(), this.getAnnotations(), null, "annotations", null, 0, 1, StructMember.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getStructMember_QualType(), this.getQualifiedTypeSpecification(), null, "qualType", null, 0, 1, StructMember.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getStructMember_Dec(), this.getDeclarators(), null, "dec", null, 0, 1, StructMember.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getStructMember_ConstExpr(), this.getConstantExpression(), null, "constExpr", null, 0, 1, StructMember.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(enumSpecificationEClass, EnumSpecification.class, "EnumSpecification", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getEnumSpecification_Id(), ecorePackage.getEString(), "id", null, 0, 1, EnumSpecification.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1547,6 +2149,7 @@ public class FractalIDLPackageImpl extends EPackageImpl implements FractalIDLPac
     initEReference(getEnumMember_EnumMember(), this.getEnumMember(), null, "enumMember", null, 0, -1, EnumMember.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getEnumMember_Annotations(), this.getAnnotations(), null, "annotations", null, 0, 1, EnumMember.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getEnumMember_Id(), ecorePackage.getEString(), "id", null, 0, 1, EnumMember.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getEnumMember_ConstExpr(), this.getConstantExpression(), null, "constExpr", null, 0, 1, EnumMember.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(declaratorsEClass, Declarators.class, "Declarators", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getDeclarators_Dec(), this.getDeclarator(), null, "dec", null, 0, 1, Declarators.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1565,7 +2168,10 @@ public class FractalIDLPackageImpl extends EPackageImpl implements FractalIDLPac
     initEClass(directDeclaratorEClass, DirectDeclarator.class, "DirectDeclarator", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getDirectDeclarator_Id(), ecorePackage.getEString(), "id", null, 0, 1, DirectDeclarator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getDirectDeclarator_Dec(), this.getDeclarator(), null, "dec", null, 0, 1, DirectDeclarator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getDirectDeclarator_Array(), ecorePackage.getEString(), "array", null, 0, -1, DirectDeclarator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getDirectDeclarator_Array(), this.getArraySpecification(), null, "array", null, 0, -1, DirectDeclarator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(arraySpecificationEClass, ArraySpecification.class, "ArraySpecification", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getArraySpecification_ConstExpr(), this.getConstantExpression(), null, "constExpr", null, 0, 1, ArraySpecification.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(constantDefinitionEClass, ConstantDefinition.class, "ConstantDefinition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getConstantDefinition_Id(), ecorePackage.getEString(), "id", null, 0, 1, ConstantDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1620,6 +2226,58 @@ public class FractalIDLPackageImpl extends EPackageImpl implements FractalIDLPac
     initEClass(arrayAnnotationValueEClass, ArrayAnnotationValue.class, "ArrayAnnotationValue", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getArrayAnnotationValue_FirstValue(), this.getAnnotationValue(), null, "firstValue", null, 0, 1, ArrayAnnotationValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getArrayAnnotationValue_Values(), this.getAnnotationValue(), null, "values", null, 0, -1, ArrayAnnotationValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(constantExpressionEClass, ConstantExpression.class, "ConstantExpression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+    initEClass(logicalOrExpressionEClass, LogicalOrExpression.class, "LogicalOrExpression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getLogicalOrExpression_LeftExpr(), this.getLogicalAndExpression(), null, "leftExpr", null, 0, 1, LogicalOrExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getLogicalOrExpression_RightExpr(), this.getLogicalOrExpression(), null, "rightExpr", null, 0, 1, LogicalOrExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(logicalAndExpressionEClass, LogicalAndExpression.class, "LogicalAndExpression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getLogicalAndExpression_LeftExpr(), this.getOrExpression(), null, "leftExpr", null, 0, 1, LogicalAndExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getLogicalAndExpression_RightExpr(), this.getLogicalAndExpression(), null, "rightExpr", null, 0, 1, LogicalAndExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(orExpressionEClass, OrExpression.class, "OrExpression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getOrExpression_LeftExpr(), this.getXorExpression(), null, "leftExpr", null, 0, 1, OrExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getOrExpression_RightExpr(), this.getOrExpression(), null, "rightExpr", null, 0, 1, OrExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(xorExpressionEClass, XorExpression.class, "XorExpression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getXorExpression_LeftExpr(), this.getAndExpression(), null, "leftExpr", null, 0, 1, XorExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getXorExpression_RightExpr(), this.getXorExpression(), null, "rightExpr", null, 0, 1, XorExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(andExpressionEClass, AndExpression.class, "AndExpression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getAndExpression_LeftExpr(), this.getShiftExpression(), null, "leftExpr", null, 0, 1, AndExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getAndExpression_RightExpr(), this.getAndExpression(), null, "rightExpr", null, 0, 1, AndExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(shiftExpressionEClass, ShiftExpression.class, "ShiftExpression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getShiftExpression_LeftExpr(), this.getAdditiveExpression(), null, "leftExpr", null, 0, 1, ShiftExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getShiftExpression_Op(), ecorePackage.getEString(), "op", null, 0, 1, ShiftExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getShiftExpression_RightExpr(), this.getShiftExpression(), null, "rightExpr", null, 0, 1, ShiftExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(additiveExpressionEClass, AdditiveExpression.class, "AdditiveExpression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getAdditiveExpression_LeftExpr(), this.getMulExpression(), null, "leftExpr", null, 0, 1, AdditiveExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getAdditiveExpression_Op(), ecorePackage.getEString(), "op", null, 0, 1, AdditiveExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getAdditiveExpression_RightExpr(), this.getAdditiveExpression(), null, "rightExpr", null, 0, 1, AdditiveExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(mulExpressionEClass, MulExpression.class, "MulExpression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getMulExpression_LeftExpr(), this.getCastExpression(), null, "leftExpr", null, 0, 1, MulExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getMulExpression_Op(), ecorePackage.getEString(), "op", null, 0, 1, MulExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getMulExpression_RightExpr(), this.getMulExpression(), null, "rightExpr", null, 0, 1, MulExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(castExpressionEClass, CastExpression.class, "CastExpression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getCastExpression_Type(), this.getQualifiedTypeSpecification(), null, "type", null, 0, 1, CastExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getCastExpression_Expr(), this.getCastExpression(), null, "expr", null, 0, 1, CastExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getCastExpression_UnaryExpr(), this.getUnaryExpression(), null, "unaryExpr", null, 0, 1, CastExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(unaryExpressionEClass, UnaryExpression.class, "UnaryExpression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getUnaryExpression_UnaryExpr(), ecorePackage.getEString(), "unaryExpr", null, 0, 1, UnaryExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getUnaryExpression_PrimaryExpr(), this.getPrimaryExpression(), null, "primaryExpr", null, 0, 1, UnaryExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(primaryExpressionEClass, PrimaryExpression.class, "PrimaryExpression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getPrimaryExpression_Literal(), this.getLiteral(), null, "literal", null, 0, 1, PrimaryExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(literalEClass, Literal.class, "Literal", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getLiteral_Ref(), this.getConstantDefinition(), null, "ref", null, 0, 1, Literal.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     // Initialize enums and add enum literals
     initEEnum(typeQualifierEEnum, TypeQualifier.class, "TypeQualifier");

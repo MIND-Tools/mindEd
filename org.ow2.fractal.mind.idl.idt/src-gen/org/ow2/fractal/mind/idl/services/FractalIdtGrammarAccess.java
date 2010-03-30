@@ -320,8 +320,8 @@ public class FractalIdtGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//StructMember:
-	//  annotations=Annotations qualType=QualifiedTypeSpecification dec=Declarators (":" INT
-	//  )? ";";
+	//  annotations=Annotations qualType=QualifiedTypeSpecification dec=Declarators (":"
+	//  constExpr=ConstantExpression)? ";";
 	public FractalItfGrammarAccess.StructMemberElements getStructMemberAccess() {
 		return gaFractalItf.getStructMemberAccess();
 	}
@@ -371,7 +371,7 @@ public class FractalIdtGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//EnumMember:
-	//  annotations=Annotations id=ID ("=" INT)?;
+	//  annotations=Annotations id=ID ("=" constExpr=ConstantExpression)?;
 	public FractalItfGrammarAccess.EnumMemberElements getEnumMemberAccess() {
 		return gaFractalItf.getEnumMemberAccess();
 	}
@@ -443,8 +443,8 @@ public class FractalIdtGrammarAccess extends AbstractGrammarElementFinder {
 		return getDirectDeclaratorAccess().getRule();
 	}
 
-	//ArraySpecification returns ecore::EString:
-	//  "[" (INT|ID) "]";   / *AbstractDirectDeclarator:
+	//ArraySpecification:
+	//  "[" constExpr=ConstantExpression "]";   / *AbstractDirectDeclarator:
 	//  '(' dec=AbstractDeclarator ')' array+=ArraySpecification*;* /
 	public FractalItfGrammarAccess.ArraySpecificationElements getArraySpecificationAccess() {
 		return gaFractalItf.getArraySpecificationAccess();
@@ -635,6 +635,194 @@ public class FractalIdtGrammarAccess extends AbstractGrammarElementFinder {
 	public ParserRule getSignedINTRule() {
 		return getSignedINTAccess().getRule();
 	}
+
+	//ConstantExpression:
+	//  LogicalOrExpression;
+	public FractalItfGrammarAccess.ConstantExpressionElements getConstantExpressionAccess() {
+		return gaFractalItf.getConstantExpressionAccess();
+	}
+	
+	public ParserRule getConstantExpressionRule() {
+		return getConstantExpressionAccess().getRule();
+	}
+
+	//LogicalOrExpression:
+	//  leftExpr=LogicalAndExpression ("||" rightExpr=LogicalOrExpression)?;
+	public FractalItfGrammarAccess.LogicalOrExpressionElements getLogicalOrExpressionAccess() {
+		return gaFractalItf.getLogicalOrExpressionAccess();
+	}
+	
+	public ParserRule getLogicalOrExpressionRule() {
+		return getLogicalOrExpressionAccess().getRule();
+	}
+
+	//LogicalAndExpression:
+	//  leftExpr=OrExpression ("&&" rightExpr=LogicalAndExpression)?;
+	public FractalItfGrammarAccess.LogicalAndExpressionElements getLogicalAndExpressionAccess() {
+		return gaFractalItf.getLogicalAndExpressionAccess();
+	}
+	
+	public ParserRule getLogicalAndExpressionRule() {
+		return getLogicalAndExpressionAccess().getRule();
+	}
+
+	//OrExpression:
+	//  leftExpr=XorExpression ("|" rightExpr=OrExpression)?;
+	public FractalItfGrammarAccess.OrExpressionElements getOrExpressionAccess() {
+		return gaFractalItf.getOrExpressionAccess();
+	}
+	
+	public ParserRule getOrExpressionRule() {
+		return getOrExpressionAccess().getRule();
+	}
+
+	//XorExpression:
+	//  leftExpr=AndExpression ("^" rightExpr=XorExpression)?;
+	public FractalItfGrammarAccess.XorExpressionElements getXorExpressionAccess() {
+		return gaFractalItf.getXorExpressionAccess();
+	}
+	
+	public ParserRule getXorExpressionRule() {
+		return getXorExpressionAccess().getRule();
+	}
+
+	//AndExpression:
+	//  leftExpr=ShiftExpression ("&" rightExpr=AndExpression)?;
+	public FractalItfGrammarAccess.AndExpressionElements getAndExpressionAccess() {
+		return gaFractalItf.getAndExpressionAccess();
+	}
+	
+	public ParserRule getAndExpressionRule() {
+		return getAndExpressionAccess().getRule();
+	}
+
+	//ShiftExpression:
+	//  leftExpr=AdditiveExpression (op=ShiftOperation rightExpr=ShiftExpression)?;
+	public FractalItfGrammarAccess.ShiftExpressionElements getShiftExpressionAccess() {
+		return gaFractalItf.getShiftExpressionAccess();
+	}
+	
+	public ParserRule getShiftExpressionRule() {
+		return getShiftExpressionAccess().getRule();
+	}
+
+	//AdditiveExpression:
+	//  leftExpr=MulExpression (op=AdditiveOperation rightExpr=AdditiveExpression)?;
+	public FractalItfGrammarAccess.AdditiveExpressionElements getAdditiveExpressionAccess() {
+		return gaFractalItf.getAdditiveExpressionAccess();
+	}
+	
+	public ParserRule getAdditiveExpressionRule() {
+		return getAdditiveExpressionAccess().getRule();
+	}
+
+	//MulExpression:
+	//  leftExpr=CastExpression (op=MulOperation rightExpr=MulExpression)?;
+	public FractalItfGrammarAccess.MulExpressionElements getMulExpressionAccess() {
+		return gaFractalItf.getMulExpressionAccess();
+	}
+	
+	public ParserRule getMulExpressionRule() {
+		return getMulExpressionAccess().getRule();
+	}
+
+	//CastExpression:
+	//  "(" type=QualifiedTypeSpecification ")" expr=CastExpression|unaryExpr=
+	//  UnaryExpression;
+	public FractalItfGrammarAccess.CastExpressionElements getCastExpressionAccess() {
+		return gaFractalItf.getCastExpressionAccess();
+	}
+	
+	public ParserRule getCastExpressionRule() {
+		return getCastExpressionAccess().getRule();
+	}
+
+	//UnaryExpression:
+	//  unaryExpr=UnaryOperation? primaryExpr=PrimaryExpression;
+	public FractalItfGrammarAccess.UnaryExpressionElements getUnaryExpressionAccess() {
+		return gaFractalItf.getUnaryExpressionAccess();
+	}
+	
+	public ParserRule getUnaryExpressionRule() {
+		return getUnaryExpressionAccess().getRule();
+	}
+
+	//PrimaryExpression:
+	//  literal=Literal|"(" ConstantExpression ")";
+	public FractalItfGrammarAccess.PrimaryExpressionElements getPrimaryExpressionAccess() {
+		return gaFractalItf.getPrimaryExpressionAccess();
+	}
+	
+	public ParserRule getPrimaryExpressionRule() {
+		return getPrimaryExpressionAccess().getRule();
+	}
+
+	//Literal:
+	//  ID|STRING|FloatingPointLiteral|ref=[ConstantDefinition];
+	public FractalItfGrammarAccess.LiteralElements getLiteralAccess() {
+		return gaFractalItf.getLiteralAccess();
+	}
+	
+	public ParserRule getLiteralRule() {
+		return getLiteralAccess().getRule();
+	}
+
+	//ShiftOperation returns ecore::EString:
+	//  "<<"|">>";
+	public FractalItfGrammarAccess.ShiftOperationElements getShiftOperationAccess() {
+		return gaFractalItf.getShiftOperationAccess();
+	}
+	
+	public ParserRule getShiftOperationRule() {
+		return getShiftOperationAccess().getRule();
+	}
+
+	//AdditiveOperation returns ecore::EString:
+	//  "+"|"-";
+	public FractalItfGrammarAccess.AdditiveOperationElements getAdditiveOperationAccess() {
+		return gaFractalItf.getAdditiveOperationAccess();
+	}
+	
+	public ParserRule getAdditiveOperationRule() {
+		return getAdditiveOperationAccess().getRule();
+	}
+
+	//MulOperation returns ecore::EString:
+	//  "*"|"/"|"%";
+	public FractalItfGrammarAccess.MulOperationElements getMulOperationAccess() {
+		return gaFractalItf.getMulOperationAccess();
+	}
+	
+	public ParserRule getMulOperationRule() {
+		return getMulOperationAccess().getRule();
+	}
+
+	//UnaryOperation returns ecore::EString:
+	//  "&"|"*"|"+"|"-"|"~"|"!";
+	public FractalItfGrammarAccess.UnaryOperationElements getUnaryOperationAccess() {
+		return gaFractalItf.getUnaryOperationAccess();
+	}
+	
+	public ParserRule getUnaryOperationRule() {
+		return getUnaryOperationAccess().getRule();
+	}
+
+	//FloatingPointLiteral returns ecore::EString:
+	//  INT+ "." INT* Exponent? ("f"|"F"|"d"|"D")?|"." INT+ Exponent? ("f"|"F"|"d"|"D")?|INT+
+	//  Exponent ("f"|"F"|"d"|"D")?|INT+ Exponent? ("f"|"F"|"d"|"D");
+	public FractalItfGrammarAccess.FloatingPointLiteralElements getFloatingPointLiteralAccess() {
+		return gaFractalItf.getFloatingPointLiteralAccess();
+	}
+	
+	public ParserRule getFloatingPointLiteralRule() {
+		return getFloatingPointLiteralAccess().getRule();
+	}
+
+	//terminal Exponent:
+	//  ("e" | "E") ("+" | "-")? INT+;
+	public TerminalRule getExponentRule() {
+		return gaFractalItf.getExponentRule();
+	} 
 
 	//terminal ID:
 	//  "^"? ("a".."z" | "A".."Z" | "_") ("a".."z" | "A".."Z" | "_" | "0".."9")*;

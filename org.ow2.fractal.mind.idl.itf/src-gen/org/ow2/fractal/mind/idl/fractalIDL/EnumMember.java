@@ -19,6 +19,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.ow2.fractal.mind.idl.fractalIDL.EnumMember#getEnumMember <em>Enum Member</em>}</li>
  *   <li>{@link org.ow2.fractal.mind.idl.fractalIDL.EnumMember#getAnnotations <em>Annotations</em>}</li>
  *   <li>{@link org.ow2.fractal.mind.idl.fractalIDL.EnumMember#getId <em>Id</em>}</li>
+ *   <li>{@link org.ow2.fractal.mind.idl.fractalIDL.EnumMember#getConstExpr <em>Const Expr</em>}</li>
  * </ul>
  * </p>
  *
@@ -95,5 +96,31 @@ public interface EnumMember extends EnumMemberList
    * @generated
    */
   void setId(String value);
+
+  /**
+   * Returns the value of the '<em><b>Const Expr</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Const Expr</em>' containment reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Const Expr</em>' containment reference.
+   * @see #setConstExpr(ConstantExpression)
+   * @see org.ow2.fractal.mind.idl.fractalIDL.FractalIDLPackage#getEnumMember_ConstExpr()
+   * @model containment="true"
+   * @generated
+   */
+  ConstantExpression getConstExpr();
+
+  /**
+   * Sets the value of the '{@link org.ow2.fractal.mind.idl.fractalIDL.EnumMember#getConstExpr <em>Const Expr</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Const Expr</em>' containment reference.
+   * @see #getConstExpr()
+   * @generated
+   */
+  void setConstExpr(ConstantExpression value);
 
 } // EnumMember

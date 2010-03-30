@@ -7,81 +7,99 @@ package org.ow2.fractal.mind.idl.parser.antlr.internal;
 import org.eclipse.xtext.parser.antlr.Lexer;
 }
 
-T13 : ';' ;
-T14 : 'typedef' ;
-T15 : '{' ;
-T16 : '}' ;
-T17 : 'struct' ;
-T18 : 'union' ;
-T19 : ':' ;
-T20 : 'enum' ;
-T21 : ',' ;
-T22 : '=' ;
-T23 : '*' ;
-T24 : '(' ;
-T25 : ')' ;
-T26 : '[' ;
-T27 : ']' ;
-T28 : '.' ;
-T29 : '#define' ;
-T30 : 'interface' ;
-T31 : 'unmanaged' ;
-T32 : 'void' ;
-T33 : '...' ;
-T34 : '#include' ;
-T35 : '@' ;
-T36 : 'null' ;
-T37 : '+' ;
-T38 : '-' ;
-T39 : 'const' ;
-T40 : 'volatile' ;
-T41 : 'char' ;
-T42 : 'short' ;
-T43 : 'int' ;
-T44 : 'long' ;
-T45 : 'float' ;
-T46 : 'double' ;
-T47 : 'signed' ;
-T48 : 'unsigned' ;
-T49 : 'string' ;
-T50 : 'int8_t' ;
-T51 : 'uint8_t' ;
-T52 : 'int16_t' ;
-T53 : 'uint16_t' ;
-T54 : 'int32_t' ;
-T55 : 'uint32_t' ;
-T56 : 'int64_t' ;
-T57 : 'uint64_t' ;
-T58 : 'intptr_t' ;
-T59 : 'uintptr_t' ;
-T60 : 'in' ;
-T61 : 'out' ;
+T14 : ';' ;
+T15 : 'typedef' ;
+T16 : '{' ;
+T17 : '}' ;
+T18 : 'struct' ;
+T19 : 'union' ;
+T20 : ':' ;
+T21 : 'enum' ;
+T22 : ',' ;
+T23 : '=' ;
+T24 : '*' ;
+T25 : '(' ;
+T26 : ')' ;
+T27 : '[' ;
+T28 : ']' ;
+T29 : '.' ;
+T30 : '#define' ;
+T31 : 'interface' ;
+T32 : 'unmanaged' ;
+T33 : 'void' ;
+T34 : '...' ;
+T35 : '#include' ;
+T36 : '@' ;
+T37 : 'null' ;
+T38 : '+' ;
+T39 : '-' ;
+T40 : '||' ;
+T41 : '&&' ;
+T42 : '|' ;
+T43 : '^' ;
+T44 : '&' ;
+T45 : '<<' ;
+T46 : '>>' ;
+T47 : '/' ;
+T48 : '%' ;
+T49 : '~' ;
+T50 : '!' ;
+T51 : 'f' ;
+T52 : 'F' ;
+T53 : 'd' ;
+T54 : 'D' ;
+T55 : 'const' ;
+T56 : 'volatile' ;
+T57 : 'char' ;
+T58 : 'short' ;
+T59 : 'int' ;
+T60 : 'long' ;
+T61 : 'float' ;
+T62 : 'double' ;
+T63 : 'signed' ;
+T64 : 'unsigned' ;
+T65 : 'string' ;
+T66 : 'int8_t' ;
+T67 : 'uint8_t' ;
+T68 : 'int16_t' ;
+T69 : 'uint16_t' ;
+T70 : 'int32_t' ;
+T71 : 'uint32_t' ;
+T72 : 'int64_t' ;
+T73 : 'uint64_t' ;
+T74 : 'intptr_t' ;
+T75 : 'uintptr_t' ;
+T76 : 'in' ;
+T77 : 'out' ;
 
-// $ANTLR src "../org.ow2.fractal.mind.idl.itf/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalItf.g" 3061
+// $ANTLR src "../org.ow2.fractal.mind.idl.itf/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalItf.g" 4483
 RULE_INCLUDELIB : '<' RULE_ID '.' RULE_ID '>';
 
-// $ANTLR src "../org.ow2.fractal.mind.idl.itf/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalItf.g" 3063
+// $ANTLR src "../org.ow2.fractal.mind.idl.itf/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalItf.g" 4485
 RULE_BOOLEAN : ('true'|'false');
 
-// $ANTLR src "../org.ow2.fractal.mind.idl.itf/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalItf.g" 3065
+// $ANTLR src "../org.ow2.fractal.mind.idl.itf/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalItf.g" 4487
+RULE_EXPONENT : ('e'|'E') ('+'|'-')? RULE_INT+;
+
+// $ANTLR src "../org.ow2.fractal.mind.idl.itf/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalItf.g" 4489
 RULE_ID : '^'? ('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'_'|'0'..'9')*;
 
-// $ANTLR src "../org.ow2.fractal.mind.idl.itf/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalItf.g" 3067
+// $ANTLR src "../org.ow2.fractal.mind.idl.itf/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalItf.g" 4491
 RULE_INT : ('0'..'9')+;
 
-// $ANTLR src "../org.ow2.fractal.mind.idl.itf/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalItf.g" 3069
+// $ANTLR src "../org.ow2.fractal.mind.idl.itf/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalItf.g" 4493
 RULE_STRING : ('"' ('\\' ('b'|'t'|'n'|'f'|'r'|'"'|'\''|'\\')|~(('\\'|'"')))* '"'|'\'' ('\\' ('b'|'t'|'n'|'f'|'r'|'"'|'\''|'\\')|~(('\\'|'\'')))* '\'');
 
-// $ANTLR src "../org.ow2.fractal.mind.idl.itf/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalItf.g" 3071
+// $ANTLR src "../org.ow2.fractal.mind.idl.itf/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalItf.g" 4495
 RULE_ML_COMMENT : '/*' ( options {greedy=false;} : . )*'*/';
 
-// $ANTLR src "../org.ow2.fractal.mind.idl.itf/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalItf.g" 3073
+// $ANTLR src "../org.ow2.fractal.mind.idl.itf/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalItf.g" 4497
 RULE_SL_COMMENT : '//' ~(('\n'|'\r'))* ('\r'? '\n')?;
 
-// $ANTLR src "../org.ow2.fractal.mind.idl.itf/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalItf.g" 3075
+// $ANTLR src "../org.ow2.fractal.mind.idl.itf/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalItf.g" 4499
 RULE_WS : (' '|'\t'|'\r'|'\n')+;
 
-// $ANTLR src "../org.ow2.fractal.mind.idl.itf/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalItf.g" 3077
+// $ANTLR src "../org.ow2.fractal.mind.idl.itf/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalItf.g" 4501
 RULE_ANY_OTHER : .;
 
 

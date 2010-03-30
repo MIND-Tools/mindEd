@@ -83,19 +83,19 @@ public interface DirectDeclarator extends EObject
   void setDec(Declarator value);
 
   /**
-   * Returns the value of the '<em><b>Array</b></em>' attribute list.
-   * The list contents are of type {@link java.lang.String}.
+   * Returns the value of the '<em><b>Array</b></em>' containment reference list.
+   * The list contents are of type {@link org.ow2.fractal.mind.idl.fractalIDL.ArraySpecification}.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Array</em>' attribute list isn't clear,
+   * If the meaning of the '<em>Array</em>' containment reference list isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Array</em>' attribute list.
+   * @return the value of the '<em>Array</em>' containment reference list.
    * @see org.ow2.fractal.mind.idl.fractalIDL.FractalIDLPackage#getDirectDeclarator_Array()
-   * @model unique="false"
+   * @model containment="true"
    * @generated
    */
-  EList<String> getArray();
+  EList<ArraySpecification> getArray();
 
 } // DirectDeclarator

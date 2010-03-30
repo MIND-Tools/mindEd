@@ -22,6 +22,7 @@ import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.ow2.fractal.mind.idl.fractalIDL.Annotations;
+import org.ow2.fractal.mind.idl.fractalIDL.ConstantExpression;
 import org.ow2.fractal.mind.idl.fractalIDL.EnumMember;
 import org.ow2.fractal.mind.idl.fractalIDL.FractalIDLPackage;
 
@@ -35,6 +36,7 @@ import org.ow2.fractal.mind.idl.fractalIDL.FractalIDLPackage;
  *   <li>{@link org.ow2.fractal.mind.idl.fractalIDL.impl.EnumMemberImpl#getEnumMember <em>Enum Member</em>}</li>
  *   <li>{@link org.ow2.fractal.mind.idl.fractalIDL.impl.EnumMemberImpl#getAnnotations <em>Annotations</em>}</li>
  *   <li>{@link org.ow2.fractal.mind.idl.fractalIDL.impl.EnumMemberImpl#getId <em>Id</em>}</li>
+ *   <li>{@link org.ow2.fractal.mind.idl.fractalIDL.impl.EnumMemberImpl#getConstExpr <em>Const Expr</em>}</li>
  * </ul>
  * </p>
  *
@@ -81,6 +83,16 @@ public class EnumMemberImpl extends EnumMemberListImpl implements EnumMember
    * @ordered
    */
   protected String id = ID_EDEFAULT;
+
+  /**
+   * The cached value of the '{@link #getConstExpr() <em>Const Expr</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getConstExpr()
+   * @generated
+   * @ordered
+   */
+  protected ConstantExpression constExpr;
 
   /**
    * <!-- begin-user-doc -->
@@ -193,6 +205,54 @@ public class EnumMemberImpl extends EnumMemberListImpl implements EnumMember
    * <!-- end-user-doc -->
    * @generated
    */
+  public ConstantExpression getConstExpr()
+  {
+    return constExpr;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetConstExpr(ConstantExpression newConstExpr, NotificationChain msgs)
+  {
+    ConstantExpression oldConstExpr = constExpr;
+    constExpr = newConstExpr;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FractalIDLPackage.ENUM_MEMBER__CONST_EXPR, oldConstExpr, newConstExpr);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setConstExpr(ConstantExpression newConstExpr)
+  {
+    if (newConstExpr != constExpr)
+    {
+      NotificationChain msgs = null;
+      if (constExpr != null)
+        msgs = ((InternalEObject)constExpr).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FractalIDLPackage.ENUM_MEMBER__CONST_EXPR, null, msgs);
+      if (newConstExpr != null)
+        msgs = ((InternalEObject)newConstExpr).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FractalIDLPackage.ENUM_MEMBER__CONST_EXPR, null, msgs);
+      msgs = basicSetConstExpr(newConstExpr, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, FractalIDLPackage.ENUM_MEMBER__CONST_EXPR, newConstExpr, newConstExpr));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   @Override
   public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
   {
@@ -202,6 +262,8 @@ public class EnumMemberImpl extends EnumMemberListImpl implements EnumMember
         return ((InternalEList<?>)getEnumMember()).basicRemove(otherEnd, msgs);
       case FractalIDLPackage.ENUM_MEMBER__ANNOTATIONS:
         return basicSetAnnotations(null, msgs);
+      case FractalIDLPackage.ENUM_MEMBER__CONST_EXPR:
+        return basicSetConstExpr(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -222,6 +284,8 @@ public class EnumMemberImpl extends EnumMemberListImpl implements EnumMember
         return getAnnotations();
       case FractalIDLPackage.ENUM_MEMBER__ID:
         return getId();
+      case FractalIDLPackage.ENUM_MEMBER__CONST_EXPR:
+        return getConstExpr();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -247,6 +311,9 @@ public class EnumMemberImpl extends EnumMemberListImpl implements EnumMember
       case FractalIDLPackage.ENUM_MEMBER__ID:
         setId((String)newValue);
         return;
+      case FractalIDLPackage.ENUM_MEMBER__CONST_EXPR:
+        setConstExpr((ConstantExpression)newValue);
+        return;
     }
     super.eSet(featureID, newValue);
   }
@@ -270,6 +337,9 @@ public class EnumMemberImpl extends EnumMemberListImpl implements EnumMember
       case FractalIDLPackage.ENUM_MEMBER__ID:
         setId(ID_EDEFAULT);
         return;
+      case FractalIDLPackage.ENUM_MEMBER__CONST_EXPR:
+        setConstExpr((ConstantExpression)null);
+        return;
     }
     super.eUnset(featureID);
   }
@@ -290,6 +360,8 @@ public class EnumMemberImpl extends EnumMemberListImpl implements EnumMember
         return annotations != null;
       case FractalIDLPackage.ENUM_MEMBER__ID:
         return ID_EDEFAULT == null ? id != null : !ID_EDEFAULT.equals(id);
+      case FractalIDLPackage.ENUM_MEMBER__CONST_EXPR:
+        return constExpr != null;
     }
     return super.eIsSet(featureID);
   }

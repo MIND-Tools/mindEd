@@ -54,19 +54,33 @@ protected class ThisRootNode extends RootToken {
 			case 16: return new PointerSpecification_Group(this, this, 16, inst);
 			case 17: return new Qualified_PointerSpecification_Group(this, this, 17, inst);
 			case 18: return new DirectDeclarator_Group(this, this, 18, inst);
-			case 19: return new ConstantDefinition_Group(this, this, 19, inst);
-			case 20: return new InterfaceDefinition_Group(this, this, 20, inst);
-			case 21: return new MethodDefinition_Group(this, this, 21, inst);
-			case 22: return new ParameterList_Group(this, this, 22, inst);
-			case 23: return new Parameter_Group(this, this, 23, inst);
-			case 24: return new IncludeDirective_Group(this, this, 24, inst);
-			case 25: return new Annotations_Group(this, this, 25, inst);
-			case 26: return new Annotation_Group(this, this, 26, inst);
-			case 27: return new AnnotationParameters_Group(this, this, 27, inst);
-			case 28: return new AnnotationValuePairs_Group(this, this, 28, inst);
-			case 29: return new AnnotationValuePair_Group(this, this, 29, inst);
-			case 30: return new AnnotationValue_Alternatives(this, this, 30, inst);
-			case 31: return new ArrayAnnotationValue_Group(this, this, 31, inst);
+			case 19: return new ArraySpecification_Group(this, this, 19, inst);
+			case 20: return new ConstantDefinition_Group(this, this, 20, inst);
+			case 21: return new InterfaceDefinition_Group(this, this, 21, inst);
+			case 22: return new MethodDefinition_Group(this, this, 22, inst);
+			case 23: return new ParameterList_Group(this, this, 23, inst);
+			case 24: return new Parameter_Group(this, this, 24, inst);
+			case 25: return new IncludeDirective_Group(this, this, 25, inst);
+			case 26: return new Annotations_Group(this, this, 26, inst);
+			case 27: return new Annotation_Group(this, this, 27, inst);
+			case 28: return new AnnotationParameters_Group(this, this, 28, inst);
+			case 29: return new AnnotationValuePairs_Group(this, this, 29, inst);
+			case 30: return new AnnotationValuePair_Group(this, this, 30, inst);
+			case 31: return new AnnotationValue_Alternatives(this, this, 31, inst);
+			case 32: return new ArrayAnnotationValue_Group(this, this, 32, inst);
+			case 33: return new ConstantExpression_LogicalOrExpressionParserRuleCall(this, this, 33, inst);
+			case 34: return new LogicalOrExpression_Group(this, this, 34, inst);
+			case 35: return new LogicalAndExpression_Group(this, this, 35, inst);
+			case 36: return new OrExpression_Group(this, this, 36, inst);
+			case 37: return new XorExpression_Group(this, this, 37, inst);
+			case 38: return new AndExpression_Group(this, this, 38, inst);
+			case 39: return new ShiftExpression_Group(this, this, 39, inst);
+			case 40: return new AdditiveExpression_Group(this, this, 40, inst);
+			case 41: return new MulExpression_Group(this, this, 41, inst);
+			case 42: return new CastExpression_Alternatives(this, this, 42, inst);
+			case 43: return new UnaryExpression_Group(this, this, 43, inst);
+			case 44: return new PrimaryExpression_Alternatives(this, this, 44, inst);
+			case 45: return new Literal_Alternatives(this, this, 45, inst);
 			default: return null;
 		}	
 	}	
@@ -1385,13 +1399,13 @@ protected class StructorUnionReference_IdAssignment_1 extends AssignmentToken  {
 /************ begin Rule StructMember ****************
  *
  * StructMember:
- *   annotations=Annotations qualType=QualifiedTypeSpecification dec=Declarators (":" INT
- *   )? ";";
+ *   annotations=Annotations qualType=QualifiedTypeSpecification dec=Declarators (":"
+ *   constExpr=ConstantExpression)? ";";
  *
  **/
 
-// annotations=Annotations qualType=QualifiedTypeSpecification dec=Declarators (":" INT
-// )? ";"
+// annotations=Annotations qualType=QualifiedTypeSpecification dec=Declarators (":"
+// constExpr=ConstantExpression)? ";"
 protected class StructMember_Group extends GroupToken {
 	
 	public StructMember_Group(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
@@ -1555,7 +1569,7 @@ protected class StructMember_DecAssignment_2 extends AssignmentToken  {
 	}	
 }
 
-// (":" INT)?
+// (":" constExpr=ConstantExpression)?
 protected class StructMember_Group_3 extends GroupToken {
 	
 	public StructMember_Group_3(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
@@ -1570,7 +1584,7 @@ protected class StructMember_Group_3 extends GroupToken {
     @Override
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new StructMember_INTTerminalRuleCall_3_1(parent, this, 0, inst);
+			case 0: return new StructMember_ConstExprAssignment_3_1(parent, this, 0, inst);
 			default: return null;
 		}	
 	}	
@@ -1599,26 +1613,50 @@ protected class StructMember_ColonKeyword_3_0 extends KeywordToken  {
 		
 }
 
-// INT
-protected class StructMember_INTTerminalRuleCall_3_1 extends UnassignedTextToken {
-
-	public StructMember_INTTerminalRuleCall_3_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+// constExpr=ConstantExpression
+protected class StructMember_ConstExprAssignment_3_1 extends AssignmentToken  {
+	
+	public StructMember_ConstExprAssignment_3_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	@Override
-	public RuleCall getGrammarElement() {
-		return grammarAccess.getStructMemberAccess().getINTTerminalRuleCall_3_1();
+	public Assignment getGrammarElement() {
+		return grammarAccess.getStructMemberAccess().getConstExprAssignment_3_1();
 	}
 
     @Override
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new StructMember_ColonKeyword_3_0(parent, this, 0, inst);
+			case 0: return new ConstantExpression_LogicalOrExpressionParserRuleCall(this, this, 0, inst);
 			default: return null;
 		}	
 	}	
 		
+    @Override	
+	protected IInstanceDescription tryConsumeVal() {
+		if((value = current.getConsumable("constExpr",false)) == null) return null;
+		IInstanceDescription obj = current.cloneAndConsume("constExpr");
+		if(value instanceof EObject) { // org::eclipse::xtext::impl::RuleCallImpl
+			IInstanceDescription param = getDescr((EObject)value);
+			if(param.isInstanceOf(grammarAccess.getConstantExpressionRule().getType().getClassifier())) {
+				type = AssignmentType.PRC;
+				element = grammarAccess.getStructMemberAccess().getConstExprConstantExpressionParserRuleCall_3_1_0(); 
+				consumed = obj;
+				return param;
+			}
+		}
+		return null;
+	}
+
+    @Override
+	public AbstractToken createParentFollower(AbstractToken next,	int actIndex, int index, IInstanceDescription inst) {
+		if(value == inst.getDelegate() && !inst.isConsumed()) return null;
+		switch(index) {
+			case 0: return new StructMember_ColonKeyword_3_0(parent, next, actIndex, consumed);
+			default: return null;
+		}	
+	}	
 }
 
 
@@ -2204,11 +2242,11 @@ protected class EnumMemberList_EnumMemberAssignment_1_1 extends AssignmentToken 
 /************ begin Rule EnumMember ****************
  *
  * EnumMember:
- *   annotations=Annotations id=ID ("=" INT)?;
+ *   annotations=Annotations id=ID ("=" constExpr=ConstantExpression)?;
  *
  **/
 
-// annotations=Annotations id=ID ("=" INT)?
+// annotations=Annotations id=ID ("=" constExpr=ConstantExpression)?
 protected class EnumMember_Group extends GroupToken {
 	
 	public EnumMember_Group(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
@@ -2315,7 +2353,7 @@ protected class EnumMember_IdAssignment_1 extends AssignmentToken  {
 
 }
 
-// ("=" INT)?
+// ("=" constExpr=ConstantExpression)?
 protected class EnumMember_Group_2 extends GroupToken {
 	
 	public EnumMember_Group_2(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
@@ -2330,7 +2368,7 @@ protected class EnumMember_Group_2 extends GroupToken {
     @Override
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new EnumMember_INTTerminalRuleCall_2_1(parent, this, 0, inst);
+			case 0: return new EnumMember_ConstExprAssignment_2_1(parent, this, 0, inst);
 			default: return null;
 		}	
 	}	
@@ -2359,26 +2397,50 @@ protected class EnumMember_EqualsSignKeyword_2_0 extends KeywordToken  {
 		
 }
 
-// INT
-protected class EnumMember_INTTerminalRuleCall_2_1 extends UnassignedTextToken {
-
-	public EnumMember_INTTerminalRuleCall_2_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+// constExpr=ConstantExpression
+protected class EnumMember_ConstExprAssignment_2_1 extends AssignmentToken  {
+	
+	public EnumMember_ConstExprAssignment_2_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	@Override
-	public RuleCall getGrammarElement() {
-		return grammarAccess.getEnumMemberAccess().getINTTerminalRuleCall_2_1();
+	public Assignment getGrammarElement() {
+		return grammarAccess.getEnumMemberAccess().getConstExprAssignment_2_1();
 	}
 
     @Override
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new EnumMember_EqualsSignKeyword_2_0(parent, this, 0, inst);
+			case 0: return new ConstantExpression_LogicalOrExpressionParserRuleCall(this, this, 0, inst);
 			default: return null;
 		}	
 	}	
 		
+    @Override	
+	protected IInstanceDescription tryConsumeVal() {
+		if((value = current.getConsumable("constExpr",false)) == null) return null;
+		IInstanceDescription obj = current.cloneAndConsume("constExpr");
+		if(value instanceof EObject) { // org::eclipse::xtext::impl::RuleCallImpl
+			IInstanceDescription param = getDescr((EObject)value);
+			if(param.isInstanceOf(grammarAccess.getConstantExpressionRule().getType().getClassifier())) {
+				type = AssignmentType.PRC;
+				element = grammarAccess.getEnumMemberAccess().getConstExprConstantExpressionParserRuleCall_2_1_0(); 
+				consumed = obj;
+				return param;
+			}
+		}
+		return null;
+	}
+
+    @Override
+	public AbstractToken createParentFollower(AbstractToken next,	int actIndex, int index, IInstanceDescription inst) {
+		if(value == inst.getDelegate() && !inst.isConsumed()) return null;
+		switch(index) {
+			case 0: return new EnumMember_EqualsSignKeyword_2_0(parent, next, actIndex, consumed);
+			default: return null;
+		}	
+	}	
 }
 
 
@@ -3161,8 +3223,7 @@ protected class DirectDeclarator_ArrayAssignment_1 extends AssignmentToken  {
     @Override
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new DirectDeclarator_ArrayAssignment_1(parent, this, 0, inst);
-			case 1: return new DirectDeclarator_Alternatives_0(parent, this, 1, inst);
+			case 0: return new ArraySpecification_Group(this, this, 0, inst);
 			default: return null;
 		}	
 	}	
@@ -3171,19 +3232,159 @@ protected class DirectDeclarator_ArrayAssignment_1 extends AssignmentToken  {
 	protected IInstanceDescription tryConsumeVal() {
 		if((value = current.getConsumable("array",false)) == null) return null;
 		IInstanceDescription obj = current.cloneAndConsume("array");
-		if(Boolean.TRUE.booleanValue()) { // org::eclipse::xtext::impl::RuleCallImpl FIXME: check if value is valid for datatype rule
-			type = AssignmentType.DRC;
-			element = grammarAccess.getDirectDeclaratorAccess().getArrayArraySpecificationParserRuleCall_1_0();
-			return obj;
+		if(value instanceof EObject) { // org::eclipse::xtext::impl::RuleCallImpl
+			IInstanceDescription param = getDescr((EObject)value);
+			if(param.isInstanceOf(grammarAccess.getArraySpecificationRule().getType().getClassifier())) {
+				type = AssignmentType.PRC;
+				element = grammarAccess.getDirectDeclaratorAccess().getArrayArraySpecificationParserRuleCall_1_0(); 
+				consumed = obj;
+				return param;
+			}
 		}
 		return null;
 	}
 
+    @Override
+	public AbstractToken createParentFollower(AbstractToken next,	int actIndex, int index, IInstanceDescription inst) {
+		if(value == inst.getDelegate() && !inst.isConsumed()) return null;
+		switch(index) {
+			case 0: return new DirectDeclarator_ArrayAssignment_1(parent, next, actIndex, consumed);
+			case 1: return new DirectDeclarator_Alternatives_0(parent, next, actIndex, consumed);
+			default: return null;
+		}	
+	}	
 }
 
 
 /************ end Rule DirectDeclarator ****************/
 
+
+/************ begin Rule ArraySpecification ****************
+ *
+ * ArraySpecification:
+ *   "[" constExpr=ConstantExpression "]";   / *AbstractDirectDeclarator:
+ *   '(' dec=AbstractDeclarator ')' array+=ArraySpecification*;* /
+ *
+ **/
+
+// "[" constExpr=ConstantExpression "]"
+protected class ArraySpecification_Group extends GroupToken {
+	
+	public ArraySpecification_Group(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Group getGrammarElement() {
+		return grammarAccess.getArraySpecificationAccess().getGroup();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new ArraySpecification_RightSquareBracketKeyword_2(parent, this, 0, inst);
+			default: return null;
+		}	
+	}	
+		
+    @Override
+	public IInstanceDescription tryConsume() {
+		if(!current.isInstanceOf(grammarAccess.getArraySpecificationRule().getType().getClassifier())) return null;
+		return tryConsumeVal();
+	}
+}
+
+// "["
+protected class ArraySpecification_LeftSquareBracketKeyword_0 extends KeywordToken  {
+	
+	public ArraySpecification_LeftSquareBracketKeyword_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Keyword getGrammarElement() {
+		return grammarAccess.getArraySpecificationAccess().getLeftSquareBracketKeyword_0();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			default: return parent.createParentFollower(this, index, index, inst);
+		}	
+	}	
+		
+}
+
+// constExpr=ConstantExpression
+protected class ArraySpecification_ConstExprAssignment_1 extends AssignmentToken  {
+	
+	public ArraySpecification_ConstExprAssignment_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Assignment getGrammarElement() {
+		return grammarAccess.getArraySpecificationAccess().getConstExprAssignment_1();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new ConstantExpression_LogicalOrExpressionParserRuleCall(this, this, 0, inst);
+			default: return null;
+		}	
+	}	
+		
+    @Override	
+	protected IInstanceDescription tryConsumeVal() {
+		if((value = current.getConsumable("constExpr",true)) == null) return null;
+		IInstanceDescription obj = current.cloneAndConsume("constExpr");
+		if(value instanceof EObject) { // org::eclipse::xtext::impl::RuleCallImpl
+			IInstanceDescription param = getDescr((EObject)value);
+			if(param.isInstanceOf(grammarAccess.getConstantExpressionRule().getType().getClassifier())) {
+				type = AssignmentType.PRC;
+				element = grammarAccess.getArraySpecificationAccess().getConstExprConstantExpressionParserRuleCall_1_0(); 
+				consumed = obj;
+				return param;
+			}
+		}
+		return null;
+	}
+
+    @Override
+	public AbstractToken createParentFollower(AbstractToken next,	int actIndex, int index, IInstanceDescription inst) {
+		if(value == inst.getDelegate() && !inst.isConsumed()) return null;
+		switch(index) {
+			case 0: return new ArraySpecification_LeftSquareBracketKeyword_0(parent, next, actIndex, consumed);
+			default: return null;
+		}	
+	}	
+}
+
+// "]"
+protected class ArraySpecification_RightSquareBracketKeyword_2 extends KeywordToken  {
+	
+	public ArraySpecification_RightSquareBracketKeyword_2(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Keyword getGrammarElement() {
+		return grammarAccess.getArraySpecificationAccess().getRightSquareBracketKeyword_2();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new ArraySpecification_ConstExprAssignment_1(parent, this, 0, inst);
+			default: return null;
+		}	
+	}	
+		
+}
+
+
+/************ end Rule ArraySpecification ****************/
 
 
 
@@ -5784,6 +5985,2184 @@ protected class ArrayAnnotationValue_RightCurlyBracketKeyword_2 extends KeywordT
 
 
 /************ end Rule ArrayAnnotationValue ****************/
+
+
+
+/************ begin Rule ConstantExpression ****************
+ *
+ * ConstantExpression:
+ *   LogicalOrExpression;
+ *
+ **/
+
+// LogicalOrExpression
+protected class ConstantExpression_LogicalOrExpressionParserRuleCall extends RuleCallToken {
+	
+	public ConstantExpression_LogicalOrExpressionParserRuleCall(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public RuleCall getGrammarElement() {
+		return grammarAccess.getConstantExpressionAccess().getLogicalOrExpressionParserRuleCall();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new LogicalOrExpression_Group(this, this, 0, inst);
+			default: return null;
+		}	
+	}	
+		
+    @Override
+	public IInstanceDescription tryConsume() {
+		if(!current.isInstanceOf(grammarAccess.getConstantExpressionRule().getType().getClassifier())) return null;
+		return tryConsumeVal();
+	}
+    @Override
+	protected IInstanceDescription tryConsumeVal() {
+		if(checkForRecursion(LogicalOrExpression_Group.class, current)) return null;
+		if(!current.isInstanceOf(grammarAccess.getLogicalOrExpressionRule().getType().getClassifier())) return null;
+		return current;
+	}
+	
+    @Override
+	public AbstractToken createParentFollower(AbstractToken next,	int actIndex, int index, IInstanceDescription inst) {
+		switch(index) {
+			default: return parent.createParentFollower(next, actIndex , index, inst);
+		}	
+	}	
+}
+
+/************ end Rule ConstantExpression ****************/
+
+
+/************ begin Rule LogicalOrExpression ****************
+ *
+ * LogicalOrExpression:
+ *   leftExpr=LogicalAndExpression ("||" rightExpr=LogicalOrExpression)?;
+ *
+ **/
+
+// leftExpr=LogicalAndExpression ("||" rightExpr=LogicalOrExpression)?
+protected class LogicalOrExpression_Group extends GroupToken {
+	
+	public LogicalOrExpression_Group(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Group getGrammarElement() {
+		return grammarAccess.getLogicalOrExpressionAccess().getGroup();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new LogicalOrExpression_Group_1(parent, this, 0, inst);
+			case 1: return new LogicalOrExpression_LeftExprAssignment_0(parent, this, 1, inst);
+			default: return null;
+		}	
+	}	
+		
+    @Override
+	public IInstanceDescription tryConsume() {
+		if(!current.isInstanceOf(grammarAccess.getLogicalOrExpressionRule().getType().getClassifier())) return null;
+		return tryConsumeVal();
+	}
+}
+
+// leftExpr=LogicalAndExpression
+protected class LogicalOrExpression_LeftExprAssignment_0 extends AssignmentToken  {
+	
+	public LogicalOrExpression_LeftExprAssignment_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Assignment getGrammarElement() {
+		return grammarAccess.getLogicalOrExpressionAccess().getLeftExprAssignment_0();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new LogicalAndExpression_Group(this, this, 0, inst);
+			default: return null;
+		}	
+	}	
+		
+    @Override	
+	protected IInstanceDescription tryConsumeVal() {
+		if((value = current.getConsumable("leftExpr",true)) == null) return null;
+		IInstanceDescription obj = current.cloneAndConsume("leftExpr");
+		if(value instanceof EObject) { // org::eclipse::xtext::impl::RuleCallImpl
+			IInstanceDescription param = getDescr((EObject)value);
+			if(param.isInstanceOf(grammarAccess.getLogicalAndExpressionRule().getType().getClassifier())) {
+				type = AssignmentType.PRC;
+				element = grammarAccess.getLogicalOrExpressionAccess().getLeftExprLogicalAndExpressionParserRuleCall_0_0(); 
+				consumed = obj;
+				return param;
+			}
+		}
+		return null;
+	}
+
+    @Override
+	public AbstractToken createParentFollower(AbstractToken next,	int actIndex, int index, IInstanceDescription inst) {
+		if(value == inst.getDelegate() && !inst.isConsumed()) return null;
+		switch(index) {
+			default: return parent.createParentFollower(next, actIndex , index, consumed);
+		}	
+	}	
+}
+
+// ("||" rightExpr=LogicalOrExpression)?
+protected class LogicalOrExpression_Group_1 extends GroupToken {
+	
+	public LogicalOrExpression_Group_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Group getGrammarElement() {
+		return grammarAccess.getLogicalOrExpressionAccess().getGroup_1();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new LogicalOrExpression_RightExprAssignment_1_1(parent, this, 0, inst);
+			default: return null;
+		}	
+	}	
+		
+}
+
+// "||"
+protected class LogicalOrExpression_VerticalLineVerticalLineKeyword_1_0 extends KeywordToken  {
+	
+	public LogicalOrExpression_VerticalLineVerticalLineKeyword_1_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Keyword getGrammarElement() {
+		return grammarAccess.getLogicalOrExpressionAccess().getVerticalLineVerticalLineKeyword_1_0();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new LogicalOrExpression_LeftExprAssignment_0(parent, this, 0, inst);
+			default: return null;
+		}	
+	}	
+		
+}
+
+// rightExpr=LogicalOrExpression
+protected class LogicalOrExpression_RightExprAssignment_1_1 extends AssignmentToken  {
+	
+	public LogicalOrExpression_RightExprAssignment_1_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Assignment getGrammarElement() {
+		return grammarAccess.getLogicalOrExpressionAccess().getRightExprAssignment_1_1();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new LogicalOrExpression_Group(this, this, 0, inst);
+			default: return null;
+		}	
+	}	
+		
+    @Override	
+	protected IInstanceDescription tryConsumeVal() {
+		if((value = current.getConsumable("rightExpr",false)) == null) return null;
+		IInstanceDescription obj = current.cloneAndConsume("rightExpr");
+		if(value instanceof EObject) { // org::eclipse::xtext::impl::RuleCallImpl
+			IInstanceDescription param = getDescr((EObject)value);
+			if(param.isInstanceOf(grammarAccess.getLogicalOrExpressionRule().getType().getClassifier())) {
+				type = AssignmentType.PRC;
+				element = grammarAccess.getLogicalOrExpressionAccess().getRightExprLogicalOrExpressionParserRuleCall_1_1_0(); 
+				consumed = obj;
+				return param;
+			}
+		}
+		return null;
+	}
+
+    @Override
+	public AbstractToken createParentFollower(AbstractToken next,	int actIndex, int index, IInstanceDescription inst) {
+		if(value == inst.getDelegate() && !inst.isConsumed()) return null;
+		switch(index) {
+			case 0: return new LogicalOrExpression_VerticalLineVerticalLineKeyword_1_0(parent, next, actIndex, consumed);
+			default: return null;
+		}	
+	}	
+}
+
+
+
+/************ end Rule LogicalOrExpression ****************/
+
+
+/************ begin Rule LogicalAndExpression ****************
+ *
+ * LogicalAndExpression:
+ *   leftExpr=OrExpression ("&&" rightExpr=LogicalAndExpression)?;
+ *
+ **/
+
+// leftExpr=OrExpression ("&&" rightExpr=LogicalAndExpression)?
+protected class LogicalAndExpression_Group extends GroupToken {
+	
+	public LogicalAndExpression_Group(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Group getGrammarElement() {
+		return grammarAccess.getLogicalAndExpressionAccess().getGroup();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new LogicalAndExpression_Group_1(parent, this, 0, inst);
+			case 1: return new LogicalAndExpression_LeftExprAssignment_0(parent, this, 1, inst);
+			default: return null;
+		}	
+	}	
+		
+    @Override
+	public IInstanceDescription tryConsume() {
+		if(!current.isInstanceOf(grammarAccess.getLogicalAndExpressionRule().getType().getClassifier())) return null;
+		return tryConsumeVal();
+	}
+}
+
+// leftExpr=OrExpression
+protected class LogicalAndExpression_LeftExprAssignment_0 extends AssignmentToken  {
+	
+	public LogicalAndExpression_LeftExprAssignment_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Assignment getGrammarElement() {
+		return grammarAccess.getLogicalAndExpressionAccess().getLeftExprAssignment_0();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new OrExpression_Group(this, this, 0, inst);
+			default: return null;
+		}	
+	}	
+		
+    @Override	
+	protected IInstanceDescription tryConsumeVal() {
+		if((value = current.getConsumable("leftExpr",true)) == null) return null;
+		IInstanceDescription obj = current.cloneAndConsume("leftExpr");
+		if(value instanceof EObject) { // org::eclipse::xtext::impl::RuleCallImpl
+			IInstanceDescription param = getDescr((EObject)value);
+			if(param.isInstanceOf(grammarAccess.getOrExpressionRule().getType().getClassifier())) {
+				type = AssignmentType.PRC;
+				element = grammarAccess.getLogicalAndExpressionAccess().getLeftExprOrExpressionParserRuleCall_0_0(); 
+				consumed = obj;
+				return param;
+			}
+		}
+		return null;
+	}
+
+    @Override
+	public AbstractToken createParentFollower(AbstractToken next,	int actIndex, int index, IInstanceDescription inst) {
+		if(value == inst.getDelegate() && !inst.isConsumed()) return null;
+		switch(index) {
+			default: return parent.createParentFollower(next, actIndex , index, consumed);
+		}	
+	}	
+}
+
+// ("&&" rightExpr=LogicalAndExpression)?
+protected class LogicalAndExpression_Group_1 extends GroupToken {
+	
+	public LogicalAndExpression_Group_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Group getGrammarElement() {
+		return grammarAccess.getLogicalAndExpressionAccess().getGroup_1();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new LogicalAndExpression_RightExprAssignment_1_1(parent, this, 0, inst);
+			default: return null;
+		}	
+	}	
+		
+}
+
+// "&&"
+protected class LogicalAndExpression_AmpersandAmpersandKeyword_1_0 extends KeywordToken  {
+	
+	public LogicalAndExpression_AmpersandAmpersandKeyword_1_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Keyword getGrammarElement() {
+		return grammarAccess.getLogicalAndExpressionAccess().getAmpersandAmpersandKeyword_1_0();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new LogicalAndExpression_LeftExprAssignment_0(parent, this, 0, inst);
+			default: return null;
+		}	
+	}	
+		
+}
+
+// rightExpr=LogicalAndExpression
+protected class LogicalAndExpression_RightExprAssignment_1_1 extends AssignmentToken  {
+	
+	public LogicalAndExpression_RightExprAssignment_1_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Assignment getGrammarElement() {
+		return grammarAccess.getLogicalAndExpressionAccess().getRightExprAssignment_1_1();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new LogicalAndExpression_Group(this, this, 0, inst);
+			default: return null;
+		}	
+	}	
+		
+    @Override	
+	protected IInstanceDescription tryConsumeVal() {
+		if((value = current.getConsumable("rightExpr",false)) == null) return null;
+		IInstanceDescription obj = current.cloneAndConsume("rightExpr");
+		if(value instanceof EObject) { // org::eclipse::xtext::impl::RuleCallImpl
+			IInstanceDescription param = getDescr((EObject)value);
+			if(param.isInstanceOf(grammarAccess.getLogicalAndExpressionRule().getType().getClassifier())) {
+				type = AssignmentType.PRC;
+				element = grammarAccess.getLogicalAndExpressionAccess().getRightExprLogicalAndExpressionParserRuleCall_1_1_0(); 
+				consumed = obj;
+				return param;
+			}
+		}
+		return null;
+	}
+
+    @Override
+	public AbstractToken createParentFollower(AbstractToken next,	int actIndex, int index, IInstanceDescription inst) {
+		if(value == inst.getDelegate() && !inst.isConsumed()) return null;
+		switch(index) {
+			case 0: return new LogicalAndExpression_AmpersandAmpersandKeyword_1_0(parent, next, actIndex, consumed);
+			default: return null;
+		}	
+	}	
+}
+
+
+
+/************ end Rule LogicalAndExpression ****************/
+
+
+/************ begin Rule OrExpression ****************
+ *
+ * OrExpression:
+ *   leftExpr=XorExpression ("|" rightExpr=OrExpression)?;
+ *
+ **/
+
+// leftExpr=XorExpression ("|" rightExpr=OrExpression)?
+protected class OrExpression_Group extends GroupToken {
+	
+	public OrExpression_Group(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Group getGrammarElement() {
+		return grammarAccess.getOrExpressionAccess().getGroup();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new OrExpression_Group_1(parent, this, 0, inst);
+			case 1: return new OrExpression_LeftExprAssignment_0(parent, this, 1, inst);
+			default: return null;
+		}	
+	}	
+		
+    @Override
+	public IInstanceDescription tryConsume() {
+		if(!current.isInstanceOf(grammarAccess.getOrExpressionRule().getType().getClassifier())) return null;
+		return tryConsumeVal();
+	}
+}
+
+// leftExpr=XorExpression
+protected class OrExpression_LeftExprAssignment_0 extends AssignmentToken  {
+	
+	public OrExpression_LeftExprAssignment_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Assignment getGrammarElement() {
+		return grammarAccess.getOrExpressionAccess().getLeftExprAssignment_0();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new XorExpression_Group(this, this, 0, inst);
+			default: return null;
+		}	
+	}	
+		
+    @Override	
+	protected IInstanceDescription tryConsumeVal() {
+		if((value = current.getConsumable("leftExpr",true)) == null) return null;
+		IInstanceDescription obj = current.cloneAndConsume("leftExpr");
+		if(value instanceof EObject) { // org::eclipse::xtext::impl::RuleCallImpl
+			IInstanceDescription param = getDescr((EObject)value);
+			if(param.isInstanceOf(grammarAccess.getXorExpressionRule().getType().getClassifier())) {
+				type = AssignmentType.PRC;
+				element = grammarAccess.getOrExpressionAccess().getLeftExprXorExpressionParserRuleCall_0_0(); 
+				consumed = obj;
+				return param;
+			}
+		}
+		return null;
+	}
+
+    @Override
+	public AbstractToken createParentFollower(AbstractToken next,	int actIndex, int index, IInstanceDescription inst) {
+		if(value == inst.getDelegate() && !inst.isConsumed()) return null;
+		switch(index) {
+			default: return parent.createParentFollower(next, actIndex , index, consumed);
+		}	
+	}	
+}
+
+// ("|" rightExpr=OrExpression)?
+protected class OrExpression_Group_1 extends GroupToken {
+	
+	public OrExpression_Group_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Group getGrammarElement() {
+		return grammarAccess.getOrExpressionAccess().getGroup_1();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new OrExpression_RightExprAssignment_1_1(parent, this, 0, inst);
+			default: return null;
+		}	
+	}	
+		
+}
+
+// "|"
+protected class OrExpression_VerticalLineKeyword_1_0 extends KeywordToken  {
+	
+	public OrExpression_VerticalLineKeyword_1_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Keyword getGrammarElement() {
+		return grammarAccess.getOrExpressionAccess().getVerticalLineKeyword_1_0();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new OrExpression_LeftExprAssignment_0(parent, this, 0, inst);
+			default: return null;
+		}	
+	}	
+		
+}
+
+// rightExpr=OrExpression
+protected class OrExpression_RightExprAssignment_1_1 extends AssignmentToken  {
+	
+	public OrExpression_RightExprAssignment_1_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Assignment getGrammarElement() {
+		return grammarAccess.getOrExpressionAccess().getRightExprAssignment_1_1();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new OrExpression_Group(this, this, 0, inst);
+			default: return null;
+		}	
+	}	
+		
+    @Override	
+	protected IInstanceDescription tryConsumeVal() {
+		if((value = current.getConsumable("rightExpr",false)) == null) return null;
+		IInstanceDescription obj = current.cloneAndConsume("rightExpr");
+		if(value instanceof EObject) { // org::eclipse::xtext::impl::RuleCallImpl
+			IInstanceDescription param = getDescr((EObject)value);
+			if(param.isInstanceOf(grammarAccess.getOrExpressionRule().getType().getClassifier())) {
+				type = AssignmentType.PRC;
+				element = grammarAccess.getOrExpressionAccess().getRightExprOrExpressionParserRuleCall_1_1_0(); 
+				consumed = obj;
+				return param;
+			}
+		}
+		return null;
+	}
+
+    @Override
+	public AbstractToken createParentFollower(AbstractToken next,	int actIndex, int index, IInstanceDescription inst) {
+		if(value == inst.getDelegate() && !inst.isConsumed()) return null;
+		switch(index) {
+			case 0: return new OrExpression_VerticalLineKeyword_1_0(parent, next, actIndex, consumed);
+			default: return null;
+		}	
+	}	
+}
+
+
+
+/************ end Rule OrExpression ****************/
+
+
+/************ begin Rule XorExpression ****************
+ *
+ * XorExpression:
+ *   leftExpr=AndExpression ("^" rightExpr=XorExpression)?;
+ *
+ **/
+
+// leftExpr=AndExpression ("^" rightExpr=XorExpression)?
+protected class XorExpression_Group extends GroupToken {
+	
+	public XorExpression_Group(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Group getGrammarElement() {
+		return grammarAccess.getXorExpressionAccess().getGroup();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new XorExpression_Group_1(parent, this, 0, inst);
+			case 1: return new XorExpression_LeftExprAssignment_0(parent, this, 1, inst);
+			default: return null;
+		}	
+	}	
+		
+    @Override
+	public IInstanceDescription tryConsume() {
+		if(!current.isInstanceOf(grammarAccess.getXorExpressionRule().getType().getClassifier())) return null;
+		return tryConsumeVal();
+	}
+}
+
+// leftExpr=AndExpression
+protected class XorExpression_LeftExprAssignment_0 extends AssignmentToken  {
+	
+	public XorExpression_LeftExprAssignment_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Assignment getGrammarElement() {
+		return grammarAccess.getXorExpressionAccess().getLeftExprAssignment_0();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new AndExpression_Group(this, this, 0, inst);
+			default: return null;
+		}	
+	}	
+		
+    @Override	
+	protected IInstanceDescription tryConsumeVal() {
+		if((value = current.getConsumable("leftExpr",true)) == null) return null;
+		IInstanceDescription obj = current.cloneAndConsume("leftExpr");
+		if(value instanceof EObject) { // org::eclipse::xtext::impl::RuleCallImpl
+			IInstanceDescription param = getDescr((EObject)value);
+			if(param.isInstanceOf(grammarAccess.getAndExpressionRule().getType().getClassifier())) {
+				type = AssignmentType.PRC;
+				element = grammarAccess.getXorExpressionAccess().getLeftExprAndExpressionParserRuleCall_0_0(); 
+				consumed = obj;
+				return param;
+			}
+		}
+		return null;
+	}
+
+    @Override
+	public AbstractToken createParentFollower(AbstractToken next,	int actIndex, int index, IInstanceDescription inst) {
+		if(value == inst.getDelegate() && !inst.isConsumed()) return null;
+		switch(index) {
+			default: return parent.createParentFollower(next, actIndex , index, consumed);
+		}	
+	}	
+}
+
+// ("^" rightExpr=XorExpression)?
+protected class XorExpression_Group_1 extends GroupToken {
+	
+	public XorExpression_Group_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Group getGrammarElement() {
+		return grammarAccess.getXorExpressionAccess().getGroup_1();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new XorExpression_RightExprAssignment_1_1(parent, this, 0, inst);
+			default: return null;
+		}	
+	}	
+		
+}
+
+// "^"
+protected class XorExpression_CircumflexAccentKeyword_1_0 extends KeywordToken  {
+	
+	public XorExpression_CircumflexAccentKeyword_1_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Keyword getGrammarElement() {
+		return grammarAccess.getXorExpressionAccess().getCircumflexAccentKeyword_1_0();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new XorExpression_LeftExprAssignment_0(parent, this, 0, inst);
+			default: return null;
+		}	
+	}	
+		
+}
+
+// rightExpr=XorExpression
+protected class XorExpression_RightExprAssignment_1_1 extends AssignmentToken  {
+	
+	public XorExpression_RightExprAssignment_1_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Assignment getGrammarElement() {
+		return grammarAccess.getXorExpressionAccess().getRightExprAssignment_1_1();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new XorExpression_Group(this, this, 0, inst);
+			default: return null;
+		}	
+	}	
+		
+    @Override	
+	protected IInstanceDescription tryConsumeVal() {
+		if((value = current.getConsumable("rightExpr",false)) == null) return null;
+		IInstanceDescription obj = current.cloneAndConsume("rightExpr");
+		if(value instanceof EObject) { // org::eclipse::xtext::impl::RuleCallImpl
+			IInstanceDescription param = getDescr((EObject)value);
+			if(param.isInstanceOf(grammarAccess.getXorExpressionRule().getType().getClassifier())) {
+				type = AssignmentType.PRC;
+				element = grammarAccess.getXorExpressionAccess().getRightExprXorExpressionParserRuleCall_1_1_0(); 
+				consumed = obj;
+				return param;
+			}
+		}
+		return null;
+	}
+
+    @Override
+	public AbstractToken createParentFollower(AbstractToken next,	int actIndex, int index, IInstanceDescription inst) {
+		if(value == inst.getDelegate() && !inst.isConsumed()) return null;
+		switch(index) {
+			case 0: return new XorExpression_CircumflexAccentKeyword_1_0(parent, next, actIndex, consumed);
+			default: return null;
+		}	
+	}	
+}
+
+
+
+/************ end Rule XorExpression ****************/
+
+
+/************ begin Rule AndExpression ****************
+ *
+ * AndExpression:
+ *   leftExpr=ShiftExpression ("&" rightExpr=AndExpression)?;
+ *
+ **/
+
+// leftExpr=ShiftExpression ("&" rightExpr=AndExpression)?
+protected class AndExpression_Group extends GroupToken {
+	
+	public AndExpression_Group(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Group getGrammarElement() {
+		return grammarAccess.getAndExpressionAccess().getGroup();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new AndExpression_Group_1(parent, this, 0, inst);
+			case 1: return new AndExpression_LeftExprAssignment_0(parent, this, 1, inst);
+			default: return null;
+		}	
+	}	
+		
+    @Override
+	public IInstanceDescription tryConsume() {
+		if(!current.isInstanceOf(grammarAccess.getAndExpressionRule().getType().getClassifier())) return null;
+		return tryConsumeVal();
+	}
+}
+
+// leftExpr=ShiftExpression
+protected class AndExpression_LeftExprAssignment_0 extends AssignmentToken  {
+	
+	public AndExpression_LeftExprAssignment_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Assignment getGrammarElement() {
+		return grammarAccess.getAndExpressionAccess().getLeftExprAssignment_0();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new ShiftExpression_Group(this, this, 0, inst);
+			default: return null;
+		}	
+	}	
+		
+    @Override	
+	protected IInstanceDescription tryConsumeVal() {
+		if((value = current.getConsumable("leftExpr",true)) == null) return null;
+		IInstanceDescription obj = current.cloneAndConsume("leftExpr");
+		if(value instanceof EObject) { // org::eclipse::xtext::impl::RuleCallImpl
+			IInstanceDescription param = getDescr((EObject)value);
+			if(param.isInstanceOf(grammarAccess.getShiftExpressionRule().getType().getClassifier())) {
+				type = AssignmentType.PRC;
+				element = grammarAccess.getAndExpressionAccess().getLeftExprShiftExpressionParserRuleCall_0_0(); 
+				consumed = obj;
+				return param;
+			}
+		}
+		return null;
+	}
+
+    @Override
+	public AbstractToken createParentFollower(AbstractToken next,	int actIndex, int index, IInstanceDescription inst) {
+		if(value == inst.getDelegate() && !inst.isConsumed()) return null;
+		switch(index) {
+			default: return parent.createParentFollower(next, actIndex , index, consumed);
+		}	
+	}	
+}
+
+// ("&" rightExpr=AndExpression)?
+protected class AndExpression_Group_1 extends GroupToken {
+	
+	public AndExpression_Group_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Group getGrammarElement() {
+		return grammarAccess.getAndExpressionAccess().getGroup_1();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new AndExpression_RightExprAssignment_1_1(parent, this, 0, inst);
+			default: return null;
+		}	
+	}	
+		
+}
+
+// "&"
+protected class AndExpression_AmpersandKeyword_1_0 extends KeywordToken  {
+	
+	public AndExpression_AmpersandKeyword_1_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Keyword getGrammarElement() {
+		return grammarAccess.getAndExpressionAccess().getAmpersandKeyword_1_0();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new AndExpression_LeftExprAssignment_0(parent, this, 0, inst);
+			default: return null;
+		}	
+	}	
+		
+}
+
+// rightExpr=AndExpression
+protected class AndExpression_RightExprAssignment_1_1 extends AssignmentToken  {
+	
+	public AndExpression_RightExprAssignment_1_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Assignment getGrammarElement() {
+		return grammarAccess.getAndExpressionAccess().getRightExprAssignment_1_1();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new AndExpression_Group(this, this, 0, inst);
+			default: return null;
+		}	
+	}	
+		
+    @Override	
+	protected IInstanceDescription tryConsumeVal() {
+		if((value = current.getConsumable("rightExpr",false)) == null) return null;
+		IInstanceDescription obj = current.cloneAndConsume("rightExpr");
+		if(value instanceof EObject) { // org::eclipse::xtext::impl::RuleCallImpl
+			IInstanceDescription param = getDescr((EObject)value);
+			if(param.isInstanceOf(grammarAccess.getAndExpressionRule().getType().getClassifier())) {
+				type = AssignmentType.PRC;
+				element = grammarAccess.getAndExpressionAccess().getRightExprAndExpressionParserRuleCall_1_1_0(); 
+				consumed = obj;
+				return param;
+			}
+		}
+		return null;
+	}
+
+    @Override
+	public AbstractToken createParentFollower(AbstractToken next,	int actIndex, int index, IInstanceDescription inst) {
+		if(value == inst.getDelegate() && !inst.isConsumed()) return null;
+		switch(index) {
+			case 0: return new AndExpression_AmpersandKeyword_1_0(parent, next, actIndex, consumed);
+			default: return null;
+		}	
+	}	
+}
+
+
+
+/************ end Rule AndExpression ****************/
+
+
+/************ begin Rule ShiftExpression ****************
+ *
+ * ShiftExpression:
+ *   leftExpr=AdditiveExpression (op=ShiftOperation rightExpr=ShiftExpression)?;
+ *
+ **/
+
+// leftExpr=AdditiveExpression (op=ShiftOperation rightExpr=ShiftExpression)?
+protected class ShiftExpression_Group extends GroupToken {
+	
+	public ShiftExpression_Group(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Group getGrammarElement() {
+		return grammarAccess.getShiftExpressionAccess().getGroup();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new ShiftExpression_Group_1(parent, this, 0, inst);
+			case 1: return new ShiftExpression_LeftExprAssignment_0(parent, this, 1, inst);
+			default: return null;
+		}	
+	}	
+		
+    @Override
+	public IInstanceDescription tryConsume() {
+		if(!current.isInstanceOf(grammarAccess.getShiftExpressionRule().getType().getClassifier())) return null;
+		return tryConsumeVal();
+	}
+}
+
+// leftExpr=AdditiveExpression
+protected class ShiftExpression_LeftExprAssignment_0 extends AssignmentToken  {
+	
+	public ShiftExpression_LeftExprAssignment_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Assignment getGrammarElement() {
+		return grammarAccess.getShiftExpressionAccess().getLeftExprAssignment_0();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new AdditiveExpression_Group(this, this, 0, inst);
+			default: return null;
+		}	
+	}	
+		
+    @Override	
+	protected IInstanceDescription tryConsumeVal() {
+		if((value = current.getConsumable("leftExpr",true)) == null) return null;
+		IInstanceDescription obj = current.cloneAndConsume("leftExpr");
+		if(value instanceof EObject) { // org::eclipse::xtext::impl::RuleCallImpl
+			IInstanceDescription param = getDescr((EObject)value);
+			if(param.isInstanceOf(grammarAccess.getAdditiveExpressionRule().getType().getClassifier())) {
+				type = AssignmentType.PRC;
+				element = grammarAccess.getShiftExpressionAccess().getLeftExprAdditiveExpressionParserRuleCall_0_0(); 
+				consumed = obj;
+				return param;
+			}
+		}
+		return null;
+	}
+
+    @Override
+	public AbstractToken createParentFollower(AbstractToken next,	int actIndex, int index, IInstanceDescription inst) {
+		if(value == inst.getDelegate() && !inst.isConsumed()) return null;
+		switch(index) {
+			default: return parent.createParentFollower(next, actIndex , index, consumed);
+		}	
+	}	
+}
+
+// (op=ShiftOperation rightExpr=ShiftExpression)?
+protected class ShiftExpression_Group_1 extends GroupToken {
+	
+	public ShiftExpression_Group_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Group getGrammarElement() {
+		return grammarAccess.getShiftExpressionAccess().getGroup_1();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new ShiftExpression_RightExprAssignment_1_1(parent, this, 0, inst);
+			default: return null;
+		}	
+	}	
+		
+}
+
+// op=ShiftOperation
+protected class ShiftExpression_OpAssignment_1_0 extends AssignmentToken  {
+	
+	public ShiftExpression_OpAssignment_1_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Assignment getGrammarElement() {
+		return grammarAccess.getShiftExpressionAccess().getOpAssignment_1_0();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new ShiftExpression_LeftExprAssignment_0(parent, this, 0, inst);
+			default: return null;
+		}	
+	}	
+		
+    @Override	
+	protected IInstanceDescription tryConsumeVal() {
+		if((value = current.getConsumable("op",true)) == null) return null;
+		IInstanceDescription obj = current.cloneAndConsume("op");
+		if(Boolean.TRUE.booleanValue()) { // org::eclipse::xtext::impl::RuleCallImpl FIXME: check if value is valid for datatype rule
+			type = AssignmentType.DRC;
+			element = grammarAccess.getShiftExpressionAccess().getOpShiftOperationParserRuleCall_1_0_0();
+			return obj;
+		}
+		return null;
+	}
+
+}
+
+// rightExpr=ShiftExpression
+protected class ShiftExpression_RightExprAssignment_1_1 extends AssignmentToken  {
+	
+	public ShiftExpression_RightExprAssignment_1_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Assignment getGrammarElement() {
+		return grammarAccess.getShiftExpressionAccess().getRightExprAssignment_1_1();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new ShiftExpression_Group(this, this, 0, inst);
+			default: return null;
+		}	
+	}	
+		
+    @Override	
+	protected IInstanceDescription tryConsumeVal() {
+		if((value = current.getConsumable("rightExpr",true)) == null) return null;
+		IInstanceDescription obj = current.cloneAndConsume("rightExpr");
+		if(value instanceof EObject) { // org::eclipse::xtext::impl::RuleCallImpl
+			IInstanceDescription param = getDescr((EObject)value);
+			if(param.isInstanceOf(grammarAccess.getShiftExpressionRule().getType().getClassifier())) {
+				type = AssignmentType.PRC;
+				element = grammarAccess.getShiftExpressionAccess().getRightExprShiftExpressionParserRuleCall_1_1_0(); 
+				consumed = obj;
+				return param;
+			}
+		}
+		return null;
+	}
+
+    @Override
+	public AbstractToken createParentFollower(AbstractToken next,	int actIndex, int index, IInstanceDescription inst) {
+		if(value == inst.getDelegate() && !inst.isConsumed()) return null;
+		switch(index) {
+			case 0: return new ShiftExpression_OpAssignment_1_0(parent, next, actIndex, consumed);
+			default: return null;
+		}	
+	}	
+}
+
+
+
+/************ end Rule ShiftExpression ****************/
+
+
+/************ begin Rule AdditiveExpression ****************
+ *
+ * AdditiveExpression:
+ *   leftExpr=MulExpression (op=AdditiveOperation rightExpr=AdditiveExpression)?;
+ *
+ **/
+
+// leftExpr=MulExpression (op=AdditiveOperation rightExpr=AdditiveExpression)?
+protected class AdditiveExpression_Group extends GroupToken {
+	
+	public AdditiveExpression_Group(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Group getGrammarElement() {
+		return grammarAccess.getAdditiveExpressionAccess().getGroup();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new AdditiveExpression_Group_1(parent, this, 0, inst);
+			case 1: return new AdditiveExpression_LeftExprAssignment_0(parent, this, 1, inst);
+			default: return null;
+		}	
+	}	
+		
+    @Override
+	public IInstanceDescription tryConsume() {
+		if(!current.isInstanceOf(grammarAccess.getAdditiveExpressionRule().getType().getClassifier())) return null;
+		return tryConsumeVal();
+	}
+}
+
+// leftExpr=MulExpression
+protected class AdditiveExpression_LeftExprAssignment_0 extends AssignmentToken  {
+	
+	public AdditiveExpression_LeftExprAssignment_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Assignment getGrammarElement() {
+		return grammarAccess.getAdditiveExpressionAccess().getLeftExprAssignment_0();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new MulExpression_Group(this, this, 0, inst);
+			default: return null;
+		}	
+	}	
+		
+    @Override	
+	protected IInstanceDescription tryConsumeVal() {
+		if((value = current.getConsumable("leftExpr",true)) == null) return null;
+		IInstanceDescription obj = current.cloneAndConsume("leftExpr");
+		if(value instanceof EObject) { // org::eclipse::xtext::impl::RuleCallImpl
+			IInstanceDescription param = getDescr((EObject)value);
+			if(param.isInstanceOf(grammarAccess.getMulExpressionRule().getType().getClassifier())) {
+				type = AssignmentType.PRC;
+				element = grammarAccess.getAdditiveExpressionAccess().getLeftExprMulExpressionParserRuleCall_0_0(); 
+				consumed = obj;
+				return param;
+			}
+		}
+		return null;
+	}
+
+    @Override
+	public AbstractToken createParentFollower(AbstractToken next,	int actIndex, int index, IInstanceDescription inst) {
+		if(value == inst.getDelegate() && !inst.isConsumed()) return null;
+		switch(index) {
+			default: return parent.createParentFollower(next, actIndex , index, consumed);
+		}	
+	}	
+}
+
+// (op=AdditiveOperation rightExpr=AdditiveExpression)?
+protected class AdditiveExpression_Group_1 extends GroupToken {
+	
+	public AdditiveExpression_Group_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Group getGrammarElement() {
+		return grammarAccess.getAdditiveExpressionAccess().getGroup_1();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new AdditiveExpression_RightExprAssignment_1_1(parent, this, 0, inst);
+			default: return null;
+		}	
+	}	
+		
+}
+
+// op=AdditiveOperation
+protected class AdditiveExpression_OpAssignment_1_0 extends AssignmentToken  {
+	
+	public AdditiveExpression_OpAssignment_1_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Assignment getGrammarElement() {
+		return grammarAccess.getAdditiveExpressionAccess().getOpAssignment_1_0();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new AdditiveExpression_LeftExprAssignment_0(parent, this, 0, inst);
+			default: return null;
+		}	
+	}	
+		
+    @Override	
+	protected IInstanceDescription tryConsumeVal() {
+		if((value = current.getConsumable("op",true)) == null) return null;
+		IInstanceDescription obj = current.cloneAndConsume("op");
+		if(Boolean.TRUE.booleanValue()) { // org::eclipse::xtext::impl::RuleCallImpl FIXME: check if value is valid for datatype rule
+			type = AssignmentType.DRC;
+			element = grammarAccess.getAdditiveExpressionAccess().getOpAdditiveOperationParserRuleCall_1_0_0();
+			return obj;
+		}
+		return null;
+	}
+
+}
+
+// rightExpr=AdditiveExpression
+protected class AdditiveExpression_RightExprAssignment_1_1 extends AssignmentToken  {
+	
+	public AdditiveExpression_RightExprAssignment_1_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Assignment getGrammarElement() {
+		return grammarAccess.getAdditiveExpressionAccess().getRightExprAssignment_1_1();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new AdditiveExpression_Group(this, this, 0, inst);
+			default: return null;
+		}	
+	}	
+		
+    @Override	
+	protected IInstanceDescription tryConsumeVal() {
+		if((value = current.getConsumable("rightExpr",true)) == null) return null;
+		IInstanceDescription obj = current.cloneAndConsume("rightExpr");
+		if(value instanceof EObject) { // org::eclipse::xtext::impl::RuleCallImpl
+			IInstanceDescription param = getDescr((EObject)value);
+			if(param.isInstanceOf(grammarAccess.getAdditiveExpressionRule().getType().getClassifier())) {
+				type = AssignmentType.PRC;
+				element = grammarAccess.getAdditiveExpressionAccess().getRightExprAdditiveExpressionParserRuleCall_1_1_0(); 
+				consumed = obj;
+				return param;
+			}
+		}
+		return null;
+	}
+
+    @Override
+	public AbstractToken createParentFollower(AbstractToken next,	int actIndex, int index, IInstanceDescription inst) {
+		if(value == inst.getDelegate() && !inst.isConsumed()) return null;
+		switch(index) {
+			case 0: return new AdditiveExpression_OpAssignment_1_0(parent, next, actIndex, consumed);
+			default: return null;
+		}	
+	}	
+}
+
+
+
+/************ end Rule AdditiveExpression ****************/
+
+
+/************ begin Rule MulExpression ****************
+ *
+ * MulExpression:
+ *   leftExpr=CastExpression (op=MulOperation rightExpr=MulExpression)?;
+ *
+ **/
+
+// leftExpr=CastExpression (op=MulOperation rightExpr=MulExpression)?
+protected class MulExpression_Group extends GroupToken {
+	
+	public MulExpression_Group(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Group getGrammarElement() {
+		return grammarAccess.getMulExpressionAccess().getGroup();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new MulExpression_Group_1(parent, this, 0, inst);
+			case 1: return new MulExpression_LeftExprAssignment_0(parent, this, 1, inst);
+			default: return null;
+		}	
+	}	
+		
+    @Override
+	public IInstanceDescription tryConsume() {
+		if(!current.isInstanceOf(grammarAccess.getMulExpressionRule().getType().getClassifier())) return null;
+		return tryConsumeVal();
+	}
+}
+
+// leftExpr=CastExpression
+protected class MulExpression_LeftExprAssignment_0 extends AssignmentToken  {
+	
+	public MulExpression_LeftExprAssignment_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Assignment getGrammarElement() {
+		return grammarAccess.getMulExpressionAccess().getLeftExprAssignment_0();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new CastExpression_Alternatives(this, this, 0, inst);
+			default: return null;
+		}	
+	}	
+		
+    @Override	
+	protected IInstanceDescription tryConsumeVal() {
+		if((value = current.getConsumable("leftExpr",true)) == null) return null;
+		IInstanceDescription obj = current.cloneAndConsume("leftExpr");
+		if(value instanceof EObject) { // org::eclipse::xtext::impl::RuleCallImpl
+			IInstanceDescription param = getDescr((EObject)value);
+			if(param.isInstanceOf(grammarAccess.getCastExpressionRule().getType().getClassifier())) {
+				type = AssignmentType.PRC;
+				element = grammarAccess.getMulExpressionAccess().getLeftExprCastExpressionParserRuleCall_0_0(); 
+				consumed = obj;
+				return param;
+			}
+		}
+		return null;
+	}
+
+    @Override
+	public AbstractToken createParentFollower(AbstractToken next,	int actIndex, int index, IInstanceDescription inst) {
+		if(value == inst.getDelegate() && !inst.isConsumed()) return null;
+		switch(index) {
+			default: return parent.createParentFollower(next, actIndex , index, consumed);
+		}	
+	}	
+}
+
+// (op=MulOperation rightExpr=MulExpression)?
+protected class MulExpression_Group_1 extends GroupToken {
+	
+	public MulExpression_Group_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Group getGrammarElement() {
+		return grammarAccess.getMulExpressionAccess().getGroup_1();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new MulExpression_RightExprAssignment_1_1(parent, this, 0, inst);
+			default: return null;
+		}	
+	}	
+		
+}
+
+// op=MulOperation
+protected class MulExpression_OpAssignment_1_0 extends AssignmentToken  {
+	
+	public MulExpression_OpAssignment_1_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Assignment getGrammarElement() {
+		return grammarAccess.getMulExpressionAccess().getOpAssignment_1_0();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new MulExpression_LeftExprAssignment_0(parent, this, 0, inst);
+			default: return null;
+		}	
+	}	
+		
+    @Override	
+	protected IInstanceDescription tryConsumeVal() {
+		if((value = current.getConsumable("op",true)) == null) return null;
+		IInstanceDescription obj = current.cloneAndConsume("op");
+		if(Boolean.TRUE.booleanValue()) { // org::eclipse::xtext::impl::RuleCallImpl FIXME: check if value is valid for datatype rule
+			type = AssignmentType.DRC;
+			element = grammarAccess.getMulExpressionAccess().getOpMulOperationParserRuleCall_1_0_0();
+			return obj;
+		}
+		return null;
+	}
+
+}
+
+// rightExpr=MulExpression
+protected class MulExpression_RightExprAssignment_1_1 extends AssignmentToken  {
+	
+	public MulExpression_RightExprAssignment_1_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Assignment getGrammarElement() {
+		return grammarAccess.getMulExpressionAccess().getRightExprAssignment_1_1();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new MulExpression_Group(this, this, 0, inst);
+			default: return null;
+		}	
+	}	
+		
+    @Override	
+	protected IInstanceDescription tryConsumeVal() {
+		if((value = current.getConsumable("rightExpr",true)) == null) return null;
+		IInstanceDescription obj = current.cloneAndConsume("rightExpr");
+		if(value instanceof EObject) { // org::eclipse::xtext::impl::RuleCallImpl
+			IInstanceDescription param = getDescr((EObject)value);
+			if(param.isInstanceOf(grammarAccess.getMulExpressionRule().getType().getClassifier())) {
+				type = AssignmentType.PRC;
+				element = grammarAccess.getMulExpressionAccess().getRightExprMulExpressionParserRuleCall_1_1_0(); 
+				consumed = obj;
+				return param;
+			}
+		}
+		return null;
+	}
+
+    @Override
+	public AbstractToken createParentFollower(AbstractToken next,	int actIndex, int index, IInstanceDescription inst) {
+		if(value == inst.getDelegate() && !inst.isConsumed()) return null;
+		switch(index) {
+			case 0: return new MulExpression_OpAssignment_1_0(parent, next, actIndex, consumed);
+			default: return null;
+		}	
+	}	
+}
+
+
+
+/************ end Rule MulExpression ****************/
+
+
+/************ begin Rule CastExpression ****************
+ *
+ * CastExpression:
+ *   "(" type=QualifiedTypeSpecification ")" expr=CastExpression|unaryExpr=
+ *   UnaryExpression;
+ *
+ **/
+
+// "(" type=QualifiedTypeSpecification ")" expr=CastExpression|unaryExpr=
+// UnaryExpression
+protected class CastExpression_Alternatives extends AlternativesToken {
+
+	public CastExpression_Alternatives(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Alternatives getGrammarElement() {
+		return grammarAccess.getCastExpressionAccess().getAlternatives();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new CastExpression_Group_0(parent, this, 0, inst);
+			case 1: return new CastExpression_UnaryExprAssignment_1(parent, this, 1, inst);
+			default: return null;
+		}	
+	}	
+		
+    @Override
+	public IInstanceDescription tryConsume() {
+		if(!current.isInstanceOf(grammarAccess.getCastExpressionRule().getType().getClassifier())) return null;
+		return tryConsumeVal();
+	}
+}
+
+// "(" type=QualifiedTypeSpecification ")" expr=CastExpression
+protected class CastExpression_Group_0 extends GroupToken {
+	
+	public CastExpression_Group_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Group getGrammarElement() {
+		return grammarAccess.getCastExpressionAccess().getGroup_0();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new CastExpression_ExprAssignment_0_3(parent, this, 0, inst);
+			default: return null;
+		}	
+	}	
+		
+}
+
+// "("
+protected class CastExpression_LeftParenthesisKeyword_0_0 extends KeywordToken  {
+	
+	public CastExpression_LeftParenthesisKeyword_0_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Keyword getGrammarElement() {
+		return grammarAccess.getCastExpressionAccess().getLeftParenthesisKeyword_0_0();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			default: return parent.createParentFollower(this, index, index, inst);
+		}	
+	}	
+		
+}
+
+// type=QualifiedTypeSpecification
+protected class CastExpression_TypeAssignment_0_1 extends AssignmentToken  {
+	
+	public CastExpression_TypeAssignment_0_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Assignment getGrammarElement() {
+		return grammarAccess.getCastExpressionAccess().getTypeAssignment_0_1();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new QualifiedTypeSpecification_Group(this, this, 0, inst);
+			default: return null;
+		}	
+	}	
+		
+    @Override	
+	protected IInstanceDescription tryConsumeVal() {
+		if((value = current.getConsumable("type",true)) == null) return null;
+		IInstanceDescription obj = current.cloneAndConsume("type");
+		if(value instanceof EObject) { // org::eclipse::xtext::impl::RuleCallImpl
+			IInstanceDescription param = getDescr((EObject)value);
+			if(param.isInstanceOf(grammarAccess.getQualifiedTypeSpecificationRule().getType().getClassifier())) {
+				type = AssignmentType.PRC;
+				element = grammarAccess.getCastExpressionAccess().getTypeQualifiedTypeSpecificationParserRuleCall_0_1_0(); 
+				consumed = obj;
+				return param;
+			}
+		}
+		return null;
+	}
+
+    @Override
+	public AbstractToken createParentFollower(AbstractToken next,	int actIndex, int index, IInstanceDescription inst) {
+		if(value == inst.getDelegate() && !inst.isConsumed()) return null;
+		switch(index) {
+			case 0: return new CastExpression_LeftParenthesisKeyword_0_0(parent, next, actIndex, consumed);
+			default: return null;
+		}	
+	}	
+}
+
+// ")"
+protected class CastExpression_RightParenthesisKeyword_0_2 extends KeywordToken  {
+	
+	public CastExpression_RightParenthesisKeyword_0_2(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Keyword getGrammarElement() {
+		return grammarAccess.getCastExpressionAccess().getRightParenthesisKeyword_0_2();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new CastExpression_TypeAssignment_0_1(parent, this, 0, inst);
+			default: return null;
+		}	
+	}	
+		
+}
+
+// expr=CastExpression
+protected class CastExpression_ExprAssignment_0_3 extends AssignmentToken  {
+	
+	public CastExpression_ExprAssignment_0_3(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Assignment getGrammarElement() {
+		return grammarAccess.getCastExpressionAccess().getExprAssignment_0_3();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new CastExpression_Alternatives(this, this, 0, inst);
+			default: return null;
+		}	
+	}	
+		
+    @Override	
+	protected IInstanceDescription tryConsumeVal() {
+		if((value = current.getConsumable("expr",true)) == null) return null;
+		IInstanceDescription obj = current.cloneAndConsume("expr");
+		if(value instanceof EObject) { // org::eclipse::xtext::impl::RuleCallImpl
+			IInstanceDescription param = getDescr((EObject)value);
+			if(param.isInstanceOf(grammarAccess.getCastExpressionRule().getType().getClassifier())) {
+				type = AssignmentType.PRC;
+				element = grammarAccess.getCastExpressionAccess().getExprCastExpressionParserRuleCall_0_3_0(); 
+				consumed = obj;
+				return param;
+			}
+		}
+		return null;
+	}
+
+    @Override
+	public AbstractToken createParentFollower(AbstractToken next,	int actIndex, int index, IInstanceDescription inst) {
+		if(value == inst.getDelegate() && !inst.isConsumed()) return null;
+		switch(index) {
+			case 0: return new CastExpression_RightParenthesisKeyword_0_2(parent, next, actIndex, consumed);
+			default: return null;
+		}	
+	}	
+}
+
+
+// unaryExpr=UnaryExpression
+protected class CastExpression_UnaryExprAssignment_1 extends AssignmentToken  {
+	
+	public CastExpression_UnaryExprAssignment_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Assignment getGrammarElement() {
+		return grammarAccess.getCastExpressionAccess().getUnaryExprAssignment_1();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new UnaryExpression_Group(this, this, 0, inst);
+			default: return null;
+		}	
+	}	
+		
+    @Override	
+	protected IInstanceDescription tryConsumeVal() {
+		if((value = current.getConsumable("unaryExpr",true)) == null) return null;
+		IInstanceDescription obj = current.cloneAndConsume("unaryExpr");
+		if(value instanceof EObject) { // org::eclipse::xtext::impl::RuleCallImpl
+			IInstanceDescription param = getDescr((EObject)value);
+			if(param.isInstanceOf(grammarAccess.getUnaryExpressionRule().getType().getClassifier())) {
+				type = AssignmentType.PRC;
+				element = grammarAccess.getCastExpressionAccess().getUnaryExprUnaryExpressionParserRuleCall_1_0(); 
+				consumed = obj;
+				return param;
+			}
+		}
+		return null;
+	}
+
+    @Override
+	public AbstractToken createParentFollower(AbstractToken next,	int actIndex, int index, IInstanceDescription inst) {
+		if(value == inst.getDelegate() && !inst.isConsumed()) return null;
+		switch(index) {
+			default: return parent.createParentFollower(next, actIndex , index, consumed);
+		}	
+	}	
+}
+
+
+/************ end Rule CastExpression ****************/
+
+
+/************ begin Rule UnaryExpression ****************
+ *
+ * UnaryExpression:
+ *   unaryExpr=UnaryOperation? primaryExpr=PrimaryExpression;
+ *
+ **/
+
+// unaryExpr=UnaryOperation? primaryExpr=PrimaryExpression
+protected class UnaryExpression_Group extends GroupToken {
+	
+	public UnaryExpression_Group(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Group getGrammarElement() {
+		return grammarAccess.getUnaryExpressionAccess().getGroup();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new UnaryExpression_PrimaryExprAssignment_1(parent, this, 0, inst);
+			default: return null;
+		}	
+	}	
+		
+    @Override
+	public IInstanceDescription tryConsume() {
+		if(!current.isInstanceOf(grammarAccess.getUnaryExpressionRule().getType().getClassifier())) return null;
+		return tryConsumeVal();
+	}
+}
+
+// unaryExpr=UnaryOperation?
+protected class UnaryExpression_UnaryExprAssignment_0 extends AssignmentToken  {
+	
+	public UnaryExpression_UnaryExprAssignment_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Assignment getGrammarElement() {
+		return grammarAccess.getUnaryExpressionAccess().getUnaryExprAssignment_0();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			default: return parent.createParentFollower(this, index, index, inst);
+		}	
+	}	
+		
+    @Override	
+	protected IInstanceDescription tryConsumeVal() {
+		if((value = current.getConsumable("unaryExpr",false)) == null) return null;
+		IInstanceDescription obj = current.cloneAndConsume("unaryExpr");
+		if(Boolean.TRUE.booleanValue()) { // org::eclipse::xtext::impl::RuleCallImpl FIXME: check if value is valid for datatype rule
+			type = AssignmentType.DRC;
+			element = grammarAccess.getUnaryExpressionAccess().getUnaryExprUnaryOperationParserRuleCall_0_0();
+			return obj;
+		}
+		return null;
+	}
+
+}
+
+// primaryExpr=PrimaryExpression
+protected class UnaryExpression_PrimaryExprAssignment_1 extends AssignmentToken  {
+	
+	public UnaryExpression_PrimaryExprAssignment_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Assignment getGrammarElement() {
+		return grammarAccess.getUnaryExpressionAccess().getPrimaryExprAssignment_1();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new PrimaryExpression_Alternatives(this, this, 0, inst);
+			default: return null;
+		}	
+	}	
+		
+    @Override	
+	protected IInstanceDescription tryConsumeVal() {
+		if((value = current.getConsumable("primaryExpr",true)) == null) return null;
+		IInstanceDescription obj = current.cloneAndConsume("primaryExpr");
+		if(value instanceof EObject) { // org::eclipse::xtext::impl::RuleCallImpl
+			IInstanceDescription param = getDescr((EObject)value);
+			if(param.isInstanceOf(grammarAccess.getPrimaryExpressionRule().getType().getClassifier())) {
+				type = AssignmentType.PRC;
+				element = grammarAccess.getUnaryExpressionAccess().getPrimaryExprPrimaryExpressionParserRuleCall_1_0(); 
+				consumed = obj;
+				return param;
+			}
+		}
+		return null;
+	}
+
+    @Override
+	public AbstractToken createParentFollower(AbstractToken next,	int actIndex, int index, IInstanceDescription inst) {
+		if(value == inst.getDelegate() && !inst.isConsumed()) return null;
+		switch(index) {
+			case 0: return new UnaryExpression_UnaryExprAssignment_0(parent, next, actIndex, consumed);
+			default: return parent.createParentFollower(next, actIndex , index - 1, consumed);
+		}	
+	}	
+}
+
+
+/************ end Rule UnaryExpression ****************/
+
+
+/************ begin Rule PrimaryExpression ****************
+ *
+ * PrimaryExpression:
+ *   literal=Literal|"(" ConstantExpression ")";
+ *
+ **/
+
+// literal=Literal|"(" ConstantExpression ")"
+protected class PrimaryExpression_Alternatives extends AlternativesToken {
+
+	public PrimaryExpression_Alternatives(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Alternatives getGrammarElement() {
+		return grammarAccess.getPrimaryExpressionAccess().getAlternatives();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new PrimaryExpression_LiteralAssignment_0(parent, this, 0, inst);
+			case 1: return new PrimaryExpression_Group_1(parent, this, 1, inst);
+			default: return null;
+		}	
+	}	
+		
+    @Override
+	public IInstanceDescription tryConsume() {
+		if(!current.isInstanceOf(grammarAccess.getPrimaryExpressionRule().getType().getClassifier())) return null;
+		return tryConsumeVal();
+	}
+}
+
+// literal=Literal
+protected class PrimaryExpression_LiteralAssignment_0 extends AssignmentToken  {
+	
+	public PrimaryExpression_LiteralAssignment_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Assignment getGrammarElement() {
+		return grammarAccess.getPrimaryExpressionAccess().getLiteralAssignment_0();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new Literal_Alternatives(this, this, 0, inst);
+			default: return null;
+		}	
+	}	
+		
+    @Override	
+	protected IInstanceDescription tryConsumeVal() {
+		if((value = current.getConsumable("literal",true)) == null) return null;
+		IInstanceDescription obj = current.cloneAndConsume("literal");
+		if(value instanceof EObject) { // org::eclipse::xtext::impl::RuleCallImpl
+			IInstanceDescription param = getDescr((EObject)value);
+			if(param.isInstanceOf(grammarAccess.getLiteralRule().getType().getClassifier())) {
+				type = AssignmentType.PRC;
+				element = grammarAccess.getPrimaryExpressionAccess().getLiteralLiteralParserRuleCall_0_0(); 
+				consumed = obj;
+				return param;
+			}
+		}
+		return null;
+	}
+
+    @Override
+	public AbstractToken createParentFollower(AbstractToken next,	int actIndex, int index, IInstanceDescription inst) {
+		if(value == inst.getDelegate() && !inst.isConsumed()) return null;
+		switch(index) {
+			default: return parent.createParentFollower(next, actIndex , index, consumed);
+		}	
+	}	
+}
+
+// "(" ConstantExpression ")"
+protected class PrimaryExpression_Group_1 extends GroupToken {
+	
+	public PrimaryExpression_Group_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Group getGrammarElement() {
+		return grammarAccess.getPrimaryExpressionAccess().getGroup_1();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new PrimaryExpression_RightParenthesisKeyword_1_2(parent, this, 0, inst);
+			default: return null;
+		}	
+	}	
+		
+}
+
+// "("
+protected class PrimaryExpression_LeftParenthesisKeyword_1_0 extends KeywordToken  {
+	
+	public PrimaryExpression_LeftParenthesisKeyword_1_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Keyword getGrammarElement() {
+		return grammarAccess.getPrimaryExpressionAccess().getLeftParenthesisKeyword_1_0();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			default: return parent.createParentFollower(this, index, index, inst);
+		}	
+	}	
+		
+}
+
+// ConstantExpression
+protected class PrimaryExpression_ConstantExpressionParserRuleCall_1_1 extends RuleCallToken {
+	
+	public PrimaryExpression_ConstantExpressionParserRuleCall_1_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public RuleCall getGrammarElement() {
+		return grammarAccess.getPrimaryExpressionAccess().getConstantExpressionParserRuleCall_1_1();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new ConstantExpression_LogicalOrExpressionParserRuleCall(this, this, 0, inst);
+			default: return null;
+		}	
+	}	
+		
+    @Override
+	protected IInstanceDescription tryConsumeVal() {
+		if(checkForRecursion(ConstantExpression_LogicalOrExpressionParserRuleCall.class, current)) return null;
+		if(!current.isInstanceOf(grammarAccess.getConstantExpressionRule().getType().getClassifier())) return null;
+		return current;
+	}
+	
+    @Override
+	public AbstractToken createParentFollower(AbstractToken next,	int actIndex, int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new PrimaryExpression_LeftParenthesisKeyword_1_0(parent, next, actIndex, inst);
+			default: return null;
+		}	
+	}	
+}
+
+// ")"
+protected class PrimaryExpression_RightParenthesisKeyword_1_2 extends KeywordToken  {
+	
+	public PrimaryExpression_RightParenthesisKeyword_1_2(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Keyword getGrammarElement() {
+		return grammarAccess.getPrimaryExpressionAccess().getRightParenthesisKeyword_1_2();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new PrimaryExpression_ConstantExpressionParserRuleCall_1_1(parent, this, 0, inst);
+			default: return null;
+		}	
+	}	
+		
+}
+
+
+
+/************ end Rule PrimaryExpression ****************/
+
+
+/************ begin Rule Literal ****************
+ *
+ * Literal:
+ *   ID|STRING|FloatingPointLiteral|ref=[ConstantDefinition];
+ *
+ **/
+
+// ID|STRING|FloatingPointLiteral|ref=[ConstantDefinition]
+protected class Literal_Alternatives extends AlternativesToken {
+
+	public Literal_Alternatives(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Alternatives getGrammarElement() {
+		return grammarAccess.getLiteralAccess().getAlternatives();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new Literal_IDTerminalRuleCall_0(parent, this, 0, inst);
+			case 1: return new Literal_STRINGTerminalRuleCall_1(parent, this, 1, inst);
+			case 2: return new Literal_FloatingPointLiteralParserRuleCall_2(parent, this, 2, inst);
+			case 3: return new Literal_RefAssignment_3(parent, this, 3, inst);
+			default: return null;
+		}	
+	}	
+		
+    @Override
+	public IInstanceDescription tryConsume() {
+		if(!current.isInstanceOf(grammarAccess.getLiteralRule().getType().getClassifier())) return null;
+		return tryConsumeVal();
+	}
+}
+
+// ID
+protected class Literal_IDTerminalRuleCall_0 extends UnassignedTextToken {
+
+	public Literal_IDTerminalRuleCall_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public RuleCall getGrammarElement() {
+		return grammarAccess.getLiteralAccess().getIDTerminalRuleCall_0();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			default: return parent.createParentFollower(this, index, index, inst);
+		}	
+	}	
+		
+}
+
+// STRING
+protected class Literal_STRINGTerminalRuleCall_1 extends UnassignedTextToken {
+
+	public Literal_STRINGTerminalRuleCall_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public RuleCall getGrammarElement() {
+		return grammarAccess.getLiteralAccess().getSTRINGTerminalRuleCall_1();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			default: return parent.createParentFollower(this, index, index, inst);
+		}	
+	}	
+		
+}
+
+// FloatingPointLiteral
+protected class Literal_FloatingPointLiteralParserRuleCall_2 extends UnassignedTextToken {
+
+	public Literal_FloatingPointLiteralParserRuleCall_2(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public RuleCall getGrammarElement() {
+		return grammarAccess.getLiteralAccess().getFloatingPointLiteralParserRuleCall_2();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			default: return parent.createParentFollower(this, index, index, inst);
+		}	
+	}	
+		
+}
+
+// ref=[ConstantDefinition]
+protected class Literal_RefAssignment_3 extends AssignmentToken  {
+	
+	public Literal_RefAssignment_3(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Assignment getGrammarElement() {
+		return grammarAccess.getLiteralAccess().getRefAssignment_3();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			default: return parent.createParentFollower(this, index, index, inst);
+		}	
+	}	
+		
+    @Override	
+	protected IInstanceDescription tryConsumeVal() {
+		if((value = current.getConsumable("ref",true)) == null) return null;
+		IInstanceDescription obj = current.cloneAndConsume("ref");
+		if(value instanceof EObject) { // org::eclipse::xtext::impl::CrossReferenceImpl
+			IInstanceDescription param = getDescr((EObject)value);
+			if(param.isInstanceOf(grammarAccess.getLiteralAccess().getRefConstantDefinitionCrossReference_3_0().getType().getClassifier())) {
+				type = AssignmentType.CR;
+				element = grammarAccess.getLiteralAccess().getRefConstantDefinitionCrossReference_3_0(); 
+				return obj;
+			}
+		}
+		return null;
+	}
+
+}
+
+
+/************ end Rule Literal ****************/
+
+
+
+
 
 
 }

@@ -247,6 +247,13 @@ public class FractalIDLSwitch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case FractalIDLPackage.ARRAY_SPECIFICATION:
+      {
+        ArraySpecification arraySpecification = (ArraySpecification)theEObject;
+        T result = caseArraySpecification(arraySpecification);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case FractalIDLPackage.CONSTANT_DEFINITION:
       {
         ConstantDefinition constantDefinition = (ConstantDefinition)theEObject;
@@ -337,6 +344,100 @@ public class FractalIDLSwitch<T>
         ArrayAnnotationValue arrayAnnotationValue = (ArrayAnnotationValue)theEObject;
         T result = caseArrayAnnotationValue(arrayAnnotationValue);
         if (result == null) result = caseAnnotationValue(arrayAnnotationValue);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case FractalIDLPackage.CONSTANT_EXPRESSION:
+      {
+        ConstantExpression constantExpression = (ConstantExpression)theEObject;
+        T result = caseConstantExpression(constantExpression);
+        if (result == null) result = casePrimaryExpression(constantExpression);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case FractalIDLPackage.LOGICAL_OR_EXPRESSION:
+      {
+        LogicalOrExpression logicalOrExpression = (LogicalOrExpression)theEObject;
+        T result = caseLogicalOrExpression(logicalOrExpression);
+        if (result == null) result = caseConstantExpression(logicalOrExpression);
+        if (result == null) result = casePrimaryExpression(logicalOrExpression);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case FractalIDLPackage.LOGICAL_AND_EXPRESSION:
+      {
+        LogicalAndExpression logicalAndExpression = (LogicalAndExpression)theEObject;
+        T result = caseLogicalAndExpression(logicalAndExpression);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case FractalIDLPackage.OR_EXPRESSION:
+      {
+        OrExpression orExpression = (OrExpression)theEObject;
+        T result = caseOrExpression(orExpression);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case FractalIDLPackage.XOR_EXPRESSION:
+      {
+        XorExpression xorExpression = (XorExpression)theEObject;
+        T result = caseXorExpression(xorExpression);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case FractalIDLPackage.AND_EXPRESSION:
+      {
+        AndExpression andExpression = (AndExpression)theEObject;
+        T result = caseAndExpression(andExpression);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case FractalIDLPackage.SHIFT_EXPRESSION:
+      {
+        ShiftExpression shiftExpression = (ShiftExpression)theEObject;
+        T result = caseShiftExpression(shiftExpression);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case FractalIDLPackage.ADDITIVE_EXPRESSION:
+      {
+        AdditiveExpression additiveExpression = (AdditiveExpression)theEObject;
+        T result = caseAdditiveExpression(additiveExpression);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case FractalIDLPackage.MUL_EXPRESSION:
+      {
+        MulExpression mulExpression = (MulExpression)theEObject;
+        T result = caseMulExpression(mulExpression);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case FractalIDLPackage.CAST_EXPRESSION:
+      {
+        CastExpression castExpression = (CastExpression)theEObject;
+        T result = caseCastExpression(castExpression);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case FractalIDLPackage.UNARY_EXPRESSION:
+      {
+        UnaryExpression unaryExpression = (UnaryExpression)theEObject;
+        T result = caseUnaryExpression(unaryExpression);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case FractalIDLPackage.PRIMARY_EXPRESSION:
+      {
+        PrimaryExpression primaryExpression = (PrimaryExpression)theEObject;
+        T result = casePrimaryExpression(primaryExpression);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case FractalIDLPackage.LITERAL:
+      {
+        Literal literal = (Literal)theEObject;
+        T result = caseLiteral(literal);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -649,6 +750,22 @@ public class FractalIDLSwitch<T>
   }
 
   /**
+   * Returns the result of interpreting the object as an instance of '<em>Array Specification</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Array Specification</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseArraySpecification(ArraySpecification object)
+  {
+    return null;
+  }
+
+  /**
    * Returns the result of interpreting the object as an instance of '<em>Constant Definition</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -852,6 +969,214 @@ public class FractalIDLSwitch<T>
    * @generated
    */
   public T caseArrayAnnotationValue(ArrayAnnotationValue object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Constant Expression</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Constant Expression</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseConstantExpression(ConstantExpression object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Logical Or Expression</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Logical Or Expression</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseLogicalOrExpression(LogicalOrExpression object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Logical And Expression</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Logical And Expression</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseLogicalAndExpression(LogicalAndExpression object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Or Expression</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Or Expression</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseOrExpression(OrExpression object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Xor Expression</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Xor Expression</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseXorExpression(XorExpression object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>And Expression</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>And Expression</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseAndExpression(AndExpression object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Shift Expression</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Shift Expression</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseShiftExpression(ShiftExpression object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Additive Expression</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Additive Expression</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseAdditiveExpression(AdditiveExpression object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Mul Expression</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Mul Expression</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseMulExpression(MulExpression object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Cast Expression</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Cast Expression</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseCastExpression(CastExpression object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Unary Expression</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Unary Expression</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseUnaryExpression(UnaryExpression object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Primary Expression</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Primary Expression</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T casePrimaryExpression(PrimaryExpression object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Literal</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Literal</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseLiteral(Literal object)
   {
     return null;
   }

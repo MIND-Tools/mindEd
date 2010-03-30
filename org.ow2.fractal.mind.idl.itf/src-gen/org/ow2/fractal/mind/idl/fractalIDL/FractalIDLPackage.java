@@ -458,13 +458,22 @@ public interface FractalIDLPackage extends EPackage
   int STRUCT_MEMBER__DEC = 2;
 
   /**
+   * The feature id for the '<em><b>Const Expr</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int STRUCT_MEMBER__CONST_EXPR = 3;
+
+  /**
    * The number of structural features of the '<em>Struct Member</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int STRUCT_MEMBER_FEATURE_COUNT = 3;
+  int STRUCT_MEMBER_FEATURE_COUNT = 4;
 
   /**
    * The meta object id for the '{@link org.ow2.fractal.mind.idl.fractalIDL.impl.EnumSpecificationImpl <em>Enum Specification</em>}' class.
@@ -670,13 +679,22 @@ public interface FractalIDLPackage extends EPackage
   int ENUM_MEMBER__ID = ENUM_MEMBER_LIST_FEATURE_COUNT + 2;
 
   /**
+   * The feature id for the '<em><b>Const Expr</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ENUM_MEMBER__CONST_EXPR = ENUM_MEMBER_LIST_FEATURE_COUNT + 3;
+
+  /**
    * The number of structural features of the '<em>Enum Member</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int ENUM_MEMBER_FEATURE_COUNT = ENUM_MEMBER_LIST_FEATURE_COUNT + 3;
+  int ENUM_MEMBER_FEATURE_COUNT = ENUM_MEMBER_LIST_FEATURE_COUNT + 4;
 
   /**
    * The meta object id for the '{@link org.ow2.fractal.mind.idl.fractalIDL.impl.DeclaratorsImpl <em>Declarators</em>}' class.
@@ -837,7 +855,7 @@ public interface FractalIDLPackage extends EPackage
   int DIRECT_DECLARATOR__DEC = 1;
 
   /**
-   * The feature id for the '<em><b>Array</b></em>' attribute list.
+   * The feature id for the '<em><b>Array</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -855,6 +873,34 @@ public interface FractalIDLPackage extends EPackage
   int DIRECT_DECLARATOR_FEATURE_COUNT = 3;
 
   /**
+   * The meta object id for the '{@link org.ow2.fractal.mind.idl.fractalIDL.impl.ArraySpecificationImpl <em>Array Specification</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.ow2.fractal.mind.idl.fractalIDL.impl.ArraySpecificationImpl
+   * @see org.ow2.fractal.mind.idl.fractalIDL.impl.FractalIDLPackageImpl#getArraySpecification()
+   * @generated
+   */
+  int ARRAY_SPECIFICATION = 19;
+
+  /**
+   * The feature id for the '<em><b>Const Expr</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ARRAY_SPECIFICATION__CONST_EXPR = 0;
+
+  /**
+   * The number of structural features of the '<em>Array Specification</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ARRAY_SPECIFICATION_FEATURE_COUNT = 1;
+
+  /**
    * The meta object id for the '{@link org.ow2.fractal.mind.idl.fractalIDL.impl.ConstantDefinitionImpl <em>Constant Definition</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -862,7 +908,7 @@ public interface FractalIDLPackage extends EPackage
    * @see org.ow2.fractal.mind.idl.fractalIDL.impl.FractalIDLPackageImpl#getConstantDefinition()
    * @generated
    */
-  int CONSTANT_DEFINITION = 19;
+  int CONSTANT_DEFINITION = 20;
 
   /**
    * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -890,7 +936,7 @@ public interface FractalIDLPackage extends EPackage
    * @see org.ow2.fractal.mind.idl.fractalIDL.impl.FractalIDLPackageImpl#getInterfaceDefinition()
    * @generated
    */
-  int INTERFACE_DEFINITION = 20;
+  int INTERFACE_DEFINITION = 21;
 
   /**
    * The feature id for the '<em><b>Annotations</b></em>' containment reference.
@@ -945,7 +991,7 @@ public interface FractalIDLPackage extends EPackage
    * @see org.ow2.fractal.mind.idl.fractalIDL.impl.FractalIDLPackageImpl#getMethodDefinition()
    * @generated
    */
-  int METHOD_DEFINITION = 21;
+  int METHOD_DEFINITION = 22;
 
   /**
    * The feature id for the '<em><b>Annotations</b></em>' containment reference.
@@ -1000,7 +1046,7 @@ public interface FractalIDLPackage extends EPackage
    * @see org.ow2.fractal.mind.idl.fractalIDL.impl.FractalIDLPackageImpl#getParameterList()
    * @generated
    */
-  int PARAMETER_LIST = 22;
+  int PARAMETER_LIST = 23;
 
   /**
    * The feature id for the '<em><b>Param</b></em>' containment reference.
@@ -1037,7 +1083,7 @@ public interface FractalIDLPackage extends EPackage
    * @see org.ow2.fractal.mind.idl.fractalIDL.impl.FractalIDLPackageImpl#getParameter()
    * @generated
    */
-  int PARAMETER = 23;
+  int PARAMETER = 24;
 
   /**
    * The feature id for the '<em><b>Annotations</b></em>' containment reference.
@@ -1092,7 +1138,7 @@ public interface FractalIDLPackage extends EPackage
    * @see org.ow2.fractal.mind.idl.fractalIDL.impl.FractalIDLPackageImpl#getIncludeDirective()
    * @generated
    */
-  int INCLUDE_DIRECTIVE = 24;
+  int INCLUDE_DIRECTIVE = 25;
 
   /**
    * The feature id for the '<em><b>Imported URI</b></em>' attribute.
@@ -1129,7 +1175,7 @@ public interface FractalIDLPackage extends EPackage
    * @see org.ow2.fractal.mind.idl.fractalIDL.impl.FractalIDLPackageImpl#getAnnotations()
    * @generated
    */
-  int ANNOTATIONS = 25;
+  int ANNOTATIONS = 26;
 
   /**
    * The feature id for the '<em><b>Annotations</b></em>' containment reference list.
@@ -1157,7 +1203,7 @@ public interface FractalIDLPackage extends EPackage
    * @see org.ow2.fractal.mind.idl.fractalIDL.impl.FractalIDLPackageImpl#getAnnotationValue()
    * @generated
    */
-  int ANNOTATION_VALUE = 30;
+  int ANNOTATION_VALUE = 31;
 
   /**
    * The number of structural features of the '<em>Annotation Value</em>' class.
@@ -1176,7 +1222,7 @@ public interface FractalIDLPackage extends EPackage
    * @see org.ow2.fractal.mind.idl.fractalIDL.impl.FractalIDLPackageImpl#getAnnotation()
    * @generated
    */
-  int ANNOTATION = 26;
+  int ANNOTATION = 27;
 
   /**
    * The feature id for the '<em><b>Fqn</b></em>' attribute.
@@ -1213,7 +1259,7 @@ public interface FractalIDLPackage extends EPackage
    * @see org.ow2.fractal.mind.idl.fractalIDL.impl.FractalIDLPackageImpl#getAnnotationParameters()
    * @generated
    */
-  int ANNOTATION_PARAMETERS = 27;
+  int ANNOTATION_PARAMETERS = 28;
 
   /**
    * The feature id for the '<em><b>Value Pair</b></em>' containment reference.
@@ -1250,7 +1296,7 @@ public interface FractalIDLPackage extends EPackage
    * @see org.ow2.fractal.mind.idl.fractalIDL.impl.FractalIDLPackageImpl#getAnnotationValuePairs()
    * @generated
    */
-  int ANNOTATION_VALUE_PAIRS = 28;
+  int ANNOTATION_VALUE_PAIRS = 29;
 
   /**
    * The feature id for the '<em><b>First</b></em>' containment reference.
@@ -1287,7 +1333,7 @@ public interface FractalIDLPackage extends EPackage
    * @see org.ow2.fractal.mind.idl.fractalIDL.impl.FractalIDLPackageImpl#getAnnotationValuePair()
    * @generated
    */
-  int ANNOTATION_VALUE_PAIR = 29;
+  int ANNOTATION_VALUE_PAIR = 30;
 
   /**
    * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -1324,7 +1370,7 @@ public interface FractalIDLPackage extends EPackage
    * @see org.ow2.fractal.mind.idl.fractalIDL.impl.FractalIDLPackageImpl#getArrayAnnotationValue()
    * @generated
    */
-  int ARRAY_ANNOTATION_VALUE = 31;
+  int ARRAY_ANNOTATION_VALUE = 32;
 
   /**
    * The feature id for the '<em><b>First Value</b></em>' containment reference.
@@ -1354,6 +1400,505 @@ public interface FractalIDLPackage extends EPackage
   int ARRAY_ANNOTATION_VALUE_FEATURE_COUNT = ANNOTATION_VALUE_FEATURE_COUNT + 2;
 
   /**
+   * The meta object id for the '{@link org.ow2.fractal.mind.idl.fractalIDL.impl.PrimaryExpressionImpl <em>Primary Expression</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.ow2.fractal.mind.idl.fractalIDL.impl.PrimaryExpressionImpl
+   * @see org.ow2.fractal.mind.idl.fractalIDL.impl.FractalIDLPackageImpl#getPrimaryExpression()
+   * @generated
+   */
+  int PRIMARY_EXPRESSION = 44;
+
+  /**
+   * The feature id for the '<em><b>Literal</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PRIMARY_EXPRESSION__LITERAL = 0;
+
+  /**
+   * The number of structural features of the '<em>Primary Expression</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PRIMARY_EXPRESSION_FEATURE_COUNT = 1;
+
+  /**
+   * The meta object id for the '{@link org.ow2.fractal.mind.idl.fractalIDL.impl.ConstantExpressionImpl <em>Constant Expression</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.ow2.fractal.mind.idl.fractalIDL.impl.ConstantExpressionImpl
+   * @see org.ow2.fractal.mind.idl.fractalIDL.impl.FractalIDLPackageImpl#getConstantExpression()
+   * @generated
+   */
+  int CONSTANT_EXPRESSION = 33;
+
+  /**
+   * The feature id for the '<em><b>Literal</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CONSTANT_EXPRESSION__LITERAL = PRIMARY_EXPRESSION__LITERAL;
+
+  /**
+   * The number of structural features of the '<em>Constant Expression</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CONSTANT_EXPRESSION_FEATURE_COUNT = PRIMARY_EXPRESSION_FEATURE_COUNT + 0;
+
+  /**
+   * The meta object id for the '{@link org.ow2.fractal.mind.idl.fractalIDL.impl.LogicalOrExpressionImpl <em>Logical Or Expression</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.ow2.fractal.mind.idl.fractalIDL.impl.LogicalOrExpressionImpl
+   * @see org.ow2.fractal.mind.idl.fractalIDL.impl.FractalIDLPackageImpl#getLogicalOrExpression()
+   * @generated
+   */
+  int LOGICAL_OR_EXPRESSION = 34;
+
+  /**
+   * The feature id for the '<em><b>Literal</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LOGICAL_OR_EXPRESSION__LITERAL = CONSTANT_EXPRESSION__LITERAL;
+
+  /**
+   * The feature id for the '<em><b>Left Expr</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LOGICAL_OR_EXPRESSION__LEFT_EXPR = CONSTANT_EXPRESSION_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Right Expr</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LOGICAL_OR_EXPRESSION__RIGHT_EXPR = CONSTANT_EXPRESSION_FEATURE_COUNT + 1;
+
+  /**
+   * The number of structural features of the '<em>Logical Or Expression</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LOGICAL_OR_EXPRESSION_FEATURE_COUNT = CONSTANT_EXPRESSION_FEATURE_COUNT + 2;
+
+  /**
+   * The meta object id for the '{@link org.ow2.fractal.mind.idl.fractalIDL.impl.LogicalAndExpressionImpl <em>Logical And Expression</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.ow2.fractal.mind.idl.fractalIDL.impl.LogicalAndExpressionImpl
+   * @see org.ow2.fractal.mind.idl.fractalIDL.impl.FractalIDLPackageImpl#getLogicalAndExpression()
+   * @generated
+   */
+  int LOGICAL_AND_EXPRESSION = 35;
+
+  /**
+   * The feature id for the '<em><b>Left Expr</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LOGICAL_AND_EXPRESSION__LEFT_EXPR = 0;
+
+  /**
+   * The feature id for the '<em><b>Right Expr</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LOGICAL_AND_EXPRESSION__RIGHT_EXPR = 1;
+
+  /**
+   * The number of structural features of the '<em>Logical And Expression</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LOGICAL_AND_EXPRESSION_FEATURE_COUNT = 2;
+
+  /**
+   * The meta object id for the '{@link org.ow2.fractal.mind.idl.fractalIDL.impl.OrExpressionImpl <em>Or Expression</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.ow2.fractal.mind.idl.fractalIDL.impl.OrExpressionImpl
+   * @see org.ow2.fractal.mind.idl.fractalIDL.impl.FractalIDLPackageImpl#getOrExpression()
+   * @generated
+   */
+  int OR_EXPRESSION = 36;
+
+  /**
+   * The feature id for the '<em><b>Left Expr</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int OR_EXPRESSION__LEFT_EXPR = 0;
+
+  /**
+   * The feature id for the '<em><b>Right Expr</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int OR_EXPRESSION__RIGHT_EXPR = 1;
+
+  /**
+   * The number of structural features of the '<em>Or Expression</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int OR_EXPRESSION_FEATURE_COUNT = 2;
+
+  /**
+   * The meta object id for the '{@link org.ow2.fractal.mind.idl.fractalIDL.impl.XorExpressionImpl <em>Xor Expression</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.ow2.fractal.mind.idl.fractalIDL.impl.XorExpressionImpl
+   * @see org.ow2.fractal.mind.idl.fractalIDL.impl.FractalIDLPackageImpl#getXorExpression()
+   * @generated
+   */
+  int XOR_EXPRESSION = 37;
+
+  /**
+   * The feature id for the '<em><b>Left Expr</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int XOR_EXPRESSION__LEFT_EXPR = 0;
+
+  /**
+   * The feature id for the '<em><b>Right Expr</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int XOR_EXPRESSION__RIGHT_EXPR = 1;
+
+  /**
+   * The number of structural features of the '<em>Xor Expression</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int XOR_EXPRESSION_FEATURE_COUNT = 2;
+
+  /**
+   * The meta object id for the '{@link org.ow2.fractal.mind.idl.fractalIDL.impl.AndExpressionImpl <em>And Expression</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.ow2.fractal.mind.idl.fractalIDL.impl.AndExpressionImpl
+   * @see org.ow2.fractal.mind.idl.fractalIDL.impl.FractalIDLPackageImpl#getAndExpression()
+   * @generated
+   */
+  int AND_EXPRESSION = 38;
+
+  /**
+   * The feature id for the '<em><b>Left Expr</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int AND_EXPRESSION__LEFT_EXPR = 0;
+
+  /**
+   * The feature id for the '<em><b>Right Expr</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int AND_EXPRESSION__RIGHT_EXPR = 1;
+
+  /**
+   * The number of structural features of the '<em>And Expression</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int AND_EXPRESSION_FEATURE_COUNT = 2;
+
+  /**
+   * The meta object id for the '{@link org.ow2.fractal.mind.idl.fractalIDL.impl.ShiftExpressionImpl <em>Shift Expression</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.ow2.fractal.mind.idl.fractalIDL.impl.ShiftExpressionImpl
+   * @see org.ow2.fractal.mind.idl.fractalIDL.impl.FractalIDLPackageImpl#getShiftExpression()
+   * @generated
+   */
+  int SHIFT_EXPRESSION = 39;
+
+  /**
+   * The feature id for the '<em><b>Left Expr</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SHIFT_EXPRESSION__LEFT_EXPR = 0;
+
+  /**
+   * The feature id for the '<em><b>Op</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SHIFT_EXPRESSION__OP = 1;
+
+  /**
+   * The feature id for the '<em><b>Right Expr</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SHIFT_EXPRESSION__RIGHT_EXPR = 2;
+
+  /**
+   * The number of structural features of the '<em>Shift Expression</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SHIFT_EXPRESSION_FEATURE_COUNT = 3;
+
+  /**
+   * The meta object id for the '{@link org.ow2.fractal.mind.idl.fractalIDL.impl.AdditiveExpressionImpl <em>Additive Expression</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.ow2.fractal.mind.idl.fractalIDL.impl.AdditiveExpressionImpl
+   * @see org.ow2.fractal.mind.idl.fractalIDL.impl.FractalIDLPackageImpl#getAdditiveExpression()
+   * @generated
+   */
+  int ADDITIVE_EXPRESSION = 40;
+
+  /**
+   * The feature id for the '<em><b>Left Expr</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ADDITIVE_EXPRESSION__LEFT_EXPR = 0;
+
+  /**
+   * The feature id for the '<em><b>Op</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ADDITIVE_EXPRESSION__OP = 1;
+
+  /**
+   * The feature id for the '<em><b>Right Expr</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ADDITIVE_EXPRESSION__RIGHT_EXPR = 2;
+
+  /**
+   * The number of structural features of the '<em>Additive Expression</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ADDITIVE_EXPRESSION_FEATURE_COUNT = 3;
+
+  /**
+   * The meta object id for the '{@link org.ow2.fractal.mind.idl.fractalIDL.impl.MulExpressionImpl <em>Mul Expression</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.ow2.fractal.mind.idl.fractalIDL.impl.MulExpressionImpl
+   * @see org.ow2.fractal.mind.idl.fractalIDL.impl.FractalIDLPackageImpl#getMulExpression()
+   * @generated
+   */
+  int MUL_EXPRESSION = 41;
+
+  /**
+   * The feature id for the '<em><b>Left Expr</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MUL_EXPRESSION__LEFT_EXPR = 0;
+
+  /**
+   * The feature id for the '<em><b>Op</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MUL_EXPRESSION__OP = 1;
+
+  /**
+   * The feature id for the '<em><b>Right Expr</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MUL_EXPRESSION__RIGHT_EXPR = 2;
+
+  /**
+   * The number of structural features of the '<em>Mul Expression</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MUL_EXPRESSION_FEATURE_COUNT = 3;
+
+  /**
+   * The meta object id for the '{@link org.ow2.fractal.mind.idl.fractalIDL.impl.CastExpressionImpl <em>Cast Expression</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.ow2.fractal.mind.idl.fractalIDL.impl.CastExpressionImpl
+   * @see org.ow2.fractal.mind.idl.fractalIDL.impl.FractalIDLPackageImpl#getCastExpression()
+   * @generated
+   */
+  int CAST_EXPRESSION = 42;
+
+  /**
+   * The feature id for the '<em><b>Type</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CAST_EXPRESSION__TYPE = 0;
+
+  /**
+   * The feature id for the '<em><b>Expr</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CAST_EXPRESSION__EXPR = 1;
+
+  /**
+   * The feature id for the '<em><b>Unary Expr</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CAST_EXPRESSION__UNARY_EXPR = 2;
+
+  /**
+   * The number of structural features of the '<em>Cast Expression</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CAST_EXPRESSION_FEATURE_COUNT = 3;
+
+  /**
+   * The meta object id for the '{@link org.ow2.fractal.mind.idl.fractalIDL.impl.UnaryExpressionImpl <em>Unary Expression</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.ow2.fractal.mind.idl.fractalIDL.impl.UnaryExpressionImpl
+   * @see org.ow2.fractal.mind.idl.fractalIDL.impl.FractalIDLPackageImpl#getUnaryExpression()
+   * @generated
+   */
+  int UNARY_EXPRESSION = 43;
+
+  /**
+   * The feature id for the '<em><b>Unary Expr</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int UNARY_EXPRESSION__UNARY_EXPR = 0;
+
+  /**
+   * The feature id for the '<em><b>Primary Expr</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int UNARY_EXPRESSION__PRIMARY_EXPR = 1;
+
+  /**
+   * The number of structural features of the '<em>Unary Expression</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int UNARY_EXPRESSION_FEATURE_COUNT = 2;
+
+  /**
+   * The meta object id for the '{@link org.ow2.fractal.mind.idl.fractalIDL.impl.LiteralImpl <em>Literal</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.ow2.fractal.mind.idl.fractalIDL.impl.LiteralImpl
+   * @see org.ow2.fractal.mind.idl.fractalIDL.impl.FractalIDLPackageImpl#getLiteral()
+   * @generated
+   */
+  int LITERAL = 45;
+
+  /**
+   * The feature id for the '<em><b>Ref</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LITERAL__REF = 0;
+
+  /**
+   * The number of structural features of the '<em>Literal</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LITERAL_FEATURE_COUNT = 1;
+
+  /**
    * The meta object id for the '{@link org.ow2.fractal.mind.idl.fractalIDL.TypeQualifier <em>Type Qualifier</em>}' enum.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1361,7 +1906,7 @@ public interface FractalIDLPackage extends EPackage
    * @see org.ow2.fractal.mind.idl.fractalIDL.impl.FractalIDLPackageImpl#getTypeQualifier()
    * @generated
    */
-  int TYPE_QUALIFIER = 32;
+  int TYPE_QUALIFIER = 46;
 
   /**
    * The meta object id for the '{@link org.ow2.fractal.mind.idl.fractalIDL.TypeSpecifier <em>Type Specifier</em>}' enum.
@@ -1371,7 +1916,7 @@ public interface FractalIDLPackage extends EPackage
    * @see org.ow2.fractal.mind.idl.fractalIDL.impl.FractalIDLPackageImpl#getTypeSpecifier()
    * @generated
    */
-  int TYPE_SPECIFIER = 33;
+  int TYPE_SPECIFIER = 47;
 
   /**
    * The meta object id for the '{@link org.ow2.fractal.mind.idl.fractalIDL.ParameterQualifier <em>Parameter Qualifier</em>}' enum.
@@ -1381,7 +1926,7 @@ public interface FractalIDLPackage extends EPackage
    * @see org.ow2.fractal.mind.idl.fractalIDL.impl.FractalIDLPackageImpl#getParameterQualifier()
    * @generated
    */
-  int PARAMETER_QUALIFIER = 34;
+  int PARAMETER_QUALIFIER = 48;
 
 
   /**
@@ -1651,6 +2196,17 @@ public interface FractalIDLPackage extends EPackage
   EReference getStructMember_Dec();
 
   /**
+   * Returns the meta object for the containment reference '{@link org.ow2.fractal.mind.idl.fractalIDL.StructMember#getConstExpr <em>Const Expr</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Const Expr</em>'.
+   * @see org.ow2.fractal.mind.idl.fractalIDL.StructMember#getConstExpr()
+   * @see #getStructMember()
+   * @generated
+   */
+  EReference getStructMember_ConstExpr();
+
+  /**
    * Returns the meta object for class '{@link org.ow2.fractal.mind.idl.fractalIDL.EnumSpecification <em>Enum Specification</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1754,6 +2310,17 @@ public interface FractalIDLPackage extends EPackage
    * @generated
    */
   EAttribute getEnumMember_Id();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.ow2.fractal.mind.idl.fractalIDL.EnumMember#getConstExpr <em>Const Expr</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Const Expr</em>'.
+   * @see org.ow2.fractal.mind.idl.fractalIDL.EnumMember#getConstExpr()
+   * @see #getEnumMember()
+   * @generated
+   */
+  EReference getEnumMember_ConstExpr();
 
   /**
    * Returns the meta object for class '{@link org.ow2.fractal.mind.idl.fractalIDL.Declarators <em>Declarators</em>}'.
@@ -1894,15 +2461,36 @@ public interface FractalIDLPackage extends EPackage
   EReference getDirectDeclarator_Dec();
 
   /**
-   * Returns the meta object for the attribute list '{@link org.ow2.fractal.mind.idl.fractalIDL.DirectDeclarator#getArray <em>Array</em>}'.
+   * Returns the meta object for the containment reference list '{@link org.ow2.fractal.mind.idl.fractalIDL.DirectDeclarator#getArray <em>Array</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute list '<em>Array</em>'.
+   * @return the meta object for the containment reference list '<em>Array</em>'.
    * @see org.ow2.fractal.mind.idl.fractalIDL.DirectDeclarator#getArray()
    * @see #getDirectDeclarator()
    * @generated
    */
-  EAttribute getDirectDeclarator_Array();
+  EReference getDirectDeclarator_Array();
+
+  /**
+   * Returns the meta object for class '{@link org.ow2.fractal.mind.idl.fractalIDL.ArraySpecification <em>Array Specification</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Array Specification</em>'.
+   * @see org.ow2.fractal.mind.idl.fractalIDL.ArraySpecification
+   * @generated
+   */
+  EClass getArraySpecification();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.ow2.fractal.mind.idl.fractalIDL.ArraySpecification#getConstExpr <em>Const Expr</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Const Expr</em>'.
+   * @see org.ow2.fractal.mind.idl.fractalIDL.ArraySpecification#getConstExpr()
+   * @see #getArraySpecification()
+   * @generated
+   */
+  EReference getArraySpecification_ConstExpr();
 
   /**
    * Returns the meta object for class '{@link org.ow2.fractal.mind.idl.fractalIDL.ConstantDefinition <em>Constant Definition</em>}'.
@@ -2343,6 +2931,422 @@ public interface FractalIDLPackage extends EPackage
   EReference getArrayAnnotationValue_Values();
 
   /**
+   * Returns the meta object for class '{@link org.ow2.fractal.mind.idl.fractalIDL.ConstantExpression <em>Constant Expression</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Constant Expression</em>'.
+   * @see org.ow2.fractal.mind.idl.fractalIDL.ConstantExpression
+   * @generated
+   */
+  EClass getConstantExpression();
+
+  /**
+   * Returns the meta object for class '{@link org.ow2.fractal.mind.idl.fractalIDL.LogicalOrExpression <em>Logical Or Expression</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Logical Or Expression</em>'.
+   * @see org.ow2.fractal.mind.idl.fractalIDL.LogicalOrExpression
+   * @generated
+   */
+  EClass getLogicalOrExpression();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.ow2.fractal.mind.idl.fractalIDL.LogicalOrExpression#getLeftExpr <em>Left Expr</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Left Expr</em>'.
+   * @see org.ow2.fractal.mind.idl.fractalIDL.LogicalOrExpression#getLeftExpr()
+   * @see #getLogicalOrExpression()
+   * @generated
+   */
+  EReference getLogicalOrExpression_LeftExpr();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.ow2.fractal.mind.idl.fractalIDL.LogicalOrExpression#getRightExpr <em>Right Expr</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Right Expr</em>'.
+   * @see org.ow2.fractal.mind.idl.fractalIDL.LogicalOrExpression#getRightExpr()
+   * @see #getLogicalOrExpression()
+   * @generated
+   */
+  EReference getLogicalOrExpression_RightExpr();
+
+  /**
+   * Returns the meta object for class '{@link org.ow2.fractal.mind.idl.fractalIDL.LogicalAndExpression <em>Logical And Expression</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Logical And Expression</em>'.
+   * @see org.ow2.fractal.mind.idl.fractalIDL.LogicalAndExpression
+   * @generated
+   */
+  EClass getLogicalAndExpression();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.ow2.fractal.mind.idl.fractalIDL.LogicalAndExpression#getLeftExpr <em>Left Expr</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Left Expr</em>'.
+   * @see org.ow2.fractal.mind.idl.fractalIDL.LogicalAndExpression#getLeftExpr()
+   * @see #getLogicalAndExpression()
+   * @generated
+   */
+  EReference getLogicalAndExpression_LeftExpr();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.ow2.fractal.mind.idl.fractalIDL.LogicalAndExpression#getRightExpr <em>Right Expr</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Right Expr</em>'.
+   * @see org.ow2.fractal.mind.idl.fractalIDL.LogicalAndExpression#getRightExpr()
+   * @see #getLogicalAndExpression()
+   * @generated
+   */
+  EReference getLogicalAndExpression_RightExpr();
+
+  /**
+   * Returns the meta object for class '{@link org.ow2.fractal.mind.idl.fractalIDL.OrExpression <em>Or Expression</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Or Expression</em>'.
+   * @see org.ow2.fractal.mind.idl.fractalIDL.OrExpression
+   * @generated
+   */
+  EClass getOrExpression();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.ow2.fractal.mind.idl.fractalIDL.OrExpression#getLeftExpr <em>Left Expr</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Left Expr</em>'.
+   * @see org.ow2.fractal.mind.idl.fractalIDL.OrExpression#getLeftExpr()
+   * @see #getOrExpression()
+   * @generated
+   */
+  EReference getOrExpression_LeftExpr();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.ow2.fractal.mind.idl.fractalIDL.OrExpression#getRightExpr <em>Right Expr</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Right Expr</em>'.
+   * @see org.ow2.fractal.mind.idl.fractalIDL.OrExpression#getRightExpr()
+   * @see #getOrExpression()
+   * @generated
+   */
+  EReference getOrExpression_RightExpr();
+
+  /**
+   * Returns the meta object for class '{@link org.ow2.fractal.mind.idl.fractalIDL.XorExpression <em>Xor Expression</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Xor Expression</em>'.
+   * @see org.ow2.fractal.mind.idl.fractalIDL.XorExpression
+   * @generated
+   */
+  EClass getXorExpression();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.ow2.fractal.mind.idl.fractalIDL.XorExpression#getLeftExpr <em>Left Expr</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Left Expr</em>'.
+   * @see org.ow2.fractal.mind.idl.fractalIDL.XorExpression#getLeftExpr()
+   * @see #getXorExpression()
+   * @generated
+   */
+  EReference getXorExpression_LeftExpr();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.ow2.fractal.mind.idl.fractalIDL.XorExpression#getRightExpr <em>Right Expr</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Right Expr</em>'.
+   * @see org.ow2.fractal.mind.idl.fractalIDL.XorExpression#getRightExpr()
+   * @see #getXorExpression()
+   * @generated
+   */
+  EReference getXorExpression_RightExpr();
+
+  /**
+   * Returns the meta object for class '{@link org.ow2.fractal.mind.idl.fractalIDL.AndExpression <em>And Expression</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>And Expression</em>'.
+   * @see org.ow2.fractal.mind.idl.fractalIDL.AndExpression
+   * @generated
+   */
+  EClass getAndExpression();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.ow2.fractal.mind.idl.fractalIDL.AndExpression#getLeftExpr <em>Left Expr</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Left Expr</em>'.
+   * @see org.ow2.fractal.mind.idl.fractalIDL.AndExpression#getLeftExpr()
+   * @see #getAndExpression()
+   * @generated
+   */
+  EReference getAndExpression_LeftExpr();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.ow2.fractal.mind.idl.fractalIDL.AndExpression#getRightExpr <em>Right Expr</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Right Expr</em>'.
+   * @see org.ow2.fractal.mind.idl.fractalIDL.AndExpression#getRightExpr()
+   * @see #getAndExpression()
+   * @generated
+   */
+  EReference getAndExpression_RightExpr();
+
+  /**
+   * Returns the meta object for class '{@link org.ow2.fractal.mind.idl.fractalIDL.ShiftExpression <em>Shift Expression</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Shift Expression</em>'.
+   * @see org.ow2.fractal.mind.idl.fractalIDL.ShiftExpression
+   * @generated
+   */
+  EClass getShiftExpression();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.ow2.fractal.mind.idl.fractalIDL.ShiftExpression#getLeftExpr <em>Left Expr</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Left Expr</em>'.
+   * @see org.ow2.fractal.mind.idl.fractalIDL.ShiftExpression#getLeftExpr()
+   * @see #getShiftExpression()
+   * @generated
+   */
+  EReference getShiftExpression_LeftExpr();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.ow2.fractal.mind.idl.fractalIDL.ShiftExpression#getOp <em>Op</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Op</em>'.
+   * @see org.ow2.fractal.mind.idl.fractalIDL.ShiftExpression#getOp()
+   * @see #getShiftExpression()
+   * @generated
+   */
+  EAttribute getShiftExpression_Op();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.ow2.fractal.mind.idl.fractalIDL.ShiftExpression#getRightExpr <em>Right Expr</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Right Expr</em>'.
+   * @see org.ow2.fractal.mind.idl.fractalIDL.ShiftExpression#getRightExpr()
+   * @see #getShiftExpression()
+   * @generated
+   */
+  EReference getShiftExpression_RightExpr();
+
+  /**
+   * Returns the meta object for class '{@link org.ow2.fractal.mind.idl.fractalIDL.AdditiveExpression <em>Additive Expression</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Additive Expression</em>'.
+   * @see org.ow2.fractal.mind.idl.fractalIDL.AdditiveExpression
+   * @generated
+   */
+  EClass getAdditiveExpression();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.ow2.fractal.mind.idl.fractalIDL.AdditiveExpression#getLeftExpr <em>Left Expr</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Left Expr</em>'.
+   * @see org.ow2.fractal.mind.idl.fractalIDL.AdditiveExpression#getLeftExpr()
+   * @see #getAdditiveExpression()
+   * @generated
+   */
+  EReference getAdditiveExpression_LeftExpr();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.ow2.fractal.mind.idl.fractalIDL.AdditiveExpression#getOp <em>Op</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Op</em>'.
+   * @see org.ow2.fractal.mind.idl.fractalIDL.AdditiveExpression#getOp()
+   * @see #getAdditiveExpression()
+   * @generated
+   */
+  EAttribute getAdditiveExpression_Op();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.ow2.fractal.mind.idl.fractalIDL.AdditiveExpression#getRightExpr <em>Right Expr</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Right Expr</em>'.
+   * @see org.ow2.fractal.mind.idl.fractalIDL.AdditiveExpression#getRightExpr()
+   * @see #getAdditiveExpression()
+   * @generated
+   */
+  EReference getAdditiveExpression_RightExpr();
+
+  /**
+   * Returns the meta object for class '{@link org.ow2.fractal.mind.idl.fractalIDL.MulExpression <em>Mul Expression</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Mul Expression</em>'.
+   * @see org.ow2.fractal.mind.idl.fractalIDL.MulExpression
+   * @generated
+   */
+  EClass getMulExpression();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.ow2.fractal.mind.idl.fractalIDL.MulExpression#getLeftExpr <em>Left Expr</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Left Expr</em>'.
+   * @see org.ow2.fractal.mind.idl.fractalIDL.MulExpression#getLeftExpr()
+   * @see #getMulExpression()
+   * @generated
+   */
+  EReference getMulExpression_LeftExpr();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.ow2.fractal.mind.idl.fractalIDL.MulExpression#getOp <em>Op</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Op</em>'.
+   * @see org.ow2.fractal.mind.idl.fractalIDL.MulExpression#getOp()
+   * @see #getMulExpression()
+   * @generated
+   */
+  EAttribute getMulExpression_Op();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.ow2.fractal.mind.idl.fractalIDL.MulExpression#getRightExpr <em>Right Expr</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Right Expr</em>'.
+   * @see org.ow2.fractal.mind.idl.fractalIDL.MulExpression#getRightExpr()
+   * @see #getMulExpression()
+   * @generated
+   */
+  EReference getMulExpression_RightExpr();
+
+  /**
+   * Returns the meta object for class '{@link org.ow2.fractal.mind.idl.fractalIDL.CastExpression <em>Cast Expression</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Cast Expression</em>'.
+   * @see org.ow2.fractal.mind.idl.fractalIDL.CastExpression
+   * @generated
+   */
+  EClass getCastExpression();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.ow2.fractal.mind.idl.fractalIDL.CastExpression#getType <em>Type</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Type</em>'.
+   * @see org.ow2.fractal.mind.idl.fractalIDL.CastExpression#getType()
+   * @see #getCastExpression()
+   * @generated
+   */
+  EReference getCastExpression_Type();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.ow2.fractal.mind.idl.fractalIDL.CastExpression#getExpr <em>Expr</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Expr</em>'.
+   * @see org.ow2.fractal.mind.idl.fractalIDL.CastExpression#getExpr()
+   * @see #getCastExpression()
+   * @generated
+   */
+  EReference getCastExpression_Expr();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.ow2.fractal.mind.idl.fractalIDL.CastExpression#getUnaryExpr <em>Unary Expr</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Unary Expr</em>'.
+   * @see org.ow2.fractal.mind.idl.fractalIDL.CastExpression#getUnaryExpr()
+   * @see #getCastExpression()
+   * @generated
+   */
+  EReference getCastExpression_UnaryExpr();
+
+  /**
+   * Returns the meta object for class '{@link org.ow2.fractal.mind.idl.fractalIDL.UnaryExpression <em>Unary Expression</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Unary Expression</em>'.
+   * @see org.ow2.fractal.mind.idl.fractalIDL.UnaryExpression
+   * @generated
+   */
+  EClass getUnaryExpression();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.ow2.fractal.mind.idl.fractalIDL.UnaryExpression#getUnaryExpr <em>Unary Expr</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Unary Expr</em>'.
+   * @see org.ow2.fractal.mind.idl.fractalIDL.UnaryExpression#getUnaryExpr()
+   * @see #getUnaryExpression()
+   * @generated
+   */
+  EAttribute getUnaryExpression_UnaryExpr();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.ow2.fractal.mind.idl.fractalIDL.UnaryExpression#getPrimaryExpr <em>Primary Expr</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Primary Expr</em>'.
+   * @see org.ow2.fractal.mind.idl.fractalIDL.UnaryExpression#getPrimaryExpr()
+   * @see #getUnaryExpression()
+   * @generated
+   */
+  EReference getUnaryExpression_PrimaryExpr();
+
+  /**
+   * Returns the meta object for class '{@link org.ow2.fractal.mind.idl.fractalIDL.PrimaryExpression <em>Primary Expression</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Primary Expression</em>'.
+   * @see org.ow2.fractal.mind.idl.fractalIDL.PrimaryExpression
+   * @generated
+   */
+  EClass getPrimaryExpression();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.ow2.fractal.mind.idl.fractalIDL.PrimaryExpression#getLiteral <em>Literal</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Literal</em>'.
+   * @see org.ow2.fractal.mind.idl.fractalIDL.PrimaryExpression#getLiteral()
+   * @see #getPrimaryExpression()
+   * @generated
+   */
+  EReference getPrimaryExpression_Literal();
+
+  /**
+   * Returns the meta object for class '{@link org.ow2.fractal.mind.idl.fractalIDL.Literal <em>Literal</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Literal</em>'.
+   * @see org.ow2.fractal.mind.idl.fractalIDL.Literal
+   * @generated
+   */
+  EClass getLiteral();
+
+  /**
+   * Returns the meta object for the reference '{@link org.ow2.fractal.mind.idl.fractalIDL.Literal#getRef <em>Ref</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Ref</em>'.
+   * @see org.ow2.fractal.mind.idl.fractalIDL.Literal#getRef()
+   * @see #getLiteral()
+   * @generated
+   */
+  EReference getLiteral_Ref();
+
+  /**
    * Returns the meta object for enum '{@link org.ow2.fractal.mind.idl.fractalIDL.TypeQualifier <em>Type Qualifier</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -2614,6 +3618,14 @@ public interface FractalIDLPackage extends EPackage
     EReference STRUCT_MEMBER__DEC = eINSTANCE.getStructMember_Dec();
 
     /**
+     * The meta object literal for the '<em><b>Const Expr</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference STRUCT_MEMBER__CONST_EXPR = eINSTANCE.getStructMember_ConstExpr();
+
+    /**
      * The meta object literal for the '{@link org.ow2.fractal.mind.idl.fractalIDL.impl.EnumSpecificationImpl <em>Enum Specification</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -2702,6 +3714,14 @@ public interface FractalIDLPackage extends EPackage
      * @generated
      */
     EAttribute ENUM_MEMBER__ID = eINSTANCE.getEnumMember_Id();
+
+    /**
+     * The meta object literal for the '<em><b>Const Expr</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference ENUM_MEMBER__CONST_EXPR = eINSTANCE.getEnumMember_ConstExpr();
 
     /**
      * The meta object literal for the '{@link org.ow2.fractal.mind.idl.fractalIDL.impl.DeclaratorsImpl <em>Declarators</em>}' class.
@@ -2818,12 +3838,30 @@ public interface FractalIDLPackage extends EPackage
     EReference DIRECT_DECLARATOR__DEC = eINSTANCE.getDirectDeclarator_Dec();
 
     /**
-     * The meta object literal for the '<em><b>Array</b></em>' attribute list feature.
+     * The meta object literal for the '<em><b>Array</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute DIRECT_DECLARATOR__ARRAY = eINSTANCE.getDirectDeclarator_Array();
+    EReference DIRECT_DECLARATOR__ARRAY = eINSTANCE.getDirectDeclarator_Array();
+
+    /**
+     * The meta object literal for the '{@link org.ow2.fractal.mind.idl.fractalIDL.impl.ArraySpecificationImpl <em>Array Specification</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.ow2.fractal.mind.idl.fractalIDL.impl.ArraySpecificationImpl
+     * @see org.ow2.fractal.mind.idl.fractalIDL.impl.FractalIDLPackageImpl#getArraySpecification()
+     * @generated
+     */
+    EClass ARRAY_SPECIFICATION = eINSTANCE.getArraySpecification();
+
+    /**
+     * The meta object literal for the '<em><b>Const Expr</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference ARRAY_SPECIFICATION__CONST_EXPR = eINSTANCE.getArraySpecification_ConstExpr();
 
     /**
      * The meta object literal for the '{@link org.ow2.fractal.mind.idl.fractalIDL.impl.ConstantDefinitionImpl <em>Constant Definition</em>}' class.
@@ -3178,6 +4216,344 @@ public interface FractalIDLPackage extends EPackage
      * @generated
      */
     EReference ARRAY_ANNOTATION_VALUE__VALUES = eINSTANCE.getArrayAnnotationValue_Values();
+
+    /**
+     * The meta object literal for the '{@link org.ow2.fractal.mind.idl.fractalIDL.impl.ConstantExpressionImpl <em>Constant Expression</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.ow2.fractal.mind.idl.fractalIDL.impl.ConstantExpressionImpl
+     * @see org.ow2.fractal.mind.idl.fractalIDL.impl.FractalIDLPackageImpl#getConstantExpression()
+     * @generated
+     */
+    EClass CONSTANT_EXPRESSION = eINSTANCE.getConstantExpression();
+
+    /**
+     * The meta object literal for the '{@link org.ow2.fractal.mind.idl.fractalIDL.impl.LogicalOrExpressionImpl <em>Logical Or Expression</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.ow2.fractal.mind.idl.fractalIDL.impl.LogicalOrExpressionImpl
+     * @see org.ow2.fractal.mind.idl.fractalIDL.impl.FractalIDLPackageImpl#getLogicalOrExpression()
+     * @generated
+     */
+    EClass LOGICAL_OR_EXPRESSION = eINSTANCE.getLogicalOrExpression();
+
+    /**
+     * The meta object literal for the '<em><b>Left Expr</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference LOGICAL_OR_EXPRESSION__LEFT_EXPR = eINSTANCE.getLogicalOrExpression_LeftExpr();
+
+    /**
+     * The meta object literal for the '<em><b>Right Expr</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference LOGICAL_OR_EXPRESSION__RIGHT_EXPR = eINSTANCE.getLogicalOrExpression_RightExpr();
+
+    /**
+     * The meta object literal for the '{@link org.ow2.fractal.mind.idl.fractalIDL.impl.LogicalAndExpressionImpl <em>Logical And Expression</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.ow2.fractal.mind.idl.fractalIDL.impl.LogicalAndExpressionImpl
+     * @see org.ow2.fractal.mind.idl.fractalIDL.impl.FractalIDLPackageImpl#getLogicalAndExpression()
+     * @generated
+     */
+    EClass LOGICAL_AND_EXPRESSION = eINSTANCE.getLogicalAndExpression();
+
+    /**
+     * The meta object literal for the '<em><b>Left Expr</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference LOGICAL_AND_EXPRESSION__LEFT_EXPR = eINSTANCE.getLogicalAndExpression_LeftExpr();
+
+    /**
+     * The meta object literal for the '<em><b>Right Expr</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference LOGICAL_AND_EXPRESSION__RIGHT_EXPR = eINSTANCE.getLogicalAndExpression_RightExpr();
+
+    /**
+     * The meta object literal for the '{@link org.ow2.fractal.mind.idl.fractalIDL.impl.OrExpressionImpl <em>Or Expression</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.ow2.fractal.mind.idl.fractalIDL.impl.OrExpressionImpl
+     * @see org.ow2.fractal.mind.idl.fractalIDL.impl.FractalIDLPackageImpl#getOrExpression()
+     * @generated
+     */
+    EClass OR_EXPRESSION = eINSTANCE.getOrExpression();
+
+    /**
+     * The meta object literal for the '<em><b>Left Expr</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference OR_EXPRESSION__LEFT_EXPR = eINSTANCE.getOrExpression_LeftExpr();
+
+    /**
+     * The meta object literal for the '<em><b>Right Expr</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference OR_EXPRESSION__RIGHT_EXPR = eINSTANCE.getOrExpression_RightExpr();
+
+    /**
+     * The meta object literal for the '{@link org.ow2.fractal.mind.idl.fractalIDL.impl.XorExpressionImpl <em>Xor Expression</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.ow2.fractal.mind.idl.fractalIDL.impl.XorExpressionImpl
+     * @see org.ow2.fractal.mind.idl.fractalIDL.impl.FractalIDLPackageImpl#getXorExpression()
+     * @generated
+     */
+    EClass XOR_EXPRESSION = eINSTANCE.getXorExpression();
+
+    /**
+     * The meta object literal for the '<em><b>Left Expr</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference XOR_EXPRESSION__LEFT_EXPR = eINSTANCE.getXorExpression_LeftExpr();
+
+    /**
+     * The meta object literal for the '<em><b>Right Expr</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference XOR_EXPRESSION__RIGHT_EXPR = eINSTANCE.getXorExpression_RightExpr();
+
+    /**
+     * The meta object literal for the '{@link org.ow2.fractal.mind.idl.fractalIDL.impl.AndExpressionImpl <em>And Expression</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.ow2.fractal.mind.idl.fractalIDL.impl.AndExpressionImpl
+     * @see org.ow2.fractal.mind.idl.fractalIDL.impl.FractalIDLPackageImpl#getAndExpression()
+     * @generated
+     */
+    EClass AND_EXPRESSION = eINSTANCE.getAndExpression();
+
+    /**
+     * The meta object literal for the '<em><b>Left Expr</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference AND_EXPRESSION__LEFT_EXPR = eINSTANCE.getAndExpression_LeftExpr();
+
+    /**
+     * The meta object literal for the '<em><b>Right Expr</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference AND_EXPRESSION__RIGHT_EXPR = eINSTANCE.getAndExpression_RightExpr();
+
+    /**
+     * The meta object literal for the '{@link org.ow2.fractal.mind.idl.fractalIDL.impl.ShiftExpressionImpl <em>Shift Expression</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.ow2.fractal.mind.idl.fractalIDL.impl.ShiftExpressionImpl
+     * @see org.ow2.fractal.mind.idl.fractalIDL.impl.FractalIDLPackageImpl#getShiftExpression()
+     * @generated
+     */
+    EClass SHIFT_EXPRESSION = eINSTANCE.getShiftExpression();
+
+    /**
+     * The meta object literal for the '<em><b>Left Expr</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference SHIFT_EXPRESSION__LEFT_EXPR = eINSTANCE.getShiftExpression_LeftExpr();
+
+    /**
+     * The meta object literal for the '<em><b>Op</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute SHIFT_EXPRESSION__OP = eINSTANCE.getShiftExpression_Op();
+
+    /**
+     * The meta object literal for the '<em><b>Right Expr</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference SHIFT_EXPRESSION__RIGHT_EXPR = eINSTANCE.getShiftExpression_RightExpr();
+
+    /**
+     * The meta object literal for the '{@link org.ow2.fractal.mind.idl.fractalIDL.impl.AdditiveExpressionImpl <em>Additive Expression</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.ow2.fractal.mind.idl.fractalIDL.impl.AdditiveExpressionImpl
+     * @see org.ow2.fractal.mind.idl.fractalIDL.impl.FractalIDLPackageImpl#getAdditiveExpression()
+     * @generated
+     */
+    EClass ADDITIVE_EXPRESSION = eINSTANCE.getAdditiveExpression();
+
+    /**
+     * The meta object literal for the '<em><b>Left Expr</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference ADDITIVE_EXPRESSION__LEFT_EXPR = eINSTANCE.getAdditiveExpression_LeftExpr();
+
+    /**
+     * The meta object literal for the '<em><b>Op</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute ADDITIVE_EXPRESSION__OP = eINSTANCE.getAdditiveExpression_Op();
+
+    /**
+     * The meta object literal for the '<em><b>Right Expr</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference ADDITIVE_EXPRESSION__RIGHT_EXPR = eINSTANCE.getAdditiveExpression_RightExpr();
+
+    /**
+     * The meta object literal for the '{@link org.ow2.fractal.mind.idl.fractalIDL.impl.MulExpressionImpl <em>Mul Expression</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.ow2.fractal.mind.idl.fractalIDL.impl.MulExpressionImpl
+     * @see org.ow2.fractal.mind.idl.fractalIDL.impl.FractalIDLPackageImpl#getMulExpression()
+     * @generated
+     */
+    EClass MUL_EXPRESSION = eINSTANCE.getMulExpression();
+
+    /**
+     * The meta object literal for the '<em><b>Left Expr</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference MUL_EXPRESSION__LEFT_EXPR = eINSTANCE.getMulExpression_LeftExpr();
+
+    /**
+     * The meta object literal for the '<em><b>Op</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute MUL_EXPRESSION__OP = eINSTANCE.getMulExpression_Op();
+
+    /**
+     * The meta object literal for the '<em><b>Right Expr</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference MUL_EXPRESSION__RIGHT_EXPR = eINSTANCE.getMulExpression_RightExpr();
+
+    /**
+     * The meta object literal for the '{@link org.ow2.fractal.mind.idl.fractalIDL.impl.CastExpressionImpl <em>Cast Expression</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.ow2.fractal.mind.idl.fractalIDL.impl.CastExpressionImpl
+     * @see org.ow2.fractal.mind.idl.fractalIDL.impl.FractalIDLPackageImpl#getCastExpression()
+     * @generated
+     */
+    EClass CAST_EXPRESSION = eINSTANCE.getCastExpression();
+
+    /**
+     * The meta object literal for the '<em><b>Type</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference CAST_EXPRESSION__TYPE = eINSTANCE.getCastExpression_Type();
+
+    /**
+     * The meta object literal for the '<em><b>Expr</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference CAST_EXPRESSION__EXPR = eINSTANCE.getCastExpression_Expr();
+
+    /**
+     * The meta object literal for the '<em><b>Unary Expr</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference CAST_EXPRESSION__UNARY_EXPR = eINSTANCE.getCastExpression_UnaryExpr();
+
+    /**
+     * The meta object literal for the '{@link org.ow2.fractal.mind.idl.fractalIDL.impl.UnaryExpressionImpl <em>Unary Expression</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.ow2.fractal.mind.idl.fractalIDL.impl.UnaryExpressionImpl
+     * @see org.ow2.fractal.mind.idl.fractalIDL.impl.FractalIDLPackageImpl#getUnaryExpression()
+     * @generated
+     */
+    EClass UNARY_EXPRESSION = eINSTANCE.getUnaryExpression();
+
+    /**
+     * The meta object literal for the '<em><b>Unary Expr</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute UNARY_EXPRESSION__UNARY_EXPR = eINSTANCE.getUnaryExpression_UnaryExpr();
+
+    /**
+     * The meta object literal for the '<em><b>Primary Expr</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference UNARY_EXPRESSION__PRIMARY_EXPR = eINSTANCE.getUnaryExpression_PrimaryExpr();
+
+    /**
+     * The meta object literal for the '{@link org.ow2.fractal.mind.idl.fractalIDL.impl.PrimaryExpressionImpl <em>Primary Expression</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.ow2.fractal.mind.idl.fractalIDL.impl.PrimaryExpressionImpl
+     * @see org.ow2.fractal.mind.idl.fractalIDL.impl.FractalIDLPackageImpl#getPrimaryExpression()
+     * @generated
+     */
+    EClass PRIMARY_EXPRESSION = eINSTANCE.getPrimaryExpression();
+
+    /**
+     * The meta object literal for the '<em><b>Literal</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference PRIMARY_EXPRESSION__LITERAL = eINSTANCE.getPrimaryExpression_Literal();
+
+    /**
+     * The meta object literal for the '{@link org.ow2.fractal.mind.idl.fractalIDL.impl.LiteralImpl <em>Literal</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.ow2.fractal.mind.idl.fractalIDL.impl.LiteralImpl
+     * @see org.ow2.fractal.mind.idl.fractalIDL.impl.FractalIDLPackageImpl#getLiteral()
+     * @generated
+     */
+    EClass LITERAL = eINSTANCE.getLiteral();
+
+    /**
+     * The meta object literal for the '<em><b>Ref</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference LITERAL__REF = eINSTANCE.getLiteral_Ref();
 
     /**
      * The meta object literal for the '{@link org.ow2.fractal.mind.idl.fractalIDL.TypeQualifier <em>Type Qualifier</em>}' enum.

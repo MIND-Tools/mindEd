@@ -73,6 +73,8 @@
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="dec" eType="#//Declarators"
         containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="constExpr" eType="#//ConstantExpression"
+        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="EnumSpecification" eSuperTypes="#//TypeDefinition #//TypeSpecification">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -89,6 +91,8 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="annotations" eType="#//Annotations"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="constExpr" eType="#//ConstantExpression"
+        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Declarators">
     <eStructuralFeatures xsi:type="ecore:EReference" name="dec" eType="#//Declarator"
@@ -114,8 +118,12 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="dec" eType="#//Declarator"
         containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="array" unique="false" upperBound="-1"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="array" upperBound="-1"
+        eType="#//ArraySpecification" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ArraySpecification">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="constExpr" eType="#//ConstantExpression"
+        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ConstantDefinition">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -193,5 +201,77 @@
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="values" upperBound="-1"
         eType="#//AnnotationValue" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ConstantExpression" eSuperTypes="#//PrimaryExpression"/>
+  <eClassifiers xsi:type="ecore:EClass" name="LogicalOrExpression" eSuperTypes="#//ConstantExpression">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="leftExpr" eType="#//LogicalAndExpression"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="rightExpr" eType="#//LogicalOrExpression"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="LogicalAndExpression">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="leftExpr" eType="#//OrExpression"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="rightExpr" eType="#//LogicalAndExpression"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="OrExpression">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="leftExpr" eType="#//XorExpression"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="rightExpr" eType="#//OrExpression"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="XorExpression">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="leftExpr" eType="#//AndExpression"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="rightExpr" eType="#//XorExpression"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="AndExpression">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="leftExpr" eType="#//ShiftExpression"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="rightExpr" eType="#//AndExpression"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ShiftExpression">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="leftExpr" eType="#//AdditiveExpression"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="op" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="rightExpr" eType="#//ShiftExpression"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="AdditiveExpression">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="leftExpr" eType="#//MulExpression"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="op" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="rightExpr" eType="#//AdditiveExpression"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="MulExpression">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="leftExpr" eType="#//CastExpression"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="op" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="rightExpr" eType="#//MulExpression"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="CastExpression">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="type" eType="#//QualifiedTypeSpecification"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="expr" eType="#//CastExpression"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="unaryExpr" eType="#//UnaryExpression"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="UnaryExpression">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="unaryExpr" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="primaryExpr" eType="#//PrimaryExpression"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="PrimaryExpression">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="literal" eType="#//Literal"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Literal">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ref" eType="#//ConstantDefinition"/>
   </eClassifiers>
 </ecore:EPackage>

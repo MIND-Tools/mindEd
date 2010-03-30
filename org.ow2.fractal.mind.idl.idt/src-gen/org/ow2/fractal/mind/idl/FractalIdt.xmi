@@ -308,7 +308,9 @@
         </tokens>
         <tokens xsi:type="xtext:Group" cardinality="?">
           <tokens xsi:type="xtext:Keyword" value=":"/>
-          <tokens xsi:type="xtext:RuleCall" rule="/2/@rules.1"/>
+          <tokens xsi:type="xtext:Assignment" feature="constExpr" operator="=">
+            <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.42"/>
+          </tokens>
         </tokens>
         <tokens xsi:type="xtext:Keyword" value=";"/>
       </alternatives>
@@ -376,7 +378,9 @@
         </tokens>
         <tokens xsi:type="xtext:Group" cardinality="?">
           <tokens xsi:type="xtext:Keyword" value="="/>
-          <tokens xsi:type="xtext:RuleCall" rule="/2/@rules.1"/>
+          <tokens xsi:type="xtext:Assignment" feature="constExpr" operator="=">
+            <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.42"/>
+          </tokens>
         </tokens>
       </alternatives>
     </rules>
@@ -463,14 +467,13 @@
       </alternatives>
     </rules>
     <rules xsi:type="xtext:ParserRule" name="ArraySpecification">
-      <type metamodel="/2/@metamodelDeclarations.0">
-        <classifier xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <type metamodel="/1/@metamodelDeclarations.0">
+        <classifier xsi:type="ecore:EClass" href="http://www.ow2.org/fractal/mind/idl/FractalItf#//ArraySpecification"/>
       </type>
       <alternatives xsi:type="xtext:Group">
         <tokens xsi:type="xtext:Keyword" value="["/>
-        <tokens xsi:type="xtext:Alternatives">
-          <groups xsi:type="xtext:RuleCall" rule="/2/@rules.1"/>
-          <groups xsi:type="xtext:RuleCall" rule="/2/@rules.0"/>
+        <tokens xsi:type="xtext:Assignment" feature="constExpr" operator="=">
+          <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.42"/>
         </tokens>
         <tokens xsi:type="xtext:Keyword" value="]"/>
       </alternatives>
@@ -771,6 +774,319 @@
           <groups xsi:type="xtext:Keyword" value="-"/>
         </tokens>
         <tokens xsi:type="xtext:RuleCall" rule="/2/@rules.1"/>
+      </alternatives>
+    </rules>
+    <rules xsi:type="xtext:ParserRule" name="ConstantExpression">
+      <type metamodel="/1/@metamodelDeclarations.0">
+        <classifier xsi:type="ecore:EClass" href="http://www.ow2.org/fractal/mind/idl/FractalItf#//ConstantExpression"/>
+      </type>
+      <alternatives xsi:type="xtext:RuleCall" rule="/1/@rules.43"/>
+    </rules>
+    <rules xsi:type="xtext:ParserRule" name="LogicalOrExpression">
+      <type metamodel="/1/@metamodelDeclarations.0">
+        <classifier xsi:type="ecore:EClass" href="http://www.ow2.org/fractal/mind/idl/FractalItf#//LogicalOrExpression"/>
+      </type>
+      <alternatives xsi:type="xtext:Group">
+        <tokens xsi:type="xtext:Assignment" feature="leftExpr" operator="=">
+          <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.44"/>
+        </tokens>
+        <tokens xsi:type="xtext:Group" cardinality="?">
+          <tokens xsi:type="xtext:Keyword" value="||"/>
+          <tokens xsi:type="xtext:Assignment" feature="rightExpr" operator="=">
+            <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.43"/>
+          </tokens>
+        </tokens>
+      </alternatives>
+    </rules>
+    <rules xsi:type="xtext:ParserRule" name="LogicalAndExpression">
+      <type metamodel="/1/@metamodelDeclarations.0">
+        <classifier xsi:type="ecore:EClass" href="http://www.ow2.org/fractal/mind/idl/FractalItf#//LogicalAndExpression"/>
+      </type>
+      <alternatives xsi:type="xtext:Group">
+        <tokens xsi:type="xtext:Assignment" feature="leftExpr" operator="=">
+          <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.45"/>
+        </tokens>
+        <tokens xsi:type="xtext:Group" cardinality="?">
+          <tokens xsi:type="xtext:Keyword" value="&amp;&amp;"/>
+          <tokens xsi:type="xtext:Assignment" feature="rightExpr" operator="=">
+            <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.44"/>
+          </tokens>
+        </tokens>
+      </alternatives>
+    </rules>
+    <rules xsi:type="xtext:ParserRule" name="OrExpression">
+      <type metamodel="/1/@metamodelDeclarations.0">
+        <classifier xsi:type="ecore:EClass" href="http://www.ow2.org/fractal/mind/idl/FractalItf#//OrExpression"/>
+      </type>
+      <alternatives xsi:type="xtext:Group">
+        <tokens xsi:type="xtext:Assignment" feature="leftExpr" operator="=">
+          <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.46"/>
+        </tokens>
+        <tokens xsi:type="xtext:Group" cardinality="?">
+          <tokens xsi:type="xtext:Keyword" value="|"/>
+          <tokens xsi:type="xtext:Assignment" feature="rightExpr" operator="=">
+            <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.45"/>
+          </tokens>
+        </tokens>
+      </alternatives>
+    </rules>
+    <rules xsi:type="xtext:ParserRule" name="XorExpression">
+      <type metamodel="/1/@metamodelDeclarations.0">
+        <classifier xsi:type="ecore:EClass" href="http://www.ow2.org/fractal/mind/idl/FractalItf#//XorExpression"/>
+      </type>
+      <alternatives xsi:type="xtext:Group">
+        <tokens xsi:type="xtext:Assignment" feature="leftExpr" operator="=">
+          <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.47"/>
+        </tokens>
+        <tokens xsi:type="xtext:Group" cardinality="?">
+          <tokens xsi:type="xtext:Keyword" value="^"/>
+          <tokens xsi:type="xtext:Assignment" feature="rightExpr" operator="=">
+            <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.46"/>
+          </tokens>
+        </tokens>
+      </alternatives>
+    </rules>
+    <rules xsi:type="xtext:ParserRule" name="AndExpression">
+      <type metamodel="/1/@metamodelDeclarations.0">
+        <classifier xsi:type="ecore:EClass" href="http://www.ow2.org/fractal/mind/idl/FractalItf#//AndExpression"/>
+      </type>
+      <alternatives xsi:type="xtext:Group">
+        <tokens xsi:type="xtext:Assignment" feature="leftExpr" operator="=">
+          <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.48"/>
+        </tokens>
+        <tokens xsi:type="xtext:Group" cardinality="?">
+          <tokens xsi:type="xtext:Keyword" value="&amp;"/>
+          <tokens xsi:type="xtext:Assignment" feature="rightExpr" operator="=">
+            <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.47"/>
+          </tokens>
+        </tokens>
+      </alternatives>
+    </rules>
+    <rules xsi:type="xtext:ParserRule" name="ShiftExpression">
+      <type metamodel="/1/@metamodelDeclarations.0">
+        <classifier xsi:type="ecore:EClass" href="http://www.ow2.org/fractal/mind/idl/FractalItf#//ShiftExpression"/>
+      </type>
+      <alternatives xsi:type="xtext:Group">
+        <tokens xsi:type="xtext:Assignment" feature="leftExpr" operator="=">
+          <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.49"/>
+        </tokens>
+        <tokens xsi:type="xtext:Group" cardinality="?">
+          <tokens xsi:type="xtext:Assignment" feature="op" operator="=">
+            <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.55"/>
+          </tokens>
+          <tokens xsi:type="xtext:Assignment" feature="rightExpr" operator="=">
+            <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.48"/>
+          </tokens>
+        </tokens>
+      </alternatives>
+    </rules>
+    <rules xsi:type="xtext:ParserRule" name="AdditiveExpression">
+      <type metamodel="/1/@metamodelDeclarations.0">
+        <classifier xsi:type="ecore:EClass" href="http://www.ow2.org/fractal/mind/idl/FractalItf#//AdditiveExpression"/>
+      </type>
+      <alternatives xsi:type="xtext:Group">
+        <tokens xsi:type="xtext:Assignment" feature="leftExpr" operator="=">
+          <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.50"/>
+        </tokens>
+        <tokens xsi:type="xtext:Group" cardinality="?">
+          <tokens xsi:type="xtext:Assignment" feature="op" operator="=">
+            <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.56"/>
+          </tokens>
+          <tokens xsi:type="xtext:Assignment" feature="rightExpr" operator="=">
+            <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.49"/>
+          </tokens>
+        </tokens>
+      </alternatives>
+    </rules>
+    <rules xsi:type="xtext:ParserRule" name="MulExpression">
+      <type metamodel="/1/@metamodelDeclarations.0">
+        <classifier xsi:type="ecore:EClass" href="http://www.ow2.org/fractal/mind/idl/FractalItf#//MulExpression"/>
+      </type>
+      <alternatives xsi:type="xtext:Group">
+        <tokens xsi:type="xtext:Assignment" feature="leftExpr" operator="=">
+          <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.51"/>
+        </tokens>
+        <tokens xsi:type="xtext:Group" cardinality="?">
+          <tokens xsi:type="xtext:Assignment" feature="op" operator="=">
+            <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.57"/>
+          </tokens>
+          <tokens xsi:type="xtext:Assignment" feature="rightExpr" operator="=">
+            <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.50"/>
+          </tokens>
+        </tokens>
+      </alternatives>
+    </rules>
+    <rules xsi:type="xtext:ParserRule" name="CastExpression">
+      <type metamodel="/1/@metamodelDeclarations.0">
+        <classifier xsi:type="ecore:EClass" href="http://www.ow2.org/fractal/mind/idl/FractalItf#//CastExpression"/>
+      </type>
+      <alternatives xsi:type="xtext:Alternatives">
+        <groups xsi:type="xtext:Group">
+          <tokens xsi:type="xtext:Keyword" value="("/>
+          <tokens xsi:type="xtext:Assignment" feature="type" operator="=">
+            <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.3"/>
+          </tokens>
+          <tokens xsi:type="xtext:Keyword" value=")"/>
+          <tokens xsi:type="xtext:Assignment" feature="expr" operator="=">
+            <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.51"/>
+          </tokens>
+        </groups>
+        <groups xsi:type="xtext:Assignment" feature="unaryExpr" operator="=">
+          <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.52"/>
+        </groups>
+      </alternatives>
+    </rules>
+    <rules xsi:type="xtext:ParserRule" name="UnaryExpression">
+      <type metamodel="/1/@metamodelDeclarations.0">
+        <classifier xsi:type="ecore:EClass" href="http://www.ow2.org/fractal/mind/idl/FractalItf#//UnaryExpression"/>
+      </type>
+      <alternatives xsi:type="xtext:Group">
+        <tokens xsi:type="xtext:Assignment" cardinality="?" feature="unaryExpr" operator="=">
+          <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.58"/>
+        </tokens>
+        <tokens xsi:type="xtext:Assignment" feature="primaryExpr" operator="=">
+          <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.53"/>
+        </tokens>
+      </alternatives>
+    </rules>
+    <rules xsi:type="xtext:ParserRule" name="PrimaryExpression">
+      <type metamodel="/1/@metamodelDeclarations.0">
+        <classifier xsi:type="ecore:EClass" href="http://www.ow2.org/fractal/mind/idl/FractalItf#//PrimaryExpression"/>
+      </type>
+      <alternatives xsi:type="xtext:Alternatives">
+        <groups xsi:type="xtext:Assignment" feature="literal" operator="=">
+          <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.54"/>
+        </groups>
+        <groups xsi:type="xtext:Group">
+          <tokens xsi:type="xtext:Keyword" value="("/>
+          <tokens xsi:type="xtext:RuleCall" rule="/1/@rules.42"/>
+          <tokens xsi:type="xtext:Keyword" value=")"/>
+        </groups>
+      </alternatives>
+    </rules>
+    <rules xsi:type="xtext:ParserRule" name="Literal">
+      <type metamodel="/1/@metamodelDeclarations.0">
+        <classifier xsi:type="ecore:EClass" href="http://www.ow2.org/fractal/mind/idl/FractalItf#//Literal"/>
+      </type>
+      <alternatives xsi:type="xtext:Alternatives">
+        <groups xsi:type="xtext:RuleCall" rule="/2/@rules.0"/>
+        <groups xsi:type="xtext:RuleCall" rule="/2/@rules.2"/>
+        <groups xsi:type="xtext:RuleCall" rule="/1/@rules.59"/>
+        <groups xsi:type="xtext:Assignment" feature="ref" operator="=">
+          <terminal xsi:type="xtext:CrossReference">
+            <type metamodel="/1/@metamodelDeclarations.0">
+              <classifier xsi:type="ecore:EClass" href="http://www.ow2.org/fractal/mind/idl/FractalItf#//ConstantDefinition"/>
+            </type>
+            <terminal xsi:type="xtext:RuleCall" rule="/2/@rules.0"/>
+          </terminal>
+        </groups>
+      </alternatives>
+    </rules>
+    <rules xsi:type="xtext:ParserRule" name="ShiftOperation">
+      <type metamodel="/2/@metamodelDeclarations.0">
+        <classifier xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </type>
+      <alternatives xsi:type="xtext:Alternatives">
+        <groups xsi:type="xtext:Keyword" value="&lt;&lt;"/>
+        <groups xsi:type="xtext:Keyword" value=">>"/>
+      </alternatives>
+    </rules>
+    <rules xsi:type="xtext:ParserRule" name="AdditiveOperation">
+      <type metamodel="/2/@metamodelDeclarations.0">
+        <classifier xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </type>
+      <alternatives xsi:type="xtext:Alternatives">
+        <groups xsi:type="xtext:Keyword" value="+"/>
+        <groups xsi:type="xtext:Keyword" value="-"/>
+      </alternatives>
+    </rules>
+    <rules xsi:type="xtext:ParserRule" name="MulOperation">
+      <type metamodel="/2/@metamodelDeclarations.0">
+        <classifier xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </type>
+      <alternatives xsi:type="xtext:Alternatives">
+        <groups xsi:type="xtext:Keyword" value="*"/>
+        <groups xsi:type="xtext:Keyword" value="/"/>
+        <groups xsi:type="xtext:Keyword" value="%"/>
+      </alternatives>
+    </rules>
+    <rules xsi:type="xtext:ParserRule" name="UnaryOperation">
+      <type metamodel="/2/@metamodelDeclarations.0">
+        <classifier xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </type>
+      <alternatives xsi:type="xtext:Alternatives">
+        <groups xsi:type="xtext:Keyword" value="&amp;"/>
+        <groups xsi:type="xtext:Keyword" value="*"/>
+        <groups xsi:type="xtext:Keyword" value="+"/>
+        <groups xsi:type="xtext:Keyword" value="-"/>
+        <groups xsi:type="xtext:Keyword" value="~"/>
+        <groups xsi:type="xtext:Keyword" value="!"/>
+      </alternatives>
+    </rules>
+    <rules xsi:type="xtext:ParserRule" name="FloatingPointLiteral">
+      <type metamodel="/2/@metamodelDeclarations.0">
+        <classifier xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </type>
+      <alternatives xsi:type="xtext:Alternatives">
+        <groups xsi:type="xtext:Group">
+          <tokens xsi:type="xtext:RuleCall" cardinality="+" rule="/2/@rules.1"/>
+          <tokens xsi:type="xtext:Keyword" value="."/>
+          <tokens xsi:type="xtext:RuleCall" cardinality="*" rule="/2/@rules.1"/>
+          <tokens xsi:type="xtext:RuleCall" cardinality="?" rule="/1/@rules.60"/>
+          <tokens xsi:type="xtext:Alternatives" cardinality="?">
+            <groups xsi:type="xtext:Keyword" value="f"/>
+            <groups xsi:type="xtext:Keyword" value="F"/>
+            <groups xsi:type="xtext:Keyword" value="d"/>
+            <groups xsi:type="xtext:Keyword" value="D"/>
+          </tokens>
+        </groups>
+        <groups xsi:type="xtext:Group">
+          <tokens xsi:type="xtext:Keyword" value="."/>
+          <tokens xsi:type="xtext:RuleCall" cardinality="+" rule="/2/@rules.1"/>
+          <tokens xsi:type="xtext:RuleCall" cardinality="?" rule="/1/@rules.60"/>
+          <tokens xsi:type="xtext:Alternatives" cardinality="?">
+            <groups xsi:type="xtext:Keyword" value="f"/>
+            <groups xsi:type="xtext:Keyword" value="F"/>
+            <groups xsi:type="xtext:Keyword" value="d"/>
+            <groups xsi:type="xtext:Keyword" value="D"/>
+          </tokens>
+        </groups>
+        <groups xsi:type="xtext:Group">
+          <tokens xsi:type="xtext:RuleCall" cardinality="+" rule="/2/@rules.1"/>
+          <tokens xsi:type="xtext:RuleCall" rule="/1/@rules.60"/>
+          <tokens xsi:type="xtext:Alternatives" cardinality="?">
+            <groups xsi:type="xtext:Keyword" value="f"/>
+            <groups xsi:type="xtext:Keyword" value="F"/>
+            <groups xsi:type="xtext:Keyword" value="d"/>
+            <groups xsi:type="xtext:Keyword" value="D"/>
+          </tokens>
+        </groups>
+        <groups xsi:type="xtext:Group">
+          <tokens xsi:type="xtext:RuleCall" cardinality="+" rule="/2/@rules.1"/>
+          <tokens xsi:type="xtext:RuleCall" cardinality="?" rule="/1/@rules.60"/>
+          <tokens xsi:type="xtext:Alternatives">
+            <groups xsi:type="xtext:Keyword" value="f"/>
+            <groups xsi:type="xtext:Keyword" value="F"/>
+            <groups xsi:type="xtext:Keyword" value="d"/>
+            <groups xsi:type="xtext:Keyword" value="D"/>
+          </tokens>
+        </groups>
+      </alternatives>
+    </rules>
+    <rules xsi:type="xtext:TerminalRule" name="Exponent">
+      <type metamodel="/2/@metamodelDeclarations.0">
+        <classifier xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </type>
+      <alternatives xsi:type="xtext:Group">
+        <tokens xsi:type="xtext:Alternatives">
+          <groups xsi:type="xtext:Keyword" value="e"/>
+          <groups xsi:type="xtext:Keyword" value="E"/>
+        </tokens>
+        <tokens xsi:type="xtext:Alternatives" cardinality="?">
+          <groups xsi:type="xtext:Keyword" value="+"/>
+          <groups xsi:type="xtext:Keyword" value="-"/>
+        </tokens>
+        <tokens xsi:type="xtext:RuleCall" cardinality="+" rule="/2/@rules.1"/>
       </alternatives>
     </rules>
   </xtext:Grammar>

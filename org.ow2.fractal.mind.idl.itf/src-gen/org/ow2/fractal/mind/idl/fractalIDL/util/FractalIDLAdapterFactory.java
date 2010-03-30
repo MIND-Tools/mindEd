@@ -174,6 +174,11 @@ public class FractalIDLAdapterFactory extends AdapterFactoryImpl
         return createDirectDeclaratorAdapter();
       }
       @Override
+      public Adapter caseArraySpecification(ArraySpecification object)
+      {
+        return createArraySpecificationAdapter();
+      }
+      @Override
       public Adapter caseConstantDefinition(ConstantDefinition object)
       {
         return createConstantDefinitionAdapter();
@@ -237,6 +242,71 @@ public class FractalIDLAdapterFactory extends AdapterFactoryImpl
       public Adapter caseArrayAnnotationValue(ArrayAnnotationValue object)
       {
         return createArrayAnnotationValueAdapter();
+      }
+      @Override
+      public Adapter caseConstantExpression(ConstantExpression object)
+      {
+        return createConstantExpressionAdapter();
+      }
+      @Override
+      public Adapter caseLogicalOrExpression(LogicalOrExpression object)
+      {
+        return createLogicalOrExpressionAdapter();
+      }
+      @Override
+      public Adapter caseLogicalAndExpression(LogicalAndExpression object)
+      {
+        return createLogicalAndExpressionAdapter();
+      }
+      @Override
+      public Adapter caseOrExpression(OrExpression object)
+      {
+        return createOrExpressionAdapter();
+      }
+      @Override
+      public Adapter caseXorExpression(XorExpression object)
+      {
+        return createXorExpressionAdapter();
+      }
+      @Override
+      public Adapter caseAndExpression(AndExpression object)
+      {
+        return createAndExpressionAdapter();
+      }
+      @Override
+      public Adapter caseShiftExpression(ShiftExpression object)
+      {
+        return createShiftExpressionAdapter();
+      }
+      @Override
+      public Adapter caseAdditiveExpression(AdditiveExpression object)
+      {
+        return createAdditiveExpressionAdapter();
+      }
+      @Override
+      public Adapter caseMulExpression(MulExpression object)
+      {
+        return createMulExpressionAdapter();
+      }
+      @Override
+      public Adapter caseCastExpression(CastExpression object)
+      {
+        return createCastExpressionAdapter();
+      }
+      @Override
+      public Adapter caseUnaryExpression(UnaryExpression object)
+      {
+        return createUnaryExpressionAdapter();
+      }
+      @Override
+      public Adapter casePrimaryExpression(PrimaryExpression object)
+      {
+        return createPrimaryExpressionAdapter();
+      }
+      @Override
+      public Adapter caseLiteral(Literal object)
+      {
+        return createLiteralAdapter();
       }
       @Override
       public Adapter defaultCase(EObject object)
@@ -546,6 +616,21 @@ public class FractalIDLAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
+   * Creates a new adapter for an object of class '{@link org.ow2.fractal.mind.idl.fractalIDL.ArraySpecification <em>Array Specification</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.ow2.fractal.mind.idl.fractalIDL.ArraySpecification
+   * @generated
+   */
+  public Adapter createArraySpecificationAdapter()
+  {
+    return null;
+  }
+
+  /**
    * Creates a new adapter for an object of class '{@link org.ow2.fractal.mind.idl.fractalIDL.ConstantDefinition <em>Constant Definition</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -736,6 +821,201 @@ public class FractalIDLAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createArrayAnnotationValueAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.ow2.fractal.mind.idl.fractalIDL.ConstantExpression <em>Constant Expression</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.ow2.fractal.mind.idl.fractalIDL.ConstantExpression
+   * @generated
+   */
+  public Adapter createConstantExpressionAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.ow2.fractal.mind.idl.fractalIDL.LogicalOrExpression <em>Logical Or Expression</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.ow2.fractal.mind.idl.fractalIDL.LogicalOrExpression
+   * @generated
+   */
+  public Adapter createLogicalOrExpressionAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.ow2.fractal.mind.idl.fractalIDL.LogicalAndExpression <em>Logical And Expression</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.ow2.fractal.mind.idl.fractalIDL.LogicalAndExpression
+   * @generated
+   */
+  public Adapter createLogicalAndExpressionAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.ow2.fractal.mind.idl.fractalIDL.OrExpression <em>Or Expression</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.ow2.fractal.mind.idl.fractalIDL.OrExpression
+   * @generated
+   */
+  public Adapter createOrExpressionAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.ow2.fractal.mind.idl.fractalIDL.XorExpression <em>Xor Expression</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.ow2.fractal.mind.idl.fractalIDL.XorExpression
+   * @generated
+   */
+  public Adapter createXorExpressionAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.ow2.fractal.mind.idl.fractalIDL.AndExpression <em>And Expression</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.ow2.fractal.mind.idl.fractalIDL.AndExpression
+   * @generated
+   */
+  public Adapter createAndExpressionAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.ow2.fractal.mind.idl.fractalIDL.ShiftExpression <em>Shift Expression</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.ow2.fractal.mind.idl.fractalIDL.ShiftExpression
+   * @generated
+   */
+  public Adapter createShiftExpressionAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.ow2.fractal.mind.idl.fractalIDL.AdditiveExpression <em>Additive Expression</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.ow2.fractal.mind.idl.fractalIDL.AdditiveExpression
+   * @generated
+   */
+  public Adapter createAdditiveExpressionAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.ow2.fractal.mind.idl.fractalIDL.MulExpression <em>Mul Expression</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.ow2.fractal.mind.idl.fractalIDL.MulExpression
+   * @generated
+   */
+  public Adapter createMulExpressionAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.ow2.fractal.mind.idl.fractalIDL.CastExpression <em>Cast Expression</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.ow2.fractal.mind.idl.fractalIDL.CastExpression
+   * @generated
+   */
+  public Adapter createCastExpressionAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.ow2.fractal.mind.idl.fractalIDL.UnaryExpression <em>Unary Expression</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.ow2.fractal.mind.idl.fractalIDL.UnaryExpression
+   * @generated
+   */
+  public Adapter createUnaryExpressionAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.ow2.fractal.mind.idl.fractalIDL.PrimaryExpression <em>Primary Expression</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.ow2.fractal.mind.idl.fractalIDL.PrimaryExpression
+   * @generated
+   */
+  public Adapter createPrimaryExpressionAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.ow2.fractal.mind.idl.fractalIDL.Literal <em>Literal</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.ow2.fractal.mind.idl.fractalIDL.Literal
+   * @generated
+   */
+  public Adapter createLiteralAdapter()
   {
     return null;
   }
