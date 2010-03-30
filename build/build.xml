@@ -24,8 +24,12 @@
 		<property name="emf-edit-project" value="${basedir}/../org.ow2.fractal.mind.emf.model.edit" />
 		<property name="emf-editor-project" value="${basedir}/../org.ow2.fractal.mind.emf.model.editor" />
 		<property name="gmf-project" value ="${basedir}/../org.ow2.fractal.mind.gmf"/>
-		<emf.Ecore2Java genModel="${model-dir}/mind.genmodel" model="${model-dir}/mind.ecore" reconcilegenmodel="keep" generatejavacode="true" generateeditorproject="true" generateeditproject="true">
+		<emf.Ecore2Java genModel="${model-dir}/mind.genmodel" model="${model-dir}/mind.ecore" 
+			reconcilegenmodel="keep" generatejavacode="true" generateeditorproject="true" generateeditproject="true"
+			generatemodelproject="true"
+			>
 		</emf.Ecore2Java>
+		
 		<gmf:GenerateDiagramCode gmfgenPath="${gmf-project}/model/mind.gmfgen" ignoreLoadErrors="true" ignoreValidationErrors="true" />
 		
 		
