@@ -5,8 +5,7 @@
 
 %>
 primitive <%=qualifiedName%> {
-	nodata;
-  
+ 
 <%for(String l : contains) {%>
 	<%=l%>
 <%}%>
