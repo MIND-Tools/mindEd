@@ -393,6 +393,19 @@ public class MindIdeCore {
 		throw new CoreException(status);
 	}
 	
+	
+	static public void createCTemplate(MindPackage adl, String qn, String componentName,
+			IProgressMonitor monitor)
+			throws CoreException {		
+		createCTemplate(MindIdeCore.getResource(adl), componentName, qn, monitor);
+	}
+	
+	static public void createCTemplate(MindAdl adl, String componentName,
+			IProgressMonitor monitor)
+			throws CoreException {
+		createCTemplate(MindIdeCore.getResource(adl).getParent(), componentName, adl.getQualifiedName(), monitor);
+	}
+	
 	/**
 	 * Create a file .c with a template.
 	 * 
