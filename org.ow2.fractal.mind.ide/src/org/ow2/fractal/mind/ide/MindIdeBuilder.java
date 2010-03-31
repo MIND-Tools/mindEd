@@ -134,7 +134,7 @@ public class MindIdeBuilder extends IncrementalProjectBuilder {
 			ADLException e) throws CoreException {
 		Error error = e.getError();
 		ErrorLocator locator = error.getLocator();
-		int charEnd = 0, charStart = 0;
+		int charStart = 10, charEnd = 15;
 		
 		IResource mfRsc = MindIdeCore.getResource(mf);
 		

@@ -38,6 +38,7 @@ import org.eclipse.core.runtime.Status;
 import org.eclipse.core.runtime.jobs.Job;
 import org.ow2.fractal.mind.ide.FamilyJobCST;
 import org.ow2.fractal.mind.ide.MindActivator;
+import org.ow2.fractal.mind.ide.MindIdeCore;
 import org.ow2.fractal.mind.ide.MindModelManager;
 import org.ow2.fractal.mind.ide.MindNature;
 import org.ow2.fractal.mind.ide.template.TemplateMake;
@@ -176,6 +177,7 @@ public class CDTUtil {
 				}
 				wsEnv.createVariable(MIND_ROOT, mindcLocation);
 				usersupplier.setWorkspaceEnvironment(wsEnv);
+				MindIdeCore.rebuidAll();
 				if (MindModelImpl.TRACING)
 					System.out.println("DONE CHANGE MIND_ROOT to "
 							+ mindcLocation);

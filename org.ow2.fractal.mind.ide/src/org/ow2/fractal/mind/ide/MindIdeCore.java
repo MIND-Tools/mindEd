@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.net.URI;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -435,6 +436,22 @@ public class MindIdeCore {
 	
 	static private InputStream openCContentStream(String qn) {
 		return new ByteArrayInputStream(new TemplatePrimitiveC().generate(qn).getBytes());
+	}
+
+	public static void rebuidAll() {
+		List<MindProject> projects = getModel().getAllProject();
+		for (MindProject mp : projects) {
+			rebuild(mp);
+		}
+		
+	}
+
+	public static void rebuild(MindProject mp) {
+		IProject p = mp.getProject();
+		try {
+			p.touch(null);
+		} catch (CoreException e) {
+		}
 	}
 
 }
