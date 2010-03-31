@@ -119,7 +119,8 @@ public class MindProjectImpl extends org.ow2.fractal.mind.ide.emf.mindide.impl.M
 		
 		private String toFile(MindRootSrc rs) {
 			IFolder f = MindIdeCore.getResource(rs);
-			return f.getLocation().toOSString();
+			// for windows double \\
+			return f.getLocation().toOSString().replaceAll("\\\\", "\\\\\\\\");
 		}
 	}
 	
@@ -153,6 +154,7 @@ public class MindProjectImpl extends org.ow2.fractal.mind.ide.emf.mindide.impl.M
 				
 				MindMakefile mf = new MindMakefile(_mp.getProject());
 				mf.setVarAndSave(MindMakefile.MIND_COMPONENTS, srcVar.toString(), "all");
+				MindIdeCore.rebuild(_mp);
 			} catch (CoreException e) {
 				MindActivator.log( new Status(Status.ERROR, MindActivator.ID, getName(), e));
 			} catch (IOException e) {
