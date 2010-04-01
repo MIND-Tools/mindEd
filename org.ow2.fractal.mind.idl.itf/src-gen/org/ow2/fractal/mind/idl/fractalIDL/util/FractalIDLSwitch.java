@@ -258,6 +258,7 @@ public class FractalIDLSwitch<T>
       {
         ConstantDefinition constantDefinition = (ConstantDefinition)theEObject;
         T result = caseConstantDefinition(constantDefinition);
+        if (result == null) result = caseLiteral(constantDefinition);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }

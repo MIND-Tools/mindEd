@@ -1813,15 +1813,16 @@ public class FractalItfGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cIDTerminalRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
 		private final RuleCall cSTRINGTerminalRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
 		private final RuleCall cFloatingPointLiteralParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
-		private final Assignment cRefAssignment_3 = (Assignment)cAlternatives.eContents().get(3);
-		private final CrossReference cRefConstantDefinitionCrossReference_3_0 = (CrossReference)cRefAssignment_3.eContents().get(0);
-		private final RuleCall cRefConstantDefinitionIDTerminalRuleCall_3_0_1 = (RuleCall)cRefConstantDefinitionCrossReference_3_0.eContents().get(1);
+		private final RuleCall cConstantDefinitionParserRuleCall_3 = (RuleCall)cAlternatives.eContents().get(3);
+		private final Assignment cRefAssignment_4 = (Assignment)cAlternatives.eContents().get(4);
+		private final CrossReference cRefConstantDefinitionCrossReference_4_0 = (CrossReference)cRefAssignment_4.eContents().get(0);
+		private final RuleCall cRefConstantDefinitionIDTerminalRuleCall_4_0_1 = (RuleCall)cRefConstantDefinitionCrossReference_4_0.eContents().get(1);
 		
 		//Literal:
-		//  ID|STRING|FloatingPointLiteral|ref=[ConstantDefinition];
+		//  ID|STRING|FloatingPointLiteral|ConstantDefinition|ref=[ConstantDefinition];
 		public ParserRule getRule() { return rule; }
 
-		//ID|STRING|FloatingPointLiteral|ref=[ConstantDefinition]
+		//ID|STRING|FloatingPointLiteral|ConstantDefinition|ref=[ConstantDefinition]
 		public Alternatives getAlternatives() { return cAlternatives; }
 
 		//ID
@@ -1833,14 +1834,17 @@ public class FractalItfGrammarAccess extends AbstractGrammarElementFinder {
 		//FloatingPointLiteral
 		public RuleCall getFloatingPointLiteralParserRuleCall_2() { return cFloatingPointLiteralParserRuleCall_2; }
 
+		//ConstantDefinition
+		public RuleCall getConstantDefinitionParserRuleCall_3() { return cConstantDefinitionParserRuleCall_3; }
+
 		//ref=[ConstantDefinition]
-		public Assignment getRefAssignment_3() { return cRefAssignment_3; }
+		public Assignment getRefAssignment_4() { return cRefAssignment_4; }
 
 		//[ConstantDefinition]
-		public CrossReference getRefConstantDefinitionCrossReference_3_0() { return cRefConstantDefinitionCrossReference_3_0; }
+		public CrossReference getRefConstantDefinitionCrossReference_4_0() { return cRefConstantDefinitionCrossReference_4_0; }
 
 		//ID
-		public RuleCall getRefConstantDefinitionIDTerminalRuleCall_3_0_1() { return cRefConstantDefinitionIDTerminalRuleCall_3_0_1; }
+		public RuleCall getRefConstantDefinitionIDTerminalRuleCall_4_0_1() { return cRefConstantDefinitionIDTerminalRuleCall_4_0_1; }
 	}
 
 	public class ShiftOperationElements extends AbstractParserRuleElementFinder {
@@ -1984,11 +1988,11 @@ public class FractalItfGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//FloatingPointLiteral returns ecore::EString:
 		//  INT+ "." INT* Exponent? ("f"|"F"|"d"|"D")?|"." INT+ Exponent? ("f"|"F"|"d"|"D")?|INT+
-		//  Exponent ("f"|"F"|"d"|"D")?|INT+ Exponent? ("f"|"F"|"d"|"D");
+		//  Exponent ("f"|"F"|"d"|"D")?|INT+ Exponent? ("f"|"F"|"d"|"D")?;
 		public ParserRule getRule() { return rule; }
 
 		//INT+ "." INT* Exponent? ("f"|"F"|"d"|"D")?|"." INT+ Exponent? ("f"|"F"|"d"|"D")?|INT+
-		//Exponent ("f"|"F"|"d"|"D")?|INT+ Exponent? ("f"|"F"|"d"|"D")
+		//Exponent ("f"|"F"|"d"|"D")?|INT+ Exponent? ("f"|"F"|"d"|"D")?
 		public Alternatives getAlternatives() { return cAlternatives; }
 
 		//INT+ "." INT* Exponent? ("f"|"F"|"d"|"D")?
@@ -2072,7 +2076,7 @@ public class FractalItfGrammarAccess extends AbstractGrammarElementFinder {
 		//"D"
 		public Keyword getDKeyword_2_2_3() { return cDKeyword_2_2_3; }
 
-		//INT+ Exponent? ("f"|"F"|"d"|"D")
+		//INT+ Exponent? ("f"|"F"|"d"|"D")?
 		public Group getGroup_3() { return cGroup_3; }
 
 		//INT+
@@ -2081,7 +2085,7 @@ public class FractalItfGrammarAccess extends AbstractGrammarElementFinder {
 		//Exponent?
 		public RuleCall getExponentTerminalRuleCall_3_1() { return cExponentTerminalRuleCall_3_1; }
 
-		//"f"|"F"|"d"|"D"
+		//("f"|"F"|"d"|"D")?
 		public Alternatives getAlternatives_3_2() { return cAlternatives_3_2; }
 
 		//"f"
@@ -2984,7 +2988,7 @@ public class FractalItfGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//Literal:
-	//  ID|STRING|FloatingPointLiteral|ref=[ConstantDefinition];
+	//  ID|STRING|FloatingPointLiteral|ConstantDefinition|ref=[ConstantDefinition];
 	public LiteralElements getLiteralAccess() {
 		return (pLiteral != null) ? pLiteral : (pLiteral = new LiteralElements());
 	}
@@ -3035,7 +3039,7 @@ public class FractalItfGrammarAccess extends AbstractGrammarElementFinder {
 
 	//FloatingPointLiteral returns ecore::EString:
 	//  INT+ "." INT* Exponent? ("f"|"F"|"d"|"D")?|"." INT+ Exponent? ("f"|"F"|"d"|"D")?|INT+
-	//  Exponent ("f"|"F"|"d"|"D")?|INT+ Exponent? ("f"|"F"|"d"|"D");
+	//  Exponent ("f"|"F"|"d"|"D")?|INT+ Exponent? ("f"|"F"|"d"|"D")?;
 	public FloatingPointLiteralElements getFloatingPointLiteralAccess() {
 		return (pFloatingPointLiteral != null) ? pFloatingPointLiteral : (pFloatingPointLiteral = new FloatingPointLiteralElements());
 	}

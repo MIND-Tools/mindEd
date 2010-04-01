@@ -2,6 +2,7 @@ package org.ow2.fractal.mind.idl.labeling;
 
 import org.ow2.fractal.mind.idl.fractalIdt.ConstantDefinitionBegin;
 import org.ow2.fractal.mind.idl.fractalIdt.ConstantDefinitionEnd;
+import org.ow2.fractal.mind.idl.ui.labeling.FractalItfLabelProvider;
 
 /**
  * see

@@ -41,7 +41,7 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
 
         public InternalFractalIdtParser(TokenStream input) {
             super(input);
-            ruleMemo = new HashMap[237+1];
+            ruleMemo = new HashMap[239+1];
          }
         
 
@@ -73,12 +73,17 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
         @Override
         protected String getFirstRuleName() {
         	return "IdtFile";	
-       	} 
+       	}
+       	
+       	@Override
+       	protected FractalIdtGrammarAccess getGrammarAccess() {
+       		return grammarAccess;
+       	}
 
 
 
     // $ANTLR start entryRuleIdtFile
-    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:79:1: entryRuleIdtFile returns [EObject current=null] : iv_ruleIdtFile= ruleIdtFile EOF ;
+    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:84:1: entryRuleIdtFile returns [EObject current=null] : iv_ruleIdtFile= ruleIdtFile EOF ;
     public final EObject entryRuleIdtFile() throws RecognitionException {
         EObject current = null;
 
@@ -86,8 +91,8 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:80:2: (iv_ruleIdtFile= ruleIdtFile EOF )
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:81:2: iv_ruleIdtFile= ruleIdtFile EOF
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:85:2: (iv_ruleIdtFile= ruleIdtFile EOF )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:86:2: iv_ruleIdtFile= ruleIdtFile EOF
             {
             if ( backtracking==0 ) {
                currentNode = createCompositeNode(grammarAccess.getIdtFileRule(), currentNode); 
@@ -117,7 +122,7 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start ruleIdtFile
-    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:88:1: ruleIdtFile returns [EObject current=null] : ( ( (lv_begindef_0_0= ruleConstantDefinitionBegin ) ) ( (lv_def_1_0= ruleConstantDefinition ) ) ( (lv_includes_2_0= ruleIncludeDirective ) )* ( ( (lv_constant_3_0= ruleConstantDefinition ) ) | ( (lv_type_4_0= ruleTypeDefinition ) ) )* ( (lv_enddef_5_0= ruleConstantDefinitionEnd ) ) ) ;
+    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:93:1: ruleIdtFile returns [EObject current=null] : ( ( (lv_begindef_0_0= ruleConstantDefinitionBegin ) ) ( (lv_def_1_0= ruleConstantDefinition ) ) ( (lv_includes_2_0= ruleIncludeDirective ) )* ( ( (lv_constant_3_0= ruleConstantDefinition ) ) | ( (lv_type_4_0= ruleTypeDefinition ) ) )* ( (lv_enddef_5_0= ruleConstantDefinitionEnd ) ) ) ;
     public final EObject ruleIdtFile() throws RecognitionException {
         EObject current = null;
 
@@ -137,17 +142,17 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
          @SuppressWarnings("unused") EObject temp=null; setCurrentLookahead(); resetLookahead(); 
             
         try {
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:93:6: ( ( ( (lv_begindef_0_0= ruleConstantDefinitionBegin ) ) ( (lv_def_1_0= ruleConstantDefinition ) ) ( (lv_includes_2_0= ruleIncludeDirective ) )* ( ( (lv_constant_3_0= ruleConstantDefinition ) ) | ( (lv_type_4_0= ruleTypeDefinition ) ) )* ( (lv_enddef_5_0= ruleConstantDefinitionEnd ) ) ) )
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:94:1: ( ( (lv_begindef_0_0= ruleConstantDefinitionBegin ) ) ( (lv_def_1_0= ruleConstantDefinition ) ) ( (lv_includes_2_0= ruleIncludeDirective ) )* ( ( (lv_constant_3_0= ruleConstantDefinition ) ) | ( (lv_type_4_0= ruleTypeDefinition ) ) )* ( (lv_enddef_5_0= ruleConstantDefinitionEnd ) ) )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:98:6: ( ( ( (lv_begindef_0_0= ruleConstantDefinitionBegin ) ) ( (lv_def_1_0= ruleConstantDefinition ) ) ( (lv_includes_2_0= ruleIncludeDirective ) )* ( ( (lv_constant_3_0= ruleConstantDefinition ) ) | ( (lv_type_4_0= ruleTypeDefinition ) ) )* ( (lv_enddef_5_0= ruleConstantDefinitionEnd ) ) ) )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:99:1: ( ( (lv_begindef_0_0= ruleConstantDefinitionBegin ) ) ( (lv_def_1_0= ruleConstantDefinition ) ) ( (lv_includes_2_0= ruleIncludeDirective ) )* ( ( (lv_constant_3_0= ruleConstantDefinition ) ) | ( (lv_type_4_0= ruleTypeDefinition ) ) )* ( (lv_enddef_5_0= ruleConstantDefinitionEnd ) ) )
             {
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:94:1: ( ( (lv_begindef_0_0= ruleConstantDefinitionBegin ) ) ( (lv_def_1_0= ruleConstantDefinition ) ) ( (lv_includes_2_0= ruleIncludeDirective ) )* ( ( (lv_constant_3_0= ruleConstantDefinition ) ) | ( (lv_type_4_0= ruleTypeDefinition ) ) )* ( (lv_enddef_5_0= ruleConstantDefinitionEnd ) ) )
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:94:2: ( (lv_begindef_0_0= ruleConstantDefinitionBegin ) ) ( (lv_def_1_0= ruleConstantDefinition ) ) ( (lv_includes_2_0= ruleIncludeDirective ) )* ( ( (lv_constant_3_0= ruleConstantDefinition ) ) | ( (lv_type_4_0= ruleTypeDefinition ) ) )* ( (lv_enddef_5_0= ruleConstantDefinitionEnd ) )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:99:1: ( ( (lv_begindef_0_0= ruleConstantDefinitionBegin ) ) ( (lv_def_1_0= ruleConstantDefinition ) ) ( (lv_includes_2_0= ruleIncludeDirective ) )* ( ( (lv_constant_3_0= ruleConstantDefinition ) ) | ( (lv_type_4_0= ruleTypeDefinition ) ) )* ( (lv_enddef_5_0= ruleConstantDefinitionEnd ) ) )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:99:2: ( (lv_begindef_0_0= ruleConstantDefinitionBegin ) ) ( (lv_def_1_0= ruleConstantDefinition ) ) ( (lv_includes_2_0= ruleIncludeDirective ) )* ( ( (lv_constant_3_0= ruleConstantDefinition ) ) | ( (lv_type_4_0= ruleTypeDefinition ) ) )* ( (lv_enddef_5_0= ruleConstantDefinitionEnd ) )
             {
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:94:2: ( (lv_begindef_0_0= ruleConstantDefinitionBegin ) )
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:95:1: (lv_begindef_0_0= ruleConstantDefinitionBegin )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:99:2: ( (lv_begindef_0_0= ruleConstantDefinitionBegin ) )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:100:1: (lv_begindef_0_0= ruleConstantDefinitionBegin )
             {
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:95:1: (lv_begindef_0_0= ruleConstantDefinitionBegin )
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:96:3: lv_begindef_0_0= ruleConstantDefinitionBegin
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:100:1: (lv_begindef_0_0= ruleConstantDefinitionBegin )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:101:3: lv_begindef_0_0= ruleConstantDefinitionBegin
             {
             if ( backtracking==0 ) {
                
@@ -183,11 +188,11 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:118:2: ( (lv_def_1_0= ruleConstantDefinition ) )
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:119:1: (lv_def_1_0= ruleConstantDefinition )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:123:2: ( (lv_def_1_0= ruleConstantDefinition ) )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:124:1: (lv_def_1_0= ruleConstantDefinition )
             {
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:119:1: (lv_def_1_0= ruleConstantDefinition )
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:120:3: lv_def_1_0= ruleConstantDefinition
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:124:1: (lv_def_1_0= ruleConstantDefinition )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:125:3: lv_def_1_0= ruleConstantDefinition
             {
             if ( backtracking==0 ) {
                
@@ -223,7 +228,7 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:142:2: ( (lv_includes_2_0= ruleIncludeDirective ) )*
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:147:2: ( (lv_includes_2_0= ruleIncludeDirective ) )*
             loop1:
             do {
                 int alt1=2;
@@ -236,10 +241,10 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
 
                 switch (alt1) {
             	case 1 :
-            	    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:143:1: (lv_includes_2_0= ruleIncludeDirective )
+            	    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:148:1: (lv_includes_2_0= ruleIncludeDirective )
             	    {
-            	    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:143:1: (lv_includes_2_0= ruleIncludeDirective )
-            	    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:144:3: lv_includes_2_0= ruleIncludeDirective
+            	    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:148:1: (lv_includes_2_0= ruleIncludeDirective )
+            	    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:149:3: lv_includes_2_0= ruleIncludeDirective
             	    {
             	    if ( backtracking==0 ) {
             	       
@@ -281,7 +286,7 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
                 }
             } while (true);
 
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:166:3: ( ( (lv_constant_3_0= ruleConstantDefinition ) ) | ( (lv_type_4_0= ruleTypeDefinition ) ) )*
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:171:3: ( ( (lv_constant_3_0= ruleConstantDefinition ) ) | ( (lv_type_4_0= ruleTypeDefinition ) ) )*
             loop2:
             do {
                 int alt2=3;
@@ -297,13 +302,13 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
 
                 switch (alt2) {
             	case 1 :
-            	    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:166:4: ( (lv_constant_3_0= ruleConstantDefinition ) )
+            	    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:171:4: ( (lv_constant_3_0= ruleConstantDefinition ) )
             	    {
-            	    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:166:4: ( (lv_constant_3_0= ruleConstantDefinition ) )
-            	    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:167:1: (lv_constant_3_0= ruleConstantDefinition )
+            	    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:171:4: ( (lv_constant_3_0= ruleConstantDefinition ) )
+            	    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:172:1: (lv_constant_3_0= ruleConstantDefinition )
             	    {
-            	    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:167:1: (lv_constant_3_0= ruleConstantDefinition )
-            	    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:168:3: lv_constant_3_0= ruleConstantDefinition
+            	    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:172:1: (lv_constant_3_0= ruleConstantDefinition )
+            	    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:173:3: lv_constant_3_0= ruleConstantDefinition
             	    {
             	    if ( backtracking==0 ) {
             	       
@@ -343,13 +348,13 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
             	    }
             	    break;
             	case 2 :
-            	    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:191:6: ( (lv_type_4_0= ruleTypeDefinition ) )
+            	    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:196:6: ( (lv_type_4_0= ruleTypeDefinition ) )
             	    {
-            	    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:191:6: ( (lv_type_4_0= ruleTypeDefinition ) )
-            	    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:192:1: (lv_type_4_0= ruleTypeDefinition )
+            	    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:196:6: ( (lv_type_4_0= ruleTypeDefinition ) )
+            	    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:197:1: (lv_type_4_0= ruleTypeDefinition )
             	    {
-            	    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:192:1: (lv_type_4_0= ruleTypeDefinition )
-            	    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:193:3: lv_type_4_0= ruleTypeDefinition
+            	    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:197:1: (lv_type_4_0= ruleTypeDefinition )
+            	    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:198:3: lv_type_4_0= ruleTypeDefinition
             	    {
             	    if ( backtracking==0 ) {
             	       
@@ -394,11 +399,11 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
                 }
             } while (true);
 
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:215:4: ( (lv_enddef_5_0= ruleConstantDefinitionEnd ) )
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:216:1: (lv_enddef_5_0= ruleConstantDefinitionEnd )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:220:4: ( (lv_enddef_5_0= ruleConstantDefinitionEnd ) )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:221:1: (lv_enddef_5_0= ruleConstantDefinitionEnd )
             {
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:216:1: (lv_enddef_5_0= ruleConstantDefinitionEnd )
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:217:3: lv_enddef_5_0= ruleConstantDefinitionEnd
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:221:1: (lv_enddef_5_0= ruleConstantDefinitionEnd )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:222:3: lv_enddef_5_0= ruleConstantDefinitionEnd
             {
             if ( backtracking==0 ) {
                
@@ -459,7 +464,7 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start entryRuleConstantDefinitionBegin
-    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:247:1: entryRuleConstantDefinitionBegin returns [EObject current=null] : iv_ruleConstantDefinitionBegin= ruleConstantDefinitionBegin EOF ;
+    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:252:1: entryRuleConstantDefinitionBegin returns [EObject current=null] : iv_ruleConstantDefinitionBegin= ruleConstantDefinitionBegin EOF ;
     public final EObject entryRuleConstantDefinitionBegin() throws RecognitionException {
         EObject current = null;
 
@@ -467,8 +472,8 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:248:2: (iv_ruleConstantDefinitionBegin= ruleConstantDefinitionBegin EOF )
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:249:2: iv_ruleConstantDefinitionBegin= ruleConstantDefinitionBegin EOF
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:253:2: (iv_ruleConstantDefinitionBegin= ruleConstantDefinitionBegin EOF )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:254:2: iv_ruleConstantDefinitionBegin= ruleConstantDefinitionBegin EOF
             {
             if ( backtracking==0 ) {
                currentNode = createCompositeNode(grammarAccess.getConstantDefinitionBeginRule(), currentNode); 
@@ -498,7 +503,7 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start ruleConstantDefinitionBegin
-    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:256:1: ruleConstantDefinitionBegin returns [EObject current=null] : ( '#ifndef' ( (lv_id_1_0= RULE_ID ) ) ) ;
+    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:261:1: ruleConstantDefinitionBegin returns [EObject current=null] : ( '#ifndef' ( (lv_id_1_0= RULE_ID ) ) ) ;
     public final EObject ruleConstantDefinitionBegin() throws RecognitionException {
         EObject current = null;
 
@@ -507,11 +512,11 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
          @SuppressWarnings("unused") EObject temp=null; setCurrentLookahead(); resetLookahead(); 
             
         try {
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:261:6: ( ( '#ifndef' ( (lv_id_1_0= RULE_ID ) ) ) )
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:262:1: ( '#ifndef' ( (lv_id_1_0= RULE_ID ) ) )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:266:6: ( ( '#ifndef' ( (lv_id_1_0= RULE_ID ) ) ) )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:267:1: ( '#ifndef' ( (lv_id_1_0= RULE_ID ) ) )
             {
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:262:1: ( '#ifndef' ( (lv_id_1_0= RULE_ID ) ) )
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:262:3: '#ifndef' ( (lv_id_1_0= RULE_ID ) )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:267:1: ( '#ifndef' ( (lv_id_1_0= RULE_ID ) ) )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:267:3: '#ifndef' ( (lv_id_1_0= RULE_ID ) )
             {
             match(input,14,FOLLOW_14_in_ruleConstantDefinitionBegin333); if (failed) return current;
             if ( backtracking==0 ) {
@@ -519,11 +524,11 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
                       createLeafNode(grammarAccess.getConstantDefinitionBeginAccess().getIfndefKeyword_0(), null); 
                   
             }
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:266:1: ( (lv_id_1_0= RULE_ID ) )
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:267:1: (lv_id_1_0= RULE_ID )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:271:1: ( (lv_id_1_0= RULE_ID ) )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:272:1: (lv_id_1_0= RULE_ID )
             {
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:267:1: (lv_id_1_0= RULE_ID )
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:268:3: lv_id_1_0= RULE_ID
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:272:1: (lv_id_1_0= RULE_ID )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:273:3: lv_id_1_0= RULE_ID
             {
             lv_id_1_0=(Token)input.LT(1);
             match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleConstantDefinitionBegin350); if (failed) return current;
@@ -581,7 +586,7 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start entryRuleConstantDefinitionEnd
-    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:298:1: entryRuleConstantDefinitionEnd returns [EObject current=null] : iv_ruleConstantDefinitionEnd= ruleConstantDefinitionEnd EOF ;
+    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:303:1: entryRuleConstantDefinitionEnd returns [EObject current=null] : iv_ruleConstantDefinitionEnd= ruleConstantDefinitionEnd EOF ;
     public final EObject entryRuleConstantDefinitionEnd() throws RecognitionException {
         EObject current = null;
 
@@ -589,8 +594,8 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:299:2: (iv_ruleConstantDefinitionEnd= ruleConstantDefinitionEnd EOF )
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:300:2: iv_ruleConstantDefinitionEnd= ruleConstantDefinitionEnd EOF
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:304:2: (iv_ruleConstantDefinitionEnd= ruleConstantDefinitionEnd EOF )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:305:2: iv_ruleConstantDefinitionEnd= ruleConstantDefinitionEnd EOF
             {
             if ( backtracking==0 ) {
                currentNode = createCompositeNode(grammarAccess.getConstantDefinitionEndRule(), currentNode); 
@@ -620,7 +625,7 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start ruleConstantDefinitionEnd
-    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:307:1: ruleConstantDefinitionEnd returns [EObject current=null] : ( '#endif' ( (lv_id_1_0= RULE_ID ) ) ) ;
+    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:312:1: ruleConstantDefinitionEnd returns [EObject current=null] : ( '#endif' ( (lv_id_1_0= RULE_ID ) ) ) ;
     public final EObject ruleConstantDefinitionEnd() throws RecognitionException {
         EObject current = null;
 
@@ -629,11 +634,11 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
          @SuppressWarnings("unused") EObject temp=null; setCurrentLookahead(); resetLookahead(); 
             
         try {
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:312:6: ( ( '#endif' ( (lv_id_1_0= RULE_ID ) ) ) )
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:313:1: ( '#endif' ( (lv_id_1_0= RULE_ID ) ) )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:317:6: ( ( '#endif' ( (lv_id_1_0= RULE_ID ) ) ) )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:318:1: ( '#endif' ( (lv_id_1_0= RULE_ID ) ) )
             {
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:313:1: ( '#endif' ( (lv_id_1_0= RULE_ID ) ) )
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:313:3: '#endif' ( (lv_id_1_0= RULE_ID ) )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:318:1: ( '#endif' ( (lv_id_1_0= RULE_ID ) ) )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:318:3: '#endif' ( (lv_id_1_0= RULE_ID ) )
             {
             match(input,15,FOLLOW_15_in_ruleConstantDefinitionEnd436); if (failed) return current;
             if ( backtracking==0 ) {
@@ -641,11 +646,11 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
                       createLeafNode(grammarAccess.getConstantDefinitionEndAccess().getEndifKeyword_0(), null); 
                   
             }
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:317:1: ( (lv_id_1_0= RULE_ID ) )
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:318:1: (lv_id_1_0= RULE_ID )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:322:1: ( (lv_id_1_0= RULE_ID ) )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:323:1: (lv_id_1_0= RULE_ID )
             {
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:318:1: (lv_id_1_0= RULE_ID )
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:319:3: lv_id_1_0= RULE_ID
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:323:1: (lv_id_1_0= RULE_ID )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:324:3: lv_id_1_0= RULE_ID
             {
             lv_id_1_0=(Token)input.LT(1);
             match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleConstantDefinitionEnd453); if (failed) return current;
@@ -703,7 +708,7 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start entryRuleTypeDefinition
-    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:351:1: entryRuleTypeDefinition returns [EObject current=null] : iv_ruleTypeDefinition= ruleTypeDefinition EOF ;
+    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:356:1: entryRuleTypeDefinition returns [EObject current=null] : iv_ruleTypeDefinition= ruleTypeDefinition EOF ;
     public final EObject entryRuleTypeDefinition() throws RecognitionException {
         EObject current = null;
 
@@ -711,8 +716,8 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:352:2: (iv_ruleTypeDefinition= ruleTypeDefinition EOF )
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:353:2: iv_ruleTypeDefinition= ruleTypeDefinition EOF
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:357:2: (iv_ruleTypeDefinition= ruleTypeDefinition EOF )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:358:2: iv_ruleTypeDefinition= ruleTypeDefinition EOF
             {
             if ( backtracking==0 ) {
                currentNode = createCompositeNode(grammarAccess.getTypeDefinitionRule(), currentNode); 
@@ -742,7 +747,7 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start ruleTypeDefinition
-    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:360:1: ruleTypeDefinition returns [EObject current=null] : ( (this_TypedefSpecification_0= ruleTypedefSpecification | this_StructOrUnionSpecification_1= ruleStructOrUnionSpecification | this_EnumSpecification_2= ruleEnumSpecification ) ';' ) ;
+    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:365:1: ruleTypeDefinition returns [EObject current=null] : ( (this_TypedefSpecification_0= ruleTypedefSpecification | this_StructOrUnionSpecification_1= ruleStructOrUnionSpecification | this_EnumSpecification_2= ruleEnumSpecification ) ';' ) ;
     public final EObject ruleTypeDefinition() throws RecognitionException {
         EObject current = null;
 
@@ -756,13 +761,13 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
          @SuppressWarnings("unused") EObject temp=null; setCurrentLookahead(); resetLookahead(); 
             
         try {
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:365:6: ( ( (this_TypedefSpecification_0= ruleTypedefSpecification | this_StructOrUnionSpecification_1= ruleStructOrUnionSpecification | this_EnumSpecification_2= ruleEnumSpecification ) ';' ) )
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:366:1: ( (this_TypedefSpecification_0= ruleTypedefSpecification | this_StructOrUnionSpecification_1= ruleStructOrUnionSpecification | this_EnumSpecification_2= ruleEnumSpecification ) ';' )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:370:6: ( ( (this_TypedefSpecification_0= ruleTypedefSpecification | this_StructOrUnionSpecification_1= ruleStructOrUnionSpecification | this_EnumSpecification_2= ruleEnumSpecification ) ';' ) )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:371:1: ( (this_TypedefSpecification_0= ruleTypedefSpecification | this_StructOrUnionSpecification_1= ruleStructOrUnionSpecification | this_EnumSpecification_2= ruleEnumSpecification ) ';' )
             {
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:366:1: ( (this_TypedefSpecification_0= ruleTypedefSpecification | this_StructOrUnionSpecification_1= ruleStructOrUnionSpecification | this_EnumSpecification_2= ruleEnumSpecification ) ';' )
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:366:2: (this_TypedefSpecification_0= ruleTypedefSpecification | this_StructOrUnionSpecification_1= ruleStructOrUnionSpecification | this_EnumSpecification_2= ruleEnumSpecification ) ';'
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:371:1: ( (this_TypedefSpecification_0= ruleTypedefSpecification | this_StructOrUnionSpecification_1= ruleStructOrUnionSpecification | this_EnumSpecification_2= ruleEnumSpecification ) ';' )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:371:2: (this_TypedefSpecification_0= ruleTypedefSpecification | this_StructOrUnionSpecification_1= ruleStructOrUnionSpecification | this_EnumSpecification_2= ruleEnumSpecification ) ';'
             {
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:366:2: (this_TypedefSpecification_0= ruleTypedefSpecification | this_StructOrUnionSpecification_1= ruleStructOrUnionSpecification | this_EnumSpecification_2= ruleEnumSpecification )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:371:2: (this_TypedefSpecification_0= ruleTypedefSpecification | this_StructOrUnionSpecification_1= ruleStructOrUnionSpecification | this_EnumSpecification_2= ruleEnumSpecification )
             int alt3=3;
             switch ( input.LA(1) ) {
             case 17:
@@ -784,14 +789,14 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
             default:
                 if (backtracking>0) {failed=true; return current;}
                 NoViableAltException nvae =
-                    new NoViableAltException("366:2: (this_TypedefSpecification_0= ruleTypedefSpecification | this_StructOrUnionSpecification_1= ruleStructOrUnionSpecification | this_EnumSpecification_2= ruleEnumSpecification )", 3, 0, input);
+                    new NoViableAltException("371:2: (this_TypedefSpecification_0= ruleTypedefSpecification | this_StructOrUnionSpecification_1= ruleStructOrUnionSpecification | this_EnumSpecification_2= ruleEnumSpecification )", 3, 0, input);
 
                 throw nvae;
             }
 
             switch (alt3) {
                 case 1 :
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:367:2: this_TypedefSpecification_0= ruleTypedefSpecification
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:372:2: this_TypedefSpecification_0= ruleTypedefSpecification
                     {
                     if ( backtracking==0 ) {
                        
@@ -817,7 +822,7 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:380:2: this_StructOrUnionSpecification_1= ruleStructOrUnionSpecification
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:385:2: this_StructOrUnionSpecification_1= ruleStructOrUnionSpecification
                     {
                     if ( backtracking==0 ) {
                        
@@ -843,7 +848,7 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 3 :
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:393:2: this_EnumSpecification_2= ruleEnumSpecification
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:398:2: this_EnumSpecification_2= ruleEnumSpecification
                     {
                     if ( backtracking==0 ) {
                        
@@ -902,7 +907,7 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start entryRuleTypedefSpecification
-    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:416:1: entryRuleTypedefSpecification returns [EObject current=null] : iv_ruleTypedefSpecification= ruleTypedefSpecification EOF ;
+    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:421:1: entryRuleTypedefSpecification returns [EObject current=null] : iv_ruleTypedefSpecification= ruleTypedefSpecification EOF ;
     public final EObject entryRuleTypedefSpecification() throws RecognitionException {
         EObject current = null;
 
@@ -910,8 +915,8 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:417:2: (iv_ruleTypedefSpecification= ruleTypedefSpecification EOF )
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:418:2: iv_ruleTypedefSpecification= ruleTypedefSpecification EOF
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:422:2: (iv_ruleTypedefSpecification= ruleTypedefSpecification EOF )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:423:2: iv_ruleTypedefSpecification= ruleTypedefSpecification EOF
             {
             if ( backtracking==0 ) {
                currentNode = createCompositeNode(grammarAccess.getTypedefSpecificationRule(), currentNode); 
@@ -941,7 +946,7 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start ruleTypedefSpecification
-    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:425:1: ruleTypedefSpecification returns [EObject current=null] : ( 'typedef' ( (lv_qualifedType_1_0= ruleQualifiedTypeSpecification ) ) ( (lv_dec_2_0= ruleDeclarators ) ) ) ;
+    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:430:1: ruleTypedefSpecification returns [EObject current=null] : ( 'typedef' ( (lv_qualifedType_1_0= ruleQualifiedTypeSpecification ) ) ( (lv_dec_2_0= ruleDeclarators ) ) ) ;
     public final EObject ruleTypedefSpecification() throws RecognitionException {
         EObject current = null;
 
@@ -953,11 +958,11 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
          @SuppressWarnings("unused") EObject temp=null; setCurrentLookahead(); resetLookahead(); 
             
         try {
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:430:6: ( ( 'typedef' ( (lv_qualifedType_1_0= ruleQualifiedTypeSpecification ) ) ( (lv_dec_2_0= ruleDeclarators ) ) ) )
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:431:1: ( 'typedef' ( (lv_qualifedType_1_0= ruleQualifiedTypeSpecification ) ) ( (lv_dec_2_0= ruleDeclarators ) ) )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:435:6: ( ( 'typedef' ( (lv_qualifedType_1_0= ruleQualifiedTypeSpecification ) ) ( (lv_dec_2_0= ruleDeclarators ) ) ) )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:436:1: ( 'typedef' ( (lv_qualifedType_1_0= ruleQualifiedTypeSpecification ) ) ( (lv_dec_2_0= ruleDeclarators ) ) )
             {
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:431:1: ( 'typedef' ( (lv_qualifedType_1_0= ruleQualifiedTypeSpecification ) ) ( (lv_dec_2_0= ruleDeclarators ) ) )
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:431:3: 'typedef' ( (lv_qualifedType_1_0= ruleQualifiedTypeSpecification ) ) ( (lv_dec_2_0= ruleDeclarators ) )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:436:1: ( 'typedef' ( (lv_qualifedType_1_0= ruleQualifiedTypeSpecification ) ) ( (lv_dec_2_0= ruleDeclarators ) ) )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:436:3: 'typedef' ( (lv_qualifedType_1_0= ruleQualifiedTypeSpecification ) ) ( (lv_dec_2_0= ruleDeclarators ) )
             {
             match(input,17,FOLLOW_17_in_ruleTypedefSpecification708); if (failed) return current;
             if ( backtracking==0 ) {
@@ -965,11 +970,11 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
                       createLeafNode(grammarAccess.getTypedefSpecificationAccess().getTypedefKeyword_0(), null); 
                   
             }
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:435:1: ( (lv_qualifedType_1_0= ruleQualifiedTypeSpecification ) )
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:436:1: (lv_qualifedType_1_0= ruleQualifiedTypeSpecification )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:440:1: ( (lv_qualifedType_1_0= ruleQualifiedTypeSpecification ) )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:441:1: (lv_qualifedType_1_0= ruleQualifiedTypeSpecification )
             {
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:436:1: (lv_qualifedType_1_0= ruleQualifiedTypeSpecification )
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:437:3: lv_qualifedType_1_0= ruleQualifiedTypeSpecification
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:441:1: (lv_qualifedType_1_0= ruleQualifiedTypeSpecification )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:442:3: lv_qualifedType_1_0= ruleQualifiedTypeSpecification
             {
             if ( backtracking==0 ) {
                
@@ -1005,11 +1010,11 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:459:2: ( (lv_dec_2_0= ruleDeclarators ) )
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:460:1: (lv_dec_2_0= ruleDeclarators )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:464:2: ( (lv_dec_2_0= ruleDeclarators ) )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:465:1: (lv_dec_2_0= ruleDeclarators )
             {
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:460:1: (lv_dec_2_0= ruleDeclarators )
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:461:3: lv_dec_2_0= ruleDeclarators
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:465:1: (lv_dec_2_0= ruleDeclarators )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:466:3: lv_dec_2_0= ruleDeclarators
             {
             if ( backtracking==0 ) {
                
@@ -1070,7 +1075,7 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start entryRuleQualifiedTypeSpecification
-    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:491:1: entryRuleQualifiedTypeSpecification returns [EObject current=null] : iv_ruleQualifiedTypeSpecification= ruleQualifiedTypeSpecification EOF ;
+    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:496:1: entryRuleQualifiedTypeSpecification returns [EObject current=null] : iv_ruleQualifiedTypeSpecification= ruleQualifiedTypeSpecification EOF ;
     public final EObject entryRuleQualifiedTypeSpecification() throws RecognitionException {
         EObject current = null;
 
@@ -1078,8 +1083,8 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:492:2: (iv_ruleQualifiedTypeSpecification= ruleQualifiedTypeSpecification EOF )
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:493:2: iv_ruleQualifiedTypeSpecification= ruleQualifiedTypeSpecification EOF
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:497:2: (iv_ruleQualifiedTypeSpecification= ruleQualifiedTypeSpecification EOF )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:498:2: iv_ruleQualifiedTypeSpecification= ruleQualifiedTypeSpecification EOF
             {
             if ( backtracking==0 ) {
                currentNode = createCompositeNode(grammarAccess.getQualifiedTypeSpecificationRule(), currentNode); 
@@ -1109,7 +1114,7 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start ruleQualifiedTypeSpecification
-    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:500:1: ruleQualifiedTypeSpecification returns [EObject current=null] : ( ( (lv_typeQualifier_0_0= ruleTypeQualifier ) )* ( (lv_typeSpec_1_0= ruleTypeSpecification ) ) ) ;
+    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:505:1: ruleQualifiedTypeSpecification returns [EObject current=null] : ( ( (lv_typeQualifier_0_0= ruleTypeQualifier ) )* ( (lv_typeSpec_1_0= ruleTypeSpecification ) ) ) ;
     public final EObject ruleQualifiedTypeSpecification() throws RecognitionException {
         EObject current = null;
 
@@ -1121,13 +1126,13 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
          @SuppressWarnings("unused") EObject temp=null; setCurrentLookahead(); resetLookahead(); 
             
         try {
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:505:6: ( ( ( (lv_typeQualifier_0_0= ruleTypeQualifier ) )* ( (lv_typeSpec_1_0= ruleTypeSpecification ) ) ) )
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:506:1: ( ( (lv_typeQualifier_0_0= ruleTypeQualifier ) )* ( (lv_typeSpec_1_0= ruleTypeSpecification ) ) )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:510:6: ( ( ( (lv_typeQualifier_0_0= ruleTypeQualifier ) )* ( (lv_typeSpec_1_0= ruleTypeSpecification ) ) ) )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:511:1: ( ( (lv_typeQualifier_0_0= ruleTypeQualifier ) )* ( (lv_typeSpec_1_0= ruleTypeSpecification ) ) )
             {
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:506:1: ( ( (lv_typeQualifier_0_0= ruleTypeQualifier ) )* ( (lv_typeSpec_1_0= ruleTypeSpecification ) ) )
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:506:2: ( (lv_typeQualifier_0_0= ruleTypeQualifier ) )* ( (lv_typeSpec_1_0= ruleTypeSpecification ) )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:511:1: ( ( (lv_typeQualifier_0_0= ruleTypeQualifier ) )* ( (lv_typeSpec_1_0= ruleTypeSpecification ) ) )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:511:2: ( (lv_typeQualifier_0_0= ruleTypeQualifier ) )* ( (lv_typeSpec_1_0= ruleTypeSpecification ) )
             {
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:506:2: ( (lv_typeQualifier_0_0= ruleTypeQualifier ) )*
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:511:2: ( (lv_typeQualifier_0_0= ruleTypeQualifier ) )*
             loop4:
             do {
                 int alt4=2;
@@ -1140,10 +1145,10 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
 
                 switch (alt4) {
             	case 1 :
-            	    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:507:1: (lv_typeQualifier_0_0= ruleTypeQualifier )
+            	    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:512:1: (lv_typeQualifier_0_0= ruleTypeQualifier )
             	    {
-            	    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:507:1: (lv_typeQualifier_0_0= ruleTypeQualifier )
-            	    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:508:3: lv_typeQualifier_0_0= ruleTypeQualifier
+            	    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:512:1: (lv_typeQualifier_0_0= ruleTypeQualifier )
+            	    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:513:3: lv_typeQualifier_0_0= ruleTypeQualifier
             	    {
             	    if ( backtracking==0 ) {
             	       
@@ -1185,11 +1190,11 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
                 }
             } while (true);
 
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:530:3: ( (lv_typeSpec_1_0= ruleTypeSpecification ) )
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:531:1: (lv_typeSpec_1_0= ruleTypeSpecification )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:535:3: ( (lv_typeSpec_1_0= ruleTypeSpecification ) )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:536:1: (lv_typeSpec_1_0= ruleTypeSpecification )
             {
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:531:1: (lv_typeSpec_1_0= ruleTypeSpecification )
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:532:3: lv_typeSpec_1_0= ruleTypeSpecification
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:536:1: (lv_typeSpec_1_0= ruleTypeSpecification )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:537:3: lv_typeSpec_1_0= ruleTypeSpecification
             {
             if ( backtracking==0 ) {
                
@@ -1250,7 +1255,7 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start entryRuleTypeSpecification
-    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:562:1: entryRuleTypeSpecification returns [EObject current=null] : iv_ruleTypeSpecification= ruleTypeSpecification EOF ;
+    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:567:1: entryRuleTypeSpecification returns [EObject current=null] : iv_ruleTypeSpecification= ruleTypeSpecification EOF ;
     public final EObject entryRuleTypeSpecification() throws RecognitionException {
         EObject current = null;
 
@@ -1258,8 +1263,8 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:563:2: (iv_ruleTypeSpecification= ruleTypeSpecification EOF )
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:564:2: iv_ruleTypeSpecification= ruleTypeSpecification EOF
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:568:2: (iv_ruleTypeSpecification= ruleTypeSpecification EOF )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:569:2: iv_ruleTypeSpecification= ruleTypeSpecification EOF
             {
             if ( backtracking==0 ) {
                currentNode = createCompositeNode(grammarAccess.getTypeSpecificationRule(), currentNode); 
@@ -1289,7 +1294,7 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start ruleTypeSpecification
-    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:571:1: ruleTypeSpecification returns [EObject current=null] : ( ( (lv_typeDefName_0_0= ruleTypedefName ) ) | this_StructOrUnionSpecification_1= ruleStructOrUnionSpecification | this_EnumSpecification_2= ruleEnumSpecification | ( (lv_typeSpecifier_3_0= ruleTypeSpecifier ) )+ ) ;
+    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:576:1: ruleTypeSpecification returns [EObject current=null] : ( ( (lv_typeDefName_0_0= ruleTypedefName ) ) | this_StructOrUnionSpecification_1= ruleStructOrUnionSpecification | this_EnumSpecification_2= ruleEnumSpecification | ( (lv_typeSpecifier_3_0= ruleTypeSpecifier ) )+ ) ;
     public final EObject ruleTypeSpecification() throws RecognitionException {
         EObject current = null;
 
@@ -1305,10 +1310,10 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
          @SuppressWarnings("unused") EObject temp=null; setCurrentLookahead(); resetLookahead(); 
             
         try {
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:576:6: ( ( ( (lv_typeDefName_0_0= ruleTypedefName ) ) | this_StructOrUnionSpecification_1= ruleStructOrUnionSpecification | this_EnumSpecification_2= ruleEnumSpecification | ( (lv_typeSpecifier_3_0= ruleTypeSpecifier ) )+ ) )
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:577:1: ( ( (lv_typeDefName_0_0= ruleTypedefName ) ) | this_StructOrUnionSpecification_1= ruleStructOrUnionSpecification | this_EnumSpecification_2= ruleEnumSpecification | ( (lv_typeSpecifier_3_0= ruleTypeSpecifier ) )+ )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:581:6: ( ( ( (lv_typeDefName_0_0= ruleTypedefName ) ) | this_StructOrUnionSpecification_1= ruleStructOrUnionSpecification | this_EnumSpecification_2= ruleEnumSpecification | ( (lv_typeSpecifier_3_0= ruleTypeSpecifier ) )+ ) )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:582:1: ( ( (lv_typeDefName_0_0= ruleTypedefName ) ) | this_StructOrUnionSpecification_1= ruleStructOrUnionSpecification | this_EnumSpecification_2= ruleEnumSpecification | ( (lv_typeSpecifier_3_0= ruleTypeSpecifier ) )+ )
             {
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:577:1: ( ( (lv_typeDefName_0_0= ruleTypedefName ) ) | this_StructOrUnionSpecification_1= ruleStructOrUnionSpecification | this_EnumSpecification_2= ruleEnumSpecification | ( (lv_typeSpecifier_3_0= ruleTypeSpecifier ) )+ )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:582:1: ( ( (lv_typeDefName_0_0= ruleTypedefName ) ) | this_StructOrUnionSpecification_1= ruleStructOrUnionSpecification | this_EnumSpecification_2= ruleEnumSpecification | ( (lv_typeSpecifier_3_0= ruleTypeSpecifier ) )+ )
             int alt6=4;
             switch ( input.LA(1) ) {
             case RULE_ID:
@@ -1354,20 +1359,20 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
             default:
                 if (backtracking>0) {failed=true; return current;}
                 NoViableAltException nvae =
-                    new NoViableAltException("577:1: ( ( (lv_typeDefName_0_0= ruleTypedefName ) ) | this_StructOrUnionSpecification_1= ruleStructOrUnionSpecification | this_EnumSpecification_2= ruleEnumSpecification | ( (lv_typeSpecifier_3_0= ruleTypeSpecifier ) )+ )", 6, 0, input);
+                    new NoViableAltException("582:1: ( ( (lv_typeDefName_0_0= ruleTypedefName ) ) | this_StructOrUnionSpecification_1= ruleStructOrUnionSpecification | this_EnumSpecification_2= ruleEnumSpecification | ( (lv_typeSpecifier_3_0= ruleTypeSpecifier ) )+ )", 6, 0, input);
 
                 throw nvae;
             }
 
             switch (alt6) {
                 case 1 :
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:577:2: ( (lv_typeDefName_0_0= ruleTypedefName ) )
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:582:2: ( (lv_typeDefName_0_0= ruleTypedefName ) )
                     {
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:577:2: ( (lv_typeDefName_0_0= ruleTypedefName ) )
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:578:1: (lv_typeDefName_0_0= ruleTypedefName )
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:582:2: ( (lv_typeDefName_0_0= ruleTypedefName ) )
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:583:1: (lv_typeDefName_0_0= ruleTypedefName )
                     {
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:578:1: (lv_typeDefName_0_0= ruleTypedefName )
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:579:3: lv_typeDefName_0_0= ruleTypedefName
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:583:1: (lv_typeDefName_0_0= ruleTypedefName )
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:584:3: lv_typeDefName_0_0= ruleTypedefName
                     {
                     if ( backtracking==0 ) {
                        
@@ -1407,7 +1412,7 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:603:2: this_StructOrUnionSpecification_1= ruleStructOrUnionSpecification
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:608:2: this_StructOrUnionSpecification_1= ruleStructOrUnionSpecification
                     {
                     if ( backtracking==0 ) {
                        
@@ -1433,7 +1438,7 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 3 :
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:616:2: this_EnumSpecification_2= ruleEnumSpecification
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:621:2: this_EnumSpecification_2= ruleEnumSpecification
                     {
                     if ( backtracking==0 ) {
                        
@@ -1459,9 +1464,9 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 4 :
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:628:6: ( (lv_typeSpecifier_3_0= ruleTypeSpecifier ) )+
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:633:6: ( (lv_typeSpecifier_3_0= ruleTypeSpecifier ) )+
                     {
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:628:6: ( (lv_typeSpecifier_3_0= ruleTypeSpecifier ) )+
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:633:6: ( (lv_typeSpecifier_3_0= ruleTypeSpecifier ) )+
                     int cnt5=0;
                     loop5:
                     do {
@@ -1475,10 +1480,10 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
 
                         switch (alt5) {
                     	case 1 :
-                    	    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:629:1: (lv_typeSpecifier_3_0= ruleTypeSpecifier )
+                    	    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:634:1: (lv_typeSpecifier_3_0= ruleTypeSpecifier )
                     	    {
-                    	    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:629:1: (lv_typeSpecifier_3_0= ruleTypeSpecifier )
-                    	    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:630:3: lv_typeSpecifier_3_0= ruleTypeSpecifier
+                    	    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:634:1: (lv_typeSpecifier_3_0= ruleTypeSpecifier )
+                    	    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:635:3: lv_typeSpecifier_3_0= ruleTypeSpecifier
                     	    {
                     	    if ( backtracking==0 ) {
                     	       
@@ -1553,7 +1558,7 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start entryRuleTypedefName
-    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:660:1: entryRuleTypedefName returns [String current=null] : iv_ruleTypedefName= ruleTypedefName EOF ;
+    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:665:1: entryRuleTypedefName returns [String current=null] : iv_ruleTypedefName= ruleTypedefName EOF ;
     public final String entryRuleTypedefName() throws RecognitionException {
         String current = null;
 
@@ -1561,8 +1566,8 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:661:2: (iv_ruleTypedefName= ruleTypedefName EOF )
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:662:2: iv_ruleTypedefName= ruleTypedefName EOF
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:666:2: (iv_ruleTypedefName= ruleTypedefName EOF )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:667:2: iv_ruleTypedefName= ruleTypedefName EOF
             {
             if ( backtracking==0 ) {
                currentNode = createCompositeNode(grammarAccess.getTypedefNameRule(), currentNode); 
@@ -1592,7 +1597,7 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start ruleTypedefName
-    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:669:1: ruleTypedefName returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : this_FullyQualifiedName_0= ruleFullyQualifiedName ;
+    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:674:1: ruleTypedefName returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : this_FullyQualifiedName_0= ruleFullyQualifiedName ;
     public final AntlrDatatypeRuleToken ruleTypedefName() throws RecognitionException {
         AntlrDatatypeRuleToken current = new AntlrDatatypeRuleToken();
 
@@ -1602,8 +1607,8 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
          setCurrentLookahead(); resetLookahead(); 
             
         try {
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:674:6: (this_FullyQualifiedName_0= ruleFullyQualifiedName )
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:676:5: this_FullyQualifiedName_0= ruleFullyQualifiedName
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:679:6: (this_FullyQualifiedName_0= ruleFullyQualifiedName )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:681:5: this_FullyQualifiedName_0= ruleFullyQualifiedName
             {
             if ( backtracking==0 ) {
                
@@ -1646,7 +1651,7 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start entryRuleStructOrUnionSpecification
-    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:694:1: entryRuleStructOrUnionSpecification returns [EObject current=null] : iv_ruleStructOrUnionSpecification= ruleStructOrUnionSpecification EOF ;
+    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:699:1: entryRuleStructOrUnionSpecification returns [EObject current=null] : iv_ruleStructOrUnionSpecification= ruleStructOrUnionSpecification EOF ;
     public final EObject entryRuleStructOrUnionSpecification() throws RecognitionException {
         EObject current = null;
 
@@ -1654,8 +1659,8 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:695:2: (iv_ruleStructOrUnionSpecification= ruleStructOrUnionSpecification EOF )
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:696:2: iv_ruleStructOrUnionSpecification= ruleStructOrUnionSpecification EOF
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:700:2: (iv_ruleStructOrUnionSpecification= ruleStructOrUnionSpecification EOF )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:701:2: iv_ruleStructOrUnionSpecification= ruleStructOrUnionSpecification EOF
             {
             if ( backtracking==0 ) {
                currentNode = createCompositeNode(grammarAccess.getStructOrUnionSpecificationRule(), currentNode); 
@@ -1685,7 +1690,7 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start ruleStructOrUnionSpecification
-    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:703:1: ruleStructOrUnionSpecification returns [EObject current=null] : (this_StructOrUnionDefinition_0= ruleStructOrUnionDefinition | this_StructorUnionReference_1= ruleStructorUnionReference ) ;
+    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:708:1: ruleStructOrUnionSpecification returns [EObject current=null] : (this_StructOrUnionDefinition_0= ruleStructOrUnionDefinition | this_StructorUnionReference_1= ruleStructorUnionReference ) ;
     public final EObject ruleStructOrUnionSpecification() throws RecognitionException {
         EObject current = null;
 
@@ -1697,10 +1702,10 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
          @SuppressWarnings("unused") EObject temp=null; setCurrentLookahead(); resetLookahead(); 
             
         try {
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:708:6: ( (this_StructOrUnionDefinition_0= ruleStructOrUnionDefinition | this_StructorUnionReference_1= ruleStructorUnionReference ) )
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:709:1: (this_StructOrUnionDefinition_0= ruleStructOrUnionDefinition | this_StructorUnionReference_1= ruleStructorUnionReference )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:713:6: ( (this_StructOrUnionDefinition_0= ruleStructOrUnionDefinition | this_StructorUnionReference_1= ruleStructorUnionReference ) )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:714:1: (this_StructOrUnionDefinition_0= ruleStructOrUnionDefinition | this_StructorUnionReference_1= ruleStructorUnionReference )
             {
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:709:1: (this_StructOrUnionDefinition_0= ruleStructOrUnionDefinition | this_StructorUnionReference_1= ruleStructorUnionReference )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:714:1: (this_StructOrUnionDefinition_0= ruleStructOrUnionDefinition | this_StructorUnionReference_1= ruleStructorUnionReference )
             int alt7=2;
             int LA7_0 = input.LA(1);
 
@@ -1710,16 +1715,16 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
                 if ( (LA7_1==RULE_ID) ) {
                     int LA7_3 = input.LA(3);
 
-                    if ( (LA7_3==EOF||LA7_3==RULE_ID||LA7_3==16||LA7_3==24||(LA7_3>=26 && LA7_3<=28)) ) {
-                        alt7=2;
-                    }
-                    else if ( (LA7_3==18) ) {
+                    if ( (LA7_3==18) ) {
                         alt7=1;
+                    }
+                    else if ( (LA7_3==EOF||LA7_3==RULE_ID||LA7_3==16||LA7_3==24||(LA7_3>=26 && LA7_3<=28)) ) {
+                        alt7=2;
                     }
                     else {
                         if (backtracking>0) {failed=true; return current;}
                         NoViableAltException nvae =
-                            new NoViableAltException("709:1: (this_StructOrUnionDefinition_0= ruleStructOrUnionDefinition | this_StructorUnionReference_1= ruleStructorUnionReference )", 7, 3, input);
+                            new NoViableAltException("714:1: (this_StructOrUnionDefinition_0= ruleStructOrUnionDefinition | this_StructorUnionReference_1= ruleStructorUnionReference )", 7, 3, input);
 
                         throw nvae;
                     }
@@ -1730,7 +1735,7 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
                 else {
                     if (backtracking>0) {failed=true; return current;}
                     NoViableAltException nvae =
-                        new NoViableAltException("709:1: (this_StructOrUnionDefinition_0= ruleStructOrUnionDefinition | this_StructorUnionReference_1= ruleStructorUnionReference )", 7, 1, input);
+                        new NoViableAltException("714:1: (this_StructOrUnionDefinition_0= ruleStructOrUnionDefinition | this_StructorUnionReference_1= ruleStructorUnionReference )", 7, 1, input);
 
                     throw nvae;
                 }
@@ -1741,16 +1746,16 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
                 if ( (LA7_2==RULE_ID) ) {
                     int LA7_3 = input.LA(3);
 
-                    if ( (LA7_3==EOF||LA7_3==RULE_ID||LA7_3==16||LA7_3==24||(LA7_3>=26 && LA7_3<=28)) ) {
-                        alt7=2;
-                    }
-                    else if ( (LA7_3==18) ) {
+                    if ( (LA7_3==18) ) {
                         alt7=1;
+                    }
+                    else if ( (LA7_3==EOF||LA7_3==RULE_ID||LA7_3==16||LA7_3==24||(LA7_3>=26 && LA7_3<=28)) ) {
+                        alt7=2;
                     }
                     else {
                         if (backtracking>0) {failed=true; return current;}
                         NoViableAltException nvae =
-                            new NoViableAltException("709:1: (this_StructOrUnionDefinition_0= ruleStructOrUnionDefinition | this_StructorUnionReference_1= ruleStructorUnionReference )", 7, 3, input);
+                            new NoViableAltException("714:1: (this_StructOrUnionDefinition_0= ruleStructOrUnionDefinition | this_StructorUnionReference_1= ruleStructorUnionReference )", 7, 3, input);
 
                         throw nvae;
                     }
@@ -1761,7 +1766,7 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
                 else {
                     if (backtracking>0) {failed=true; return current;}
                     NoViableAltException nvae =
-                        new NoViableAltException("709:1: (this_StructOrUnionDefinition_0= ruleStructOrUnionDefinition | this_StructorUnionReference_1= ruleStructorUnionReference )", 7, 2, input);
+                        new NoViableAltException("714:1: (this_StructOrUnionDefinition_0= ruleStructOrUnionDefinition | this_StructorUnionReference_1= ruleStructorUnionReference )", 7, 2, input);
 
                     throw nvae;
                 }
@@ -1769,13 +1774,13 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
             else {
                 if (backtracking>0) {failed=true; return current;}
                 NoViableAltException nvae =
-                    new NoViableAltException("709:1: (this_StructOrUnionDefinition_0= ruleStructOrUnionDefinition | this_StructorUnionReference_1= ruleStructorUnionReference )", 7, 0, input);
+                    new NoViableAltException("714:1: (this_StructOrUnionDefinition_0= ruleStructOrUnionDefinition | this_StructorUnionReference_1= ruleStructorUnionReference )", 7, 0, input);
 
                 throw nvae;
             }
             switch (alt7) {
                 case 1 :
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:710:2: this_StructOrUnionDefinition_0= ruleStructOrUnionDefinition
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:715:2: this_StructOrUnionDefinition_0= ruleStructOrUnionDefinition
                     {
                     if ( backtracking==0 ) {
                        
@@ -1801,7 +1806,7 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:723:2: this_StructorUnionReference_1= ruleStructorUnionReference
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:728:2: this_StructorUnionReference_1= ruleStructorUnionReference
                     {
                     if ( backtracking==0 ) {
                        
@@ -1851,7 +1856,7 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start entryRuleStructOrUnionDefinition
-    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:742:1: entryRuleStructOrUnionDefinition returns [EObject current=null] : iv_ruleStructOrUnionDefinition= ruleStructOrUnionDefinition EOF ;
+    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:747:1: entryRuleStructOrUnionDefinition returns [EObject current=null] : iv_ruleStructOrUnionDefinition= ruleStructOrUnionDefinition EOF ;
     public final EObject entryRuleStructOrUnionDefinition() throws RecognitionException {
         EObject current = null;
 
@@ -1859,8 +1864,8 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:743:2: (iv_ruleStructOrUnionDefinition= ruleStructOrUnionDefinition EOF )
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:744:2: iv_ruleStructOrUnionDefinition= ruleStructOrUnionDefinition EOF
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:748:2: (iv_ruleStructOrUnionDefinition= ruleStructOrUnionDefinition EOF )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:749:2: iv_ruleStructOrUnionDefinition= ruleStructOrUnionDefinition EOF
             {
             if ( backtracking==0 ) {
                currentNode = createCompositeNode(grammarAccess.getStructOrUnionDefinitionRule(), currentNode); 
@@ -1890,7 +1895,7 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start ruleStructOrUnionDefinition
-    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:751:1: ruleStructOrUnionDefinition returns [EObject current=null] : ( ( (lv_struct_0_0= ruleStructOrUnion ) ) ( (lv_id_1_0= RULE_ID ) )? '{' ( (lv_structMember_3_0= ruleStructMember ) )* '}' ) ;
+    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:756:1: ruleStructOrUnionDefinition returns [EObject current=null] : ( ( (lv_struct_0_0= ruleStructOrUnion ) ) ( (lv_id_1_0= RULE_ID ) )? '{' ( (lv_structMember_3_0= ruleStructMember ) )* '}' ) ;
     public final EObject ruleStructOrUnionDefinition() throws RecognitionException {
         EObject current = null;
 
@@ -1903,17 +1908,17 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
          @SuppressWarnings("unused") EObject temp=null; setCurrentLookahead(); resetLookahead(); 
             
         try {
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:756:6: ( ( ( (lv_struct_0_0= ruleStructOrUnion ) ) ( (lv_id_1_0= RULE_ID ) )? '{' ( (lv_structMember_3_0= ruleStructMember ) )* '}' ) )
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:757:1: ( ( (lv_struct_0_0= ruleStructOrUnion ) ) ( (lv_id_1_0= RULE_ID ) )? '{' ( (lv_structMember_3_0= ruleStructMember ) )* '}' )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:761:6: ( ( ( (lv_struct_0_0= ruleStructOrUnion ) ) ( (lv_id_1_0= RULE_ID ) )? '{' ( (lv_structMember_3_0= ruleStructMember ) )* '}' ) )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:762:1: ( ( (lv_struct_0_0= ruleStructOrUnion ) ) ( (lv_id_1_0= RULE_ID ) )? '{' ( (lv_structMember_3_0= ruleStructMember ) )* '}' )
             {
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:757:1: ( ( (lv_struct_0_0= ruleStructOrUnion ) ) ( (lv_id_1_0= RULE_ID ) )? '{' ( (lv_structMember_3_0= ruleStructMember ) )* '}' )
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:757:2: ( (lv_struct_0_0= ruleStructOrUnion ) ) ( (lv_id_1_0= RULE_ID ) )? '{' ( (lv_structMember_3_0= ruleStructMember ) )* '}'
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:762:1: ( ( (lv_struct_0_0= ruleStructOrUnion ) ) ( (lv_id_1_0= RULE_ID ) )? '{' ( (lv_structMember_3_0= ruleStructMember ) )* '}' )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:762:2: ( (lv_struct_0_0= ruleStructOrUnion ) ) ( (lv_id_1_0= RULE_ID ) )? '{' ( (lv_structMember_3_0= ruleStructMember ) )* '}'
             {
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:757:2: ( (lv_struct_0_0= ruleStructOrUnion ) )
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:758:1: (lv_struct_0_0= ruleStructOrUnion )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:762:2: ( (lv_struct_0_0= ruleStructOrUnion ) )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:763:1: (lv_struct_0_0= ruleStructOrUnion )
             {
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:758:1: (lv_struct_0_0= ruleStructOrUnion )
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:759:3: lv_struct_0_0= ruleStructOrUnion
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:763:1: (lv_struct_0_0= ruleStructOrUnion )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:764:3: lv_struct_0_0= ruleStructOrUnion
             {
             if ( backtracking==0 ) {
                
@@ -1949,7 +1954,7 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:781:2: ( (lv_id_1_0= RULE_ID ) )?
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:786:2: ( (lv_id_1_0= RULE_ID ) )?
             int alt8=2;
             int LA8_0 = input.LA(1);
 
@@ -1958,10 +1963,10 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
             }
             switch (alt8) {
                 case 1 :
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:782:1: (lv_id_1_0= RULE_ID )
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:787:1: (lv_id_1_0= RULE_ID )
                     {
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:782:1: (lv_id_1_0= RULE_ID )
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:783:3: lv_id_1_0= RULE_ID
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:787:1: (lv_id_1_0= RULE_ID )
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:788:3: lv_id_1_0= RULE_ID
                     {
                     lv_id_1_0=(Token)input.LT(1);
                     match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleStructOrUnionDefinition1380); if (failed) return current;
@@ -2003,7 +2008,7 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
                       createLeafNode(grammarAccess.getStructOrUnionDefinitionAccess().getLeftCurlyBracketKeyword_2(), null); 
                   
             }
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:809:1: ( (lv_structMember_3_0= ruleStructMember ) )*
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:814:1: ( (lv_structMember_3_0= ruleStructMember ) )*
             loop9:
             do {
                 int alt9=2;
@@ -2016,10 +2021,10 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
 
                 switch (alt9) {
             	case 1 :
-            	    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:810:1: (lv_structMember_3_0= ruleStructMember )
+            	    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:815:1: (lv_structMember_3_0= ruleStructMember )
             	    {
-            	    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:810:1: (lv_structMember_3_0= ruleStructMember )
-            	    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:811:3: lv_structMember_3_0= ruleStructMember
+            	    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:815:1: (lv_structMember_3_0= ruleStructMember )
+            	    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:816:3: lv_structMember_3_0= ruleStructMember
             	    {
             	    if ( backtracking==0 ) {
             	       
@@ -2092,7 +2097,7 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start entryRuleStructorUnionReference
-    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:845:1: entryRuleStructorUnionReference returns [EObject current=null] : iv_ruleStructorUnionReference= ruleStructorUnionReference EOF ;
+    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:850:1: entryRuleStructorUnionReference returns [EObject current=null] : iv_ruleStructorUnionReference= ruleStructorUnionReference EOF ;
     public final EObject entryRuleStructorUnionReference() throws RecognitionException {
         EObject current = null;
 
@@ -2100,8 +2105,8 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:846:2: (iv_ruleStructorUnionReference= ruleStructorUnionReference EOF )
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:847:2: iv_ruleStructorUnionReference= ruleStructorUnionReference EOF
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:851:2: (iv_ruleStructorUnionReference= ruleStructorUnionReference EOF )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:852:2: iv_ruleStructorUnionReference= ruleStructorUnionReference EOF
             {
             if ( backtracking==0 ) {
                currentNode = createCompositeNode(grammarAccess.getStructorUnionReferenceRule(), currentNode); 
@@ -2131,7 +2136,7 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start ruleStructorUnionReference
-    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:854:1: ruleStructorUnionReference returns [EObject current=null] : ( ( (lv_struct_0_0= ruleStructOrUnion ) ) ( (lv_id_1_0= RULE_ID ) ) ) ;
+    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:859:1: ruleStructorUnionReference returns [EObject current=null] : ( ( (lv_struct_0_0= ruleStructOrUnion ) ) ( (lv_id_1_0= RULE_ID ) ) ) ;
     public final EObject ruleStructorUnionReference() throws RecognitionException {
         EObject current = null;
 
@@ -2142,17 +2147,17 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
          @SuppressWarnings("unused") EObject temp=null; setCurrentLookahead(); resetLookahead(); 
             
         try {
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:859:6: ( ( ( (lv_struct_0_0= ruleStructOrUnion ) ) ( (lv_id_1_0= RULE_ID ) ) ) )
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:860:1: ( ( (lv_struct_0_0= ruleStructOrUnion ) ) ( (lv_id_1_0= RULE_ID ) ) )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:864:6: ( ( ( (lv_struct_0_0= ruleStructOrUnion ) ) ( (lv_id_1_0= RULE_ID ) ) ) )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:865:1: ( ( (lv_struct_0_0= ruleStructOrUnion ) ) ( (lv_id_1_0= RULE_ID ) ) )
             {
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:860:1: ( ( (lv_struct_0_0= ruleStructOrUnion ) ) ( (lv_id_1_0= RULE_ID ) ) )
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:860:2: ( (lv_struct_0_0= ruleStructOrUnion ) ) ( (lv_id_1_0= RULE_ID ) )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:865:1: ( ( (lv_struct_0_0= ruleStructOrUnion ) ) ( (lv_id_1_0= RULE_ID ) ) )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:865:2: ( (lv_struct_0_0= ruleStructOrUnion ) ) ( (lv_id_1_0= RULE_ID ) )
             {
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:860:2: ( (lv_struct_0_0= ruleStructOrUnion ) )
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:861:1: (lv_struct_0_0= ruleStructOrUnion )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:865:2: ( (lv_struct_0_0= ruleStructOrUnion ) )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:866:1: (lv_struct_0_0= ruleStructOrUnion )
             {
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:861:1: (lv_struct_0_0= ruleStructOrUnion )
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:862:3: lv_struct_0_0= ruleStructOrUnion
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:866:1: (lv_struct_0_0= ruleStructOrUnion )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:867:3: lv_struct_0_0= ruleStructOrUnion
             {
             if ( backtracking==0 ) {
                
@@ -2188,11 +2193,11 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:884:2: ( (lv_id_1_0= RULE_ID ) )
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:885:1: (lv_id_1_0= RULE_ID )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:889:2: ( (lv_id_1_0= RULE_ID ) )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:890:1: (lv_id_1_0= RULE_ID )
             {
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:885:1: (lv_id_1_0= RULE_ID )
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:886:3: lv_id_1_0= RULE_ID
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:890:1: (lv_id_1_0= RULE_ID )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:891:3: lv_id_1_0= RULE_ID
             {
             lv_id_1_0=(Token)input.LT(1);
             match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleStructorUnionReference1537); if (failed) return current;
@@ -2250,7 +2255,7 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start entryRuleStructOrUnion
-    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:916:1: entryRuleStructOrUnion returns [String current=null] : iv_ruleStructOrUnion= ruleStructOrUnion EOF ;
+    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:921:1: entryRuleStructOrUnion returns [String current=null] : iv_ruleStructOrUnion= ruleStructOrUnion EOF ;
     public final String entryRuleStructOrUnion() throws RecognitionException {
         String current = null;
 
@@ -2258,8 +2263,8 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:917:2: (iv_ruleStructOrUnion= ruleStructOrUnion EOF )
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:918:2: iv_ruleStructOrUnion= ruleStructOrUnion EOF
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:922:2: (iv_ruleStructOrUnion= ruleStructOrUnion EOF )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:923:2: iv_ruleStructOrUnion= ruleStructOrUnion EOF
             {
             if ( backtracking==0 ) {
                currentNode = createCompositeNode(grammarAccess.getStructOrUnionRule(), currentNode); 
@@ -2289,7 +2294,7 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start ruleStructOrUnion
-    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:925:1: ruleStructOrUnion returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (kw= 'struct' | kw= 'union' ) ;
+    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:930:1: ruleStructOrUnion returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (kw= 'struct' | kw= 'union' ) ;
     public final AntlrDatatypeRuleToken ruleStructOrUnion() throws RecognitionException {
         AntlrDatatypeRuleToken current = new AntlrDatatypeRuleToken();
 
@@ -2298,10 +2303,10 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
          setCurrentLookahead(); resetLookahead(); 
             
         try {
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:930:6: ( (kw= 'struct' | kw= 'union' ) )
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:931:1: (kw= 'struct' | kw= 'union' )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:935:6: ( (kw= 'struct' | kw= 'union' ) )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:936:1: (kw= 'struct' | kw= 'union' )
             {
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:931:1: (kw= 'struct' | kw= 'union' )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:936:1: (kw= 'struct' | kw= 'union' )
             int alt10=2;
             int LA10_0 = input.LA(1);
 
@@ -2314,13 +2319,13 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
             else {
                 if (backtracking>0) {failed=true; return current;}
                 NoViableAltException nvae =
-                    new NoViableAltException("931:1: (kw= 'struct' | kw= 'union' )", 10, 0, input);
+                    new NoViableAltException("936:1: (kw= 'struct' | kw= 'union' )", 10, 0, input);
 
                 throw nvae;
             }
             switch (alt10) {
                 case 1 :
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:932:2: kw= 'struct'
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:937:2: kw= 'struct'
                     {
                     kw=(Token)input.LT(1);
                     match(input,20,FOLLOW_20_in_ruleStructOrUnion1628); if (failed) return current;
@@ -2334,7 +2339,7 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:939:2: kw= 'union'
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:944:2: kw= 'union'
                     {
                     kw=(Token)input.LT(1);
                     match(input,21,FOLLOW_21_in_ruleStructOrUnion1647); if (failed) return current;
@@ -2372,7 +2377,7 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start entryRuleStructMember
-    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:952:1: entryRuleStructMember returns [EObject current=null] : iv_ruleStructMember= ruleStructMember EOF ;
+    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:957:1: entryRuleStructMember returns [EObject current=null] : iv_ruleStructMember= ruleStructMember EOF ;
     public final EObject entryRuleStructMember() throws RecognitionException {
         EObject current = null;
 
@@ -2380,8 +2385,8 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:953:2: (iv_ruleStructMember= ruleStructMember EOF )
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:954:2: iv_ruleStructMember= ruleStructMember EOF
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:958:2: (iv_ruleStructMember= ruleStructMember EOF )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:959:2: iv_ruleStructMember= ruleStructMember EOF
             {
             if ( backtracking==0 ) {
                currentNode = createCompositeNode(grammarAccess.getStructMemberRule(), currentNode); 
@@ -2411,7 +2416,7 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start ruleStructMember
-    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:961:1: ruleStructMember returns [EObject current=null] : ( ( (lv_annotations_0_0= ruleAnnotations ) ) ( (lv_qualType_1_0= ruleQualifiedTypeSpecification ) ) ( (lv_dec_2_0= ruleDeclarators ) ) ( ':' ( (lv_constExpr_4_0= ruleConstantExpression ) ) )? ';' ) ;
+    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:966:1: ruleStructMember returns [EObject current=null] : ( ( (lv_annotations_0_0= ruleAnnotations ) ) ( (lv_qualType_1_0= ruleQualifiedTypeSpecification ) ) ( (lv_dec_2_0= ruleDeclarators ) ) ( ':' ( (lv_constExpr_4_0= ruleConstantExpression ) ) )? ';' ) ;
     public final EObject ruleStructMember() throws RecognitionException {
         EObject current = null;
 
@@ -2427,17 +2432,17 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
          @SuppressWarnings("unused") EObject temp=null; setCurrentLookahead(); resetLookahead(); 
             
         try {
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:966:6: ( ( ( (lv_annotations_0_0= ruleAnnotations ) ) ( (lv_qualType_1_0= ruleQualifiedTypeSpecification ) ) ( (lv_dec_2_0= ruleDeclarators ) ) ( ':' ( (lv_constExpr_4_0= ruleConstantExpression ) ) )? ';' ) )
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:967:1: ( ( (lv_annotations_0_0= ruleAnnotations ) ) ( (lv_qualType_1_0= ruleQualifiedTypeSpecification ) ) ( (lv_dec_2_0= ruleDeclarators ) ) ( ':' ( (lv_constExpr_4_0= ruleConstantExpression ) ) )? ';' )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:971:6: ( ( ( (lv_annotations_0_0= ruleAnnotations ) ) ( (lv_qualType_1_0= ruleQualifiedTypeSpecification ) ) ( (lv_dec_2_0= ruleDeclarators ) ) ( ':' ( (lv_constExpr_4_0= ruleConstantExpression ) ) )? ';' ) )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:972:1: ( ( (lv_annotations_0_0= ruleAnnotations ) ) ( (lv_qualType_1_0= ruleQualifiedTypeSpecification ) ) ( (lv_dec_2_0= ruleDeclarators ) ) ( ':' ( (lv_constExpr_4_0= ruleConstantExpression ) ) )? ';' )
             {
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:967:1: ( ( (lv_annotations_0_0= ruleAnnotations ) ) ( (lv_qualType_1_0= ruleQualifiedTypeSpecification ) ) ( (lv_dec_2_0= ruleDeclarators ) ) ( ':' ( (lv_constExpr_4_0= ruleConstantExpression ) ) )? ';' )
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:967:2: ( (lv_annotations_0_0= ruleAnnotations ) ) ( (lv_qualType_1_0= ruleQualifiedTypeSpecification ) ) ( (lv_dec_2_0= ruleDeclarators ) ) ( ':' ( (lv_constExpr_4_0= ruleConstantExpression ) ) )? ';'
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:972:1: ( ( (lv_annotations_0_0= ruleAnnotations ) ) ( (lv_qualType_1_0= ruleQualifiedTypeSpecification ) ) ( (lv_dec_2_0= ruleDeclarators ) ) ( ':' ( (lv_constExpr_4_0= ruleConstantExpression ) ) )? ';' )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:972:2: ( (lv_annotations_0_0= ruleAnnotations ) ) ( (lv_qualType_1_0= ruleQualifiedTypeSpecification ) ) ( (lv_dec_2_0= ruleDeclarators ) ) ( ':' ( (lv_constExpr_4_0= ruleConstantExpression ) ) )? ';'
             {
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:967:2: ( (lv_annotations_0_0= ruleAnnotations ) )
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:968:1: (lv_annotations_0_0= ruleAnnotations )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:972:2: ( (lv_annotations_0_0= ruleAnnotations ) )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:973:1: (lv_annotations_0_0= ruleAnnotations )
             {
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:968:1: (lv_annotations_0_0= ruleAnnotations )
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:969:3: lv_annotations_0_0= ruleAnnotations
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:973:1: (lv_annotations_0_0= ruleAnnotations )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:974:3: lv_annotations_0_0= ruleAnnotations
             {
             if ( backtracking==0 ) {
                
@@ -2473,11 +2478,11 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:991:2: ( (lv_qualType_1_0= ruleQualifiedTypeSpecification ) )
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:992:1: (lv_qualType_1_0= ruleQualifiedTypeSpecification )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:996:2: ( (lv_qualType_1_0= ruleQualifiedTypeSpecification ) )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:997:1: (lv_qualType_1_0= ruleQualifiedTypeSpecification )
             {
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:992:1: (lv_qualType_1_0= ruleQualifiedTypeSpecification )
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:993:3: lv_qualType_1_0= ruleQualifiedTypeSpecification
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:997:1: (lv_qualType_1_0= ruleQualifiedTypeSpecification )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:998:3: lv_qualType_1_0= ruleQualifiedTypeSpecification
             {
             if ( backtracking==0 ) {
                
@@ -2513,11 +2518,11 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1015:2: ( (lv_dec_2_0= ruleDeclarators ) )
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1016:1: (lv_dec_2_0= ruleDeclarators )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1020:2: ( (lv_dec_2_0= ruleDeclarators ) )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1021:1: (lv_dec_2_0= ruleDeclarators )
             {
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1016:1: (lv_dec_2_0= ruleDeclarators )
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1017:3: lv_dec_2_0= ruleDeclarators
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1021:1: (lv_dec_2_0= ruleDeclarators )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1022:3: lv_dec_2_0= ruleDeclarators
             {
             if ( backtracking==0 ) {
                
@@ -2553,7 +2558,7 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1039:2: ( ':' ( (lv_constExpr_4_0= ruleConstantExpression ) ) )?
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1044:2: ( ':' ( (lv_constExpr_4_0= ruleConstantExpression ) ) )?
             int alt11=2;
             int LA11_0 = input.LA(1);
 
@@ -2562,7 +2567,7 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
             }
             switch (alt11) {
                 case 1 :
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1039:4: ':' ( (lv_constExpr_4_0= ruleConstantExpression ) )
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1044:4: ':' ( (lv_constExpr_4_0= ruleConstantExpression ) )
                     {
                     match(input,22,FOLLOW_22_in_ruleStructMember1796); if (failed) return current;
                     if ( backtracking==0 ) {
@@ -2570,11 +2575,11 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
                               createLeafNode(grammarAccess.getStructMemberAccess().getColonKeyword_3_0(), null); 
                           
                     }
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1043:1: ( (lv_constExpr_4_0= ruleConstantExpression ) )
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1044:1: (lv_constExpr_4_0= ruleConstantExpression )
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1048:1: ( (lv_constExpr_4_0= ruleConstantExpression ) )
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1049:1: (lv_constExpr_4_0= ruleConstantExpression )
                     {
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1044:1: (lv_constExpr_4_0= ruleConstantExpression )
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1045:3: lv_constExpr_4_0= ruleConstantExpression
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1049:1: (lv_constExpr_4_0= ruleConstantExpression )
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1050:3: lv_constExpr_4_0= ruleConstantExpression
                     {
                     if ( backtracking==0 ) {
                        
@@ -2647,7 +2652,7 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start entryRuleEnumSpecification
-    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1079:1: entryRuleEnumSpecification returns [EObject current=null] : iv_ruleEnumSpecification= ruleEnumSpecification EOF ;
+    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1084:1: entryRuleEnumSpecification returns [EObject current=null] : iv_ruleEnumSpecification= ruleEnumSpecification EOF ;
     public final EObject entryRuleEnumSpecification() throws RecognitionException {
         EObject current = null;
 
@@ -2655,8 +2660,8 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1080:2: (iv_ruleEnumSpecification= ruleEnumSpecification EOF )
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1081:2: iv_ruleEnumSpecification= ruleEnumSpecification EOF
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1085:2: (iv_ruleEnumSpecification= ruleEnumSpecification EOF )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1086:2: iv_ruleEnumSpecification= ruleEnumSpecification EOF
             {
             if ( backtracking==0 ) {
                currentNode = createCompositeNode(grammarAccess.getEnumSpecificationRule(), currentNode); 
@@ -2686,7 +2691,7 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start ruleEnumSpecification
-    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1088:1: ruleEnumSpecification returns [EObject current=null] : (this_EnumDefinition_0= ruleEnumDefinition | this_EnumReference_1= ruleEnumReference ) ;
+    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1093:1: ruleEnumSpecification returns [EObject current=null] : (this_EnumDefinition_0= ruleEnumDefinition | this_EnumReference_1= ruleEnumReference ) ;
     public final EObject ruleEnumSpecification() throws RecognitionException {
         EObject current = null;
 
@@ -2698,10 +2703,10 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
          @SuppressWarnings("unused") EObject temp=null; setCurrentLookahead(); resetLookahead(); 
             
         try {
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1093:6: ( (this_EnumDefinition_0= ruleEnumDefinition | this_EnumReference_1= ruleEnumReference ) )
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1094:1: (this_EnumDefinition_0= ruleEnumDefinition | this_EnumReference_1= ruleEnumReference )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1098:6: ( (this_EnumDefinition_0= ruleEnumDefinition | this_EnumReference_1= ruleEnumReference ) )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1099:1: (this_EnumDefinition_0= ruleEnumDefinition | this_EnumReference_1= ruleEnumReference )
             {
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1094:1: (this_EnumDefinition_0= ruleEnumDefinition | this_EnumReference_1= ruleEnumReference )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1099:1: (this_EnumDefinition_0= ruleEnumDefinition | this_EnumReference_1= ruleEnumReference )
             int alt12=2;
             int LA12_0 = input.LA(1);
 
@@ -2720,7 +2725,7 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
                     else {
                         if (backtracking>0) {failed=true; return current;}
                         NoViableAltException nvae =
-                            new NoViableAltException("1094:1: (this_EnumDefinition_0= ruleEnumDefinition | this_EnumReference_1= ruleEnumReference )", 12, 2, input);
+                            new NoViableAltException("1099:1: (this_EnumDefinition_0= ruleEnumDefinition | this_EnumReference_1= ruleEnumReference )", 12, 2, input);
 
                         throw nvae;
                     }
@@ -2731,7 +2736,7 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
                 else {
                     if (backtracking>0) {failed=true; return current;}
                     NoViableAltException nvae =
-                        new NoViableAltException("1094:1: (this_EnumDefinition_0= ruleEnumDefinition | this_EnumReference_1= ruleEnumReference )", 12, 1, input);
+                        new NoViableAltException("1099:1: (this_EnumDefinition_0= ruleEnumDefinition | this_EnumReference_1= ruleEnumReference )", 12, 1, input);
 
                     throw nvae;
                 }
@@ -2739,13 +2744,13 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
             else {
                 if (backtracking>0) {failed=true; return current;}
                 NoViableAltException nvae =
-                    new NoViableAltException("1094:1: (this_EnumDefinition_0= ruleEnumDefinition | this_EnumReference_1= ruleEnumReference )", 12, 0, input);
+                    new NoViableAltException("1099:1: (this_EnumDefinition_0= ruleEnumDefinition | this_EnumReference_1= ruleEnumReference )", 12, 0, input);
 
                 throw nvae;
             }
             switch (alt12) {
                 case 1 :
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1095:2: this_EnumDefinition_0= ruleEnumDefinition
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1100:2: this_EnumDefinition_0= ruleEnumDefinition
                     {
                     if ( backtracking==0 ) {
                        
@@ -2771,7 +2776,7 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1108:2: this_EnumReference_1= ruleEnumReference
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1113:2: this_EnumReference_1= ruleEnumReference
                     {
                     if ( backtracking==0 ) {
                        
@@ -2821,7 +2826,7 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start entryRuleEnumDefinition
-    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1127:1: entryRuleEnumDefinition returns [EObject current=null] : iv_ruleEnumDefinition= ruleEnumDefinition EOF ;
+    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1132:1: entryRuleEnumDefinition returns [EObject current=null] : iv_ruleEnumDefinition= ruleEnumDefinition EOF ;
     public final EObject entryRuleEnumDefinition() throws RecognitionException {
         EObject current = null;
 
@@ -2829,8 +2834,8 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1128:2: (iv_ruleEnumDefinition= ruleEnumDefinition EOF )
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1129:2: iv_ruleEnumDefinition= ruleEnumDefinition EOF
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1133:2: (iv_ruleEnumDefinition= ruleEnumDefinition EOF )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1134:2: iv_ruleEnumDefinition= ruleEnumDefinition EOF
             {
             if ( backtracking==0 ) {
                currentNode = createCompositeNode(grammarAccess.getEnumDefinitionRule(), currentNode); 
@@ -2860,7 +2865,7 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start ruleEnumDefinition
-    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1136:1: ruleEnumDefinition returns [EObject current=null] : ( 'enum' ( (lv_id_1_0= RULE_ID ) )? '{' ( (lv_enumMemberList_3_0= ruleEnumMemberList ) ) '}' ) ;
+    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1141:1: ruleEnumDefinition returns [EObject current=null] : ( 'enum' ( (lv_id_1_0= RULE_ID ) )? '{' ( (lv_enumMemberList_3_0= ruleEnumMemberList ) ) '}' ) ;
     public final EObject ruleEnumDefinition() throws RecognitionException {
         EObject current = null;
 
@@ -2871,11 +2876,11 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
          @SuppressWarnings("unused") EObject temp=null; setCurrentLookahead(); resetLookahead(); 
             
         try {
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1141:6: ( ( 'enum' ( (lv_id_1_0= RULE_ID ) )? '{' ( (lv_enumMemberList_3_0= ruleEnumMemberList ) ) '}' ) )
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1142:1: ( 'enum' ( (lv_id_1_0= RULE_ID ) )? '{' ( (lv_enumMemberList_3_0= ruleEnumMemberList ) ) '}' )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1146:6: ( ( 'enum' ( (lv_id_1_0= RULE_ID ) )? '{' ( (lv_enumMemberList_3_0= ruleEnumMemberList ) ) '}' ) )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1147:1: ( 'enum' ( (lv_id_1_0= RULE_ID ) )? '{' ( (lv_enumMemberList_3_0= ruleEnumMemberList ) ) '}' )
             {
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1142:1: ( 'enum' ( (lv_id_1_0= RULE_ID ) )? '{' ( (lv_enumMemberList_3_0= ruleEnumMemberList ) ) '}' )
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1142:3: 'enum' ( (lv_id_1_0= RULE_ID ) )? '{' ( (lv_enumMemberList_3_0= ruleEnumMemberList ) ) '}'
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1147:1: ( 'enum' ( (lv_id_1_0= RULE_ID ) )? '{' ( (lv_enumMemberList_3_0= ruleEnumMemberList ) ) '}' )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1147:3: 'enum' ( (lv_id_1_0= RULE_ID ) )? '{' ( (lv_enumMemberList_3_0= ruleEnumMemberList ) ) '}'
             {
             match(input,23,FOLLOW_23_in_ruleEnumDefinition2035); if (failed) return current;
             if ( backtracking==0 ) {
@@ -2883,7 +2888,7 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
                       createLeafNode(grammarAccess.getEnumDefinitionAccess().getEnumKeyword_0(), null); 
                   
             }
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1146:1: ( (lv_id_1_0= RULE_ID ) )?
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1151:1: ( (lv_id_1_0= RULE_ID ) )?
             int alt13=2;
             int LA13_0 = input.LA(1);
 
@@ -2892,10 +2897,10 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
             }
             switch (alt13) {
                 case 1 :
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1147:1: (lv_id_1_0= RULE_ID )
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1152:1: (lv_id_1_0= RULE_ID )
                     {
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1147:1: (lv_id_1_0= RULE_ID )
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1148:3: lv_id_1_0= RULE_ID
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1152:1: (lv_id_1_0= RULE_ID )
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1153:3: lv_id_1_0= RULE_ID
                     {
                     lv_id_1_0=(Token)input.LT(1);
                     match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleEnumDefinition2052); if (failed) return current;
@@ -2937,11 +2942,11 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
                       createLeafNode(grammarAccess.getEnumDefinitionAccess().getLeftCurlyBracketKeyword_2(), null); 
                   
             }
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1174:1: ( (lv_enumMemberList_3_0= ruleEnumMemberList ) )
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1175:1: (lv_enumMemberList_3_0= ruleEnumMemberList )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1179:1: ( (lv_enumMemberList_3_0= ruleEnumMemberList ) )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1180:1: (lv_enumMemberList_3_0= ruleEnumMemberList )
             {
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1175:1: (lv_enumMemberList_3_0= ruleEnumMemberList )
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1176:3: lv_enumMemberList_3_0= ruleEnumMemberList
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1180:1: (lv_enumMemberList_3_0= ruleEnumMemberList )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1181:3: lv_enumMemberList_3_0= ruleEnumMemberList
             {
             if ( backtracking==0 ) {
                
@@ -3008,7 +3013,7 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start entryRuleEnumReference
-    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1210:1: entryRuleEnumReference returns [EObject current=null] : iv_ruleEnumReference= ruleEnumReference EOF ;
+    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1215:1: entryRuleEnumReference returns [EObject current=null] : iv_ruleEnumReference= ruleEnumReference EOF ;
     public final EObject entryRuleEnumReference() throws RecognitionException {
         EObject current = null;
 
@@ -3016,8 +3021,8 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1211:2: (iv_ruleEnumReference= ruleEnumReference EOF )
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1212:2: iv_ruleEnumReference= ruleEnumReference EOF
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1216:2: (iv_ruleEnumReference= ruleEnumReference EOF )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1217:2: iv_ruleEnumReference= ruleEnumReference EOF
             {
             if ( backtracking==0 ) {
                currentNode = createCompositeNode(grammarAccess.getEnumReferenceRule(), currentNode); 
@@ -3047,7 +3052,7 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start ruleEnumReference
-    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1219:1: ruleEnumReference returns [EObject current=null] : ( 'enum' ( (lv_id_1_0= RULE_ID ) ) ) ;
+    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1224:1: ruleEnumReference returns [EObject current=null] : ( 'enum' ( (lv_id_1_0= RULE_ID ) ) ) ;
     public final EObject ruleEnumReference() throws RecognitionException {
         EObject current = null;
 
@@ -3056,11 +3061,11 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
          @SuppressWarnings("unused") EObject temp=null; setCurrentLookahead(); resetLookahead(); 
             
         try {
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1224:6: ( ( 'enum' ( (lv_id_1_0= RULE_ID ) ) ) )
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1225:1: ( 'enum' ( (lv_id_1_0= RULE_ID ) ) )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1229:6: ( ( 'enum' ( (lv_id_1_0= RULE_ID ) ) ) )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1230:1: ( 'enum' ( (lv_id_1_0= RULE_ID ) ) )
             {
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1225:1: ( 'enum' ( (lv_id_1_0= RULE_ID ) ) )
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1225:3: 'enum' ( (lv_id_1_0= RULE_ID ) )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1230:1: ( 'enum' ( (lv_id_1_0= RULE_ID ) ) )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1230:3: 'enum' ( (lv_id_1_0= RULE_ID ) )
             {
             match(input,23,FOLLOW_23_in_ruleEnumReference2180); if (failed) return current;
             if ( backtracking==0 ) {
@@ -3068,11 +3073,11 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
                       createLeafNode(grammarAccess.getEnumReferenceAccess().getEnumKeyword_0(), null); 
                   
             }
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1229:1: ( (lv_id_1_0= RULE_ID ) )
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1230:1: (lv_id_1_0= RULE_ID )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1234:1: ( (lv_id_1_0= RULE_ID ) )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1235:1: (lv_id_1_0= RULE_ID )
             {
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1230:1: (lv_id_1_0= RULE_ID )
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1231:3: lv_id_1_0= RULE_ID
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1235:1: (lv_id_1_0= RULE_ID )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1236:3: lv_id_1_0= RULE_ID
             {
             lv_id_1_0=(Token)input.LT(1);
             match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleEnumReference2197); if (failed) return current;
@@ -3130,7 +3135,7 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start entryRuleEnumMemberList
-    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1261:1: entryRuleEnumMemberList returns [EObject current=null] : iv_ruleEnumMemberList= ruleEnumMemberList EOF ;
+    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1266:1: entryRuleEnumMemberList returns [EObject current=null] : iv_ruleEnumMemberList= ruleEnumMemberList EOF ;
     public final EObject entryRuleEnumMemberList() throws RecognitionException {
         EObject current = null;
 
@@ -3138,8 +3143,8 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1262:2: (iv_ruleEnumMemberList= ruleEnumMemberList EOF )
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1263:2: iv_ruleEnumMemberList= ruleEnumMemberList EOF
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1267:2: (iv_ruleEnumMemberList= ruleEnumMemberList EOF )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1268:2: iv_ruleEnumMemberList= ruleEnumMemberList EOF
             {
             if ( backtracking==0 ) {
                currentNode = createCompositeNode(grammarAccess.getEnumMemberListRule(), currentNode); 
@@ -3169,7 +3174,7 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start ruleEnumMemberList
-    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1270:1: ruleEnumMemberList returns [EObject current=null] : (this_EnumMember_0= ruleEnumMember ( ',' ( (lv_enumMember_2_0= ruleEnumMember ) ) )* ) ;
+    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1275:1: ruleEnumMemberList returns [EObject current=null] : (this_EnumMember_0= ruleEnumMember ( ',' ( (lv_enumMember_2_0= ruleEnumMember ) ) )* ) ;
     public final EObject ruleEnumMemberList() throws RecognitionException {
         EObject current = null;
 
@@ -3181,11 +3186,11 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
          @SuppressWarnings("unused") EObject temp=null; setCurrentLookahead(); resetLookahead(); 
             
         try {
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1275:6: ( (this_EnumMember_0= ruleEnumMember ( ',' ( (lv_enumMember_2_0= ruleEnumMember ) ) )* ) )
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1276:1: (this_EnumMember_0= ruleEnumMember ( ',' ( (lv_enumMember_2_0= ruleEnumMember ) ) )* )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1280:6: ( (this_EnumMember_0= ruleEnumMember ( ',' ( (lv_enumMember_2_0= ruleEnumMember ) ) )* ) )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1281:1: (this_EnumMember_0= ruleEnumMember ( ',' ( (lv_enumMember_2_0= ruleEnumMember ) ) )* )
             {
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1276:1: (this_EnumMember_0= ruleEnumMember ( ',' ( (lv_enumMember_2_0= ruleEnumMember ) ) )* )
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1277:2: this_EnumMember_0= ruleEnumMember ( ',' ( (lv_enumMember_2_0= ruleEnumMember ) ) )*
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1281:1: (this_EnumMember_0= ruleEnumMember ( ',' ( (lv_enumMember_2_0= ruleEnumMember ) ) )* )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1282:2: this_EnumMember_0= ruleEnumMember ( ',' ( (lv_enumMember_2_0= ruleEnumMember ) ) )*
             {
             if ( backtracking==0 ) {
                
@@ -3207,7 +3212,7 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
                       currentNode = currentNode.getParent();
                   
             }
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1288:1: ( ',' ( (lv_enumMember_2_0= ruleEnumMember ) ) )*
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1293:1: ( ',' ( (lv_enumMember_2_0= ruleEnumMember ) ) )*
             loop14:
             do {
                 int alt14=2;
@@ -3220,7 +3225,7 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
 
                 switch (alt14) {
             	case 1 :
-            	    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1288:3: ',' ( (lv_enumMember_2_0= ruleEnumMember ) )
+            	    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1293:3: ',' ( (lv_enumMember_2_0= ruleEnumMember ) )
             	    {
             	    match(input,24,FOLLOW_24_in_ruleEnumMemberList2308); if (failed) return current;
             	    if ( backtracking==0 ) {
@@ -3228,11 +3233,11 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
             	              createLeafNode(grammarAccess.getEnumMemberListAccess().getCommaKeyword_1_0(), null); 
             	          
             	    }
-            	    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1292:1: ( (lv_enumMember_2_0= ruleEnumMember ) )
-            	    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1293:1: (lv_enumMember_2_0= ruleEnumMember )
+            	    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1297:1: ( (lv_enumMember_2_0= ruleEnumMember ) )
+            	    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1298:1: (lv_enumMember_2_0= ruleEnumMember )
             	    {
-            	    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1293:1: (lv_enumMember_2_0= ruleEnumMember )
-            	    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1294:3: lv_enumMember_2_0= ruleEnumMember
+            	    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1298:1: (lv_enumMember_2_0= ruleEnumMember )
+            	    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1299:3: lv_enumMember_2_0= ruleEnumMember
             	    {
             	    if ( backtracking==0 ) {
             	       
@@ -3302,7 +3307,7 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start entryRuleEnumMember
-    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1324:1: entryRuleEnumMember returns [EObject current=null] : iv_ruleEnumMember= ruleEnumMember EOF ;
+    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1329:1: entryRuleEnumMember returns [EObject current=null] : iv_ruleEnumMember= ruleEnumMember EOF ;
     public final EObject entryRuleEnumMember() throws RecognitionException {
         EObject current = null;
 
@@ -3310,8 +3315,8 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1325:2: (iv_ruleEnumMember= ruleEnumMember EOF )
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1326:2: iv_ruleEnumMember= ruleEnumMember EOF
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1330:2: (iv_ruleEnumMember= ruleEnumMember EOF )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1331:2: iv_ruleEnumMember= ruleEnumMember EOF
             {
             if ( backtracking==0 ) {
                currentNode = createCompositeNode(grammarAccess.getEnumMemberRule(), currentNode); 
@@ -3341,7 +3346,7 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start ruleEnumMember
-    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1333:1: ruleEnumMember returns [EObject current=null] : ( ( (lv_annotations_0_0= ruleAnnotations ) ) ( (lv_id_1_0= RULE_ID ) ) ( '=' ( (lv_constExpr_3_0= ruleConstantExpression ) ) )? ) ;
+    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1338:1: ruleEnumMember returns [EObject current=null] : ( ( (lv_annotations_0_0= ruleAnnotations ) ) ( (lv_id_1_0= RULE_ID ) ) ( '=' ( (lv_constExpr_3_0= ruleConstantExpression ) ) )? ) ;
     public final EObject ruleEnumMember() throws RecognitionException {
         EObject current = null;
 
@@ -3354,17 +3359,17 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
          @SuppressWarnings("unused") EObject temp=null; setCurrentLookahead(); resetLookahead(); 
             
         try {
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1338:6: ( ( ( (lv_annotations_0_0= ruleAnnotations ) ) ( (lv_id_1_0= RULE_ID ) ) ( '=' ( (lv_constExpr_3_0= ruleConstantExpression ) ) )? ) )
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1339:1: ( ( (lv_annotations_0_0= ruleAnnotations ) ) ( (lv_id_1_0= RULE_ID ) ) ( '=' ( (lv_constExpr_3_0= ruleConstantExpression ) ) )? )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1343:6: ( ( ( (lv_annotations_0_0= ruleAnnotations ) ) ( (lv_id_1_0= RULE_ID ) ) ( '=' ( (lv_constExpr_3_0= ruleConstantExpression ) ) )? ) )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1344:1: ( ( (lv_annotations_0_0= ruleAnnotations ) ) ( (lv_id_1_0= RULE_ID ) ) ( '=' ( (lv_constExpr_3_0= ruleConstantExpression ) ) )? )
             {
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1339:1: ( ( (lv_annotations_0_0= ruleAnnotations ) ) ( (lv_id_1_0= RULE_ID ) ) ( '=' ( (lv_constExpr_3_0= ruleConstantExpression ) ) )? )
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1339:2: ( (lv_annotations_0_0= ruleAnnotations ) ) ( (lv_id_1_0= RULE_ID ) ) ( '=' ( (lv_constExpr_3_0= ruleConstantExpression ) ) )?
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1344:1: ( ( (lv_annotations_0_0= ruleAnnotations ) ) ( (lv_id_1_0= RULE_ID ) ) ( '=' ( (lv_constExpr_3_0= ruleConstantExpression ) ) )? )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1344:2: ( (lv_annotations_0_0= ruleAnnotations ) ) ( (lv_id_1_0= RULE_ID ) ) ( '=' ( (lv_constExpr_3_0= ruleConstantExpression ) ) )?
             {
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1339:2: ( (lv_annotations_0_0= ruleAnnotations ) )
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1340:1: (lv_annotations_0_0= ruleAnnotations )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1344:2: ( (lv_annotations_0_0= ruleAnnotations ) )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1345:1: (lv_annotations_0_0= ruleAnnotations )
             {
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1340:1: (lv_annotations_0_0= ruleAnnotations )
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1341:3: lv_annotations_0_0= ruleAnnotations
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1345:1: (lv_annotations_0_0= ruleAnnotations )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1346:3: lv_annotations_0_0= ruleAnnotations
             {
             if ( backtracking==0 ) {
                
@@ -3400,11 +3405,11 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1363:2: ( (lv_id_1_0= RULE_ID ) )
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1364:1: (lv_id_1_0= RULE_ID )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1368:2: ( (lv_id_1_0= RULE_ID ) )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1369:1: (lv_id_1_0= RULE_ID )
             {
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1364:1: (lv_id_1_0= RULE_ID )
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1365:3: lv_id_1_0= RULE_ID
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1369:1: (lv_id_1_0= RULE_ID )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1370:3: lv_id_1_0= RULE_ID
             {
             lv_id_1_0=(Token)input.LT(1);
             match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleEnumMember2440); if (failed) return current;
@@ -3437,7 +3442,7 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1387:2: ( '=' ( (lv_constExpr_3_0= ruleConstantExpression ) ) )?
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1392:2: ( '=' ( (lv_constExpr_3_0= ruleConstantExpression ) ) )?
             int alt15=2;
             int LA15_0 = input.LA(1);
 
@@ -3446,7 +3451,7 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
             }
             switch (alt15) {
                 case 1 :
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1387:4: '=' ( (lv_constExpr_3_0= ruleConstantExpression ) )
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1392:4: '=' ( (lv_constExpr_3_0= ruleConstantExpression ) )
                     {
                     match(input,25,FOLLOW_25_in_ruleEnumMember2456); if (failed) return current;
                     if ( backtracking==0 ) {
@@ -3454,11 +3459,11 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
                               createLeafNode(grammarAccess.getEnumMemberAccess().getEqualsSignKeyword_2_0(), null); 
                           
                     }
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1391:1: ( (lv_constExpr_3_0= ruleConstantExpression ) )
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1392:1: (lv_constExpr_3_0= ruleConstantExpression )
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1396:1: ( (lv_constExpr_3_0= ruleConstantExpression ) )
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1397:1: (lv_constExpr_3_0= ruleConstantExpression )
                     {
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1392:1: (lv_constExpr_3_0= ruleConstantExpression )
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1393:3: lv_constExpr_3_0= ruleConstantExpression
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1397:1: (lv_constExpr_3_0= ruleConstantExpression )
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1398:3: lv_constExpr_3_0= ruleConstantExpression
                     {
                     if ( backtracking==0 ) {
                        
@@ -3525,7 +3530,7 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start entryRuleDeclarators
-    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1423:1: entryRuleDeclarators returns [EObject current=null] : iv_ruleDeclarators= ruleDeclarators EOF ;
+    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1428:1: entryRuleDeclarators returns [EObject current=null] : iv_ruleDeclarators= ruleDeclarators EOF ;
     public final EObject entryRuleDeclarators() throws RecognitionException {
         EObject current = null;
 
@@ -3533,8 +3538,8 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1424:2: (iv_ruleDeclarators= ruleDeclarators EOF )
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1425:2: iv_ruleDeclarators= ruleDeclarators EOF
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1429:2: (iv_ruleDeclarators= ruleDeclarators EOF )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1430:2: iv_ruleDeclarators= ruleDeclarators EOF
             {
             if ( backtracking==0 ) {
                currentNode = createCompositeNode(grammarAccess.getDeclaratorsRule(), currentNode); 
@@ -3564,7 +3569,7 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start ruleDeclarators
-    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1432:1: ruleDeclarators returns [EObject current=null] : ( ( (lv_dec_0_0= ruleDeclarator ) ) ( ',' ( (lv_declaratorList_2_0= ruleDeclarator ) ) )* ) ;
+    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1437:1: ruleDeclarators returns [EObject current=null] : ( ( (lv_dec_0_0= ruleDeclarator ) ) ( ',' ( (lv_declaratorList_2_0= ruleDeclarator ) ) )* ) ;
     public final EObject ruleDeclarators() throws RecognitionException {
         EObject current = null;
 
@@ -3576,17 +3581,17 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
          @SuppressWarnings("unused") EObject temp=null; setCurrentLookahead(); resetLookahead(); 
             
         try {
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1437:6: ( ( ( (lv_dec_0_0= ruleDeclarator ) ) ( ',' ( (lv_declaratorList_2_0= ruleDeclarator ) ) )* ) )
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1438:1: ( ( (lv_dec_0_0= ruleDeclarator ) ) ( ',' ( (lv_declaratorList_2_0= ruleDeclarator ) ) )* )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1442:6: ( ( ( (lv_dec_0_0= ruleDeclarator ) ) ( ',' ( (lv_declaratorList_2_0= ruleDeclarator ) ) )* ) )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1443:1: ( ( (lv_dec_0_0= ruleDeclarator ) ) ( ',' ( (lv_declaratorList_2_0= ruleDeclarator ) ) )* )
             {
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1438:1: ( ( (lv_dec_0_0= ruleDeclarator ) ) ( ',' ( (lv_declaratorList_2_0= ruleDeclarator ) ) )* )
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1438:2: ( (lv_dec_0_0= ruleDeclarator ) ) ( ',' ( (lv_declaratorList_2_0= ruleDeclarator ) ) )*
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1443:1: ( ( (lv_dec_0_0= ruleDeclarator ) ) ( ',' ( (lv_declaratorList_2_0= ruleDeclarator ) ) )* )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1443:2: ( (lv_dec_0_0= ruleDeclarator ) ) ( ',' ( (lv_declaratorList_2_0= ruleDeclarator ) ) )*
             {
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1438:2: ( (lv_dec_0_0= ruleDeclarator ) )
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1439:1: (lv_dec_0_0= ruleDeclarator )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1443:2: ( (lv_dec_0_0= ruleDeclarator ) )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1444:1: (lv_dec_0_0= ruleDeclarator )
             {
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1439:1: (lv_dec_0_0= ruleDeclarator )
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1440:3: lv_dec_0_0= ruleDeclarator
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1444:1: (lv_dec_0_0= ruleDeclarator )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1445:3: lv_dec_0_0= ruleDeclarator
             {
             if ( backtracking==0 ) {
                
@@ -3622,7 +3627,7 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1462:2: ( ',' ( (lv_declaratorList_2_0= ruleDeclarator ) ) )*
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1467:2: ( ',' ( (lv_declaratorList_2_0= ruleDeclarator ) ) )*
             loop16:
             do {
                 int alt16=2;
@@ -3635,7 +3640,7 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
 
                 switch (alt16) {
             	case 1 :
-            	    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1462:4: ',' ( (lv_declaratorList_2_0= ruleDeclarator ) )
+            	    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1467:4: ',' ( (lv_declaratorList_2_0= ruleDeclarator ) )
             	    {
             	    match(input,24,FOLLOW_24_in_ruleDeclarators2582); if (failed) return current;
             	    if ( backtracking==0 ) {
@@ -3643,11 +3648,11 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
             	              createLeafNode(grammarAccess.getDeclaratorsAccess().getCommaKeyword_1_0(), null); 
             	          
             	    }
-            	    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1466:1: ( (lv_declaratorList_2_0= ruleDeclarator ) )
-            	    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1467:1: (lv_declaratorList_2_0= ruleDeclarator )
+            	    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1471:1: ( (lv_declaratorList_2_0= ruleDeclarator ) )
+            	    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1472:1: (lv_declaratorList_2_0= ruleDeclarator )
             	    {
-            	    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1467:1: (lv_declaratorList_2_0= ruleDeclarator )
-            	    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1468:3: lv_declaratorList_2_0= ruleDeclarator
+            	    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1472:1: (lv_declaratorList_2_0= ruleDeclarator )
+            	    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1473:3: lv_declaratorList_2_0= ruleDeclarator
             	    {
             	    if ( backtracking==0 ) {
             	       
@@ -3717,7 +3722,7 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start entryRuleDeclarator
-    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1498:1: entryRuleDeclarator returns [EObject current=null] : iv_ruleDeclarator= ruleDeclarator EOF ;
+    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1503:1: entryRuleDeclarator returns [EObject current=null] : iv_ruleDeclarator= ruleDeclarator EOF ;
     public final EObject entryRuleDeclarator() throws RecognitionException {
         EObject current = null;
 
@@ -3725,8 +3730,8 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1499:2: (iv_ruleDeclarator= ruleDeclarator EOF )
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1500:2: iv_ruleDeclarator= ruleDeclarator EOF
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1504:2: (iv_ruleDeclarator= ruleDeclarator EOF )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1505:2: iv_ruleDeclarator= ruleDeclarator EOF
             {
             if ( backtracking==0 ) {
                currentNode = createCompositeNode(grammarAccess.getDeclaratorRule(), currentNode); 
@@ -3756,7 +3761,7 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start ruleDeclarator
-    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1507:1: ruleDeclarator returns [EObject current=null] : ( ( (lv_pointer_0_0= rulePointerSpecification ) ) ( (lv_dc_1_0= ruleDirectDeclarator ) ) ) ;
+    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1512:1: ruleDeclarator returns [EObject current=null] : ( ( (lv_pointer_0_0= rulePointerSpecification ) ) ( (lv_dc_1_0= ruleDirectDeclarator ) ) ) ;
     public final EObject ruleDeclarator() throws RecognitionException {
         EObject current = null;
 
@@ -3768,17 +3773,17 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
          @SuppressWarnings("unused") EObject temp=null; setCurrentLookahead(); resetLookahead(); 
             
         try {
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1512:6: ( ( ( (lv_pointer_0_0= rulePointerSpecification ) ) ( (lv_dc_1_0= ruleDirectDeclarator ) ) ) )
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1513:1: ( ( (lv_pointer_0_0= rulePointerSpecification ) ) ( (lv_dc_1_0= ruleDirectDeclarator ) ) )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1517:6: ( ( ( (lv_pointer_0_0= rulePointerSpecification ) ) ( (lv_dc_1_0= ruleDirectDeclarator ) ) ) )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1518:1: ( ( (lv_pointer_0_0= rulePointerSpecification ) ) ( (lv_dc_1_0= ruleDirectDeclarator ) ) )
             {
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1513:1: ( ( (lv_pointer_0_0= rulePointerSpecification ) ) ( (lv_dc_1_0= ruleDirectDeclarator ) ) )
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1513:2: ( (lv_pointer_0_0= rulePointerSpecification ) ) ( (lv_dc_1_0= ruleDirectDeclarator ) )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1518:1: ( ( (lv_pointer_0_0= rulePointerSpecification ) ) ( (lv_dc_1_0= ruleDirectDeclarator ) ) )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1518:2: ( (lv_pointer_0_0= rulePointerSpecification ) ) ( (lv_dc_1_0= ruleDirectDeclarator ) )
             {
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1513:2: ( (lv_pointer_0_0= rulePointerSpecification ) )
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1514:1: (lv_pointer_0_0= rulePointerSpecification )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1518:2: ( (lv_pointer_0_0= rulePointerSpecification ) )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1519:1: (lv_pointer_0_0= rulePointerSpecification )
             {
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1514:1: (lv_pointer_0_0= rulePointerSpecification )
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1515:3: lv_pointer_0_0= rulePointerSpecification
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1519:1: (lv_pointer_0_0= rulePointerSpecification )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1520:3: lv_pointer_0_0= rulePointerSpecification
             {
             if ( backtracking==0 ) {
                
@@ -3814,11 +3819,11 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1537:2: ( (lv_dc_1_0= ruleDirectDeclarator ) )
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1538:1: (lv_dc_1_0= ruleDirectDeclarator )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1542:2: ( (lv_dc_1_0= ruleDirectDeclarator ) )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1543:1: (lv_dc_1_0= ruleDirectDeclarator )
             {
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1538:1: (lv_dc_1_0= ruleDirectDeclarator )
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1539:3: lv_dc_1_0= ruleDirectDeclarator
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1543:1: (lv_dc_1_0= ruleDirectDeclarator )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1544:3: lv_dc_1_0= ruleDirectDeclarator
             {
             if ( backtracking==0 ) {
                
@@ -3879,7 +3884,7 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start entryRulePointerSpecification
-    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1569:1: entryRulePointerSpecification returns [EObject current=null] : iv_rulePointerSpecification= rulePointerSpecification EOF ;
+    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1574:1: entryRulePointerSpecification returns [EObject current=null] : iv_rulePointerSpecification= rulePointerSpecification EOF ;
     public final EObject entryRulePointerSpecification() throws RecognitionException {
         EObject current = null;
 
@@ -3887,8 +3892,8 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1570:2: (iv_rulePointerSpecification= rulePointerSpecification EOF )
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1571:2: iv_rulePointerSpecification= rulePointerSpecification EOF
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1575:2: (iv_rulePointerSpecification= rulePointerSpecification EOF )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1576:2: iv_rulePointerSpecification= rulePointerSpecification EOF
             {
             if ( backtracking==0 ) {
                currentNode = createCompositeNode(grammarAccess.getPointerSpecificationRule(), currentNode); 
@@ -3918,7 +3923,7 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start rulePointerSpecification
-    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1578:1: rulePointerSpecification returns [EObject current=null] : ( () ( (lv_qualifiedPointer_1_0= ruleQualified_PointerSpecification ) )* ) ;
+    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1583:1: rulePointerSpecification returns [EObject current=null] : ( () ( (lv_qualifiedPointer_1_0= ruleQualified_PointerSpecification ) )* ) ;
     public final EObject rulePointerSpecification() throws RecognitionException {
         EObject current = null;
 
@@ -3928,14 +3933,14 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
          @SuppressWarnings("unused") EObject temp=null; setCurrentLookahead(); resetLookahead(); 
             
         try {
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1583:6: ( ( () ( (lv_qualifiedPointer_1_0= ruleQualified_PointerSpecification ) )* ) )
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1584:1: ( () ( (lv_qualifiedPointer_1_0= ruleQualified_PointerSpecification ) )* )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1588:6: ( ( () ( (lv_qualifiedPointer_1_0= ruleQualified_PointerSpecification ) )* ) )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1589:1: ( () ( (lv_qualifiedPointer_1_0= ruleQualified_PointerSpecification ) )* )
             {
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1584:1: ( () ( (lv_qualifiedPointer_1_0= ruleQualified_PointerSpecification ) )* )
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1584:2: () ( (lv_qualifiedPointer_1_0= ruleQualified_PointerSpecification ) )*
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1589:1: ( () ( (lv_qualifiedPointer_1_0= ruleQualified_PointerSpecification ) )* )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1589:2: () ( (lv_qualifiedPointer_1_0= ruleQualified_PointerSpecification ) )*
             {
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1584:2: ()
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1585:2: 
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1589:2: ()
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1590:2: 
             {
             if ( backtracking==0 ) {
                
@@ -3957,7 +3962,7 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1598:2: ( (lv_qualifiedPointer_1_0= ruleQualified_PointerSpecification ) )*
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1603:2: ( (lv_qualifiedPointer_1_0= ruleQualified_PointerSpecification ) )*
             loop17:
             do {
                 int alt17=2;
@@ -3970,10 +3975,10 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
 
                 switch (alt17) {
             	case 1 :
-            	    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1599:1: (lv_qualifiedPointer_1_0= ruleQualified_PointerSpecification )
+            	    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1604:1: (lv_qualifiedPointer_1_0= ruleQualified_PointerSpecification )
             	    {
-            	    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1599:1: (lv_qualifiedPointer_1_0= ruleQualified_PointerSpecification )
-            	    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1600:3: lv_qualifiedPointer_1_0= ruleQualified_PointerSpecification
+            	    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1604:1: (lv_qualifiedPointer_1_0= ruleQualified_PointerSpecification )
+            	    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1605:3: lv_qualifiedPointer_1_0= ruleQualified_PointerSpecification
             	    {
             	    if ( backtracking==0 ) {
             	       
@@ -4040,7 +4045,7 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start entryRuleQualified_PointerSpecification
-    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1630:1: entryRuleQualified_PointerSpecification returns [EObject current=null] : iv_ruleQualified_PointerSpecification= ruleQualified_PointerSpecification EOF ;
+    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1635:1: entryRuleQualified_PointerSpecification returns [EObject current=null] : iv_ruleQualified_PointerSpecification= ruleQualified_PointerSpecification EOF ;
     public final EObject entryRuleQualified_PointerSpecification() throws RecognitionException {
         EObject current = null;
 
@@ -4048,8 +4053,8 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1631:2: (iv_ruleQualified_PointerSpecification= ruleQualified_PointerSpecification EOF )
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1632:2: iv_ruleQualified_PointerSpecification= ruleQualified_PointerSpecification EOF
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1636:2: (iv_ruleQualified_PointerSpecification= ruleQualified_PointerSpecification EOF )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1637:2: iv_ruleQualified_PointerSpecification= ruleQualified_PointerSpecification EOF
             {
             if ( backtracking==0 ) {
                currentNode = createCompositeNode(grammarAccess.getQualified_PointerSpecificationRule(), currentNode); 
@@ -4079,7 +4084,7 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start ruleQualified_PointerSpecification
-    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1639:1: ruleQualified_PointerSpecification returns [EObject current=null] : ( () '*' ( (lv_typeQualifier_2_0= ruleTypeQualifier ) )* ) ;
+    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1644:1: ruleQualified_PointerSpecification returns [EObject current=null] : ( () '*' ( (lv_typeQualifier_2_0= ruleTypeQualifier ) )* ) ;
     public final EObject ruleQualified_PointerSpecification() throws RecognitionException {
         EObject current = null;
 
@@ -4089,14 +4094,14 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
          @SuppressWarnings("unused") EObject temp=null; setCurrentLookahead(); resetLookahead(); 
             
         try {
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1644:6: ( ( () '*' ( (lv_typeQualifier_2_0= ruleTypeQualifier ) )* ) )
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1645:1: ( () '*' ( (lv_typeQualifier_2_0= ruleTypeQualifier ) )* )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1649:6: ( ( () '*' ( (lv_typeQualifier_2_0= ruleTypeQualifier ) )* ) )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1650:1: ( () '*' ( (lv_typeQualifier_2_0= ruleTypeQualifier ) )* )
             {
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1645:1: ( () '*' ( (lv_typeQualifier_2_0= ruleTypeQualifier ) )* )
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1645:2: () '*' ( (lv_typeQualifier_2_0= ruleTypeQualifier ) )*
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1650:1: ( () '*' ( (lv_typeQualifier_2_0= ruleTypeQualifier ) )* )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1650:2: () '*' ( (lv_typeQualifier_2_0= ruleTypeQualifier ) )*
             {
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1645:2: ()
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1646:2: 
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1650:2: ()
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1651:2: 
             {
             if ( backtracking==0 ) {
                
@@ -4124,7 +4129,7 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
                       createLeafNode(grammarAccess.getQualified_PointerSpecificationAccess().getAsteriskKeyword_1(), null); 
                   
             }
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1663:1: ( (lv_typeQualifier_2_0= ruleTypeQualifier ) )*
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1668:1: ( (lv_typeQualifier_2_0= ruleTypeQualifier ) )*
             loop18:
             do {
                 int alt18=2;
@@ -4137,10 +4142,10 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
 
                 switch (alt18) {
             	case 1 :
-            	    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1664:1: (lv_typeQualifier_2_0= ruleTypeQualifier )
+            	    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1669:1: (lv_typeQualifier_2_0= ruleTypeQualifier )
             	    {
-            	    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1664:1: (lv_typeQualifier_2_0= ruleTypeQualifier )
-            	    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1665:3: lv_typeQualifier_2_0= ruleTypeQualifier
+            	    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1669:1: (lv_typeQualifier_2_0= ruleTypeQualifier )
+            	    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1670:3: lv_typeQualifier_2_0= ruleTypeQualifier
             	    {
             	    if ( backtracking==0 ) {
             	       
@@ -4207,7 +4212,7 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start entryRuleDirectDeclarator
-    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1695:1: entryRuleDirectDeclarator returns [EObject current=null] : iv_ruleDirectDeclarator= ruleDirectDeclarator EOF ;
+    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1700:1: entryRuleDirectDeclarator returns [EObject current=null] : iv_ruleDirectDeclarator= ruleDirectDeclarator EOF ;
     public final EObject entryRuleDirectDeclarator() throws RecognitionException {
         EObject current = null;
 
@@ -4215,8 +4220,8 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1696:2: (iv_ruleDirectDeclarator= ruleDirectDeclarator EOF )
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1697:2: iv_ruleDirectDeclarator= ruleDirectDeclarator EOF
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1701:2: (iv_ruleDirectDeclarator= ruleDirectDeclarator EOF )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1702:2: iv_ruleDirectDeclarator= ruleDirectDeclarator EOF
             {
             if ( backtracking==0 ) {
                currentNode = createCompositeNode(grammarAccess.getDirectDeclaratorRule(), currentNode); 
@@ -4246,7 +4251,7 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start ruleDirectDeclarator
-    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1704:1: ruleDirectDeclarator returns [EObject current=null] : ( ( ( (lv_id_0_0= RULE_ID ) ) | ( '(' ( (lv_dec_2_0= ruleDeclarator ) ) ')' ) ) ( (lv_array_4_0= ruleArraySpecification ) )* ) ;
+    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1709:1: ruleDirectDeclarator returns [EObject current=null] : ( ( ( (lv_id_0_0= RULE_ID ) ) | ( '(' ( (lv_dec_2_0= ruleDeclarator ) ) ')' ) ) ( (lv_array_4_0= ruleArraySpecification ) )* ) ;
     public final EObject ruleDirectDeclarator() throws RecognitionException {
         EObject current = null;
 
@@ -4259,13 +4264,13 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
          @SuppressWarnings("unused") EObject temp=null; setCurrentLookahead(); resetLookahead(); 
             
         try {
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1709:6: ( ( ( ( (lv_id_0_0= RULE_ID ) ) | ( '(' ( (lv_dec_2_0= ruleDeclarator ) ) ')' ) ) ( (lv_array_4_0= ruleArraySpecification ) )* ) )
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1710:1: ( ( ( (lv_id_0_0= RULE_ID ) ) | ( '(' ( (lv_dec_2_0= ruleDeclarator ) ) ')' ) ) ( (lv_array_4_0= ruleArraySpecification ) )* )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1714:6: ( ( ( ( (lv_id_0_0= RULE_ID ) ) | ( '(' ( (lv_dec_2_0= ruleDeclarator ) ) ')' ) ) ( (lv_array_4_0= ruleArraySpecification ) )* ) )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1715:1: ( ( ( (lv_id_0_0= RULE_ID ) ) | ( '(' ( (lv_dec_2_0= ruleDeclarator ) ) ')' ) ) ( (lv_array_4_0= ruleArraySpecification ) )* )
             {
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1710:1: ( ( ( (lv_id_0_0= RULE_ID ) ) | ( '(' ( (lv_dec_2_0= ruleDeclarator ) ) ')' ) ) ( (lv_array_4_0= ruleArraySpecification ) )* )
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1710:2: ( ( (lv_id_0_0= RULE_ID ) ) | ( '(' ( (lv_dec_2_0= ruleDeclarator ) ) ')' ) ) ( (lv_array_4_0= ruleArraySpecification ) )*
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1715:1: ( ( ( (lv_id_0_0= RULE_ID ) ) | ( '(' ( (lv_dec_2_0= ruleDeclarator ) ) ')' ) ) ( (lv_array_4_0= ruleArraySpecification ) )* )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1715:2: ( ( (lv_id_0_0= RULE_ID ) ) | ( '(' ( (lv_dec_2_0= ruleDeclarator ) ) ')' ) ) ( (lv_array_4_0= ruleArraySpecification ) )*
             {
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1710:2: ( ( (lv_id_0_0= RULE_ID ) ) | ( '(' ( (lv_dec_2_0= ruleDeclarator ) ) ')' ) )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1715:2: ( ( (lv_id_0_0= RULE_ID ) ) | ( '(' ( (lv_dec_2_0= ruleDeclarator ) ) ')' ) )
             int alt19=2;
             int LA19_0 = input.LA(1);
 
@@ -4278,19 +4283,19 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
             else {
                 if (backtracking>0) {failed=true; return current;}
                 NoViableAltException nvae =
-                    new NoViableAltException("1710:2: ( ( (lv_id_0_0= RULE_ID ) ) | ( '(' ( (lv_dec_2_0= ruleDeclarator ) ) ')' ) )", 19, 0, input);
+                    new NoViableAltException("1715:2: ( ( (lv_id_0_0= RULE_ID ) ) | ( '(' ( (lv_dec_2_0= ruleDeclarator ) ) ')' ) )", 19, 0, input);
 
                 throw nvae;
             }
             switch (alt19) {
                 case 1 :
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1710:3: ( (lv_id_0_0= RULE_ID ) )
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1715:3: ( (lv_id_0_0= RULE_ID ) )
                     {
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1710:3: ( (lv_id_0_0= RULE_ID ) )
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1711:1: (lv_id_0_0= RULE_ID )
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1715:3: ( (lv_id_0_0= RULE_ID ) )
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1716:1: (lv_id_0_0= RULE_ID )
                     {
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1711:1: (lv_id_0_0= RULE_ID )
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1712:3: lv_id_0_0= RULE_ID
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1716:1: (lv_id_0_0= RULE_ID )
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1717:3: lv_id_0_0= RULE_ID
                     {
                     lv_id_0_0=(Token)input.LT(1);
                     match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleDirectDeclarator3027); if (failed) return current;
@@ -4327,10 +4332,10 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1735:6: ( '(' ( (lv_dec_2_0= ruleDeclarator ) ) ')' )
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1740:6: ( '(' ( (lv_dec_2_0= ruleDeclarator ) ) ')' )
                     {
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1735:6: ( '(' ( (lv_dec_2_0= ruleDeclarator ) ) ')' )
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1735:8: '(' ( (lv_dec_2_0= ruleDeclarator ) ) ')'
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1740:6: ( '(' ( (lv_dec_2_0= ruleDeclarator ) ) ')' )
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1740:8: '(' ( (lv_dec_2_0= ruleDeclarator ) ) ')'
                     {
                     match(input,27,FOLLOW_27_in_ruleDirectDeclarator3049); if (failed) return current;
                     if ( backtracking==0 ) {
@@ -4338,11 +4343,11 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
                               createLeafNode(grammarAccess.getDirectDeclaratorAccess().getLeftParenthesisKeyword_0_1_0(), null); 
                           
                     }
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1739:1: ( (lv_dec_2_0= ruleDeclarator ) )
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1740:1: (lv_dec_2_0= ruleDeclarator )
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1744:1: ( (lv_dec_2_0= ruleDeclarator ) )
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1745:1: (lv_dec_2_0= ruleDeclarator )
                     {
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1740:1: (lv_dec_2_0= ruleDeclarator )
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1741:3: lv_dec_2_0= ruleDeclarator
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1745:1: (lv_dec_2_0= ruleDeclarator )
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1746:3: lv_dec_2_0= ruleDeclarator
                     {
                     if ( backtracking==0 ) {
                        
@@ -4393,7 +4398,7 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1767:3: ( (lv_array_4_0= ruleArraySpecification ) )*
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1772:3: ( (lv_array_4_0= ruleArraySpecification ) )*
             loop20:
             do {
                 int alt20=2;
@@ -4406,10 +4411,10 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
 
                 switch (alt20) {
             	case 1 :
-            	    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1768:1: (lv_array_4_0= ruleArraySpecification )
+            	    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1773:1: (lv_array_4_0= ruleArraySpecification )
             	    {
-            	    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1768:1: (lv_array_4_0= ruleArraySpecification )
-            	    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1769:3: lv_array_4_0= ruleArraySpecification
+            	    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1773:1: (lv_array_4_0= ruleArraySpecification )
+            	    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1774:3: lv_array_4_0= ruleArraySpecification
             	    {
             	    if ( backtracking==0 ) {
             	       
@@ -4476,7 +4481,7 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start entryRuleArraySpecification
-    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1799:1: entryRuleArraySpecification returns [EObject current=null] : iv_ruleArraySpecification= ruleArraySpecification EOF ;
+    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1804:1: entryRuleArraySpecification returns [EObject current=null] : iv_ruleArraySpecification= ruleArraySpecification EOF ;
     public final EObject entryRuleArraySpecification() throws RecognitionException {
         EObject current = null;
 
@@ -4484,8 +4489,8 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1800:2: (iv_ruleArraySpecification= ruleArraySpecification EOF )
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1801:2: iv_ruleArraySpecification= ruleArraySpecification EOF
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1805:2: (iv_ruleArraySpecification= ruleArraySpecification EOF )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1806:2: iv_ruleArraySpecification= ruleArraySpecification EOF
             {
             if ( backtracking==0 ) {
                currentNode = createCompositeNode(grammarAccess.getArraySpecificationRule(), currentNode); 
@@ -4515,7 +4520,7 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start ruleArraySpecification
-    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1808:1: ruleArraySpecification returns [EObject current=null] : ( '[' ( (lv_constExpr_1_0= ruleConstantExpression ) ) ']' ) ;
+    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1813:1: ruleArraySpecification returns [EObject current=null] : ( '[' ( (lv_constExpr_1_0= ruleConstantExpression ) ) ']' ) ;
     public final EObject ruleArraySpecification() throws RecognitionException {
         EObject current = null;
 
@@ -4525,11 +4530,11 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
          @SuppressWarnings("unused") EObject temp=null; setCurrentLookahead(); resetLookahead(); 
             
         try {
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1813:6: ( ( '[' ( (lv_constExpr_1_0= ruleConstantExpression ) ) ']' ) )
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1814:1: ( '[' ( (lv_constExpr_1_0= ruleConstantExpression ) ) ']' )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1818:6: ( ( '[' ( (lv_constExpr_1_0= ruleConstantExpression ) ) ']' ) )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1819:1: ( '[' ( (lv_constExpr_1_0= ruleConstantExpression ) ) ']' )
             {
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1814:1: ( '[' ( (lv_constExpr_1_0= ruleConstantExpression ) ) ']' )
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1814:3: '[' ( (lv_constExpr_1_0= ruleConstantExpression ) ) ']'
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1819:1: ( '[' ( (lv_constExpr_1_0= ruleConstantExpression ) ) ']' )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1819:3: '[' ( (lv_constExpr_1_0= ruleConstantExpression ) ) ']'
             {
             match(input,29,FOLLOW_29_in_ruleArraySpecification3185); if (failed) return current;
             if ( backtracking==0 ) {
@@ -4537,11 +4542,11 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
                       createLeafNode(grammarAccess.getArraySpecificationAccess().getLeftSquareBracketKeyword_0(), null); 
                   
             }
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1818:1: ( (lv_constExpr_1_0= ruleConstantExpression ) )
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1819:1: (lv_constExpr_1_0= ruleConstantExpression )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1823:1: ( (lv_constExpr_1_0= ruleConstantExpression ) )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1824:1: (lv_constExpr_1_0= ruleConstantExpression )
             {
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1819:1: (lv_constExpr_1_0= ruleConstantExpression )
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1820:3: lv_constExpr_1_0= ruleConstantExpression
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1824:1: (lv_constExpr_1_0= ruleConstantExpression )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1825:3: lv_constExpr_1_0= ruleConstantExpression
             {
             if ( backtracking==0 ) {
                
@@ -4608,7 +4613,7 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start entryRuleFullyQualifiedName
-    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1854:1: entryRuleFullyQualifiedName returns [String current=null] : iv_ruleFullyQualifiedName= ruleFullyQualifiedName EOF ;
+    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1859:1: entryRuleFullyQualifiedName returns [String current=null] : iv_ruleFullyQualifiedName= ruleFullyQualifiedName EOF ;
     public final String entryRuleFullyQualifiedName() throws RecognitionException {
         String current = null;
 
@@ -4616,8 +4621,8 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1855:2: (iv_ruleFullyQualifiedName= ruleFullyQualifiedName EOF )
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1856:2: iv_ruleFullyQualifiedName= ruleFullyQualifiedName EOF
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1860:2: (iv_ruleFullyQualifiedName= ruleFullyQualifiedName EOF )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1861:2: iv_ruleFullyQualifiedName= ruleFullyQualifiedName EOF
             {
             if ( backtracking==0 ) {
                currentNode = createCompositeNode(grammarAccess.getFullyQualifiedNameRule(), currentNode); 
@@ -4647,7 +4652,7 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start ruleFullyQualifiedName
-    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1863:1: ruleFullyQualifiedName returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (this_ID_0= RULE_ID (kw= '.' this_ID_2= RULE_ID )* ) ;
+    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1868:1: ruleFullyQualifiedName returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (this_ID_0= RULE_ID (kw= '.' this_ID_2= RULE_ID )* ) ;
     public final AntlrDatatypeRuleToken ruleFullyQualifiedName() throws RecognitionException {
         AntlrDatatypeRuleToken current = new AntlrDatatypeRuleToken();
 
@@ -4658,11 +4663,11 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
          setCurrentLookahead(); resetLookahead(); 
             
         try {
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1868:6: ( (this_ID_0= RULE_ID (kw= '.' this_ID_2= RULE_ID )* ) )
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1869:1: (this_ID_0= RULE_ID (kw= '.' this_ID_2= RULE_ID )* )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1873:6: ( (this_ID_0= RULE_ID (kw= '.' this_ID_2= RULE_ID )* ) )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1874:1: (this_ID_0= RULE_ID (kw= '.' this_ID_2= RULE_ID )* )
             {
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1869:1: (this_ID_0= RULE_ID (kw= '.' this_ID_2= RULE_ID )* )
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1869:6: this_ID_0= RULE_ID (kw= '.' this_ID_2= RULE_ID )*
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1874:1: (this_ID_0= RULE_ID (kw= '.' this_ID_2= RULE_ID )* )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1874:6: this_ID_0= RULE_ID (kw= '.' this_ID_2= RULE_ID )*
             {
             this_ID_0=(Token)input.LT(1);
             match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleFullyQualifiedName3304); if (failed) return current;
@@ -4676,7 +4681,7 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
                   createLeafNode(grammarAccess.getFullyQualifiedNameAccess().getIDTerminalRuleCall_0(), null); 
                   
             }
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1876:1: (kw= '.' this_ID_2= RULE_ID )*
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1881:1: (kw= '.' this_ID_2= RULE_ID )*
             loop21:
             do {
                 int alt21=2;
@@ -4689,7 +4694,7 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
 
                 switch (alt21) {
             	case 1 :
-            	    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1877:2: kw= '.' this_ID_2= RULE_ID
+            	    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1882:2: kw= '.' this_ID_2= RULE_ID
             	    {
             	    kw=(Token)input.LT(1);
             	    match(input,31,FOLLOW_31_in_ruleFullyQualifiedName3323); if (failed) return current;
@@ -4745,7 +4750,7 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start entryRuleConstantDefinition
-    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1897:1: entryRuleConstantDefinition returns [EObject current=null] : iv_ruleConstantDefinition= ruleConstantDefinition EOF ;
+    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1902:1: entryRuleConstantDefinition returns [EObject current=null] : iv_ruleConstantDefinition= ruleConstantDefinition EOF ;
     public final EObject entryRuleConstantDefinition() throws RecognitionException {
         EObject current = null;
 
@@ -4753,8 +4758,8 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1898:2: (iv_ruleConstantDefinition= ruleConstantDefinition EOF )
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1899:2: iv_ruleConstantDefinition= ruleConstantDefinition EOF
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1903:2: (iv_ruleConstantDefinition= ruleConstantDefinition EOF )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1904:2: iv_ruleConstantDefinition= ruleConstantDefinition EOF
             {
             if ( backtracking==0 ) {
                currentNode = createCompositeNode(grammarAccess.getConstantDefinitionRule(), currentNode); 
@@ -4784,7 +4789,7 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start ruleConstantDefinition
-    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1906:1: ruleConstantDefinition returns [EObject current=null] : ( '#define' ( (lv_id_1_0= RULE_ID ) ) ) ;
+    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1911:1: ruleConstantDefinition returns [EObject current=null] : ( '#define' ( (lv_id_1_0= RULE_ID ) ) ) ;
     public final EObject ruleConstantDefinition() throws RecognitionException {
         EObject current = null;
 
@@ -4793,11 +4798,11 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
          @SuppressWarnings("unused") EObject temp=null; setCurrentLookahead(); resetLookahead(); 
             
         try {
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1911:6: ( ( '#define' ( (lv_id_1_0= RULE_ID ) ) ) )
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1912:1: ( '#define' ( (lv_id_1_0= RULE_ID ) ) )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1916:6: ( ( '#define' ( (lv_id_1_0= RULE_ID ) ) ) )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1917:1: ( '#define' ( (lv_id_1_0= RULE_ID ) ) )
             {
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1912:1: ( '#define' ( (lv_id_1_0= RULE_ID ) ) )
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1912:3: '#define' ( (lv_id_1_0= RULE_ID ) )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1917:1: ( '#define' ( (lv_id_1_0= RULE_ID ) ) )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1917:3: '#define' ( (lv_id_1_0= RULE_ID ) )
             {
             match(input,32,FOLLOW_32_in_ruleConstantDefinition3430); if (failed) return current;
             if ( backtracking==0 ) {
@@ -4805,11 +4810,11 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
                       createLeafNode(grammarAccess.getConstantDefinitionAccess().getDefineKeyword_0(), null); 
                   
             }
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1916:1: ( (lv_id_1_0= RULE_ID ) )
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1917:1: (lv_id_1_0= RULE_ID )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1921:1: ( (lv_id_1_0= RULE_ID ) )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1922:1: (lv_id_1_0= RULE_ID )
             {
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1917:1: (lv_id_1_0= RULE_ID )
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1918:3: lv_id_1_0= RULE_ID
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1922:1: (lv_id_1_0= RULE_ID )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1923:3: lv_id_1_0= RULE_ID
             {
             lv_id_1_0=(Token)input.LT(1);
             match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleConstantDefinition3447); if (failed) return current;
@@ -4867,7 +4872,7 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start entryRuleInterfaceDefinition
-    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1948:1: entryRuleInterfaceDefinition returns [EObject current=null] : iv_ruleInterfaceDefinition= ruleInterfaceDefinition EOF ;
+    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1953:1: entryRuleInterfaceDefinition returns [EObject current=null] : iv_ruleInterfaceDefinition= ruleInterfaceDefinition EOF ;
     public final EObject entryRuleInterfaceDefinition() throws RecognitionException {
         EObject current = null;
 
@@ -4875,8 +4880,8 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1949:2: (iv_ruleInterfaceDefinition= ruleInterfaceDefinition EOF )
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1950:2: iv_ruleInterfaceDefinition= ruleInterfaceDefinition EOF
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1954:2: (iv_ruleInterfaceDefinition= ruleInterfaceDefinition EOF )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1955:2: iv_ruleInterfaceDefinition= ruleInterfaceDefinition EOF
             {
             if ( backtracking==0 ) {
                currentNode = createCompositeNode(grammarAccess.getInterfaceDefinitionRule(), currentNode); 
@@ -4906,7 +4911,7 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start ruleInterfaceDefinition
-    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1957:1: ruleInterfaceDefinition returns [EObject current=null] : ( ( (lv_annotations_0_0= ruleAnnotations ) ) 'interface' ( 'unmanaged' )? ( (lv_fqn_3_0= ruleFullyQualifiedName ) ) ( ':' ( (lv_fqn2_5_0= ruleFullyQualifiedName ) ) )? '{' ( (lv_methodDef_7_0= ruleMethodDefinition ) )* '}' ) ;
+    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1962:1: ruleInterfaceDefinition returns [EObject current=null] : ( ( (lv_annotations_0_0= ruleAnnotations ) ) 'interface' ( 'unmanaged' )? ( (lv_fqn_3_0= ruleFullyQualifiedName ) ) ( ':' ( (lv_fqn2_5_0= ruleFullyQualifiedName ) ) )? '{' ( (lv_methodDef_7_0= ruleMethodDefinition ) )* '}' ) ;
     public final EObject ruleInterfaceDefinition() throws RecognitionException {
         EObject current = null;
 
@@ -4922,17 +4927,17 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
          @SuppressWarnings("unused") EObject temp=null; setCurrentLookahead(); resetLookahead(); 
             
         try {
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1962:6: ( ( ( (lv_annotations_0_0= ruleAnnotations ) ) 'interface' ( 'unmanaged' )? ( (lv_fqn_3_0= ruleFullyQualifiedName ) ) ( ':' ( (lv_fqn2_5_0= ruleFullyQualifiedName ) ) )? '{' ( (lv_methodDef_7_0= ruleMethodDefinition ) )* '}' ) )
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1963:1: ( ( (lv_annotations_0_0= ruleAnnotations ) ) 'interface' ( 'unmanaged' )? ( (lv_fqn_3_0= ruleFullyQualifiedName ) ) ( ':' ( (lv_fqn2_5_0= ruleFullyQualifiedName ) ) )? '{' ( (lv_methodDef_7_0= ruleMethodDefinition ) )* '}' )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1967:6: ( ( ( (lv_annotations_0_0= ruleAnnotations ) ) 'interface' ( 'unmanaged' )? ( (lv_fqn_3_0= ruleFullyQualifiedName ) ) ( ':' ( (lv_fqn2_5_0= ruleFullyQualifiedName ) ) )? '{' ( (lv_methodDef_7_0= ruleMethodDefinition ) )* '}' ) )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1968:1: ( ( (lv_annotations_0_0= ruleAnnotations ) ) 'interface' ( 'unmanaged' )? ( (lv_fqn_3_0= ruleFullyQualifiedName ) ) ( ':' ( (lv_fqn2_5_0= ruleFullyQualifiedName ) ) )? '{' ( (lv_methodDef_7_0= ruleMethodDefinition ) )* '}' )
             {
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1963:1: ( ( (lv_annotations_0_0= ruleAnnotations ) ) 'interface' ( 'unmanaged' )? ( (lv_fqn_3_0= ruleFullyQualifiedName ) ) ( ':' ( (lv_fqn2_5_0= ruleFullyQualifiedName ) ) )? '{' ( (lv_methodDef_7_0= ruleMethodDefinition ) )* '}' )
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1963:2: ( (lv_annotations_0_0= ruleAnnotations ) ) 'interface' ( 'unmanaged' )? ( (lv_fqn_3_0= ruleFullyQualifiedName ) ) ( ':' ( (lv_fqn2_5_0= ruleFullyQualifiedName ) ) )? '{' ( (lv_methodDef_7_0= ruleMethodDefinition ) )* '}'
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1968:1: ( ( (lv_annotations_0_0= ruleAnnotations ) ) 'interface' ( 'unmanaged' )? ( (lv_fqn_3_0= ruleFullyQualifiedName ) ) ( ':' ( (lv_fqn2_5_0= ruleFullyQualifiedName ) ) )? '{' ( (lv_methodDef_7_0= ruleMethodDefinition ) )* '}' )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1968:2: ( (lv_annotations_0_0= ruleAnnotations ) ) 'interface' ( 'unmanaged' )? ( (lv_fqn_3_0= ruleFullyQualifiedName ) ) ( ':' ( (lv_fqn2_5_0= ruleFullyQualifiedName ) ) )? '{' ( (lv_methodDef_7_0= ruleMethodDefinition ) )* '}'
             {
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1963:2: ( (lv_annotations_0_0= ruleAnnotations ) )
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1964:1: (lv_annotations_0_0= ruleAnnotations )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1968:2: ( (lv_annotations_0_0= ruleAnnotations ) )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1969:1: (lv_annotations_0_0= ruleAnnotations )
             {
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1964:1: (lv_annotations_0_0= ruleAnnotations )
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1965:3: lv_annotations_0_0= ruleAnnotations
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1969:1: (lv_annotations_0_0= ruleAnnotations )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1970:3: lv_annotations_0_0= ruleAnnotations
             {
             if ( backtracking==0 ) {
                
@@ -4974,7 +4979,7 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
                       createLeafNode(grammarAccess.getInterfaceDefinitionAccess().getInterfaceKeyword_1(), null); 
                   
             }
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1991:1: ( 'unmanaged' )?
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1996:1: ( 'unmanaged' )?
             int alt22=2;
             int LA22_0 = input.LA(1);
 
@@ -4983,7 +4988,7 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
             }
             switch (alt22) {
                 case 1 :
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1991:3: 'unmanaged'
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1996:3: 'unmanaged'
                     {
                     match(input,34,FOLLOW_34_in_ruleInterfaceDefinition3565); if (failed) return current;
                     if ( backtracking==0 ) {
@@ -4997,11 +5002,11 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1995:3: ( (lv_fqn_3_0= ruleFullyQualifiedName ) )
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1996:1: (lv_fqn_3_0= ruleFullyQualifiedName )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2000:3: ( (lv_fqn_3_0= ruleFullyQualifiedName ) )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2001:1: (lv_fqn_3_0= ruleFullyQualifiedName )
             {
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1996:1: (lv_fqn_3_0= ruleFullyQualifiedName )
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:1997:3: lv_fqn_3_0= ruleFullyQualifiedName
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2001:1: (lv_fqn_3_0= ruleFullyQualifiedName )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2002:3: lv_fqn_3_0= ruleFullyQualifiedName
             {
             if ( backtracking==0 ) {
                
@@ -5037,7 +5042,7 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2019:2: ( ':' ( (lv_fqn2_5_0= ruleFullyQualifiedName ) ) )?
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2024:2: ( ':' ( (lv_fqn2_5_0= ruleFullyQualifiedName ) ) )?
             int alt23=2;
             int LA23_0 = input.LA(1);
 
@@ -5046,7 +5051,7 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
             }
             switch (alt23) {
                 case 1 :
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2019:4: ':' ( (lv_fqn2_5_0= ruleFullyQualifiedName ) )
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2024:4: ':' ( (lv_fqn2_5_0= ruleFullyQualifiedName ) )
                     {
                     match(input,22,FOLLOW_22_in_ruleInterfaceDefinition3599); if (failed) return current;
                     if ( backtracking==0 ) {
@@ -5054,11 +5059,11 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
                               createLeafNode(grammarAccess.getInterfaceDefinitionAccess().getColonKeyword_4_0(), null); 
                           
                     }
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2023:1: ( (lv_fqn2_5_0= ruleFullyQualifiedName ) )
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2024:1: (lv_fqn2_5_0= ruleFullyQualifiedName )
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2028:1: ( (lv_fqn2_5_0= ruleFullyQualifiedName ) )
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2029:1: (lv_fqn2_5_0= ruleFullyQualifiedName )
                     {
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2024:1: (lv_fqn2_5_0= ruleFullyQualifiedName )
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2025:3: lv_fqn2_5_0= ruleFullyQualifiedName
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2029:1: (lv_fqn2_5_0= ruleFullyQualifiedName )
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2030:3: lv_fqn2_5_0= ruleFullyQualifiedName
                     {
                     if ( backtracking==0 ) {
                        
@@ -5106,7 +5111,7 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
                       createLeafNode(grammarAccess.getInterfaceDefinitionAccess().getLeftCurlyBracketKeyword_5(), null); 
                   
             }
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2051:1: ( (lv_methodDef_7_0= ruleMethodDefinition ) )*
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2056:1: ( (lv_methodDef_7_0= ruleMethodDefinition ) )*
             loop24:
             do {
                 int alt24=2;
@@ -5119,10 +5124,10 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
 
                 switch (alt24) {
             	case 1 :
-            	    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2052:1: (lv_methodDef_7_0= ruleMethodDefinition )
+            	    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2057:1: (lv_methodDef_7_0= ruleMethodDefinition )
             	    {
-            	    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2052:1: (lv_methodDef_7_0= ruleMethodDefinition )
-            	    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2053:3: lv_methodDef_7_0= ruleMethodDefinition
+            	    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2057:1: (lv_methodDef_7_0= ruleMethodDefinition )
+            	    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2058:3: lv_methodDef_7_0= ruleMethodDefinition
             	    {
             	    if ( backtracking==0 ) {
             	       
@@ -5195,7 +5200,7 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start entryRuleMethodDefinition
-    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2087:1: entryRuleMethodDefinition returns [EObject current=null] : iv_ruleMethodDefinition= ruleMethodDefinition EOF ;
+    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2092:1: entryRuleMethodDefinition returns [EObject current=null] : iv_ruleMethodDefinition= ruleMethodDefinition EOF ;
     public final EObject entryRuleMethodDefinition() throws RecognitionException {
         EObject current = null;
 
@@ -5203,8 +5208,8 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2088:2: (iv_ruleMethodDefinition= ruleMethodDefinition EOF )
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2089:2: iv_ruleMethodDefinition= ruleMethodDefinition EOF
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2093:2: (iv_ruleMethodDefinition= ruleMethodDefinition EOF )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2094:2: iv_ruleMethodDefinition= ruleMethodDefinition EOF
             {
             if ( backtracking==0 ) {
                currentNode = createCompositeNode(grammarAccess.getMethodDefinitionRule(), currentNode); 
@@ -5234,7 +5239,7 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start ruleMethodDefinition
-    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2096:1: ruleMethodDefinition returns [EObject current=null] : ( ( (lv_annotations_0_0= ruleAnnotations ) ) ( (lv_qualifiedTypeSpec_1_0= ruleQualifiedTypeSpecification ) ) ( (lv_id_2_0= RULE_ID ) ) ( ( '(' ( 'void' )? ')' ) | ( '(' ( (lv_ParameterList_7_0= ruleParameterList ) ) ')' ) ) ';' ) ;
+    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2101:1: ruleMethodDefinition returns [EObject current=null] : ( ( (lv_annotations_0_0= ruleAnnotations ) ) ( (lv_qualifiedTypeSpec_1_0= ruleQualifiedTypeSpecification ) ) ( (lv_id_2_0= RULE_ID ) ) ( ( '(' ( 'void' )? ')' ) | ( '(' ( (lv_ParameterList_7_0= ruleParameterList ) ) ')' ) ) ';' ) ;
     public final EObject ruleMethodDefinition() throws RecognitionException {
         EObject current = null;
 
@@ -5249,17 +5254,17 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
          @SuppressWarnings("unused") EObject temp=null; setCurrentLookahead(); resetLookahead(); 
             
         try {
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2101:6: ( ( ( (lv_annotations_0_0= ruleAnnotations ) ) ( (lv_qualifiedTypeSpec_1_0= ruleQualifiedTypeSpecification ) ) ( (lv_id_2_0= RULE_ID ) ) ( ( '(' ( 'void' )? ')' ) | ( '(' ( (lv_ParameterList_7_0= ruleParameterList ) ) ')' ) ) ';' ) )
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2102:1: ( ( (lv_annotations_0_0= ruleAnnotations ) ) ( (lv_qualifiedTypeSpec_1_0= ruleQualifiedTypeSpecification ) ) ( (lv_id_2_0= RULE_ID ) ) ( ( '(' ( 'void' )? ')' ) | ( '(' ( (lv_ParameterList_7_0= ruleParameterList ) ) ')' ) ) ';' )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2106:6: ( ( ( (lv_annotations_0_0= ruleAnnotations ) ) ( (lv_qualifiedTypeSpec_1_0= ruleQualifiedTypeSpecification ) ) ( (lv_id_2_0= RULE_ID ) ) ( ( '(' ( 'void' )? ')' ) | ( '(' ( (lv_ParameterList_7_0= ruleParameterList ) ) ')' ) ) ';' ) )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2107:1: ( ( (lv_annotations_0_0= ruleAnnotations ) ) ( (lv_qualifiedTypeSpec_1_0= ruleQualifiedTypeSpecification ) ) ( (lv_id_2_0= RULE_ID ) ) ( ( '(' ( 'void' )? ')' ) | ( '(' ( (lv_ParameterList_7_0= ruleParameterList ) ) ')' ) ) ';' )
             {
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2102:1: ( ( (lv_annotations_0_0= ruleAnnotations ) ) ( (lv_qualifiedTypeSpec_1_0= ruleQualifiedTypeSpecification ) ) ( (lv_id_2_0= RULE_ID ) ) ( ( '(' ( 'void' )? ')' ) | ( '(' ( (lv_ParameterList_7_0= ruleParameterList ) ) ')' ) ) ';' )
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2102:2: ( (lv_annotations_0_0= ruleAnnotations ) ) ( (lv_qualifiedTypeSpec_1_0= ruleQualifiedTypeSpecification ) ) ( (lv_id_2_0= RULE_ID ) ) ( ( '(' ( 'void' )? ')' ) | ( '(' ( (lv_ParameterList_7_0= ruleParameterList ) ) ')' ) ) ';'
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2107:1: ( ( (lv_annotations_0_0= ruleAnnotations ) ) ( (lv_qualifiedTypeSpec_1_0= ruleQualifiedTypeSpecification ) ) ( (lv_id_2_0= RULE_ID ) ) ( ( '(' ( 'void' )? ')' ) | ( '(' ( (lv_ParameterList_7_0= ruleParameterList ) ) ')' ) ) ';' )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2107:2: ( (lv_annotations_0_0= ruleAnnotations ) ) ( (lv_qualifiedTypeSpec_1_0= ruleQualifiedTypeSpecification ) ) ( (lv_id_2_0= RULE_ID ) ) ( ( '(' ( 'void' )? ')' ) | ( '(' ( (lv_ParameterList_7_0= ruleParameterList ) ) ')' ) ) ';'
             {
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2102:2: ( (lv_annotations_0_0= ruleAnnotations ) )
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2103:1: (lv_annotations_0_0= ruleAnnotations )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2107:2: ( (lv_annotations_0_0= ruleAnnotations ) )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2108:1: (lv_annotations_0_0= ruleAnnotations )
             {
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2103:1: (lv_annotations_0_0= ruleAnnotations )
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2104:3: lv_annotations_0_0= ruleAnnotations
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2108:1: (lv_annotations_0_0= ruleAnnotations )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2109:3: lv_annotations_0_0= ruleAnnotations
             {
             if ( backtracking==0 ) {
                
@@ -5295,11 +5300,11 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2126:2: ( (lv_qualifiedTypeSpec_1_0= ruleQualifiedTypeSpecification ) )
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2127:1: (lv_qualifiedTypeSpec_1_0= ruleQualifiedTypeSpecification )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2131:2: ( (lv_qualifiedTypeSpec_1_0= ruleQualifiedTypeSpecification ) )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2132:1: (lv_qualifiedTypeSpec_1_0= ruleQualifiedTypeSpecification )
             {
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2127:1: (lv_qualifiedTypeSpec_1_0= ruleQualifiedTypeSpecification )
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2128:3: lv_qualifiedTypeSpec_1_0= ruleQualifiedTypeSpecification
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2132:1: (lv_qualifiedTypeSpec_1_0= ruleQualifiedTypeSpecification )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2133:3: lv_qualifiedTypeSpec_1_0= ruleQualifiedTypeSpecification
             {
             if ( backtracking==0 ) {
                
@@ -5335,11 +5340,11 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2150:2: ( (lv_id_2_0= RULE_ID ) )
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2151:1: (lv_id_2_0= RULE_ID )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2155:2: ( (lv_id_2_0= RULE_ID ) )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2156:1: (lv_id_2_0= RULE_ID )
             {
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2151:1: (lv_id_2_0= RULE_ID )
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2152:3: lv_id_2_0= RULE_ID
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2156:1: (lv_id_2_0= RULE_ID )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2157:3: lv_id_2_0= RULE_ID
             {
             lv_id_2_0=(Token)input.LT(1);
             match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleMethodDefinition3794); if (failed) return current;
@@ -5372,7 +5377,7 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2174:2: ( ( '(' ( 'void' )? ')' ) | ( '(' ( (lv_ParameterList_7_0= ruleParameterList ) ) ')' ) )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2179:2: ( ( '(' ( 'void' )? ')' ) | ( '(' ( (lv_ParameterList_7_0= ruleParameterList ) ) ')' ) )
             int alt26=2;
             int LA26_0 = input.LA(1);
 
@@ -5382,7 +5387,10 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
                     {
                     int LA26_2 = input.LA(3);
 
-                    if ( (LA26_2==28) ) {
+                    if ( (LA26_2==RULE_ID||LA26_2==24||(LA26_2>=26 && LA26_2<=27)||LA26_2==35||(LA26_2>=59 && LA26_2<=77)) ) {
+                        alt26=2;
+                    }
+                    else if ( (LA26_2==28) ) {
                         int LA26_5 = input.LA(4);
 
                         if ( (synpred30()) ) {
@@ -5394,18 +5402,15 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
                         else {
                             if (backtracking>0) {failed=true; return current;}
                             NoViableAltException nvae =
-                                new NoViableAltException("2174:2: ( ( '(' ( 'void' )? ')' ) | ( '(' ( (lv_ParameterList_7_0= ruleParameterList ) ) ')' ) )", 26, 5, input);
+                                new NoViableAltException("2179:2: ( ( '(' ( 'void' )? ')' ) | ( '(' ( (lv_ParameterList_7_0= ruleParameterList ) ) ')' ) )", 26, 5, input);
 
                             throw nvae;
                         }
                     }
-                    else if ( (LA26_2==RULE_ID||LA26_2==24||(LA26_2>=26 && LA26_2<=27)||LA26_2==35||(LA26_2>=59 && LA26_2<=77)) ) {
-                        alt26=2;
-                    }
                     else {
                         if (backtracking>0) {failed=true; return current;}
                         NoViableAltException nvae =
-                            new NoViableAltException("2174:2: ( ( '(' ( 'void' )? ')' ) | ( '(' ( (lv_ParameterList_7_0= ruleParameterList ) ) ')' ) )", 26, 2, input);
+                            new NoViableAltException("2179:2: ( ( '(' ( 'void' )? ')' ) | ( '(' ( (lv_ParameterList_7_0= ruleParameterList ) ) ')' ) )", 26, 2, input);
 
                         throw nvae;
                     }
@@ -5451,7 +5456,7 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
                 default:
                     if (backtracking>0) {failed=true; return current;}
                     NoViableAltException nvae =
-                        new NoViableAltException("2174:2: ( ( '(' ( 'void' )? ')' ) | ( '(' ( (lv_ParameterList_7_0= ruleParameterList ) ) ')' ) )", 26, 1, input);
+                        new NoViableAltException("2179:2: ( ( '(' ( 'void' )? ')' ) | ( '(' ( (lv_ParameterList_7_0= ruleParameterList ) ) ')' ) )", 26, 1, input);
 
                     throw nvae;
                 }
@@ -5460,16 +5465,16 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
             else {
                 if (backtracking>0) {failed=true; return current;}
                 NoViableAltException nvae =
-                    new NoViableAltException("2174:2: ( ( '(' ( 'void' )? ')' ) | ( '(' ( (lv_ParameterList_7_0= ruleParameterList ) ) ')' ) )", 26, 0, input);
+                    new NoViableAltException("2179:2: ( ( '(' ( 'void' )? ')' ) | ( '(' ( (lv_ParameterList_7_0= ruleParameterList ) ) ')' ) )", 26, 0, input);
 
                 throw nvae;
             }
             switch (alt26) {
                 case 1 :
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2174:3: ( '(' ( 'void' )? ')' )
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2179:3: ( '(' ( 'void' )? ')' )
                     {
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2174:3: ( '(' ( 'void' )? ')' )
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2174:5: '(' ( 'void' )? ')'
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2179:3: ( '(' ( 'void' )? ')' )
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2179:5: '(' ( 'void' )? ')'
                     {
                     match(input,27,FOLLOW_27_in_ruleMethodDefinition3811); if (failed) return current;
                     if ( backtracking==0 ) {
@@ -5477,7 +5482,7 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
                               createLeafNode(grammarAccess.getMethodDefinitionAccess().getLeftParenthesisKeyword_3_0_0(), null); 
                           
                     }
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2178:1: ( 'void' )?
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2183:1: ( 'void' )?
                     int alt25=2;
                     int LA25_0 = input.LA(1);
 
@@ -5486,7 +5491,7 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
                     }
                     switch (alt25) {
                         case 1 :
-                            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2178:3: 'void'
+                            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2183:3: 'void'
                             {
                             match(input,35,FOLLOW_35_in_ruleMethodDefinition3822); if (failed) return current;
                             if ( backtracking==0 ) {
@@ -5513,10 +5518,10 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2187:6: ( '(' ( (lv_ParameterList_7_0= ruleParameterList ) ) ')' )
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2192:6: ( '(' ( (lv_ParameterList_7_0= ruleParameterList ) ) ')' )
                     {
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2187:6: ( '(' ( (lv_ParameterList_7_0= ruleParameterList ) ) ')' )
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2187:8: '(' ( (lv_ParameterList_7_0= ruleParameterList ) ) ')'
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2192:6: ( '(' ( (lv_ParameterList_7_0= ruleParameterList ) ) ')' )
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2192:8: '(' ( (lv_ParameterList_7_0= ruleParameterList ) ) ')'
                     {
                     match(input,27,FOLLOW_27_in_ruleMethodDefinition3852); if (failed) return current;
                     if ( backtracking==0 ) {
@@ -5524,11 +5529,11 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
                               createLeafNode(grammarAccess.getMethodDefinitionAccess().getLeftParenthesisKeyword_3_1_0(), null); 
                           
                     }
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2191:1: ( (lv_ParameterList_7_0= ruleParameterList ) )
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2192:1: (lv_ParameterList_7_0= ruleParameterList )
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2196:1: ( (lv_ParameterList_7_0= ruleParameterList ) )
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2197:1: (lv_ParameterList_7_0= ruleParameterList )
                     {
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2192:1: (lv_ParameterList_7_0= ruleParameterList )
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2193:3: lv_ParameterList_7_0= ruleParameterList
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2197:1: (lv_ParameterList_7_0= ruleParameterList )
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2198:3: lv_ParameterList_7_0= ruleParameterList
                     {
                     if ( backtracking==0 ) {
                        
@@ -5610,7 +5615,7 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start entryRuleParameterList
-    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2231:1: entryRuleParameterList returns [EObject current=null] : iv_ruleParameterList= ruleParameterList EOF ;
+    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2236:1: entryRuleParameterList returns [EObject current=null] : iv_ruleParameterList= ruleParameterList EOF ;
     public final EObject entryRuleParameterList() throws RecognitionException {
         EObject current = null;
 
@@ -5618,8 +5623,8 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2232:2: (iv_ruleParameterList= ruleParameterList EOF )
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2233:2: iv_ruleParameterList= ruleParameterList EOF
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2237:2: (iv_ruleParameterList= ruleParameterList EOF )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2238:2: iv_ruleParameterList= ruleParameterList EOF
             {
             if ( backtracking==0 ) {
                currentNode = createCompositeNode(grammarAccess.getParameterListRule(), currentNode); 
@@ -5649,7 +5654,7 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start ruleParameterList
-    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2240:1: ruleParameterList returns [EObject current=null] : ( ( (lv_param_0_0= ruleParameter ) ) ( ',' ( (lv_params_2_0= ruleParameter ) ) )* ( ',' '...' )? ) ;
+    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2245:1: ruleParameterList returns [EObject current=null] : ( ( (lv_param_0_0= ruleParameter ) ) ( ',' ( (lv_params_2_0= ruleParameter ) ) )* ( ',' '...' )? ) ;
     public final EObject ruleParameterList() throws RecognitionException {
         EObject current = null;
 
@@ -5661,17 +5666,17 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
          @SuppressWarnings("unused") EObject temp=null; setCurrentLookahead(); resetLookahead(); 
             
         try {
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2245:6: ( ( ( (lv_param_0_0= ruleParameter ) ) ( ',' ( (lv_params_2_0= ruleParameter ) ) )* ( ',' '...' )? ) )
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2246:1: ( ( (lv_param_0_0= ruleParameter ) ) ( ',' ( (lv_params_2_0= ruleParameter ) ) )* ( ',' '...' )? )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2250:6: ( ( ( (lv_param_0_0= ruleParameter ) ) ( ',' ( (lv_params_2_0= ruleParameter ) ) )* ( ',' '...' )? ) )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2251:1: ( ( (lv_param_0_0= ruleParameter ) ) ( ',' ( (lv_params_2_0= ruleParameter ) ) )* ( ',' '...' )? )
             {
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2246:1: ( ( (lv_param_0_0= ruleParameter ) ) ( ',' ( (lv_params_2_0= ruleParameter ) ) )* ( ',' '...' )? )
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2246:2: ( (lv_param_0_0= ruleParameter ) ) ( ',' ( (lv_params_2_0= ruleParameter ) ) )* ( ',' '...' )?
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2251:1: ( ( (lv_param_0_0= ruleParameter ) ) ( ',' ( (lv_params_2_0= ruleParameter ) ) )* ( ',' '...' )? )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2251:2: ( (lv_param_0_0= ruleParameter ) ) ( ',' ( (lv_params_2_0= ruleParameter ) ) )* ( ',' '...' )?
             {
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2246:2: ( (lv_param_0_0= ruleParameter ) )
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2247:1: (lv_param_0_0= ruleParameter )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2251:2: ( (lv_param_0_0= ruleParameter ) )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2252:1: (lv_param_0_0= ruleParameter )
             {
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2247:1: (lv_param_0_0= ruleParameter )
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2248:3: lv_param_0_0= ruleParameter
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2252:1: (lv_param_0_0= ruleParameter )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2253:3: lv_param_0_0= ruleParameter
             {
             if ( backtracking==0 ) {
                
@@ -5707,7 +5712,7 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2270:2: ( ',' ( (lv_params_2_0= ruleParameter ) ) )*
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2275:2: ( ',' ( (lv_params_2_0= ruleParameter ) ) )*
             loop27:
             do {
                 int alt27=2;
@@ -5726,7 +5731,7 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
 
                 switch (alt27) {
             	case 1 :
-            	    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2270:4: ',' ( (lv_params_2_0= ruleParameter ) )
+            	    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2275:4: ',' ( (lv_params_2_0= ruleParameter ) )
             	    {
             	    match(input,24,FOLLOW_24_in_ruleParameterList3998); if (failed) return current;
             	    if ( backtracking==0 ) {
@@ -5734,11 +5739,11 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
             	              createLeafNode(grammarAccess.getParameterListAccess().getCommaKeyword_1_0(), null); 
             	          
             	    }
-            	    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2274:1: ( (lv_params_2_0= ruleParameter ) )
-            	    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2275:1: (lv_params_2_0= ruleParameter )
+            	    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2279:1: ( (lv_params_2_0= ruleParameter ) )
+            	    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2280:1: (lv_params_2_0= ruleParameter )
             	    {
-            	    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2275:1: (lv_params_2_0= ruleParameter )
-            	    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2276:3: lv_params_2_0= ruleParameter
+            	    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2280:1: (lv_params_2_0= ruleParameter )
+            	    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2281:3: lv_params_2_0= ruleParameter
             	    {
             	    if ( backtracking==0 ) {
             	       
@@ -5783,7 +5788,7 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
                 }
             } while (true);
 
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2298:4: ( ',' '...' )?
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2303:4: ( ',' '...' )?
             int alt28=2;
             int LA28_0 = input.LA(1);
 
@@ -5792,7 +5797,7 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
             }
             switch (alt28) {
                 case 1 :
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2298:6: ',' '...'
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2303:6: ',' '...'
                     {
                     match(input,24,FOLLOW_24_in_ruleParameterList4032); if (failed) return current;
                     if ( backtracking==0 ) {
@@ -5837,7 +5842,7 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start entryRuleParameter
-    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2314:1: entryRuleParameter returns [EObject current=null] : iv_ruleParameter= ruleParameter EOF ;
+    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2319:1: entryRuleParameter returns [EObject current=null] : iv_ruleParameter= ruleParameter EOF ;
     public final EObject entryRuleParameter() throws RecognitionException {
         EObject current = null;
 
@@ -5845,8 +5850,8 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2315:2: (iv_ruleParameter= ruleParameter EOF )
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2316:2: iv_ruleParameter= ruleParameter EOF
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2320:2: (iv_ruleParameter= ruleParameter EOF )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2321:2: iv_ruleParameter= ruleParameter EOF
             {
             if ( backtracking==0 ) {
                currentNode = createCompositeNode(grammarAccess.getParameterRule(), currentNode); 
@@ -5876,7 +5881,7 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start ruleParameter
-    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2323:1: ruleParameter returns [EObject current=null] : ( ( (lv_annotations_0_0= ruleAnnotations ) ) ( (lv_ParameterQualifier_1_0= ruleParameterQualifier ) )* ( (lv_qualifiedTypeSpec_2_0= ruleQualifiedTypeSpecification ) ) ( (lv_dec_3_0= ruleDeclarator ) )? ) ;
+    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2328:1: ruleParameter returns [EObject current=null] : ( ( (lv_annotations_0_0= ruleAnnotations ) ) ( (lv_ParameterQualifier_1_0= ruleParameterQualifier ) )* ( (lv_qualifiedTypeSpec_2_0= ruleQualifiedTypeSpecification ) ) ( (lv_dec_3_0= ruleDeclarator ) )? ) ;
     public final EObject ruleParameter() throws RecognitionException {
         EObject current = null;
 
@@ -5892,17 +5897,17 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
          @SuppressWarnings("unused") EObject temp=null; setCurrentLookahead(); resetLookahead(); 
             
         try {
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2328:6: ( ( ( (lv_annotations_0_0= ruleAnnotations ) ) ( (lv_ParameterQualifier_1_0= ruleParameterQualifier ) )* ( (lv_qualifiedTypeSpec_2_0= ruleQualifiedTypeSpecification ) ) ( (lv_dec_3_0= ruleDeclarator ) )? ) )
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2329:1: ( ( (lv_annotations_0_0= ruleAnnotations ) ) ( (lv_ParameterQualifier_1_0= ruleParameterQualifier ) )* ( (lv_qualifiedTypeSpec_2_0= ruleQualifiedTypeSpecification ) ) ( (lv_dec_3_0= ruleDeclarator ) )? )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2333:6: ( ( ( (lv_annotations_0_0= ruleAnnotations ) ) ( (lv_ParameterQualifier_1_0= ruleParameterQualifier ) )* ( (lv_qualifiedTypeSpec_2_0= ruleQualifiedTypeSpecification ) ) ( (lv_dec_3_0= ruleDeclarator ) )? ) )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2334:1: ( ( (lv_annotations_0_0= ruleAnnotations ) ) ( (lv_ParameterQualifier_1_0= ruleParameterQualifier ) )* ( (lv_qualifiedTypeSpec_2_0= ruleQualifiedTypeSpecification ) ) ( (lv_dec_3_0= ruleDeclarator ) )? )
             {
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2329:1: ( ( (lv_annotations_0_0= ruleAnnotations ) ) ( (lv_ParameterQualifier_1_0= ruleParameterQualifier ) )* ( (lv_qualifiedTypeSpec_2_0= ruleQualifiedTypeSpecification ) ) ( (lv_dec_3_0= ruleDeclarator ) )? )
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2329:2: ( (lv_annotations_0_0= ruleAnnotations ) ) ( (lv_ParameterQualifier_1_0= ruleParameterQualifier ) )* ( (lv_qualifiedTypeSpec_2_0= ruleQualifiedTypeSpecification ) ) ( (lv_dec_3_0= ruleDeclarator ) )?
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2334:1: ( ( (lv_annotations_0_0= ruleAnnotations ) ) ( (lv_ParameterQualifier_1_0= ruleParameterQualifier ) )* ( (lv_qualifiedTypeSpec_2_0= ruleQualifiedTypeSpecification ) ) ( (lv_dec_3_0= ruleDeclarator ) )? )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2334:2: ( (lv_annotations_0_0= ruleAnnotations ) ) ( (lv_ParameterQualifier_1_0= ruleParameterQualifier ) )* ( (lv_qualifiedTypeSpec_2_0= ruleQualifiedTypeSpecification ) ) ( (lv_dec_3_0= ruleDeclarator ) )?
             {
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2329:2: ( (lv_annotations_0_0= ruleAnnotations ) )
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2330:1: (lv_annotations_0_0= ruleAnnotations )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2334:2: ( (lv_annotations_0_0= ruleAnnotations ) )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2335:1: (lv_annotations_0_0= ruleAnnotations )
             {
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2330:1: (lv_annotations_0_0= ruleAnnotations )
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2331:3: lv_annotations_0_0= ruleAnnotations
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2335:1: (lv_annotations_0_0= ruleAnnotations )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2336:3: lv_annotations_0_0= ruleAnnotations
             {
             if ( backtracking==0 ) {
                
@@ -5938,7 +5943,7 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2353:2: ( (lv_ParameterQualifier_1_0= ruleParameterQualifier ) )*
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2358:2: ( (lv_ParameterQualifier_1_0= ruleParameterQualifier ) )*
             loop29:
             do {
                 int alt29=2;
@@ -5951,10 +5956,10 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
 
                 switch (alt29) {
             	case 1 :
-            	    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2354:1: (lv_ParameterQualifier_1_0= ruleParameterQualifier )
+            	    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2359:1: (lv_ParameterQualifier_1_0= ruleParameterQualifier )
             	    {
-            	    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2354:1: (lv_ParameterQualifier_1_0= ruleParameterQualifier )
-            	    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2355:3: lv_ParameterQualifier_1_0= ruleParameterQualifier
+            	    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2359:1: (lv_ParameterQualifier_1_0= ruleParameterQualifier )
+            	    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2360:3: lv_ParameterQualifier_1_0= ruleParameterQualifier
             	    {
             	    if ( backtracking==0 ) {
             	       
@@ -5996,11 +6001,11 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
                 }
             } while (true);
 
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2377:3: ( (lv_qualifiedTypeSpec_2_0= ruleQualifiedTypeSpecification ) )
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2378:1: (lv_qualifiedTypeSpec_2_0= ruleQualifiedTypeSpecification )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2382:3: ( (lv_qualifiedTypeSpec_2_0= ruleQualifiedTypeSpecification ) )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2383:1: (lv_qualifiedTypeSpec_2_0= ruleQualifiedTypeSpecification )
             {
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2378:1: (lv_qualifiedTypeSpec_2_0= ruleQualifiedTypeSpecification )
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2379:3: lv_qualifiedTypeSpec_2_0= ruleQualifiedTypeSpecification
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2383:1: (lv_qualifiedTypeSpec_2_0= ruleQualifiedTypeSpecification )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2384:3: lv_qualifiedTypeSpec_2_0= ruleQualifiedTypeSpecification
             {
             if ( backtracking==0 ) {
                
@@ -6036,7 +6041,7 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2401:2: ( (lv_dec_3_0= ruleDeclarator ) )?
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2406:2: ( (lv_dec_3_0= ruleDeclarator ) )?
             int alt30=2;
             int LA30_0 = input.LA(1);
 
@@ -6045,10 +6050,10 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
             }
             switch (alt30) {
                 case 1 :
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2402:1: (lv_dec_3_0= ruleDeclarator )
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2407:1: (lv_dec_3_0= ruleDeclarator )
                     {
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2402:1: (lv_dec_3_0= ruleDeclarator )
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2403:3: lv_dec_3_0= ruleDeclarator
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2407:1: (lv_dec_3_0= ruleDeclarator )
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2408:3: lv_dec_3_0= ruleDeclarator
                     {
                     if ( backtracking==0 ) {
                        
@@ -6112,7 +6117,7 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start entryRuleIncludeDirective
-    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2433:1: entryRuleIncludeDirective returns [EObject current=null] : iv_ruleIncludeDirective= ruleIncludeDirective EOF ;
+    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2438:1: entryRuleIncludeDirective returns [EObject current=null] : iv_ruleIncludeDirective= ruleIncludeDirective EOF ;
     public final EObject entryRuleIncludeDirective() throws RecognitionException {
         EObject current = null;
 
@@ -6120,8 +6125,8 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2434:2: (iv_ruleIncludeDirective= ruleIncludeDirective EOF )
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2435:2: iv_ruleIncludeDirective= ruleIncludeDirective EOF
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2439:2: (iv_ruleIncludeDirective= ruleIncludeDirective EOF )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2440:2: iv_ruleIncludeDirective= ruleIncludeDirective EOF
             {
             if ( backtracking==0 ) {
                currentNode = createCompositeNode(grammarAccess.getIncludeDirectiveRule(), currentNode); 
@@ -6151,7 +6156,7 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start ruleIncludeDirective
-    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2442:1: ruleIncludeDirective returns [EObject current=null] : ( '#include' ( ( (lv_importedURI_1_0= RULE_STRING ) ) | ( (lv_includeID_2_0= RULE_INCLUDELIB ) ) ) ) ;
+    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2447:1: ruleIncludeDirective returns [EObject current=null] : ( '#include' ( ( (lv_importedURI_1_0= RULE_STRING ) ) | ( (lv_includeID_2_0= RULE_INCLUDELIB ) ) ) ) ;
     public final EObject ruleIncludeDirective() throws RecognitionException {
         EObject current = null;
 
@@ -6161,11 +6166,11 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
          @SuppressWarnings("unused") EObject temp=null; setCurrentLookahead(); resetLookahead(); 
             
         try {
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2447:6: ( ( '#include' ( ( (lv_importedURI_1_0= RULE_STRING ) ) | ( (lv_includeID_2_0= RULE_INCLUDELIB ) ) ) ) )
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2448:1: ( '#include' ( ( (lv_importedURI_1_0= RULE_STRING ) ) | ( (lv_includeID_2_0= RULE_INCLUDELIB ) ) ) )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2452:6: ( ( '#include' ( ( (lv_importedURI_1_0= RULE_STRING ) ) | ( (lv_includeID_2_0= RULE_INCLUDELIB ) ) ) ) )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2453:1: ( '#include' ( ( (lv_importedURI_1_0= RULE_STRING ) ) | ( (lv_includeID_2_0= RULE_INCLUDELIB ) ) ) )
             {
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2448:1: ( '#include' ( ( (lv_importedURI_1_0= RULE_STRING ) ) | ( (lv_includeID_2_0= RULE_INCLUDELIB ) ) ) )
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2448:3: '#include' ( ( (lv_importedURI_1_0= RULE_STRING ) ) | ( (lv_includeID_2_0= RULE_INCLUDELIB ) ) )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2453:1: ( '#include' ( ( (lv_importedURI_1_0= RULE_STRING ) ) | ( (lv_includeID_2_0= RULE_INCLUDELIB ) ) ) )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2453:3: '#include' ( ( (lv_importedURI_1_0= RULE_STRING ) ) | ( (lv_includeID_2_0= RULE_INCLUDELIB ) ) )
             {
             match(input,37,FOLLOW_37_in_ruleIncludeDirective4282); if (failed) return current;
             if ( backtracking==0 ) {
@@ -6173,7 +6178,7 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
                       createLeafNode(grammarAccess.getIncludeDirectiveAccess().getIncludeKeyword_0(), null); 
                   
             }
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2452:1: ( ( (lv_importedURI_1_0= RULE_STRING ) ) | ( (lv_includeID_2_0= RULE_INCLUDELIB ) ) )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2457:1: ( ( (lv_importedURI_1_0= RULE_STRING ) ) | ( (lv_includeID_2_0= RULE_INCLUDELIB ) ) )
             int alt31=2;
             int LA31_0 = input.LA(1);
 
@@ -6186,19 +6191,19 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
             else {
                 if (backtracking>0) {failed=true; return current;}
                 NoViableAltException nvae =
-                    new NoViableAltException("2452:1: ( ( (lv_importedURI_1_0= RULE_STRING ) ) | ( (lv_includeID_2_0= RULE_INCLUDELIB ) ) )", 31, 0, input);
+                    new NoViableAltException("2457:1: ( ( (lv_importedURI_1_0= RULE_STRING ) ) | ( (lv_includeID_2_0= RULE_INCLUDELIB ) ) )", 31, 0, input);
 
                 throw nvae;
             }
             switch (alt31) {
                 case 1 :
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2452:2: ( (lv_importedURI_1_0= RULE_STRING ) )
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2457:2: ( (lv_importedURI_1_0= RULE_STRING ) )
                     {
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2452:2: ( (lv_importedURI_1_0= RULE_STRING ) )
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2453:1: (lv_importedURI_1_0= RULE_STRING )
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2457:2: ( (lv_importedURI_1_0= RULE_STRING ) )
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2458:1: (lv_importedURI_1_0= RULE_STRING )
                     {
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2453:1: (lv_importedURI_1_0= RULE_STRING )
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2454:3: lv_importedURI_1_0= RULE_STRING
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2458:1: (lv_importedURI_1_0= RULE_STRING )
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2459:3: lv_importedURI_1_0= RULE_STRING
                     {
                     lv_importedURI_1_0=(Token)input.LT(1);
                     match(input,RULE_STRING,FOLLOW_RULE_STRING_in_ruleIncludeDirective4300); if (failed) return current;
@@ -6235,13 +6240,13 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2477:6: ( (lv_includeID_2_0= RULE_INCLUDELIB ) )
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2482:6: ( (lv_includeID_2_0= RULE_INCLUDELIB ) )
                     {
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2477:6: ( (lv_includeID_2_0= RULE_INCLUDELIB ) )
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2478:1: (lv_includeID_2_0= RULE_INCLUDELIB )
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2482:6: ( (lv_includeID_2_0= RULE_INCLUDELIB ) )
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2483:1: (lv_includeID_2_0= RULE_INCLUDELIB )
                     {
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2478:1: (lv_includeID_2_0= RULE_INCLUDELIB )
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2479:3: lv_includeID_2_0= RULE_INCLUDELIB
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2483:1: (lv_includeID_2_0= RULE_INCLUDELIB )
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2484:3: lv_includeID_2_0= RULE_INCLUDELIB
                     {
                     lv_includeID_2_0=(Token)input.LT(1);
                     match(input,RULE_INCLUDELIB,FOLLOW_RULE_INCLUDELIB_in_ruleIncludeDirective4328); if (failed) return current;
@@ -6305,7 +6310,7 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start entryRuleAnnotations
-    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2509:1: entryRuleAnnotations returns [EObject current=null] : iv_ruleAnnotations= ruleAnnotations EOF ;
+    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2514:1: entryRuleAnnotations returns [EObject current=null] : iv_ruleAnnotations= ruleAnnotations EOF ;
     public final EObject entryRuleAnnotations() throws RecognitionException {
         EObject current = null;
 
@@ -6313,8 +6318,8 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2510:2: (iv_ruleAnnotations= ruleAnnotations EOF )
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2511:2: iv_ruleAnnotations= ruleAnnotations EOF
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2515:2: (iv_ruleAnnotations= ruleAnnotations EOF )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2516:2: iv_ruleAnnotations= ruleAnnotations EOF
             {
             if ( backtracking==0 ) {
                currentNode = createCompositeNode(grammarAccess.getAnnotationsRule(), currentNode); 
@@ -6344,7 +6349,7 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start ruleAnnotations
-    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2518:1: ruleAnnotations returns [EObject current=null] : ( () ( (lv_annotations_1_0= ruleAnnotation ) )* ) ;
+    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2523:1: ruleAnnotations returns [EObject current=null] : ( () ( (lv_annotations_1_0= ruleAnnotation ) )* ) ;
     public final EObject ruleAnnotations() throws RecognitionException {
         EObject current = null;
 
@@ -6354,14 +6359,14 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
          @SuppressWarnings("unused") EObject temp=null; setCurrentLookahead(); resetLookahead(); 
             
         try {
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2523:6: ( ( () ( (lv_annotations_1_0= ruleAnnotation ) )* ) )
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2524:1: ( () ( (lv_annotations_1_0= ruleAnnotation ) )* )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2528:6: ( ( () ( (lv_annotations_1_0= ruleAnnotation ) )* ) )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2529:1: ( () ( (lv_annotations_1_0= ruleAnnotation ) )* )
             {
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2524:1: ( () ( (lv_annotations_1_0= ruleAnnotation ) )* )
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2524:2: () ( (lv_annotations_1_0= ruleAnnotation ) )*
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2529:1: ( () ( (lv_annotations_1_0= ruleAnnotation ) )* )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2529:2: () ( (lv_annotations_1_0= ruleAnnotation ) )*
             {
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2524:2: ()
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2525:2: 
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2529:2: ()
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2530:2: 
             {
             if ( backtracking==0 ) {
                
@@ -6383,7 +6388,7 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2538:2: ( (lv_annotations_1_0= ruleAnnotation ) )*
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2543:2: ( (lv_annotations_1_0= ruleAnnotation ) )*
             loop32:
             do {
                 int alt32=2;
@@ -6396,10 +6401,10 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
 
                 switch (alt32) {
             	case 1 :
-            	    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2539:1: (lv_annotations_1_0= ruleAnnotation )
+            	    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2544:1: (lv_annotations_1_0= ruleAnnotation )
             	    {
-            	    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2539:1: (lv_annotations_1_0= ruleAnnotation )
-            	    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2540:3: lv_annotations_1_0= ruleAnnotation
+            	    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2544:1: (lv_annotations_1_0= ruleAnnotation )
+            	    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2545:3: lv_annotations_1_0= ruleAnnotation
             	    {
             	    if ( backtracking==0 ) {
             	       
@@ -6466,7 +6471,7 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start entryRuleAnnotation
-    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2570:1: entryRuleAnnotation returns [EObject current=null] : iv_ruleAnnotation= ruleAnnotation EOF ;
+    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2575:1: entryRuleAnnotation returns [EObject current=null] : iv_ruleAnnotation= ruleAnnotation EOF ;
     public final EObject entryRuleAnnotation() throws RecognitionException {
         EObject current = null;
 
@@ -6474,8 +6479,8 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2571:2: (iv_ruleAnnotation= ruleAnnotation EOF )
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2572:2: iv_ruleAnnotation= ruleAnnotation EOF
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2576:2: (iv_ruleAnnotation= ruleAnnotation EOF )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2577:2: iv_ruleAnnotation= ruleAnnotation EOF
             {
             if ( backtracking==0 ) {
                currentNode = createCompositeNode(grammarAccess.getAnnotationRule(), currentNode); 
@@ -6505,7 +6510,7 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start ruleAnnotation
-    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2579:1: ruleAnnotation returns [EObject current=null] : ( '@' ( (lv_fqn_1_0= ruleFullyQualifiedName ) ) ( (lv_annotationParamaters_2_0= ruleAnnotationParameters ) )? ) ;
+    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2584:1: ruleAnnotation returns [EObject current=null] : ( '@' ( (lv_fqn_1_0= ruleFullyQualifiedName ) ) ( (lv_annotationParamaters_2_0= ruleAnnotationParameters ) )? ) ;
     public final EObject ruleAnnotation() throws RecognitionException {
         EObject current = null;
 
@@ -6517,11 +6522,11 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
          @SuppressWarnings("unused") EObject temp=null; setCurrentLookahead(); resetLookahead(); 
             
         try {
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2584:6: ( ( '@' ( (lv_fqn_1_0= ruleFullyQualifiedName ) ) ( (lv_annotationParamaters_2_0= ruleAnnotationParameters ) )? ) )
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2585:1: ( '@' ( (lv_fqn_1_0= ruleFullyQualifiedName ) ) ( (lv_annotationParamaters_2_0= ruleAnnotationParameters ) )? )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2589:6: ( ( '@' ( (lv_fqn_1_0= ruleFullyQualifiedName ) ) ( (lv_annotationParamaters_2_0= ruleAnnotationParameters ) )? ) )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2590:1: ( '@' ( (lv_fqn_1_0= ruleFullyQualifiedName ) ) ( (lv_annotationParamaters_2_0= ruleAnnotationParameters ) )? )
             {
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2585:1: ( '@' ( (lv_fqn_1_0= ruleFullyQualifiedName ) ) ( (lv_annotationParamaters_2_0= ruleAnnotationParameters ) )? )
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2585:3: '@' ( (lv_fqn_1_0= ruleFullyQualifiedName ) ) ( (lv_annotationParamaters_2_0= ruleAnnotationParameters ) )?
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2590:1: ( '@' ( (lv_fqn_1_0= ruleFullyQualifiedName ) ) ( (lv_annotationParamaters_2_0= ruleAnnotationParameters ) )? )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2590:3: '@' ( (lv_fqn_1_0= ruleFullyQualifiedName ) ) ( (lv_annotationParamaters_2_0= ruleAnnotationParameters ) )?
             {
             match(input,38,FOLLOW_38_in_ruleAnnotation4520); if (failed) return current;
             if ( backtracking==0 ) {
@@ -6529,11 +6534,11 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
                       createLeafNode(grammarAccess.getAnnotationAccess().getCommercialAtKeyword_0(), null); 
                   
             }
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2589:1: ( (lv_fqn_1_0= ruleFullyQualifiedName ) )
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2590:1: (lv_fqn_1_0= ruleFullyQualifiedName )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2594:1: ( (lv_fqn_1_0= ruleFullyQualifiedName ) )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2595:1: (lv_fqn_1_0= ruleFullyQualifiedName )
             {
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2590:1: (lv_fqn_1_0= ruleFullyQualifiedName )
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2591:3: lv_fqn_1_0= ruleFullyQualifiedName
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2595:1: (lv_fqn_1_0= ruleFullyQualifiedName )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2596:3: lv_fqn_1_0= ruleFullyQualifiedName
             {
             if ( backtracking==0 ) {
                
@@ -6569,7 +6574,7 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2613:2: ( (lv_annotationParamaters_2_0= ruleAnnotationParameters ) )?
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2618:2: ( (lv_annotationParamaters_2_0= ruleAnnotationParameters ) )?
             int alt33=2;
             int LA33_0 = input.LA(1);
 
@@ -6578,10 +6583,10 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
             }
             switch (alt33) {
                 case 1 :
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2614:1: (lv_annotationParamaters_2_0= ruleAnnotationParameters )
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2619:1: (lv_annotationParamaters_2_0= ruleAnnotationParameters )
                     {
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2614:1: (lv_annotationParamaters_2_0= ruleAnnotationParameters )
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2615:3: lv_annotationParamaters_2_0= ruleAnnotationParameters
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2619:1: (lv_annotationParamaters_2_0= ruleAnnotationParameters )
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2620:3: lv_annotationParamaters_2_0= ruleAnnotationParameters
                     {
                     if ( backtracking==0 ) {
                        
@@ -6645,7 +6650,7 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start entryRuleAnnotationParameters
-    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2645:1: entryRuleAnnotationParameters returns [EObject current=null] : iv_ruleAnnotationParameters= ruleAnnotationParameters EOF ;
+    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2650:1: entryRuleAnnotationParameters returns [EObject current=null] : iv_ruleAnnotationParameters= ruleAnnotationParameters EOF ;
     public final EObject entryRuleAnnotationParameters() throws RecognitionException {
         EObject current = null;
 
@@ -6653,8 +6658,8 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2646:2: (iv_ruleAnnotationParameters= ruleAnnotationParameters EOF )
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2647:2: iv_ruleAnnotationParameters= ruleAnnotationParameters EOF
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2651:2: (iv_ruleAnnotationParameters= ruleAnnotationParameters EOF )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2652:2: iv_ruleAnnotationParameters= ruleAnnotationParameters EOF
             {
             if ( backtracking==0 ) {
                currentNode = createCompositeNode(grammarAccess.getAnnotationParametersRule(), currentNode); 
@@ -6684,7 +6689,7 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start ruleAnnotationParameters
-    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2654:1: ruleAnnotationParameters returns [EObject current=null] : ( () '(' ( ( (lv_valuePair_2_0= ruleAnnotationValuePairs ) ) | ( (lv_value_3_0= ruleAnnotationValue ) ) )? ')' ) ;
+    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2659:1: ruleAnnotationParameters returns [EObject current=null] : ( () '(' ( ( (lv_valuePair_2_0= ruleAnnotationValuePairs ) ) | ( (lv_value_3_0= ruleAnnotationValue ) ) )? ')' ) ;
     public final EObject ruleAnnotationParameters() throws RecognitionException {
         EObject current = null;
 
@@ -6696,14 +6701,14 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
          @SuppressWarnings("unused") EObject temp=null; setCurrentLookahead(); resetLookahead(); 
             
         try {
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2659:6: ( ( () '(' ( ( (lv_valuePair_2_0= ruleAnnotationValuePairs ) ) | ( (lv_value_3_0= ruleAnnotationValue ) ) )? ')' ) )
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2660:1: ( () '(' ( ( (lv_valuePair_2_0= ruleAnnotationValuePairs ) ) | ( (lv_value_3_0= ruleAnnotationValue ) ) )? ')' )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2664:6: ( ( () '(' ( ( (lv_valuePair_2_0= ruleAnnotationValuePairs ) ) | ( (lv_value_3_0= ruleAnnotationValue ) ) )? ')' ) )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2665:1: ( () '(' ( ( (lv_valuePair_2_0= ruleAnnotationValuePairs ) ) | ( (lv_value_3_0= ruleAnnotationValue ) ) )? ')' )
             {
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2660:1: ( () '(' ( ( (lv_valuePair_2_0= ruleAnnotationValuePairs ) ) | ( (lv_value_3_0= ruleAnnotationValue ) ) )? ')' )
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2660:2: () '(' ( ( (lv_valuePair_2_0= ruleAnnotationValuePairs ) ) | ( (lv_value_3_0= ruleAnnotationValue ) ) )? ')'
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2665:1: ( () '(' ( ( (lv_valuePair_2_0= ruleAnnotationValuePairs ) ) | ( (lv_value_3_0= ruleAnnotationValue ) ) )? ')' )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2665:2: () '(' ( ( (lv_valuePair_2_0= ruleAnnotationValuePairs ) ) | ( (lv_value_3_0= ruleAnnotationValue ) ) )? ')'
             {
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2660:2: ()
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2661:2: 
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2665:2: ()
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2666:2: 
             {
             if ( backtracking==0 ) {
                
@@ -6731,7 +6736,7 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
                       createLeafNode(grammarAccess.getAnnotationParametersAccess().getLeftParenthesisKeyword_1(), null); 
                   
             }
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2678:1: ( ( (lv_valuePair_2_0= ruleAnnotationValuePairs ) ) | ( (lv_value_3_0= ruleAnnotationValue ) ) )?
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2683:1: ( ( (lv_valuePair_2_0= ruleAnnotationValuePairs ) ) | ( (lv_value_3_0= ruleAnnotationValue ) ) )?
             int alt34=3;
             int LA34_0 = input.LA(1);
 
@@ -6750,13 +6755,13 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
             }
             switch (alt34) {
                 case 1 :
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2678:2: ( (lv_valuePair_2_0= ruleAnnotationValuePairs ) )
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2683:2: ( (lv_valuePair_2_0= ruleAnnotationValuePairs ) )
                     {
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2678:2: ( (lv_valuePair_2_0= ruleAnnotationValuePairs ) )
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2679:1: (lv_valuePair_2_0= ruleAnnotationValuePairs )
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2683:2: ( (lv_valuePair_2_0= ruleAnnotationValuePairs ) )
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2684:1: (lv_valuePair_2_0= ruleAnnotationValuePairs )
                     {
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2679:1: (lv_valuePair_2_0= ruleAnnotationValuePairs )
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2680:3: lv_valuePair_2_0= ruleAnnotationValuePairs
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2684:1: (lv_valuePair_2_0= ruleAnnotationValuePairs )
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2685:3: lv_valuePair_2_0= ruleAnnotationValuePairs
                     {
                     if ( backtracking==0 ) {
                        
@@ -6796,13 +6801,13 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2703:6: ( (lv_value_3_0= ruleAnnotationValue ) )
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2708:6: ( (lv_value_3_0= ruleAnnotationValue ) )
                     {
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2703:6: ( (lv_value_3_0= ruleAnnotationValue ) )
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2704:1: (lv_value_3_0= ruleAnnotationValue )
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2708:6: ( (lv_value_3_0= ruleAnnotationValue ) )
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2709:1: (lv_value_3_0= ruleAnnotationValue )
                     {
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2704:1: (lv_value_3_0= ruleAnnotationValue )
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2705:3: lv_value_3_0= ruleAnnotationValue
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2709:1: (lv_value_3_0= ruleAnnotationValue )
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2710:3: lv_value_3_0= ruleAnnotationValue
                     {
                     if ( backtracking==0 ) {
                        
@@ -6875,7 +6880,7 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start entryRuleAnnotationValuePairs
-    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2739:1: entryRuleAnnotationValuePairs returns [EObject current=null] : iv_ruleAnnotationValuePairs= ruleAnnotationValuePairs EOF ;
+    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2744:1: entryRuleAnnotationValuePairs returns [EObject current=null] : iv_ruleAnnotationValuePairs= ruleAnnotationValuePairs EOF ;
     public final EObject entryRuleAnnotationValuePairs() throws RecognitionException {
         EObject current = null;
 
@@ -6883,8 +6888,8 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2740:2: (iv_ruleAnnotationValuePairs= ruleAnnotationValuePairs EOF )
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2741:2: iv_ruleAnnotationValuePairs= ruleAnnotationValuePairs EOF
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2745:2: (iv_ruleAnnotationValuePairs= ruleAnnotationValuePairs EOF )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2746:2: iv_ruleAnnotationValuePairs= ruleAnnotationValuePairs EOF
             {
             if ( backtracking==0 ) {
                currentNode = createCompositeNode(grammarAccess.getAnnotationValuePairsRule(), currentNode); 
@@ -6914,7 +6919,7 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start ruleAnnotationValuePairs
-    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2748:1: ruleAnnotationValuePairs returns [EObject current=null] : ( ( (lv_first_0_0= ruleAnnotationValuePair ) ) ( ',' ( (lv_listValue_2_0= ruleAnnotationValuePair ) ) )* ) ;
+    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2753:1: ruleAnnotationValuePairs returns [EObject current=null] : ( ( (lv_first_0_0= ruleAnnotationValuePair ) ) ( ',' ( (lv_listValue_2_0= ruleAnnotationValuePair ) ) )* ) ;
     public final EObject ruleAnnotationValuePairs() throws RecognitionException {
         EObject current = null;
 
@@ -6926,17 +6931,17 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
          @SuppressWarnings("unused") EObject temp=null; setCurrentLookahead(); resetLookahead(); 
             
         try {
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2753:6: ( ( ( (lv_first_0_0= ruleAnnotationValuePair ) ) ( ',' ( (lv_listValue_2_0= ruleAnnotationValuePair ) ) )* ) )
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2754:1: ( ( (lv_first_0_0= ruleAnnotationValuePair ) ) ( ',' ( (lv_listValue_2_0= ruleAnnotationValuePair ) ) )* )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2758:6: ( ( ( (lv_first_0_0= ruleAnnotationValuePair ) ) ( ',' ( (lv_listValue_2_0= ruleAnnotationValuePair ) ) )* ) )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2759:1: ( ( (lv_first_0_0= ruleAnnotationValuePair ) ) ( ',' ( (lv_listValue_2_0= ruleAnnotationValuePair ) ) )* )
             {
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2754:1: ( ( (lv_first_0_0= ruleAnnotationValuePair ) ) ( ',' ( (lv_listValue_2_0= ruleAnnotationValuePair ) ) )* )
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2754:2: ( (lv_first_0_0= ruleAnnotationValuePair ) ) ( ',' ( (lv_listValue_2_0= ruleAnnotationValuePair ) ) )*
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2759:1: ( ( (lv_first_0_0= ruleAnnotationValuePair ) ) ( ',' ( (lv_listValue_2_0= ruleAnnotationValuePair ) ) )* )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2759:2: ( (lv_first_0_0= ruleAnnotationValuePair ) ) ( ',' ( (lv_listValue_2_0= ruleAnnotationValuePair ) ) )*
             {
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2754:2: ( (lv_first_0_0= ruleAnnotationValuePair ) )
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2755:1: (lv_first_0_0= ruleAnnotationValuePair )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2759:2: ( (lv_first_0_0= ruleAnnotationValuePair ) )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2760:1: (lv_first_0_0= ruleAnnotationValuePair )
             {
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2755:1: (lv_first_0_0= ruleAnnotationValuePair )
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2756:3: lv_first_0_0= ruleAnnotationValuePair
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2760:1: (lv_first_0_0= ruleAnnotationValuePair )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2761:3: lv_first_0_0= ruleAnnotationValuePair
             {
             if ( backtracking==0 ) {
                
@@ -6972,7 +6977,7 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2778:2: ( ',' ( (lv_listValue_2_0= ruleAnnotationValuePair ) ) )*
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2783:2: ( ',' ( (lv_listValue_2_0= ruleAnnotationValuePair ) ) )*
             loop35:
             do {
                 int alt35=2;
@@ -6985,7 +6990,7 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
 
                 switch (alt35) {
             	case 1 :
-            	    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2778:4: ',' ( (lv_listValue_2_0= ruleAnnotationValuePair ) )
+            	    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2783:4: ',' ( (lv_listValue_2_0= ruleAnnotationValuePair ) )
             	    {
             	    match(input,24,FOLLOW_24_in_ruleAnnotationValuePairs4820); if (failed) return current;
             	    if ( backtracking==0 ) {
@@ -6993,11 +6998,11 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
             	              createLeafNode(grammarAccess.getAnnotationValuePairsAccess().getCommaKeyword_1_0(), null); 
             	          
             	    }
-            	    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2782:1: ( (lv_listValue_2_0= ruleAnnotationValuePair ) )
-            	    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2783:1: (lv_listValue_2_0= ruleAnnotationValuePair )
+            	    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2787:1: ( (lv_listValue_2_0= ruleAnnotationValuePair ) )
+            	    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2788:1: (lv_listValue_2_0= ruleAnnotationValuePair )
             	    {
-            	    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2783:1: (lv_listValue_2_0= ruleAnnotationValuePair )
-            	    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2784:3: lv_listValue_2_0= ruleAnnotationValuePair
+            	    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2788:1: (lv_listValue_2_0= ruleAnnotationValuePair )
+            	    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2789:3: lv_listValue_2_0= ruleAnnotationValuePair
             	    {
             	    if ( backtracking==0 ) {
             	       
@@ -7067,7 +7072,7 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start entryRuleAnnotationValuePair
-    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2814:1: entryRuleAnnotationValuePair returns [EObject current=null] : iv_ruleAnnotationValuePair= ruleAnnotationValuePair EOF ;
+    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2819:1: entryRuleAnnotationValuePair returns [EObject current=null] : iv_ruleAnnotationValuePair= ruleAnnotationValuePair EOF ;
     public final EObject entryRuleAnnotationValuePair() throws RecognitionException {
         EObject current = null;
 
@@ -7075,8 +7080,8 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2815:2: (iv_ruleAnnotationValuePair= ruleAnnotationValuePair EOF )
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2816:2: iv_ruleAnnotationValuePair= ruleAnnotationValuePair EOF
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2820:2: (iv_ruleAnnotationValuePair= ruleAnnotationValuePair EOF )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2821:2: iv_ruleAnnotationValuePair= ruleAnnotationValuePair EOF
             {
             if ( backtracking==0 ) {
                currentNode = createCompositeNode(grammarAccess.getAnnotationValuePairRule(), currentNode); 
@@ -7106,7 +7111,7 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start ruleAnnotationValuePair
-    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2823:1: ruleAnnotationValuePair returns [EObject current=null] : ( ( (lv_id_0_0= RULE_ID ) ) '=' ( (lv_value_2_0= ruleAnnotationValue ) ) ) ;
+    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2828:1: ruleAnnotationValuePair returns [EObject current=null] : ( ( (lv_id_0_0= RULE_ID ) ) '=' ( (lv_value_2_0= ruleAnnotationValue ) ) ) ;
     public final EObject ruleAnnotationValuePair() throws RecognitionException {
         EObject current = null;
 
@@ -7117,17 +7122,17 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
          @SuppressWarnings("unused") EObject temp=null; setCurrentLookahead(); resetLookahead(); 
             
         try {
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2828:6: ( ( ( (lv_id_0_0= RULE_ID ) ) '=' ( (lv_value_2_0= ruleAnnotationValue ) ) ) )
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2829:1: ( ( (lv_id_0_0= RULE_ID ) ) '=' ( (lv_value_2_0= ruleAnnotationValue ) ) )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2833:6: ( ( ( (lv_id_0_0= RULE_ID ) ) '=' ( (lv_value_2_0= ruleAnnotationValue ) ) ) )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2834:1: ( ( (lv_id_0_0= RULE_ID ) ) '=' ( (lv_value_2_0= ruleAnnotationValue ) ) )
             {
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2829:1: ( ( (lv_id_0_0= RULE_ID ) ) '=' ( (lv_value_2_0= ruleAnnotationValue ) ) )
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2829:2: ( (lv_id_0_0= RULE_ID ) ) '=' ( (lv_value_2_0= ruleAnnotationValue ) )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2834:1: ( ( (lv_id_0_0= RULE_ID ) ) '=' ( (lv_value_2_0= ruleAnnotationValue ) ) )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2834:2: ( (lv_id_0_0= RULE_ID ) ) '=' ( (lv_value_2_0= ruleAnnotationValue ) )
             {
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2829:2: ( (lv_id_0_0= RULE_ID ) )
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2830:1: (lv_id_0_0= RULE_ID )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2834:2: ( (lv_id_0_0= RULE_ID ) )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2835:1: (lv_id_0_0= RULE_ID )
             {
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2830:1: (lv_id_0_0= RULE_ID )
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2831:3: lv_id_0_0= RULE_ID
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2835:1: (lv_id_0_0= RULE_ID )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2836:3: lv_id_0_0= RULE_ID
             {
             lv_id_0_0=(Token)input.LT(1);
             match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleAnnotationValuePair4931); if (failed) return current;
@@ -7166,11 +7171,11 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
                       createLeafNode(grammarAccess.getAnnotationValuePairAccess().getEqualsSignKeyword_1(), null); 
                   
             }
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2857:1: ( (lv_value_2_0= ruleAnnotationValue ) )
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2858:1: (lv_value_2_0= ruleAnnotationValue )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2862:1: ( (lv_value_2_0= ruleAnnotationValue ) )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2863:1: (lv_value_2_0= ruleAnnotationValue )
             {
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2858:1: (lv_value_2_0= ruleAnnotationValue )
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2859:3: lv_value_2_0= ruleAnnotationValue
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2863:1: (lv_value_2_0= ruleAnnotationValue )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2864:3: lv_value_2_0= ruleAnnotationValue
             {
             if ( backtracking==0 ) {
                
@@ -7231,7 +7236,7 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start entryRuleAnnotationValue
-    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2889:1: entryRuleAnnotationValue returns [EObject current=null] : iv_ruleAnnotationValue= ruleAnnotationValue EOF ;
+    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2894:1: entryRuleAnnotationValue returns [EObject current=null] : iv_ruleAnnotationValue= ruleAnnotationValue EOF ;
     public final EObject entryRuleAnnotationValue() throws RecognitionException {
         EObject current = null;
 
@@ -7239,8 +7244,8 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2890:2: (iv_ruleAnnotationValue= ruleAnnotationValue EOF )
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2891:2: iv_ruleAnnotationValue= ruleAnnotationValue EOF
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2895:2: (iv_ruleAnnotationValue= ruleAnnotationValue EOF )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2896:2: iv_ruleAnnotationValue= ruleAnnotationValue EOF
             {
             if ( backtracking==0 ) {
                currentNode = createCompositeNode(grammarAccess.getAnnotationValueRule(), currentNode); 
@@ -7270,7 +7275,7 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start ruleAnnotationValue
-    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2898:1: ruleAnnotationValue returns [EObject current=null] : ( rulesignedINT | 'null' | RULE_BOOLEAN | RULE_ID | this_Annotation_4= ruleAnnotation | this_ArrayAnnotationValue_5= ruleArrayAnnotationValue | RULE_STRING ) ;
+    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2903:1: ruleAnnotationValue returns [EObject current=null] : ( rulesignedINT | 'null' | RULE_BOOLEAN | RULE_ID | this_Annotation_4= ruleAnnotation | this_ArrayAnnotationValue_5= ruleArrayAnnotationValue | RULE_STRING ) ;
     public final EObject ruleAnnotationValue() throws RecognitionException {
         EObject current = null;
 
@@ -7282,10 +7287,10 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
          @SuppressWarnings("unused") EObject temp=null; setCurrentLookahead(); resetLookahead(); 
             
         try {
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2903:6: ( ( rulesignedINT | 'null' | RULE_BOOLEAN | RULE_ID | this_Annotation_4= ruleAnnotation | this_ArrayAnnotationValue_5= ruleArrayAnnotationValue | RULE_STRING ) )
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2904:1: ( rulesignedINT | 'null' | RULE_BOOLEAN | RULE_ID | this_Annotation_4= ruleAnnotation | this_ArrayAnnotationValue_5= ruleArrayAnnotationValue | RULE_STRING )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2908:6: ( ( rulesignedINT | 'null' | RULE_BOOLEAN | RULE_ID | this_Annotation_4= ruleAnnotation | this_ArrayAnnotationValue_5= ruleArrayAnnotationValue | RULE_STRING ) )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2909:1: ( rulesignedINT | 'null' | RULE_BOOLEAN | RULE_ID | this_Annotation_4= ruleAnnotation | this_ArrayAnnotationValue_5= ruleArrayAnnotationValue | RULE_STRING )
             {
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2904:1: ( rulesignedINT | 'null' | RULE_BOOLEAN | RULE_ID | this_Annotation_4= ruleAnnotation | this_ArrayAnnotationValue_5= ruleArrayAnnotationValue | RULE_STRING )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2909:1: ( rulesignedINT | 'null' | RULE_BOOLEAN | RULE_ID | this_Annotation_4= ruleAnnotation | this_ArrayAnnotationValue_5= ruleArrayAnnotationValue | RULE_STRING )
             int alt36=7;
             switch ( input.LA(1) ) {
             case RULE_INT:
@@ -7328,14 +7333,14 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
             default:
                 if (backtracking>0) {failed=true; return current;}
                 NoViableAltException nvae =
-                    new NoViableAltException("2904:1: ( rulesignedINT | 'null' | RULE_BOOLEAN | RULE_ID | this_Annotation_4= ruleAnnotation | this_ArrayAnnotationValue_5= ruleArrayAnnotationValue | RULE_STRING )", 36, 0, input);
+                    new NoViableAltException("2909:1: ( rulesignedINT | 'null' | RULE_BOOLEAN | RULE_ID | this_Annotation_4= ruleAnnotation | this_ArrayAnnotationValue_5= ruleArrayAnnotationValue | RULE_STRING )", 36, 0, input);
 
                 throw nvae;
             }
 
             switch (alt36) {
                 case 1 :
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2904:2: rulesignedINT
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2909:2: rulesignedINT
                     {
                     pushFollow(FOLLOW_rulesignedINT_in_ruleAnnotationValue5047);
                     rulesignedINT();
@@ -7345,7 +7350,7 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2905:7: 'null'
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2910:7: 'null'
                     {
                     match(input,39,FOLLOW_39_in_ruleAnnotationValue5055); if (failed) return current;
                     if ( backtracking==0 ) {
@@ -7357,7 +7362,7 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 3 :
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2910:6: RULE_BOOLEAN
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2915:6: RULE_BOOLEAN
                     {
                     match(input,RULE_BOOLEAN,FOLLOW_RULE_BOOLEAN_in_ruleAnnotationValue5070); if (failed) return current;
                     if ( backtracking==0 ) {
@@ -7369,7 +7374,7 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 4 :
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2915:6: RULE_ID
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2920:6: RULE_ID
                     {
                     match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleAnnotationValue5084); if (failed) return current;
                     if ( backtracking==0 ) {
@@ -7381,7 +7386,7 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 5 :
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2921:2: this_Annotation_4= ruleAnnotation
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2926:2: this_Annotation_4= ruleAnnotation
                     {
                     if ( backtracking==0 ) {
                        
@@ -7407,7 +7412,7 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 6 :
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2934:2: this_ArrayAnnotationValue_5= ruleArrayAnnotationValue
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2939:2: this_ArrayAnnotationValue_5= ruleArrayAnnotationValue
                     {
                     if ( backtracking==0 ) {
                        
@@ -7433,7 +7438,7 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 7 :
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2946:6: RULE_STRING
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2951:6: RULE_STRING
                     {
                     match(input,RULE_STRING,FOLLOW_RULE_STRING_in_ruleAnnotationValue5158); if (failed) return current;
                     if ( backtracking==0 ) {
@@ -7469,7 +7474,7 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start entryRuleArrayAnnotationValue
-    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2958:1: entryRuleArrayAnnotationValue returns [EObject current=null] : iv_ruleArrayAnnotationValue= ruleArrayAnnotationValue EOF ;
+    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2963:1: entryRuleArrayAnnotationValue returns [EObject current=null] : iv_ruleArrayAnnotationValue= ruleArrayAnnotationValue EOF ;
     public final EObject entryRuleArrayAnnotationValue() throws RecognitionException {
         EObject current = null;
 
@@ -7477,8 +7482,8 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2959:2: (iv_ruleArrayAnnotationValue= ruleArrayAnnotationValue EOF )
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2960:2: iv_ruleArrayAnnotationValue= ruleArrayAnnotationValue EOF
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2964:2: (iv_ruleArrayAnnotationValue= ruleArrayAnnotationValue EOF )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2965:2: iv_ruleArrayAnnotationValue= ruleArrayAnnotationValue EOF
             {
             if ( backtracking==0 ) {
                currentNode = createCompositeNode(grammarAccess.getArrayAnnotationValueRule(), currentNode); 
@@ -7508,7 +7513,7 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start ruleArrayAnnotationValue
-    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2967:1: ruleArrayAnnotationValue returns [EObject current=null] : ( '{' ( ( (lv_firstValue_1_0= ruleAnnotationValue ) ) ( ',' ( (lv_values_3_0= ruleAnnotationValue ) ) )* )? '}' ) ;
+    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2972:1: ruleArrayAnnotationValue returns [EObject current=null] : ( '{' ( ( (lv_firstValue_1_0= ruleAnnotationValue ) ) ( ',' ( (lv_values_3_0= ruleAnnotationValue ) ) )* )? '}' ) ;
     public final EObject ruleArrayAnnotationValue() throws RecognitionException {
         EObject current = null;
 
@@ -7520,11 +7525,11 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
          @SuppressWarnings("unused") EObject temp=null; setCurrentLookahead(); resetLookahead(); 
             
         try {
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2972:6: ( ( '{' ( ( (lv_firstValue_1_0= ruleAnnotationValue ) ) ( ',' ( (lv_values_3_0= ruleAnnotationValue ) ) )* )? '}' ) )
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2973:1: ( '{' ( ( (lv_firstValue_1_0= ruleAnnotationValue ) ) ( ',' ( (lv_values_3_0= ruleAnnotationValue ) ) )* )? '}' )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2977:6: ( ( '{' ( ( (lv_firstValue_1_0= ruleAnnotationValue ) ) ( ',' ( (lv_values_3_0= ruleAnnotationValue ) ) )* )? '}' ) )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2978:1: ( '{' ( ( (lv_firstValue_1_0= ruleAnnotationValue ) ) ( ',' ( (lv_values_3_0= ruleAnnotationValue ) ) )* )? '}' )
             {
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2973:1: ( '{' ( ( (lv_firstValue_1_0= ruleAnnotationValue ) ) ( ',' ( (lv_values_3_0= ruleAnnotationValue ) ) )* )? '}' )
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2973:3: '{' ( ( (lv_firstValue_1_0= ruleAnnotationValue ) ) ( ',' ( (lv_values_3_0= ruleAnnotationValue ) ) )* )? '}'
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2978:1: ( '{' ( ( (lv_firstValue_1_0= ruleAnnotationValue ) ) ( ',' ( (lv_values_3_0= ruleAnnotationValue ) ) )* )? '}' )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2978:3: '{' ( ( (lv_firstValue_1_0= ruleAnnotationValue ) ) ( ',' ( (lv_values_3_0= ruleAnnotationValue ) ) )* )? '}'
             {
             match(input,18,FOLLOW_18_in_ruleArrayAnnotationValue5238); if (failed) return current;
             if ( backtracking==0 ) {
@@ -7532,7 +7537,7 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
                       createLeafNode(grammarAccess.getArrayAnnotationValueAccess().getLeftCurlyBracketKeyword_0(), null); 
                   
             }
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2977:1: ( ( (lv_firstValue_1_0= ruleAnnotationValue ) ) ( ',' ( (lv_values_3_0= ruleAnnotationValue ) ) )* )?
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2982:1: ( ( (lv_firstValue_1_0= ruleAnnotationValue ) ) ( ',' ( (lv_values_3_0= ruleAnnotationValue ) ) )* )?
             int alt38=2;
             int LA38_0 = input.LA(1);
 
@@ -7541,13 +7546,13 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
             }
             switch (alt38) {
                 case 1 :
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2977:2: ( (lv_firstValue_1_0= ruleAnnotationValue ) ) ( ',' ( (lv_values_3_0= ruleAnnotationValue ) ) )*
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2982:2: ( (lv_firstValue_1_0= ruleAnnotationValue ) ) ( ',' ( (lv_values_3_0= ruleAnnotationValue ) ) )*
                     {
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2977:2: ( (lv_firstValue_1_0= ruleAnnotationValue ) )
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2978:1: (lv_firstValue_1_0= ruleAnnotationValue )
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2982:2: ( (lv_firstValue_1_0= ruleAnnotationValue ) )
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2983:1: (lv_firstValue_1_0= ruleAnnotationValue )
                     {
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2978:1: (lv_firstValue_1_0= ruleAnnotationValue )
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2979:3: lv_firstValue_1_0= ruleAnnotationValue
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2983:1: (lv_firstValue_1_0= ruleAnnotationValue )
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2984:3: lv_firstValue_1_0= ruleAnnotationValue
                     {
                     if ( backtracking==0 ) {
                        
@@ -7583,7 +7588,7 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3001:2: ( ',' ( (lv_values_3_0= ruleAnnotationValue ) ) )*
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3006:2: ( ',' ( (lv_values_3_0= ruleAnnotationValue ) ) )*
                     loop37:
                     do {
                         int alt37=2;
@@ -7596,7 +7601,7 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
 
                         switch (alt37) {
                     	case 1 :
-                    	    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3001:4: ',' ( (lv_values_3_0= ruleAnnotationValue ) )
+                    	    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3006:4: ',' ( (lv_values_3_0= ruleAnnotationValue ) )
                     	    {
                     	    match(input,24,FOLLOW_24_in_ruleArrayAnnotationValue5271); if (failed) return current;
                     	    if ( backtracking==0 ) {
@@ -7604,11 +7609,11 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
                     	              createLeafNode(grammarAccess.getArrayAnnotationValueAccess().getCommaKeyword_1_1_0(), null); 
                     	          
                     	    }
-                    	    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3005:1: ( (lv_values_3_0= ruleAnnotationValue ) )
-                    	    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3006:1: (lv_values_3_0= ruleAnnotationValue )
+                    	    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3010:1: ( (lv_values_3_0= ruleAnnotationValue ) )
+                    	    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3011:1: (lv_values_3_0= ruleAnnotationValue )
                     	    {
-                    	    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3006:1: (lv_values_3_0= ruleAnnotationValue )
-                    	    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3007:3: lv_values_3_0= ruleAnnotationValue
+                    	    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3011:1: (lv_values_3_0= ruleAnnotationValue )
+                    	    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3012:3: lv_values_3_0= ruleAnnotationValue
                     	    {
                     	    if ( backtracking==0 ) {
                     	       
@@ -7690,7 +7695,7 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start entryRulesignedINT
-    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3041:1: entryRulesignedINT returns [String current=null] : iv_rulesignedINT= rulesignedINT EOF ;
+    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3046:1: entryRulesignedINT returns [String current=null] : iv_rulesignedINT= rulesignedINT EOF ;
     public final String entryRulesignedINT() throws RecognitionException {
         String current = null;
 
@@ -7698,8 +7703,8 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3042:2: (iv_rulesignedINT= rulesignedINT EOF )
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3043:2: iv_rulesignedINT= rulesignedINT EOF
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3047:2: (iv_rulesignedINT= rulesignedINT EOF )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3048:2: iv_rulesignedINT= rulesignedINT EOF
             {
             if ( backtracking==0 ) {
                currentNode = createCompositeNode(grammarAccess.getSignedINTRule(), currentNode); 
@@ -7729,7 +7734,7 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start rulesignedINT
-    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3050:1: rulesignedINT returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : ( (kw= '+' | kw= '-' )? this_INT_2= RULE_INT ) ;
+    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3055:1: rulesignedINT returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : ( (kw= '+' | kw= '-' )? this_INT_2= RULE_INT ) ;
     public final AntlrDatatypeRuleToken rulesignedINT() throws RecognitionException {
         AntlrDatatypeRuleToken current = new AntlrDatatypeRuleToken();
 
@@ -7739,13 +7744,13 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
          setCurrentLookahead(); resetLookahead(); 
             
         try {
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3055:6: ( ( (kw= '+' | kw= '-' )? this_INT_2= RULE_INT ) )
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3056:1: ( (kw= '+' | kw= '-' )? this_INT_2= RULE_INT )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3060:6: ( ( (kw= '+' | kw= '-' )? this_INT_2= RULE_INT ) )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3061:1: ( (kw= '+' | kw= '-' )? this_INT_2= RULE_INT )
             {
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3056:1: ( (kw= '+' | kw= '-' )? this_INT_2= RULE_INT )
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3056:2: (kw= '+' | kw= '-' )? this_INT_2= RULE_INT
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3061:1: ( (kw= '+' | kw= '-' )? this_INT_2= RULE_INT )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3061:2: (kw= '+' | kw= '-' )? this_INT_2= RULE_INT
             {
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3056:2: (kw= '+' | kw= '-' )?
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3061:2: (kw= '+' | kw= '-' )?
             int alt39=3;
             int LA39_0 = input.LA(1);
 
@@ -7757,7 +7762,7 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
             }
             switch (alt39) {
                 case 1 :
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3057:2: kw= '+'
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3062:2: kw= '+'
                     {
                     kw=(Token)input.LT(1);
                     match(input,40,FOLLOW_40_in_rulesignedINT5393); if (failed) return current;
@@ -7771,7 +7776,7 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3064:2: kw= '-'
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3069:2: kw= '-'
                     {
                     kw=(Token)input.LT(1);
                     match(input,41,FOLLOW_41_in_rulesignedINT5412); if (failed) return current;
@@ -7824,7 +7829,7 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start entryRuleConstantExpression
-    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3084:1: entryRuleConstantExpression returns [EObject current=null] : iv_ruleConstantExpression= ruleConstantExpression EOF ;
+    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3089:1: entryRuleConstantExpression returns [EObject current=null] : iv_ruleConstantExpression= ruleConstantExpression EOF ;
     public final EObject entryRuleConstantExpression() throws RecognitionException {
         EObject current = null;
 
@@ -7832,8 +7837,8 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3085:2: (iv_ruleConstantExpression= ruleConstantExpression EOF )
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3086:2: iv_ruleConstantExpression= ruleConstantExpression EOF
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3090:2: (iv_ruleConstantExpression= ruleConstantExpression EOF )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3091:2: iv_ruleConstantExpression= ruleConstantExpression EOF
             {
             if ( backtracking==0 ) {
                currentNode = createCompositeNode(grammarAccess.getConstantExpressionRule(), currentNode); 
@@ -7863,7 +7868,7 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start ruleConstantExpression
-    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3093:1: ruleConstantExpression returns [EObject current=null] : this_LogicalOrExpression_0= ruleLogicalOrExpression ;
+    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3098:1: ruleConstantExpression returns [EObject current=null] : this_LogicalOrExpression_0= ruleLogicalOrExpression ;
     public final EObject ruleConstantExpression() throws RecognitionException {
         EObject current = null;
 
@@ -7873,8 +7878,8 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
          @SuppressWarnings("unused") EObject temp=null; setCurrentLookahead(); resetLookahead(); 
             
         try {
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3098:6: (this_LogicalOrExpression_0= ruleLogicalOrExpression )
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3100:2: this_LogicalOrExpression_0= ruleLogicalOrExpression
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3103:6: (this_LogicalOrExpression_0= ruleLogicalOrExpression )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3105:2: this_LogicalOrExpression_0= ruleLogicalOrExpression
             {
             if ( backtracking==0 ) {
                
@@ -7918,7 +7923,7 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start entryRuleLogicalOrExpression
-    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3119:1: entryRuleLogicalOrExpression returns [EObject current=null] : iv_ruleLogicalOrExpression= ruleLogicalOrExpression EOF ;
+    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3124:1: entryRuleLogicalOrExpression returns [EObject current=null] : iv_ruleLogicalOrExpression= ruleLogicalOrExpression EOF ;
     public final EObject entryRuleLogicalOrExpression() throws RecognitionException {
         EObject current = null;
 
@@ -7926,8 +7931,8 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3120:2: (iv_ruleLogicalOrExpression= ruleLogicalOrExpression EOF )
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3121:2: iv_ruleLogicalOrExpression= ruleLogicalOrExpression EOF
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3125:2: (iv_ruleLogicalOrExpression= ruleLogicalOrExpression EOF )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3126:2: iv_ruleLogicalOrExpression= ruleLogicalOrExpression EOF
             {
             if ( backtracking==0 ) {
                currentNode = createCompositeNode(grammarAccess.getLogicalOrExpressionRule(), currentNode); 
@@ -7957,7 +7962,7 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start ruleLogicalOrExpression
-    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3128:1: ruleLogicalOrExpression returns [EObject current=null] : ( ( (lv_leftExpr_0_0= ruleLogicalAndExpression ) ) ( '||' ( (lv_rightExpr_2_0= ruleLogicalOrExpression ) ) )? ) ;
+    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3133:1: ruleLogicalOrExpression returns [EObject current=null] : ( ( (lv_leftExpr_0_0= ruleLogicalAndExpression ) ) ( '||' ( (lv_rightExpr_2_0= ruleLogicalOrExpression ) ) )? ) ;
     public final EObject ruleLogicalOrExpression() throws RecognitionException {
         EObject current = null;
 
@@ -7969,17 +7974,17 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
          @SuppressWarnings("unused") EObject temp=null; setCurrentLookahead(); resetLookahead(); 
             
         try {
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3133:6: ( ( ( (lv_leftExpr_0_0= ruleLogicalAndExpression ) ) ( '||' ( (lv_rightExpr_2_0= ruleLogicalOrExpression ) ) )? ) )
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3134:1: ( ( (lv_leftExpr_0_0= ruleLogicalAndExpression ) ) ( '||' ( (lv_rightExpr_2_0= ruleLogicalOrExpression ) ) )? )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3138:6: ( ( ( (lv_leftExpr_0_0= ruleLogicalAndExpression ) ) ( '||' ( (lv_rightExpr_2_0= ruleLogicalOrExpression ) ) )? ) )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3139:1: ( ( (lv_leftExpr_0_0= ruleLogicalAndExpression ) ) ( '||' ( (lv_rightExpr_2_0= ruleLogicalOrExpression ) ) )? )
             {
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3134:1: ( ( (lv_leftExpr_0_0= ruleLogicalAndExpression ) ) ( '||' ( (lv_rightExpr_2_0= ruleLogicalOrExpression ) ) )? )
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3134:2: ( (lv_leftExpr_0_0= ruleLogicalAndExpression ) ) ( '||' ( (lv_rightExpr_2_0= ruleLogicalOrExpression ) ) )?
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3139:1: ( ( (lv_leftExpr_0_0= ruleLogicalAndExpression ) ) ( '||' ( (lv_rightExpr_2_0= ruleLogicalOrExpression ) ) )? )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3139:2: ( (lv_leftExpr_0_0= ruleLogicalAndExpression ) ) ( '||' ( (lv_rightExpr_2_0= ruleLogicalOrExpression ) ) )?
             {
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3134:2: ( (lv_leftExpr_0_0= ruleLogicalAndExpression ) )
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3135:1: (lv_leftExpr_0_0= ruleLogicalAndExpression )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3139:2: ( (lv_leftExpr_0_0= ruleLogicalAndExpression ) )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3140:1: (lv_leftExpr_0_0= ruleLogicalAndExpression )
             {
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3135:1: (lv_leftExpr_0_0= ruleLogicalAndExpression )
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3136:3: lv_leftExpr_0_0= ruleLogicalAndExpression
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3140:1: (lv_leftExpr_0_0= ruleLogicalAndExpression )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3141:3: lv_leftExpr_0_0= ruleLogicalAndExpression
             {
             if ( backtracking==0 ) {
                
@@ -8015,7 +8020,7 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3158:2: ( '||' ( (lv_rightExpr_2_0= ruleLogicalOrExpression ) ) )?
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3163:2: ( '||' ( (lv_rightExpr_2_0= ruleLogicalOrExpression ) ) )?
             int alt40=2;
             int LA40_0 = input.LA(1);
 
@@ -8024,7 +8029,7 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
             }
             switch (alt40) {
                 case 1 :
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3158:4: '||' ( (lv_rightExpr_2_0= ruleLogicalOrExpression ) )
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3163:4: '||' ( (lv_rightExpr_2_0= ruleLogicalOrExpression ) )
                     {
                     match(input,42,FOLLOW_42_in_ruleLogicalOrExpression5634); if (failed) return current;
                     if ( backtracking==0 ) {
@@ -8032,11 +8037,11 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
                               createLeafNode(grammarAccess.getLogicalOrExpressionAccess().getVerticalLineVerticalLineKeyword_1_0(), null); 
                           
                     }
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3162:1: ( (lv_rightExpr_2_0= ruleLogicalOrExpression ) )
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3163:1: (lv_rightExpr_2_0= ruleLogicalOrExpression )
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3167:1: ( (lv_rightExpr_2_0= ruleLogicalOrExpression ) )
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3168:1: (lv_rightExpr_2_0= ruleLogicalOrExpression )
                     {
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3163:1: (lv_rightExpr_2_0= ruleLogicalOrExpression )
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3164:3: lv_rightExpr_2_0= ruleLogicalOrExpression
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3168:1: (lv_rightExpr_2_0= ruleLogicalOrExpression )
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3169:3: lv_rightExpr_2_0= ruleLogicalOrExpression
                     {
                     if ( backtracking==0 ) {
                        
@@ -8103,7 +8108,7 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start entryRuleLogicalAndExpression
-    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3194:1: entryRuleLogicalAndExpression returns [EObject current=null] : iv_ruleLogicalAndExpression= ruleLogicalAndExpression EOF ;
+    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3199:1: entryRuleLogicalAndExpression returns [EObject current=null] : iv_ruleLogicalAndExpression= ruleLogicalAndExpression EOF ;
     public final EObject entryRuleLogicalAndExpression() throws RecognitionException {
         EObject current = null;
 
@@ -8111,8 +8116,8 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3195:2: (iv_ruleLogicalAndExpression= ruleLogicalAndExpression EOF )
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3196:2: iv_ruleLogicalAndExpression= ruleLogicalAndExpression EOF
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3200:2: (iv_ruleLogicalAndExpression= ruleLogicalAndExpression EOF )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3201:2: iv_ruleLogicalAndExpression= ruleLogicalAndExpression EOF
             {
             if ( backtracking==0 ) {
                currentNode = createCompositeNode(grammarAccess.getLogicalAndExpressionRule(), currentNode); 
@@ -8142,7 +8147,7 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start ruleLogicalAndExpression
-    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3203:1: ruleLogicalAndExpression returns [EObject current=null] : ( ( (lv_leftExpr_0_0= ruleOrExpression ) ) ( '&&' ( (lv_rightExpr_2_0= ruleLogicalAndExpression ) ) )? ) ;
+    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3208:1: ruleLogicalAndExpression returns [EObject current=null] : ( ( (lv_leftExpr_0_0= ruleOrExpression ) ) ( '&&' ( (lv_rightExpr_2_0= ruleLogicalAndExpression ) ) )? ) ;
     public final EObject ruleLogicalAndExpression() throws RecognitionException {
         EObject current = null;
 
@@ -8154,17 +8159,17 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
          @SuppressWarnings("unused") EObject temp=null; setCurrentLookahead(); resetLookahead(); 
             
         try {
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3208:6: ( ( ( (lv_leftExpr_0_0= ruleOrExpression ) ) ( '&&' ( (lv_rightExpr_2_0= ruleLogicalAndExpression ) ) )? ) )
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3209:1: ( ( (lv_leftExpr_0_0= ruleOrExpression ) ) ( '&&' ( (lv_rightExpr_2_0= ruleLogicalAndExpression ) ) )? )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3213:6: ( ( ( (lv_leftExpr_0_0= ruleOrExpression ) ) ( '&&' ( (lv_rightExpr_2_0= ruleLogicalAndExpression ) ) )? ) )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3214:1: ( ( (lv_leftExpr_0_0= ruleOrExpression ) ) ( '&&' ( (lv_rightExpr_2_0= ruleLogicalAndExpression ) ) )? )
             {
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3209:1: ( ( (lv_leftExpr_0_0= ruleOrExpression ) ) ( '&&' ( (lv_rightExpr_2_0= ruleLogicalAndExpression ) ) )? )
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3209:2: ( (lv_leftExpr_0_0= ruleOrExpression ) ) ( '&&' ( (lv_rightExpr_2_0= ruleLogicalAndExpression ) ) )?
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3214:1: ( ( (lv_leftExpr_0_0= ruleOrExpression ) ) ( '&&' ( (lv_rightExpr_2_0= ruleLogicalAndExpression ) ) )? )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3214:2: ( (lv_leftExpr_0_0= ruleOrExpression ) ) ( '&&' ( (lv_rightExpr_2_0= ruleLogicalAndExpression ) ) )?
             {
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3209:2: ( (lv_leftExpr_0_0= ruleOrExpression ) )
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3210:1: (lv_leftExpr_0_0= ruleOrExpression )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3214:2: ( (lv_leftExpr_0_0= ruleOrExpression ) )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3215:1: (lv_leftExpr_0_0= ruleOrExpression )
             {
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3210:1: (lv_leftExpr_0_0= ruleOrExpression )
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3211:3: lv_leftExpr_0_0= ruleOrExpression
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3215:1: (lv_leftExpr_0_0= ruleOrExpression )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3216:3: lv_leftExpr_0_0= ruleOrExpression
             {
             if ( backtracking==0 ) {
                
@@ -8200,7 +8205,7 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3233:2: ( '&&' ( (lv_rightExpr_2_0= ruleLogicalAndExpression ) ) )?
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3238:2: ( '&&' ( (lv_rightExpr_2_0= ruleLogicalAndExpression ) ) )?
             int alt41=2;
             int LA41_0 = input.LA(1);
 
@@ -8209,7 +8214,7 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
             }
             switch (alt41) {
                 case 1 :
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3233:4: '&&' ( (lv_rightExpr_2_0= ruleLogicalAndExpression ) )
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3238:4: '&&' ( (lv_rightExpr_2_0= ruleLogicalAndExpression ) )
                     {
                     match(input,43,FOLLOW_43_in_ruleLogicalAndExpression5760); if (failed) return current;
                     if ( backtracking==0 ) {
@@ -8217,11 +8222,11 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
                               createLeafNode(grammarAccess.getLogicalAndExpressionAccess().getAmpersandAmpersandKeyword_1_0(), null); 
                           
                     }
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3237:1: ( (lv_rightExpr_2_0= ruleLogicalAndExpression ) )
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3238:1: (lv_rightExpr_2_0= ruleLogicalAndExpression )
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3242:1: ( (lv_rightExpr_2_0= ruleLogicalAndExpression ) )
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3243:1: (lv_rightExpr_2_0= ruleLogicalAndExpression )
                     {
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3238:1: (lv_rightExpr_2_0= ruleLogicalAndExpression )
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3239:3: lv_rightExpr_2_0= ruleLogicalAndExpression
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3243:1: (lv_rightExpr_2_0= ruleLogicalAndExpression )
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3244:3: lv_rightExpr_2_0= ruleLogicalAndExpression
                     {
                     if ( backtracking==0 ) {
                        
@@ -8288,7 +8293,7 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start entryRuleOrExpression
-    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3269:1: entryRuleOrExpression returns [EObject current=null] : iv_ruleOrExpression= ruleOrExpression EOF ;
+    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3274:1: entryRuleOrExpression returns [EObject current=null] : iv_ruleOrExpression= ruleOrExpression EOF ;
     public final EObject entryRuleOrExpression() throws RecognitionException {
         EObject current = null;
 
@@ -8296,8 +8301,8 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3270:2: (iv_ruleOrExpression= ruleOrExpression EOF )
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3271:2: iv_ruleOrExpression= ruleOrExpression EOF
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3275:2: (iv_ruleOrExpression= ruleOrExpression EOF )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3276:2: iv_ruleOrExpression= ruleOrExpression EOF
             {
             if ( backtracking==0 ) {
                currentNode = createCompositeNode(grammarAccess.getOrExpressionRule(), currentNode); 
@@ -8327,7 +8332,7 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start ruleOrExpression
-    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3278:1: ruleOrExpression returns [EObject current=null] : ( ( (lv_leftExpr_0_0= ruleXorExpression ) ) ( '|' ( (lv_rightExpr_2_0= ruleOrExpression ) ) )? ) ;
+    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3283:1: ruleOrExpression returns [EObject current=null] : ( ( (lv_leftExpr_0_0= ruleXorExpression ) ) ( '|' ( (lv_rightExpr_2_0= ruleOrExpression ) ) )? ) ;
     public final EObject ruleOrExpression() throws RecognitionException {
         EObject current = null;
 
@@ -8339,17 +8344,17 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
          @SuppressWarnings("unused") EObject temp=null; setCurrentLookahead(); resetLookahead(); 
             
         try {
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3283:6: ( ( ( (lv_leftExpr_0_0= ruleXorExpression ) ) ( '|' ( (lv_rightExpr_2_0= ruleOrExpression ) ) )? ) )
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3284:1: ( ( (lv_leftExpr_0_0= ruleXorExpression ) ) ( '|' ( (lv_rightExpr_2_0= ruleOrExpression ) ) )? )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3288:6: ( ( ( (lv_leftExpr_0_0= ruleXorExpression ) ) ( '|' ( (lv_rightExpr_2_0= ruleOrExpression ) ) )? ) )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3289:1: ( ( (lv_leftExpr_0_0= ruleXorExpression ) ) ( '|' ( (lv_rightExpr_2_0= ruleOrExpression ) ) )? )
             {
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3284:1: ( ( (lv_leftExpr_0_0= ruleXorExpression ) ) ( '|' ( (lv_rightExpr_2_0= ruleOrExpression ) ) )? )
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3284:2: ( (lv_leftExpr_0_0= ruleXorExpression ) ) ( '|' ( (lv_rightExpr_2_0= ruleOrExpression ) ) )?
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3289:1: ( ( (lv_leftExpr_0_0= ruleXorExpression ) ) ( '|' ( (lv_rightExpr_2_0= ruleOrExpression ) ) )? )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3289:2: ( (lv_leftExpr_0_0= ruleXorExpression ) ) ( '|' ( (lv_rightExpr_2_0= ruleOrExpression ) ) )?
             {
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3284:2: ( (lv_leftExpr_0_0= ruleXorExpression ) )
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3285:1: (lv_leftExpr_0_0= ruleXorExpression )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3289:2: ( (lv_leftExpr_0_0= ruleXorExpression ) )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3290:1: (lv_leftExpr_0_0= ruleXorExpression )
             {
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3285:1: (lv_leftExpr_0_0= ruleXorExpression )
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3286:3: lv_leftExpr_0_0= ruleXorExpression
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3290:1: (lv_leftExpr_0_0= ruleXorExpression )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3291:3: lv_leftExpr_0_0= ruleXorExpression
             {
             if ( backtracking==0 ) {
                
@@ -8385,7 +8390,7 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3308:2: ( '|' ( (lv_rightExpr_2_0= ruleOrExpression ) ) )?
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3313:2: ( '|' ( (lv_rightExpr_2_0= ruleOrExpression ) ) )?
             int alt42=2;
             int LA42_0 = input.LA(1);
 
@@ -8394,7 +8399,7 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
             }
             switch (alt42) {
                 case 1 :
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3308:4: '|' ( (lv_rightExpr_2_0= ruleOrExpression ) )
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3313:4: '|' ( (lv_rightExpr_2_0= ruleOrExpression ) )
                     {
                     match(input,44,FOLLOW_44_in_ruleOrExpression5886); if (failed) return current;
                     if ( backtracking==0 ) {
@@ -8402,11 +8407,11 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
                               createLeafNode(grammarAccess.getOrExpressionAccess().getVerticalLineKeyword_1_0(), null); 
                           
                     }
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3312:1: ( (lv_rightExpr_2_0= ruleOrExpression ) )
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3313:1: (lv_rightExpr_2_0= ruleOrExpression )
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3317:1: ( (lv_rightExpr_2_0= ruleOrExpression ) )
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3318:1: (lv_rightExpr_2_0= ruleOrExpression )
                     {
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3313:1: (lv_rightExpr_2_0= ruleOrExpression )
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3314:3: lv_rightExpr_2_0= ruleOrExpression
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3318:1: (lv_rightExpr_2_0= ruleOrExpression )
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3319:3: lv_rightExpr_2_0= ruleOrExpression
                     {
                     if ( backtracking==0 ) {
                        
@@ -8473,7 +8478,7 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start entryRuleXorExpression
-    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3344:1: entryRuleXorExpression returns [EObject current=null] : iv_ruleXorExpression= ruleXorExpression EOF ;
+    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3349:1: entryRuleXorExpression returns [EObject current=null] : iv_ruleXorExpression= ruleXorExpression EOF ;
     public final EObject entryRuleXorExpression() throws RecognitionException {
         EObject current = null;
 
@@ -8481,8 +8486,8 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3345:2: (iv_ruleXorExpression= ruleXorExpression EOF )
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3346:2: iv_ruleXorExpression= ruleXorExpression EOF
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3350:2: (iv_ruleXorExpression= ruleXorExpression EOF )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3351:2: iv_ruleXorExpression= ruleXorExpression EOF
             {
             if ( backtracking==0 ) {
                currentNode = createCompositeNode(grammarAccess.getXorExpressionRule(), currentNode); 
@@ -8512,7 +8517,7 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start ruleXorExpression
-    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3353:1: ruleXorExpression returns [EObject current=null] : ( ( (lv_leftExpr_0_0= ruleAndExpression ) ) ( '^' ( (lv_rightExpr_2_0= ruleXorExpression ) ) )? ) ;
+    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3358:1: ruleXorExpression returns [EObject current=null] : ( ( (lv_leftExpr_0_0= ruleAndExpression ) ) ( '^' ( (lv_rightExpr_2_0= ruleXorExpression ) ) )? ) ;
     public final EObject ruleXorExpression() throws RecognitionException {
         EObject current = null;
 
@@ -8524,17 +8529,17 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
          @SuppressWarnings("unused") EObject temp=null; setCurrentLookahead(); resetLookahead(); 
             
         try {
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3358:6: ( ( ( (lv_leftExpr_0_0= ruleAndExpression ) ) ( '^' ( (lv_rightExpr_2_0= ruleXorExpression ) ) )? ) )
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3359:1: ( ( (lv_leftExpr_0_0= ruleAndExpression ) ) ( '^' ( (lv_rightExpr_2_0= ruleXorExpression ) ) )? )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3363:6: ( ( ( (lv_leftExpr_0_0= ruleAndExpression ) ) ( '^' ( (lv_rightExpr_2_0= ruleXorExpression ) ) )? ) )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3364:1: ( ( (lv_leftExpr_0_0= ruleAndExpression ) ) ( '^' ( (lv_rightExpr_2_0= ruleXorExpression ) ) )? )
             {
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3359:1: ( ( (lv_leftExpr_0_0= ruleAndExpression ) ) ( '^' ( (lv_rightExpr_2_0= ruleXorExpression ) ) )? )
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3359:2: ( (lv_leftExpr_0_0= ruleAndExpression ) ) ( '^' ( (lv_rightExpr_2_0= ruleXorExpression ) ) )?
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3364:1: ( ( (lv_leftExpr_0_0= ruleAndExpression ) ) ( '^' ( (lv_rightExpr_2_0= ruleXorExpression ) ) )? )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3364:2: ( (lv_leftExpr_0_0= ruleAndExpression ) ) ( '^' ( (lv_rightExpr_2_0= ruleXorExpression ) ) )?
             {
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3359:2: ( (lv_leftExpr_0_0= ruleAndExpression ) )
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3360:1: (lv_leftExpr_0_0= ruleAndExpression )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3364:2: ( (lv_leftExpr_0_0= ruleAndExpression ) )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3365:1: (lv_leftExpr_0_0= ruleAndExpression )
             {
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3360:1: (lv_leftExpr_0_0= ruleAndExpression )
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3361:3: lv_leftExpr_0_0= ruleAndExpression
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3365:1: (lv_leftExpr_0_0= ruleAndExpression )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3366:3: lv_leftExpr_0_0= ruleAndExpression
             {
             if ( backtracking==0 ) {
                
@@ -8570,7 +8575,7 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3383:2: ( '^' ( (lv_rightExpr_2_0= ruleXorExpression ) ) )?
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3388:2: ( '^' ( (lv_rightExpr_2_0= ruleXorExpression ) ) )?
             int alt43=2;
             int LA43_0 = input.LA(1);
 
@@ -8579,7 +8584,7 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
             }
             switch (alt43) {
                 case 1 :
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3383:4: '^' ( (lv_rightExpr_2_0= ruleXorExpression ) )
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3388:4: '^' ( (lv_rightExpr_2_0= ruleXorExpression ) )
                     {
                     match(input,45,FOLLOW_45_in_ruleXorExpression6012); if (failed) return current;
                     if ( backtracking==0 ) {
@@ -8587,11 +8592,11 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
                               createLeafNode(grammarAccess.getXorExpressionAccess().getCircumflexAccentKeyword_1_0(), null); 
                           
                     }
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3387:1: ( (lv_rightExpr_2_0= ruleXorExpression ) )
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3388:1: (lv_rightExpr_2_0= ruleXorExpression )
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3392:1: ( (lv_rightExpr_2_0= ruleXorExpression ) )
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3393:1: (lv_rightExpr_2_0= ruleXorExpression )
                     {
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3388:1: (lv_rightExpr_2_0= ruleXorExpression )
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3389:3: lv_rightExpr_2_0= ruleXorExpression
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3393:1: (lv_rightExpr_2_0= ruleXorExpression )
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3394:3: lv_rightExpr_2_0= ruleXorExpression
                     {
                     if ( backtracking==0 ) {
                        
@@ -8658,7 +8663,7 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start entryRuleAndExpression
-    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3419:1: entryRuleAndExpression returns [EObject current=null] : iv_ruleAndExpression= ruleAndExpression EOF ;
+    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3424:1: entryRuleAndExpression returns [EObject current=null] : iv_ruleAndExpression= ruleAndExpression EOF ;
     public final EObject entryRuleAndExpression() throws RecognitionException {
         EObject current = null;
 
@@ -8666,8 +8671,8 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3420:2: (iv_ruleAndExpression= ruleAndExpression EOF )
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3421:2: iv_ruleAndExpression= ruleAndExpression EOF
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3425:2: (iv_ruleAndExpression= ruleAndExpression EOF )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3426:2: iv_ruleAndExpression= ruleAndExpression EOF
             {
             if ( backtracking==0 ) {
                currentNode = createCompositeNode(grammarAccess.getAndExpressionRule(), currentNode); 
@@ -8697,7 +8702,7 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start ruleAndExpression
-    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3428:1: ruleAndExpression returns [EObject current=null] : ( ( (lv_leftExpr_0_0= ruleShiftExpression ) ) ( '&' ( (lv_rightExpr_2_0= ruleAndExpression ) ) )? ) ;
+    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3433:1: ruleAndExpression returns [EObject current=null] : ( ( (lv_leftExpr_0_0= ruleShiftExpression ) ) ( '&' ( (lv_rightExpr_2_0= ruleAndExpression ) ) )? ) ;
     public final EObject ruleAndExpression() throws RecognitionException {
         EObject current = null;
 
@@ -8709,17 +8714,17 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
          @SuppressWarnings("unused") EObject temp=null; setCurrentLookahead(); resetLookahead(); 
             
         try {
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3433:6: ( ( ( (lv_leftExpr_0_0= ruleShiftExpression ) ) ( '&' ( (lv_rightExpr_2_0= ruleAndExpression ) ) )? ) )
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3434:1: ( ( (lv_leftExpr_0_0= ruleShiftExpression ) ) ( '&' ( (lv_rightExpr_2_0= ruleAndExpression ) ) )? )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3438:6: ( ( ( (lv_leftExpr_0_0= ruleShiftExpression ) ) ( '&' ( (lv_rightExpr_2_0= ruleAndExpression ) ) )? ) )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3439:1: ( ( (lv_leftExpr_0_0= ruleShiftExpression ) ) ( '&' ( (lv_rightExpr_2_0= ruleAndExpression ) ) )? )
             {
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3434:1: ( ( (lv_leftExpr_0_0= ruleShiftExpression ) ) ( '&' ( (lv_rightExpr_2_0= ruleAndExpression ) ) )? )
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3434:2: ( (lv_leftExpr_0_0= ruleShiftExpression ) ) ( '&' ( (lv_rightExpr_2_0= ruleAndExpression ) ) )?
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3439:1: ( ( (lv_leftExpr_0_0= ruleShiftExpression ) ) ( '&' ( (lv_rightExpr_2_0= ruleAndExpression ) ) )? )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3439:2: ( (lv_leftExpr_0_0= ruleShiftExpression ) ) ( '&' ( (lv_rightExpr_2_0= ruleAndExpression ) ) )?
             {
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3434:2: ( (lv_leftExpr_0_0= ruleShiftExpression ) )
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3435:1: (lv_leftExpr_0_0= ruleShiftExpression )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3439:2: ( (lv_leftExpr_0_0= ruleShiftExpression ) )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3440:1: (lv_leftExpr_0_0= ruleShiftExpression )
             {
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3435:1: (lv_leftExpr_0_0= ruleShiftExpression )
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3436:3: lv_leftExpr_0_0= ruleShiftExpression
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3440:1: (lv_leftExpr_0_0= ruleShiftExpression )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3441:3: lv_leftExpr_0_0= ruleShiftExpression
             {
             if ( backtracking==0 ) {
                
@@ -8755,7 +8760,7 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3458:2: ( '&' ( (lv_rightExpr_2_0= ruleAndExpression ) ) )?
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3463:2: ( '&' ( (lv_rightExpr_2_0= ruleAndExpression ) ) )?
             int alt44=2;
             int LA44_0 = input.LA(1);
 
@@ -8764,7 +8769,7 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
             }
             switch (alt44) {
                 case 1 :
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3458:4: '&' ( (lv_rightExpr_2_0= ruleAndExpression ) )
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3463:4: '&' ( (lv_rightExpr_2_0= ruleAndExpression ) )
                     {
                     match(input,46,FOLLOW_46_in_ruleAndExpression6138); if (failed) return current;
                     if ( backtracking==0 ) {
@@ -8772,11 +8777,11 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
                               createLeafNode(grammarAccess.getAndExpressionAccess().getAmpersandKeyword_1_0(), null); 
                           
                     }
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3462:1: ( (lv_rightExpr_2_0= ruleAndExpression ) )
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3463:1: (lv_rightExpr_2_0= ruleAndExpression )
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3467:1: ( (lv_rightExpr_2_0= ruleAndExpression ) )
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3468:1: (lv_rightExpr_2_0= ruleAndExpression )
                     {
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3463:1: (lv_rightExpr_2_0= ruleAndExpression )
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3464:3: lv_rightExpr_2_0= ruleAndExpression
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3468:1: (lv_rightExpr_2_0= ruleAndExpression )
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3469:3: lv_rightExpr_2_0= ruleAndExpression
                     {
                     if ( backtracking==0 ) {
                        
@@ -8843,7 +8848,7 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start entryRuleShiftExpression
-    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3494:1: entryRuleShiftExpression returns [EObject current=null] : iv_ruleShiftExpression= ruleShiftExpression EOF ;
+    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3499:1: entryRuleShiftExpression returns [EObject current=null] : iv_ruleShiftExpression= ruleShiftExpression EOF ;
     public final EObject entryRuleShiftExpression() throws RecognitionException {
         EObject current = null;
 
@@ -8851,8 +8856,8 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3495:2: (iv_ruleShiftExpression= ruleShiftExpression EOF )
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3496:2: iv_ruleShiftExpression= ruleShiftExpression EOF
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3500:2: (iv_ruleShiftExpression= ruleShiftExpression EOF )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3501:2: iv_ruleShiftExpression= ruleShiftExpression EOF
             {
             if ( backtracking==0 ) {
                currentNode = createCompositeNode(grammarAccess.getShiftExpressionRule(), currentNode); 
@@ -8882,7 +8887,7 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start ruleShiftExpression
-    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3503:1: ruleShiftExpression returns [EObject current=null] : ( ( (lv_leftExpr_0_0= ruleAdditiveExpression ) ) ( ( (lv_op_1_0= ruleShiftOperation ) ) ( (lv_rightExpr_2_0= ruleShiftExpression ) ) )? ) ;
+    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3508:1: ruleShiftExpression returns [EObject current=null] : ( ( (lv_leftExpr_0_0= ruleAdditiveExpression ) ) ( ( (lv_op_1_0= ruleShiftOperation ) ) ( (lv_rightExpr_2_0= ruleShiftExpression ) ) )? ) ;
     public final EObject ruleShiftExpression() throws RecognitionException {
         EObject current = null;
 
@@ -8896,17 +8901,17 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
          @SuppressWarnings("unused") EObject temp=null; setCurrentLookahead(); resetLookahead(); 
             
         try {
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3508:6: ( ( ( (lv_leftExpr_0_0= ruleAdditiveExpression ) ) ( ( (lv_op_1_0= ruleShiftOperation ) ) ( (lv_rightExpr_2_0= ruleShiftExpression ) ) )? ) )
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3509:1: ( ( (lv_leftExpr_0_0= ruleAdditiveExpression ) ) ( ( (lv_op_1_0= ruleShiftOperation ) ) ( (lv_rightExpr_2_0= ruleShiftExpression ) ) )? )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3513:6: ( ( ( (lv_leftExpr_0_0= ruleAdditiveExpression ) ) ( ( (lv_op_1_0= ruleShiftOperation ) ) ( (lv_rightExpr_2_0= ruleShiftExpression ) ) )? ) )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3514:1: ( ( (lv_leftExpr_0_0= ruleAdditiveExpression ) ) ( ( (lv_op_1_0= ruleShiftOperation ) ) ( (lv_rightExpr_2_0= ruleShiftExpression ) ) )? )
             {
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3509:1: ( ( (lv_leftExpr_0_0= ruleAdditiveExpression ) ) ( ( (lv_op_1_0= ruleShiftOperation ) ) ( (lv_rightExpr_2_0= ruleShiftExpression ) ) )? )
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3509:2: ( (lv_leftExpr_0_0= ruleAdditiveExpression ) ) ( ( (lv_op_1_0= ruleShiftOperation ) ) ( (lv_rightExpr_2_0= ruleShiftExpression ) ) )?
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3514:1: ( ( (lv_leftExpr_0_0= ruleAdditiveExpression ) ) ( ( (lv_op_1_0= ruleShiftOperation ) ) ( (lv_rightExpr_2_0= ruleShiftExpression ) ) )? )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3514:2: ( (lv_leftExpr_0_0= ruleAdditiveExpression ) ) ( ( (lv_op_1_0= ruleShiftOperation ) ) ( (lv_rightExpr_2_0= ruleShiftExpression ) ) )?
             {
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3509:2: ( (lv_leftExpr_0_0= ruleAdditiveExpression ) )
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3510:1: (lv_leftExpr_0_0= ruleAdditiveExpression )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3514:2: ( (lv_leftExpr_0_0= ruleAdditiveExpression ) )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3515:1: (lv_leftExpr_0_0= ruleAdditiveExpression )
             {
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3510:1: (lv_leftExpr_0_0= ruleAdditiveExpression )
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3511:3: lv_leftExpr_0_0= ruleAdditiveExpression
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3515:1: (lv_leftExpr_0_0= ruleAdditiveExpression )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3516:3: lv_leftExpr_0_0= ruleAdditiveExpression
             {
             if ( backtracking==0 ) {
                
@@ -8942,7 +8947,7 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3533:2: ( ( (lv_op_1_0= ruleShiftOperation ) ) ( (lv_rightExpr_2_0= ruleShiftExpression ) ) )?
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3538:2: ( ( (lv_op_1_0= ruleShiftOperation ) ) ( (lv_rightExpr_2_0= ruleShiftExpression ) ) )?
             int alt45=2;
             int LA45_0 = input.LA(1);
 
@@ -8951,13 +8956,13 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
             }
             switch (alt45) {
                 case 1 :
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3533:3: ( (lv_op_1_0= ruleShiftOperation ) ) ( (lv_rightExpr_2_0= ruleShiftExpression ) )
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3538:3: ( (lv_op_1_0= ruleShiftOperation ) ) ( (lv_rightExpr_2_0= ruleShiftExpression ) )
                     {
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3533:3: ( (lv_op_1_0= ruleShiftOperation ) )
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3534:1: (lv_op_1_0= ruleShiftOperation )
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3538:3: ( (lv_op_1_0= ruleShiftOperation ) )
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3539:1: (lv_op_1_0= ruleShiftOperation )
                     {
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3534:1: (lv_op_1_0= ruleShiftOperation )
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3535:3: lv_op_1_0= ruleShiftOperation
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3539:1: (lv_op_1_0= ruleShiftOperation )
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3540:3: lv_op_1_0= ruleShiftOperation
                     {
                     if ( backtracking==0 ) {
                        
@@ -8993,11 +8998,11 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3557:2: ( (lv_rightExpr_2_0= ruleShiftExpression ) )
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3558:1: (lv_rightExpr_2_0= ruleShiftExpression )
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3562:2: ( (lv_rightExpr_2_0= ruleShiftExpression ) )
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3563:1: (lv_rightExpr_2_0= ruleShiftExpression )
                     {
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3558:1: (lv_rightExpr_2_0= ruleShiftExpression )
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3559:3: lv_rightExpr_2_0= ruleShiftExpression
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3563:1: (lv_rightExpr_2_0= ruleShiftExpression )
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3564:3: lv_rightExpr_2_0= ruleShiftExpression
                     {
                     if ( backtracking==0 ) {
                        
@@ -9064,7 +9069,7 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start entryRuleAdditiveExpression
-    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3589:1: entryRuleAdditiveExpression returns [EObject current=null] : iv_ruleAdditiveExpression= ruleAdditiveExpression EOF ;
+    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3594:1: entryRuleAdditiveExpression returns [EObject current=null] : iv_ruleAdditiveExpression= ruleAdditiveExpression EOF ;
     public final EObject entryRuleAdditiveExpression() throws RecognitionException {
         EObject current = null;
 
@@ -9072,8 +9077,8 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3590:2: (iv_ruleAdditiveExpression= ruleAdditiveExpression EOF )
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3591:2: iv_ruleAdditiveExpression= ruleAdditiveExpression EOF
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3595:2: (iv_ruleAdditiveExpression= ruleAdditiveExpression EOF )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3596:2: iv_ruleAdditiveExpression= ruleAdditiveExpression EOF
             {
             if ( backtracking==0 ) {
                currentNode = createCompositeNode(grammarAccess.getAdditiveExpressionRule(), currentNode); 
@@ -9103,7 +9108,7 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start ruleAdditiveExpression
-    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3598:1: ruleAdditiveExpression returns [EObject current=null] : ( ( (lv_leftExpr_0_0= ruleMulExpression ) ) ( ( (lv_op_1_0= ruleAdditiveOperation ) ) ( (lv_rightExpr_2_0= ruleAdditiveExpression ) ) )? ) ;
+    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3603:1: ruleAdditiveExpression returns [EObject current=null] : ( ( (lv_leftExpr_0_0= ruleMulExpression ) ) ( ( (lv_op_1_0= ruleAdditiveOperation ) ) ( (lv_rightExpr_2_0= ruleAdditiveExpression ) ) )? ) ;
     public final EObject ruleAdditiveExpression() throws RecognitionException {
         EObject current = null;
 
@@ -9117,17 +9122,17 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
          @SuppressWarnings("unused") EObject temp=null; setCurrentLookahead(); resetLookahead(); 
             
         try {
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3603:6: ( ( ( (lv_leftExpr_0_0= ruleMulExpression ) ) ( ( (lv_op_1_0= ruleAdditiveOperation ) ) ( (lv_rightExpr_2_0= ruleAdditiveExpression ) ) )? ) )
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3604:1: ( ( (lv_leftExpr_0_0= ruleMulExpression ) ) ( ( (lv_op_1_0= ruleAdditiveOperation ) ) ( (lv_rightExpr_2_0= ruleAdditiveExpression ) ) )? )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3608:6: ( ( ( (lv_leftExpr_0_0= ruleMulExpression ) ) ( ( (lv_op_1_0= ruleAdditiveOperation ) ) ( (lv_rightExpr_2_0= ruleAdditiveExpression ) ) )? ) )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3609:1: ( ( (lv_leftExpr_0_0= ruleMulExpression ) ) ( ( (lv_op_1_0= ruleAdditiveOperation ) ) ( (lv_rightExpr_2_0= ruleAdditiveExpression ) ) )? )
             {
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3604:1: ( ( (lv_leftExpr_0_0= ruleMulExpression ) ) ( ( (lv_op_1_0= ruleAdditiveOperation ) ) ( (lv_rightExpr_2_0= ruleAdditiveExpression ) ) )? )
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3604:2: ( (lv_leftExpr_0_0= ruleMulExpression ) ) ( ( (lv_op_1_0= ruleAdditiveOperation ) ) ( (lv_rightExpr_2_0= ruleAdditiveExpression ) ) )?
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3609:1: ( ( (lv_leftExpr_0_0= ruleMulExpression ) ) ( ( (lv_op_1_0= ruleAdditiveOperation ) ) ( (lv_rightExpr_2_0= ruleAdditiveExpression ) ) )? )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3609:2: ( (lv_leftExpr_0_0= ruleMulExpression ) ) ( ( (lv_op_1_0= ruleAdditiveOperation ) ) ( (lv_rightExpr_2_0= ruleAdditiveExpression ) ) )?
             {
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3604:2: ( (lv_leftExpr_0_0= ruleMulExpression ) )
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3605:1: (lv_leftExpr_0_0= ruleMulExpression )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3609:2: ( (lv_leftExpr_0_0= ruleMulExpression ) )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3610:1: (lv_leftExpr_0_0= ruleMulExpression )
             {
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3605:1: (lv_leftExpr_0_0= ruleMulExpression )
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3606:3: lv_leftExpr_0_0= ruleMulExpression
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3610:1: (lv_leftExpr_0_0= ruleMulExpression )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3611:3: lv_leftExpr_0_0= ruleMulExpression
             {
             if ( backtracking==0 ) {
                
@@ -9163,7 +9168,7 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3628:2: ( ( (lv_op_1_0= ruleAdditiveOperation ) ) ( (lv_rightExpr_2_0= ruleAdditiveExpression ) ) )?
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3633:2: ( ( (lv_op_1_0= ruleAdditiveOperation ) ) ( (lv_rightExpr_2_0= ruleAdditiveExpression ) ) )?
             int alt46=2;
             int LA46_0 = input.LA(1);
 
@@ -9172,13 +9177,13 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
             }
             switch (alt46) {
                 case 1 :
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3628:3: ( (lv_op_1_0= ruleAdditiveOperation ) ) ( (lv_rightExpr_2_0= ruleAdditiveExpression ) )
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3633:3: ( (lv_op_1_0= ruleAdditiveOperation ) ) ( (lv_rightExpr_2_0= ruleAdditiveExpression ) )
                     {
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3628:3: ( (lv_op_1_0= ruleAdditiveOperation ) )
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3629:1: (lv_op_1_0= ruleAdditiveOperation )
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3633:3: ( (lv_op_1_0= ruleAdditiveOperation ) )
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3634:1: (lv_op_1_0= ruleAdditiveOperation )
                     {
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3629:1: (lv_op_1_0= ruleAdditiveOperation )
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3630:3: lv_op_1_0= ruleAdditiveOperation
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3634:1: (lv_op_1_0= ruleAdditiveOperation )
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3635:3: lv_op_1_0= ruleAdditiveOperation
                     {
                     if ( backtracking==0 ) {
                        
@@ -9214,11 +9219,11 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3652:2: ( (lv_rightExpr_2_0= ruleAdditiveExpression ) )
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3653:1: (lv_rightExpr_2_0= ruleAdditiveExpression )
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3657:2: ( (lv_rightExpr_2_0= ruleAdditiveExpression ) )
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3658:1: (lv_rightExpr_2_0= ruleAdditiveExpression )
                     {
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3653:1: (lv_rightExpr_2_0= ruleAdditiveExpression )
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3654:3: lv_rightExpr_2_0= ruleAdditiveExpression
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3658:1: (lv_rightExpr_2_0= ruleAdditiveExpression )
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3659:3: lv_rightExpr_2_0= ruleAdditiveExpression
                     {
                     if ( backtracking==0 ) {
                        
@@ -9285,7 +9290,7 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start entryRuleMulExpression
-    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3684:1: entryRuleMulExpression returns [EObject current=null] : iv_ruleMulExpression= ruleMulExpression EOF ;
+    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3689:1: entryRuleMulExpression returns [EObject current=null] : iv_ruleMulExpression= ruleMulExpression EOF ;
     public final EObject entryRuleMulExpression() throws RecognitionException {
         EObject current = null;
 
@@ -9293,8 +9298,8 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3685:2: (iv_ruleMulExpression= ruleMulExpression EOF )
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3686:2: iv_ruleMulExpression= ruleMulExpression EOF
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3690:2: (iv_ruleMulExpression= ruleMulExpression EOF )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3691:2: iv_ruleMulExpression= ruleMulExpression EOF
             {
             if ( backtracking==0 ) {
                currentNode = createCompositeNode(grammarAccess.getMulExpressionRule(), currentNode); 
@@ -9324,7 +9329,7 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start ruleMulExpression
-    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3693:1: ruleMulExpression returns [EObject current=null] : ( ( (lv_leftExpr_0_0= ruleCastExpression ) ) ( ( (lv_op_1_0= ruleMulOperation ) ) ( (lv_rightExpr_2_0= ruleMulExpression ) ) )? ) ;
+    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3698:1: ruleMulExpression returns [EObject current=null] : ( ( (lv_leftExpr_0_0= ruleCastExpression ) ) ( ( (lv_op_1_0= ruleMulOperation ) ) ( (lv_rightExpr_2_0= ruleMulExpression ) ) )? ) ;
     public final EObject ruleMulExpression() throws RecognitionException {
         EObject current = null;
 
@@ -9338,17 +9343,17 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
          @SuppressWarnings("unused") EObject temp=null; setCurrentLookahead(); resetLookahead(); 
             
         try {
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3698:6: ( ( ( (lv_leftExpr_0_0= ruleCastExpression ) ) ( ( (lv_op_1_0= ruleMulOperation ) ) ( (lv_rightExpr_2_0= ruleMulExpression ) ) )? ) )
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3699:1: ( ( (lv_leftExpr_0_0= ruleCastExpression ) ) ( ( (lv_op_1_0= ruleMulOperation ) ) ( (lv_rightExpr_2_0= ruleMulExpression ) ) )? )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3703:6: ( ( ( (lv_leftExpr_0_0= ruleCastExpression ) ) ( ( (lv_op_1_0= ruleMulOperation ) ) ( (lv_rightExpr_2_0= ruleMulExpression ) ) )? ) )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3704:1: ( ( (lv_leftExpr_0_0= ruleCastExpression ) ) ( ( (lv_op_1_0= ruleMulOperation ) ) ( (lv_rightExpr_2_0= ruleMulExpression ) ) )? )
             {
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3699:1: ( ( (lv_leftExpr_0_0= ruleCastExpression ) ) ( ( (lv_op_1_0= ruleMulOperation ) ) ( (lv_rightExpr_2_0= ruleMulExpression ) ) )? )
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3699:2: ( (lv_leftExpr_0_0= ruleCastExpression ) ) ( ( (lv_op_1_0= ruleMulOperation ) ) ( (lv_rightExpr_2_0= ruleMulExpression ) ) )?
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3704:1: ( ( (lv_leftExpr_0_0= ruleCastExpression ) ) ( ( (lv_op_1_0= ruleMulOperation ) ) ( (lv_rightExpr_2_0= ruleMulExpression ) ) )? )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3704:2: ( (lv_leftExpr_0_0= ruleCastExpression ) ) ( ( (lv_op_1_0= ruleMulOperation ) ) ( (lv_rightExpr_2_0= ruleMulExpression ) ) )?
             {
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3699:2: ( (lv_leftExpr_0_0= ruleCastExpression ) )
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3700:1: (lv_leftExpr_0_0= ruleCastExpression )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3704:2: ( (lv_leftExpr_0_0= ruleCastExpression ) )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3705:1: (lv_leftExpr_0_0= ruleCastExpression )
             {
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3700:1: (lv_leftExpr_0_0= ruleCastExpression )
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3701:3: lv_leftExpr_0_0= ruleCastExpression
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3705:1: (lv_leftExpr_0_0= ruleCastExpression )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3706:3: lv_leftExpr_0_0= ruleCastExpression
             {
             if ( backtracking==0 ) {
                
@@ -9384,7 +9389,7 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3723:2: ( ( (lv_op_1_0= ruleMulOperation ) ) ( (lv_rightExpr_2_0= ruleMulExpression ) ) )?
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3728:2: ( ( (lv_op_1_0= ruleMulOperation ) ) ( (lv_rightExpr_2_0= ruleMulExpression ) ) )?
             int alt47=2;
             int LA47_0 = input.LA(1);
 
@@ -9393,13 +9398,13 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
             }
             switch (alt47) {
                 case 1 :
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3723:3: ( (lv_op_1_0= ruleMulOperation ) ) ( (lv_rightExpr_2_0= ruleMulExpression ) )
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3728:3: ( (lv_op_1_0= ruleMulOperation ) ) ( (lv_rightExpr_2_0= ruleMulExpression ) )
                     {
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3723:3: ( (lv_op_1_0= ruleMulOperation ) )
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3724:1: (lv_op_1_0= ruleMulOperation )
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3728:3: ( (lv_op_1_0= ruleMulOperation ) )
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3729:1: (lv_op_1_0= ruleMulOperation )
                     {
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3724:1: (lv_op_1_0= ruleMulOperation )
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3725:3: lv_op_1_0= ruleMulOperation
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3729:1: (lv_op_1_0= ruleMulOperation )
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3730:3: lv_op_1_0= ruleMulOperation
                     {
                     if ( backtracking==0 ) {
                        
@@ -9435,11 +9440,11 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3747:2: ( (lv_rightExpr_2_0= ruleMulExpression ) )
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3748:1: (lv_rightExpr_2_0= ruleMulExpression )
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3752:2: ( (lv_rightExpr_2_0= ruleMulExpression ) )
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3753:1: (lv_rightExpr_2_0= ruleMulExpression )
                     {
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3748:1: (lv_rightExpr_2_0= ruleMulExpression )
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3749:3: lv_rightExpr_2_0= ruleMulExpression
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3753:1: (lv_rightExpr_2_0= ruleMulExpression )
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3754:3: lv_rightExpr_2_0= ruleMulExpression
                     {
                     if ( backtracking==0 ) {
                        
@@ -9506,7 +9511,7 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start entryRuleCastExpression
-    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3779:1: entryRuleCastExpression returns [EObject current=null] : iv_ruleCastExpression= ruleCastExpression EOF ;
+    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3784:1: entryRuleCastExpression returns [EObject current=null] : iv_ruleCastExpression= ruleCastExpression EOF ;
     public final EObject entryRuleCastExpression() throws RecognitionException {
         EObject current = null;
 
@@ -9514,8 +9519,8 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3780:2: (iv_ruleCastExpression= ruleCastExpression EOF )
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3781:2: iv_ruleCastExpression= ruleCastExpression EOF
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3785:2: (iv_ruleCastExpression= ruleCastExpression EOF )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3786:2: iv_ruleCastExpression= ruleCastExpression EOF
             {
             if ( backtracking==0 ) {
                currentNode = createCompositeNode(grammarAccess.getCastExpressionRule(), currentNode); 
@@ -9545,7 +9550,7 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start ruleCastExpression
-    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3788:1: ruleCastExpression returns [EObject current=null] : ( ( '(' ( (lv_type_1_0= ruleQualifiedTypeSpecification ) ) ')' ( (lv_expr_3_0= ruleCastExpression ) ) ) | ( (lv_unaryExpr_4_0= ruleUnaryExpression ) ) ) ;
+    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3793:1: ruleCastExpression returns [EObject current=null] : ( ( '(' ( (lv_type_1_0= ruleQualifiedTypeSpecification ) ) ')' ( (lv_expr_3_0= ruleCastExpression ) ) ) | ( (lv_unaryExpr_4_0= ruleUnaryExpression ) ) ) ;
     public final EObject ruleCastExpression() throws RecognitionException {
         EObject current = null;
 
@@ -9559,10 +9564,10 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
          @SuppressWarnings("unused") EObject temp=null; setCurrentLookahead(); resetLookahead(); 
             
         try {
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3793:6: ( ( ( '(' ( (lv_type_1_0= ruleQualifiedTypeSpecification ) ) ')' ( (lv_expr_3_0= ruleCastExpression ) ) ) | ( (lv_unaryExpr_4_0= ruleUnaryExpression ) ) ) )
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3794:1: ( ( '(' ( (lv_type_1_0= ruleQualifiedTypeSpecification ) ) ')' ( (lv_expr_3_0= ruleCastExpression ) ) ) | ( (lv_unaryExpr_4_0= ruleUnaryExpression ) ) )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3798:6: ( ( ( '(' ( (lv_type_1_0= ruleQualifiedTypeSpecification ) ) ')' ( (lv_expr_3_0= ruleCastExpression ) ) ) | ( (lv_unaryExpr_4_0= ruleUnaryExpression ) ) ) )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3799:1: ( ( '(' ( (lv_type_1_0= ruleQualifiedTypeSpecification ) ) ')' ( (lv_expr_3_0= ruleCastExpression ) ) ) | ( (lv_unaryExpr_4_0= ruleUnaryExpression ) ) )
             {
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3794:1: ( ( '(' ( (lv_type_1_0= ruleQualifiedTypeSpecification ) ) ')' ( (lv_expr_3_0= ruleCastExpression ) ) ) | ( (lv_unaryExpr_4_0= ruleUnaryExpression ) ) )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3799:1: ( ( '(' ( (lv_type_1_0= ruleQualifiedTypeSpecification ) ) ')' ( (lv_expr_3_0= ruleCastExpression ) ) ) | ( (lv_unaryExpr_4_0= ruleUnaryExpression ) ) )
             int alt48=2;
             int LA48_0 = input.LA(1);
 
@@ -9578,27 +9583,27 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
                 else {
                     if (backtracking>0) {failed=true; return current;}
                     NoViableAltException nvae =
-                        new NoViableAltException("3794:1: ( ( '(' ( (lv_type_1_0= ruleQualifiedTypeSpecification ) ) ')' ( (lv_expr_3_0= ruleCastExpression ) ) ) | ( (lv_unaryExpr_4_0= ruleUnaryExpression ) ) )", 48, 1, input);
+                        new NoViableAltException("3799:1: ( ( '(' ( (lv_type_1_0= ruleQualifiedTypeSpecification ) ) ')' ( (lv_expr_3_0= ruleCastExpression ) ) ) | ( (lv_unaryExpr_4_0= ruleUnaryExpression ) ) )", 48, 1, input);
 
                     throw nvae;
                 }
             }
-            else if ( ((LA48_0>=RULE_ID && LA48_0<=RULE_STRING)||LA48_0==RULE_INT||LA48_0==26||LA48_0==31||(LA48_0>=40 && LA48_0<=41)||LA48_0==46||(LA48_0>=51 && LA48_0<=52)) ) {
+            else if ( ((LA48_0>=RULE_ID && LA48_0<=RULE_STRING)||LA48_0==RULE_INT||LA48_0==26||(LA48_0>=31 && LA48_0<=32)||(LA48_0>=40 && LA48_0<=41)||LA48_0==46||(LA48_0>=51 && LA48_0<=52)) ) {
                 alt48=2;
             }
             else {
                 if (backtracking>0) {failed=true; return current;}
                 NoViableAltException nvae =
-                    new NoViableAltException("3794:1: ( ( '(' ( (lv_type_1_0= ruleQualifiedTypeSpecification ) ) ')' ( (lv_expr_3_0= ruleCastExpression ) ) ) | ( (lv_unaryExpr_4_0= ruleUnaryExpression ) ) )", 48, 0, input);
+                    new NoViableAltException("3799:1: ( ( '(' ( (lv_type_1_0= ruleQualifiedTypeSpecification ) ) ')' ( (lv_expr_3_0= ruleCastExpression ) ) ) | ( (lv_unaryExpr_4_0= ruleUnaryExpression ) ) )", 48, 0, input);
 
                 throw nvae;
             }
             switch (alt48) {
                 case 1 :
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3794:2: ( '(' ( (lv_type_1_0= ruleQualifiedTypeSpecification ) ) ')' ( (lv_expr_3_0= ruleCastExpression ) ) )
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3799:2: ( '(' ( (lv_type_1_0= ruleQualifiedTypeSpecification ) ) ')' ( (lv_expr_3_0= ruleCastExpression ) ) )
                     {
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3794:2: ( '(' ( (lv_type_1_0= ruleQualifiedTypeSpecification ) ) ')' ( (lv_expr_3_0= ruleCastExpression ) ) )
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3794:4: '(' ( (lv_type_1_0= ruleQualifiedTypeSpecification ) ) ')' ( (lv_expr_3_0= ruleCastExpression ) )
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3799:2: ( '(' ( (lv_type_1_0= ruleQualifiedTypeSpecification ) ) ')' ( (lv_expr_3_0= ruleCastExpression ) ) )
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3799:4: '(' ( (lv_type_1_0= ruleQualifiedTypeSpecification ) ) ')' ( (lv_expr_3_0= ruleCastExpression ) )
                     {
                     match(input,27,FOLLOW_27_in_ruleCastExpression6654); if (failed) return current;
                     if ( backtracking==0 ) {
@@ -9606,11 +9611,11 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
                               createLeafNode(grammarAccess.getCastExpressionAccess().getLeftParenthesisKeyword_0_0(), null); 
                           
                     }
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3798:1: ( (lv_type_1_0= ruleQualifiedTypeSpecification ) )
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3799:1: (lv_type_1_0= ruleQualifiedTypeSpecification )
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3803:1: ( (lv_type_1_0= ruleQualifiedTypeSpecification ) )
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3804:1: (lv_type_1_0= ruleQualifiedTypeSpecification )
                     {
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3799:1: (lv_type_1_0= ruleQualifiedTypeSpecification )
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3800:3: lv_type_1_0= ruleQualifiedTypeSpecification
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3804:1: (lv_type_1_0= ruleQualifiedTypeSpecification )
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3805:3: lv_type_1_0= ruleQualifiedTypeSpecification
                     {
                     if ( backtracking==0 ) {
                        
@@ -9652,11 +9657,11 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
                               createLeafNode(grammarAccess.getCastExpressionAccess().getRightParenthesisKeyword_0_2(), null); 
                           
                     }
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3826:1: ( (lv_expr_3_0= ruleCastExpression ) )
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3827:1: (lv_expr_3_0= ruleCastExpression )
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3831:1: ( (lv_expr_3_0= ruleCastExpression ) )
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3832:1: (lv_expr_3_0= ruleCastExpression )
                     {
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3827:1: (lv_expr_3_0= ruleCastExpression )
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3828:3: lv_expr_3_0= ruleCastExpression
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3832:1: (lv_expr_3_0= ruleCastExpression )
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3833:3: lv_expr_3_0= ruleCastExpression
                     {
                     if ( backtracking==0 ) {
                        
@@ -9699,13 +9704,13 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3851:6: ( (lv_unaryExpr_4_0= ruleUnaryExpression ) )
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3856:6: ( (lv_unaryExpr_4_0= ruleUnaryExpression ) )
                     {
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3851:6: ( (lv_unaryExpr_4_0= ruleUnaryExpression ) )
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3852:1: (lv_unaryExpr_4_0= ruleUnaryExpression )
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3856:6: ( (lv_unaryExpr_4_0= ruleUnaryExpression ) )
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3857:1: (lv_unaryExpr_4_0= ruleUnaryExpression )
                     {
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3852:1: (lv_unaryExpr_4_0= ruleUnaryExpression )
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3853:3: lv_unaryExpr_4_0= ruleUnaryExpression
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3857:1: (lv_unaryExpr_4_0= ruleUnaryExpression )
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3858:3: lv_unaryExpr_4_0= ruleUnaryExpression
                     {
                     if ( backtracking==0 ) {
                        
@@ -9769,7 +9774,7 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start entryRuleUnaryExpression
-    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3883:1: entryRuleUnaryExpression returns [EObject current=null] : iv_ruleUnaryExpression= ruleUnaryExpression EOF ;
+    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3888:1: entryRuleUnaryExpression returns [EObject current=null] : iv_ruleUnaryExpression= ruleUnaryExpression EOF ;
     public final EObject entryRuleUnaryExpression() throws RecognitionException {
         EObject current = null;
 
@@ -9777,8 +9782,8 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3884:2: (iv_ruleUnaryExpression= ruleUnaryExpression EOF )
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3885:2: iv_ruleUnaryExpression= ruleUnaryExpression EOF
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3889:2: (iv_ruleUnaryExpression= ruleUnaryExpression EOF )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3890:2: iv_ruleUnaryExpression= ruleUnaryExpression EOF
             {
             if ( backtracking==0 ) {
                currentNode = createCompositeNode(grammarAccess.getUnaryExpressionRule(), currentNode); 
@@ -9808,7 +9813,7 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start ruleUnaryExpression
-    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3892:1: ruleUnaryExpression returns [EObject current=null] : ( ( (lv_unaryExpr_0_0= ruleUnaryOperation ) )? ( (lv_primaryExpr_1_0= rulePrimaryExpression ) ) ) ;
+    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3897:1: ruleUnaryExpression returns [EObject current=null] : ( ( (lv_unaryExpr_0_0= ruleUnaryOperation ) )? ( (lv_primaryExpr_1_0= rulePrimaryExpression ) ) ) ;
     public final EObject ruleUnaryExpression() throws RecognitionException {
         EObject current = null;
 
@@ -9820,13 +9825,13 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
          @SuppressWarnings("unused") EObject temp=null; setCurrentLookahead(); resetLookahead(); 
             
         try {
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3897:6: ( ( ( (lv_unaryExpr_0_0= ruleUnaryOperation ) )? ( (lv_primaryExpr_1_0= rulePrimaryExpression ) ) ) )
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3898:1: ( ( (lv_unaryExpr_0_0= ruleUnaryOperation ) )? ( (lv_primaryExpr_1_0= rulePrimaryExpression ) ) )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3902:6: ( ( ( (lv_unaryExpr_0_0= ruleUnaryOperation ) )? ( (lv_primaryExpr_1_0= rulePrimaryExpression ) ) ) )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3903:1: ( ( (lv_unaryExpr_0_0= ruleUnaryOperation ) )? ( (lv_primaryExpr_1_0= rulePrimaryExpression ) ) )
             {
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3898:1: ( ( (lv_unaryExpr_0_0= ruleUnaryOperation ) )? ( (lv_primaryExpr_1_0= rulePrimaryExpression ) ) )
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3898:2: ( (lv_unaryExpr_0_0= ruleUnaryOperation ) )? ( (lv_primaryExpr_1_0= rulePrimaryExpression ) )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3903:1: ( ( (lv_unaryExpr_0_0= ruleUnaryOperation ) )? ( (lv_primaryExpr_1_0= rulePrimaryExpression ) ) )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3903:2: ( (lv_unaryExpr_0_0= ruleUnaryOperation ) )? ( (lv_primaryExpr_1_0= rulePrimaryExpression ) )
             {
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3898:2: ( (lv_unaryExpr_0_0= ruleUnaryOperation ) )?
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3903:2: ( (lv_unaryExpr_0_0= ruleUnaryOperation ) )?
             int alt49=2;
             int LA49_0 = input.LA(1);
 
@@ -9835,10 +9840,10 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
             }
             switch (alt49) {
                 case 1 :
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3899:1: (lv_unaryExpr_0_0= ruleUnaryOperation )
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3904:1: (lv_unaryExpr_0_0= ruleUnaryOperation )
                     {
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3899:1: (lv_unaryExpr_0_0= ruleUnaryOperation )
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3900:3: lv_unaryExpr_0_0= ruleUnaryOperation
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3904:1: (lv_unaryExpr_0_0= ruleUnaryOperation )
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3905:3: lv_unaryExpr_0_0= ruleUnaryOperation
                     {
                     if ( backtracking==0 ) {
                        
@@ -9877,11 +9882,11 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3922:3: ( (lv_primaryExpr_1_0= rulePrimaryExpression ) )
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3923:1: (lv_primaryExpr_1_0= rulePrimaryExpression )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3927:3: ( (lv_primaryExpr_1_0= rulePrimaryExpression ) )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3928:1: (lv_primaryExpr_1_0= rulePrimaryExpression )
             {
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3923:1: (lv_primaryExpr_1_0= rulePrimaryExpression )
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3924:3: lv_primaryExpr_1_0= rulePrimaryExpression
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3928:1: (lv_primaryExpr_1_0= rulePrimaryExpression )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3929:3: lv_primaryExpr_1_0= rulePrimaryExpression
             {
             if ( backtracking==0 ) {
                
@@ -9942,7 +9947,7 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start entryRulePrimaryExpression
-    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3954:1: entryRulePrimaryExpression returns [EObject current=null] : iv_rulePrimaryExpression= rulePrimaryExpression EOF ;
+    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3959:1: entryRulePrimaryExpression returns [EObject current=null] : iv_rulePrimaryExpression= rulePrimaryExpression EOF ;
     public final EObject entryRulePrimaryExpression() throws RecognitionException {
         EObject current = null;
 
@@ -9950,8 +9955,8 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3955:2: (iv_rulePrimaryExpression= rulePrimaryExpression EOF )
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3956:2: iv_rulePrimaryExpression= rulePrimaryExpression EOF
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3960:2: (iv_rulePrimaryExpression= rulePrimaryExpression EOF )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3961:2: iv_rulePrimaryExpression= rulePrimaryExpression EOF
             {
             if ( backtracking==0 ) {
                currentNode = createCompositeNode(grammarAccess.getPrimaryExpressionRule(), currentNode); 
@@ -9981,7 +9986,7 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start rulePrimaryExpression
-    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3963:1: rulePrimaryExpression returns [EObject current=null] : ( ( (lv_literal_0_0= ruleLiteral ) ) | ( '(' this_ConstantExpression_2= ruleConstantExpression ')' ) ) ;
+    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3968:1: rulePrimaryExpression returns [EObject current=null] : ( ( (lv_literal_0_0= ruleLiteral ) ) | ( '(' this_ConstantExpression_2= ruleConstantExpression ')' ) ) ;
     public final EObject rulePrimaryExpression() throws RecognitionException {
         EObject current = null;
 
@@ -9993,14 +9998,14 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
          @SuppressWarnings("unused") EObject temp=null; setCurrentLookahead(); resetLookahead(); 
             
         try {
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3968:6: ( ( ( (lv_literal_0_0= ruleLiteral ) ) | ( '(' this_ConstantExpression_2= ruleConstantExpression ')' ) ) )
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3969:1: ( ( (lv_literal_0_0= ruleLiteral ) ) | ( '(' this_ConstantExpression_2= ruleConstantExpression ')' ) )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3973:6: ( ( ( (lv_literal_0_0= ruleLiteral ) ) | ( '(' this_ConstantExpression_2= ruleConstantExpression ')' ) ) )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3974:1: ( ( (lv_literal_0_0= ruleLiteral ) ) | ( '(' this_ConstantExpression_2= ruleConstantExpression ')' ) )
             {
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3969:1: ( ( (lv_literal_0_0= ruleLiteral ) ) | ( '(' this_ConstantExpression_2= ruleConstantExpression ')' ) )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3974:1: ( ( (lv_literal_0_0= ruleLiteral ) ) | ( '(' this_ConstantExpression_2= ruleConstantExpression ')' ) )
             int alt50=2;
             int LA50_0 = input.LA(1);
 
-            if ( ((LA50_0>=RULE_ID && LA50_0<=RULE_STRING)||LA50_0==RULE_INT||LA50_0==31) ) {
+            if ( ((LA50_0>=RULE_ID && LA50_0<=RULE_STRING)||LA50_0==RULE_INT||(LA50_0>=31 && LA50_0<=32)) ) {
                 alt50=1;
             }
             else if ( (LA50_0==27) ) {
@@ -10009,19 +10014,19 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
             else {
                 if (backtracking>0) {failed=true; return current;}
                 NoViableAltException nvae =
-                    new NoViableAltException("3969:1: ( ( (lv_literal_0_0= ruleLiteral ) ) | ( '(' this_ConstantExpression_2= ruleConstantExpression ')' ) )", 50, 0, input);
+                    new NoViableAltException("3974:1: ( ( (lv_literal_0_0= ruleLiteral ) ) | ( '(' this_ConstantExpression_2= ruleConstantExpression ')' ) )", 50, 0, input);
 
                 throw nvae;
             }
             switch (alt50) {
                 case 1 :
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3969:2: ( (lv_literal_0_0= ruleLiteral ) )
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3974:2: ( (lv_literal_0_0= ruleLiteral ) )
                     {
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3969:2: ( (lv_literal_0_0= ruleLiteral ) )
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3970:1: (lv_literal_0_0= ruleLiteral )
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3974:2: ( (lv_literal_0_0= ruleLiteral ) )
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3975:1: (lv_literal_0_0= ruleLiteral )
                     {
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3970:1: (lv_literal_0_0= ruleLiteral )
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3971:3: lv_literal_0_0= ruleLiteral
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3975:1: (lv_literal_0_0= ruleLiteral )
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3976:3: lv_literal_0_0= ruleLiteral
                     {
                     if ( backtracking==0 ) {
                        
@@ -10061,10 +10066,10 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3994:6: ( '(' this_ConstantExpression_2= ruleConstantExpression ')' )
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3999:6: ( '(' this_ConstantExpression_2= ruleConstantExpression ')' )
                     {
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3994:6: ( '(' this_ConstantExpression_2= ruleConstantExpression ')' )
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3994:8: '(' this_ConstantExpression_2= ruleConstantExpression ')'
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3999:6: ( '(' this_ConstantExpression_2= ruleConstantExpression ')' )
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3999:8: '(' this_ConstantExpression_2= ruleConstantExpression ')'
                     {
                     match(input,27,FOLLOW_27_in_rulePrimaryExpression6957); if (failed) return current;
                     if ( backtracking==0 ) {
@@ -10129,7 +10134,7 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start entryRuleLiteral
-    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4022:1: entryRuleLiteral returns [EObject current=null] : iv_ruleLiteral= ruleLiteral EOF ;
+    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4027:1: entryRuleLiteral returns [EObject current=null] : iv_ruleLiteral= ruleLiteral EOF ;
     public final EObject entryRuleLiteral() throws RecognitionException {
         EObject current = null;
 
@@ -10137,8 +10142,8 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4023:2: (iv_ruleLiteral= ruleLiteral EOF )
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4024:2: iv_ruleLiteral= ruleLiteral EOF
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4028:2: (iv_ruleLiteral= ruleLiteral EOF )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4029:2: iv_ruleLiteral= ruleLiteral EOF
             {
             if ( backtracking==0 ) {
                currentNode = createCompositeNode(grammarAccess.getLiteralRule(), currentNode); 
@@ -10168,18 +10173,21 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start ruleLiteral
-    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4031:1: ruleLiteral returns [EObject current=null] : ( RULE_ID | RULE_STRING | ruleFloatingPointLiteral | ( ( RULE_ID ) ) ) ;
+    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4036:1: ruleLiteral returns [EObject current=null] : ( RULE_ID | RULE_STRING | ruleFloatingPointLiteral | this_ConstantDefinition_3= ruleConstantDefinition | ( ( RULE_ID ) ) ) ;
     public final EObject ruleLiteral() throws RecognitionException {
         EObject current = null;
+
+        EObject this_ConstantDefinition_3 = null;
+
 
          @SuppressWarnings("unused") EObject temp=null; setCurrentLookahead(); resetLookahead(); 
             
         try {
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4036:6: ( ( RULE_ID | RULE_STRING | ruleFloatingPointLiteral | ( ( RULE_ID ) ) ) )
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4037:1: ( RULE_ID | RULE_STRING | ruleFloatingPointLiteral | ( ( RULE_ID ) ) )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4041:6: ( ( RULE_ID | RULE_STRING | ruleFloatingPointLiteral | this_ConstantDefinition_3= ruleConstantDefinition | ( ( RULE_ID ) ) ) )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4042:1: ( RULE_ID | RULE_STRING | ruleFloatingPointLiteral | this_ConstantDefinition_3= ruleConstantDefinition | ( ( RULE_ID ) ) )
             {
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4037:1: ( RULE_ID | RULE_STRING | ruleFloatingPointLiteral | ( ( RULE_ID ) ) )
-            int alt51=4;
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4042:1: ( RULE_ID | RULE_STRING | ruleFloatingPointLiteral | this_ConstantDefinition_3= ruleConstantDefinition | ( ( RULE_ID ) ) )
+            int alt51=5;
             switch ( input.LA(1) ) {
             case RULE_ID:
                 {
@@ -10189,12 +10197,12 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
                     alt51=1;
                 }
                 else if ( (true) ) {
-                    alt51=4;
+                    alt51=5;
                 }
                 else {
                     if (backtracking>0) {failed=true; return current;}
                     NoViableAltException nvae =
-                        new NoViableAltException("4037:1: ( RULE_ID | RULE_STRING | ruleFloatingPointLiteral | ( ( RULE_ID ) ) )", 51, 1, input);
+                        new NoViableAltException("4042:1: ( RULE_ID | RULE_STRING | ruleFloatingPointLiteral | this_ConstantDefinition_3= ruleConstantDefinition | ( ( RULE_ID ) ) )", 51, 1, input);
 
                     throw nvae;
                 }
@@ -10211,17 +10219,22 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
                 alt51=3;
                 }
                 break;
+            case 32:
+                {
+                alt51=4;
+                }
+                break;
             default:
                 if (backtracking>0) {failed=true; return current;}
                 NoViableAltException nvae =
-                    new NoViableAltException("4037:1: ( RULE_ID | RULE_STRING | ruleFloatingPointLiteral | ( ( RULE_ID ) ) )", 51, 0, input);
+                    new NoViableAltException("4042:1: ( RULE_ID | RULE_STRING | ruleFloatingPointLiteral | this_ConstantDefinition_3= ruleConstantDefinition | ( ( RULE_ID ) ) )", 51, 0, input);
 
                 throw nvae;
             }
 
             switch (alt51) {
                 case 1 :
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4037:2: RULE_ID
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4042:2: RULE_ID
                     {
                     match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleLiteral7072); if (failed) return current;
                     if ( backtracking==0 ) {
@@ -10233,7 +10246,7 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4042:6: RULE_STRING
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4047:6: RULE_STRING
                     {
                     match(input,RULE_STRING,FOLLOW_RULE_STRING_in_ruleLiteral7086); if (failed) return current;
                     if ( backtracking==0 ) {
@@ -10245,7 +10258,7 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 3 :
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4047:6: ruleFloatingPointLiteral
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4052:6: ruleFloatingPointLiteral
                     {
                     pushFollow(FOLLOW_ruleFloatingPointLiteral_in_ruleLiteral7100);
                     ruleFloatingPointLiteral();
@@ -10255,13 +10268,39 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 4 :
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4048:6: ( ( RULE_ID ) )
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4054:2: this_ConstantDefinition_3= ruleConstantDefinition
                     {
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4048:6: ( ( RULE_ID ) )
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4049:1: ( RULE_ID )
+                    if ( backtracking==0 ) {
+                       
+                      	  /* */ 
+                      	
+                    }
+                    if ( backtracking==0 ) {
+                       
+                              currentNode=createCompositeNode(grammarAccess.getLiteralAccess().getConstantDefinitionParserRuleCall_3(), currentNode); 
+                          
+                    }
+                    pushFollow(FOLLOW_ruleConstantDefinition_in_ruleLiteral7123);
+                    this_ConstantDefinition_3=ruleConstantDefinition();
+                    _fsp--;
+                    if (failed) return current;
+                    if ( backtracking==0 ) {
+                       
+                              current = this_ConstantDefinition_3; 
+                              currentNode = currentNode.getParent();
+                          
+                    }
+
+                    }
+                    break;
+                case 5 :
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4066:6: ( ( RULE_ID ) )
                     {
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4049:1: ( RULE_ID )
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4050:3: RULE_ID
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4066:6: ( ( RULE_ID ) )
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4067:1: ( RULE_ID )
+                    {
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4067:1: ( RULE_ID )
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4068:3: RULE_ID
                     {
                     if ( backtracking==0 ) {
                        
@@ -10276,10 +10315,10 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
                       	        }
                               
                     }
-                    match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleLiteral7120); if (failed) return current;
+                    match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleLiteral7150); if (failed) return current;
                     if ( backtracking==0 ) {
 
-                      		createLeafNode(grammarAccess.getLiteralAccess().getRefConstantDefinitionCrossReference_3_0(), "ref"); 
+                      		createLeafNode(grammarAccess.getLiteralAccess().getRefConstantDefinitionCrossReference_4_0(), "ref"); 
                       	
                     }
 
@@ -10316,7 +10355,7 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start entryRuleShiftOperation
-    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4073:1: entryRuleShiftOperation returns [String current=null] : iv_ruleShiftOperation= ruleShiftOperation EOF ;
+    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4091:1: entryRuleShiftOperation returns [String current=null] : iv_ruleShiftOperation= ruleShiftOperation EOF ;
     public final String entryRuleShiftOperation() throws RecognitionException {
         String current = null;
 
@@ -10324,20 +10363,20 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4074:2: (iv_ruleShiftOperation= ruleShiftOperation EOF )
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4075:2: iv_ruleShiftOperation= ruleShiftOperation EOF
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4092:2: (iv_ruleShiftOperation= ruleShiftOperation EOF )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4093:2: iv_ruleShiftOperation= ruleShiftOperation EOF
             {
             if ( backtracking==0 ) {
                currentNode = createCompositeNode(grammarAccess.getShiftOperationRule(), currentNode); 
             }
-            pushFollow(FOLLOW_ruleShiftOperation_in_entryRuleShiftOperation7157);
+            pushFollow(FOLLOW_ruleShiftOperation_in_entryRuleShiftOperation7187);
             iv_ruleShiftOperation=ruleShiftOperation();
             _fsp--;
             if (failed) return current;
             if ( backtracking==0 ) {
                current =iv_ruleShiftOperation.getText(); 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleShiftOperation7168); if (failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleShiftOperation7198); if (failed) return current;
 
             }
 
@@ -10355,7 +10394,7 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start ruleShiftOperation
-    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4082:1: ruleShiftOperation returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (kw= '<<' | kw= '>>' ) ;
+    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4100:1: ruleShiftOperation returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (kw= '<<' | kw= '>>' ) ;
     public final AntlrDatatypeRuleToken ruleShiftOperation() throws RecognitionException {
         AntlrDatatypeRuleToken current = new AntlrDatatypeRuleToken();
 
@@ -10364,10 +10403,10 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
          setCurrentLookahead(); resetLookahead(); 
             
         try {
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4087:6: ( (kw= '<<' | kw= '>>' ) )
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4088:1: (kw= '<<' | kw= '>>' )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4105:6: ( (kw= '<<' | kw= '>>' ) )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4106:1: (kw= '<<' | kw= '>>' )
             {
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4088:1: (kw= '<<' | kw= '>>' )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4106:1: (kw= '<<' | kw= '>>' )
             int alt52=2;
             int LA52_0 = input.LA(1);
 
@@ -10380,16 +10419,16 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
             else {
                 if (backtracking>0) {failed=true; return current;}
                 NoViableAltException nvae =
-                    new NoViableAltException("4088:1: (kw= '<<' | kw= '>>' )", 52, 0, input);
+                    new NoViableAltException("4106:1: (kw= '<<' | kw= '>>' )", 52, 0, input);
 
                 throw nvae;
             }
             switch (alt52) {
                 case 1 :
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4089:2: kw= '<<'
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4107:2: kw= '<<'
                     {
                     kw=(Token)input.LT(1);
-                    match(input,47,FOLLOW_47_in_ruleShiftOperation7206); if (failed) return current;
+                    match(input,47,FOLLOW_47_in_ruleShiftOperation7236); if (failed) return current;
                     if ( backtracking==0 ) {
 
                               current.merge(kw);
@@ -10400,10 +10439,10 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4096:2: kw= '>>'
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4114:2: kw= '>>'
                     {
                     kw=(Token)input.LT(1);
-                    match(input,48,FOLLOW_48_in_ruleShiftOperation7225); if (failed) return current;
+                    match(input,48,FOLLOW_48_in_ruleShiftOperation7255); if (failed) return current;
                     if ( backtracking==0 ) {
 
                               current.merge(kw);
@@ -10438,7 +10477,7 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start entryRuleAdditiveOperation
-    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4109:1: entryRuleAdditiveOperation returns [String current=null] : iv_ruleAdditiveOperation= ruleAdditiveOperation EOF ;
+    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4127:1: entryRuleAdditiveOperation returns [String current=null] : iv_ruleAdditiveOperation= ruleAdditiveOperation EOF ;
     public final String entryRuleAdditiveOperation() throws RecognitionException {
         String current = null;
 
@@ -10446,20 +10485,20 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4110:2: (iv_ruleAdditiveOperation= ruleAdditiveOperation EOF )
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4111:2: iv_ruleAdditiveOperation= ruleAdditiveOperation EOF
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4128:2: (iv_ruleAdditiveOperation= ruleAdditiveOperation EOF )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4129:2: iv_ruleAdditiveOperation= ruleAdditiveOperation EOF
             {
             if ( backtracking==0 ) {
                currentNode = createCompositeNode(grammarAccess.getAdditiveOperationRule(), currentNode); 
             }
-            pushFollow(FOLLOW_ruleAdditiveOperation_in_entryRuleAdditiveOperation7266);
+            pushFollow(FOLLOW_ruleAdditiveOperation_in_entryRuleAdditiveOperation7296);
             iv_ruleAdditiveOperation=ruleAdditiveOperation();
             _fsp--;
             if (failed) return current;
             if ( backtracking==0 ) {
                current =iv_ruleAdditiveOperation.getText(); 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleAdditiveOperation7277); if (failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleAdditiveOperation7307); if (failed) return current;
 
             }
 
@@ -10477,7 +10516,7 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start ruleAdditiveOperation
-    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4118:1: ruleAdditiveOperation returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (kw= '+' | kw= '-' ) ;
+    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4136:1: ruleAdditiveOperation returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (kw= '+' | kw= '-' ) ;
     public final AntlrDatatypeRuleToken ruleAdditiveOperation() throws RecognitionException {
         AntlrDatatypeRuleToken current = new AntlrDatatypeRuleToken();
 
@@ -10486,10 +10525,10 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
          setCurrentLookahead(); resetLookahead(); 
             
         try {
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4123:6: ( (kw= '+' | kw= '-' ) )
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4124:1: (kw= '+' | kw= '-' )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4141:6: ( (kw= '+' | kw= '-' ) )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4142:1: (kw= '+' | kw= '-' )
             {
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4124:1: (kw= '+' | kw= '-' )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4142:1: (kw= '+' | kw= '-' )
             int alt53=2;
             int LA53_0 = input.LA(1);
 
@@ -10502,16 +10541,16 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
             else {
                 if (backtracking>0) {failed=true; return current;}
                 NoViableAltException nvae =
-                    new NoViableAltException("4124:1: (kw= '+' | kw= '-' )", 53, 0, input);
+                    new NoViableAltException("4142:1: (kw= '+' | kw= '-' )", 53, 0, input);
 
                 throw nvae;
             }
             switch (alt53) {
                 case 1 :
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4125:2: kw= '+'
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4143:2: kw= '+'
                     {
                     kw=(Token)input.LT(1);
-                    match(input,40,FOLLOW_40_in_ruleAdditiveOperation7315); if (failed) return current;
+                    match(input,40,FOLLOW_40_in_ruleAdditiveOperation7345); if (failed) return current;
                     if ( backtracking==0 ) {
 
                               current.merge(kw);
@@ -10522,10 +10561,10 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4132:2: kw= '-'
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4150:2: kw= '-'
                     {
                     kw=(Token)input.LT(1);
-                    match(input,41,FOLLOW_41_in_ruleAdditiveOperation7334); if (failed) return current;
+                    match(input,41,FOLLOW_41_in_ruleAdditiveOperation7364); if (failed) return current;
                     if ( backtracking==0 ) {
 
                               current.merge(kw);
@@ -10560,7 +10599,7 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start entryRuleMulOperation
-    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4145:1: entryRuleMulOperation returns [String current=null] : iv_ruleMulOperation= ruleMulOperation EOF ;
+    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4163:1: entryRuleMulOperation returns [String current=null] : iv_ruleMulOperation= ruleMulOperation EOF ;
     public final String entryRuleMulOperation() throws RecognitionException {
         String current = null;
 
@@ -10568,20 +10607,20 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4146:2: (iv_ruleMulOperation= ruleMulOperation EOF )
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4147:2: iv_ruleMulOperation= ruleMulOperation EOF
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4164:2: (iv_ruleMulOperation= ruleMulOperation EOF )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4165:2: iv_ruleMulOperation= ruleMulOperation EOF
             {
             if ( backtracking==0 ) {
                currentNode = createCompositeNode(grammarAccess.getMulOperationRule(), currentNode); 
             }
-            pushFollow(FOLLOW_ruleMulOperation_in_entryRuleMulOperation7375);
+            pushFollow(FOLLOW_ruleMulOperation_in_entryRuleMulOperation7405);
             iv_ruleMulOperation=ruleMulOperation();
             _fsp--;
             if (failed) return current;
             if ( backtracking==0 ) {
                current =iv_ruleMulOperation.getText(); 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleMulOperation7386); if (failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleMulOperation7416); if (failed) return current;
 
             }
 
@@ -10599,7 +10638,7 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start ruleMulOperation
-    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4154:1: ruleMulOperation returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (kw= '*' | kw= '/' | kw= '%' ) ;
+    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4172:1: ruleMulOperation returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (kw= '*' | kw= '/' | kw= '%' ) ;
     public final AntlrDatatypeRuleToken ruleMulOperation() throws RecognitionException {
         AntlrDatatypeRuleToken current = new AntlrDatatypeRuleToken();
 
@@ -10608,10 +10647,10 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
          setCurrentLookahead(); resetLookahead(); 
             
         try {
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4159:6: ( (kw= '*' | kw= '/' | kw= '%' ) )
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4160:1: (kw= '*' | kw= '/' | kw= '%' )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4177:6: ( (kw= '*' | kw= '/' | kw= '%' ) )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4178:1: (kw= '*' | kw= '/' | kw= '%' )
             {
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4160:1: (kw= '*' | kw= '/' | kw= '%' )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4178:1: (kw= '*' | kw= '/' | kw= '%' )
             int alt54=3;
             switch ( input.LA(1) ) {
             case 26:
@@ -10632,17 +10671,17 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
             default:
                 if (backtracking>0) {failed=true; return current;}
                 NoViableAltException nvae =
-                    new NoViableAltException("4160:1: (kw= '*' | kw= '/' | kw= '%' )", 54, 0, input);
+                    new NoViableAltException("4178:1: (kw= '*' | kw= '/' | kw= '%' )", 54, 0, input);
 
                 throw nvae;
             }
 
             switch (alt54) {
                 case 1 :
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4161:2: kw= '*'
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4179:2: kw= '*'
                     {
                     kw=(Token)input.LT(1);
-                    match(input,26,FOLLOW_26_in_ruleMulOperation7424); if (failed) return current;
+                    match(input,26,FOLLOW_26_in_ruleMulOperation7454); if (failed) return current;
                     if ( backtracking==0 ) {
 
                               current.merge(kw);
@@ -10653,10 +10692,10 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4168:2: kw= '/'
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4186:2: kw= '/'
                     {
                     kw=(Token)input.LT(1);
-                    match(input,49,FOLLOW_49_in_ruleMulOperation7443); if (failed) return current;
+                    match(input,49,FOLLOW_49_in_ruleMulOperation7473); if (failed) return current;
                     if ( backtracking==0 ) {
 
                               current.merge(kw);
@@ -10667,10 +10706,10 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 3 :
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4175:2: kw= '%'
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4193:2: kw= '%'
                     {
                     kw=(Token)input.LT(1);
-                    match(input,50,FOLLOW_50_in_ruleMulOperation7462); if (failed) return current;
+                    match(input,50,FOLLOW_50_in_ruleMulOperation7492); if (failed) return current;
                     if ( backtracking==0 ) {
 
                               current.merge(kw);
@@ -10705,7 +10744,7 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start entryRuleUnaryOperation
-    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4188:1: entryRuleUnaryOperation returns [String current=null] : iv_ruleUnaryOperation= ruleUnaryOperation EOF ;
+    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4206:1: entryRuleUnaryOperation returns [String current=null] : iv_ruleUnaryOperation= ruleUnaryOperation EOF ;
     public final String entryRuleUnaryOperation() throws RecognitionException {
         String current = null;
 
@@ -10713,20 +10752,20 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4189:2: (iv_ruleUnaryOperation= ruleUnaryOperation EOF )
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4190:2: iv_ruleUnaryOperation= ruleUnaryOperation EOF
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4207:2: (iv_ruleUnaryOperation= ruleUnaryOperation EOF )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4208:2: iv_ruleUnaryOperation= ruleUnaryOperation EOF
             {
             if ( backtracking==0 ) {
                currentNode = createCompositeNode(grammarAccess.getUnaryOperationRule(), currentNode); 
             }
-            pushFollow(FOLLOW_ruleUnaryOperation_in_entryRuleUnaryOperation7503);
+            pushFollow(FOLLOW_ruleUnaryOperation_in_entryRuleUnaryOperation7533);
             iv_ruleUnaryOperation=ruleUnaryOperation();
             _fsp--;
             if (failed) return current;
             if ( backtracking==0 ) {
                current =iv_ruleUnaryOperation.getText(); 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleUnaryOperation7514); if (failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleUnaryOperation7544); if (failed) return current;
 
             }
 
@@ -10744,7 +10783,7 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start ruleUnaryOperation
-    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4197:1: ruleUnaryOperation returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (kw= '&' | kw= '*' | kw= '+' | kw= '-' | kw= '~' | kw= '!' ) ;
+    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4215:1: ruleUnaryOperation returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (kw= '&' | kw= '*' | kw= '+' | kw= '-' | kw= '~' | kw= '!' ) ;
     public final AntlrDatatypeRuleToken ruleUnaryOperation() throws RecognitionException {
         AntlrDatatypeRuleToken current = new AntlrDatatypeRuleToken();
 
@@ -10753,10 +10792,10 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
          setCurrentLookahead(); resetLookahead(); 
             
         try {
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4202:6: ( (kw= '&' | kw= '*' | kw= '+' | kw= '-' | kw= '~' | kw= '!' ) )
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4203:1: (kw= '&' | kw= '*' | kw= '+' | kw= '-' | kw= '~' | kw= '!' )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4220:6: ( (kw= '&' | kw= '*' | kw= '+' | kw= '-' | kw= '~' | kw= '!' ) )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4221:1: (kw= '&' | kw= '*' | kw= '+' | kw= '-' | kw= '~' | kw= '!' )
             {
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4203:1: (kw= '&' | kw= '*' | kw= '+' | kw= '-' | kw= '~' | kw= '!' )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4221:1: (kw= '&' | kw= '*' | kw= '+' | kw= '-' | kw= '~' | kw= '!' )
             int alt55=6;
             switch ( input.LA(1) ) {
             case 46:
@@ -10792,17 +10831,17 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
             default:
                 if (backtracking>0) {failed=true; return current;}
                 NoViableAltException nvae =
-                    new NoViableAltException("4203:1: (kw= '&' | kw= '*' | kw= '+' | kw= '-' | kw= '~' | kw= '!' )", 55, 0, input);
+                    new NoViableAltException("4221:1: (kw= '&' | kw= '*' | kw= '+' | kw= '-' | kw= '~' | kw= '!' )", 55, 0, input);
 
                 throw nvae;
             }
 
             switch (alt55) {
                 case 1 :
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4204:2: kw= '&'
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4222:2: kw= '&'
                     {
                     kw=(Token)input.LT(1);
-                    match(input,46,FOLLOW_46_in_ruleUnaryOperation7552); if (failed) return current;
+                    match(input,46,FOLLOW_46_in_ruleUnaryOperation7582); if (failed) return current;
                     if ( backtracking==0 ) {
 
                               current.merge(kw);
@@ -10813,10 +10852,10 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4211:2: kw= '*'
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4229:2: kw= '*'
                     {
                     kw=(Token)input.LT(1);
-                    match(input,26,FOLLOW_26_in_ruleUnaryOperation7571); if (failed) return current;
+                    match(input,26,FOLLOW_26_in_ruleUnaryOperation7601); if (failed) return current;
                     if ( backtracking==0 ) {
 
                               current.merge(kw);
@@ -10827,10 +10866,10 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 3 :
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4218:2: kw= '+'
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4236:2: kw= '+'
                     {
                     kw=(Token)input.LT(1);
-                    match(input,40,FOLLOW_40_in_ruleUnaryOperation7590); if (failed) return current;
+                    match(input,40,FOLLOW_40_in_ruleUnaryOperation7620); if (failed) return current;
                     if ( backtracking==0 ) {
 
                               current.merge(kw);
@@ -10841,10 +10880,10 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 4 :
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4225:2: kw= '-'
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4243:2: kw= '-'
                     {
                     kw=(Token)input.LT(1);
-                    match(input,41,FOLLOW_41_in_ruleUnaryOperation7609); if (failed) return current;
+                    match(input,41,FOLLOW_41_in_ruleUnaryOperation7639); if (failed) return current;
                     if ( backtracking==0 ) {
 
                               current.merge(kw);
@@ -10855,10 +10894,10 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 5 :
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4232:2: kw= '~'
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4250:2: kw= '~'
                     {
                     kw=(Token)input.LT(1);
-                    match(input,51,FOLLOW_51_in_ruleUnaryOperation7628); if (failed) return current;
+                    match(input,51,FOLLOW_51_in_ruleUnaryOperation7658); if (failed) return current;
                     if ( backtracking==0 ) {
 
                               current.merge(kw);
@@ -10869,10 +10908,10 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 6 :
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4239:2: kw= '!'
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4257:2: kw= '!'
                     {
                     kw=(Token)input.LT(1);
-                    match(input,52,FOLLOW_52_in_ruleUnaryOperation7647); if (failed) return current;
+                    match(input,52,FOLLOW_52_in_ruleUnaryOperation7677); if (failed) return current;
                     if ( backtracking==0 ) {
 
                               current.merge(kw);
@@ -10907,7 +10946,7 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start entryRuleFloatingPointLiteral
-    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4252:1: entryRuleFloatingPointLiteral returns [String current=null] : iv_ruleFloatingPointLiteral= ruleFloatingPointLiteral EOF ;
+    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4270:1: entryRuleFloatingPointLiteral returns [String current=null] : iv_ruleFloatingPointLiteral= ruleFloatingPointLiteral EOF ;
     public final String entryRuleFloatingPointLiteral() throws RecognitionException {
         String current = null;
 
@@ -10915,20 +10954,20 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4253:2: (iv_ruleFloatingPointLiteral= ruleFloatingPointLiteral EOF )
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4254:2: iv_ruleFloatingPointLiteral= ruleFloatingPointLiteral EOF
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4271:2: (iv_ruleFloatingPointLiteral= ruleFloatingPointLiteral EOF )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4272:2: iv_ruleFloatingPointLiteral= ruleFloatingPointLiteral EOF
             {
             if ( backtracking==0 ) {
                currentNode = createCompositeNode(grammarAccess.getFloatingPointLiteralRule(), currentNode); 
             }
-            pushFollow(FOLLOW_ruleFloatingPointLiteral_in_entryRuleFloatingPointLiteral7688);
+            pushFollow(FOLLOW_ruleFloatingPointLiteral_in_entryRuleFloatingPointLiteral7718);
             iv_ruleFloatingPointLiteral=ruleFloatingPointLiteral();
             _fsp--;
             if (failed) return current;
             if ( backtracking==0 ) {
                current =iv_ruleFloatingPointLiteral.getText(); 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleFloatingPointLiteral7699); if (failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleFloatingPointLiteral7729); if (failed) return current;
 
             }
 
@@ -10946,7 +10985,7 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start ruleFloatingPointLiteral
-    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4261:1: ruleFloatingPointLiteral returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : ( ( (this_INT_0= RULE_INT )+ kw= '.' (this_INT_2= RULE_INT )* (this_Exponent_3= RULE_EXPONENT )? (kw= 'f' | kw= 'F' | kw= 'd' | kw= 'D' )? ) | (kw= '.' (this_INT_9= RULE_INT )+ (this_Exponent_10= RULE_EXPONENT )? (kw= 'f' | kw= 'F' | kw= 'd' | kw= 'D' )? ) | ( (this_INT_15= RULE_INT )+ this_Exponent_16= RULE_EXPONENT (kw= 'f' | kw= 'F' | kw= 'd' | kw= 'D' )? ) | ( (this_INT_21= RULE_INT )+ (this_Exponent_22= RULE_EXPONENT )? (kw= 'f' | kw= 'F' | kw= 'd' | kw= 'D' ) ) ) ;
+    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4279:1: ruleFloatingPointLiteral returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : ( ( (this_INT_0= RULE_INT )+ kw= '.' (this_INT_2= RULE_INT )* (this_Exponent_3= RULE_EXPONENT )? (kw= 'f' | kw= 'F' | kw= 'd' | kw= 'D' )? ) | (kw= '.' (this_INT_9= RULE_INT )+ (this_Exponent_10= RULE_EXPONENT )? (kw= 'f' | kw= 'F' | kw= 'd' | kw= 'D' )? ) | ( (this_INT_15= RULE_INT )+ this_Exponent_16= RULE_EXPONENT (kw= 'f' | kw= 'F' | kw= 'd' | kw= 'D' )? ) | ( (this_INT_21= RULE_INT )+ (this_Exponent_22= RULE_EXPONENT )? (kw= 'f' | kw= 'F' | kw= 'd' | kw= 'D' )? ) ) ;
     public final AntlrDatatypeRuleToken ruleFloatingPointLiteral() throws RecognitionException {
         AntlrDatatypeRuleToken current = new AntlrDatatypeRuleToken();
 
@@ -10964,20 +11003,20 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
          setCurrentLookahead(); resetLookahead(); 
             
         try {
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4266:6: ( ( ( (this_INT_0= RULE_INT )+ kw= '.' (this_INT_2= RULE_INT )* (this_Exponent_3= RULE_EXPONENT )? (kw= 'f' | kw= 'F' | kw= 'd' | kw= 'D' )? ) | (kw= '.' (this_INT_9= RULE_INT )+ (this_Exponent_10= RULE_EXPONENT )? (kw= 'f' | kw= 'F' | kw= 'd' | kw= 'D' )? ) | ( (this_INT_15= RULE_INT )+ this_Exponent_16= RULE_EXPONENT (kw= 'f' | kw= 'F' | kw= 'd' | kw= 'D' )? ) | ( (this_INT_21= RULE_INT )+ (this_Exponent_22= RULE_EXPONENT )? (kw= 'f' | kw= 'F' | kw= 'd' | kw= 'D' ) ) ) )
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4267:1: ( ( (this_INT_0= RULE_INT )+ kw= '.' (this_INT_2= RULE_INT )* (this_Exponent_3= RULE_EXPONENT )? (kw= 'f' | kw= 'F' | kw= 'd' | kw= 'D' )? ) | (kw= '.' (this_INT_9= RULE_INT )+ (this_Exponent_10= RULE_EXPONENT )? (kw= 'f' | kw= 'F' | kw= 'd' | kw= 'D' )? ) | ( (this_INT_15= RULE_INT )+ this_Exponent_16= RULE_EXPONENT (kw= 'f' | kw= 'F' | kw= 'd' | kw= 'D' )? ) | ( (this_INT_21= RULE_INT )+ (this_Exponent_22= RULE_EXPONENT )? (kw= 'f' | kw= 'F' | kw= 'd' | kw= 'D' ) ) )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4284:6: ( ( ( (this_INT_0= RULE_INT )+ kw= '.' (this_INT_2= RULE_INT )* (this_Exponent_3= RULE_EXPONENT )? (kw= 'f' | kw= 'F' | kw= 'd' | kw= 'D' )? ) | (kw= '.' (this_INT_9= RULE_INT )+ (this_Exponent_10= RULE_EXPONENT )? (kw= 'f' | kw= 'F' | kw= 'd' | kw= 'D' )? ) | ( (this_INT_15= RULE_INT )+ this_Exponent_16= RULE_EXPONENT (kw= 'f' | kw= 'F' | kw= 'd' | kw= 'D' )? ) | ( (this_INT_21= RULE_INT )+ (this_Exponent_22= RULE_EXPONENT )? (kw= 'f' | kw= 'F' | kw= 'd' | kw= 'D' )? ) ) )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4285:1: ( ( (this_INT_0= RULE_INT )+ kw= '.' (this_INT_2= RULE_INT )* (this_Exponent_3= RULE_EXPONENT )? (kw= 'f' | kw= 'F' | kw= 'd' | kw= 'D' )? ) | (kw= '.' (this_INT_9= RULE_INT )+ (this_Exponent_10= RULE_EXPONENT )? (kw= 'f' | kw= 'F' | kw= 'd' | kw= 'D' )? ) | ( (this_INT_15= RULE_INT )+ this_Exponent_16= RULE_EXPONENT (kw= 'f' | kw= 'F' | kw= 'd' | kw= 'D' )? ) | ( (this_INT_21= RULE_INT )+ (this_Exponent_22= RULE_EXPONENT )? (kw= 'f' | kw= 'F' | kw= 'd' | kw= 'D' )? ) )
             {
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4267:1: ( ( (this_INT_0= RULE_INT )+ kw= '.' (this_INT_2= RULE_INT )* (this_Exponent_3= RULE_EXPONENT )? (kw= 'f' | kw= 'F' | kw= 'd' | kw= 'D' )? ) | (kw= '.' (this_INT_9= RULE_INT )+ (this_Exponent_10= RULE_EXPONENT )? (kw= 'f' | kw= 'F' | kw= 'd' | kw= 'D' )? ) | ( (this_INT_15= RULE_INT )+ this_Exponent_16= RULE_EXPONENT (kw= 'f' | kw= 'F' | kw= 'd' | kw= 'D' )? ) | ( (this_INT_21= RULE_INT )+ (this_Exponent_22= RULE_EXPONENT )? (kw= 'f' | kw= 'F' | kw= 'd' | kw= 'D' ) ) )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4285:1: ( ( (this_INT_0= RULE_INT )+ kw= '.' (this_INT_2= RULE_INT )* (this_Exponent_3= RULE_EXPONENT )? (kw= 'f' | kw= 'F' | kw= 'd' | kw= 'D' )? ) | (kw= '.' (this_INT_9= RULE_INT )+ (this_Exponent_10= RULE_EXPONENT )? (kw= 'f' | kw= 'F' | kw= 'd' | kw= 'D' )? ) | ( (this_INT_15= RULE_INT )+ this_Exponent_16= RULE_EXPONENT (kw= 'f' | kw= 'F' | kw= 'd' | kw= 'D' )? ) | ( (this_INT_21= RULE_INT )+ (this_Exponent_22= RULE_EXPONENT )? (kw= 'f' | kw= 'F' | kw= 'd' | kw= 'D' )? ) )
             int alt68=4;
             alt68 = dfa68.predict(input);
             switch (alt68) {
                 case 1 :
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4267:2: ( (this_INT_0= RULE_INT )+ kw= '.' (this_INT_2= RULE_INT )* (this_Exponent_3= RULE_EXPONENT )? (kw= 'f' | kw= 'F' | kw= 'd' | kw= 'D' )? )
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4285:2: ( (this_INT_0= RULE_INT )+ kw= '.' (this_INT_2= RULE_INT )* (this_Exponent_3= RULE_EXPONENT )? (kw= 'f' | kw= 'F' | kw= 'd' | kw= 'D' )? )
                     {
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4267:2: ( (this_INT_0= RULE_INT )+ kw= '.' (this_INT_2= RULE_INT )* (this_Exponent_3= RULE_EXPONENT )? (kw= 'f' | kw= 'F' | kw= 'd' | kw= 'D' )? )
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4267:3: (this_INT_0= RULE_INT )+ kw= '.' (this_INT_2= RULE_INT )* (this_Exponent_3= RULE_EXPONENT )? (kw= 'f' | kw= 'F' | kw= 'd' | kw= 'D' )?
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4285:2: ( (this_INT_0= RULE_INT )+ kw= '.' (this_INT_2= RULE_INT )* (this_Exponent_3= RULE_EXPONENT )? (kw= 'f' | kw= 'F' | kw= 'd' | kw= 'D' )? )
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4285:3: (this_INT_0= RULE_INT )+ kw= '.' (this_INT_2= RULE_INT )* (this_Exponent_3= RULE_EXPONENT )? (kw= 'f' | kw= 'F' | kw= 'd' | kw= 'D' )?
                     {
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4267:3: (this_INT_0= RULE_INT )+
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4285:3: (this_INT_0= RULE_INT )+
                     int cnt56=0;
                     loop56:
                     do {
@@ -10991,10 +11030,10 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
 
                         switch (alt56) {
                     	case 1 :
-                    	    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4267:8: this_INT_0= RULE_INT
+                    	    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4285:8: this_INT_0= RULE_INT
                     	    {
                     	    this_INT_0=(Token)input.LT(1);
-                    	    match(input,RULE_INT,FOLLOW_RULE_INT_in_ruleFloatingPointLiteral7741); if (failed) return current;
+                    	    match(input,RULE_INT,FOLLOW_RULE_INT_in_ruleFloatingPointLiteral7771); if (failed) return current;
                     	    if ( backtracking==0 ) {
 
                     	      		current.merge(this_INT_0);
@@ -11020,14 +11059,14 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
                     } while (true);
 
                     kw=(Token)input.LT(1);
-                    match(input,31,FOLLOW_31_in_ruleFloatingPointLiteral7761); if (failed) return current;
+                    match(input,31,FOLLOW_31_in_ruleFloatingPointLiteral7791); if (failed) return current;
                     if ( backtracking==0 ) {
 
                               current.merge(kw);
                               createLeafNode(grammarAccess.getFloatingPointLiteralAccess().getFullStopKeyword_0_1(), null); 
                           
                     }
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4280:1: (this_INT_2= RULE_INT )*
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4298:1: (this_INT_2= RULE_INT )*
                     loop57:
                     do {
                         int alt57=2;
@@ -11040,10 +11079,10 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
 
                         switch (alt57) {
                     	case 1 :
-                    	    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4280:6: this_INT_2= RULE_INT
+                    	    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4298:6: this_INT_2= RULE_INT
                     	    {
                     	    this_INT_2=(Token)input.LT(1);
-                    	    match(input,RULE_INT,FOLLOW_RULE_INT_in_ruleFloatingPointLiteral7777); if (failed) return current;
+                    	    match(input,RULE_INT,FOLLOW_RULE_INT_in_ruleFloatingPointLiteral7807); if (failed) return current;
                     	    if ( backtracking==0 ) {
 
                     	      		current.merge(this_INT_2);
@@ -11063,7 +11102,7 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
                         }
                     } while (true);
 
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4287:3: (this_Exponent_3= RULE_EXPONENT )?
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4305:3: (this_Exponent_3= RULE_EXPONENT )?
                     int alt58=2;
                     int LA58_0 = input.LA(1);
 
@@ -11072,10 +11111,10 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
                     }
                     switch (alt58) {
                         case 1 :
-                            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4287:8: this_Exponent_3= RULE_EXPONENT
+                            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4305:8: this_Exponent_3= RULE_EXPONENT
                             {
                             this_Exponent_3=(Token)input.LT(1);
-                            match(input,RULE_EXPONENT,FOLLOW_RULE_EXPONENT_in_ruleFloatingPointLiteral7800); if (failed) return current;
+                            match(input,RULE_EXPONENT,FOLLOW_RULE_EXPONENT_in_ruleFloatingPointLiteral7830); if (failed) return current;
                             if ( backtracking==0 ) {
 
                               		current.merge(this_Exponent_3);
@@ -11092,7 +11131,7 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4294:3: (kw= 'f' | kw= 'F' | kw= 'd' | kw= 'D' )?
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4312:3: (kw= 'f' | kw= 'F' | kw= 'd' | kw= 'D' )?
                     int alt59=5;
                     switch ( input.LA(1) ) {
                         case 53:
@@ -11119,10 +11158,10 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
 
                     switch (alt59) {
                         case 1 :
-                            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4295:2: kw= 'f'
+                            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4313:2: kw= 'f'
                             {
                             kw=(Token)input.LT(1);
-                            match(input,53,FOLLOW_53_in_ruleFloatingPointLiteral7821); if (failed) return current;
+                            match(input,53,FOLLOW_53_in_ruleFloatingPointLiteral7851); if (failed) return current;
                             if ( backtracking==0 ) {
 
                                       current.merge(kw);
@@ -11133,10 +11172,10 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
                             }
                             break;
                         case 2 :
-                            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4302:2: kw= 'F'
+                            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4320:2: kw= 'F'
                             {
                             kw=(Token)input.LT(1);
-                            match(input,54,FOLLOW_54_in_ruleFloatingPointLiteral7840); if (failed) return current;
+                            match(input,54,FOLLOW_54_in_ruleFloatingPointLiteral7870); if (failed) return current;
                             if ( backtracking==0 ) {
 
                                       current.merge(kw);
@@ -11147,10 +11186,10 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
                             }
                             break;
                         case 3 :
-                            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4309:2: kw= 'd'
+                            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4327:2: kw= 'd'
                             {
                             kw=(Token)input.LT(1);
-                            match(input,55,FOLLOW_55_in_ruleFloatingPointLiteral7859); if (failed) return current;
+                            match(input,55,FOLLOW_55_in_ruleFloatingPointLiteral7889); if (failed) return current;
                             if ( backtracking==0 ) {
 
                                       current.merge(kw);
@@ -11161,10 +11200,10 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
                             }
                             break;
                         case 4 :
-                            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4316:2: kw= 'D'
+                            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4334:2: kw= 'D'
                             {
                             kw=(Token)input.LT(1);
-                            match(input,56,FOLLOW_56_in_ruleFloatingPointLiteral7878); if (failed) return current;
+                            match(input,56,FOLLOW_56_in_ruleFloatingPointLiteral7908); if (failed) return current;
                             if ( backtracking==0 ) {
 
                                       current.merge(kw);
@@ -11184,20 +11223,20 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4322:6: (kw= '.' (this_INT_9= RULE_INT )+ (this_Exponent_10= RULE_EXPONENT )? (kw= 'f' | kw= 'F' | kw= 'd' | kw= 'D' )? )
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4340:6: (kw= '.' (this_INT_9= RULE_INT )+ (this_Exponent_10= RULE_EXPONENT )? (kw= 'f' | kw= 'F' | kw= 'd' | kw= 'D' )? )
                     {
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4322:6: (kw= '.' (this_INT_9= RULE_INT )+ (this_Exponent_10= RULE_EXPONENT )? (kw= 'f' | kw= 'F' | kw= 'd' | kw= 'D' )? )
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4323:2: kw= '.' (this_INT_9= RULE_INT )+ (this_Exponent_10= RULE_EXPONENT )? (kw= 'f' | kw= 'F' | kw= 'd' | kw= 'D' )?
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4340:6: (kw= '.' (this_INT_9= RULE_INT )+ (this_Exponent_10= RULE_EXPONENT )? (kw= 'f' | kw= 'F' | kw= 'd' | kw= 'D' )? )
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4341:2: kw= '.' (this_INT_9= RULE_INT )+ (this_Exponent_10= RULE_EXPONENT )? (kw= 'f' | kw= 'F' | kw= 'd' | kw= 'D' )?
                     {
                     kw=(Token)input.LT(1);
-                    match(input,31,FOLLOW_31_in_ruleFloatingPointLiteral7901); if (failed) return current;
+                    match(input,31,FOLLOW_31_in_ruleFloatingPointLiteral7931); if (failed) return current;
                     if ( backtracking==0 ) {
 
                               current.merge(kw);
                               createLeafNode(grammarAccess.getFloatingPointLiteralAccess().getFullStopKeyword_1_0(), null); 
                           
                     }
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4328:1: (this_INT_9= RULE_INT )+
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4346:1: (this_INT_9= RULE_INT )+
                     int cnt60=0;
                     loop60:
                     do {
@@ -11211,10 +11250,10 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
 
                         switch (alt60) {
                     	case 1 :
-                    	    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4328:6: this_INT_9= RULE_INT
+                    	    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4346:6: this_INT_9= RULE_INT
                     	    {
                     	    this_INT_9=(Token)input.LT(1);
-                    	    match(input,RULE_INT,FOLLOW_RULE_INT_in_ruleFloatingPointLiteral7917); if (failed) return current;
+                    	    match(input,RULE_INT,FOLLOW_RULE_INT_in_ruleFloatingPointLiteral7947); if (failed) return current;
                     	    if ( backtracking==0 ) {
 
                     	      		current.merge(this_INT_9);
@@ -11239,7 +11278,7 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
                         cnt60++;
                     } while (true);
 
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4335:3: (this_Exponent_10= RULE_EXPONENT )?
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4353:3: (this_Exponent_10= RULE_EXPONENT )?
                     int alt61=2;
                     int LA61_0 = input.LA(1);
 
@@ -11248,10 +11287,10 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
                     }
                     switch (alt61) {
                         case 1 :
-                            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4335:8: this_Exponent_10= RULE_EXPONENT
+                            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4353:8: this_Exponent_10= RULE_EXPONENT
                             {
                             this_Exponent_10=(Token)input.LT(1);
-                            match(input,RULE_EXPONENT,FOLLOW_RULE_EXPONENT_in_ruleFloatingPointLiteral7940); if (failed) return current;
+                            match(input,RULE_EXPONENT,FOLLOW_RULE_EXPONENT_in_ruleFloatingPointLiteral7970); if (failed) return current;
                             if ( backtracking==0 ) {
 
                               		current.merge(this_Exponent_10);
@@ -11268,7 +11307,7 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4342:3: (kw= 'f' | kw= 'F' | kw= 'd' | kw= 'D' )?
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4360:3: (kw= 'f' | kw= 'F' | kw= 'd' | kw= 'D' )?
                     int alt62=5;
                     switch ( input.LA(1) ) {
                         case 53:
@@ -11295,10 +11334,10 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
 
                     switch (alt62) {
                         case 1 :
-                            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4343:2: kw= 'f'
+                            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4361:2: kw= 'f'
                             {
                             kw=(Token)input.LT(1);
-                            match(input,53,FOLLOW_53_in_ruleFloatingPointLiteral7961); if (failed) return current;
+                            match(input,53,FOLLOW_53_in_ruleFloatingPointLiteral7991); if (failed) return current;
                             if ( backtracking==0 ) {
 
                                       current.merge(kw);
@@ -11309,10 +11348,10 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
                             }
                             break;
                         case 2 :
-                            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4350:2: kw= 'F'
+                            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4368:2: kw= 'F'
                             {
                             kw=(Token)input.LT(1);
-                            match(input,54,FOLLOW_54_in_ruleFloatingPointLiteral7980); if (failed) return current;
+                            match(input,54,FOLLOW_54_in_ruleFloatingPointLiteral8010); if (failed) return current;
                             if ( backtracking==0 ) {
 
                                       current.merge(kw);
@@ -11323,10 +11362,10 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
                             }
                             break;
                         case 3 :
-                            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4357:2: kw= 'd'
+                            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4375:2: kw= 'd'
                             {
                             kw=(Token)input.LT(1);
-                            match(input,55,FOLLOW_55_in_ruleFloatingPointLiteral7999); if (failed) return current;
+                            match(input,55,FOLLOW_55_in_ruleFloatingPointLiteral8029); if (failed) return current;
                             if ( backtracking==0 ) {
 
                                       current.merge(kw);
@@ -11337,10 +11376,10 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
                             }
                             break;
                         case 4 :
-                            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4364:2: kw= 'D'
+                            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4382:2: kw= 'D'
                             {
                             kw=(Token)input.LT(1);
-                            match(input,56,FOLLOW_56_in_ruleFloatingPointLiteral8018); if (failed) return current;
+                            match(input,56,FOLLOW_56_in_ruleFloatingPointLiteral8048); if (failed) return current;
                             if ( backtracking==0 ) {
 
                                       current.merge(kw);
@@ -11360,12 +11399,12 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 3 :
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4370:6: ( (this_INT_15= RULE_INT )+ this_Exponent_16= RULE_EXPONENT (kw= 'f' | kw= 'F' | kw= 'd' | kw= 'D' )? )
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4388:6: ( (this_INT_15= RULE_INT )+ this_Exponent_16= RULE_EXPONENT (kw= 'f' | kw= 'F' | kw= 'd' | kw= 'D' )? )
                     {
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4370:6: ( (this_INT_15= RULE_INT )+ this_Exponent_16= RULE_EXPONENT (kw= 'f' | kw= 'F' | kw= 'd' | kw= 'D' )? )
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4370:7: (this_INT_15= RULE_INT )+ this_Exponent_16= RULE_EXPONENT (kw= 'f' | kw= 'F' | kw= 'd' | kw= 'D' )?
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4388:6: ( (this_INT_15= RULE_INT )+ this_Exponent_16= RULE_EXPONENT (kw= 'f' | kw= 'F' | kw= 'd' | kw= 'D' )? )
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4388:7: (this_INT_15= RULE_INT )+ this_Exponent_16= RULE_EXPONENT (kw= 'f' | kw= 'F' | kw= 'd' | kw= 'D' )?
                     {
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4370:7: (this_INT_15= RULE_INT )+
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4388:7: (this_INT_15= RULE_INT )+
                     int cnt63=0;
                     loop63:
                     do {
@@ -11379,10 +11418,10 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
 
                         switch (alt63) {
                     	case 1 :
-                    	    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4370:12: this_INT_15= RULE_INT
+                    	    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4388:12: this_INT_15= RULE_INT
                     	    {
                     	    this_INT_15=(Token)input.LT(1);
-                    	    match(input,RULE_INT,FOLLOW_RULE_INT_in_ruleFloatingPointLiteral8044); if (failed) return current;
+                    	    match(input,RULE_INT,FOLLOW_RULE_INT_in_ruleFloatingPointLiteral8074); if (failed) return current;
                     	    if ( backtracking==0 ) {
 
                     	      		current.merge(this_INT_15);
@@ -11408,7 +11447,7 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
                     } while (true);
 
                     this_Exponent_16=(Token)input.LT(1);
-                    match(input,RULE_EXPONENT,FOLLOW_RULE_EXPONENT_in_ruleFloatingPointLiteral8066); if (failed) return current;
+                    match(input,RULE_EXPONENT,FOLLOW_RULE_EXPONENT_in_ruleFloatingPointLiteral8096); if (failed) return current;
                     if ( backtracking==0 ) {
 
                       		current.merge(this_Exponent_16);
@@ -11419,7 +11458,7 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
                           createLeafNode(grammarAccess.getFloatingPointLiteralAccess().getExponentTerminalRuleCall_2_1(), null); 
                           
                     }
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4384:1: (kw= 'f' | kw= 'F' | kw= 'd' | kw= 'D' )?
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4402:1: (kw= 'f' | kw= 'F' | kw= 'd' | kw= 'D' )?
                     int alt64=5;
                     switch ( input.LA(1) ) {
                         case 53:
@@ -11446,10 +11485,10 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
 
                     switch (alt64) {
                         case 1 :
-                            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4385:2: kw= 'f'
+                            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4403:2: kw= 'f'
                             {
                             kw=(Token)input.LT(1);
-                            match(input,53,FOLLOW_53_in_ruleFloatingPointLiteral8085); if (failed) return current;
+                            match(input,53,FOLLOW_53_in_ruleFloatingPointLiteral8115); if (failed) return current;
                             if ( backtracking==0 ) {
 
                                       current.merge(kw);
@@ -11460,10 +11499,10 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
                             }
                             break;
                         case 2 :
-                            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4392:2: kw= 'F'
+                            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4410:2: kw= 'F'
                             {
                             kw=(Token)input.LT(1);
-                            match(input,54,FOLLOW_54_in_ruleFloatingPointLiteral8104); if (failed) return current;
+                            match(input,54,FOLLOW_54_in_ruleFloatingPointLiteral8134); if (failed) return current;
                             if ( backtracking==0 ) {
 
                                       current.merge(kw);
@@ -11474,10 +11513,10 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
                             }
                             break;
                         case 3 :
-                            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4399:2: kw= 'd'
+                            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4417:2: kw= 'd'
                             {
                             kw=(Token)input.LT(1);
-                            match(input,55,FOLLOW_55_in_ruleFloatingPointLiteral8123); if (failed) return current;
+                            match(input,55,FOLLOW_55_in_ruleFloatingPointLiteral8153); if (failed) return current;
                             if ( backtracking==0 ) {
 
                                       current.merge(kw);
@@ -11488,10 +11527,10 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
                             }
                             break;
                         case 4 :
-                            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4406:2: kw= 'D'
+                            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4424:2: kw= 'D'
                             {
                             kw=(Token)input.LT(1);
-                            match(input,56,FOLLOW_56_in_ruleFloatingPointLiteral8142); if (failed) return current;
+                            match(input,56,FOLLOW_56_in_ruleFloatingPointLiteral8172); if (failed) return current;
                             if ( backtracking==0 ) {
 
                                       current.merge(kw);
@@ -11511,12 +11550,12 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 4 :
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4412:6: ( (this_INT_21= RULE_INT )+ (this_Exponent_22= RULE_EXPONENT )? (kw= 'f' | kw= 'F' | kw= 'd' | kw= 'D' ) )
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4430:6: ( (this_INT_21= RULE_INT )+ (this_Exponent_22= RULE_EXPONENT )? (kw= 'f' | kw= 'F' | kw= 'd' | kw= 'D' )? )
                     {
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4412:6: ( (this_INT_21= RULE_INT )+ (this_Exponent_22= RULE_EXPONENT )? (kw= 'f' | kw= 'F' | kw= 'd' | kw= 'D' ) )
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4412:7: (this_INT_21= RULE_INT )+ (this_Exponent_22= RULE_EXPONENT )? (kw= 'f' | kw= 'F' | kw= 'd' | kw= 'D' )
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4430:6: ( (this_INT_21= RULE_INT )+ (this_Exponent_22= RULE_EXPONENT )? (kw= 'f' | kw= 'F' | kw= 'd' | kw= 'D' )? )
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4430:7: (this_INT_21= RULE_INT )+ (this_Exponent_22= RULE_EXPONENT )? (kw= 'f' | kw= 'F' | kw= 'd' | kw= 'D' )?
                     {
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4412:7: (this_INT_21= RULE_INT )+
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4430:7: (this_INT_21= RULE_INT )+
                     int cnt65=0;
                     loop65:
                     do {
@@ -11530,10 +11569,10 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
 
                         switch (alt65) {
                     	case 1 :
-                    	    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4412:12: this_INT_21= RULE_INT
+                    	    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4430:12: this_INT_21= RULE_INT
                     	    {
                     	    this_INT_21=(Token)input.LT(1);
-                    	    match(input,RULE_INT,FOLLOW_RULE_INT_in_ruleFloatingPointLiteral8168); if (failed) return current;
+                    	    match(input,RULE_INT,FOLLOW_RULE_INT_in_ruleFloatingPointLiteral8198); if (failed) return current;
                     	    if ( backtracking==0 ) {
 
                     	      		current.merge(this_INT_21);
@@ -11558,7 +11597,7 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
                         cnt65++;
                     } while (true);
 
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4419:3: (this_Exponent_22= RULE_EXPONENT )?
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4437:3: (this_Exponent_22= RULE_EXPONENT )?
                     int alt66=2;
                     int LA66_0 = input.LA(1);
 
@@ -11567,10 +11606,10 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
                     }
                     switch (alt66) {
                         case 1 :
-                            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4419:8: this_Exponent_22= RULE_EXPONENT
+                            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4437:8: this_Exponent_22= RULE_EXPONENT
                             {
                             this_Exponent_22=(Token)input.LT(1);
-                            match(input,RULE_EXPONENT,FOLLOW_RULE_EXPONENT_in_ruleFloatingPointLiteral8191); if (failed) return current;
+                            match(input,RULE_EXPONENT,FOLLOW_RULE_EXPONENT_in_ruleFloatingPointLiteral8221); if (failed) return current;
                             if ( backtracking==0 ) {
 
                               		current.merge(this_Exponent_22);
@@ -11587,43 +11626,37 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4426:3: (kw= 'f' | kw= 'F' | kw= 'd' | kw= 'D' )
-                    int alt67=4;
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4444:3: (kw= 'f' | kw= 'F' | kw= 'd' | kw= 'D' )?
+                    int alt67=5;
                     switch ( input.LA(1) ) {
-                    case 53:
-                        {
-                        alt67=1;
-                        }
-                        break;
-                    case 54:
-                        {
-                        alt67=2;
-                        }
-                        break;
-                    case 55:
-                        {
-                        alt67=3;
-                        }
-                        break;
-                    case 56:
-                        {
-                        alt67=4;
-                        }
-                        break;
-                    default:
-                        if (backtracking>0) {failed=true; return current;}
-                        NoViableAltException nvae =
-                            new NoViableAltException("4426:3: (kw= 'f' | kw= 'F' | kw= 'd' | kw= 'D' )", 67, 0, input);
-
-                        throw nvae;
+                        case 53:
+                            {
+                            alt67=1;
+                            }
+                            break;
+                        case 54:
+                            {
+                            alt67=2;
+                            }
+                            break;
+                        case 55:
+                            {
+                            alt67=3;
+                            }
+                            break;
+                        case 56:
+                            {
+                            alt67=4;
+                            }
+                            break;
                     }
 
                     switch (alt67) {
                         case 1 :
-                            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4427:2: kw= 'f'
+                            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4445:2: kw= 'f'
                             {
                             kw=(Token)input.LT(1);
-                            match(input,53,FOLLOW_53_in_ruleFloatingPointLiteral8212); if (failed) return current;
+                            match(input,53,FOLLOW_53_in_ruleFloatingPointLiteral8242); if (failed) return current;
                             if ( backtracking==0 ) {
 
                                       current.merge(kw);
@@ -11634,10 +11667,10 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
                             }
                             break;
                         case 2 :
-                            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4434:2: kw= 'F'
+                            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4452:2: kw= 'F'
                             {
                             kw=(Token)input.LT(1);
-                            match(input,54,FOLLOW_54_in_ruleFloatingPointLiteral8231); if (failed) return current;
+                            match(input,54,FOLLOW_54_in_ruleFloatingPointLiteral8261); if (failed) return current;
                             if ( backtracking==0 ) {
 
                                       current.merge(kw);
@@ -11648,10 +11681,10 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
                             }
                             break;
                         case 3 :
-                            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4441:2: kw= 'd'
+                            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4459:2: kw= 'd'
                             {
                             kw=(Token)input.LT(1);
-                            match(input,55,FOLLOW_55_in_ruleFloatingPointLiteral8250); if (failed) return current;
+                            match(input,55,FOLLOW_55_in_ruleFloatingPointLiteral8280); if (failed) return current;
                             if ( backtracking==0 ) {
 
                                       current.merge(kw);
@@ -11662,10 +11695,10 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
                             }
                             break;
                         case 4 :
-                            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4448:2: kw= 'D'
+                            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4466:2: kw= 'D'
                             {
                             kw=(Token)input.LT(1);
-                            match(input,56,FOLLOW_56_in_ruleFloatingPointLiteral8269); if (failed) return current;
+                            match(input,56,FOLLOW_56_in_ruleFloatingPointLiteral8299); if (failed) return current;
                             if ( backtracking==0 ) {
 
                                       current.merge(kw);
@@ -11709,16 +11742,16 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start ruleTypeQualifier
-    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4461:1: ruleTypeQualifier returns [Enumerator current=null] : ( ( 'const' ) | ( 'volatile' ) ) ;
+    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4479:1: ruleTypeQualifier returns [Enumerator current=null] : ( ( 'const' ) | ( 'volatile' ) ) ;
     public final Enumerator ruleTypeQualifier() throws RecognitionException {
         Enumerator current = null;
 
          setCurrentLookahead(); resetLookahead(); 
         try {
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4465:6: ( ( ( 'const' ) | ( 'volatile' ) ) )
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4466:1: ( ( 'const' ) | ( 'volatile' ) )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4483:6: ( ( ( 'const' ) | ( 'volatile' ) ) )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4484:1: ( ( 'const' ) | ( 'volatile' ) )
             {
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4466:1: ( ( 'const' ) | ( 'volatile' ) )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4484:1: ( ( 'const' ) | ( 'volatile' ) )
             int alt69=2;
             int LA69_0 = input.LA(1);
 
@@ -11731,18 +11764,18 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
             else {
                 if (backtracking>0) {failed=true; return current;}
                 NoViableAltException nvae =
-                    new NoViableAltException("4466:1: ( ( 'const' ) | ( 'volatile' ) )", 69, 0, input);
+                    new NoViableAltException("4484:1: ( ( 'const' ) | ( 'volatile' ) )", 69, 0, input);
 
                 throw nvae;
             }
             switch (alt69) {
                 case 1 :
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4466:2: ( 'const' )
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4484:2: ( 'const' )
                     {
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4466:2: ( 'const' )
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4466:4: 'const'
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4484:2: ( 'const' )
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4484:4: 'const'
                     {
-                    match(input,57,FOLLOW_57_in_ruleTypeQualifier8323); if (failed) return current;
+                    match(input,57,FOLLOW_57_in_ruleTypeQualifier8354); if (failed) return current;
                     if ( backtracking==0 ) {
 
                               current = grammarAccess.getTypeQualifierAccess().getConstEnumLiteralDeclaration_0().getEnumLiteral().getInstance();
@@ -11756,12 +11789,12 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4472:6: ( 'volatile' )
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4490:6: ( 'volatile' )
                     {
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4472:6: ( 'volatile' )
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4472:8: 'volatile'
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4490:6: ( 'volatile' )
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4490:8: 'volatile'
                     {
-                    match(input,58,FOLLOW_58_in_ruleTypeQualifier8338); if (failed) return current;
+                    match(input,58,FOLLOW_58_in_ruleTypeQualifier8369); if (failed) return current;
                     if ( backtracking==0 ) {
 
                               current = grammarAccess.getTypeQualifierAccess().getVolatileEnumLiteralDeclaration_1().getEnumLiteral().getInstance();
@@ -11799,16 +11832,16 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start ruleTypeSpecifier
-    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4482:1: ruleTypeSpecifier returns [Enumerator current=null] : ( ( 'void' ) | ( 'char' ) | ( 'short' ) | ( 'int' ) | ( 'long' ) | ( 'float' ) | ( 'double' ) | ( 'signed' ) | ( 'unsigned' ) | ( 'string' ) | ( 'int8_t' ) | ( 'uint8_t' ) | ( 'int16_t' ) | ( 'uint16_t' ) | ( 'int32_t' ) | ( 'uint32_t' ) | ( 'int64_t' ) | ( 'uint64_t' ) | ( 'intptr_t' ) | ( 'uintptr_t' ) ) ;
+    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4500:1: ruleTypeSpecifier returns [Enumerator current=null] : ( ( 'void' ) | ( 'char' ) | ( 'short' ) | ( 'int' ) | ( 'long' ) | ( 'float' ) | ( 'double' ) | ( 'signed' ) | ( 'unsigned' ) | ( 'string' ) | ( 'int8_t' ) | ( 'uint8_t' ) | ( 'int16_t' ) | ( 'uint16_t' ) | ( 'int32_t' ) | ( 'uint32_t' ) | ( 'int64_t' ) | ( 'uint64_t' ) | ( 'intptr_t' ) | ( 'uintptr_t' ) ) ;
     public final Enumerator ruleTypeSpecifier() throws RecognitionException {
         Enumerator current = null;
 
          setCurrentLookahead(); resetLookahead(); 
         try {
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4486:6: ( ( ( 'void' ) | ( 'char' ) | ( 'short' ) | ( 'int' ) | ( 'long' ) | ( 'float' ) | ( 'double' ) | ( 'signed' ) | ( 'unsigned' ) | ( 'string' ) | ( 'int8_t' ) | ( 'uint8_t' ) | ( 'int16_t' ) | ( 'uint16_t' ) | ( 'int32_t' ) | ( 'uint32_t' ) | ( 'int64_t' ) | ( 'uint64_t' ) | ( 'intptr_t' ) | ( 'uintptr_t' ) ) )
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4487:1: ( ( 'void' ) | ( 'char' ) | ( 'short' ) | ( 'int' ) | ( 'long' ) | ( 'float' ) | ( 'double' ) | ( 'signed' ) | ( 'unsigned' ) | ( 'string' ) | ( 'int8_t' ) | ( 'uint8_t' ) | ( 'int16_t' ) | ( 'uint16_t' ) | ( 'int32_t' ) | ( 'uint32_t' ) | ( 'int64_t' ) | ( 'uint64_t' ) | ( 'intptr_t' ) | ( 'uintptr_t' ) )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4504:6: ( ( ( 'void' ) | ( 'char' ) | ( 'short' ) | ( 'int' ) | ( 'long' ) | ( 'float' ) | ( 'double' ) | ( 'signed' ) | ( 'unsigned' ) | ( 'string' ) | ( 'int8_t' ) | ( 'uint8_t' ) | ( 'int16_t' ) | ( 'uint16_t' ) | ( 'int32_t' ) | ( 'uint32_t' ) | ( 'int64_t' ) | ( 'uint64_t' ) | ( 'intptr_t' ) | ( 'uintptr_t' ) ) )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4505:1: ( ( 'void' ) | ( 'char' ) | ( 'short' ) | ( 'int' ) | ( 'long' ) | ( 'float' ) | ( 'double' ) | ( 'signed' ) | ( 'unsigned' ) | ( 'string' ) | ( 'int8_t' ) | ( 'uint8_t' ) | ( 'int16_t' ) | ( 'uint16_t' ) | ( 'int32_t' ) | ( 'uint32_t' ) | ( 'int64_t' ) | ( 'uint64_t' ) | ( 'intptr_t' ) | ( 'uintptr_t' ) )
             {
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4487:1: ( ( 'void' ) | ( 'char' ) | ( 'short' ) | ( 'int' ) | ( 'long' ) | ( 'float' ) | ( 'double' ) | ( 'signed' ) | ( 'unsigned' ) | ( 'string' ) | ( 'int8_t' ) | ( 'uint8_t' ) | ( 'int16_t' ) | ( 'uint16_t' ) | ( 'int32_t' ) | ( 'uint32_t' ) | ( 'int64_t' ) | ( 'uint64_t' ) | ( 'intptr_t' ) | ( 'uintptr_t' ) )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4505:1: ( ( 'void' ) | ( 'char' ) | ( 'short' ) | ( 'int' ) | ( 'long' ) | ( 'float' ) | ( 'double' ) | ( 'signed' ) | ( 'unsigned' ) | ( 'string' ) | ( 'int8_t' ) | ( 'uint8_t' ) | ( 'int16_t' ) | ( 'uint16_t' ) | ( 'int32_t' ) | ( 'uint32_t' ) | ( 'int64_t' ) | ( 'uint64_t' ) | ( 'intptr_t' ) | ( 'uintptr_t' ) )
             int alt70=20;
             switch ( input.LA(1) ) {
             case 35:
@@ -11914,19 +11947,19 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
             default:
                 if (backtracking>0) {failed=true; return current;}
                 NoViableAltException nvae =
-                    new NoViableAltException("4487:1: ( ( 'void' ) | ( 'char' ) | ( 'short' ) | ( 'int' ) | ( 'long' ) | ( 'float' ) | ( 'double' ) | ( 'signed' ) | ( 'unsigned' ) | ( 'string' ) | ( 'int8_t' ) | ( 'uint8_t' ) | ( 'int16_t' ) | ( 'uint16_t' ) | ( 'int32_t' ) | ( 'uint32_t' ) | ( 'int64_t' ) | ( 'uint64_t' ) | ( 'intptr_t' ) | ( 'uintptr_t' ) )", 70, 0, input);
+                    new NoViableAltException("4505:1: ( ( 'void' ) | ( 'char' ) | ( 'short' ) | ( 'int' ) | ( 'long' ) | ( 'float' ) | ( 'double' ) | ( 'signed' ) | ( 'unsigned' ) | ( 'string' ) | ( 'int8_t' ) | ( 'uint8_t' ) | ( 'int16_t' ) | ( 'uint16_t' ) | ( 'int32_t' ) | ( 'uint32_t' ) | ( 'int64_t' ) | ( 'uint64_t' ) | ( 'intptr_t' ) | ( 'uintptr_t' ) )", 70, 0, input);
 
                 throw nvae;
             }
 
             switch (alt70) {
                 case 1 :
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4487:2: ( 'void' )
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4505:2: ( 'void' )
                     {
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4487:2: ( 'void' )
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4487:4: 'void'
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4505:2: ( 'void' )
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4505:4: 'void'
                     {
-                    match(input,35,FOLLOW_35_in_ruleTypeSpecifier8381); if (failed) return current;
+                    match(input,35,FOLLOW_35_in_ruleTypeSpecifier8412); if (failed) return current;
                     if ( backtracking==0 ) {
 
                               current = grammarAccess.getTypeSpecifierAccess().getVoidEnumLiteralDeclaration_0().getEnumLiteral().getInstance();
@@ -11940,12 +11973,12 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4493:6: ( 'char' )
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4511:6: ( 'char' )
                     {
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4493:6: ( 'char' )
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4493:8: 'char'
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4511:6: ( 'char' )
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4511:8: 'char'
                     {
-                    match(input,59,FOLLOW_59_in_ruleTypeSpecifier8396); if (failed) return current;
+                    match(input,59,FOLLOW_59_in_ruleTypeSpecifier8427); if (failed) return current;
                     if ( backtracking==0 ) {
 
                               current = grammarAccess.getTypeSpecifierAccess().getCharEnumLiteralDeclaration_1().getEnumLiteral().getInstance();
@@ -11959,12 +11992,12 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 3 :
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4499:6: ( 'short' )
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4517:6: ( 'short' )
                     {
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4499:6: ( 'short' )
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4499:8: 'short'
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4517:6: ( 'short' )
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4517:8: 'short'
                     {
-                    match(input,60,FOLLOW_60_in_ruleTypeSpecifier8411); if (failed) return current;
+                    match(input,60,FOLLOW_60_in_ruleTypeSpecifier8442); if (failed) return current;
                     if ( backtracking==0 ) {
 
                               current = grammarAccess.getTypeSpecifierAccess().getShortEnumLiteralDeclaration_2().getEnumLiteral().getInstance();
@@ -11978,12 +12011,12 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 4 :
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4505:6: ( 'int' )
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4523:6: ( 'int' )
                     {
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4505:6: ( 'int' )
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4505:8: 'int'
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4523:6: ( 'int' )
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4523:8: 'int'
                     {
-                    match(input,61,FOLLOW_61_in_ruleTypeSpecifier8426); if (failed) return current;
+                    match(input,61,FOLLOW_61_in_ruleTypeSpecifier8457); if (failed) return current;
                     if ( backtracking==0 ) {
 
                               current = grammarAccess.getTypeSpecifierAccess().getIntEnumLiteralDeclaration_3().getEnumLiteral().getInstance();
@@ -11997,12 +12030,12 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 5 :
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4511:6: ( 'long' )
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4529:6: ( 'long' )
                     {
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4511:6: ( 'long' )
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4511:8: 'long'
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4529:6: ( 'long' )
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4529:8: 'long'
                     {
-                    match(input,62,FOLLOW_62_in_ruleTypeSpecifier8441); if (failed) return current;
+                    match(input,62,FOLLOW_62_in_ruleTypeSpecifier8472); if (failed) return current;
                     if ( backtracking==0 ) {
 
                               current = grammarAccess.getTypeSpecifierAccess().getLongEnumLiteralDeclaration_4().getEnumLiteral().getInstance();
@@ -12016,12 +12049,12 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 6 :
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4517:6: ( 'float' )
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4535:6: ( 'float' )
                     {
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4517:6: ( 'float' )
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4517:8: 'float'
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4535:6: ( 'float' )
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4535:8: 'float'
                     {
-                    match(input,63,FOLLOW_63_in_ruleTypeSpecifier8456); if (failed) return current;
+                    match(input,63,FOLLOW_63_in_ruleTypeSpecifier8487); if (failed) return current;
                     if ( backtracking==0 ) {
 
                               current = grammarAccess.getTypeSpecifierAccess().getFloatEnumLiteralDeclaration_5().getEnumLiteral().getInstance();
@@ -12035,12 +12068,12 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 7 :
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4523:6: ( 'double' )
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4541:6: ( 'double' )
                     {
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4523:6: ( 'double' )
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4523:8: 'double'
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4541:6: ( 'double' )
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4541:8: 'double'
                     {
-                    match(input,64,FOLLOW_64_in_ruleTypeSpecifier8471); if (failed) return current;
+                    match(input,64,FOLLOW_64_in_ruleTypeSpecifier8502); if (failed) return current;
                     if ( backtracking==0 ) {
 
                               current = grammarAccess.getTypeSpecifierAccess().getDoubleEnumLiteralDeclaration_6().getEnumLiteral().getInstance();
@@ -12054,12 +12087,12 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 8 :
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4529:6: ( 'signed' )
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4547:6: ( 'signed' )
                     {
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4529:6: ( 'signed' )
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4529:8: 'signed'
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4547:6: ( 'signed' )
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4547:8: 'signed'
                     {
-                    match(input,65,FOLLOW_65_in_ruleTypeSpecifier8486); if (failed) return current;
+                    match(input,65,FOLLOW_65_in_ruleTypeSpecifier8517); if (failed) return current;
                     if ( backtracking==0 ) {
 
                               current = grammarAccess.getTypeSpecifierAccess().getSignedEnumLiteralDeclaration_7().getEnumLiteral().getInstance();
@@ -12073,12 +12106,12 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 9 :
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4535:6: ( 'unsigned' )
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4553:6: ( 'unsigned' )
                     {
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4535:6: ( 'unsigned' )
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4535:8: 'unsigned'
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4553:6: ( 'unsigned' )
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4553:8: 'unsigned'
                     {
-                    match(input,66,FOLLOW_66_in_ruleTypeSpecifier8501); if (failed) return current;
+                    match(input,66,FOLLOW_66_in_ruleTypeSpecifier8532); if (failed) return current;
                     if ( backtracking==0 ) {
 
                               current = grammarAccess.getTypeSpecifierAccess().getUnsignedEnumLiteralDeclaration_8().getEnumLiteral().getInstance();
@@ -12092,12 +12125,12 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 10 :
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4541:6: ( 'string' )
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4559:6: ( 'string' )
                     {
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4541:6: ( 'string' )
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4541:8: 'string'
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4559:6: ( 'string' )
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4559:8: 'string'
                     {
-                    match(input,67,FOLLOW_67_in_ruleTypeSpecifier8516); if (failed) return current;
+                    match(input,67,FOLLOW_67_in_ruleTypeSpecifier8547); if (failed) return current;
                     if ( backtracking==0 ) {
 
                               current = grammarAccess.getTypeSpecifierAccess().getStringEnumLiteralDeclaration_9().getEnumLiteral().getInstance();
@@ -12111,12 +12144,12 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 11 :
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4547:6: ( 'int8_t' )
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4565:6: ( 'int8_t' )
                     {
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4547:6: ( 'int8_t' )
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4547:8: 'int8_t'
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4565:6: ( 'int8_t' )
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4565:8: 'int8_t'
                     {
-                    match(input,68,FOLLOW_68_in_ruleTypeSpecifier8531); if (failed) return current;
+                    match(input,68,FOLLOW_68_in_ruleTypeSpecifier8562); if (failed) return current;
                     if ( backtracking==0 ) {
 
                               current = grammarAccess.getTypeSpecifierAccess().getInt8_tEnumLiteralDeclaration_10().getEnumLiteral().getInstance();
@@ -12130,12 +12163,12 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 12 :
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4553:6: ( 'uint8_t' )
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4571:6: ( 'uint8_t' )
                     {
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4553:6: ( 'uint8_t' )
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4553:8: 'uint8_t'
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4571:6: ( 'uint8_t' )
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4571:8: 'uint8_t'
                     {
-                    match(input,69,FOLLOW_69_in_ruleTypeSpecifier8546); if (failed) return current;
+                    match(input,69,FOLLOW_69_in_ruleTypeSpecifier8577); if (failed) return current;
                     if ( backtracking==0 ) {
 
                               current = grammarAccess.getTypeSpecifierAccess().getUint8_tEnumLiteralDeclaration_11().getEnumLiteral().getInstance();
@@ -12149,12 +12182,12 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 13 :
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4559:6: ( 'int16_t' )
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4577:6: ( 'int16_t' )
                     {
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4559:6: ( 'int16_t' )
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4559:8: 'int16_t'
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4577:6: ( 'int16_t' )
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4577:8: 'int16_t'
                     {
-                    match(input,70,FOLLOW_70_in_ruleTypeSpecifier8561); if (failed) return current;
+                    match(input,70,FOLLOW_70_in_ruleTypeSpecifier8592); if (failed) return current;
                     if ( backtracking==0 ) {
 
                               current = grammarAccess.getTypeSpecifierAccess().getInt16_tEnumLiteralDeclaration_12().getEnumLiteral().getInstance();
@@ -12168,12 +12201,12 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 14 :
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4565:6: ( 'uint16_t' )
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4583:6: ( 'uint16_t' )
                     {
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4565:6: ( 'uint16_t' )
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4565:8: 'uint16_t'
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4583:6: ( 'uint16_t' )
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4583:8: 'uint16_t'
                     {
-                    match(input,71,FOLLOW_71_in_ruleTypeSpecifier8576); if (failed) return current;
+                    match(input,71,FOLLOW_71_in_ruleTypeSpecifier8607); if (failed) return current;
                     if ( backtracking==0 ) {
 
                               current = grammarAccess.getTypeSpecifierAccess().getUint16_tEnumLiteralDeclaration_13().getEnumLiteral().getInstance();
@@ -12187,12 +12220,12 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 15 :
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4571:6: ( 'int32_t' )
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4589:6: ( 'int32_t' )
                     {
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4571:6: ( 'int32_t' )
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4571:8: 'int32_t'
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4589:6: ( 'int32_t' )
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4589:8: 'int32_t'
                     {
-                    match(input,72,FOLLOW_72_in_ruleTypeSpecifier8591); if (failed) return current;
+                    match(input,72,FOLLOW_72_in_ruleTypeSpecifier8622); if (failed) return current;
                     if ( backtracking==0 ) {
 
                               current = grammarAccess.getTypeSpecifierAccess().getInt32_tEnumLiteralDeclaration_14().getEnumLiteral().getInstance();
@@ -12206,12 +12239,12 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 16 :
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4577:6: ( 'uint32_t' )
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4595:6: ( 'uint32_t' )
                     {
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4577:6: ( 'uint32_t' )
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4577:8: 'uint32_t'
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4595:6: ( 'uint32_t' )
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4595:8: 'uint32_t'
                     {
-                    match(input,73,FOLLOW_73_in_ruleTypeSpecifier8606); if (failed) return current;
+                    match(input,73,FOLLOW_73_in_ruleTypeSpecifier8637); if (failed) return current;
                     if ( backtracking==0 ) {
 
                               current = grammarAccess.getTypeSpecifierAccess().getUint32_tEnumLiteralDeclaration_15().getEnumLiteral().getInstance();
@@ -12225,12 +12258,12 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 17 :
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4583:6: ( 'int64_t' )
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4601:6: ( 'int64_t' )
                     {
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4583:6: ( 'int64_t' )
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4583:8: 'int64_t'
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4601:6: ( 'int64_t' )
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4601:8: 'int64_t'
                     {
-                    match(input,74,FOLLOW_74_in_ruleTypeSpecifier8621); if (failed) return current;
+                    match(input,74,FOLLOW_74_in_ruleTypeSpecifier8652); if (failed) return current;
                     if ( backtracking==0 ) {
 
                               current = grammarAccess.getTypeSpecifierAccess().getInt64_tEnumLiteralDeclaration_16().getEnumLiteral().getInstance();
@@ -12244,12 +12277,12 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 18 :
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4589:6: ( 'uint64_t' )
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4607:6: ( 'uint64_t' )
                     {
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4589:6: ( 'uint64_t' )
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4589:8: 'uint64_t'
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4607:6: ( 'uint64_t' )
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4607:8: 'uint64_t'
                     {
-                    match(input,75,FOLLOW_75_in_ruleTypeSpecifier8636); if (failed) return current;
+                    match(input,75,FOLLOW_75_in_ruleTypeSpecifier8667); if (failed) return current;
                     if ( backtracking==0 ) {
 
                               current = grammarAccess.getTypeSpecifierAccess().getUint64_tEnumLiteralDeclaration_17().getEnumLiteral().getInstance();
@@ -12263,12 +12296,12 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 19 :
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4595:6: ( 'intptr_t' )
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4613:6: ( 'intptr_t' )
                     {
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4595:6: ( 'intptr_t' )
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4595:8: 'intptr_t'
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4613:6: ( 'intptr_t' )
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4613:8: 'intptr_t'
                     {
-                    match(input,76,FOLLOW_76_in_ruleTypeSpecifier8651); if (failed) return current;
+                    match(input,76,FOLLOW_76_in_ruleTypeSpecifier8682); if (failed) return current;
                     if ( backtracking==0 ) {
 
                               current = grammarAccess.getTypeSpecifierAccess().getIntptr_tEnumLiteralDeclaration_18().getEnumLiteral().getInstance();
@@ -12282,12 +12315,12 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 20 :
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4601:6: ( 'uintptr_t' )
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4619:6: ( 'uintptr_t' )
                     {
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4601:6: ( 'uintptr_t' )
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4601:8: 'uintptr_t'
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4619:6: ( 'uintptr_t' )
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4619:8: 'uintptr_t'
                     {
-                    match(input,77,FOLLOW_77_in_ruleTypeSpecifier8666); if (failed) return current;
+                    match(input,77,FOLLOW_77_in_ruleTypeSpecifier8697); if (failed) return current;
                     if ( backtracking==0 ) {
 
                               current = grammarAccess.getTypeSpecifierAccess().getUintptr_tEnumLiteralDeclaration_19().getEnumLiteral().getInstance();
@@ -12325,16 +12358,16 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start ruleParameterQualifier
-    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4611:1: ruleParameterQualifier returns [Enumerator current=null] : ( ( 'in' ) | ( 'out' ) ) ;
+    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4629:1: ruleParameterQualifier returns [Enumerator current=null] : ( ( 'in' ) | ( 'out' ) ) ;
     public final Enumerator ruleParameterQualifier() throws RecognitionException {
         Enumerator current = null;
 
          setCurrentLookahead(); resetLookahead(); 
         try {
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4615:6: ( ( ( 'in' ) | ( 'out' ) ) )
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4616:1: ( ( 'in' ) | ( 'out' ) )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4633:6: ( ( ( 'in' ) | ( 'out' ) ) )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4634:1: ( ( 'in' ) | ( 'out' ) )
             {
-            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4616:1: ( ( 'in' ) | ( 'out' ) )
+            // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4634:1: ( ( 'in' ) | ( 'out' ) )
             int alt71=2;
             int LA71_0 = input.LA(1);
 
@@ -12347,18 +12380,18 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
             else {
                 if (backtracking>0) {failed=true; return current;}
                 NoViableAltException nvae =
-                    new NoViableAltException("4616:1: ( ( 'in' ) | ( 'out' ) )", 71, 0, input);
+                    new NoViableAltException("4634:1: ( ( 'in' ) | ( 'out' ) )", 71, 0, input);
 
                 throw nvae;
             }
             switch (alt71) {
                 case 1 :
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4616:2: ( 'in' )
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4634:2: ( 'in' )
                     {
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4616:2: ( 'in' )
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4616:4: 'in'
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4634:2: ( 'in' )
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4634:4: 'in'
                     {
-                    match(input,78,FOLLOW_78_in_ruleParameterQualifier8709); if (failed) return current;
+                    match(input,78,FOLLOW_78_in_ruleParameterQualifier8740); if (failed) return current;
                     if ( backtracking==0 ) {
 
                               current = grammarAccess.getParameterQualifierAccess().getInEnumLiteralDeclaration_0().getEnumLiteral().getInstance();
@@ -12372,12 +12405,12 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4622:6: ( 'out' )
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4640:6: ( 'out' )
                     {
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4622:6: ( 'out' )
-                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4622:8: 'out'
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4640:6: ( 'out' )
+                    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4640:8: 'out'
                     {
-                    match(input,79,FOLLOW_79_in_ruleParameterQualifier8724); if (failed) return current;
+                    match(input,79,FOLLOW_79_in_ruleParameterQualifier8755); if (failed) return current;
                     if ( backtracking==0 ) {
 
                               current = grammarAccess.getParameterQualifierAccess().getOutEnumLiteralDeclaration_1().getEnumLiteral().getInstance();
@@ -12415,14 +12448,14 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
 
     // $ANTLR start synpred30
     public final void synpred30_fragment() throws RecognitionException {   
-        // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2174:3: ( ( '(' ( 'void' )? ')' ) )
-        // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2174:3: ( '(' ( 'void' )? ')' )
+        // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2179:3: ( ( '(' ( 'void' )? ')' ) )
+        // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2179:3: ( '(' ( 'void' )? ')' )
         {
-        // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2174:3: ( '(' ( 'void' )? ')' )
-        // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2174:5: '(' ( 'void' )? ')'
+        // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2179:3: ( '(' ( 'void' )? ')' )
+        // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2179:5: '(' ( 'void' )? ')'
         {
         match(input,27,FOLLOW_27_in_synpred303811); if (failed) return ;
-        // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2178:1: ( 'void' )?
+        // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2183:1: ( 'void' )?
         int alt72=2;
         int LA72_0 = input.LA(1);
 
@@ -12431,7 +12464,7 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
         }
         switch (alt72) {
             case 1 :
-                // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2178:3: 'void'
+                // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:2183:3: 'void'
                 {
                 match(input,35,FOLLOW_35_in_synpred303822); if (failed) return ;
 
@@ -12451,18 +12484,18 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
 
     // $ANTLR start synpred59
     public final void synpred59_fragment() throws RecognitionException {   
-        // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3794:2: ( ( '(' ( ( ruleQualifiedTypeSpecification ) ) ')' ( ( ruleCastExpression ) ) ) )
-        // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3794:2: ( '(' ( ( ruleQualifiedTypeSpecification ) ) ')' ( ( ruleCastExpression ) ) )
+        // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3799:2: ( ( '(' ( ( ruleQualifiedTypeSpecification ) ) ')' ( ( ruleCastExpression ) ) ) )
+        // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3799:2: ( '(' ( ( ruleQualifiedTypeSpecification ) ) ')' ( ( ruleCastExpression ) ) )
         {
-        // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3794:2: ( '(' ( ( ruleQualifiedTypeSpecification ) ) ')' ( ( ruleCastExpression ) ) )
-        // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3794:4: '(' ( ( ruleQualifiedTypeSpecification ) ) ')' ( ( ruleCastExpression ) )
+        // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3799:2: ( '(' ( ( ruleQualifiedTypeSpecification ) ) ')' ( ( ruleCastExpression ) ) )
+        // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3799:4: '(' ( ( ruleQualifiedTypeSpecification ) ) ')' ( ( ruleCastExpression ) )
         {
         match(input,27,FOLLOW_27_in_synpred596654); if (failed) return ;
-        // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3798:1: ( ( ruleQualifiedTypeSpecification ) )
-        // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3799:1: ( ruleQualifiedTypeSpecification )
+        // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3803:1: ( ( ruleQualifiedTypeSpecification ) )
+        // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3804:1: ( ruleQualifiedTypeSpecification )
         {
-        // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3799:1: ( ruleQualifiedTypeSpecification )
-        // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3800:3: ruleQualifiedTypeSpecification
+        // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3804:1: ( ruleQualifiedTypeSpecification )
+        // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3805:3: ruleQualifiedTypeSpecification
         {
         if ( backtracking==0 ) {
            
@@ -12480,11 +12513,11 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
         }
 
         match(input,28,FOLLOW_28_in_synpred596685); if (failed) return ;
-        // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3826:1: ( ( ruleCastExpression ) )
-        // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3827:1: ( ruleCastExpression )
+        // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3831:1: ( ( ruleCastExpression ) )
+        // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3832:1: ( ruleCastExpression )
         {
-        // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3827:1: ( ruleCastExpression )
-        // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3828:3: ruleCastExpression
+        // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3832:1: ( ruleCastExpression )
+        // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:3833:3: ruleCastExpression
         {
         if ( backtracking==0 ) {
            
@@ -12511,8 +12544,8 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
 
     // $ANTLR start synpred62
     public final void synpred62_fragment() throws RecognitionException {   
-        // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4037:2: ( RULE_ID )
-        // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4037:2: RULE_ID
+        // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4042:2: ( RULE_ID )
+        // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4042:2: RULE_ID
         {
         match(input,RULE_ID,FOLLOW_RULE_ID_in_synpred627072); if (failed) return ;
 
@@ -12520,15 +12553,15 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
     }
     // $ANTLR end synpred62
 
-    // $ANTLR start synpred94
-    public final void synpred94_fragment() throws RecognitionException {   
-        // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4370:6: ( ( ( RULE_INT )+ RULE_EXPONENT ( 'f' | 'F' | 'd' | 'D' )? ) )
-        // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4370:6: ( ( RULE_INT )+ RULE_EXPONENT ( 'f' | 'F' | 'd' | 'D' )? )
+    // $ANTLR start synpred95
+    public final void synpred95_fragment() throws RecognitionException {   
+        // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4388:6: ( ( ( RULE_INT )+ RULE_EXPONENT ( 'f' | 'F' | 'd' | 'D' )? ) )
+        // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4388:6: ( ( RULE_INT )+ RULE_EXPONENT ( 'f' | 'F' | 'd' | 'D' )? )
         {
-        // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4370:6: ( ( RULE_INT )+ RULE_EXPONENT ( 'f' | 'F' | 'd' | 'D' )? )
-        // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4370:7: ( RULE_INT )+ RULE_EXPONENT ( 'f' | 'F' | 'd' | 'D' )?
+        // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4388:6: ( ( RULE_INT )+ RULE_EXPONENT ( 'f' | 'F' | 'd' | 'D' )? )
+        // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4388:7: ( RULE_INT )+ RULE_EXPONENT ( 'f' | 'F' | 'd' | 'D' )?
         {
-        // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4370:7: ( RULE_INT )+
+        // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4388:7: ( RULE_INT )+
         int cnt81=0;
         loop81:
         do {
@@ -12542,9 +12575,9 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
 
             switch (alt81) {
         	case 1 :
-        	    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4370:12: RULE_INT
+        	    // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4388:12: RULE_INT
         	    {
-        	    match(input,RULE_INT,FOLLOW_RULE_INT_in_synpred948044); if (failed) return ;
+        	    match(input,RULE_INT,FOLLOW_RULE_INT_in_synpred958074); if (failed) return ;
 
         	    }
         	    break;
@@ -12559,8 +12592,8 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
             cnt81++;
         } while (true);
 
-        match(input,RULE_EXPONENT,FOLLOW_RULE_EXPONENT_in_synpred948066); if (failed) return ;
-        // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4384:1: ( 'f' | 'F' | 'd' | 'D' )?
+        match(input,RULE_EXPONENT,FOLLOW_RULE_EXPONENT_in_synpred958096); if (failed) return ;
+        // ../org.ow2.fractal.mind.idl.idt/src-gen/org/ow2/fractal/mind/idl/parser/antlr/internal/InternalFractalIdt.g:4402:1: ( 'f' | 'F' | 'd' | 'D' )?
         int alt82=2;
         int LA82_0 = input.LA(1);
 
@@ -12579,7 +12612,7 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
                     if (backtracking>0) {failed=true; return ;}
                     MismatchedSetException mse =
                         new MismatchedSetException(null,input);
-                    recoverFromMismatchedSet(input,mse,FOLLOW_set_in_synpred948080);    throw mse;
+                    recoverFromMismatchedSet(input,mse,FOLLOW_set_in_synpred958110);    throw mse;
                 }
 
 
@@ -12594,13 +12627,13 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
 
         }
     }
-    // $ANTLR end synpred94
+    // $ANTLR end synpred95
 
-    public final boolean synpred94() {
+    public final boolean synpred59() {
         backtracking++;
         int start = input.mark();
         try {
-            synpred94_fragment(); // can never throw exception
+            synpred59_fragment(); // can never throw exception
         } catch (RecognitionException re) {
             System.err.println("impossible: "+re);
         }
@@ -12610,11 +12643,11 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
         failed=false;
         return success;
     }
-    public final boolean synpred59() {
+    public final boolean synpred95() {
         backtracking++;
         int start = input.mark();
         try {
-            synpred59_fragment(); // can never throw exception
+            synpred95_fragment(); // can never throw exception
         } catch (RecognitionException re) {
             System.err.println("impossible: "+re);
         }
@@ -12656,29 +12689,25 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
 
     protected DFA68 dfa68 = new DFA68(this);
     static final String DFA68_eotS =
-        "\13\uffff";
+        "\7\uffff";
     static final String DFA68_eofS =
-        "\3\uffff\1\12\7\uffff";
+        "\1\uffff\1\5\5\uffff";
     static final String DFA68_minS =
-        "\2\10\1\uffff\1\20\2\uffff\4\0\1\uffff";
+        "\2\10\2\uffff\1\0\2\uffff";
     static final String DFA68_maxS =
-        "\1\37\1\70\1\uffff\1\70\2\uffff\4\0\1\uffff";
+        "\1\37\1\70\2\uffff\1\0\2\uffff";
     static final String DFA68_acceptS =
-        "\2\uffff\1\2\1\uffff\1\4\1\1\4\uffff\1\3";
+        "\2\uffff\1\2\1\1\1\uffff\1\4\1\3";
     static final String DFA68_specialS =
-        "\6\uffff\1\1\1\2\1\0\1\3\1\uffff}>";
+        "\4\uffff\1\0\2\uffff}>";
     static final String[] DFA68_transitionS = {
             "\1\1\26\uffff\1\2",
-            "\1\1\1\3\25\uffff\1\5\25\uffff\4\4",
-            "",
-            "\1\12\2\uffff\1\12\4\uffff\1\12\1\uffff\1\12\1\uffff\1\12\1"+
-            "\uffff\1\12\11\uffff\13\12\2\uffff\1\6\1\7\1\10\1\11",
+            "\1\1\1\4\6\uffff\1\5\2\uffff\1\5\4\uffff\1\5\1\uffff\1\5\1\uffff"+
+            "\1\5\1\uffff\1\5\1\3\10\uffff\13\5\2\uffff\4\5",
             "",
             "",
             "\1\uffff",
-            "\1\uffff",
-            "\1\uffff",
-            "\1\uffff",
+            "",
             ""
     };
 
@@ -12712,69 +12741,24 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
             this.transition = DFA68_transition;
         }
         public String getDescription() {
-            return "4267:1: ( ( (this_INT_0= RULE_INT )+ kw= '.' (this_INT_2= RULE_INT )* (this_Exponent_3= RULE_EXPONENT )? (kw= 'f' | kw= 'F' | kw= 'd' | kw= 'D' )? ) | (kw= '.' (this_INT_9= RULE_INT )+ (this_Exponent_10= RULE_EXPONENT )? (kw= 'f' | kw= 'F' | kw= 'd' | kw= 'D' )? ) | ( (this_INT_15= RULE_INT )+ this_Exponent_16= RULE_EXPONENT (kw= 'f' | kw= 'F' | kw= 'd' | kw= 'D' )? ) | ( (this_INT_21= RULE_INT )+ (this_Exponent_22= RULE_EXPONENT )? (kw= 'f' | kw= 'F' | kw= 'd' | kw= 'D' ) ) )";
+            return "4285:1: ( ( (this_INT_0= RULE_INT )+ kw= '.' (this_INT_2= RULE_INT )* (this_Exponent_3= RULE_EXPONENT )? (kw= 'f' | kw= 'F' | kw= 'd' | kw= 'D' )? ) | (kw= '.' (this_INT_9= RULE_INT )+ (this_Exponent_10= RULE_EXPONENT )? (kw= 'f' | kw= 'F' | kw= 'd' | kw= 'D' )? ) | ( (this_INT_15= RULE_INT )+ this_Exponent_16= RULE_EXPONENT (kw= 'f' | kw= 'F' | kw= 'd' | kw= 'D' )? ) | ( (this_INT_21= RULE_INT )+ (this_Exponent_22= RULE_EXPONENT )? (kw= 'f' | kw= 'F' | kw= 'd' | kw= 'D' )? ) )";
         }
         public int specialStateTransition(int s, IntStream input) throws NoViableAltException {
         	int _s = s;
             switch ( s ) {
                     case 0 : 
-                        int LA68_8 = input.LA(1);
+                        int LA68_4 = input.LA(1);
 
                          
-                        int index68_8 = input.index();
+                        int index68_4 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( (synpred94()) ) {s = 10;}
+                        if ( (synpred95()) ) {s = 6;}
 
-                        else if ( (true) ) {s = 4;}
-
-                         
-                        input.seek(index68_8);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 1 : 
-                        int LA68_6 = input.LA(1);
+                        else if ( (true) ) {s = 5;}
 
                          
-                        int index68_6 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (synpred94()) ) {s = 10;}
-
-                        else if ( (true) ) {s = 4;}
-
-                         
-                        input.seek(index68_6);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 2 : 
-                        int LA68_7 = input.LA(1);
-
-                         
-                        int index68_7 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (synpred94()) ) {s = 10;}
-
-                        else if ( (true) ) {s = 4;}
-
-                         
-                        input.seek(index68_7);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 3 : 
-                        int LA68_9 = input.LA(1);
-
-                         
-                        int index68_9 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (synpred94()) ) {s = 10;}
-
-                        else if ( (true) ) {s = 4;}
-
-                         
-                        input.seek(index68_9);
+                        input.seek(index68_4);
                         if ( s>=0 ) return s;
                         break;
             }
@@ -12851,7 +12835,7 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
     public static final BitSet FOLLOW_ruleAnnotations_in_ruleStructMember1743 = new BitSet(new long[]{0xFE00000800B00010L,0x0000000000003FFFL});
     public static final BitSet FOLLOW_ruleQualifiedTypeSpecification_in_ruleStructMember1764 = new BitSet(new long[]{0x000000000C000010L});
     public static final BitSet FOLLOW_ruleDeclarators_in_ruleStructMember1785 = new BitSet(new long[]{0x0000000000410000L});
-    public static final BitSet FOLLOW_22_in_ruleStructMember1796 = new BitSet(new long[]{0x001843008C000130L});
+    public static final BitSet FOLLOW_22_in_ruleStructMember1796 = new BitSet(new long[]{0x001843018C000130L});
     public static final BitSet FOLLOW_ruleConstantExpression_in_ruleStructMember1817 = new BitSet(new long[]{0x0000000000010000L});
     public static final BitSet FOLLOW_16_in_ruleStructMember1829 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleEnumSpecification_in_entryRuleEnumSpecification1865 = new BitSet(new long[]{0x0000000000000000L});
@@ -12878,7 +12862,7 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
     public static final BitSet FOLLOW_EOF_in_entryRuleEnumMember2377 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleAnnotations_in_ruleEnumMember2423 = new BitSet(new long[]{0x0000000000000010L});
     public static final BitSet FOLLOW_RULE_ID_in_ruleEnumMember2440 = new BitSet(new long[]{0x0000000002000002L});
-    public static final BitSet FOLLOW_25_in_ruleEnumMember2456 = new BitSet(new long[]{0x001843008C000130L});
+    public static final BitSet FOLLOW_25_in_ruleEnumMember2456 = new BitSet(new long[]{0x001843018C000130L});
     public static final BitSet FOLLOW_ruleConstantExpression_in_ruleEnumMember2477 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleDeclarators_in_entryRuleDeclarators2515 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleDeclarators2525 = new BitSet(new long[]{0x0000000000000002L});
@@ -12905,7 +12889,7 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
     public static final BitSet FOLLOW_ruleArraySpecification_in_ruleDirectDeclarator3103 = new BitSet(new long[]{0x0000000020000002L});
     public static final BitSet FOLLOW_ruleArraySpecification_in_entryRuleArraySpecification3140 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleArraySpecification3150 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_29_in_ruleArraySpecification3185 = new BitSet(new long[]{0x001843008C000130L});
+    public static final BitSet FOLLOW_29_in_ruleArraySpecification3185 = new BitSet(new long[]{0x001843018C000130L});
     public static final BitSet FOLLOW_ruleConstantExpression_in_ruleArraySpecification3206 = new BitSet(new long[]{0x0000000040000000L});
     public static final BitSet FOLLOW_30_in_ruleArraySpecification3216 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleFullyQualifiedName_in_entryRuleFullyQualifiedName3253 = new BitSet(new long[]{0x0000000000000000L});
@@ -13009,58 +12993,58 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
     public static final BitSet FOLLOW_ruleLogicalOrExpression_in_entryRuleLogicalOrExpression5567 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleLogicalOrExpression5577 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleLogicalAndExpression_in_ruleLogicalOrExpression5623 = new BitSet(new long[]{0x0000040000000002L});
-    public static final BitSet FOLLOW_42_in_ruleLogicalOrExpression5634 = new BitSet(new long[]{0x001843008C000130L});
+    public static final BitSet FOLLOW_42_in_ruleLogicalOrExpression5634 = new BitSet(new long[]{0x001843018C000130L});
     public static final BitSet FOLLOW_ruleLogicalOrExpression_in_ruleLogicalOrExpression5655 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleLogicalAndExpression_in_entryRuleLogicalAndExpression5693 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleLogicalAndExpression5703 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleOrExpression_in_ruleLogicalAndExpression5749 = new BitSet(new long[]{0x0000080000000002L});
-    public static final BitSet FOLLOW_43_in_ruleLogicalAndExpression5760 = new BitSet(new long[]{0x001843008C000130L});
+    public static final BitSet FOLLOW_43_in_ruleLogicalAndExpression5760 = new BitSet(new long[]{0x001843018C000130L});
     public static final BitSet FOLLOW_ruleLogicalAndExpression_in_ruleLogicalAndExpression5781 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleOrExpression_in_entryRuleOrExpression5819 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleOrExpression5829 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleXorExpression_in_ruleOrExpression5875 = new BitSet(new long[]{0x0000100000000002L});
-    public static final BitSet FOLLOW_44_in_ruleOrExpression5886 = new BitSet(new long[]{0x001843008C000130L});
+    public static final BitSet FOLLOW_44_in_ruleOrExpression5886 = new BitSet(new long[]{0x001843018C000130L});
     public static final BitSet FOLLOW_ruleOrExpression_in_ruleOrExpression5907 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleXorExpression_in_entryRuleXorExpression5945 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleXorExpression5955 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleAndExpression_in_ruleXorExpression6001 = new BitSet(new long[]{0x0000200000000002L});
-    public static final BitSet FOLLOW_45_in_ruleXorExpression6012 = new BitSet(new long[]{0x001843008C000130L});
+    public static final BitSet FOLLOW_45_in_ruleXorExpression6012 = new BitSet(new long[]{0x001843018C000130L});
     public static final BitSet FOLLOW_ruleXorExpression_in_ruleXorExpression6033 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleAndExpression_in_entryRuleAndExpression6071 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleAndExpression6081 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleShiftExpression_in_ruleAndExpression6127 = new BitSet(new long[]{0x0000400000000002L});
-    public static final BitSet FOLLOW_46_in_ruleAndExpression6138 = new BitSet(new long[]{0x001843008C000130L});
+    public static final BitSet FOLLOW_46_in_ruleAndExpression6138 = new BitSet(new long[]{0x001843018C000130L});
     public static final BitSet FOLLOW_ruleAndExpression_in_ruleAndExpression6159 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleShiftExpression_in_entryRuleShiftExpression6197 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleShiftExpression6207 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleAdditiveExpression_in_ruleShiftExpression6253 = new BitSet(new long[]{0x0001800000000002L});
-    public static final BitSet FOLLOW_ruleShiftOperation_in_ruleShiftExpression6275 = new BitSet(new long[]{0x001843008C000130L});
+    public static final BitSet FOLLOW_ruleShiftOperation_in_ruleShiftExpression6275 = new BitSet(new long[]{0x001843018C000130L});
     public static final BitSet FOLLOW_ruleShiftExpression_in_ruleShiftExpression6296 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleAdditiveExpression_in_entryRuleAdditiveExpression6334 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleAdditiveExpression6344 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleMulExpression_in_ruleAdditiveExpression6390 = new BitSet(new long[]{0x0000030000000002L});
-    public static final BitSet FOLLOW_ruleAdditiveOperation_in_ruleAdditiveExpression6412 = new BitSet(new long[]{0x001843008C000130L});
+    public static final BitSet FOLLOW_ruleAdditiveOperation_in_ruleAdditiveExpression6412 = new BitSet(new long[]{0x001843018C000130L});
     public static final BitSet FOLLOW_ruleAdditiveExpression_in_ruleAdditiveExpression6433 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleMulExpression_in_entryRuleMulExpression6471 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleMulExpression6481 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleCastExpression_in_ruleMulExpression6527 = new BitSet(new long[]{0x0006000004000002L});
-    public static final BitSet FOLLOW_ruleMulOperation_in_ruleMulExpression6549 = new BitSet(new long[]{0x001843008C000130L});
+    public static final BitSet FOLLOW_ruleMulOperation_in_ruleMulExpression6549 = new BitSet(new long[]{0x001843018C000130L});
     public static final BitSet FOLLOW_ruleMulExpression_in_ruleMulExpression6570 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleCastExpression_in_entryRuleCastExpression6608 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleCastExpression6618 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_27_in_ruleCastExpression6654 = new BitSet(new long[]{0xFE00000800B00010L,0x0000000000003FFFL});
     public static final BitSet FOLLOW_ruleQualifiedTypeSpecification_in_ruleCastExpression6675 = new BitSet(new long[]{0x0000000010000000L});
-    public static final BitSet FOLLOW_28_in_ruleCastExpression6685 = new BitSet(new long[]{0x001843008C000130L});
+    public static final BitSet FOLLOW_28_in_ruleCastExpression6685 = new BitSet(new long[]{0x001843018C000130L});
     public static final BitSet FOLLOW_ruleCastExpression_in_ruleCastExpression6706 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleUnaryExpression_in_ruleCastExpression6734 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleUnaryExpression_in_entryRuleUnaryExpression6770 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleUnaryExpression6780 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleUnaryOperation_in_ruleUnaryExpression6826 = new BitSet(new long[]{0x0000000088000130L});
+    public static final BitSet FOLLOW_ruleUnaryOperation_in_ruleUnaryExpression6826 = new BitSet(new long[]{0x0000000188000130L});
     public static final BitSet FOLLOW_rulePrimaryExpression_in_ruleUnaryExpression6848 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rulePrimaryExpression_in_entryRulePrimaryExpression6884 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRulePrimaryExpression6894 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleLiteral_in_rulePrimaryExpression6940 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_27_in_rulePrimaryExpression6957 = new BitSet(new long[]{0x001843008C000130L});
+    public static final BitSet FOLLOW_27_in_rulePrimaryExpression6957 = new BitSet(new long[]{0x001843018C000130L});
     public static final BitSet FOLLOW_ruleConstantExpression_in_rulePrimaryExpression6982 = new BitSet(new long[]{0x0000000010000000L});
     public static final BitSet FOLLOW_28_in_rulePrimaryExpression6991 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleLiteral_in_entryRuleLiteral7028 = new BitSet(new long[]{0x0000000000000000L});
@@ -13068,91 +13052,92 @@ public class InternalFractalIdtParser extends AbstractInternalAntlrParser {
     public static final BitSet FOLLOW_RULE_ID_in_ruleLiteral7072 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_RULE_STRING_in_ruleLiteral7086 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleFloatingPointLiteral_in_ruleLiteral7100 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleLiteral7120 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleShiftOperation_in_entryRuleShiftOperation7157 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleShiftOperation7168 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_47_in_ruleShiftOperation7206 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_48_in_ruleShiftOperation7225 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleAdditiveOperation_in_entryRuleAdditiveOperation7266 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleAdditiveOperation7277 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_40_in_ruleAdditiveOperation7315 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_41_in_ruleAdditiveOperation7334 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleMulOperation_in_entryRuleMulOperation7375 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleMulOperation7386 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_26_in_ruleMulOperation7424 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_49_in_ruleMulOperation7443 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_50_in_ruleMulOperation7462 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleUnaryOperation_in_entryRuleUnaryOperation7503 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleUnaryOperation7514 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_46_in_ruleUnaryOperation7552 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_26_in_ruleUnaryOperation7571 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_40_in_ruleUnaryOperation7590 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_41_in_ruleUnaryOperation7609 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_51_in_ruleUnaryOperation7628 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_52_in_ruleUnaryOperation7647 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleFloatingPointLiteral_in_entryRuleFloatingPointLiteral7688 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleFloatingPointLiteral7699 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_INT_in_ruleFloatingPointLiteral7741 = new BitSet(new long[]{0x0000000080000100L});
-    public static final BitSet FOLLOW_31_in_ruleFloatingPointLiteral7761 = new BitSet(new long[]{0x01E0000000000302L});
-    public static final BitSet FOLLOW_RULE_INT_in_ruleFloatingPointLiteral7777 = new BitSet(new long[]{0x01E0000000000302L});
-    public static final BitSet FOLLOW_RULE_EXPONENT_in_ruleFloatingPointLiteral7800 = new BitSet(new long[]{0x01E0000000000002L});
-    public static final BitSet FOLLOW_53_in_ruleFloatingPointLiteral7821 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_54_in_ruleFloatingPointLiteral7840 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_55_in_ruleFloatingPointLiteral7859 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_56_in_ruleFloatingPointLiteral7878 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_31_in_ruleFloatingPointLiteral7901 = new BitSet(new long[]{0x0000000000000100L});
-    public static final BitSet FOLLOW_RULE_INT_in_ruleFloatingPointLiteral7917 = new BitSet(new long[]{0x01E0000000000302L});
-    public static final BitSet FOLLOW_RULE_EXPONENT_in_ruleFloatingPointLiteral7940 = new BitSet(new long[]{0x01E0000000000002L});
-    public static final BitSet FOLLOW_53_in_ruleFloatingPointLiteral7961 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_54_in_ruleFloatingPointLiteral7980 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_55_in_ruleFloatingPointLiteral7999 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_56_in_ruleFloatingPointLiteral8018 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_INT_in_ruleFloatingPointLiteral8044 = new BitSet(new long[]{0x0000000000000300L});
-    public static final BitSet FOLLOW_RULE_EXPONENT_in_ruleFloatingPointLiteral8066 = new BitSet(new long[]{0x01E0000000000002L});
-    public static final BitSet FOLLOW_53_in_ruleFloatingPointLiteral8085 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_54_in_ruleFloatingPointLiteral8104 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_55_in_ruleFloatingPointLiteral8123 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_56_in_ruleFloatingPointLiteral8142 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_INT_in_ruleFloatingPointLiteral8168 = new BitSet(new long[]{0x01E0000000000300L});
-    public static final BitSet FOLLOW_RULE_EXPONENT_in_ruleFloatingPointLiteral8191 = new BitSet(new long[]{0x01E0000000000000L});
-    public static final BitSet FOLLOW_53_in_ruleFloatingPointLiteral8212 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_54_in_ruleFloatingPointLiteral8231 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_55_in_ruleFloatingPointLiteral8250 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_56_in_ruleFloatingPointLiteral8269 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_57_in_ruleTypeQualifier8323 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_58_in_ruleTypeQualifier8338 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_35_in_ruleTypeSpecifier8381 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_59_in_ruleTypeSpecifier8396 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_60_in_ruleTypeSpecifier8411 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_61_in_ruleTypeSpecifier8426 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_62_in_ruleTypeSpecifier8441 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_63_in_ruleTypeSpecifier8456 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_64_in_ruleTypeSpecifier8471 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_65_in_ruleTypeSpecifier8486 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_66_in_ruleTypeSpecifier8501 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_67_in_ruleTypeSpecifier8516 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_68_in_ruleTypeSpecifier8531 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_69_in_ruleTypeSpecifier8546 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_70_in_ruleTypeSpecifier8561 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_71_in_ruleTypeSpecifier8576 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_72_in_ruleTypeSpecifier8591 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_73_in_ruleTypeSpecifier8606 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_74_in_ruleTypeSpecifier8621 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_75_in_ruleTypeSpecifier8636 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_76_in_ruleTypeSpecifier8651 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_77_in_ruleTypeSpecifier8666 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_78_in_ruleParameterQualifier8709 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_79_in_ruleParameterQualifier8724 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleConstantDefinition_in_ruleLiteral7123 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleLiteral7150 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleShiftOperation_in_entryRuleShiftOperation7187 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleShiftOperation7198 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_47_in_ruleShiftOperation7236 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_48_in_ruleShiftOperation7255 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleAdditiveOperation_in_entryRuleAdditiveOperation7296 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleAdditiveOperation7307 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_40_in_ruleAdditiveOperation7345 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_41_in_ruleAdditiveOperation7364 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleMulOperation_in_entryRuleMulOperation7405 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleMulOperation7416 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_26_in_ruleMulOperation7454 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_49_in_ruleMulOperation7473 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_50_in_ruleMulOperation7492 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleUnaryOperation_in_entryRuleUnaryOperation7533 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleUnaryOperation7544 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_46_in_ruleUnaryOperation7582 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_26_in_ruleUnaryOperation7601 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_40_in_ruleUnaryOperation7620 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_41_in_ruleUnaryOperation7639 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_51_in_ruleUnaryOperation7658 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_52_in_ruleUnaryOperation7677 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleFloatingPointLiteral_in_entryRuleFloatingPointLiteral7718 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleFloatingPointLiteral7729 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_INT_in_ruleFloatingPointLiteral7771 = new BitSet(new long[]{0x0000000080000100L});
+    public static final BitSet FOLLOW_31_in_ruleFloatingPointLiteral7791 = new BitSet(new long[]{0x01E0000000000302L});
+    public static final BitSet FOLLOW_RULE_INT_in_ruleFloatingPointLiteral7807 = new BitSet(new long[]{0x01E0000000000302L});
+    public static final BitSet FOLLOW_RULE_EXPONENT_in_ruleFloatingPointLiteral7830 = new BitSet(new long[]{0x01E0000000000002L});
+    public static final BitSet FOLLOW_53_in_ruleFloatingPointLiteral7851 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_54_in_ruleFloatingPointLiteral7870 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_55_in_ruleFloatingPointLiteral7889 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_56_in_ruleFloatingPointLiteral7908 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_31_in_ruleFloatingPointLiteral7931 = new BitSet(new long[]{0x0000000000000100L});
+    public static final BitSet FOLLOW_RULE_INT_in_ruleFloatingPointLiteral7947 = new BitSet(new long[]{0x01E0000000000302L});
+    public static final BitSet FOLLOW_RULE_EXPONENT_in_ruleFloatingPointLiteral7970 = new BitSet(new long[]{0x01E0000000000002L});
+    public static final BitSet FOLLOW_53_in_ruleFloatingPointLiteral7991 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_54_in_ruleFloatingPointLiteral8010 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_55_in_ruleFloatingPointLiteral8029 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_56_in_ruleFloatingPointLiteral8048 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_INT_in_ruleFloatingPointLiteral8074 = new BitSet(new long[]{0x0000000000000300L});
+    public static final BitSet FOLLOW_RULE_EXPONENT_in_ruleFloatingPointLiteral8096 = new BitSet(new long[]{0x01E0000000000002L});
+    public static final BitSet FOLLOW_53_in_ruleFloatingPointLiteral8115 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_54_in_ruleFloatingPointLiteral8134 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_55_in_ruleFloatingPointLiteral8153 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_56_in_ruleFloatingPointLiteral8172 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_INT_in_ruleFloatingPointLiteral8198 = new BitSet(new long[]{0x01E0000000000302L});
+    public static final BitSet FOLLOW_RULE_EXPONENT_in_ruleFloatingPointLiteral8221 = new BitSet(new long[]{0x01E0000000000002L});
+    public static final BitSet FOLLOW_53_in_ruleFloatingPointLiteral8242 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_54_in_ruleFloatingPointLiteral8261 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_55_in_ruleFloatingPointLiteral8280 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_56_in_ruleFloatingPointLiteral8299 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_57_in_ruleTypeQualifier8354 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_58_in_ruleTypeQualifier8369 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_35_in_ruleTypeSpecifier8412 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_59_in_ruleTypeSpecifier8427 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_60_in_ruleTypeSpecifier8442 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_61_in_ruleTypeSpecifier8457 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_62_in_ruleTypeSpecifier8472 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_63_in_ruleTypeSpecifier8487 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_64_in_ruleTypeSpecifier8502 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_65_in_ruleTypeSpecifier8517 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_66_in_ruleTypeSpecifier8532 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_67_in_ruleTypeSpecifier8547 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_68_in_ruleTypeSpecifier8562 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_69_in_ruleTypeSpecifier8577 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_70_in_ruleTypeSpecifier8592 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_71_in_ruleTypeSpecifier8607 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_72_in_ruleTypeSpecifier8622 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_73_in_ruleTypeSpecifier8637 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_74_in_ruleTypeSpecifier8652 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_75_in_ruleTypeSpecifier8667 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_76_in_ruleTypeSpecifier8682 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_77_in_ruleTypeSpecifier8697 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_78_in_ruleParameterQualifier8740 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_79_in_ruleParameterQualifier8755 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_27_in_synpred303811 = new BitSet(new long[]{0x0000000810000000L});
     public static final BitSet FOLLOW_35_in_synpred303822 = new BitSet(new long[]{0x0000000010000000L});
     public static final BitSet FOLLOW_28_in_synpred303834 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_27_in_synpred596654 = new BitSet(new long[]{0xFE00000800B00010L,0x0000000000003FFFL});
     public static final BitSet FOLLOW_ruleQualifiedTypeSpecification_in_synpred596675 = new BitSet(new long[]{0x0000000010000000L});
-    public static final BitSet FOLLOW_28_in_synpred596685 = new BitSet(new long[]{0x001843008C000130L});
+    public static final BitSet FOLLOW_28_in_synpred596685 = new BitSet(new long[]{0x001843018C000130L});
     public static final BitSet FOLLOW_ruleCastExpression_in_synpred596706 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_RULE_ID_in_synpred627072 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_INT_in_synpred948044 = new BitSet(new long[]{0x0000000000000300L});
-    public static final BitSet FOLLOW_RULE_EXPONENT_in_synpred948066 = new BitSet(new long[]{0x01E0000000000002L});
-    public static final BitSet FOLLOW_set_in_synpred948080 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_INT_in_synpred958074 = new BitSet(new long[]{0x0000000000000300L});
+    public static final BitSet FOLLOW_RULE_EXPONENT_in_synpred958096 = new BitSet(new long[]{0x01E0000000000002L});
+    public static final BitSet FOLLOW_set_in_synpred958110 = new BitSet(new long[]{0x0000000000000002L});
 
 }

@@ -1,9 +1,10 @@
 package org.ow2.fractal.mind.idl.outline;
 
-import org.eclipse.xtext.ui.common.editor.outline.ContentOutlineNode;
+import org.eclipse.xtext.ui.editor.outline.ContentOutlineNode;
 import org.ow2.fractal.mind.idl.fractalIdt.ConstantDefinitionBegin;
 import org.ow2.fractal.mind.idl.fractalIdt.ConstantDefinitionEnd;
 import org.ow2.fractal.mind.idl.fractalIdt.IdtFile;
+import org.ow2.fractal.mind.idl.ui.outline.FractalItfTransformer;
 
 
 /**

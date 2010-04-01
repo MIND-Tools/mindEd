@@ -11,7 +11,6 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.ow2.fractal.mind.idl.fractalIDL.ConstantDefinition;
 import org.ow2.fractal.mind.idl.fractalIDL.FractalIDLPackage;
@@ -29,7 +28,7 @@ import org.ow2.fractal.mind.idl.fractalIDL.FractalIDLPackage;
  *
  * @generated
  */
-public class ConstantDefinitionImpl extends MinimalEObjectImpl.Container implements ConstantDefinition
+public class ConstantDefinitionImpl extends LiteralImpl implements ConstantDefinition
 {
   /**
    * The default value of the '{@link #getId() <em>Id</em>}' attribute.

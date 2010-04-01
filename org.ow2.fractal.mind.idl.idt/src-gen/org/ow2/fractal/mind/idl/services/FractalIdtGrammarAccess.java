@@ -758,7 +758,7 @@ public class FractalIdtGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//Literal:
-	//  ID|STRING|FloatingPointLiteral|ref=[ConstantDefinition];
+	//  ID|STRING|FloatingPointLiteral|ConstantDefinition|ref=[ConstantDefinition];
 	public FractalItfGrammarAccess.LiteralElements getLiteralAccess() {
 		return gaFractalItf.getLiteralAccess();
 	}
@@ -809,7 +809,7 @@ public class FractalIdtGrammarAccess extends AbstractGrammarElementFinder {
 
 	//FloatingPointLiteral returns ecore::EString:
 	//  INT+ "." INT* Exponent? ("f"|"F"|"d"|"D")?|"." INT+ Exponent? ("f"|"F"|"d"|"D")?|INT+
-	//  Exponent ("f"|"F"|"d"|"D")?|INT+ Exponent? ("f"|"F"|"d"|"D");
+	//  Exponent ("f"|"F"|"d"|"D")?|INT+ Exponent? ("f"|"F"|"d"|"D")?;
 	public FractalItfGrammarAccess.FloatingPointLiteralElements getFloatingPointLiteralAccess() {
 		return gaFractalItf.getFloatingPointLiteralAccess();
 	}

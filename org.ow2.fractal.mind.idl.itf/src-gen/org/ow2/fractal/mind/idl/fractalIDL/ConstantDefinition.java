@@ -6,7 +6,6 @@
  */
 package org.ow2.fractal.mind.idl.fractalIDL;
 
-import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -24,7 +23,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model
  * @generated
  */
-public interface ConstantDefinition extends EObject
+public interface ConstantDefinition extends Literal
 {
   /**
    * Returns the value of the '<em><b>Id</b></em>' attribute.

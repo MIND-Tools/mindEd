@@ -3,9 +3,9 @@ package org.ow2.fractal.mind.idl.contentassist;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.jface.text.contentassist.ICompletionProposal;
 import org.eclipse.xtext.Assignment;
-import org.eclipse.xtext.ui.core.editor.contentassist.ContentAssistContext;
-import org.eclipse.xtext.ui.core.editor.contentassist.ICompletionProposalAcceptor;
-import org.ow2.fractal.mind.idl.contentassist.AbstractFractalIdtProposalProvider;
+import org.eclipse.xtext.ui.editor.contentassist.ContentAssistContext;
+import org.eclipse.xtext.ui.editor.contentassist.ICompletionProposalAcceptor;
+import org.ow2.fractal.mind.idl.ui.contentassist.AbstractFractalIdtProposalProvider;
 import org.ow2.fractal.mind.idl.fractalIdt.IdtFile;
 
 /**

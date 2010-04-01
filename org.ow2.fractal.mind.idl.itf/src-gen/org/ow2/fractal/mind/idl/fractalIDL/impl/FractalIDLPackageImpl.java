@@ -2094,6 +2094,7 @@ public class FractalIDLPackageImpl extends EPackageImpl implements FractalIDLPac
     enumDefinitionEClass.getESuperTypes().add(this.getEnumSpecification());
     enumReferenceEClass.getESuperTypes().add(this.getEnumSpecification());
     enumMemberEClass.getESuperTypes().add(this.getEnumMemberList());
+    constantDefinitionEClass.getESuperTypes().add(this.getLiteral());
     annotationEClass.getESuperTypes().add(this.getAnnotationValue());
     arrayAnnotationValueEClass.getESuperTypes().add(this.getAnnotationValue());
     constantExpressionEClass.getESuperTypes().add(this.getPrimaryExpression());

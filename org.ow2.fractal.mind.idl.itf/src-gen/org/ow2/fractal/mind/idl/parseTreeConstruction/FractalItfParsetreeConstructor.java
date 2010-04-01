@@ -742,7 +742,7 @@ protected class QualifiedTypeSpecification_TypeQualifierAssignment_0 extends Ass
 	protected IInstanceDescription tryConsumeVal() {
 		if((value = current.getConsumable("typeQualifier",false)) == null) return null;
 		IInstanceDescription obj = current.cloneAndConsume("typeQualifier");
-		if(Boolean.TRUE.booleanValue()) { // org::eclipse::xtext::impl::RuleCallImpl FIXME: check if value is valid for datatype rule
+		if(Boolean.TRUE.booleanValue()) {  
 			type = AssignmentType.ERC;
 			element = grammarAccess.getQualifiedTypeSpecificationAccess().getTypeQualifierTypeQualifierEnumRuleCall_0_0();
 			return obj;
@@ -864,7 +864,7 @@ protected class TypeSpecification_TypeDefNameAssignment_0 extends AssignmentToke
 	protected IInstanceDescription tryConsumeVal() {
 		if((value = current.getConsumable("typeDefName",true)) == null) return null;
 		IInstanceDescription obj = current.cloneAndConsume("typeDefName");
-		if(Boolean.TRUE.booleanValue()) { // org::eclipse::xtext::impl::RuleCallImpl FIXME: check if value is valid for datatype rule
+		if(Boolean.TRUE.booleanValue()) { 
 			type = AssignmentType.DRC;
 			element = grammarAccess.getTypeSpecificationAccess().getTypeDefNameTypedefNameParserRuleCall_0_0();
 			return obj;
@@ -968,7 +968,7 @@ protected class TypeSpecification_TypeSpecifierAssignment_3 extends AssignmentTo
 	protected IInstanceDescription tryConsumeVal() {
 		if((value = current.getConsumable("typeSpecifier",true)) == null) return null;
 		IInstanceDescription obj = current.cloneAndConsume("typeSpecifier");
-		if(Boolean.TRUE.booleanValue()) { // org::eclipse::xtext::impl::RuleCallImpl FIXME: check if value is valid for datatype rule
+		if(Boolean.TRUE.booleanValue()) {  
 			type = AssignmentType.ERC;
 			element = grammarAccess.getTypeSpecificationAccess().getTypeSpecifierTypeSpecifierEnumRuleCall_3_0();
 			return obj;
@@ -1149,7 +1149,7 @@ protected class StructOrUnionDefinition_StructAssignment_0 extends AssignmentTok
 	protected IInstanceDescription tryConsumeVal() {
 		if((value = current.getConsumable("struct",true)) == null) return null;
 		IInstanceDescription obj = current.cloneAndConsume("struct");
-		if(Boolean.TRUE.booleanValue()) { // org::eclipse::xtext::impl::RuleCallImpl FIXME: check if value is valid for datatype rule
+		if(Boolean.TRUE.booleanValue()) { 
 			type = AssignmentType.DRC;
 			element = grammarAccess.getStructOrUnionDefinitionAccess().getStructStructOrUnionParserRuleCall_0_0();
 			return obj;
@@ -1183,7 +1183,7 @@ protected class StructOrUnionDefinition_IdAssignment_1 extends AssignmentToken  
 	protected IInstanceDescription tryConsumeVal() {
 		if((value = current.getConsumable("id",false)) == null) return null;
 		IInstanceDescription obj = current.cloneAndConsume("id");
-		if(Boolean.TRUE.booleanValue()) { // org::eclipse::xtext::impl::RuleCallImpl FIXME: check if value is valid for lexer rule
+		if(Boolean.TRUE.booleanValue()) { 
 			type = AssignmentType.LRC;
 			element = grammarAccess.getStructOrUnionDefinitionAccess().getIdIDTerminalRuleCall_1_0();
 			return obj;
@@ -1347,7 +1347,7 @@ protected class StructorUnionReference_StructAssignment_0 extends AssignmentToke
 	protected IInstanceDescription tryConsumeVal() {
 		if((value = current.getConsumable("struct",true)) == null) return null;
 		IInstanceDescription obj = current.cloneAndConsume("struct");
-		if(Boolean.TRUE.booleanValue()) { // org::eclipse::xtext::impl::RuleCallImpl FIXME: check if value is valid for datatype rule
+		if(Boolean.TRUE.booleanValue()) { 
 			type = AssignmentType.DRC;
 			element = grammarAccess.getStructorUnionReferenceAccess().getStructStructOrUnionParserRuleCall_0_0();
 			return obj;
@@ -1381,7 +1381,7 @@ protected class StructorUnionReference_IdAssignment_1 extends AssignmentToken  {
 	protected IInstanceDescription tryConsumeVal() {
 		if((value = current.getConsumable("id",true)) == null) return null;
 		IInstanceDescription obj = current.cloneAndConsume("id");
-		if(Boolean.TRUE.booleanValue()) { // org::eclipse::xtext::impl::RuleCallImpl FIXME: check if value is valid for lexer rule
+		if(Boolean.TRUE.booleanValue()) { 
 			type = AssignmentType.LRC;
 			element = grammarAccess.getStructorUnionReferenceAccess().getIdIDTerminalRuleCall_1_0();
 			return obj;
@@ -1875,7 +1875,7 @@ protected class EnumDefinition_IdAssignment_1 extends AssignmentToken  {
 	protected IInstanceDescription tryConsumeVal() {
 		if((value = current.getConsumable("id",false)) == null) return null;
 		IInstanceDescription obj = current.cloneAndConsume("id");
-		if(Boolean.TRUE.booleanValue()) { // org::eclipse::xtext::impl::RuleCallImpl FIXME: check if value is valid for lexer rule
+		if(Boolean.TRUE.booleanValue()) { 
 			type = AssignmentType.LRC;
 			element = grammarAccess.getEnumDefinitionAccess().getIdIDTerminalRuleCall_1_0();
 			return obj;
@@ -2059,7 +2059,7 @@ protected class EnumReference_IdAssignment_1 extends AssignmentToken  {
 	protected IInstanceDescription tryConsumeVal() {
 		if((value = current.getConsumable("id",true)) == null) return null;
 		IInstanceDescription obj = current.cloneAndConsume("id");
-		if(Boolean.TRUE.booleanValue()) { // org::eclipse::xtext::impl::RuleCallImpl FIXME: check if value is valid for lexer rule
+		if(Boolean.TRUE.booleanValue()) { 
 			type = AssignmentType.LRC;
 			element = grammarAccess.getEnumReferenceAccess().getIdIDTerminalRuleCall_1_0();
 			return obj;
@@ -2343,7 +2343,7 @@ protected class EnumMember_IdAssignment_1 extends AssignmentToken  {
 	protected IInstanceDescription tryConsumeVal() {
 		if((value = current.getConsumable("id",true)) == null) return null;
 		IInstanceDescription obj = current.cloneAndConsume("id");
-		if(Boolean.TRUE.booleanValue()) { // org::eclipse::xtext::impl::RuleCallImpl FIXME: check if value is valid for lexer rule
+		if(Boolean.TRUE.booleanValue()) { 
 			type = AssignmentType.LRC;
 			element = grammarAccess.getEnumMemberAccess().getIdIDTerminalRuleCall_1_0();
 			return obj;
@@ -2986,7 +2986,7 @@ protected class Qualified_PointerSpecification_TypeQualifierAssignment_2 extends
 	protected IInstanceDescription tryConsumeVal() {
 		if((value = current.getConsumable("typeQualifier",false)) == null) return null;
 		IInstanceDescription obj = current.cloneAndConsume("typeQualifier");
-		if(Boolean.TRUE.booleanValue()) { // org::eclipse::xtext::impl::RuleCallImpl FIXME: check if value is valid for datatype rule
+		if(Boolean.TRUE.booleanValue()) {  
 			type = AssignmentType.ERC;
 			element = grammarAccess.getQualified_PointerSpecificationAccess().getTypeQualifierTypeQualifierEnumRuleCall_2_0();
 			return obj;
@@ -3085,7 +3085,7 @@ protected class DirectDeclarator_IdAssignment_0_0 extends AssignmentToken  {
 	protected IInstanceDescription tryConsumeVal() {
 		if((value = current.getConsumable("id",true)) == null) return null;
 		IInstanceDescription obj = current.cloneAndConsume("id");
-		if(Boolean.TRUE.booleanValue()) { // org::eclipse::xtext::impl::RuleCallImpl FIXME: check if value is valid for lexer rule
+		if(Boolean.TRUE.booleanValue()) { 
 			type = AssignmentType.LRC;
 			element = grammarAccess.getDirectDeclaratorAccess().getIdIDTerminalRuleCall_0_0_0();
 			return obj;
@@ -3467,7 +3467,7 @@ protected class ConstantDefinition_IdAssignment_1 extends AssignmentToken  {
 	protected IInstanceDescription tryConsumeVal() {
 		if((value = current.getConsumable("id",true)) == null) return null;
 		IInstanceDescription obj = current.cloneAndConsume("id");
-		if(Boolean.TRUE.booleanValue()) { // org::eclipse::xtext::impl::RuleCallImpl FIXME: check if value is valid for lexer rule
+		if(Boolean.TRUE.booleanValue()) { 
 			type = AssignmentType.LRC;
 			element = grammarAccess.getConstantDefinitionAccess().getIdIDTerminalRuleCall_1_0();
 			return obj;
@@ -3608,7 +3608,7 @@ protected class InterfaceDefinition_FqnAssignment_3 extends AssignmentToken  {
 	protected IInstanceDescription tryConsumeVal() {
 		if((value = current.getConsumable("fqn",true)) == null) return null;
 		IInstanceDescription obj = current.cloneAndConsume("fqn");
-		if(Boolean.TRUE.booleanValue()) { // org::eclipse::xtext::impl::RuleCallImpl FIXME: check if value is valid for datatype rule
+		if(Boolean.TRUE.booleanValue()) { 
 			type = AssignmentType.DRC;
 			element = grammarAccess.getInterfaceDefinitionAccess().getFqnFullyQualifiedNameParserRuleCall_3_0();
 			return obj;
@@ -3686,7 +3686,7 @@ protected class InterfaceDefinition_Fqn2Assignment_4_1 extends AssignmentToken  
 	protected IInstanceDescription tryConsumeVal() {
 		if((value = current.getConsumable("fqn2",false)) == null) return null;
 		IInstanceDescription obj = current.cloneAndConsume("fqn2");
-		if(Boolean.TRUE.booleanValue()) { // org::eclipse::xtext::impl::RuleCallImpl FIXME: check if value is valid for datatype rule
+		if(Boolean.TRUE.booleanValue()) { 
 			type = AssignmentType.DRC;
 			element = grammarAccess.getInterfaceDefinitionAccess().getFqn2FullyQualifiedNameParserRuleCall_4_1_0();
 			return obj;
@@ -3945,7 +3945,7 @@ protected class MethodDefinition_IdAssignment_2 extends AssignmentToken  {
 	protected IInstanceDescription tryConsumeVal() {
 		if((value = current.getConsumable("id",true)) == null) return null;
 		IInstanceDescription obj = current.cloneAndConsume("id");
-		if(Boolean.TRUE.booleanValue()) { // org::eclipse::xtext::impl::RuleCallImpl FIXME: check if value is valid for lexer rule
+		if(Boolean.TRUE.booleanValue()) { 
 			type = AssignmentType.LRC;
 			element = grammarAccess.getMethodDefinitionAccess().getIdIDTerminalRuleCall_2_0();
 			return obj;
@@ -4468,7 +4468,7 @@ protected class Parameter_ParameterQualifierAssignment_1 extends AssignmentToken
 	protected IInstanceDescription tryConsumeVal() {
 		if((value = current.getConsumable("ParameterQualifier",false)) == null) return null;
 		IInstanceDescription obj = current.cloneAndConsume("ParameterQualifier");
-		if(Boolean.TRUE.booleanValue()) { // org::eclipse::xtext::impl::RuleCallImpl FIXME: check if value is valid for datatype rule
+		if(Boolean.TRUE.booleanValue()) {  
 			type = AssignmentType.ERC;
 			element = grammarAccess.getParameterAccess().getParameterQualifierParameterQualifierEnumRuleCall_1_0();
 			return obj;
@@ -4677,7 +4677,7 @@ protected class IncludeDirective_ImportedURIAssignment_1_0 extends AssignmentTok
 	protected IInstanceDescription tryConsumeVal() {
 		if((value = current.getConsumable("importedURI",true)) == null) return null;
 		IInstanceDescription obj = current.cloneAndConsume("importedURI");
-		if(Boolean.TRUE.booleanValue()) { // org::eclipse::xtext::impl::RuleCallImpl FIXME: check if value is valid for lexer rule
+		if(Boolean.TRUE.booleanValue()) { 
 			type = AssignmentType.LRC;
 			element = grammarAccess.getIncludeDirectiveAccess().getImportedURISTRINGTerminalRuleCall_1_0_0();
 			return obj;
@@ -4711,7 +4711,7 @@ protected class IncludeDirective_IncludeIDAssignment_1_1 extends AssignmentToken
 	protected IInstanceDescription tryConsumeVal() {
 		if((value = current.getConsumable("includeID",true)) == null) return null;
 		IInstanceDescription obj = current.cloneAndConsume("includeID");
-		if(Boolean.TRUE.booleanValue()) { // org::eclipse::xtext::impl::RuleCallImpl FIXME: check if value is valid for lexer rule
+		if(Boolean.TRUE.booleanValue()) { 
 			type = AssignmentType.LRC;
 			element = grammarAccess.getIncludeDirectiveAccess().getIncludeIDIncludeLibTerminalRuleCall_1_1_0();
 			return obj;
@@ -4920,7 +4920,7 @@ protected class Annotation_FqnAssignment_1 extends AssignmentToken  {
 	protected IInstanceDescription tryConsumeVal() {
 		if((value = current.getConsumable("fqn",true)) == null) return null;
 		IInstanceDescription obj = current.cloneAndConsume("fqn");
-		if(Boolean.TRUE.booleanValue()) { // org::eclipse::xtext::impl::RuleCallImpl FIXME: check if value is valid for datatype rule
+		if(Boolean.TRUE.booleanValue()) { 
 			type = AssignmentType.DRC;
 			element = grammarAccess.getAnnotationAccess().getFqnFullyQualifiedNameParserRuleCall_1_0();
 			return obj;
@@ -5442,7 +5442,7 @@ protected class AnnotationValuePair_IdAssignment_0 extends AssignmentToken  {
 	protected IInstanceDescription tryConsumeVal() {
 		if((value = current.getConsumable("id",true)) == null) return null;
 		IInstanceDescription obj = current.cloneAndConsume("id");
-		if(Boolean.TRUE.booleanValue()) { // org::eclipse::xtext::impl::RuleCallImpl FIXME: check if value is valid for lexer rule
+		if(Boolean.TRUE.booleanValue()) { 
 			type = AssignmentType.LRC;
 			element = grammarAccess.getAnnotationValuePairAccess().getIdIDTerminalRuleCall_0_0();
 			return obj;
@@ -7039,7 +7039,7 @@ protected class ShiftExpression_OpAssignment_1_0 extends AssignmentToken  {
 	protected IInstanceDescription tryConsumeVal() {
 		if((value = current.getConsumable("op",true)) == null) return null;
 		IInstanceDescription obj = current.cloneAndConsume("op");
-		if(Boolean.TRUE.booleanValue()) { // org::eclipse::xtext::impl::RuleCallImpl FIXME: check if value is valid for datatype rule
+		if(Boolean.TRUE.booleanValue()) { 
 			type = AssignmentType.DRC;
 			element = grammarAccess.getShiftExpressionAccess().getOpShiftOperationParserRuleCall_1_0_0();
 			return obj;
@@ -7226,7 +7226,7 @@ protected class AdditiveExpression_OpAssignment_1_0 extends AssignmentToken  {
 	protected IInstanceDescription tryConsumeVal() {
 		if((value = current.getConsumable("op",true)) == null) return null;
 		IInstanceDescription obj = current.cloneAndConsume("op");
-		if(Boolean.TRUE.booleanValue()) { // org::eclipse::xtext::impl::RuleCallImpl FIXME: check if value is valid for datatype rule
+		if(Boolean.TRUE.booleanValue()) { 
 			type = AssignmentType.DRC;
 			element = grammarAccess.getAdditiveExpressionAccess().getOpAdditiveOperationParserRuleCall_1_0_0();
 			return obj;
@@ -7413,7 +7413,7 @@ protected class MulExpression_OpAssignment_1_0 extends AssignmentToken  {
 	protected IInstanceDescription tryConsumeVal() {
 		if((value = current.getConsumable("op",true)) == null) return null;
 		IInstanceDescription obj = current.cloneAndConsume("op");
-		if(Boolean.TRUE.booleanValue()) { // org::eclipse::xtext::impl::RuleCallImpl FIXME: check if value is valid for datatype rule
+		if(Boolean.TRUE.booleanValue()) { 
 			type = AssignmentType.DRC;
 			element = grammarAccess.getMulExpressionAccess().getOpMulOperationParserRuleCall_1_0_0();
 			return obj;
@@ -7775,7 +7775,7 @@ protected class UnaryExpression_UnaryExprAssignment_0 extends AssignmentToken  {
 	protected IInstanceDescription tryConsumeVal() {
 		if((value = current.getConsumable("unaryExpr",false)) == null) return null;
 		IInstanceDescription obj = current.cloneAndConsume("unaryExpr");
-		if(Boolean.TRUE.booleanValue()) { // org::eclipse::xtext::impl::RuleCallImpl FIXME: check if value is valid for datatype rule
+		if(Boolean.TRUE.booleanValue()) { 
 			type = AssignmentType.DRC;
 			element = grammarAccess.getUnaryExpressionAccess().getUnaryExprUnaryOperationParserRuleCall_0_0();
 			return obj;
@@ -8024,11 +8024,11 @@ protected class PrimaryExpression_RightParenthesisKeyword_1_2 extends KeywordTok
 /************ begin Rule Literal ****************
  *
  * Literal:
- *   ID|STRING|FloatingPointLiteral|ref=[ConstantDefinition];
+ *   ID|STRING|FloatingPointLiteral|ConstantDefinition|ref=[ConstantDefinition];
  *
  **/
 
-// ID|STRING|FloatingPointLiteral|ref=[ConstantDefinition]
+// ID|STRING|FloatingPointLiteral|ConstantDefinition|ref=[ConstantDefinition]
 protected class Literal_Alternatives extends AlternativesToken {
 
 	public Literal_Alternatives(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
@@ -8046,7 +8046,8 @@ protected class Literal_Alternatives extends AlternativesToken {
 			case 0: return new Literal_IDTerminalRuleCall_0(parent, this, 0, inst);
 			case 1: return new Literal_STRINGTerminalRuleCall_1(parent, this, 1, inst);
 			case 2: return new Literal_FloatingPointLiteralParserRuleCall_2(parent, this, 2, inst);
-			case 3: return new Literal_RefAssignment_3(parent, this, 3, inst);
+			case 3: return new Literal_ConstantDefinitionParserRuleCall_3(parent, this, 3, inst);
+			case 4: return new Literal_RefAssignment_4(parent, this, 4, inst);
 			default: return null;
 		}	
 	}	
@@ -8121,16 +8122,51 @@ protected class Literal_FloatingPointLiteralParserRuleCall_2 extends UnassignedT
 		
 }
 
-// ref=[ConstantDefinition]
-protected class Literal_RefAssignment_3 extends AssignmentToken  {
+// ConstantDefinition
+protected class Literal_ConstantDefinitionParserRuleCall_3 extends RuleCallToken {
 	
-	public Literal_RefAssignment_3(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	public Literal_ConstantDefinitionParserRuleCall_3(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public RuleCall getGrammarElement() {
+		return grammarAccess.getLiteralAccess().getConstantDefinitionParserRuleCall_3();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new ConstantDefinition_Group(this, this, 0, inst);
+			default: return null;
+		}	
+	}	
+		
+    @Override
+	protected IInstanceDescription tryConsumeVal() {
+		if(checkForRecursion(ConstantDefinition_Group.class, current)) return null;
+		if(!current.isInstanceOf(grammarAccess.getConstantDefinitionRule().getType().getClassifier())) return null;
+		return current;
+	}
+	
+    @Override
+	public AbstractToken createParentFollower(AbstractToken next,	int actIndex, int index, IInstanceDescription inst) {
+		switch(index) {
+			default: return parent.createParentFollower(next, actIndex , index, inst);
+		}	
+	}	
+}
+
+// ref=[ConstantDefinition]
+protected class Literal_RefAssignment_4 extends AssignmentToken  {
+	
+	public Literal_RefAssignment_4(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	@Override
 	public Assignment getGrammarElement() {
-		return grammarAccess.getLiteralAccess().getRefAssignment_3();
+		return grammarAccess.getLiteralAccess().getRefAssignment_4();
 	}
 
     @Override
@@ -8146,9 +8182,9 @@ protected class Literal_RefAssignment_3 extends AssignmentToken  {
 		IInstanceDescription obj = current.cloneAndConsume("ref");
 		if(value instanceof EObject) { // org::eclipse::xtext::impl::CrossReferenceImpl
 			IInstanceDescription param = getDescr((EObject)value);
-			if(param.isInstanceOf(grammarAccess.getLiteralAccess().getRefConstantDefinitionCrossReference_3_0().getType().getClassifier())) {
+			if(param.isInstanceOf(grammarAccess.getLiteralAccess().getRefConstantDefinitionCrossReference_4_0().getType().getClassifier())) {
 				type = AssignmentType.CR;
-				element = grammarAccess.getLiteralAccess().getRefConstantDefinitionCrossReference_3_0(); 
+				element = grammarAccess.getLiteralAccess().getRefConstantDefinitionCrossReference_4_0(); 
 				return obj;
 			}
 		}

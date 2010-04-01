@@ -182,7 +182,7 @@ PrimaryExpression:
   literal=Literal|'(' ConstantExpression ')';
 
 Literal:
-  ID|STRING|FloatingPointLiteral|ref=[ConstantDefinition|ID];
+  ID|STRING|FloatingPointLiteral|ConstantDefinition|ref=[ConstantDefinition|ID];
 
 ShiftOperation:
   '<<'|'>>';
@@ -200,7 +200,7 @@ FloatingPointLiteral:
   INT+ '.' INT* (Exponent)? ('f' | 'F' | 'd' | 'D')?
   | '.' INT+ (Exponent)? ('f' | 'F' | 'd' | 'D')? 
   | INT+ Exponent ('f' | 'F' | 'd' | 'D')? 
-  | INT+ Exponent? ('f' | 'F' | 'd' | 'D') ;
+  | INT+ Exponent? ('f' | 'F' | 'd' | 'D')? ;
 
 terminal Exponent:
   ('e' | 'E') ('+' | '-')? INT+;

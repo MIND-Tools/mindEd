@@ -62,7 +62,12 @@ import org.ow2.fractal.mind.idl.services.FractalIdtGrammarAccess;
     @Override
     protected String getFirstRuleName() {
     	return "IdtFile";	
-   	} 
+   	}
+   	
+   	@Override
+   	protected FractalIdtGrammarAccess getGrammarAccess() {
+   		return grammarAccess;
+   	}
 }
 
 @rulecatch { 
@@ -4045,6 +4050,19 @@ ruleLiteral returns [EObject current=null]
     }
 
     |ruleFloatingPointLiteral
+    |
+	{ 
+	  /* */ 
+	}
+    { 
+        currentNode=createCompositeNode(grammarAccess.getLiteralAccess().getConstantDefinitionParserRuleCall_3(), currentNode); 
+    }
+    this_ConstantDefinition_3=ruleConstantDefinition
+    { 
+        $current = $this_ConstantDefinition_3.current; 
+        currentNode = currentNode.getParent();
+    }
+
     |(
 (
 		{ 
@@ -4058,7 +4076,7 @@ ruleLiteral returns [EObject current=null]
         }
 	RULE_ID
 	{
-		createLeafNode(grammarAccess.getLiteralAccess().getRefConstantDefinitionCrossReference_3_0(), "ref"); 
+		createLeafNode(grammarAccess.getLiteralAccess().getRefConstantDefinitionCrossReference_4_0(), "ref"); 
 	}
 
 )
@@ -4450,7 +4468,7 @@ ruleFloatingPointLiteral returns [AntlrDatatypeRuleToken current=new AntlrDataty
         $current.merge(kw);
         createLeafNode(grammarAccess.getFloatingPointLiteralAccess().getDKeyword_3_2_3(), null); 
     }
-)))
+)?))
     ;
 
 
