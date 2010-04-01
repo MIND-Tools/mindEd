@@ -39,6 +39,7 @@ import org.ow2.fractal.mind.ide.emf.mindide.MindPathEntry;
 import org.ow2.fractal.mind.ide.emf.mindide.MindPathKind;
 import org.ow2.fractal.mind.ide.emf.mindide.MindProject;
 import org.ow2.fractal.mind.ide.emf.mindide.MindRootSrc;
+import org.ow2.fractal.mind.ide.emf.mindide.MindideFactory;
 import org.ow2.fractal.mind.ide.emf.mindide.MindidePackage;
 
 /**
@@ -101,10 +102,17 @@ public class MindIdeBuilder extends IncrementalProjectBuilder {
 				public boolean visit(IResourceDelta delta) throws CoreException {
 					IResource r = delta.getResource();
 					if (r == null) return false;
-					if (r.getType() == IResource.FOLDER)
-						return true;
 					MindObject mo = MindIdeCore.get(r);
-					if (mo != null && (mo.eClass() == MindidePackage.Literals.MIND_ADL))
+					
+					if (mo == null) return false;
+					
+					if (mo.eClass() == MindidePackage.Literals.MIND_PROJECT)
+						return true;
+					if (mo.eClass() == MindidePackage.Literals.MIND_PACKAGE)
+						return true;
+					if (mo.eClass() == MindidePackage.Literals.MIND_ROOT_SRC)
+						return true;
+					if (mo.eClass() == MindidePackage.Literals.MIND_ADL)
 						adls.add((MindFile) mo);
 					return false;
 				}
@@ -160,7 +168,10 @@ public class MindIdeBuilder extends IncrementalProjectBuilder {
 		
 		File f = ifile == null ? null : ifile.getLocation() == null ? null : ifile.getLocation().toFile();
 		
-		if (f == null || !f.exists() || f.length() == 0) return new int[] { 0, 0 };
+		if (locator == null) {
+			return new int[] { 0, 0 };
+		}
+		if (locator == null || f == null || !f.exists() || f.length() == 0) return new int[] { 0, 0 };
 		
 		int char_start = 0, char_end = 0;
 		int bl = locator.getBeginLine();
