@@ -1,6 +1,9 @@
 package org.ow2.fractal.mind.ide;
 
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.net.MalformedURLException;
@@ -13,6 +16,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IFolder;
 import org.eclipse.core.resources.IMarker;
 import org.eclipse.core.resources.IProject;
@@ -23,7 +27,6 @@ import org.eclipse.core.resources.IncrementalProjectBuilder;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.Status;
-import org.eclipse.emf.common.util.EList;
 import org.objectweb.fractal.adl.ADLException;
 import org.objectweb.fractal.adl.CompilerError;
 import org.objectweb.fractal.adl.StaticJavaGenerator.InvalidCommandLineException;
@@ -44,6 +47,7 @@ import org.ow2.fractal.mind.ide.emf.mindide.MindidePackage;
  *
  */
 public class MindIdeBuilder extends IncrementalProjectBuilder {
+	
 	
 	/**
  * ID of mind ide builder.
@@ -83,6 +87,8 @@ public class MindIdeBuilder extends IncrementalProjectBuilder {
 					addError(currentProject, mf, e);
 				} catch (ADLException e) {
 					addError(currentProject, mf, e);
+				} catch (CompilerError e) {
+					e.printStackTrace();
 				}
 			}
 			
@@ -115,6 +121,8 @@ public class MindIdeBuilder extends IncrementalProjectBuilder {
 					addError(currentProject, mf, e);
 				} catch (ADLException e) {
 					addError(currentProject, mf, e);
+				} catch (CompilerError e) {
+					e.printStackTrace();
 				}
 			}
 		} 
@@ -134,19 +142,101 @@ public class MindIdeBuilder extends IncrementalProjectBuilder {
 			ADLException e) throws CoreException {
 		Error error = e.getError();
 		ErrorLocator locator = error.getLocator();
-		int charStart = 10, charEnd = 15;
+		int[] charsIndex = computeCharStartAndEnd(mf, locator);
 		
 		IResource mfRsc = MindIdeCore.getResource(mf);
 		
 		IMarker marker = MindCMarker.mark(mfRsc);
 		MindCMarker.setSeverity(marker, IMarker.SEVERITY_ERROR);
-		marker.setAttribute(IMarker.CHAR_START, charStart);
-		marker.setAttribute(IMarker.CHAR_END, charEnd);
-		marker.setAttribute(IMarker.LINE_NUMBER, locator.getBeginLine()+1);
+		marker.setAttribute(IMarker.CHAR_START, charsIndex[0]);
+		marker.setAttribute(IMarker.CHAR_END, charsIndex[1]);
+		marker.setAttribute(IMarker.LINE_NUMBER, locator.getBeginLine());
 		MindCMarker.setDescription(marker, error.getMessage());
 		e.printStackTrace();
 	}
 	
+	public int[] computeCharStartAndEnd(MindFile mf, ErrorLocator locator) {
+		IFile	ifile = MindIdeCore.getResource(mf);
+		
+		File f = ifile == null ? null : ifile.getLocation() == null ? null : ifile.getLocation().toFile();
+		
+		if (f == null || !f.exists() || f.length() == 0) return new int[] { 0, 0 };
+		
+		int char_start = 0, char_end = 0;
+		int bl = locator.getBeginLine();
+		int bc = locator.getBeginColumn();
+		int el = locator.getEndLine();
+		int ec = locator.getEndColumn();
+		
+		
+		if (bl == 1) {
+			char_start = bc;
+		}
+		
+		if (el == 1) {
+			return new int[] { char_start, ec };
+		}
+
+		
+		BufferedReader br = null;
+		try {
+			br = new BufferedReader(new FileReader(f));
+			int begin = 0;
+			int line  = 1;
+			int column = 0;
+			int nextchar = -1;
+			int tabSize = 8;
+			while(true) {
+				
+				int c = nextchar;
+				if (c == -1) {
+					c = br.read();
+					if (c == -1) break;
+				}
+				begin++;
+				nextchar =  br.read();
+				
+				if ((c == '\r' && nextchar == '\n') || (c == '\n') || (c =='\r' && nextchar != '\n')) {
+					if (c == '\r' && nextchar == '\n') {
+						begin++;
+						nextchar = -1;
+					}
+					line++;
+					column = 0;
+					if (line>el) {
+						return new int[] {char_start, begin};
+					}
+					continue;
+				}
+				if (c == '\t') {
+					column += (tabSize - (column % tabSize));
+				} else {
+					column++;
+				}
+				if (line == bl && column == bc) {
+					char_start = begin-1;
+				}
+				if (line == el && column == ec) {
+					char_end = begin;
+					return new int[] {char_start, char_end};
+				}
+				
+			}
+			if (char_start != 0) {
+				return new int[] {char_start, begin };
+			}
+		} catch (IOException e) {
+		} finally {
+			if (br != null)
+				try {
+					br.close();
+				} catch (IOException e) {
+				}
+		}
+		return new int[] { 0, 0 };
+	}
+	
+
 	private static final String MINDC_METHOD = "nonExitMain";
 	static URLClassLoader mindCClassLoader = null;
 	
@@ -198,7 +288,7 @@ public class MindIdeBuilder extends IncrementalProjectBuilder {
 		}
 	}
 	
-	public static void checkFile(IProject project, List<MindFile> filesToCheck) throws InvalidCommandLineException, ADLException {
+	public static void checkFile(IProject project, List<MindFile> filesToCheck) throws InvalidCommandLineException, ADLException, CompilerError {
 		MindProject mp = MindIdeCore.get(project);
 		if (mp == null) return;
 		ArrayList<String> args = new ArrayList<String>();
@@ -240,7 +330,7 @@ method: public static void nonExitMain(final String... args)
 	 */
 	
 	static public void mindc(String... args) throws InvalidCommandLineException,
-    ADLException {
+    ADLException, CompilerError {
 		String mindClassName =MindActivator.getPref().getMindCMainClass();
 		
 		if (mindClassName == null || "".equals(mindClassName))
