@@ -45,3 +45,4 @@ Import-Package: adl.diagram.edit.parts,
  org.eclipse.gmf.runtime.diagram.ui.actions.internal.l10n,
  org.ow2.fractal.mind.ide,
  org.ow2.fractal.mind.ide.emf.mindide
+Bundle-ActivationPolicy: lazy

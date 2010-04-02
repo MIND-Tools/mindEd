@@ -6,7 +6,6 @@ import org.eclipse.gmf.runtime.common.core.command.CommandResult;
 import org.eclipse.gmf.runtime.emf.type.core.requests.ReorientRelationshipRequest;
 
 import adl.Body;
-import adl.CompositeComponentDefinition;
 import adl.InterfaceDefinition;
 import adl.diagram.edit.commands.BindingDefinitionReorientCommand;
 

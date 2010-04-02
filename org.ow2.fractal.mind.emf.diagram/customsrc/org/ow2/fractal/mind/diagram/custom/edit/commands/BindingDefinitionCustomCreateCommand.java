@@ -4,17 +4,24 @@ import org.eclipse.core.commands.ExecutionException;
 import org.eclipse.core.runtime.IAdaptable;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.gef.commands.Command;
 import org.eclipse.gmf.runtime.common.core.command.CommandResult;
+import org.eclipse.gmf.runtime.diagram.ui.commands.ICommandProxy;
+import org.eclipse.gmf.runtime.emf.type.core.IElementType;
 import org.eclipse.gmf.runtime.emf.type.core.requests.CreateElementRequest;
 import org.eclipse.gmf.runtime.emf.type.core.requests.CreateRelationshipRequest;
+import org.eclipse.gmf.runtime.notation.View;
 
 import adl.AdlFactory;
 import adl.BindingDefinition;
 import adl.Body;
-import adl.CompositeComponentDefinition;
 import adl.InterfaceDefinition;
 import adl.diagram.edit.commands.BindingDefinitionCreateCommand;
+import adl.diagram.edit.commands.InterfaceDefinitionCreateCommand;
+import adl.diagram.edit.parts.InterfaceDefinitionEditPart;
 import adl.diagram.edit.policies.MindBaseItemSemanticEditPolicy;
+import adl.diagram.part.MindDiagramEditorPlugin;
+import adl.diagram.providers.MindElementTypes;
 
 /**
  * This create command defines source, target and container for our custom bindings.
@@ -41,6 +48,27 @@ public class BindingDefinitionCustomCreateCommand extends
 		customContainer = deduceContainer(customSource,customTarget);
 	}
 	
+//	public BindingDefinitionCustomCreateCommand(CreateRelationshipRequest req) {
+//		
+//		// Trying to create on a component without interfaces
+//		// Create one
+//		EObject container = req.getContainer();
+//		IElementType type = MindElementTypes.getElementType(InterfaceDefinitionEditPart.VISUAL_ID);
+//		CreateElementRequest createInterfaceRequest = new CreateElementRequest(container, type);
+//		Command createInterface = new ICommandProxy(new InterfaceDefinitionCreateCommand(createInterfaceRequest));
+//		try {
+//			createInterface.execute();
+//		}
+//		catch(Exception e) {
+//			MindDiagramEditorPlugin.getInstance().logError("Could not create interface", e);
+//		}
+//		
+//		container.
+//		
+//		super(req,)
+//		
+//	}
+
 	/**
 	 * Check constraints 
 	 */
