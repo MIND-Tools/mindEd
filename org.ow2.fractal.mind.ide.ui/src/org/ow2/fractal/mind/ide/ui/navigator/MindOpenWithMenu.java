@@ -36,8 +36,8 @@ import org.eclipse.ui.internal.ide.DialogUtil;
 import org.eclipse.ui.internal.ide.IDEWorkbenchMessages;
 import org.eclipse.ui.internal.ide.IDEWorkbenchPlugin;
 import org.eclipse.ui.part.FileEditorInput;
-import org.ow2.fractal.mind.emf.diagram.custom.util.CustomMindDiagramEditorUtil;
 import org.ow2.fractal.mind.ide.MindIdeCore;
+import org.ow2.fractal.mind.ide.ui.Activator;
 
 @SuppressWarnings("restriction")
 public class MindOpenWithMenu extends OpenWithMenu {
@@ -333,7 +333,7 @@ public class MindOpenWithMenu extends OpenWithMenu {
         	URI diagramURI = URI.createFileURI(file.getFullPath().toPortableString());
         	// If diagram file doesn't exist, create it from the model
         	if (!(file.exists())) {
-				CustomMindDiagramEditorUtil.initDiagram(diagramURI, modelURI, new NullProgressMonitor());
+				Activator.initGmfDiagram(diagramURI, modelURI);
         	}
         }
         try {

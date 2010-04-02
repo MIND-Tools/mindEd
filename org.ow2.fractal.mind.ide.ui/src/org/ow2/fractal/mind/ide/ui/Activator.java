@@ -1,8 +1,12 @@
 package org.ow2.fractal.mind.ide.ui;
 
+import java.lang.reflect.InvocationTargetException;
+
 import org.eclipse.core.resources.IFile;
+import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.core.runtime.Path;
+import org.eclipse.core.runtime.Platform;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.ui.IEditorDescriptor;
@@ -13,8 +17,8 @@ import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.editors.text.EditorsUI;
 import org.eclipse.ui.ide.IDE;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
+import org.osgi.framework.Bundle;
 import org.osgi.framework.BundleContext;
-import org.ow2.fractal.mind.emf.diagram.custom.util.CustomMindDiagramEditorUtil;
 import org.ow2.fractal.mind.ide.MindIdeCore;
 
 /**
@@ -99,7 +103,7 @@ public class Activator extends AbstractUIPlugin {
 		        	URI diagramURI = URI.createFileURI(jf.getFullPath().toPortableString());
 		        	// If diagram file doesn't exist, create it from the model
 		        	if (!(jf.exists())) {
-						CustomMindDiagramEditorUtil.initDiagram(diagramURI, modelURI, new NullProgressMonitor());
+						initGmfDiagram(modelURI, diagramURI);
 		        	}
 				}
 				IWorkbench workbench = PlatformUI.getWorkbench();
@@ -108,6 +112,27 @@ public class Activator extends AbstractUIPlugin {
 			} catch (PartInitException e) {
 				MindIdeCore.log(e, "Cannot open file "+jf);
 			}
+		}
+	}
+
+	public static void initGmfDiagram(URI modelURI, URI diagramURI) {
+		initGmfDiagram(diagramURI, modelURI, new NullProgressMonitor());
+	}
+
+	public static void initGmfDiagram(URI diagramURI, URI modelURI,
+			IProgressMonitor monitor) {
+		
+		
+		try {
+			Bundle bundle = Platform.getBundle("org.ow2.fractal.mind.emf.diagram");
+			if (bundle == null) return;
+			
+			Class cl = bundle
+			.loadClass("org.ow2.fractal.mind.emf.diagram.custom.util.CustomMindDiagramEditorUtil");
+			//
+			 //org.ow2.fractal.mind.emf.diagram.custom.util,
+			cl.getMethod("initDiagram",URI.class, URI.class,  IProgressMonitor.class).invoke(null, diagramURI, modelURI, monitor);
+		} catch (Throwable e) {
 		}
 	}
 

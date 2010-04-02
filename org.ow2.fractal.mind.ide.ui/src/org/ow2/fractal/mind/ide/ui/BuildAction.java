@@ -3,6 +3,7 @@ package org.ow2.fractal.mind.ide.ui;
 import java.util.Iterator;
 
 import org.eclipse.core.resources.IProject;
+import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IAdaptable;
 import org.eclipse.jface.action.IAction;
 import org.eclipse.jface.viewers.ISelection;
@@ -10,6 +11,7 @@ import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.ui.IObjectActionDelegate;
 import org.eclipse.ui.IWorkbenchPart;
 import org.objectweb.fractal.adl.ADLException;
+import org.objectweb.fractal.adl.CompilerError;
 import org.objectweb.fractal.adl.StaticJavaGenerator.InvalidCommandLineException;
 import org.ow2.fractal.mind.ide.MindIdeBuilder;
 import org.ow2.fractal.mind.ide.MindIdeCore;
@@ -52,6 +54,12 @@ public class BuildAction implements IObjectActionDelegate {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (ADLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (CompilerError e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (CoreException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}

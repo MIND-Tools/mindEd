@@ -1,22 +1,31 @@
 package org.ow2.fractal.mind.ide.ui.wizards;
 
+import java.io.ByteArrayInputStream;
+import java.io.InputStream;
+import java.lang.reflect.InvocationTargetException;
+
+import org.eclipse.core.resources.IContainer;
+import org.eclipse.core.resources.IFile;
+import org.eclipse.core.resources.IFolder;
+import org.eclipse.core.resources.IResource;
+import org.eclipse.core.resources.IWorkspaceRoot;
+import org.eclipse.core.resources.ResourcesPlugin;
+import org.eclipse.core.runtime.Assert;
+import org.eclipse.core.runtime.CoreException;
+import org.eclipse.core.runtime.IProgressMonitor;
+import org.eclipse.core.runtime.IStatus;
+import org.eclipse.core.runtime.Path;
+import org.eclipse.core.runtime.Status;
+import org.eclipse.emf.common.util.URI;
+import org.eclipse.jface.dialogs.MessageDialog;
+import org.eclipse.jface.operation.IRunnableWithProgress;
+import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.wizard.Wizard;
+import org.eclipse.osgi.util.NLS;
 import org.eclipse.ui.INewWizard;
 import org.eclipse.ui.IWorkbench;
-import org.eclipse.core.runtime.*;
-import org.eclipse.jface.operation.*;
-import java.lang.reflect.InvocationTargetException;
-import org.eclipse.jface.dialogs.MessageDialog;
-import org.eclipse.jface.viewers.ISelection;
-import org.eclipse.osgi.util.NLS;
-import org.eclipse.core.resources.*;
-import org.eclipse.core.runtime.CoreException;
-import org.eclipse.emf.common.util.URI;
-
-import java.io.*;
-
-import org.eclipse.ui.*;
+import org.eclipse.ui.IWorkbenchWizard;
 import org.ow2.fractal.mind.ide.MindIdeCore;
 import org.ow2.fractal.mind.ide.MindModel;
 import org.ow2.fractal.mind.ide.emf.mindide.ComponentKind;
@@ -26,10 +35,8 @@ import org.ow2.fractal.mind.ide.emf.mindide.MindRootSrc;
 import org.ow2.fractal.mind.ide.emf.mindide.MindideFactory;
 import org.ow2.fractal.mind.ide.template.TemplateCompositeADL;
 import org.ow2.fractal.mind.ide.template.TemplatePrimitiveADL;
-import org.ow2.fractal.mind.ide.template.TemplatePrimitiveC;
 import org.ow2.fractal.mind.ide.template.TemplateTypeADL;
 import org.ow2.fractal.mind.ide.ui.Activator;
-import org.ow2.fractal.mind.emf.diagram.custom.util.CustomMindDiagramEditorUtil;
 
 /**
  * Create a Mind ADL Component wizard which has one page {@link ComponentNewWizardPage}.
@@ -164,7 +171,7 @@ public class ComponentNewWizard extends Wizard implements INewWizard {
 		monitor.setTaskName("Creating and opening diagram");
 		URI modelURI = URI.createURI(adl.getFullpath());
 		URI diagramURI = URI.createURI(adl.getFullpath()+MindIdeCore.DIAGRAM_EXT);
-		CustomMindDiagramEditorUtil.initDiagram(diagramURI, modelURI, monitor);
+		Activator.initGmfDiagram(diagramURI, modelURI, monitor);
 		monitor.worked(1);
 	}
 	// -- Fin modif Olivier Marot
