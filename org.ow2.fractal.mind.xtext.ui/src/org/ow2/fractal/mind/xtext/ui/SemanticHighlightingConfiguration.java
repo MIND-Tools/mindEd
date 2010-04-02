@@ -1,10 +1,10 @@
-package org.ow2.fractal.mind.xtext;
+package org.ow2.fractal.mind.xtext.ui;
 
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.RGB;
-import org.eclipse.xtext.ui.common.editor.syntaxcoloring.IHighlightingConfiguration;
-import org.eclipse.xtext.ui.common.editor.syntaxcoloring.IHighlightingConfigurationAcceptor;
-import org.eclipse.xtext.ui.core.editor.utils.TextStyle;
+import org.eclipse.xtext.ui.editor.syntaxcoloring.IHighlightingConfiguration;
+import org.eclipse.xtext.ui.editor.syntaxcoloring.IHighlightingConfigurationAcceptor;
+import org.eclipse.xtext.ui.editor.utils.TextStyle;
 
 /**
  * 

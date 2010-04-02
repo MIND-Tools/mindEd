@@ -1,8 +1,8 @@
-package org.ow2.fractal.mind.xtext;
+package org.ow2.fractal.mind.xtext.ui;
 
 import java.util.regex.Pattern;
 
-import org.eclipse.xtext.ui.common.editor.syntaxcoloring.antlr.AbstractAntlrTokenToAttributeIdMapper;
+import org.eclipse.xtext.ui.editor.syntaxcoloring.antlr.AbstractAntlrTokenToAttributeIdMapper;
 
 /**
  * 

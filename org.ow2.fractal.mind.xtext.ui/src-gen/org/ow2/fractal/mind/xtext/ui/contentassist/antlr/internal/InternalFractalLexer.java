@@ -1,8 +1,8 @@
-package org.ow2.fractal.mind.xtext.contentassist.antlr.internal;
+package org.ow2.fractal.mind.xtext.ui.contentassist.antlr.internal;
 
 // Hack: Use our own Lexer superclass by means of import. 
 // Currently there is no other way to specify the superclass for the lexer.
-import org.eclipse.xtext.ui.common.editor.contentassist.antlr.internal.Lexer;
+import org.eclipse.xtext.ui.editor.contentassist.antlr.internal.Lexer;
 
 
 import org.antlr.runtime.*;
@@ -71,14 +71,14 @@ public class InternalFractalLexer extends Lexer {
     public InternalFractalLexer(CharStream input) {
         super(input);
     }
-    public String getGrammarFileName() { return "../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/contentassist/antlr/internal/InternalFractal.g"; }
+    public String getGrammarFileName() { return "../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/ui/contentassist/antlr/internal/InternalFractal.g"; }
 
     // $ANTLR start T13
     public final void mT13() throws RecognitionException {
         try {
             int _type = T13;
-            // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/contentassist/antlr/internal/InternalFractal.g:10:5: ( 'this' )
-            // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/contentassist/antlr/internal/InternalFractal.g:10:7: 'this'
+            // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/ui/contentassist/antlr/internal/InternalFractal.g:10:5: ( 'this' )
+            // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/ui/contentassist/antlr/internal/InternalFractal.g:10:7: 'this'
             {
             match("this"); 
 
@@ -96,8 +96,8 @@ public class InternalFractalLexer extends Lexer {
     public final void mT14() throws RecognitionException {
         try {
             int _type = T14;
-            // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/contentassist/antlr/internal/InternalFractal.g:11:5: ( 'nodata' )
-            // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/contentassist/antlr/internal/InternalFractal.g:11:7: 'nodata'
+            // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/ui/contentassist/antlr/internal/InternalFractal.g:11:5: ( 'nodata' )
+            // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/ui/contentassist/antlr/internal/InternalFractal.g:11:7: 'nodata'
             {
             match("nodata"); 
 
@@ -115,8 +115,8 @@ public class InternalFractalLexer extends Lexer {
     public final void mT15() throws RecognitionException {
         try {
             int _type = T15;
-            // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/contentassist/antlr/internal/InternalFractal.g:12:5: ( 'null' )
-            // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/contentassist/antlr/internal/InternalFractal.g:12:7: 'null'
+            // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/ui/contentassist/antlr/internal/InternalFractal.g:12:5: ( 'null' )
+            // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/ui/contentassist/antlr/internal/InternalFractal.g:12:7: 'null'
             {
             match("null"); 
 
@@ -134,8 +134,8 @@ public class InternalFractalLexer extends Lexer {
     public final void mT16() throws RecognitionException {
         try {
             int _type = T16;
-            // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/contentassist/antlr/internal/InternalFractal.g:13:5: ( 'Override' )
-            // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/contentassist/antlr/internal/InternalFractal.g:13:7: 'Override'
+            // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/ui/contentassist/antlr/internal/InternalFractal.g:13:5: ( 'Override' )
+            // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/ui/contentassist/antlr/internal/InternalFractal.g:13:7: 'Override'
             {
             match("Override"); 
 
@@ -153,8 +153,8 @@ public class InternalFractalLexer extends Lexer {
     public final void mT17() throws RecognitionException {
         try {
             int _type = T17;
-            // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/contentassist/antlr/internal/InternalFractal.g:14:5: ( 'Singleton' )
-            // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/contentassist/antlr/internal/InternalFractal.g:14:7: 'Singleton'
+            // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/ui/contentassist/antlr/internal/InternalFractal.g:14:5: ( 'Singleton' )
+            // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/ui/contentassist/antlr/internal/InternalFractal.g:14:7: 'Singleton'
             {
             match("Singleton"); 
 
@@ -172,8 +172,8 @@ public class InternalFractalLexer extends Lexer {
     public final void mT18() throws RecognitionException {
         try {
             int _type = T18;
-            // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/contentassist/antlr/internal/InternalFractal.g:15:5: ( 'LDFlags' )
-            // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/contentassist/antlr/internal/InternalFractal.g:15:7: 'LDFlags'
+            // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/ui/contentassist/antlr/internal/InternalFractal.g:15:5: ( 'LDFlags' )
+            // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/ui/contentassist/antlr/internal/InternalFractal.g:15:7: 'LDFlags'
             {
             match("LDFlags"); 
 
@@ -191,8 +191,8 @@ public class InternalFractalLexer extends Lexer {
     public final void mT19() throws RecognitionException {
         try {
             int _type = T19;
-            // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/contentassist/antlr/internal/InternalFractal.g:16:5: ( 'CFlags' )
-            // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/contentassist/antlr/internal/InternalFractal.g:16:7: 'CFlags'
+            // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/ui/contentassist/antlr/internal/InternalFractal.g:16:5: ( 'CFlags' )
+            // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/ui/contentassist/antlr/internal/InternalFractal.g:16:7: 'CFlags'
             {
             match("CFlags"); 
 
@@ -210,8 +210,8 @@ public class InternalFractalLexer extends Lexer {
     public final void mT20() throws RecognitionException {
         try {
             int _type = T20;
-            // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/contentassist/antlr/internal/InternalFractal.g:17:5: ( 'STRUCT' )
-            // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/contentassist/antlr/internal/InternalFractal.g:17:7: 'STRUCT'
+            // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/ui/contentassist/antlr/internal/InternalFractal.g:17:5: ( 'STRUCT' )
+            // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/ui/contentassist/antlr/internal/InternalFractal.g:17:7: 'STRUCT'
             {
             match("STRUCT"); 
 
@@ -229,8 +229,8 @@ public class InternalFractalLexer extends Lexer {
     public final void mT21() throws RecognitionException {
         try {
             int _type = T21;
-            // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/contentassist/antlr/internal/InternalFractal.g:18:5: ( 'UNION' )
-            // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/contentassist/antlr/internal/InternalFractal.g:18:7: 'UNION'
+            // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/ui/contentassist/antlr/internal/InternalFractal.g:18:5: ( 'UNION' )
+            // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/ui/contentassist/antlr/internal/InternalFractal.g:18:7: 'UNION'
             {
             match("UNION"); 
 
@@ -248,8 +248,8 @@ public class InternalFractalLexer extends Lexer {
     public final void mT22() throws RecognitionException {
         try {
             int _type = T22;
-            // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/contentassist/antlr/internal/InternalFractal.g:19:5: ( 'ENUM' )
-            // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/contentassist/antlr/internal/InternalFractal.g:19:7: 'ENUM'
+            // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/ui/contentassist/antlr/internal/InternalFractal.g:19:5: ( 'ENUM' )
+            // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/ui/contentassist/antlr/internal/InternalFractal.g:19:7: 'ENUM'
             {
             match("ENUM"); 
 
@@ -267,8 +267,8 @@ public class InternalFractalLexer extends Lexer {
     public final void mT23() throws RecognitionException {
         try {
             int _type = T23;
-            // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/contentassist/antlr/internal/InternalFractal.g:20:5: ( '+' )
-            // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/contentassist/antlr/internal/InternalFractal.g:20:7: '+'
+            // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/ui/contentassist/antlr/internal/InternalFractal.g:20:5: ( '+' )
+            // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/ui/contentassist/antlr/internal/InternalFractal.g:20:7: '+'
             {
             match('+'); 
 
@@ -285,8 +285,8 @@ public class InternalFractalLexer extends Lexer {
     public final void mT24() throws RecognitionException {
         try {
             int _type = T24;
-            // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/contentassist/antlr/internal/InternalFractal.g:21:5: ( '-' )
-            // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/contentassist/antlr/internal/InternalFractal.g:21:7: '-'
+            // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/ui/contentassist/antlr/internal/InternalFractal.g:21:5: ( '-' )
+            // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/ui/contentassist/antlr/internal/InternalFractal.g:21:7: '-'
             {
             match('-'); 
 
@@ -303,8 +303,8 @@ public class InternalFractalLexer extends Lexer {
     public final void mT25() throws RecognitionException {
         try {
             int _type = T25;
-            // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/contentassist/antlr/internal/InternalFractal.g:22:5: ( 'optional' )
-            // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/contentassist/antlr/internal/InternalFractal.g:22:7: 'optional'
+            // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/ui/contentassist/antlr/internal/InternalFractal.g:22:5: ( 'optional' )
+            // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/ui/contentassist/antlr/internal/InternalFractal.g:22:7: 'optional'
             {
             match("optional"); 
 
@@ -322,8 +322,8 @@ public class InternalFractalLexer extends Lexer {
     public final void mT26() throws RecognitionException {
         try {
             int _type = T26;
-            // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/contentassist/antlr/internal/InternalFractal.g:23:5: ( 'mandatory' )
-            // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/contentassist/antlr/internal/InternalFractal.g:23:7: 'mandatory'
+            // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/ui/contentassist/antlr/internal/InternalFractal.g:23:5: ( 'mandatory' )
+            // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/ui/contentassist/antlr/internal/InternalFractal.g:23:7: 'mandatory'
             {
             match("mandatory"); 
 
@@ -341,8 +341,8 @@ public class InternalFractalLexer extends Lexer {
     public final void mT27() throws RecognitionException {
         try {
             int _type = T27;
-            // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/contentassist/antlr/internal/InternalFractal.g:24:5: ( 'provides' )
-            // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/contentassist/antlr/internal/InternalFractal.g:24:7: 'provides'
+            // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/ui/contentassist/antlr/internal/InternalFractal.g:24:5: ( 'provides' )
+            // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/ui/contentassist/antlr/internal/InternalFractal.g:24:7: 'provides'
             {
             match("provides"); 
 
@@ -360,8 +360,8 @@ public class InternalFractalLexer extends Lexer {
     public final void mT28() throws RecognitionException {
         try {
             int _type = T28;
-            // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/contentassist/antlr/internal/InternalFractal.g:25:5: ( 'requires' )
-            // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/contentassist/antlr/internal/InternalFractal.g:25:7: 'requires'
+            // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/ui/contentassist/antlr/internal/InternalFractal.g:25:5: ( 'requires' )
+            // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/ui/contentassist/antlr/internal/InternalFractal.g:25:7: 'requires'
             {
             match("requires"); 
 
@@ -379,8 +379,8 @@ public class InternalFractalLexer extends Lexer {
     public final void mT29() throws RecognitionException {
         try {
             int _type = T29;
-            // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/contentassist/antlr/internal/InternalFractal.g:26:5: ( 'import' )
-            // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/contentassist/antlr/internal/InternalFractal.g:26:7: 'import'
+            // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/ui/contentassist/antlr/internal/InternalFractal.g:26:5: ( 'import' )
+            // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/ui/contentassist/antlr/internal/InternalFractal.g:26:7: 'import'
             {
             match("import"); 
 
@@ -398,8 +398,8 @@ public class InternalFractalLexer extends Lexer {
     public final void mT30() throws RecognitionException {
         try {
             int _type = T30;
-            // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/contentassist/antlr/internal/InternalFractal.g:27:5: ( ';' )
-            // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/contentassist/antlr/internal/InternalFractal.g:27:7: ';'
+            // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/ui/contentassist/antlr/internal/InternalFractal.g:27:5: ( ';' )
+            // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/ui/contentassist/antlr/internal/InternalFractal.g:27:7: ';'
             {
             match(';'); 
 
@@ -416,8 +416,8 @@ public class InternalFractalLexer extends Lexer {
     public final void mT31() throws RecognitionException {
         try {
             int _type = T31;
-            // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/contentassist/antlr/internal/InternalFractal.g:28:5: ( 'primitive' )
-            // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/contentassist/antlr/internal/InternalFractal.g:28:7: 'primitive'
+            // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/ui/contentassist/antlr/internal/InternalFractal.g:28:5: ( 'primitive' )
+            // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/ui/contentassist/antlr/internal/InternalFractal.g:28:7: 'primitive'
             {
             match("primitive"); 
 
@@ -435,8 +435,8 @@ public class InternalFractalLexer extends Lexer {
     public final void mT32() throws RecognitionException {
         try {
             int _type = T32;
-            // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/contentassist/antlr/internal/InternalFractal.g:29:5: ( '{' )
-            // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/contentassist/antlr/internal/InternalFractal.g:29:7: '{'
+            // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/ui/contentassist/antlr/internal/InternalFractal.g:29:5: ( '{' )
+            // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/ui/contentassist/antlr/internal/InternalFractal.g:29:7: '{'
             {
             match('{'); 
 
@@ -453,8 +453,8 @@ public class InternalFractalLexer extends Lexer {
     public final void mT33() throws RecognitionException {
         try {
             int _type = T33;
-            // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/contentassist/antlr/internal/InternalFractal.g:30:5: ( '}' )
-            // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/contentassist/antlr/internal/InternalFractal.g:30:7: '}'
+            // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/ui/contentassist/antlr/internal/InternalFractal.g:30:5: ( '}' )
+            // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/ui/contentassist/antlr/internal/InternalFractal.g:30:7: '}'
             {
             match('}'); 
 
@@ -471,8 +471,8 @@ public class InternalFractalLexer extends Lexer {
     public final void mT34() throws RecognitionException {
         try {
             int _type = T34;
-            // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/contentassist/antlr/internal/InternalFractal.g:31:5: ( 'type' )
-            // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/contentassist/antlr/internal/InternalFractal.g:31:7: 'type'
+            // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/ui/contentassist/antlr/internal/InternalFractal.g:31:5: ( 'type' )
+            // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/ui/contentassist/antlr/internal/InternalFractal.g:31:7: 'type'
             {
             match("type"); 
 
@@ -490,8 +490,8 @@ public class InternalFractalLexer extends Lexer {
     public final void mT35() throws RecognitionException {
         try {
             int _type = T35;
-            // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/contentassist/antlr/internal/InternalFractal.g:32:5: ( 'composite' )
-            // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/contentassist/antlr/internal/InternalFractal.g:32:7: 'composite'
+            // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/ui/contentassist/antlr/internal/InternalFractal.g:32:5: ( 'composite' )
+            // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/ui/contentassist/antlr/internal/InternalFractal.g:32:7: 'composite'
             {
             match("composite"); 
 
@@ -509,8 +509,8 @@ public class InternalFractalLexer extends Lexer {
     public final void mT36() throws RecognitionException {
         try {
             int _type = T36;
-            // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/contentassist/antlr/internal/InternalFractal.g:33:5: ( '<' )
-            // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/contentassist/antlr/internal/InternalFractal.g:33:7: '<'
+            // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/ui/contentassist/antlr/internal/InternalFractal.g:33:5: ( '<' )
+            // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/ui/contentassist/antlr/internal/InternalFractal.g:33:7: '<'
             {
             match('<'); 
 
@@ -527,8 +527,8 @@ public class InternalFractalLexer extends Lexer {
     public final void mT37() throws RecognitionException {
         try {
             int _type = T37;
-            // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/contentassist/antlr/internal/InternalFractal.g:34:5: ( '>' )
-            // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/contentassist/antlr/internal/InternalFractal.g:34:7: '>'
+            // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/ui/contentassist/antlr/internal/InternalFractal.g:34:5: ( '>' )
+            // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/ui/contentassist/antlr/internal/InternalFractal.g:34:7: '>'
             {
             match('>'); 
 
@@ -545,8 +545,8 @@ public class InternalFractalLexer extends Lexer {
     public final void mT38() throws RecognitionException {
         try {
             int _type = T38;
-            // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/contentassist/antlr/internal/InternalFractal.g:35:5: ( ',' )
-            // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/contentassist/antlr/internal/InternalFractal.g:35:7: ','
+            // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/ui/contentassist/antlr/internal/InternalFractal.g:35:5: ( ',' )
+            // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/ui/contentassist/antlr/internal/InternalFractal.g:35:7: ','
             {
             match(','); 
 
@@ -563,8 +563,8 @@ public class InternalFractalLexer extends Lexer {
     public final void mT39() throws RecognitionException {
         try {
             int _type = T39;
-            // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/contentassist/antlr/internal/InternalFractal.g:36:5: ( '(' )
-            // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/contentassist/antlr/internal/InternalFractal.g:36:7: '('
+            // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/ui/contentassist/antlr/internal/InternalFractal.g:36:5: ( '(' )
+            // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/ui/contentassist/antlr/internal/InternalFractal.g:36:7: '('
             {
             match('('); 
 
@@ -581,8 +581,8 @@ public class InternalFractalLexer extends Lexer {
     public final void mT40() throws RecognitionException {
         try {
             int _type = T40;
-            // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/contentassist/antlr/internal/InternalFractal.g:37:5: ( ')' )
-            // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/contentassist/antlr/internal/InternalFractal.g:37:7: ')'
+            // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/ui/contentassist/antlr/internal/InternalFractal.g:37:5: ( ')' )
+            // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/ui/contentassist/antlr/internal/InternalFractal.g:37:7: ')'
             {
             match(')'); 
 
@@ -599,8 +599,8 @@ public class InternalFractalLexer extends Lexer {
     public final void mT41() throws RecognitionException {
         try {
             int _type = T41;
-            // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/contentassist/antlr/internal/InternalFractal.g:38:5: ( 'extends' )
-            // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/contentassist/antlr/internal/InternalFractal.g:38:7: 'extends'
+            // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/ui/contentassist/antlr/internal/InternalFractal.g:38:5: ( 'extends' )
+            // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/ui/contentassist/antlr/internal/InternalFractal.g:38:7: 'extends'
             {
             match("extends"); 
 
@@ -618,8 +618,8 @@ public class InternalFractalLexer extends Lexer {
     public final void mT42() throws RecognitionException {
         try {
             int _type = T42;
-            // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/contentassist/antlr/internal/InternalFractal.g:39:5: ( 'contains' )
-            // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/contentassist/antlr/internal/InternalFractal.g:39:7: 'contains'
+            // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/ui/contentassist/antlr/internal/InternalFractal.g:39:5: ( 'contains' )
+            // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/ui/contentassist/antlr/internal/InternalFractal.g:39:7: 'contains'
             {
             match("contains"); 
 
@@ -637,8 +637,8 @@ public class InternalFractalLexer extends Lexer {
     public final void mT43() throws RecognitionException {
         try {
             int _type = T43;
-            // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/contentassist/antlr/internal/InternalFractal.g:40:5: ( 'as' )
-            // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/contentassist/antlr/internal/InternalFractal.g:40:7: 'as'
+            // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/ui/contentassist/antlr/internal/InternalFractal.g:40:5: ( 'as' )
+            // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/ui/contentassist/antlr/internal/InternalFractal.g:40:7: 'as'
             {
             match("as"); 
 
@@ -656,8 +656,8 @@ public class InternalFractalLexer extends Lexer {
     public final void mT44() throws RecognitionException {
         try {
             int _type = T44;
-            // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/contentassist/antlr/internal/InternalFractal.g:41:5: ( '=' )
-            // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/contentassist/antlr/internal/InternalFractal.g:41:7: '='
+            // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/ui/contentassist/antlr/internal/InternalFractal.g:41:5: ( '=' )
+            // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/ui/contentassist/antlr/internal/InternalFractal.g:41:7: '='
             {
             match('='); 
 
@@ -674,8 +674,8 @@ public class InternalFractalLexer extends Lexer {
     public final void mT45() throws RecognitionException {
         try {
             int _type = T45;
-            // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/contentassist/antlr/internal/InternalFractal.g:42:5: ( 'attribute' )
-            // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/contentassist/antlr/internal/InternalFractal.g:42:7: 'attribute'
+            // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/ui/contentassist/antlr/internal/InternalFractal.g:42:5: ( 'attribute' )
+            // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/ui/contentassist/antlr/internal/InternalFractal.g:42:7: 'attribute'
             {
             match("attribute"); 
 
@@ -693,8 +693,8 @@ public class InternalFractalLexer extends Lexer {
     public final void mT46() throws RecognitionException {
         try {
             int _type = T46;
-            // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/contentassist/antlr/internal/InternalFractal.g:43:5: ( 'binds' )
-            // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/contentassist/antlr/internal/InternalFractal.g:43:7: 'binds'
+            // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/ui/contentassist/antlr/internal/InternalFractal.g:43:5: ( 'binds' )
+            // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/ui/contentassist/antlr/internal/InternalFractal.g:43:7: 'binds'
             {
             match("binds"); 
 
@@ -712,8 +712,8 @@ public class InternalFractalLexer extends Lexer {
     public final void mT47() throws RecognitionException {
         try {
             int _type = T47;
-            // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/contentassist/antlr/internal/InternalFractal.g:44:5: ( '.' )
-            // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/contentassist/antlr/internal/InternalFractal.g:44:7: '.'
+            // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/ui/contentassist/antlr/internal/InternalFractal.g:44:5: ( '.' )
+            // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/ui/contentassist/antlr/internal/InternalFractal.g:44:7: '.'
             {
             match('.'); 
 
@@ -730,8 +730,8 @@ public class InternalFractalLexer extends Lexer {
     public final void mT48() throws RecognitionException {
         try {
             int _type = T48;
-            // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/contentassist/antlr/internal/InternalFractal.g:45:5: ( 'to' )
-            // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/contentassist/antlr/internal/InternalFractal.g:45:7: 'to'
+            // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/ui/contentassist/antlr/internal/InternalFractal.g:45:5: ( 'to' )
+            // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/ui/contentassist/antlr/internal/InternalFractal.g:45:7: 'to'
             {
             match("to"); 
 
@@ -749,8 +749,8 @@ public class InternalFractalLexer extends Lexer {
     public final void mT49() throws RecognitionException {
         try {
             int _type = T49;
-            // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/contentassist/antlr/internal/InternalFractal.g:46:5: ( '[' )
-            // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/contentassist/antlr/internal/InternalFractal.g:46:7: '['
+            // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/ui/contentassist/antlr/internal/InternalFractal.g:46:5: ( '[' )
+            // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/ui/contentassist/antlr/internal/InternalFractal.g:46:7: '['
             {
             match('['); 
 
@@ -767,8 +767,8 @@ public class InternalFractalLexer extends Lexer {
     public final void mT50() throws RecognitionException {
         try {
             int _type = T50;
-            // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/contentassist/antlr/internal/InternalFractal.g:47:5: ( ']' )
-            // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/contentassist/antlr/internal/InternalFractal.g:47:7: ']'
+            // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/ui/contentassist/antlr/internal/InternalFractal.g:47:5: ( ']' )
+            // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/ui/contentassist/antlr/internal/InternalFractal.g:47:7: ']'
             {
             match(']'); 
 
@@ -785,8 +785,8 @@ public class InternalFractalLexer extends Lexer {
     public final void mT51() throws RecognitionException {
         try {
             int _type = T51;
-            // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/contentassist/antlr/internal/InternalFractal.g:48:5: ( 'data' )
-            // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/contentassist/antlr/internal/InternalFractal.g:48:7: 'data'
+            // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/ui/contentassist/antlr/internal/InternalFractal.g:48:5: ( 'data' )
+            // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/ui/contentassist/antlr/internal/InternalFractal.g:48:7: 'data'
             {
             match("data"); 
 
@@ -804,8 +804,8 @@ public class InternalFractalLexer extends Lexer {
     public final void mT52() throws RecognitionException {
         try {
             int _type = T52;
-            // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/contentassist/antlr/internal/InternalFractal.g:49:5: ( 'source' )
-            // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/contentassist/antlr/internal/InternalFractal.g:49:7: 'source'
+            // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/ui/contentassist/antlr/internal/InternalFractal.g:49:5: ( 'source' )
+            // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/ui/contentassist/antlr/internal/InternalFractal.g:49:7: 'source'
             {
             match("source"); 
 
@@ -823,8 +823,8 @@ public class InternalFractalLexer extends Lexer {
     public final void mT53() throws RecognitionException {
         try {
             int _type = T53;
-            // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/contentassist/antlr/internal/InternalFractal.g:50:5: ( 'conformsto' )
-            // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/contentassist/antlr/internal/InternalFractal.g:50:7: 'conformsto'
+            // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/ui/contentassist/antlr/internal/InternalFractal.g:50:5: ( 'conformsto' )
+            // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/ui/contentassist/antlr/internal/InternalFractal.g:50:7: 'conformsto'
             {
             match("conformsto"); 
 
@@ -842,8 +842,8 @@ public class InternalFractalLexer extends Lexer {
     public final void mT54() throws RecognitionException {
         try {
             int _type = T54;
-            // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/contentassist/antlr/internal/InternalFractal.g:51:5: ( '@' )
-            // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/contentassist/antlr/internal/InternalFractal.g:51:7: '@'
+            // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/ui/contentassist/antlr/internal/InternalFractal.g:51:5: ( '@' )
+            // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/ui/contentassist/antlr/internal/InternalFractal.g:51:7: '@'
             {
             match('@'); 
 
@@ -860,8 +860,8 @@ public class InternalFractalLexer extends Lexer {
     public final void mT55() throws RecognitionException {
         try {
             int _type = T55;
-            // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/contentassist/antlr/internal/InternalFractal.g:52:5: ( '0x' )
-            // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/contentassist/antlr/internal/InternalFractal.g:52:7: '0x'
+            // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/ui/contentassist/antlr/internal/InternalFractal.g:52:5: ( '0x' )
+            // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/ui/contentassist/antlr/internal/InternalFractal.g:52:7: '0x'
             {
             match("0x"); 
 
@@ -879,8 +879,8 @@ public class InternalFractalLexer extends Lexer {
     public final void mT56() throws RecognitionException {
         try {
             int _type = T56;
-            // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/contentassist/antlr/internal/InternalFractal.g:53:5: ( '.*' )
-            // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/contentassist/antlr/internal/InternalFractal.g:53:7: '.*'
+            // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/ui/contentassist/antlr/internal/InternalFractal.g:53:5: ( '.*' )
+            // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/ui/contentassist/antlr/internal/InternalFractal.g:53:7: '.*'
             {
             match(".*"); 
 
@@ -898,8 +898,8 @@ public class InternalFractalLexer extends Lexer {
     public final void mT57() throws RecognitionException {
         try {
             int _type = T57;
-            // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/contentassist/antlr/internal/InternalFractal.g:54:5: ( 'abstract' )
-            // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/contentassist/antlr/internal/InternalFractal.g:54:7: 'abstract'
+            // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/ui/contentassist/antlr/internal/InternalFractal.g:54:5: ( 'abstract' )
+            // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/ui/contentassist/antlr/internal/InternalFractal.g:54:7: 'abstract'
             {
             match("abstract"); 
 
@@ -917,12 +917,12 @@ public class InternalFractalLexer extends Lexer {
     public final void mRULE_CODEC() throws RecognitionException {
         try {
             int _type = RULE_CODEC;
-            // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/contentassist/antlr/internal/InternalFractal.g:7631:12: ( '{{' ( options {greedy=false; } : . )* '}}' )
-            // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/contentassist/antlr/internal/InternalFractal.g:7631:14: '{{' ( options {greedy=false; } : . )* '}}'
+            // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/ui/contentassist/antlr/internal/InternalFractal.g:7632:12: ( '{{' ( options {greedy=false; } : . )* '}}' )
+            // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/ui/contentassist/antlr/internal/InternalFractal.g:7632:14: '{{' ( options {greedy=false; } : . )* '}}'
             {
             match("{{"); 
 
-            // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/contentassist/antlr/internal/InternalFractal.g:7631:19: ( options {greedy=false; } : . )*
+            // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/ui/contentassist/antlr/internal/InternalFractal.g:7632:19: ( options {greedy=false; } : . )*
             loop1:
             do {
                 int alt1=2;
@@ -947,7 +947,7 @@ public class InternalFractalLexer extends Lexer {
 
                 switch (alt1) {
             	case 1 :
-            	    // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/contentassist/antlr/internal/InternalFractal.g:7631:47: .
+            	    // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/ui/contentassist/antlr/internal/InternalFractal.g:7632:47: .
             	    {
             	    matchAny(); 
 
@@ -975,10 +975,10 @@ public class InternalFractalLexer extends Lexer {
     public final void mRULE_PATH() throws RecognitionException {
         try {
             int _type = RULE_PATH;
-            // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/contentassist/antlr/internal/InternalFractal.g:7633:11: ( ( RULE_ID ( ':' )? | ( '.' )* ) ( ( '\\\\' | '\\\\\\\\' | '/' ) RULE_ID )* ( '\\\\' | '\\\\\\\\' | '/' ) )
-            // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/contentassist/antlr/internal/InternalFractal.g:7633:13: ( RULE_ID ( ':' )? | ( '.' )* ) ( ( '\\\\' | '\\\\\\\\' | '/' ) RULE_ID )* ( '\\\\' | '\\\\\\\\' | '/' )
+            // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/ui/contentassist/antlr/internal/InternalFractal.g:7634:11: ( ( RULE_ID ( ':' )? | ( '.' )* ) ( ( '\\\\' | '\\\\\\\\' | '/' ) RULE_ID )* ( '\\\\' | '\\\\\\\\' | '/' ) )
+            // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/ui/contentassist/antlr/internal/InternalFractal.g:7634:13: ( RULE_ID ( ':' )? | ( '.' )* ) ( ( '\\\\' | '\\\\\\\\' | '/' ) RULE_ID )* ( '\\\\' | '\\\\\\\\' | '/' )
             {
-            // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/contentassist/antlr/internal/InternalFractal.g:7633:13: ( RULE_ID ( ':' )? | ( '.' )* )
+            // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/ui/contentassist/antlr/internal/InternalFractal.g:7634:13: ( RULE_ID ( ':' )? | ( '.' )* )
             int alt4=2;
             int LA4_0 = input.LA(1);
 
@@ -990,16 +990,16 @@ public class InternalFractalLexer extends Lexer {
             }
             else {
                 NoViableAltException nvae =
-                    new NoViableAltException("7633:13: ( RULE_ID ( ':' )? | ( '.' )* )", 4, 0, input);
+                    new NoViableAltException("7634:13: ( RULE_ID ( ':' )? | ( '.' )* )", 4, 0, input);
 
                 throw nvae;
             }
             switch (alt4) {
                 case 1 :
-                    // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/contentassist/antlr/internal/InternalFractal.g:7633:14: RULE_ID ( ':' )?
+                    // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/ui/contentassist/antlr/internal/InternalFractal.g:7634:14: RULE_ID ( ':' )?
                     {
                     mRULE_ID(); 
-                    // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/contentassist/antlr/internal/InternalFractal.g:7633:22: ( ':' )?
+                    // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/ui/contentassist/antlr/internal/InternalFractal.g:7634:22: ( ':' )?
                     int alt2=2;
                     int LA2_0 = input.LA(1);
 
@@ -1008,7 +1008,7 @@ public class InternalFractalLexer extends Lexer {
                     }
                     switch (alt2) {
                         case 1 :
-                            // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/contentassist/antlr/internal/InternalFractal.g:7633:22: ':'
+                            // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/ui/contentassist/antlr/internal/InternalFractal.g:7634:22: ':'
                             {
                             match(':'); 
 
@@ -1021,9 +1021,9 @@ public class InternalFractalLexer extends Lexer {
                     }
                     break;
                 case 2 :
-                    // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/contentassist/antlr/internal/InternalFractal.g:7633:27: ( '.' )*
+                    // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/ui/contentassist/antlr/internal/InternalFractal.g:7634:27: ( '.' )*
                     {
-                    // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/contentassist/antlr/internal/InternalFractal.g:7633:27: ( '.' )*
+                    // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/ui/contentassist/antlr/internal/InternalFractal.g:7634:27: ( '.' )*
                     loop3:
                     do {
                         int alt3=2;
@@ -1036,7 +1036,7 @@ public class InternalFractalLexer extends Lexer {
 
                         switch (alt3) {
                     	case 1 :
-                    	    // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/contentassist/antlr/internal/InternalFractal.g:7633:27: '.'
+                    	    // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/ui/contentassist/antlr/internal/InternalFractal.g:7634:27: '.'
                     	    {
                     	    match('.'); 
 
@@ -1054,7 +1054,7 @@ public class InternalFractalLexer extends Lexer {
 
             }
 
-            // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/contentassist/antlr/internal/InternalFractal.g:7633:33: ( ( '\\\\' | '\\\\\\\\' | '/' ) RULE_ID )*
+            // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/ui/contentassist/antlr/internal/InternalFractal.g:7634:33: ( ( '\\\\' | '\\\\\\\\' | '/' ) RULE_ID )*
             loop6:
             do {
                 int alt6=2;
@@ -1091,9 +1091,9 @@ public class InternalFractalLexer extends Lexer {
 
                 switch (alt6) {
             	case 1 :
-            	    // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/contentassist/antlr/internal/InternalFractal.g:7633:34: ( '\\\\' | '\\\\\\\\' | '/' ) RULE_ID
+            	    // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/ui/contentassist/antlr/internal/InternalFractal.g:7634:34: ( '\\\\' | '\\\\\\\\' | '/' ) RULE_ID
             	    {
-            	    // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/contentassist/antlr/internal/InternalFractal.g:7633:34: ( '\\\\' | '\\\\\\\\' | '/' )
+            	    // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/ui/contentassist/antlr/internal/InternalFractal.g:7634:34: ( '\\\\' | '\\\\\\\\' | '/' )
             	    int alt5=3;
             	    int LA5_0 = input.LA(1);
 
@@ -1108,7 +1108,7 @@ public class InternalFractalLexer extends Lexer {
             	        }
             	        else {
             	            NoViableAltException nvae =
-            	                new NoViableAltException("7633:34: ( '\\\\' | '\\\\\\\\' | '/' )", 5, 1, input);
+            	                new NoViableAltException("7634:34: ( '\\\\' | '\\\\\\\\' | '/' )", 5, 1, input);
 
             	            throw nvae;
             	        }
@@ -1118,20 +1118,20 @@ public class InternalFractalLexer extends Lexer {
             	    }
             	    else {
             	        NoViableAltException nvae =
-            	            new NoViableAltException("7633:34: ( '\\\\' | '\\\\\\\\' | '/' )", 5, 0, input);
+            	            new NoViableAltException("7634:34: ( '\\\\' | '\\\\\\\\' | '/' )", 5, 0, input);
 
             	        throw nvae;
             	    }
             	    switch (alt5) {
             	        case 1 :
-            	            // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/contentassist/antlr/internal/InternalFractal.g:7633:35: '\\\\'
+            	            // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/ui/contentassist/antlr/internal/InternalFractal.g:7634:35: '\\\\'
             	            {
             	            match('\\'); 
 
             	            }
             	            break;
             	        case 2 :
-            	            // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/contentassist/antlr/internal/InternalFractal.g:7633:40: '\\\\\\\\'
+            	            // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/ui/contentassist/antlr/internal/InternalFractal.g:7634:40: '\\\\\\\\'
             	            {
             	            match("\\\\"); 
 
@@ -1139,7 +1139,7 @@ public class InternalFractalLexer extends Lexer {
             	            }
             	            break;
             	        case 3 :
-            	            // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/contentassist/antlr/internal/InternalFractal.g:7633:47: '/'
+            	            // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/ui/contentassist/antlr/internal/InternalFractal.g:7634:47: '/'
             	            {
             	            match('/'); 
 
@@ -1158,7 +1158,7 @@ public class InternalFractalLexer extends Lexer {
                 }
             } while (true);
 
-            // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/contentassist/antlr/internal/InternalFractal.g:7633:62: ( '\\\\' | '\\\\\\\\' | '/' )
+            // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/ui/contentassist/antlr/internal/InternalFractal.g:7634:62: ( '\\\\' | '\\\\\\\\' | '/' )
             int alt7=3;
             int LA7_0 = input.LA(1);
 
@@ -1176,20 +1176,20 @@ public class InternalFractalLexer extends Lexer {
             }
             else {
                 NoViableAltException nvae =
-                    new NoViableAltException("7633:62: ( '\\\\' | '\\\\\\\\' | '/' )", 7, 0, input);
+                    new NoViableAltException("7634:62: ( '\\\\' | '\\\\\\\\' | '/' )", 7, 0, input);
 
                 throw nvae;
             }
             switch (alt7) {
                 case 1 :
-                    // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/contentassist/antlr/internal/InternalFractal.g:7633:63: '\\\\'
+                    // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/ui/contentassist/antlr/internal/InternalFractal.g:7634:63: '\\\\'
                     {
                     match('\\'); 
 
                     }
                     break;
                 case 2 :
-                    // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/contentassist/antlr/internal/InternalFractal.g:7633:68: '\\\\\\\\'
+                    // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/ui/contentassist/antlr/internal/InternalFractal.g:7634:68: '\\\\\\\\'
                     {
                     match("\\\\"); 
 
@@ -1197,7 +1197,7 @@ public class InternalFractalLexer extends Lexer {
                     }
                     break;
                 case 3 :
-                    // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/contentassist/antlr/internal/InternalFractal.g:7633:75: '/'
+                    // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/ui/contentassist/antlr/internal/InternalFractal.g:7634:75: '/'
                     {
                     match('/'); 
 
@@ -1220,10 +1220,10 @@ public class InternalFractalLexer extends Lexer {
     public final void mRULE_ID() throws RecognitionException {
         try {
             int _type = RULE_ID;
-            // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/contentassist/antlr/internal/InternalFractal.g:7635:9: ( ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )* )
-            // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/contentassist/antlr/internal/InternalFractal.g:7635:11: ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
+            // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/ui/contentassist/antlr/internal/InternalFractal.g:7636:9: ( ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )* )
+            // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/ui/contentassist/antlr/internal/InternalFractal.g:7636:11: ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
             {
-            // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/contentassist/antlr/internal/InternalFractal.g:7635:11: ( '^' )?
+            // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/ui/contentassist/antlr/internal/InternalFractal.g:7636:11: ( '^' )?
             int alt8=2;
             int LA8_0 = input.LA(1);
 
@@ -1232,7 +1232,7 @@ public class InternalFractalLexer extends Lexer {
             }
             switch (alt8) {
                 case 1 :
-                    // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/contentassist/antlr/internal/InternalFractal.g:7635:11: '^'
+                    // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/ui/contentassist/antlr/internal/InternalFractal.g:7636:11: '^'
                     {
                     match('^'); 
 
@@ -1251,7 +1251,7 @@ public class InternalFractalLexer extends Lexer {
                 recover(mse);    throw mse;
             }
 
-            // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/contentassist/antlr/internal/InternalFractal.g:7635:40: ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
+            // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/ui/contentassist/antlr/internal/InternalFractal.g:7636:40: ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
             loop9:
             do {
                 int alt9=2;
@@ -1264,7 +1264,7 @@ public class InternalFractalLexer extends Lexer {
 
                 switch (alt9) {
             	case 1 :
-            	    // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/contentassist/antlr/internal/InternalFractal.g:
+            	    // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/ui/contentassist/antlr/internal/InternalFractal.g:
             	    {
             	    if ( (input.LA(1)>='0' && input.LA(1)<='9')||(input.LA(1)>='A' && input.LA(1)<='Z')||input.LA(1)=='_'||(input.LA(1)>='a' && input.LA(1)<='z') ) {
             	        input.consume();
@@ -1299,10 +1299,10 @@ public class InternalFractalLexer extends Lexer {
     public final void mRULE_INT() throws RecognitionException {
         try {
             int _type = RULE_INT;
-            // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/contentassist/antlr/internal/InternalFractal.g:7637:10: ( ( '0' .. '9' )+ )
-            // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/contentassist/antlr/internal/InternalFractal.g:7637:12: ( '0' .. '9' )+
+            // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/ui/contentassist/antlr/internal/InternalFractal.g:7638:10: ( ( '0' .. '9' )+ )
+            // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/ui/contentassist/antlr/internal/InternalFractal.g:7638:12: ( '0' .. '9' )+
             {
-            // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/contentassist/antlr/internal/InternalFractal.g:7637:12: ( '0' .. '9' )+
+            // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/ui/contentassist/antlr/internal/InternalFractal.g:7638:12: ( '0' .. '9' )+
             int cnt10=0;
             loop10:
             do {
@@ -1316,7 +1316,7 @@ public class InternalFractalLexer extends Lexer {
 
                 switch (alt10) {
             	case 1 :
-            	    // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/contentassist/antlr/internal/InternalFractal.g:7637:13: '0' .. '9'
+            	    // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/ui/contentassist/antlr/internal/InternalFractal.g:7638:13: '0' .. '9'
             	    {
             	    matchRange('0','9'); 
 
@@ -1346,10 +1346,10 @@ public class InternalFractalLexer extends Lexer {
     public final void mRULE_STRING() throws RecognitionException {
         try {
             int _type = RULE_STRING;
-            // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/contentassist/antlr/internal/InternalFractal.g:7639:13: ( ( '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' ) )
-            // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/contentassist/antlr/internal/InternalFractal.g:7639:15: ( '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
+            // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/ui/contentassist/antlr/internal/InternalFractal.g:7640:13: ( ( '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' ) )
+            // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/ui/contentassist/antlr/internal/InternalFractal.g:7640:15: ( '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
             {
-            // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/contentassist/antlr/internal/InternalFractal.g:7639:15: ( '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
+            // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/ui/contentassist/antlr/internal/InternalFractal.g:7640:15: ( '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
             int alt13=2;
             int LA13_0 = input.LA(1);
 
@@ -1361,16 +1361,16 @@ public class InternalFractalLexer extends Lexer {
             }
             else {
                 NoViableAltException nvae =
-                    new NoViableAltException("7639:15: ( '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )", 13, 0, input);
+                    new NoViableAltException("7640:15: ( '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )", 13, 0, input);
 
                 throw nvae;
             }
             switch (alt13) {
                 case 1 :
-                    // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/contentassist/antlr/internal/InternalFractal.g:7639:16: '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"'
+                    // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/ui/contentassist/antlr/internal/InternalFractal.g:7640:16: '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"'
                     {
                     match('\"'); 
-                    // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/contentassist/antlr/internal/InternalFractal.g:7639:20: ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )*
+                    // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/ui/contentassist/antlr/internal/InternalFractal.g:7640:20: ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )*
                     loop11:
                     do {
                         int alt11=3;
@@ -1386,7 +1386,7 @@ public class InternalFractalLexer extends Lexer {
 
                         switch (alt11) {
                     	case 1 :
-                    	    // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/contentassist/antlr/internal/InternalFractal.g:7639:21: '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' )
+                    	    // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/ui/contentassist/antlr/internal/InternalFractal.g:7640:21: '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' )
                     	    {
                     	    match('\\'); 
                     	    if ( input.LA(1)=='\"'||input.LA(1)=='\''||input.LA(1)=='\\'||input.LA(1)=='b'||input.LA(1)=='f'||input.LA(1)=='n'||input.LA(1)=='r'||input.LA(1)=='t' ) {
@@ -1403,7 +1403,7 @@ public class InternalFractalLexer extends Lexer {
                     	    }
                     	    break;
                     	case 2 :
-                    	    // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/contentassist/antlr/internal/InternalFractal.g:7639:62: ~ ( ( '\\\\' | '\"' ) )
+                    	    // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/ui/contentassist/antlr/internal/InternalFractal.g:7640:62: ~ ( ( '\\\\' | '\"' ) )
                     	    {
                     	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='!')||(input.LA(1)>='#' && input.LA(1)<='[')||(input.LA(1)>=']' && input.LA(1)<='\uFFFE') ) {
                     	        input.consume();
@@ -1429,10 +1429,10 @@ public class InternalFractalLexer extends Lexer {
                     }
                     break;
                 case 2 :
-                    // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/contentassist/antlr/internal/InternalFractal.g:7639:82: '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )* '\\''
+                    // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/ui/contentassist/antlr/internal/InternalFractal.g:7640:82: '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )* '\\''
                     {
                     match('\''); 
-                    // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/contentassist/antlr/internal/InternalFractal.g:7639:87: ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )*
+                    // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/ui/contentassist/antlr/internal/InternalFractal.g:7640:87: ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )*
                     loop12:
                     do {
                         int alt12=3;
@@ -1448,7 +1448,7 @@ public class InternalFractalLexer extends Lexer {
 
                         switch (alt12) {
                     	case 1 :
-                    	    // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/contentassist/antlr/internal/InternalFractal.g:7639:88: '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' )
+                    	    // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/ui/contentassist/antlr/internal/InternalFractal.g:7640:88: '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' )
                     	    {
                     	    match('\\'); 
                     	    if ( input.LA(1)=='\"'||input.LA(1)=='\''||input.LA(1)=='\\'||input.LA(1)=='b'||input.LA(1)=='f'||input.LA(1)=='n'||input.LA(1)=='r'||input.LA(1)=='t' ) {
@@ -1465,7 +1465,7 @@ public class InternalFractalLexer extends Lexer {
                     	    }
                     	    break;
                     	case 2 :
-                    	    // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/contentassist/antlr/internal/InternalFractal.g:7639:129: ~ ( ( '\\\\' | '\\'' ) )
+                    	    // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/ui/contentassist/antlr/internal/InternalFractal.g:7640:129: ~ ( ( '\\\\' | '\\'' ) )
                     	    {
                     	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='&')||(input.LA(1)>='(' && input.LA(1)<='[')||(input.LA(1)>=']' && input.LA(1)<='\uFFFE') ) {
                     	        input.consume();
@@ -1507,12 +1507,12 @@ public class InternalFractalLexer extends Lexer {
     public final void mRULE_ML_COMMENT() throws RecognitionException {
         try {
             int _type = RULE_ML_COMMENT;
-            // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/contentassist/antlr/internal/InternalFractal.g:7641:17: ( '/*' ( options {greedy=false; } : . )* '*/' )
-            // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/contentassist/antlr/internal/InternalFractal.g:7641:19: '/*' ( options {greedy=false; } : . )* '*/'
+            // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/ui/contentassist/antlr/internal/InternalFractal.g:7642:17: ( '/*' ( options {greedy=false; } : . )* '*/' )
+            // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/ui/contentassist/antlr/internal/InternalFractal.g:7642:19: '/*' ( options {greedy=false; } : . )* '*/'
             {
             match("/*"); 
 
-            // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/contentassist/antlr/internal/InternalFractal.g:7641:24: ( options {greedy=false; } : . )*
+            // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/ui/contentassist/antlr/internal/InternalFractal.g:7642:24: ( options {greedy=false; } : . )*
             loop14:
             do {
                 int alt14=2;
@@ -1537,7 +1537,7 @@ public class InternalFractalLexer extends Lexer {
 
                 switch (alt14) {
             	case 1 :
-            	    // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/contentassist/antlr/internal/InternalFractal.g:7641:52: .
+            	    // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/ui/contentassist/antlr/internal/InternalFractal.g:7642:52: .
             	    {
             	    matchAny(); 
 
@@ -1565,12 +1565,12 @@ public class InternalFractalLexer extends Lexer {
     public final void mRULE_SL_COMMENT() throws RecognitionException {
         try {
             int _type = RULE_SL_COMMENT;
-            // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/contentassist/antlr/internal/InternalFractal.g:7643:17: ( '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )? )
-            // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/contentassist/antlr/internal/InternalFractal.g:7643:19: '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )?
+            // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/ui/contentassist/antlr/internal/InternalFractal.g:7644:17: ( '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )? )
+            // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/ui/contentassist/antlr/internal/InternalFractal.g:7644:19: '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )?
             {
             match("//"); 
 
-            // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/contentassist/antlr/internal/InternalFractal.g:7643:24: (~ ( ( '\\n' | '\\r' ) ) )*
+            // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/ui/contentassist/antlr/internal/InternalFractal.g:7644:24: (~ ( ( '\\n' | '\\r' ) ) )*
             loop15:
             do {
                 int alt15=2;
@@ -1583,7 +1583,7 @@ public class InternalFractalLexer extends Lexer {
 
                 switch (alt15) {
             	case 1 :
-            	    // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/contentassist/antlr/internal/InternalFractal.g:7643:24: ~ ( ( '\\n' | '\\r' ) )
+            	    // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/ui/contentassist/antlr/internal/InternalFractal.g:7644:24: ~ ( ( '\\n' | '\\r' ) )
             	    {
             	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='\t')||(input.LA(1)>='\u000B' && input.LA(1)<='\f')||(input.LA(1)>='\u000E' && input.LA(1)<='\uFFFE') ) {
             	        input.consume();
@@ -1604,7 +1604,7 @@ public class InternalFractalLexer extends Lexer {
                 }
             } while (true);
 
-            // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/contentassist/antlr/internal/InternalFractal.g:7643:40: ( ( '\\r' )? '\\n' )?
+            // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/ui/contentassist/antlr/internal/InternalFractal.g:7644:40: ( ( '\\r' )? '\\n' )?
             int alt17=2;
             int LA17_0 = input.LA(1);
 
@@ -1613,9 +1613,9 @@ public class InternalFractalLexer extends Lexer {
             }
             switch (alt17) {
                 case 1 :
-                    // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/contentassist/antlr/internal/InternalFractal.g:7643:41: ( '\\r' )? '\\n'
+                    // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/ui/contentassist/antlr/internal/InternalFractal.g:7644:41: ( '\\r' )? '\\n'
                     {
-                    // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/contentassist/antlr/internal/InternalFractal.g:7643:41: ( '\\r' )?
+                    // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/ui/contentassist/antlr/internal/InternalFractal.g:7644:41: ( '\\r' )?
                     int alt16=2;
                     int LA16_0 = input.LA(1);
 
@@ -1624,7 +1624,7 @@ public class InternalFractalLexer extends Lexer {
                     }
                     switch (alt16) {
                         case 1 :
-                            // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/contentassist/antlr/internal/InternalFractal.g:7643:41: '\\r'
+                            // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/ui/contentassist/antlr/internal/InternalFractal.g:7644:41: '\\r'
                             {
                             match('\r'); 
 
@@ -1654,10 +1654,10 @@ public class InternalFractalLexer extends Lexer {
     public final void mRULE_WS() throws RecognitionException {
         try {
             int _type = RULE_WS;
-            // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/contentassist/antlr/internal/InternalFractal.g:7645:9: ( ( ' ' | '\\t' | '\\r' | '\\n' )+ )
-            // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/contentassist/antlr/internal/InternalFractal.g:7645:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
+            // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/ui/contentassist/antlr/internal/InternalFractal.g:7646:9: ( ( ' ' | '\\t' | '\\r' | '\\n' )+ )
+            // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/ui/contentassist/antlr/internal/InternalFractal.g:7646:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
             {
-            // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/contentassist/antlr/internal/InternalFractal.g:7645:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
+            // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/ui/contentassist/antlr/internal/InternalFractal.g:7646:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
             int cnt18=0;
             loop18:
             do {
@@ -1671,7 +1671,7 @@ public class InternalFractalLexer extends Lexer {
 
                 switch (alt18) {
             	case 1 :
-            	    // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/contentassist/antlr/internal/InternalFractal.g:
+            	    // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/ui/contentassist/antlr/internal/InternalFractal.g:
             	    {
             	    if ( (input.LA(1)>='\t' && input.LA(1)<='\n')||input.LA(1)=='\r'||input.LA(1)==' ' ) {
             	        input.consume();
@@ -1710,8 +1710,8 @@ public class InternalFractalLexer extends Lexer {
     public final void mRULE_ANY_OTHER() throws RecognitionException {
         try {
             int _type = RULE_ANY_OTHER;
-            // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/contentassist/antlr/internal/InternalFractal.g:7647:16: ( . )
-            // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/contentassist/antlr/internal/InternalFractal.g:7647:18: .
+            // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/ui/contentassist/antlr/internal/InternalFractal.g:7648:16: ( . )
+            // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/ui/contentassist/antlr/internal/InternalFractal.g:7648:18: .
             {
             matchAny(); 
 
@@ -1725,383 +1725,383 @@ public class InternalFractalLexer extends Lexer {
     // $ANTLR end RULE_ANY_OTHER
 
     public void mTokens() throws RecognitionException {
-        // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/contentassist/antlr/internal/InternalFractal.g:1:8: ( T13 | T14 | T15 | T16 | T17 | T18 | T19 | T20 | T21 | T22 | T23 | T24 | T25 | T26 | T27 | T28 | T29 | T30 | T31 | T32 | T33 | T34 | T35 | T36 | T37 | T38 | T39 | T40 | T41 | T42 | T43 | T44 | T45 | T46 | T47 | T48 | T49 | T50 | T51 | T52 | T53 | T54 | T55 | T56 | T57 | RULE_CODEC | RULE_PATH | RULE_ID | RULE_INT | RULE_STRING | RULE_ML_COMMENT | RULE_SL_COMMENT | RULE_WS | RULE_ANY_OTHER )
+        // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/ui/contentassist/antlr/internal/InternalFractal.g:1:8: ( T13 | T14 | T15 | T16 | T17 | T18 | T19 | T20 | T21 | T22 | T23 | T24 | T25 | T26 | T27 | T28 | T29 | T30 | T31 | T32 | T33 | T34 | T35 | T36 | T37 | T38 | T39 | T40 | T41 | T42 | T43 | T44 | T45 | T46 | T47 | T48 | T49 | T50 | T51 | T52 | T53 | T54 | T55 | T56 | T57 | RULE_CODEC | RULE_PATH | RULE_ID | RULE_INT | RULE_STRING | RULE_ML_COMMENT | RULE_SL_COMMENT | RULE_WS | RULE_ANY_OTHER )
         int alt19=54;
         alt19 = dfa19.predict(input);
         switch (alt19) {
             case 1 :
-                // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/contentassist/antlr/internal/InternalFractal.g:1:10: T13
+                // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/ui/contentassist/antlr/internal/InternalFractal.g:1:10: T13
                 {
                 mT13(); 
 
                 }
                 break;
             case 2 :
-                // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/contentassist/antlr/internal/InternalFractal.g:1:14: T14
+                // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/ui/contentassist/antlr/internal/InternalFractal.g:1:14: T14
                 {
                 mT14(); 
 
                 }
                 break;
             case 3 :
-                // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/contentassist/antlr/internal/InternalFractal.g:1:18: T15
+                // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/ui/contentassist/antlr/internal/InternalFractal.g:1:18: T15
                 {
                 mT15(); 
 
                 }
                 break;
             case 4 :
-                // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/contentassist/antlr/internal/InternalFractal.g:1:22: T16
+                // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/ui/contentassist/antlr/internal/InternalFractal.g:1:22: T16
                 {
                 mT16(); 
 
                 }
                 break;
             case 5 :
-                // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/contentassist/antlr/internal/InternalFractal.g:1:26: T17
+                // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/ui/contentassist/antlr/internal/InternalFractal.g:1:26: T17
                 {
                 mT17(); 
 
                 }
                 break;
             case 6 :
-                // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/contentassist/antlr/internal/InternalFractal.g:1:30: T18
+                // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/ui/contentassist/antlr/internal/InternalFractal.g:1:30: T18
                 {
                 mT18(); 
 
                 }
                 break;
             case 7 :
-                // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/contentassist/antlr/internal/InternalFractal.g:1:34: T19
+                // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/ui/contentassist/antlr/internal/InternalFractal.g:1:34: T19
                 {
                 mT19(); 
 
                 }
                 break;
             case 8 :
-                // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/contentassist/antlr/internal/InternalFractal.g:1:38: T20
+                // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/ui/contentassist/antlr/internal/InternalFractal.g:1:38: T20
                 {
                 mT20(); 
 
                 }
                 break;
             case 9 :
-                // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/contentassist/antlr/internal/InternalFractal.g:1:42: T21
+                // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/ui/contentassist/antlr/internal/InternalFractal.g:1:42: T21
                 {
                 mT21(); 
 
                 }
                 break;
             case 10 :
-                // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/contentassist/antlr/internal/InternalFractal.g:1:46: T22
+                // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/ui/contentassist/antlr/internal/InternalFractal.g:1:46: T22
                 {
                 mT22(); 
 
                 }
                 break;
             case 11 :
-                // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/contentassist/antlr/internal/InternalFractal.g:1:50: T23
+                // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/ui/contentassist/antlr/internal/InternalFractal.g:1:50: T23
                 {
                 mT23(); 
 
                 }
                 break;
             case 12 :
-                // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/contentassist/antlr/internal/InternalFractal.g:1:54: T24
+                // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/ui/contentassist/antlr/internal/InternalFractal.g:1:54: T24
                 {
                 mT24(); 
 
                 }
                 break;
             case 13 :
-                // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/contentassist/antlr/internal/InternalFractal.g:1:58: T25
+                // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/ui/contentassist/antlr/internal/InternalFractal.g:1:58: T25
                 {
                 mT25(); 
 
                 }
                 break;
             case 14 :
-                // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/contentassist/antlr/internal/InternalFractal.g:1:62: T26
+                // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/ui/contentassist/antlr/internal/InternalFractal.g:1:62: T26
                 {
                 mT26(); 
 
                 }
                 break;
             case 15 :
-                // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/contentassist/antlr/internal/InternalFractal.g:1:66: T27
+                // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/ui/contentassist/antlr/internal/InternalFractal.g:1:66: T27
                 {
                 mT27(); 
 
                 }
                 break;
             case 16 :
-                // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/contentassist/antlr/internal/InternalFractal.g:1:70: T28
+                // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/ui/contentassist/antlr/internal/InternalFractal.g:1:70: T28
                 {
                 mT28(); 
 
                 }
                 break;
             case 17 :
-                // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/contentassist/antlr/internal/InternalFractal.g:1:74: T29
+                // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/ui/contentassist/antlr/internal/InternalFractal.g:1:74: T29
                 {
                 mT29(); 
 
                 }
                 break;
             case 18 :
-                // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/contentassist/antlr/internal/InternalFractal.g:1:78: T30
+                // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/ui/contentassist/antlr/internal/InternalFractal.g:1:78: T30
                 {
                 mT30(); 
 
                 }
                 break;
             case 19 :
-                // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/contentassist/antlr/internal/InternalFractal.g:1:82: T31
+                // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/ui/contentassist/antlr/internal/InternalFractal.g:1:82: T31
                 {
                 mT31(); 
 
                 }
                 break;
             case 20 :
-                // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/contentassist/antlr/internal/InternalFractal.g:1:86: T32
+                // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/ui/contentassist/antlr/internal/InternalFractal.g:1:86: T32
                 {
                 mT32(); 
 
                 }
                 break;
             case 21 :
-                // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/contentassist/antlr/internal/InternalFractal.g:1:90: T33
+                // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/ui/contentassist/antlr/internal/InternalFractal.g:1:90: T33
                 {
                 mT33(); 
 
                 }
                 break;
             case 22 :
-                // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/contentassist/antlr/internal/InternalFractal.g:1:94: T34
+                // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/ui/contentassist/antlr/internal/InternalFractal.g:1:94: T34
                 {
                 mT34(); 
 
                 }
                 break;
             case 23 :
-                // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/contentassist/antlr/internal/InternalFractal.g:1:98: T35
+                // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/ui/contentassist/antlr/internal/InternalFractal.g:1:98: T35
                 {
                 mT35(); 
 
                 }
                 break;
             case 24 :
-                // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/contentassist/antlr/internal/InternalFractal.g:1:102: T36
+                // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/ui/contentassist/antlr/internal/InternalFractal.g:1:102: T36
                 {
                 mT36(); 
 
                 }
                 break;
             case 25 :
-                // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/contentassist/antlr/internal/InternalFractal.g:1:106: T37
+                // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/ui/contentassist/antlr/internal/InternalFractal.g:1:106: T37
                 {
                 mT37(); 
 
                 }
                 break;
             case 26 :
-                // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/contentassist/antlr/internal/InternalFractal.g:1:110: T38
+                // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/ui/contentassist/antlr/internal/InternalFractal.g:1:110: T38
                 {
                 mT38(); 
 
                 }
                 break;
             case 27 :
-                // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/contentassist/antlr/internal/InternalFractal.g:1:114: T39
+                // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/ui/contentassist/antlr/internal/InternalFractal.g:1:114: T39
                 {
                 mT39(); 
 
                 }
                 break;
             case 28 :
-                // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/contentassist/antlr/internal/InternalFractal.g:1:118: T40
+                // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/ui/contentassist/antlr/internal/InternalFractal.g:1:118: T40
                 {
                 mT40(); 
 
                 }
                 break;
             case 29 :
-                // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/contentassist/antlr/internal/InternalFractal.g:1:122: T41
+                // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/ui/contentassist/antlr/internal/InternalFractal.g:1:122: T41
                 {
                 mT41(); 
 
                 }
                 break;
             case 30 :
-                // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/contentassist/antlr/internal/InternalFractal.g:1:126: T42
+                // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/ui/contentassist/antlr/internal/InternalFractal.g:1:126: T42
                 {
                 mT42(); 
 
                 }
                 break;
             case 31 :
-                // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/contentassist/antlr/internal/InternalFractal.g:1:130: T43
+                // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/ui/contentassist/antlr/internal/InternalFractal.g:1:130: T43
                 {
                 mT43(); 
 
                 }
                 break;
             case 32 :
-                // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/contentassist/antlr/internal/InternalFractal.g:1:134: T44
+                // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/ui/contentassist/antlr/internal/InternalFractal.g:1:134: T44
                 {
                 mT44(); 
 
                 }
                 break;
             case 33 :
-                // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/contentassist/antlr/internal/InternalFractal.g:1:138: T45
+                // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/ui/contentassist/antlr/internal/InternalFractal.g:1:138: T45
                 {
                 mT45(); 
 
                 }
                 break;
             case 34 :
-                // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/contentassist/antlr/internal/InternalFractal.g:1:142: T46
+                // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/ui/contentassist/antlr/internal/InternalFractal.g:1:142: T46
                 {
                 mT46(); 
 
                 }
                 break;
             case 35 :
-                // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/contentassist/antlr/internal/InternalFractal.g:1:146: T47
+                // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/ui/contentassist/antlr/internal/InternalFractal.g:1:146: T47
                 {
                 mT47(); 
 
                 }
                 break;
             case 36 :
-                // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/contentassist/antlr/internal/InternalFractal.g:1:150: T48
+                // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/ui/contentassist/antlr/internal/InternalFractal.g:1:150: T48
                 {
                 mT48(); 
 
                 }
                 break;
             case 37 :
-                // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/contentassist/antlr/internal/InternalFractal.g:1:154: T49
+                // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/ui/contentassist/antlr/internal/InternalFractal.g:1:154: T49
                 {
                 mT49(); 
 
                 }
                 break;
             case 38 :
-                // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/contentassist/antlr/internal/InternalFractal.g:1:158: T50
+                // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/ui/contentassist/antlr/internal/InternalFractal.g:1:158: T50
                 {
                 mT50(); 
 
                 }
                 break;
             case 39 :
-                // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/contentassist/antlr/internal/InternalFractal.g:1:162: T51
+                // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/ui/contentassist/antlr/internal/InternalFractal.g:1:162: T51
                 {
                 mT51(); 
 
                 }
                 break;
             case 40 :
-                // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/contentassist/antlr/internal/InternalFractal.g:1:166: T52
+                // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/ui/contentassist/antlr/internal/InternalFractal.g:1:166: T52
                 {
                 mT52(); 
 
                 }
                 break;
             case 41 :
-                // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/contentassist/antlr/internal/InternalFractal.g:1:170: T53
+                // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/ui/contentassist/antlr/internal/InternalFractal.g:1:170: T53
                 {
                 mT53(); 
 
                 }
                 break;
             case 42 :
-                // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/contentassist/antlr/internal/InternalFractal.g:1:174: T54
+                // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/ui/contentassist/antlr/internal/InternalFractal.g:1:174: T54
                 {
                 mT54(); 
 
                 }
                 break;
             case 43 :
-                // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/contentassist/antlr/internal/InternalFractal.g:1:178: T55
+                // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/ui/contentassist/antlr/internal/InternalFractal.g:1:178: T55
                 {
                 mT55(); 
 
                 }
                 break;
             case 44 :
-                // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/contentassist/antlr/internal/InternalFractal.g:1:182: T56
+                // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/ui/contentassist/antlr/internal/InternalFractal.g:1:182: T56
                 {
                 mT56(); 
 
                 }
                 break;
             case 45 :
-                // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/contentassist/antlr/internal/InternalFractal.g:1:186: T57
+                // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/ui/contentassist/antlr/internal/InternalFractal.g:1:186: T57
                 {
                 mT57(); 
 
                 }
                 break;
             case 46 :
-                // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/contentassist/antlr/internal/InternalFractal.g:1:190: RULE_CODEC
+                // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/ui/contentassist/antlr/internal/InternalFractal.g:1:190: RULE_CODEC
                 {
                 mRULE_CODEC(); 
 
                 }
                 break;
             case 47 :
-                // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/contentassist/antlr/internal/InternalFractal.g:1:201: RULE_PATH
+                // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/ui/contentassist/antlr/internal/InternalFractal.g:1:201: RULE_PATH
                 {
                 mRULE_PATH(); 
 
                 }
                 break;
             case 48 :
-                // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/contentassist/antlr/internal/InternalFractal.g:1:211: RULE_ID
+                // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/ui/contentassist/antlr/internal/InternalFractal.g:1:211: RULE_ID
                 {
                 mRULE_ID(); 
 
                 }
                 break;
             case 49 :
-                // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/contentassist/antlr/internal/InternalFractal.g:1:219: RULE_INT
+                // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/ui/contentassist/antlr/internal/InternalFractal.g:1:219: RULE_INT
                 {
                 mRULE_INT(); 
 
                 }
                 break;
             case 50 :
-                // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/contentassist/antlr/internal/InternalFractal.g:1:228: RULE_STRING
+                // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/ui/contentassist/antlr/internal/InternalFractal.g:1:228: RULE_STRING
                 {
                 mRULE_STRING(); 
 
                 }
                 break;
             case 51 :
-                // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/contentassist/antlr/internal/InternalFractal.g:1:240: RULE_ML_COMMENT
+                // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/ui/contentassist/antlr/internal/InternalFractal.g:1:240: RULE_ML_COMMENT
                 {
                 mRULE_ML_COMMENT(); 
 
                 }
                 break;
             case 52 :
-                // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/contentassist/antlr/internal/InternalFractal.g:1:256: RULE_SL_COMMENT
+                // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/ui/contentassist/antlr/internal/InternalFractal.g:1:256: RULE_SL_COMMENT
                 {
                 mRULE_SL_COMMENT(); 
 
                 }
                 break;
             case 53 :
-                // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/contentassist/antlr/internal/InternalFractal.g:1:272: RULE_WS
+                // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/ui/contentassist/antlr/internal/InternalFractal.g:1:272: RULE_WS
                 {
                 mRULE_WS(); 
 
                 }
                 break;
             case 54 :
-                // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/contentassist/antlr/internal/InternalFractal.g:1:280: RULE_ANY_OTHER
+                // ../org.ow2.fractal.mind.xtext.ui/src-gen/org/ow2/fractal/mind/xtext/ui/contentassist/antlr/internal/InternalFractal.g:1:280: RULE_ANY_OTHER
                 {
                 mRULE_ANY_OTHER(); 
 

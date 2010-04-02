@@ -7,22 +7,22 @@ Bundle-SymbolicName: org.ow2.fractal.mind.xtext.ui; singleton:=true
 Eclipse-RegisterBuddy: org.eclipse.xtext.log4j
 Bundle-ActivationPolicy: lazy
 Require-Bundle: org.ow2.fractal.mind.xtext;visibility:=reexport,
- org.eclipse.xtext.ui.core,
- org.eclipse.xtext.ui.common,
  org.eclipse.xtend,
  org.ow2.fractal.mind.emf.model.editor,
  org.ow2.fractal.mind.emf.model,
  org.eclipse.ui.editors,
  org.eclipse.ui,
- org.antlr.runtime
+ org.antlr.runtime,
+ org.ow2.fractal.mind.emf.diagram;resolution:=optional,
+ org.eclipse.xtext.ui,
+ org.eclipse.xtext.ui.shared
 Bundle-RequiredExecutionEnvironment: J2SE-1.5
-Export-Package: org.ow2.fractal.mind.xtext,
- org.ow2.fractal.mind.xtext.contentassist,
- org.ow2.fractal.mind.xtext.contentassist.antlr,
- org.ow2.fractal.mind.xtext.internal
-Bundle-Activator: org.ow2.fractal.mind.xtext.internal.FractalActivator
+Export-Package: org.ow2.fractal.mind.xtext.ui,
+ org.ow2.fractal.mind.xtext.ui.contentassist.antlr,
+ org.ow2.fractal.mind.xtext.ui.internal
+Bundle-Activator: org.ow2.fractal.mind.xtext.ui.internal.FractalActivator
 Import-Package: org.apache.log4j,
  org.eclipse.gmf.runtime.common.ui.util,
- org.ow2.fractal.mind.diagram.custom.figures,
+ org.ow2.fractal.mind.diagram.custom.figures;resolution:=optional,
  org.ow2.fractal.mind.ide,
  org.ow2.fractal.mind.ide.emf.mindide

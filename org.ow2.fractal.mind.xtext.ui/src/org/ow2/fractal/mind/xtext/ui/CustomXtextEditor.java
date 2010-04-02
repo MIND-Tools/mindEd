@@ -1,8 +1,8 @@
-package org.ow2.fractal.mind.xtext;
+package org.ow2.fractal.mind.xtext.ui;
 
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.ui.IEditorInput;
-import org.eclipse.xtext.ui.core.editor.XtextEditor;
+import org.eclipse.xtext.ui.editor.XtextEditor;
 import org.ow2.fractal.mind.ide.ModelToProjectUtil;
 
 public class CustomXtextEditor extends XtextEditor {

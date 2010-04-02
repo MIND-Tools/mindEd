@@ -6,42 +6,19 @@
     <extension
             point="org.eclipse.ui.editors">
         <editor
-            class="org.ow2.fractal.mind.xtext.FractalExecutableExtensionFactory:org.ow2.fractal.mind.xtext.CustomXtextEditor"
+            class="org.ow2.fractal.mind.xtext.ui.FractalExecutableExtensionFactory:org.eclipse.xtext.ui.editor.XtextEditor"
             contributorClass="org.eclipse.ui.editors.text.TextEditorActionContributor"
             default="false"
             extensions="adl"
             id="org.ow2.fractal.mind.xtext.Fractal"
-            name="Fractal Editor">
+            name="MindEd Fractal Editor">
         </editor>
     </extension>
-    <!--<extension
-            point="org.eclipse.ui.editors">
-        <editor
-            class="org.ow2.fractal.mind.xtext.MindTabEditor"
-            contributorClass="org.ow2.fractal.mind.xtext.MindMultipageActionBarContributor"
-            default="false"
-            extensions="adl"
-            id="org.ow2.fractal.mind.xtext.FractalMulti"
-            name="Fractal Multi Page Editor">
-        </editor>
-    </extension>
-    -->
-    <!--<extension
-            point="org.eclipse.ui.editors">
-        <editor
-            class="org.ow2.fractal.mind.xtext.MindMultipageEditor"
-            contributorClass="org.eclipse.ui.editors.text.TextEditorActionContributor"
-            default="true"
-            extensions="adl"
-            id="org.ow2.fractal.mind.xtext.FractalMulti"
-            name="Fractal Multi Page Editor 2">
-        </editor>
-    </extension>-->
     <extension
         point="org.eclipse.ui.handlers">
         <handler
-            class="org.ow2.fractal.mind.xtext.FractalExecutableExtensionFactory:org.eclipse.xtext.ui.common.editor.hyperlinking.OpenDeclarationHandler"
-            commandId="org.eclipse.xtext.ui.common.editor.hyperlinking.OpenDeclaration">
+            class="org.ow2.fractal.mind.xtext.ui.FractalExecutableExtensionFactory:org.eclipse.xtext.ui.editor.hyperlinking.OpenDeclarationHandler"
+            commandId="org.eclipse.xtext.ui.editor.hyperlinking.OpenDeclaration">
             <activeWhen>
                 <reference
                     definitionId="org.ow2.fractal.mind.xtext.Fractal.Editor.opened">
@@ -49,7 +26,7 @@
             </activeWhen>
         </handler>
         <handler
-            class="org.ow2.fractal.mind.xtext.FractalExecutableExtensionFactory:org.eclipse.xtext.ui.core.editor.handler.ValidateActionHandler"
+            class="org.ow2.fractal.mind.xtext.ui.FractalExecutableExtensionFactory:org.eclipse.xtext.ui.editor.handler.ValidateActionHandler"
             commandId="org.ow2.fractal.mind.xtext.Fractal.validate">
          <activeWhen>
             <reference
@@ -63,7 +40,7 @@
             <and>
                 <reference definitionId="isActiveEditorAnInstanceOfXtextEditor"/>
                 <with variable="activeEditor">
-                    <test property="org.eclipse.xtext.ui.core.editor.XtextEditor.languageName" 
+                    <test property="org.eclipse.xtext.ui.editor.XtextEditor.languageName" 
                         value="org.ow2.fractal.mind.xtext.Fractal" 
                         forcePluginActivation="true"/>
                 </with>        
@@ -73,22 +50,21 @@
     <extension
             point="org.eclipse.ui.preferencePages">
         <page
-            class="org.ow2.fractal.mind.xtext.FractalExecutableExtensionFactory:org.eclipse.xtext.ui.core.editor.preferences.LanguageRootPreferencePage"
+            class="org.ow2.fractal.mind.xtext.ui.FractalExecutableExtensionFactory:org.eclipse.xtext.ui.editor.preferences.LanguageRootPreferencePage"
             id="org.ow2.fractal.mind.xtext.Fractal"
-            name="Fractal"
-            category="org.eclipse.xtext.languages">
+            name="Fractal">
             <keywordReference id="org.ow2.fractal.mind.xtext.ui.keyword_Fractal"/>
         </page>
         <page
             category="org.ow2.fractal.mind.xtext.Fractal"
-            class="org.ow2.fractal.mind.xtext.FractalExecutableExtensionFactory:org.eclipse.xtext.ui.common.editor.syntaxcoloring.SyntaxColoringPreferencePage"
+            class="org.ow2.fractal.mind.xtext.ui.FractalExecutableExtensionFactory:org.eclipse.xtext.ui.editor.syntaxcoloring.SyntaxColoringPreferencePage"
             id="org.ow2.fractal.mind.xtext.Fractal.coloring"
             name="Syntax Coloring">
             <keywordReference id="org.ow2.fractal.mind.xtext.ui.keyword_Fractal"/>
         </page>
         <page
             category="org.ow2.fractal.mind.xtext.Fractal"
-            class="org.ow2.fractal.mind.xtext.FractalExecutableExtensionFactory:org.eclipse.xtext.ui.common.editor.templates.XtextTemplatePreferencePage"
+            class="org.ow2.fractal.mind.xtext.ui.FractalExecutableExtensionFactory:org.eclipse.xtext.ui.editor.templates.XtextTemplatePreferencePage"
             id="org.ow2.fractal.mind.xtext.Fractal.templates"
             name="Templates">
             <keywordReference id="org.ow2.fractal.mind.xtext.ui.keyword_Fractal"/>
@@ -110,7 +86,7 @@
     </extension>
     <extension point="org.eclipse.ui.menus">
         <menuContribution
-            locationURI="popup:#TextEditorContext?after=group.open">
+            locationURI="popup:#TextEditorContext?after=group.edit">
              <command
                  commandId="org.ow2.fractal.mind.xtext.Fractal.validate"
                  style="push"
@@ -123,18 +99,52 @@
          </command>  
          </menuContribution>
     </extension>
+    <extension point="org.eclipse.ui.menus">
+		<menuContribution locationURI="popup:#TextEditorContext?endof=group.find">
+			<command commandId="org.eclipse.xtext.ui.editor.FindReferences">
+				<visibleWhen checkEnabled="false">
+                	<reference definitionId="org.ow2.fractal.mind.xtext.Fractal.Editor.opened">
+                	</reference>
+            	</visibleWhen>
+			</command>
+		</menuContribution>
+	</extension>
+	<extension point="org.eclipse.ui.handlers">
+	    <handler
+            class="org.ow2.fractal.mind.xtext.ui.FractalExecutableExtensionFactory:org.eclipse.xtext.ui.editor.findrefs.FindReferencesHandler"
+            commandId="org.eclipse.xtext.ui.editor.FindReferences">
+            <activeWhen>
+                <reference
+                    definitionId="org.ow2.fractal.mind.xtext.Fractal.Editor.opened">
+                </reference>
+            </activeWhen>
+        </handler>
+    </extension>   
 
 <!-- adding resource factories -->
 
 	<extension
 		point="org.eclipse.emf.ecore.extension_parser">
 		<parser
-			class="org.ow2.fractal.mind.xtext.FractalExecutableExtensionFactory:org.eclipse.xtext.resource.XtextResourceFactory"
+			class="org.ow2.fractal.mind.xtext.ui.FractalExecutableExtensionFactory:org.eclipse.xtext.resource.IResourceFactory"
 			type="adl">
 		</parser>
 	</extension>
+	<extension point="org.eclipse.xtext.extension_resourceServiceProvider">
+        <resourceServiceProvider
+            class="org.ow2.fractal.mind.xtext.ui.FractalExecutableExtensionFactory:org.eclipse.xtext.ui.resource.IResourceUIServiceProvider"
+            uriExtension="adl">
+        </resourceServiceProvider>
+    </extension>
 
 
+   <!-- quickfix marker resolution generator -->
+   <extension
+         point="org.eclipse.ui.ide.markerResolution">
+      <markerResolutionGenerator
+            class="org.ow2.fractal.mind.xtext.ui.FractalExecutableExtensionFactory:org.eclipse.xtext.ui.editor.quickfix.MarkerResolutionGenerator">
+      </markerResolutionGenerator>
+   </extension>
 
 
 </plugin>

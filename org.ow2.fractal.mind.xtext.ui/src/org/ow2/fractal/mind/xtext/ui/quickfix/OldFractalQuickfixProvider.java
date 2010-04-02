@@ -1,4 +1,4 @@
-package org.ow2.fractal.mind.xtext.quickfix;
+package org.ow2.fractal.mind.xtext.ui.quickfix;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -20,9 +20,9 @@ import org.eclipse.ui.IEditorInput;
 import org.eclipse.ui.IWorkbenchWindow;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.part.FileEditorInput;
-import org.eclipse.xtext.ui.core.editor.quickfix.AbstractDeclarativeQuickfixProvider;
-import org.eclipse.xtext.ui.core.editor.quickfix.Fix;
-import org.eclipse.xtext.validation.IssueContext;
+import org.eclipse.xtext.ui.editor.quickfix.AbstractDeclarativeQuickfixProvider;
+import org.eclipse.xtext.ui.editor.quickfix.Fix;
+import org.eclipse.xtext.validation.*;
 import org.ow2.fractal.mind.ide.ModelToProjectUtil;
 import org.ow2.fractal.mind.ide.emf.mindide.MindPathEntry;
 import org.ow2.fractal.mind.ide.emf.mindide.MindRootSrc;
@@ -41,7 +41,7 @@ import adl.TemplateSpecifier;
  * @contributor Damien Fournier
  * 
  */
-public class FractalQuickfixProvider extends
+public class OldFractalQuickfixProvider extends
 		AbstractDeclarativeQuickfixProvider {
 
 	/**

@@ -1,4 +1,4 @@
-package org.ow2.fractal.mind.xtext.contentassist;
+package org.ow2.fractal.mind.xtext.ui.contentassist;
 
 import java.util.Collection;
 import java.util.HashMap;
@@ -10,12 +10,13 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.jface.text.contentassist.ICompletionProposal;
 import org.eclipse.xtext.Assignment;
 import org.eclipse.xtext.RuleCall;
-import org.eclipse.xtext.ui.core.editor.contentassist.ContentAssistContext;
-import org.eclipse.xtext.ui.core.editor.contentassist.ICompletionProposalAcceptor;
+import org.eclipse.xtext.ui.editor.contentassist.ContentAssistContext;
+import org.eclipse.xtext.ui.editor.contentassist.ICompletionProposalAcceptor;
 import org.ow2.fractal.mind.ide.MindModelManager;
 import org.ow2.fractal.mind.ide.ModelToProjectUtil;
 import org.ow2.fractal.mind.ide.emf.mindide.MindAdl;
 import org.ow2.fractal.mind.ide.emf.mindide.MindPackage;
+import org.ow2.fractal.mind.xtext.ui.contentassist.AbstractFractalProposalProvider;
 import org.ow2.fractal.mind.xtext.util.FractalUtil;
 
 import adl.AdlDefinition;

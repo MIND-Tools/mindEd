@@ -10,15 +10,15 @@ options {
 }
 
 @lexer::header {
-package org.ow2.fractal.mind.xtext.contentassist.antlr.internal;
+package org.ow2.fractal.mind.xtext.ui.contentassist.antlr.internal;
 
 // Hack: Use our own Lexer superclass by means of import. 
 // Currently there is no other way to specify the superclass for the lexer.
-import org.eclipse.xtext.ui.common.editor.contentassist.antlr.internal.Lexer;
+import org.eclipse.xtext.ui.editor.contentassist.antlr.internal.Lexer;
 }
 
 @parser::header {
-package org.ow2.fractal.mind.xtext.contentassist.antlr.internal; 
+package org.ow2.fractal.mind.xtext.ui.contentassist.antlr.internal; 
 
 import java.io.InputStream;
 import org.eclipse.xtext.*;
@@ -29,7 +29,7 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.xtext.parser.antlr.XtextTokenStream;
 import org.eclipse.xtext.parser.antlr.XtextTokenStream.HiddenTokens;
-import org.eclipse.xtext.ui.common.editor.contentassist.antlr.internal.AbstractInternalContentAssistParser;
+import org.eclipse.xtext.ui.editor.contentassist.antlr.internal.AbstractInternalContentAssistParser;
 import org.ow2.fractal.mind.xtext.services.FractalGrammarAccess;
 
 }
@@ -67,7 +67,7 @@ entryRuleAdlDefinition
 ;
 
 // Rule AdlDefinition
-ruleAdlDefinition 
+ruleAdlDefinition
     @init {
 		int stackSize = keepStackSize();
     }
@@ -95,7 +95,7 @@ entryRuleImportDefinition
 ;
 
 // Rule ImportDefinition
-ruleImportDefinition 
+ruleImportDefinition
     @init {
 		int stackSize = keepStackSize();
     }
@@ -123,7 +123,7 @@ entryRuleArchitectureDefinition
 ;
 
 // Rule ArchitectureDefinition
-ruleArchitectureDefinition 
+ruleArchitectureDefinition
     @init {
 		int stackSize = keepStackSize();
     }
@@ -151,7 +151,7 @@ entryRulePrimitiveComponentDefinition
 ;
 
 // Rule PrimitiveComponentDefinition
-rulePrimitiveComponentDefinition 
+rulePrimitiveComponentDefinition
     @init {
 		int stackSize = keepStackSize();
     }
@@ -179,7 +179,7 @@ entryRulePrimitiveDefinitionElement
 ;
 
 // Rule PrimitiveDefinitionElement
-rulePrimitiveDefinitionElement 
+rulePrimitiveDefinitionElement
     @init {
 		int stackSize = keepStackSize();
     }
@@ -207,7 +207,7 @@ entryRuleComponentTypeDefinition
 ;
 
 // Rule ComponentTypeDefinition
-ruleComponentTypeDefinition 
+ruleComponentTypeDefinition
     @init {
 		int stackSize = keepStackSize();
     }
@@ -235,7 +235,7 @@ entryRuleTypeReferenceDefinition
 ;
 
 // Rule TypeReferenceDefinition
-ruleTypeReferenceDefinition 
+ruleTypeReferenceDefinition
     @init {
 		int stackSize = keepStackSize();
     }
@@ -263,7 +263,7 @@ entryRuleTypeDefinitionElement
 ;
 
 // Rule TypeDefinitionElement
-ruleTypeDefinitionElement 
+ruleTypeDefinitionElement
     @init {
 		int stackSize = keepStackSize();
     }
@@ -291,7 +291,7 @@ entryRuleCompositeComponentDefinition
 ;
 
 // Rule CompositeComponentDefinition
-ruleCompositeComponentDefinition 
+ruleCompositeComponentDefinition
     @init {
 		int stackSize = keepStackSize();
     }
@@ -319,7 +319,7 @@ entryRuleTemplateSpecifiersList
 ;
 
 // Rule TemplateSpecifiersList
-ruleTemplateSpecifiersList 
+ruleTemplateSpecifiersList
     @init {
 		int stackSize = keepStackSize();
     }
@@ -347,7 +347,7 @@ entryRuleFormalArgumentsList
 ;
 
 // Rule FormalArgumentsList
-ruleFormalArgumentsList 
+ruleFormalArgumentsList
     @init {
 		int stackSize = keepStackSize();
     }
@@ -375,7 +375,7 @@ entryRulePrimitiveReferencesList
 ;
 
 // Rule PrimitiveReferencesList
-rulePrimitiveReferencesList 
+rulePrimitiveReferencesList
     @init {
 		int stackSize = keepStackSize();
     }
@@ -403,7 +403,7 @@ entryRuleCompositeReferencesList
 ;
 
 // Rule CompositeReferencesList
-ruleCompositeReferencesList 
+ruleCompositeReferencesList
     @init {
 		int stackSize = keepStackSize();
     }
@@ -431,7 +431,7 @@ entryRuleTypeReferencesList
 ;
 
 // Rule TypeReferencesList
-ruleTypeReferencesList 
+ruleTypeReferencesList
     @init {
 		int stackSize = keepStackSize();
     }
@@ -459,7 +459,7 @@ entryRuleFormalArgument
 ;
 
 // Rule FormalArgument
-ruleFormalArgument 
+ruleFormalArgument
     @init {
 		int stackSize = keepStackSize();
     }
@@ -487,7 +487,7 @@ entryRuleCompositeDefinitionElement
 ;
 
 // Rule CompositeDefinitionElement
-ruleCompositeDefinitionElement 
+ruleCompositeDefinitionElement
     @init {
 		int stackSize = keepStackSize();
     }
@@ -515,7 +515,7 @@ entryRuleSubComponentDefinition
 ;
 
 // Rule SubComponentDefinition
-ruleSubComponentDefinition 
+ruleSubComponentDefinition
     @init {
 		int stackSize = keepStackSize();
     }
@@ -545,7 +545,7 @@ entryRuleCompositeBody
 ;
 
 // Rule CompositeBody
-ruleCompositeBody 
+ruleCompositeBody
     @init {
 		int stackSize = keepStackSize();
     }
@@ -573,7 +573,7 @@ entryRulePrimitiveBody
 ;
 
 // Rule PrimitiveBody
-rulePrimitiveBody 
+rulePrimitiveBody
     @init {
 		int stackSize = keepStackSize();
     }
@@ -601,7 +601,7 @@ entryRuleTypeBody
 ;
 
 // Rule TypeBody
-ruleTypeBody 
+ruleTypeBody
     @init {
 		int stackSize = keepStackSize();
     }
@@ -631,7 +631,7 @@ entryRuleComponentReference
 ;
 
 // Rule ComponentReference
-ruleComponentReference 
+ruleComponentReference
     @init {
 		int stackSize = keepStackSize();
     }
@@ -659,7 +659,7 @@ entryRuleCompositeReferenceDefinition
 ;
 
 // Rule CompositeReferenceDefinition
-ruleCompositeReferenceDefinition 
+ruleCompositeReferenceDefinition
     @init {
 		int stackSize = keepStackSize();
     }
@@ -687,7 +687,7 @@ entryRulePrimitiveReferenceDefinition
 ;
 
 // Rule PrimitiveReferenceDefinition
-rulePrimitiveReferenceDefinition 
+rulePrimitiveReferenceDefinition
     @init {
 		int stackSize = keepStackSize();
     }
@@ -715,7 +715,7 @@ entryRuleTemplateDefinition
 ;
 
 // Rule TemplateDefinition
-ruleTemplateDefinition 
+ruleTemplateDefinition
     @init {
 		int stackSize = keepStackSize();
     }
@@ -743,7 +743,7 @@ entryRuleAttributeDefinition
 ;
 
 // Rule AttributeDefinition
-ruleAttributeDefinition 
+ruleAttributeDefinition
     @init {
 		int stackSize = keepStackSize();
     }
@@ -771,7 +771,7 @@ entryRuleArgumentDefinition
 ;
 
 // Rule ArgumentDefinition
-ruleArgumentDefinition 
+ruleArgumentDefinition
     @init {
 		int stackSize = keepStackSize();
     }
@@ -799,7 +799,7 @@ entryRuleInterfaceDefinition
 ;
 
 // Rule InterfaceDefinition
-ruleInterfaceDefinition 
+ruleInterfaceDefinition
     @init {
 		int stackSize = keepStackSize();
     }
@@ -827,7 +827,7 @@ entryRuleBindingDefinition
 ;
 
 // Rule BindingDefinition
-ruleBindingDefinition 
+ruleBindingDefinition
     @init {
 		int stackSize = keepStackSize();
     }
@@ -855,7 +855,7 @@ entryRuleDataDefinition
 ;
 
 // Rule DataDefinition
-ruleDataDefinition 
+ruleDataDefinition
     @init {
 		int stackSize = keepStackSize();
     }
@@ -883,7 +883,7 @@ entryRuleImplementationDefinition
 ;
 
 // Rule ImplementationDefinition
-ruleImplementationDefinition 
+ruleImplementationDefinition
     @init {
 		int stackSize = keepStackSize();
     }
@@ -911,7 +911,7 @@ entryRuleTemplateSpecifier
 ;
 
 // Rule TemplateSpecifier
-ruleTemplateSpecifier 
+ruleTemplateSpecifier
     @init {
 		int stackSize = keepStackSize();
     }
@@ -939,7 +939,7 @@ entryRuleFileC
 ;
 
 // Rule FileC
-ruleFileC 
+ruleFileC
     @init {
 		int stackSize = keepStackSize();
     }
@@ -967,7 +967,7 @@ entryRuleFileName
 ;
 
 // Rule FileName
-ruleFileName 
+ruleFileName
     @init {
 		int stackSize = keepStackSize();
     }
@@ -995,7 +995,7 @@ entryRuleInlineCodeC
 ;
 
 // Rule InlineCodeC
-ruleInlineCodeC 
+ruleInlineCodeC
     @init {
 		int stackSize = keepStackSize();
     }
@@ -1023,7 +1023,7 @@ entryRuleAnnotationsList
 ;
 
 // Rule AnnotationsList
-ruleAnnotationsList 
+ruleAnnotationsList
     @init {
 		int stackSize = keepStackSize();
     }
@@ -1051,7 +1051,7 @@ entryRuleAnnotation
 ;
 
 // Rule Annotation
-ruleAnnotation 
+ruleAnnotation
     @init {
 		int stackSize = keepStackSize();
     }
@@ -1079,7 +1079,7 @@ entryRuleAnnotationElement
 ;
 
 // Rule AnnotationElement
-ruleAnnotationElement 
+ruleAnnotationElement
     @init {
 		int stackSize = keepStackSize();
     }
@@ -1107,7 +1107,7 @@ entryRuleElementValue
 ;
 
 // Rule ElementValue
-ruleElementValue 
+ruleElementValue
     @init {
 		int stackSize = keepStackSize();
     }
@@ -1135,7 +1135,7 @@ entryRuleConstantValue
 ;
 
 // Rule ConstantValue
-ruleConstantValue 
+ruleConstantValue
     @init {
 		int stackSize = keepStackSize();
     }
@@ -1163,7 +1163,7 @@ entryRuleConstantFormat
 ;
 
 // Rule ConstantFormat
-ruleConstantFormat 
+ruleConstantFormat
     @init {
 		int stackSize = keepStackSize();
     }
@@ -1191,7 +1191,7 @@ entryRuleElementValueArrayInitializer
 ;
 
 // Rule ElementValueArrayInitializer
-ruleElementValueArrayInitializer 
+ruleElementValueArrayInitializer
     @init {
 		int stackSize = keepStackSize();
     }
@@ -1219,7 +1219,7 @@ entryRuleValue
 ;
 
 // Rule Value
-ruleValue 
+ruleValue
     @init {
 		int stackSize = keepStackSize();
     }
@@ -1247,7 +1247,7 @@ entryRuleHexadecimalType
 ;
 
 // Rule HexadecimalType
-ruleHexadecimalType 
+ruleHexadecimalType
     @init {
 		int stackSize = keepStackSize();
     }
@@ -1275,7 +1275,7 @@ entryRuleAnnotationType
 ;
 
 // Rule AnnotationType
-ruleAnnotationType 
+ruleAnnotationType
     @init {
 		int stackSize = keepStackSize();
     }
@@ -1303,7 +1303,7 @@ entryRuleAttributeType
 ;
 
 // Rule AttributeType
-ruleAttributeType 
+ruleAttributeType
     @init {
 		int stackSize = keepStackSize();
     }
@@ -1331,7 +1331,7 @@ entryRuleFQN
 ;
 
 // Rule FQN
-ruleFQN 
+ruleFQN
     @init {
 		int stackSize = keepStackSize();
     }
@@ -1359,7 +1359,7 @@ entryRuleFULL_IMPORT_NAME
 ;
 
 // Rule FULL_IMPORT_NAME
-ruleFULL_IMPORT_NAME 
+ruleFULL_IMPORT_NAME
     @init {
 		int stackSize = keepStackSize();
     }
@@ -1387,7 +1387,7 @@ entryRulesignedINT
 ;
 
 // Rule signedINT
-rulesignedINT 
+rulesignedINT
     @init {
 		int stackSize = keepStackSize();
     }
@@ -6095,6 +6095,7 @@ rule__SignedINT__Group__1
 finally {
 	restoreStackSize(stackSize);
 }
+
 
 
 
