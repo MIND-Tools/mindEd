@@ -11,7 +11,7 @@
             default="true"
             extensions="idt"
             id="org.ow2.fractal.mind.idl.FractalIdt"
-            name="FractalIdt Editor">
+            name="MindEd Idt Editor">
         </editor>
     </extension>
     <extension

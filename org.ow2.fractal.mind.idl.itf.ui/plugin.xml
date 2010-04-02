@@ -11,7 +11,7 @@
             default="true"
             extensions="itf"
             id="org.ow2.fractal.mind.idl.FractalItf"
-            name="FractalItf Editor">
+            name="MindEd Itf Editor">
         </editor>
     </extension>
     <extension
