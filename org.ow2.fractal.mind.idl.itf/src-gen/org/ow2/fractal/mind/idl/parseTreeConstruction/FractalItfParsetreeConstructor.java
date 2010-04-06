@@ -3262,12 +3262,12 @@ protected class DirectDeclarator_ArrayAssignment_1 extends AssignmentToken  {
 /************ begin Rule ArraySpecification ****************
  *
  * ArraySpecification:
- *   "[" constExpr=ConstantExpression "]";   / *AbstractDirectDeclarator:
+ *   "[" constExpr=ConstantExpression? "]";   / *AbstractDirectDeclarator:
  *   '(' dec=AbstractDeclarator ')' array+=ArraySpecification*;* /
  *
  **/
 
-// "[" constExpr=ConstantExpression "]"
+// "[" constExpr=ConstantExpression? "]"
 protected class ArraySpecification_Group extends GroupToken {
 	
 	public ArraySpecification_Group(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
@@ -3315,7 +3315,7 @@ protected class ArraySpecification_LeftSquareBracketKeyword_0 extends KeywordTok
 		
 }
 
-// constExpr=ConstantExpression
+// constExpr=ConstantExpression?
 protected class ArraySpecification_ConstExprAssignment_1 extends AssignmentToken  {
 	
 	public ArraySpecification_ConstExprAssignment_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
@@ -3337,7 +3337,7 @@ protected class ArraySpecification_ConstExprAssignment_1 extends AssignmentToken
 		
     @Override	
 	protected IInstanceDescription tryConsumeVal() {
-		if((value = current.getConsumable("constExpr",true)) == null) return null;
+		if((value = current.getConsumable("constExpr",false)) == null) return null;
 		IInstanceDescription obj = current.cloneAndConsume("constExpr");
 		if(value instanceof EObject) { // org::eclipse::xtext::impl::RuleCallImpl
 			IInstanceDescription param = getDescr((EObject)value);
@@ -3377,6 +3377,7 @@ protected class ArraySpecification_RightSquareBracketKeyword_2 extends KeywordTo
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
 			case 0: return new ArraySpecification_ConstExprAssignment_1(parent, this, 0, inst);
+			case 1: return new ArraySpecification_LeftSquareBracketKeyword_0(parent, this, 1, inst);
 			default: return null;
 		}	
 	}	

@@ -1844,7 +1844,7 @@ ruleArraySpecification returns [EObject current=null]
 	    }
 
 )
-)	']' 
+)?	']' 
     {
         createLeafNode(grammarAccess.getArraySpecificationAccess().getRightSquareBracketKeyword_2(), null); 
     }

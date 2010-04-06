@@ -738,17 +738,17 @@ public class FractalItfGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cRightSquareBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
 		
 		//ArraySpecification:
-		//  "[" constExpr=ConstantExpression "]";   / *AbstractDirectDeclarator:
+		//  "[" constExpr=ConstantExpression? "]";   / *AbstractDirectDeclarator:
 		//  '(' dec=AbstractDeclarator ')' array+=ArraySpecification*;* /
 		public ParserRule getRule() { return rule; }
 
-		//"[" constExpr=ConstantExpression "]"
+		//"[" constExpr=ConstantExpression? "]"
 		public Group getGroup() { return cGroup; }
 
 		//"["
 		public Keyword getLeftSquareBracketKeyword_0() { return cLeftSquareBracketKeyword_0; }
 
-		//constExpr=ConstantExpression
+		//constExpr=ConstantExpression?
 		public Assignment getConstExprAssignment_1() { return cConstExprAssignment_1; }
 
 		//ConstantExpression
@@ -2674,7 +2674,7 @@ public class FractalItfGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//ArraySpecification:
-	//  "[" constExpr=ConstantExpression "]";   / *AbstractDirectDeclarator:
+	//  "[" constExpr=ConstantExpression? "]";   / *AbstractDirectDeclarator:
 	//  '(' dec=AbstractDeclarator ')' array+=ArraySpecification*;* /
 	public ArraySpecificationElements getArraySpecificationAccess() {
 		return (pArraySpecification != null) ? pArraySpecification : (pArraySpecification = new ArraySpecificationElements());

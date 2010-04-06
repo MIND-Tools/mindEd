@@ -82,7 +82,7 @@ DirectDeclarator:
   '(' dec=AbstractDeclarator ')' array+=ArraySpecification*;*/
 
 ArraySpecification:
-  '[' constExpr=ConstantExpression ']';
+  '[' (constExpr=ConstantExpression)? ']';
 
 FullyQualifiedName:
   ID ('.' ID)*; // Interface definition part

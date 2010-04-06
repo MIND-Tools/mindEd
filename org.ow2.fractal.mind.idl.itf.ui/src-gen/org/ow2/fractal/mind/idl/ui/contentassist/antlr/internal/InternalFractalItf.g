@@ -3798,7 +3798,7 @@ rule__ArraySpecification__Group__1
 :
 (
 { before(grammarAccess.getArraySpecificationAccess().getConstExprAssignment_1()); }
-(rule__ArraySpecification__ConstExprAssignment_1)
+(rule__ArraySpecification__ConstExprAssignment_1)?
 { after(grammarAccess.getArraySpecificationAccess().getConstExprAssignment_1()); }
 )
 

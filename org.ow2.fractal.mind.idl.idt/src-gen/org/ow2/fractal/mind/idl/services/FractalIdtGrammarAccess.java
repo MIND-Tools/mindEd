@@ -444,7 +444,7 @@ public class FractalIdtGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//ArraySpecification:
-	//  "[" constExpr=ConstantExpression "]";   / *AbstractDirectDeclarator:
+	//  "[" constExpr=ConstantExpression? "]";   / *AbstractDirectDeclarator:
 	//  '(' dec=AbstractDeclarator ')' array+=ArraySpecification*;* /
 	public FractalItfGrammarAccess.ArraySpecificationElements getArraySpecificationAccess() {
 		return gaFractalItf.getArraySpecificationAccess();
