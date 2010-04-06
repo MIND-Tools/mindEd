@@ -29,17 +29,23 @@
 			generatemodelproject="true"
 			>
 		</emf.Ecore2Java>
+		<eclipse.refreshLocal resource="org.ow2.fractal.mind.emf.model" depth="infinite"/>
+		<eclipse.refreshLocal resource="org.ow2.fractal.mind.emf.model.edit" depth="infinite"/>
+		<eclipse.refreshLocal resource="org.ow2.fractal.mind.emf.model.editor" depth="infinite"/>
+		<eclipse.refreshLocal resource="org.ow2.fractal.mind.emf.diagram" depth="infinite"/>
+					
+		<gmf:GenerateDiagramCode gmfgenPath="org.ow2.fractal.mind.gmf/model/mind.gmfgen" />
 		
-		<gmf:GenerateDiagramCode gmfgenPath="${gmf-project}/model/mind.gmfgen" ignoreLoadErrors="true" ignoreValidationErrors="true" />
-		
-		
+		<eclipse.refreshLocal resource="org.ow2.fractal.mind.emf.diagram" depth="infinite"/>
+				
 		<echo message="Generating source code from xText grammar (using oAW)"/>
-		<taskdef name="workflow" classname="org.openarchitectureware.workflow.ant.WorkflowAntTask">
-			<classpath refid="@dot.classpath"/>
-		</taskdef>
-		<workflow file="src/generate.oaw" fork="true">
+		
+		<taskdef name="workflow" classname="org.eclipse.emf.mwe.core.ant.WorkflowAntTask"/>
+		<workflow file='path/workflow.mwe'>
+			<param name='baseDir' value='/base/'/>
 			<classpath refid="@dot.classpath"/>
 		</workflow>
+	
 
 	</target>
 
@@ -57,7 +63,6 @@
 		<mkdir dir="${emf-edit-project}/src" />
 		<delete dir="${emf-editor-project}/src"/>
 		<mkdir dir="${emf-editor-project}/src" />
-		<delete dir="${org.ow2.fractal.mind.gmf}/src"/>
 		<mkdir dir="${org.ow2.fractal.mind.emf.diagram}/src" />
 
 	</target>
