@@ -25,4 +25,6 @@ Import-Package: com.google.inject,
  org.eclipse.emf.edit.ui.provider,
  org.eclipse.emf.edit.ui.util,
  org.eclipse.ui.part,
+ org.eclipse.ui.views.properties,
+ org.eclipse.xtext.ui.editor,
  org.ow2.fractal.mind.ide
