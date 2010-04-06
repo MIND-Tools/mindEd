@@ -16,6 +16,8 @@
         transient="true" defaultValueLiteral="" derived="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="simpleName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         transient="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="componentKind" eType="#//ComponentKind"
+        transient="true" defaultValueLiteral="NULL"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="AdlDefinition">
     <eStructuralFeatures xsi:type="ecore:EReference" name="imports" upperBound="-1"
@@ -224,5 +226,11 @@
   <eClassifiers xsi:type="ecore:EEnum" name="Role">
     <eLiterals name="provides" literal="provides"/>
     <eLiterals name="requires" value="1" literal="requires"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="ComponentKind" serializable="false">
+    <eLiterals name="NULL"/>
+    <eLiterals name="COMPOSITE" value="1"/>
+    <eLiterals name="PRIMITIVE" value="2"/>
+    <eLiterals name="TYPE" value="3"/>
   </eClassifiers>
 </ecore:EPackage>
