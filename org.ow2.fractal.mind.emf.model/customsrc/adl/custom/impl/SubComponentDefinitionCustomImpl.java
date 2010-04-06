@@ -32,6 +32,12 @@ import adl.impl.SubComponentDefinitionImpl;
  * @extends
  */
 public class SubComponentDefinitionCustomImpl extends SubComponentDefinitionImpl {
+	@Override
+	public boolean isAnonymous() {
+		anonymous = (this.getReferenceDefinition()==null);
+		return super.isAnonymous();
+	}
+
 	/**
 	 * EList<ComponentReference> activeDefinitionCallsList : Local variable containing the list of references that have already been treated.
 	 */
@@ -45,6 +51,7 @@ public class SubComponentDefinitionCustomImpl extends SubComponentDefinitionImpl
 	 */
 	@Override
 	public void setReferenceDefinition(ComponentReference newReferenceDefinition) {
+		anonymous = (newReferenceDefinition==null);
 		super.setReferenceDefinition(newReferenceDefinition);
 	}
 

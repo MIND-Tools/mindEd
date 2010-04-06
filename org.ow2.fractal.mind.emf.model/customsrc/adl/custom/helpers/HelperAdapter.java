@@ -32,6 +32,7 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
 import adl.AdlDefinition;
 import adl.AdlPackage;
 import adl.ArchitectureDefinition;
+import adl.ComponentKind;
 import adl.InterfaceDefinition;
 import adl.custom.impl.AdlDefinitionCustomImpl;
 
@@ -147,8 +148,8 @@ implements IHelper<T>{
 		return definitionName;	
 	}
 	
-	public ComponentType getComponentType(){
-		return ComponentType.NONE;
+	public ComponentKind getComponentKind(){
+		return ComponentKind.NULL;
 	};
 	
 	public InterfaceDefinition getInterfaceByName(String interfaceName,

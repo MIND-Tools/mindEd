@@ -29,6 +29,7 @@ import org.eclipse.emf.ecore.EObject;
 import adl.ArchitectureDefinition;
 import adl.InterfaceDefinition;
 import adl.custom.impl.AdlDefinitionCustomImpl;
+import adl.ComponentKind; 
 
 // TODO: Auto-generated Javadoc
 /**
@@ -44,8 +45,6 @@ public interface IHelper<T extends EObject> extends IHelperComments{
 	 * @return the object
 	 * @model default=""
 	 */
-	public enum ComponentType { COMPOSITE, PRIMITIVE, TYPE, NONE }
-	
 	public T getObject();
 	
 	String getSimpleName(ArchitectureDefinition definition);
@@ -62,7 +61,7 @@ public interface IHelper<T extends EObject> extends IHelperComments{
 	
 	ArchitectureDefinition getComponentByName(String componentName);
 	
-	ComponentType getComponentType();
+	ComponentKind getComponentKind();
 	
 	String getNameFQN();
 	

@@ -9,6 +9,7 @@ import org.ow2.fractal.mind.ide.ModelToProjectUtil;
 
 import adl.AdlPackage;
 import adl.ArchitectureDefinition;
+import adl.ComponentKind;
 import adl.ComponentReference;
 import adl.InterfaceDefinition;
 import adl.custom.util.AdlMergeUtil;
@@ -170,17 +171,17 @@ public class ArchitectureDefinitionHelper extends HelperAdapter<ArchitectureDefi
 	}
 	
 	@Override
-	public ComponentType getComponentType(){
-		if(getObject().getBody()==null)return ComponentType.NONE;
+	public ComponentKind getComponentKind(){
+		if(getObject().getBody()==null)return ComponentKind.NULL;
 		switch(getObject().getBody().eClass().getClassifierID())
 		{
 		case AdlPackage.COMPOSITE_BODY:
-			return ComponentType.COMPOSITE;
+			return ComponentKind.COMPOSITE;
 		case AdlPackage.PRIMITIVE_BODY:
-			return ComponentType.PRIMITIVE;
+			return ComponentKind.PRIMITIVE;
 		case AdlPackage.TYPE_BODY:
-			return ComponentType.TYPE;
+			return ComponentKind.TYPE;
 		}
-		return ComponentType.NONE;
+		return ComponentKind.NULL;
 	};
 }
