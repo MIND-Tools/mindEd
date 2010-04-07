@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site>
+   <description name="MIND update site">
+      Le projet MIND veut proposer à la communauté industrielle et
+académique du logiciel embarqué une technologie d’assemblage
+de composants logiciels fondamentale, robuste, stable et pérenne,
+adaptable aux problématiques métiers de chacun.
+   </description>
+   <feature url="features/org.ow2.fractal.mind.feature_0.2.0.201004071405.jar" id="org.ow2.fractal.mind.feature" version="0.2.0.201004071405">
+      <category name="MIND"/>
+   </feature>
+   <feature url="features/org.ow2.fractal.mind.sdk.feature_0.2.0.201004071405.jar" id="org.ow2.fractal.mind.sdk.feature" version="0.2.0.201004071405">
+      <category name="MIND"/>
+   </feature>
+   <category-def name="MIND" label="MIND Minalogic"/>
+</site>
