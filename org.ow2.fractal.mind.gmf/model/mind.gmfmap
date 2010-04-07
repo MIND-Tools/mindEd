@@ -438,7 +438,7 @@
               <domainMetaElement
                   href="../../org.ow2.fractal.mind.emf/model/mind.ecore#//SubComponentDefinition"/>
               <domainSpecialization
-                  body="self.referenceDefinition.oclIsKindOf(CompositeReferenceDefinition)"/>
+                  body="self.getHelper() = null"/>
               <domainInitializer
                   xsi:type="gmfmap:FeatureSeqInitializer">
                 <initializers
