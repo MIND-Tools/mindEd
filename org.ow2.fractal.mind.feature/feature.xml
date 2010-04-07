@@ -45,7 +45,7 @@ Ce faisant, et avec l’appui des financements publics pour supporter le surcoû
       <import feature="org.eclipse.emf.validation" version="1.3.0.v200902052232-479-9oB55W69AO6KBA9" match="greaterOrEqual"/>
       <import feature="org.eclipse.emf.validation.ocl" version="1.3.0.v20091215-1218-3--7w311A232602329" match="greaterOrEqual"/>
       <import feature="org.eclipse.gef" version="3.6.0.v20100201-1030-777B-81A2Bz-6766395E33747" match="greaterOrEqual"/>
-      <import feature="org.eclipse.gmf" version="1.4.0.v20100223-2359-7d9--FXwrT7pM2UbuZbJb9quixwb" match="greaterOrEqual"/>
+      <import feature="org.eclipse.gmf" version="1.4.0" match="greaterOrEqual"/>
       <import feature="org.eclipse.help" version="1.2.0.v20090729-7e7jCWFEx2Xd7ZRvSUw9w9" match="greaterOrEqual"/>
       <import feature="org.eclipse.jdt" version="3.6.0.v20100124-2000-7z8WFRAFMTdeCo0y7FJt1Zi45027" match="greaterOrEqual"/>
       <import feature="org.eclipse.ocl" version="3.0.0.v200912282100-79-7G9oB56N7ABK9KDA" match="greaterOrEqual"/>
