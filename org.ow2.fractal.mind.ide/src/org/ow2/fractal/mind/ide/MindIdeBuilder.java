@@ -39,7 +39,6 @@ import org.ow2.fractal.mind.ide.emf.mindide.MindPathEntry;
 import org.ow2.fractal.mind.ide.emf.mindide.MindPathKind;
 import org.ow2.fractal.mind.ide.emf.mindide.MindProject;
 import org.ow2.fractal.mind.ide.emf.mindide.MindRootSrc;
-import org.ow2.fractal.mind.ide.emf.mindide.MindideFactory;
 import org.ow2.fractal.mind.ide.emf.mindide.MindidePackage;
 
 /**
@@ -158,7 +157,8 @@ public class MindIdeBuilder extends IncrementalProjectBuilder {
 		MindCMarker.setSeverity(marker, IMarker.SEVERITY_ERROR);
 		marker.setAttribute(IMarker.CHAR_START, charsIndex[0]);
 		marker.setAttribute(IMarker.CHAR_END, charsIndex[1]);
-		marker.setAttribute(IMarker.LINE_NUMBER, locator.getBeginLine());
+		if (locator != null)
+			marker.setAttribute(IMarker.LINE_NUMBER, locator.getBeginLine());
 		MindCMarker.setDescription(marker, error.getMessage());
 		e.printStackTrace();
 	}
@@ -252,9 +252,11 @@ public class MindIdeBuilder extends IncrementalProjectBuilder {
 	static URLClassLoader mindCClassLoader = null;
 	
 	
-	public static URLClassLoader getMindCClassLoader() {
+	public static URLClassLoader getMindCClassLoader() throws CoreException {
 		if (mindCClassLoader == null) {
 			String mindLocation = MindActivator.getPref().getMindCLocation();
+			if (mindLocation == null)
+				throw new CoreException(new Status(Status.ERROR, MindActivator.ID, "Cannot find mindc, set mindc location in preference"));
 			File libMindC = new File(new File( mindLocation), "lib");
 			ArrayList<URL> urls = new ArrayList<URL>();
 			File[] jars = libMindC.listFiles();
@@ -299,7 +301,7 @@ public class MindIdeBuilder extends IncrementalProjectBuilder {
 		}
 	}
 	
-	public static void checkFile(IProject project, List<MindFile> filesToCheck) throws InvalidCommandLineException, ADLException, CompilerError {
+	public static void checkFile(IProject project, List<MindFile> filesToCheck) throws InvalidCommandLineException, ADLException, CompilerError, CoreException {
 		MindProject mp = MindIdeCore.get(project);
 		if (mp == null) return;
 		ArrayList<String> args = new ArrayList<String>();
@@ -338,10 +340,11 @@ method: public static void nonExitMain(final String... args)
 
 	 * @param args
 	 * @throws ADLException
+	 * @throws CoreException 
 	 */
 	
 	static public void mindc(String... args) throws InvalidCommandLineException,
-    ADLException, CompilerError {
+    ADLException, CompilerError, CoreException {
 		String mindClassName =MindActivator.getPref().getMindCMainClass();
 		
 		if (mindClassName == null || "".equals(mindClassName))
