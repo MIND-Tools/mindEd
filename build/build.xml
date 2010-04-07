@@ -24,29 +24,56 @@
 		<property name="emf-edit-project" value="${basedir}/../org.ow2.fractal.mind.emf.model.edit" />
 		<property name="emf-editor-project" value="${basedir}/../org.ow2.fractal.mind.emf.model.editor" />
 		<property name="gmf-project" value ="${basedir}/../org.ow2.fractal.mind.gmf"/>
-		<emf.Ecore2Java genModel="${model-dir}/mind.genmodel" model="${model-dir}/mind.ecore" 
-			reconcilegenmodel="keep" generatejavacode="true" generateeditorproject="true" generateeditproject="true"
-			generatemodelproject="true"
-			>
-		</emf.Ecore2Java>
+		
 		<eclipse.refreshLocal resource="org.ow2.fractal.mind.emf.model" depth="infinite"/>
 		<eclipse.refreshLocal resource="org.ow2.fractal.mind.emf.model.edit" depth="infinite"/>
 		<eclipse.refreshLocal resource="org.ow2.fractal.mind.emf.model.editor" depth="infinite"/>
+		
+		<emf.Ecore2Java genModel="${model-dir}/mind.genmodel" model="${model-dir}/mind.ecore" 
+			generatejavacode="true" 
+			generateeditorproject="false" 
+			generateeditproject="false"
+			generatemodelproject="true"
+			reconcilegenmodel="reload"
+			>
+		</emf.Ecore2Java>
+		<eclipse.refreshLocal resource="org.ow2.fractal.mind.emf.model" depth="infinite"/>
+		<emf.Ecore2Java genModel="${model-dir}/mind.genmodel" model="${model-dir}/mind.ecore" 
+					generatejavacode="true" 
+					generateeditorproject="true" 
+					generateeditproject="true"
+					generatemodelproject="false"
+					reconcilegenmodel="keep"
+					>
+				</emf.Ecore2Java>
+		<eclipse.refreshLocal resource="org.ow2.fractal.mind.emf.model.edit" depth="infinite"/>
+		<eclipse.refreshLocal resource="org.ow2.fractal.mind.emf.model.editor" depth="infinite"/>
 		<eclipse.refreshLocal resource="org.ow2.fractal.mind.emf.diagram" depth="infinite"/>
+		<eclipse.incrementalBuild project="org.ow2.fractal.mind.emf.model" kind="incremental"/>
+		<eclipse.incrementalBuild project="org.ow2.fractal.mind.emf.model.edit" kind="incremental"/>
+		<eclipse.incrementalBuild project="org.ow2.fractal.mind.emf.model.editor" kind="incremental"/>
+
 					
 		<gmf:GenerateDiagramCode gmfgenPath="org.ow2.fractal.mind.gmf/model/mind.gmfgen" />
 		
 		<eclipse.refreshLocal resource="org.ow2.fractal.mind.emf.diagram" depth="infinite"/>
 				
+		
+		<!-- 
 		<echo message="Generating source code from xText grammar (using oAW)"/>
 		
-		<taskdef name="workflow" classname="org.eclipse.emf.mwe.core.ant.WorkflowAntTask"/>
+		<taskdef name="workflow" classname="org.eclipse.emf.mwe.core.ant.WorkflowAntTask">
+			<classpath>
+				<fileset dir="${eclipse.home}/plugins"></fileset>
+			</classpath>
+		</taskdef>
 		<workflow file='path/workflow.mwe'>
 			<param name='baseDir' value='/base/'/>
 			<classpath refid="@dot.classpath"/>
-		</workflow>
-	
-
+		</workflow> 
+		
+		-->
+		
 	</target>
 
 	<target name="clean">
