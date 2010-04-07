@@ -107,12 +107,6 @@ public class CustomMindDiagramEditor extends MindDiagramEditor {
 		}
 		
 		printableLayers.removeLayer(LayerConstants.CONNECTION_LAYER);
-		// printableLayers.addLayerAfter(new ConnectionLayerExEx(),
-		// LayerConstants.CONNECTION_LAYER,
-		// printableLayers.getLayer(DiagramRootEditPart.DECORATION_PRINTABLE_LAYER));
-		// for some reason the code above does not replace the connection
-		// layer in the same place where it was.
-		// the heavy code below works.
 		Layer decorationLayer = printableLayers
 				.getLayer(DiagramRootEditPart.DECORATION_PRINTABLE_LAYER);
 		printableLayers
