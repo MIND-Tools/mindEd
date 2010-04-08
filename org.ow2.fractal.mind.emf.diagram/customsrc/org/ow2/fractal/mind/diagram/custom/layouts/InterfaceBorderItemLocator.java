@@ -433,7 +433,10 @@ public class InterfaceBorderItemLocator
 	public int getSide(Point location, IFigure borderItem) {
 		Rectangle bounds = getParentBorder();
 		int parentFigureWidth = bounds.width;
-		int parentFigureX = bounds.x;
+		Point parentLoc = new Point(bounds.x,bounds.y);
+		borderItem.translateToAbsolute(parentLoc);
+		
+		int parentFigureX = parentLoc.x;
 		Dimension borderItemSize = getSize(borderItem);
 		int westX = parentFigureX - borderItemSize.width
 			+ getBorderItemOffset().width;

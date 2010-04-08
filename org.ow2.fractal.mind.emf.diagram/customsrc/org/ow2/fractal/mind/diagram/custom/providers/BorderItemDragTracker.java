@@ -1,5 +1,6 @@
 package org.ow2.fractal.mind.diagram.custom.providers;
 
+import org.eclipse.draw2d.PositionConstants;
 import org.eclipse.emf.transaction.impl.TransactionImpl;
 import org.eclipse.gef.EditPart;
 import org.eclipse.gmf.runtime.diagram.ui.tools.DragEditPartsTrackerEx;
@@ -30,7 +31,7 @@ public class BorderItemDragTracker extends DragEditPartsTrackerEx {
 				int newSide = locator.getSide(getLocation(), editPart.getPrimaryShape());
 				int currentSide = locator.getCurrentSideOfParent();
 				if (newSide != currentSide) {
-					revertInterfaceRole(editPart);
+					setInterfaceRole(editPart, newSide);
 					locator.setCurrentSideOfParent(newSide);
 					locator.setPreferredSideOfParent(newSide);
 				}
@@ -62,6 +63,24 @@ public class BorderItemDragTracker extends DragEditPartsTrackerEx {
 		} catch (Exception e) {
 			MindDiagramEditorPlugin.getInstance().logError("Undefined error when trying to revert interface's role",e);
 		}
+	}
+	
+	protected void setInterfaceRole(InterfaceDefinitionEditPart editPart, int newSide) {
+		
+		try {
+			InterfaceDefinition element = (InterfaceDefinition)((View)editPart.getModel()).getElement();
+			TransactionImpl transaction = new TransactionImpl(editPart.getEditingDomain(),false);
+			transaction.start();
+			if (newSide == PositionConstants.WEST)
+				element.setRole(Role.PROVIDES);
+			else element.setRole(Role.REQUIRES);
+			transaction.commit();
+		} catch (NullPointerException e) {
+			MindDiagramEditorPlugin.getInstance().logError("Null exception when trying to revert interface's role",e);
+		} catch (Exception e) {
+			MindDiagramEditorPlugin.getInstance().logError("Undefined error when trying to revert interface's role",e);
+		}
+		
 		
 		
 	}
