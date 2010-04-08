@@ -4,6 +4,7 @@ import org.eclipse.emf.common.util.EList;
 
 import adl.AnnotationsList;
 import adl.Body;
+import adl.ComponentKind;
 import adl.ComponentReference;
 import adl.Element;
 import adl.impl.SubComponentDefinitionImpl;
@@ -124,6 +125,14 @@ public class SubComponentDefinitionCustomImpl extends SubComponentDefinitionImpl
 			if (index > 0 && elements.get(index - 1) instanceof AnnotationsList) linkedAnnotationsList = (AnnotationsList) elements
 					.get(index - 1);
 		}
+	}
+	
+	@Override
+	public ComponentKind getComponentKind() {
+		ComponentKind kind = getHelper().getComponentKind();
+		if (componentKind != kind)
+			componentKind = kind;
+		return kind;
 	}
 
 }
