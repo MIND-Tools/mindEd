@@ -21,6 +21,12 @@
       <genEnumLiterals ecoreEnumLiteral="mind.ecore#//Role/provides"/>
       <genEnumLiterals ecoreEnumLiteral="mind.ecore#//Role/requires"/>
     </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="mind.ecore#//ComponentKind">
+      <genEnumLiterals ecoreEnumLiteral="mind.ecore#//ComponentKind/NULL"/>
+      <genEnumLiterals ecoreEnumLiteral="mind.ecore#//ComponentKind/COMPOSITE"/>
+      <genEnumLiterals ecoreEnumLiteral="mind.ecore#//ComponentKind/PRIMITIVE"/>
+      <genEnumLiterals ecoreEnumLiteral="mind.ecore#//ComponentKind/TYPE"/>
+    </genEnums>
     <genClasses ecoreClass="mind.ecore#//ArchitectureDefinition">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mind.ecore#//ArchitectureDefinition/name"/>
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference mind.ecore#//ArchitectureDefinition/parentAdlDefinition"/>
@@ -28,6 +34,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference mind.ecore#//ArchitectureDefinition/referencesList"/>
       <genFeatures property="None" createChild="false" ecoreFeature="ecore:EAttribute mind.ecore#//ArchitectureDefinition/nameFQN"/>
       <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute mind.ecore#//ArchitectureDefinition/simpleName"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mind.ecore#//ArchitectureDefinition/componentKind"/>
     </genClasses>
     <genClasses ecoreClass="mind.ecore#//AdlDefinition">
       <genFeatures children="true" createChild="false" propertySortChoices="true"
@@ -150,7 +157,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference mind.ecore#//ReferencesList/references"/>
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference mind.ecore#//ReferencesList/parentComponentDefinition"/>
     </genClasses>
-    <genClasses image="false" ecoreClass="mind.ecore#//SubComponentDefinition">
+    <genClasses ecoreClass="mind.ecore#//SubComponentDefinition">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference mind.ecore#//SubComponentDefinition/referenceDefinition"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mind.ecore#//SubComponentDefinition/anonymous"/>
     </genClasses>
