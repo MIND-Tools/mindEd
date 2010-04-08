@@ -89,7 +89,7 @@ FullyQualifiedName:
 
 
 ConstantDefinition:
-  "#define" id=ID;
+  "#define" id=ID expr=ConstantExpression?;
 
 InterfaceDefinition:
   annotations=Annotations 'interface' ("unmanaged")? fqn=FullyQualifiedName (":" fqn2=
@@ -141,7 +141,7 @@ ArrayAnnotationValue:
 terminal Boolean:
   'true' | 'false';
 
-signedINT:
+terminal signedINT:
   ('+'|'-')? INT;
 
 ConstantExpression:
@@ -182,7 +182,7 @@ PrimaryExpression:
   literal=Literal|'(' ConstantExpression ')';
 
 Literal:
-  ID|STRING|FloatingPointLiteral|ConstantDefinition|ref=[ConstantDefinition|ID];
+  ID|STRING|FloatingPointLiteral|ref=[ConstantDefinition|ID];
 
 ShiftOperation:
   '<<'|'>>';
@@ -197,11 +197,14 @@ UnaryOperation:
   '&'|'*'|'+'|'-'|'~'|'!';
 
 FloatingPointLiteral:
-  INT+ '.' INT* (Exponent)? ('f' | 'F' | 'd' | 'D')?
-  | '.' INT+ (Exponent)? ('f' | 'F' | 'd' | 'D')? 
-  | INT+ Exponent ('f' | 'F' | 'd' | 'D')? 
-  | INT+ Exponent? ('f' | 'F' | 'd' | 'D')? ;
+  INT+ '.' INT* (Exponent)? FDsymbol?
+  | '.' INT+ (Exponent)? FDsymbol? 
+  | INT+ Exponent FDsymbol? 
+  | INT+ Exponent? FDsymbol? ;
 
 terminal Exponent:
   ('e' | 'E') ('+' | '-')? INT+;
+  
+terminal FDsymbol:
+ 'f' | 'F' | 'd' | 'D';
   

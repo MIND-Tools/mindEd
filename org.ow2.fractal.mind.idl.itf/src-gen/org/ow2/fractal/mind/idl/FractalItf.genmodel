@@ -110,6 +110,7 @@
     </genClasses>
     <genClasses ecoreClass="FractalItf.ecore#//ConstantDefinition">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute FractalItf.ecore#//ConstantDefinition/id"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference FractalItf.ecore#//ConstantDefinition/expr"/>
     </genClasses>
     <genClasses ecoreClass="FractalItf.ecore#//InterfaceDefinition">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference FractalItf.ecore#//InterfaceDefinition/annotations"/>

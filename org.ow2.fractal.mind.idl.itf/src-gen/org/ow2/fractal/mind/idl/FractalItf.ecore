@@ -125,8 +125,10 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="constExpr" eType="#//ConstantExpression"
         containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ConstantDefinition" eSuperTypes="#//Literal">
+  <eClassifiers xsi:type="ecore:EClass" name="ConstantDefinition">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="expr" eType="#//ConstantExpression"
+        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="InterfaceDefinition">
     <eStructuralFeatures xsi:type="ecore:EReference" name="annotations" eType="#//Annotations"

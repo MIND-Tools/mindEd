@@ -5,6 +5,7 @@ package org.ow2.fractal.mind.idl.ui.labeling;
 
 import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider;
 import org.eclipse.xtext.ui.label.DefaultEObjectLabelProvider;
+import org.ow2.fractal.mind.idl.fractalIDL.ConstantDefinition;
 import org.ow2.fractal.mind.idl.fractalIdt.ConstantDefinitionBegin;
 import org.ow2.fractal.mind.idl.fractalIdt.ConstantDefinitionEnd;
 
@@ -31,6 +32,11 @@ public class FractalIdtLabelProvider extends DefaultEObjectLabelProvider {
 	
 	public String image(ConstantDefinitionEnd obj) {
 		return "define_obj.gif";
+	}
+	
+	public String image(ConstantDefinition obj) {
+		return "define_obj.gif";
+
 	}
 	
 }

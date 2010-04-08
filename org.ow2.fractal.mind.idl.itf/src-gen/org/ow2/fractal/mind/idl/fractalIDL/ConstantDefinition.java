@@ -6,6 +6,7 @@
  */
 package org.ow2.fractal.mind.idl.fractalIDL;
 
+import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -16,6 +17,7 @@ package org.ow2.fractal.mind.idl.fractalIDL;
  * The following features are supported:
  * <ul>
  *   <li>{@link org.ow2.fractal.mind.idl.fractalIDL.ConstantDefinition#getId <em>Id</em>}</li>
+ *   <li>{@link org.ow2.fractal.mind.idl.fractalIDL.ConstantDefinition#getExpr <em>Expr</em>}</li>
  * </ul>
  * </p>
  *
@@ -23,7 +25,7 @@ package org.ow2.fractal.mind.idl.fractalIDL;
  * @model
  * @generated
  */
-public interface ConstantDefinition extends Literal
+public interface ConstantDefinition extends EObject
 {
   /**
    * Returns the value of the '<em><b>Id</b></em>' attribute.
@@ -50,5 +52,31 @@ public interface ConstantDefinition extends Literal
    * @generated
    */
   void setId(String value);
+
+  /**
+   * Returns the value of the '<em><b>Expr</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Expr</em>' containment reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Expr</em>' containment reference.
+   * @see #setExpr(ConstantExpression)
+   * @see org.ow2.fractal.mind.idl.fractalIDL.FractalIDLPackage#getConstantDefinition_Expr()
+   * @model containment="true"
+   * @generated
+   */
+  ConstantExpression getExpr();
+
+  /**
+   * Sets the value of the '{@link org.ow2.fractal.mind.idl.fractalIDL.ConstantDefinition#getExpr <em>Expr</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Expr</em>' containment reference.
+   * @see #getExpr()
+   * @generated
+   */
+  void setExpr(ConstantExpression value);
 
 } // ConstantDefinition

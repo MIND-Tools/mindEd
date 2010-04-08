@@ -795,12 +795,14 @@ public class FractalItfGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cDefineKeyword_0 = (Keyword)cGroup.eContents().get(0);
 		private final Assignment cIdAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final RuleCall cIdIDTerminalRuleCall_1_0 = (RuleCall)cIdAssignment_1.eContents().get(0);
+		private final Assignment cExprAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cExprConstantExpressionParserRuleCall_2_0 = (RuleCall)cExprAssignment_2.eContents().get(0);
 		
 		//ConstantDefinition:
-		//  "#define" id=ID;   // Interface definition part
+		//  "#define" id=ID expr=ConstantExpression?;   // Interface definition part
 		public ParserRule getRule() { return rule; }
 
-		//"#define" id=ID
+		//"#define" id=ID expr=ConstantExpression?
 		public Group getGroup() { return cGroup; }
 
 		//"#define"
@@ -811,6 +813,12 @@ public class FractalItfGrammarAccess extends AbstractGrammarElementFinder {
 
 		//ID
 		public RuleCall getIdIDTerminalRuleCall_1_0() { return cIdIDTerminalRuleCall_1_0; }
+
+		//expr=ConstantExpression?
+		public Assignment getExprAssignment_2() { return cExprAssignment_2; }
+
+		//ConstantExpression
+		public RuleCall getExprConstantExpressionParserRuleCall_2_0() { return cExprConstantExpressionParserRuleCall_2_0; }
 	}
 
 	public class InterfaceDefinitionElements extends AbstractParserRuleElementFinder {
@@ -1813,16 +1821,15 @@ public class FractalItfGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cIDTerminalRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
 		private final RuleCall cSTRINGTerminalRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
 		private final RuleCall cFloatingPointLiteralParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
-		private final RuleCall cConstantDefinitionParserRuleCall_3 = (RuleCall)cAlternatives.eContents().get(3);
-		private final Assignment cRefAssignment_4 = (Assignment)cAlternatives.eContents().get(4);
-		private final CrossReference cRefConstantDefinitionCrossReference_4_0 = (CrossReference)cRefAssignment_4.eContents().get(0);
-		private final RuleCall cRefConstantDefinitionIDTerminalRuleCall_4_0_1 = (RuleCall)cRefConstantDefinitionCrossReference_4_0.eContents().get(1);
+		private final Assignment cRefAssignment_3 = (Assignment)cAlternatives.eContents().get(3);
+		private final CrossReference cRefConstantDefinitionCrossReference_3_0 = (CrossReference)cRefAssignment_3.eContents().get(0);
+		private final RuleCall cRefConstantDefinitionIDTerminalRuleCall_3_0_1 = (RuleCall)cRefConstantDefinitionCrossReference_3_0.eContents().get(1);
 		
 		//Literal:
-		//  ID|STRING|FloatingPointLiteral|ConstantDefinition|ref=[ConstantDefinition];
+		//  ID|STRING|FloatingPointLiteral|ref=[ConstantDefinition];
 		public ParserRule getRule() { return rule; }
 
-		//ID|STRING|FloatingPointLiteral|ConstantDefinition|ref=[ConstantDefinition]
+		//ID|STRING|FloatingPointLiteral|ref=[ConstantDefinition]
 		public Alternatives getAlternatives() { return cAlternatives; }
 
 		//ID
@@ -1834,17 +1841,14 @@ public class FractalItfGrammarAccess extends AbstractGrammarElementFinder {
 		//FloatingPointLiteral
 		public RuleCall getFloatingPointLiteralParserRuleCall_2() { return cFloatingPointLiteralParserRuleCall_2; }
 
-		//ConstantDefinition
-		public RuleCall getConstantDefinitionParserRuleCall_3() { return cConstantDefinitionParserRuleCall_3; }
-
 		//ref=[ConstantDefinition]
-		public Assignment getRefAssignment_4() { return cRefAssignment_4; }
+		public Assignment getRefAssignment_3() { return cRefAssignment_3; }
 
 		//[ConstantDefinition]
-		public CrossReference getRefConstantDefinitionCrossReference_4_0() { return cRefConstantDefinitionCrossReference_4_0; }
+		public CrossReference getRefConstantDefinitionCrossReference_3_0() { return cRefConstantDefinitionCrossReference_3_0; }
 
 		//ID
-		public RuleCall getRefConstantDefinitionIDTerminalRuleCall_4_0_1() { return cRefConstantDefinitionIDTerminalRuleCall_4_0_1; }
+		public RuleCall getRefConstantDefinitionIDTerminalRuleCall_3_0_1() { return cRefConstantDefinitionIDTerminalRuleCall_3_0_1; }
 	}
 
 	public class ShiftOperationElements extends AbstractParserRuleElementFinder {
@@ -1955,47 +1959,31 @@ public class FractalItfGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cFullStopKeyword_0_1 = (Keyword)cGroup_0.eContents().get(1);
 		private final RuleCall cINTTerminalRuleCall_0_2 = (RuleCall)cGroup_0.eContents().get(2);
 		private final RuleCall cExponentTerminalRuleCall_0_3 = (RuleCall)cGroup_0.eContents().get(3);
-		private final Alternatives cAlternatives_0_4 = (Alternatives)cGroup_0.eContents().get(4);
-		private final Keyword cFKeyword_0_4_0 = (Keyword)cAlternatives_0_4.eContents().get(0);
-		private final Keyword cFKeyword_0_4_1 = (Keyword)cAlternatives_0_4.eContents().get(1);
-		private final Keyword cDKeyword_0_4_2 = (Keyword)cAlternatives_0_4.eContents().get(2);
-		private final Keyword cDKeyword_0_4_3 = (Keyword)cAlternatives_0_4.eContents().get(3);
+		private final RuleCall cFDsymbolTerminalRuleCall_0_4 = (RuleCall)cGroup_0.eContents().get(4);
 		private final Group cGroup_1 = (Group)cAlternatives.eContents().get(1);
 		private final Keyword cFullStopKeyword_1_0 = (Keyword)cGroup_1.eContents().get(0);
 		private final RuleCall cINTTerminalRuleCall_1_1 = (RuleCall)cGroup_1.eContents().get(1);
 		private final RuleCall cExponentTerminalRuleCall_1_2 = (RuleCall)cGroup_1.eContents().get(2);
-		private final Alternatives cAlternatives_1_3 = (Alternatives)cGroup_1.eContents().get(3);
-		private final Keyword cFKeyword_1_3_0 = (Keyword)cAlternatives_1_3.eContents().get(0);
-		private final Keyword cFKeyword_1_3_1 = (Keyword)cAlternatives_1_3.eContents().get(1);
-		private final Keyword cDKeyword_1_3_2 = (Keyword)cAlternatives_1_3.eContents().get(2);
-		private final Keyword cDKeyword_1_3_3 = (Keyword)cAlternatives_1_3.eContents().get(3);
+		private final RuleCall cFDsymbolTerminalRuleCall_1_3 = (RuleCall)cGroup_1.eContents().get(3);
 		private final Group cGroup_2 = (Group)cAlternatives.eContents().get(2);
 		private final RuleCall cINTTerminalRuleCall_2_0 = (RuleCall)cGroup_2.eContents().get(0);
 		private final RuleCall cExponentTerminalRuleCall_2_1 = (RuleCall)cGroup_2.eContents().get(1);
-		private final Alternatives cAlternatives_2_2 = (Alternatives)cGroup_2.eContents().get(2);
-		private final Keyword cFKeyword_2_2_0 = (Keyword)cAlternatives_2_2.eContents().get(0);
-		private final Keyword cFKeyword_2_2_1 = (Keyword)cAlternatives_2_2.eContents().get(1);
-		private final Keyword cDKeyword_2_2_2 = (Keyword)cAlternatives_2_2.eContents().get(2);
-		private final Keyword cDKeyword_2_2_3 = (Keyword)cAlternatives_2_2.eContents().get(3);
+		private final RuleCall cFDsymbolTerminalRuleCall_2_2 = (RuleCall)cGroup_2.eContents().get(2);
 		private final Group cGroup_3 = (Group)cAlternatives.eContents().get(3);
 		private final RuleCall cINTTerminalRuleCall_3_0 = (RuleCall)cGroup_3.eContents().get(0);
 		private final RuleCall cExponentTerminalRuleCall_3_1 = (RuleCall)cGroup_3.eContents().get(1);
-		private final Alternatives cAlternatives_3_2 = (Alternatives)cGroup_3.eContents().get(2);
-		private final Keyword cFKeyword_3_2_0 = (Keyword)cAlternatives_3_2.eContents().get(0);
-		private final Keyword cFKeyword_3_2_1 = (Keyword)cAlternatives_3_2.eContents().get(1);
-		private final Keyword cDKeyword_3_2_2 = (Keyword)cAlternatives_3_2.eContents().get(2);
-		private final Keyword cDKeyword_3_2_3 = (Keyword)cAlternatives_3_2.eContents().get(3);
+		private final RuleCall cFDsymbolTerminalRuleCall_3_2 = (RuleCall)cGroup_3.eContents().get(2);
 		
 		//FloatingPointLiteral returns ecore::EString:
-		//  INT+ "." INT* Exponent? ("f"|"F"|"d"|"D")?|"." INT+ Exponent? ("f"|"F"|"d"|"D")?|INT+
-		//  Exponent ("f"|"F"|"d"|"D")?|INT+ Exponent? ("f"|"F"|"d"|"D")?;
+		//  INT+ "." INT* Exponent? FDsymbol?|"." INT+ Exponent? FDsymbol?|INT+ Exponent FDsymbol?|
+		//  INT+ Exponent? FDsymbol?;
 		public ParserRule getRule() { return rule; }
 
-		//INT+ "." INT* Exponent? ("f"|"F"|"d"|"D")?|"." INT+ Exponent? ("f"|"F"|"d"|"D")?|INT+
-		//Exponent ("f"|"F"|"d"|"D")?|INT+ Exponent? ("f"|"F"|"d"|"D")?
+		//INT+ "." INT* Exponent? FDsymbol?|"." INT+ Exponent? FDsymbol?|INT+ Exponent FDsymbol?|
+		//INT+ Exponent? FDsymbol?
 		public Alternatives getAlternatives() { return cAlternatives; }
 
-		//INT+ "." INT* Exponent? ("f"|"F"|"d"|"D")?
+		//INT+ "." INT* Exponent? FDsymbol?
 		public Group getGroup_0() { return cGroup_0; }
 
 		//INT+
@@ -2010,22 +1998,10 @@ public class FractalItfGrammarAccess extends AbstractGrammarElementFinder {
 		//Exponent?
 		public RuleCall getExponentTerminalRuleCall_0_3() { return cExponentTerminalRuleCall_0_3; }
 
-		//("f"|"F"|"d"|"D")?
-		public Alternatives getAlternatives_0_4() { return cAlternatives_0_4; }
+		//FDsymbol?
+		public RuleCall getFDsymbolTerminalRuleCall_0_4() { return cFDsymbolTerminalRuleCall_0_4; }
 
-		//"f"
-		public Keyword getFKeyword_0_4_0() { return cFKeyword_0_4_0; }
-
-		//"F"
-		public Keyword getFKeyword_0_4_1() { return cFKeyword_0_4_1; }
-
-		//"d"
-		public Keyword getDKeyword_0_4_2() { return cDKeyword_0_4_2; }
-
-		//"D"
-		public Keyword getDKeyword_0_4_3() { return cDKeyword_0_4_3; }
-
-		//"." INT+ Exponent? ("f"|"F"|"d"|"D")?
+		//"." INT+ Exponent? FDsymbol?
 		public Group getGroup_1() { return cGroup_1; }
 
 		//"."
@@ -2037,22 +2013,10 @@ public class FractalItfGrammarAccess extends AbstractGrammarElementFinder {
 		//Exponent?
 		public RuleCall getExponentTerminalRuleCall_1_2() { return cExponentTerminalRuleCall_1_2; }
 
-		//("f"|"F"|"d"|"D")?
-		public Alternatives getAlternatives_1_3() { return cAlternatives_1_3; }
+		//FDsymbol?
+		public RuleCall getFDsymbolTerminalRuleCall_1_3() { return cFDsymbolTerminalRuleCall_1_3; }
 
-		//"f"
-		public Keyword getFKeyword_1_3_0() { return cFKeyword_1_3_0; }
-
-		//"F"
-		public Keyword getFKeyword_1_3_1() { return cFKeyword_1_3_1; }
-
-		//"d"
-		public Keyword getDKeyword_1_3_2() { return cDKeyword_1_3_2; }
-
-		//"D"
-		public Keyword getDKeyword_1_3_3() { return cDKeyword_1_3_3; }
-
-		//INT+ Exponent ("f"|"F"|"d"|"D")?
+		//INT+ Exponent FDsymbol?
 		public Group getGroup_2() { return cGroup_2; }
 
 		//INT+
@@ -2061,22 +2025,10 @@ public class FractalItfGrammarAccess extends AbstractGrammarElementFinder {
 		//Exponent
 		public RuleCall getExponentTerminalRuleCall_2_1() { return cExponentTerminalRuleCall_2_1; }
 
-		//("f"|"F"|"d"|"D")?
-		public Alternatives getAlternatives_2_2() { return cAlternatives_2_2; }
+		//FDsymbol?
+		public RuleCall getFDsymbolTerminalRuleCall_2_2() { return cFDsymbolTerminalRuleCall_2_2; }
 
-		//"f"
-		public Keyword getFKeyword_2_2_0() { return cFKeyword_2_2_0; }
-
-		//"F"
-		public Keyword getFKeyword_2_2_1() { return cFKeyword_2_2_1; }
-
-		//"d"
-		public Keyword getDKeyword_2_2_2() { return cDKeyword_2_2_2; }
-
-		//"D"
-		public Keyword getDKeyword_2_2_3() { return cDKeyword_2_2_3; }
-
-		//INT+ Exponent? ("f"|"F"|"d"|"D")?
+		//INT+ Exponent? FDsymbol?
 		public Group getGroup_3() { return cGroup_3; }
 
 		//INT+
@@ -2085,20 +2037,8 @@ public class FractalItfGrammarAccess extends AbstractGrammarElementFinder {
 		//Exponent?
 		public RuleCall getExponentTerminalRuleCall_3_1() { return cExponentTerminalRuleCall_3_1; }
 
-		//("f"|"F"|"d"|"D")?
-		public Alternatives getAlternatives_3_2() { return cAlternatives_3_2; }
-
-		//"f"
-		public Keyword getFKeyword_3_2_0() { return cFKeyword_3_2_0; }
-
-		//"F"
-		public Keyword getFKeyword_3_2_1() { return cFKeyword_3_2_1; }
-
-		//"d"
-		public Keyword getDKeyword_3_2_2() { return cDKeyword_3_2_2; }
-
-		//"D"
-		public Keyword getDKeyword_3_2_3() { return cDKeyword_3_2_3; }
+		//FDsymbol?
+		public RuleCall getFDsymbolTerminalRuleCall_3_2() { return cFDsymbolTerminalRuleCall_3_2; }
 	}
 	
 	
@@ -2399,6 +2339,7 @@ public class FractalItfGrammarAccess extends AbstractGrammarElementFinder {
 	private UnaryOperationElements pUnaryOperation;
 	private FloatingPointLiteralElements pFloatingPointLiteral;
 	private TerminalRule tExponent;
+	private TerminalRule tFDsymbol;
 	
 	private final GrammarProvider grammarProvider;
 
@@ -2698,7 +2639,7 @@ public class FractalItfGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//ConstantDefinition:
-	//  "#define" id=ID;   // Interface definition part
+	//  "#define" id=ID expr=ConstantExpression?;   // Interface definition part
 	public ConstantDefinitionElements getConstantDefinitionAccess() {
 		return (pConstantDefinition != null) ? pConstantDefinition : (pConstantDefinition = new ConstantDefinitionElements());
 	}
@@ -2988,7 +2929,7 @@ public class FractalItfGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//Literal:
-	//  ID|STRING|FloatingPointLiteral|ConstantDefinition|ref=[ConstantDefinition];
+	//  ID|STRING|FloatingPointLiteral|ref=[ConstantDefinition];
 	public LiteralElements getLiteralAccess() {
 		return (pLiteral != null) ? pLiteral : (pLiteral = new LiteralElements());
 	}
@@ -3038,8 +2979,8 @@ public class FractalItfGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//FloatingPointLiteral returns ecore::EString:
-	//  INT+ "." INT* Exponent? ("f"|"F"|"d"|"D")?|"." INT+ Exponent? ("f"|"F"|"d"|"D")?|INT+
-	//  Exponent ("f"|"F"|"d"|"D")?|INT+ Exponent? ("f"|"F"|"d"|"D")?;
+	//  INT+ "." INT* Exponent? FDsymbol?|"." INT+ Exponent? FDsymbol?|INT+ Exponent FDsymbol?|
+	//  INT+ Exponent? FDsymbol?;
 	public FloatingPointLiteralElements getFloatingPointLiteralAccess() {
 		return (pFloatingPointLiteral != null) ? pFloatingPointLiteral : (pFloatingPointLiteral = new FloatingPointLiteralElements());
 	}
@@ -3052,6 +2993,12 @@ public class FractalItfGrammarAccess extends AbstractGrammarElementFinder {
 	//  ("e" | "E") ("+" | "-")? INT+;
 	public TerminalRule getExponentRule() {
 		return (tExponent != null) ? tExponent : (tExponent = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "Exponent"));
+	} 
+
+	//terminal FDsymbol:
+	//  "f" | "F" | "d" | "D";
+	public TerminalRule getFDsymbolRule() {
+		return (tFDsymbol != null) ? tFDsymbol : (tFDsymbol = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "FDsymbol"));
 	} 
 
 	//terminal ID:

@@ -58,10 +58,6 @@ public class FractalIdtParser extends AbstractContentAssistParser {
 					put(grammarAccess.getMulOperationAccess().getAlternatives(), "rule__MulOperation__Alternatives");
 					put(grammarAccess.getUnaryOperationAccess().getAlternatives(), "rule__UnaryOperation__Alternatives");
 					put(grammarAccess.getFloatingPointLiteralAccess().getAlternatives(), "rule__FloatingPointLiteral__Alternatives");
-					put(grammarAccess.getFloatingPointLiteralAccess().getAlternatives_0_4(), "rule__FloatingPointLiteral__Alternatives_0_4");
-					put(grammarAccess.getFloatingPointLiteralAccess().getAlternatives_1_3(), "rule__FloatingPointLiteral__Alternatives_1_3");
-					put(grammarAccess.getFloatingPointLiteralAccess().getAlternatives_2_2(), "rule__FloatingPointLiteral__Alternatives_2_2");
-					put(grammarAccess.getFloatingPointLiteralAccess().getAlternatives_3_2(), "rule__FloatingPointLiteral__Alternatives_3_2");
 					put(grammarAccess.getTypeQualifierAccess().getAlternatives(), "rule__TypeQualifier__Alternatives");
 					put(grammarAccess.getTypeSpecifierAccess().getAlternatives(), "rule__TypeSpecifier__Alternatives");
 					put(grammarAccess.getParameterQualifierAccess().getAlternatives(), "rule__ParameterQualifier__Alternatives");
@@ -181,6 +177,7 @@ public class FractalIdtParser extends AbstractContentAssistParser {
 					put(grammarAccess.getDirectDeclaratorAccess().getArrayAssignment_1(), "rule__DirectDeclarator__ArrayAssignment_1");
 					put(grammarAccess.getArraySpecificationAccess().getConstExprAssignment_1(), "rule__ArraySpecification__ConstExprAssignment_1");
 					put(grammarAccess.getConstantDefinitionAccess().getIdAssignment_1(), "rule__ConstantDefinition__IdAssignment_1");
+					put(grammarAccess.getConstantDefinitionAccess().getExprAssignment_2(), "rule__ConstantDefinition__ExprAssignment_2");
 					put(grammarAccess.getInterfaceDefinitionAccess().getAnnotationsAssignment_0(), "rule__InterfaceDefinition__AnnotationsAssignment_0");
 					put(grammarAccess.getInterfaceDefinitionAccess().getFqnAssignment_3(), "rule__InterfaceDefinition__FqnAssignment_3");
 					put(grammarAccess.getInterfaceDefinitionAccess().getFqn2Assignment_4_1(), "rule__InterfaceDefinition__Fqn2Assignment_4_1");
@@ -233,7 +230,7 @@ public class FractalIdtParser extends AbstractContentAssistParser {
 					put(grammarAccess.getUnaryExpressionAccess().getUnaryExprAssignment_0(), "rule__UnaryExpression__UnaryExprAssignment_0");
 					put(grammarAccess.getUnaryExpressionAccess().getPrimaryExprAssignment_1(), "rule__UnaryExpression__PrimaryExprAssignment_1");
 					put(grammarAccess.getPrimaryExpressionAccess().getLiteralAssignment_0(), "rule__PrimaryExpression__LiteralAssignment_0");
-					put(grammarAccess.getLiteralAccess().getRefAssignment_4(), "rule__Literal__RefAssignment_4");
+					put(grammarAccess.getLiteralAccess().getRefAssignment_3(), "rule__Literal__RefAssignment_3");
 				}
 			};
 		}

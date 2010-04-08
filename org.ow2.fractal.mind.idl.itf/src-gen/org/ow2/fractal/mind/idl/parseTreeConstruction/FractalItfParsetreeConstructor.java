@@ -3392,11 +3392,11 @@ protected class ArraySpecification_RightSquareBracketKeyword_2 extends KeywordTo
 /************ begin Rule ConstantDefinition ****************
  *
  * ConstantDefinition:
- *   "#define" id=ID;   // Interface definition part
+ *   "#define" id=ID expr=ConstantExpression?;   // Interface definition part
  *
  **/
 
-// "#define" id=ID
+// "#define" id=ID expr=ConstantExpression?
 protected class ConstantDefinition_Group extends GroupToken {
 	
 	public ConstantDefinition_Group(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
@@ -3411,7 +3411,8 @@ protected class ConstantDefinition_Group extends GroupToken {
     @Override
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new ConstantDefinition_IdAssignment_1(parent, this, 0, inst);
+			case 0: return new ConstantDefinition_ExprAssignment_2(parent, this, 0, inst);
+			case 1: return new ConstantDefinition_IdAssignment_1(parent, this, 1, inst);
 			default: return null;
 		}	
 	}	
@@ -3476,6 +3477,52 @@ protected class ConstantDefinition_IdAssignment_1 extends AssignmentToken  {
 		return null;
 	}
 
+}
+
+// expr=ConstantExpression?
+protected class ConstantDefinition_ExprAssignment_2 extends AssignmentToken  {
+	
+	public ConstantDefinition_ExprAssignment_2(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Assignment getGrammarElement() {
+		return grammarAccess.getConstantDefinitionAccess().getExprAssignment_2();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new ConstantExpression_LogicalOrExpressionParserRuleCall(this, this, 0, inst);
+			default: return null;
+		}	
+	}	
+		
+    @Override	
+	protected IInstanceDescription tryConsumeVal() {
+		if((value = current.getConsumable("expr",false)) == null) return null;
+		IInstanceDescription obj = current.cloneAndConsume("expr");
+		if(value instanceof EObject) { // org::eclipse::xtext::impl::RuleCallImpl
+			IInstanceDescription param = getDescr((EObject)value);
+			if(param.isInstanceOf(grammarAccess.getConstantExpressionRule().getType().getClassifier())) {
+				type = AssignmentType.PRC;
+				element = grammarAccess.getConstantDefinitionAccess().getExprConstantExpressionParserRuleCall_2_0(); 
+				consumed = obj;
+				return param;
+			}
+		}
+		return null;
+	}
+
+    @Override
+	public AbstractToken createParentFollower(AbstractToken next,	int actIndex, int index, IInstanceDescription inst) {
+		if(value == inst.getDelegate() && !inst.isConsumed()) return null;
+		switch(index) {
+			case 0: return new ConstantDefinition_IdAssignment_1(parent, next, actIndex, consumed);
+			default: return null;
+		}	
+	}	
 }
 
 
@@ -8025,11 +8072,11 @@ protected class PrimaryExpression_RightParenthesisKeyword_1_2 extends KeywordTok
 /************ begin Rule Literal ****************
  *
  * Literal:
- *   ID|STRING|FloatingPointLiteral|ConstantDefinition|ref=[ConstantDefinition];
+ *   ID|STRING|FloatingPointLiteral|ref=[ConstantDefinition];
  *
  **/
 
-// ID|STRING|FloatingPointLiteral|ConstantDefinition|ref=[ConstantDefinition]
+// ID|STRING|FloatingPointLiteral|ref=[ConstantDefinition]
 protected class Literal_Alternatives extends AlternativesToken {
 
 	public Literal_Alternatives(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
@@ -8047,8 +8094,7 @@ protected class Literal_Alternatives extends AlternativesToken {
 			case 0: return new Literal_IDTerminalRuleCall_0(parent, this, 0, inst);
 			case 1: return new Literal_STRINGTerminalRuleCall_1(parent, this, 1, inst);
 			case 2: return new Literal_FloatingPointLiteralParserRuleCall_2(parent, this, 2, inst);
-			case 3: return new Literal_ConstantDefinitionParserRuleCall_3(parent, this, 3, inst);
-			case 4: return new Literal_RefAssignment_4(parent, this, 4, inst);
+			case 3: return new Literal_RefAssignment_3(parent, this, 3, inst);
 			default: return null;
 		}	
 	}	
@@ -8123,51 +8169,16 @@ protected class Literal_FloatingPointLiteralParserRuleCall_2 extends UnassignedT
 		
 }
 
-// ConstantDefinition
-protected class Literal_ConstantDefinitionParserRuleCall_3 extends RuleCallToken {
-	
-	public Literal_ConstantDefinitionParserRuleCall_3(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
-		super(parent, next, no, current);
-	}
-	
-	@Override
-	public RuleCall getGrammarElement() {
-		return grammarAccess.getLiteralAccess().getConstantDefinitionParserRuleCall_3();
-	}
-
-    @Override
-	public AbstractToken createFollower(int index, IInstanceDescription inst) {
-		switch(index) {
-			case 0: return new ConstantDefinition_Group(this, this, 0, inst);
-			default: return null;
-		}	
-	}	
-		
-    @Override
-	protected IInstanceDescription tryConsumeVal() {
-		if(checkForRecursion(ConstantDefinition_Group.class, current)) return null;
-		if(!current.isInstanceOf(grammarAccess.getConstantDefinitionRule().getType().getClassifier())) return null;
-		return current;
-	}
-	
-    @Override
-	public AbstractToken createParentFollower(AbstractToken next,	int actIndex, int index, IInstanceDescription inst) {
-		switch(index) {
-			default: return parent.createParentFollower(next, actIndex , index, inst);
-		}	
-	}	
-}
-
 // ref=[ConstantDefinition]
-protected class Literal_RefAssignment_4 extends AssignmentToken  {
+protected class Literal_RefAssignment_3 extends AssignmentToken  {
 	
-	public Literal_RefAssignment_4(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	public Literal_RefAssignment_3(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	@Override
 	public Assignment getGrammarElement() {
-		return grammarAccess.getLiteralAccess().getRefAssignment_4();
+		return grammarAccess.getLiteralAccess().getRefAssignment_3();
 	}
 
     @Override
@@ -8183,9 +8194,9 @@ protected class Literal_RefAssignment_4 extends AssignmentToken  {
 		IInstanceDescription obj = current.cloneAndConsume("ref");
 		if(value instanceof EObject) { // org::eclipse::xtext::impl::CrossReferenceImpl
 			IInstanceDescription param = getDescr((EObject)value);
-			if(param.isInstanceOf(grammarAccess.getLiteralAccess().getRefConstantDefinitionCrossReference_4_0().getType().getClassifier())) {
+			if(param.isInstanceOf(grammarAccess.getLiteralAccess().getRefConstantDefinitionCrossReference_3_0().getType().getClassifier())) {
 				type = AssignmentType.CR;
-				element = grammarAccess.getLiteralAccess().getRefConstantDefinitionCrossReference_4_0(); 
+				element = grammarAccess.getLiteralAccess().getRefConstantDefinitionCrossReference_3_0(); 
 				return obj;
 			}
 		}

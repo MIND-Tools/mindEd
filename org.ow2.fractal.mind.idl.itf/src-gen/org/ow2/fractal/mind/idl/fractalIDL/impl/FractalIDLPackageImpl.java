@@ -1035,6 +1035,16 @@ public class FractalIDLPackageImpl extends EPackageImpl implements FractalIDLPac
    * <!-- end-user-doc -->
    * @generated
    */
+  public EReference getConstantDefinition_Expr()
+  {
+    return (EReference)constantDefinitionEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getInterfaceDefinition()
   {
     return interfaceDefinitionEClass;
@@ -1945,6 +1955,7 @@ public class FractalIDLPackageImpl extends EPackageImpl implements FractalIDLPac
 
     constantDefinitionEClass = createEClass(CONSTANT_DEFINITION);
     createEAttribute(constantDefinitionEClass, CONSTANT_DEFINITION__ID);
+    createEReference(constantDefinitionEClass, CONSTANT_DEFINITION__EXPR);
 
     interfaceDefinitionEClass = createEClass(INTERFACE_DEFINITION);
     createEReference(interfaceDefinitionEClass, INTERFACE_DEFINITION__ANNOTATIONS);
@@ -2094,7 +2105,6 @@ public class FractalIDLPackageImpl extends EPackageImpl implements FractalIDLPac
     enumDefinitionEClass.getESuperTypes().add(this.getEnumSpecification());
     enumReferenceEClass.getESuperTypes().add(this.getEnumSpecification());
     enumMemberEClass.getESuperTypes().add(this.getEnumMemberList());
-    constantDefinitionEClass.getESuperTypes().add(this.getLiteral());
     annotationEClass.getESuperTypes().add(this.getAnnotationValue());
     arrayAnnotationValueEClass.getESuperTypes().add(this.getAnnotationValue());
     constantExpressionEClass.getESuperTypes().add(this.getPrimaryExpression());
@@ -2176,6 +2186,7 @@ public class FractalIDLPackageImpl extends EPackageImpl implements FractalIDLPac
 
     initEClass(constantDefinitionEClass, ConstantDefinition.class, "ConstantDefinition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getConstantDefinition_Id(), ecorePackage.getEString(), "id", null, 0, 1, ConstantDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getConstantDefinition_Expr(), this.getConstantExpression(), null, "expr", null, 0, 1, ConstantDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(interfaceDefinitionEClass, InterfaceDefinition.class, "InterfaceDefinition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getInterfaceDefinition_Annotations(), this.getAnnotations(), null, "annotations", null, 0, 1, InterfaceDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

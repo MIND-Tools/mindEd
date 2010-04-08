@@ -13,7 +13,8 @@ Require-Bundle: org.ow2.fractal.mind.idl.idt;visibility:=reexport,
  org.eclipse.xtext.builder,
  org.ow2.fractal.mind.idl.itf.ui;bundle-version="1.0.0",
  org.eclipse.xtext.ui,
- org.eclipse.xtext.ui.shared
+ org.eclipse.xtext.ui.shared,
+ org.ow2.fractal.mind.idl.itf
 Import-Package: org.apache.log4j
 Bundle-RequiredExecutionEnvironment: J2SE-1.5
 Export-Package: org.ow2.fractal.mind.idl.ui.contentassist,

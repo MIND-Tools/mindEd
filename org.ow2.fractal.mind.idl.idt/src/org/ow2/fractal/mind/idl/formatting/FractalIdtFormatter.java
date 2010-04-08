@@ -18,7 +18,7 @@ import org.ow2.fractal.mind.idl.services.FractalItfGrammarAccess;
  */
 
 public class FractalIdtFormatter extends FractalItfFormatter {
-	
+
 	protected FractalIdtGrammarAccess g = null;
 
 	@Override
@@ -26,19 +26,31 @@ public class FractalIdtFormatter extends FractalItfFormatter {
 
 		FractalItfGrammarAccess f = ((org.ow2.fractal.mind.idl.services.FractalIdtGrammarAccess) getGrammarAccess())
 				.getFractalItfGrammarAccess();
-		
+
 		FractalIdtGrammarAccess g = ((org.ow2.fractal.mind.idl.services.FractalIdtGrammarAccess) getGrammarAccess());
 
 		c.setIndentationSpace("    ");
 		formatInclude(f, c);
 		formatDefine(f, c);
 		formatTypeDefinition(f, c);
-		
+
 		// Formatting after 'ifndef' and 'endif'
-		c.setLinewrap().after(g.getConstantDefinitionBeginAccess().getIdIDTerminalRuleCall_1_0());
-		c.setLinewrap().after(g.getConstantDefinitionEndAccess().getIdIDTerminalRuleCall_1_0());
+		c.setLinewrap().before(
+				g.getConstantDefinitionBeginAccess().getIfndefKeyword_0());
+		c.setLinewrap().before(
+				g.getConstantDefinitionEndAccess().getEndifKeyword_0());
 
 	}
-	
+
+	/**
+	 * Format Define Definition
+	 */
+
+	@Override
+	protected void formatDefine(FractalItfGrammarAccess f, FormattingConfig c) {
+
+		c.setLinewrap().before(
+				f.getConstantDefinitionAccess().getDefineKeyword_0());
+	}
 
 }

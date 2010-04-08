@@ -468,7 +468,7 @@ public class FractalIdtGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//ConstantDefinition:
-	//  "#define" id=ID;   // Interface definition part
+	//  "#define" id=ID expr=ConstantExpression?;   // Interface definition part
 	public FractalItfGrammarAccess.ConstantDefinitionElements getConstantDefinitionAccess() {
 		return gaFractalItf.getConstantDefinitionAccess();
 	}
@@ -758,7 +758,7 @@ public class FractalIdtGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//Literal:
-	//  ID|STRING|FloatingPointLiteral|ConstantDefinition|ref=[ConstantDefinition];
+	//  ID|STRING|FloatingPointLiteral|ref=[ConstantDefinition];
 	public FractalItfGrammarAccess.LiteralElements getLiteralAccess() {
 		return gaFractalItf.getLiteralAccess();
 	}
@@ -808,8 +808,8 @@ public class FractalIdtGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//FloatingPointLiteral returns ecore::EString:
-	//  INT+ "." INT* Exponent? ("f"|"F"|"d"|"D")?|"." INT+ Exponent? ("f"|"F"|"d"|"D")?|INT+
-	//  Exponent ("f"|"F"|"d"|"D")?|INT+ Exponent? ("f"|"F"|"d"|"D")?;
+	//  INT+ "." INT* Exponent? FDsymbol?|"." INT+ Exponent? FDsymbol?|INT+ Exponent FDsymbol?|
+	//  INT+ Exponent? FDsymbol?;
 	public FractalItfGrammarAccess.FloatingPointLiteralElements getFloatingPointLiteralAccess() {
 		return gaFractalItf.getFloatingPointLiteralAccess();
 	}
@@ -822,6 +822,12 @@ public class FractalIdtGrammarAccess extends AbstractGrammarElementFinder {
 	//  ("e" | "E") ("+" | "-")? INT+;
 	public TerminalRule getExponentRule() {
 		return gaFractalItf.getExponentRule();
+	} 
+
+	//terminal FDsymbol:
+	//  "f" | "F" | "d" | "D";
+	public TerminalRule getFDsymbolRule() {
+		return gaFractalItf.getFDsymbolRule();
 	} 
 
 	//terminal ID:

@@ -1942,7 +1942,31 @@ ruleConstantDefinition returns [EObject current=null]
 	    }
 
 )
-))
+)(
+(
+		{ 
+	        currentNode=createCompositeNode(grammarAccess.getConstantDefinitionAccess().getExprConstantExpressionParserRuleCall_2_0(), currentNode); 
+	    }
+		lv_expr_2_0=ruleConstantExpression		{
+	        if ($current==null) {
+	            $current = factory.create(grammarAccess.getConstantDefinitionRule().getType().getClassifier());
+	            associateNodeWithAstElement(currentNode.getParent(), $current);
+	        }
+	        try {
+	       		set(
+	       			$current, 
+	       			"expr",
+	        		lv_expr_2_0, 
+	        		"ConstantExpression", 
+	        		currentNode);
+	        } catch (ValueConverterException vce) {
+				handleValueConverterException(vce);
+	        }
+	        currentNode = currentNode.getParent();
+	    }
+
+)
+)?)
 ;
 
 
@@ -4050,19 +4074,6 @@ ruleLiteral returns [EObject current=null]
     }
 
     |ruleFloatingPointLiteral
-    |
-	{ 
-	  /* */ 
-	}
-    { 
-        currentNode=createCompositeNode(grammarAccess.getLiteralAccess().getConstantDefinitionParserRuleCall_3(), currentNode); 
-    }
-    this_ConstantDefinition_3=ruleConstantDefinition
-    { 
-        $current = $this_ConstantDefinition_3.current; 
-        currentNode = currentNode.getParent();
-    }
-
     |(
 (
 		{ 
@@ -4076,7 +4087,7 @@ ruleLiteral returns [EObject current=null]
         }
 	RULE_ID
 	{
-		createLeafNode(grammarAccess.getLiteralAccess().getRefConstantDefinitionCrossReference_4_0(), "ref"); 
+		createLeafNode(grammarAccess.getLiteralAccess().getRefConstantDefinitionCrossReference_3_0(), "ref"); 
 	}
 
 )
@@ -4309,32 +4320,12 @@ ruleFloatingPointLiteral returns [AntlrDatatypeRuleToken current=new AntlrDataty
     { 
     createLeafNode(grammarAccess.getFloatingPointLiteralAccess().getExponentTerminalRuleCall_0_3(), null); 
     }
-)?(
-	kw='f' 
-    {
-        $current.merge(kw);
-        createLeafNode(grammarAccess.getFloatingPointLiteralAccess().getFKeyword_0_4_0(), null); 
+)?(    this_FDsymbol_4=RULE_FDSYMBOL    {
+		$current.merge(this_FDsymbol_4);
     }
 
-    |
-	kw='F' 
-    {
-        $current.merge(kw);
-        createLeafNode(grammarAccess.getFloatingPointLiteralAccess().getFKeyword_0_4_1(), null); 
-    }
-
-    |
-	kw='d' 
-    {
-        $current.merge(kw);
-        createLeafNode(grammarAccess.getFloatingPointLiteralAccess().getDKeyword_0_4_2(), null); 
-    }
-
-    |
-	kw='D' 
-    {
-        $current.merge(kw);
-        createLeafNode(grammarAccess.getFloatingPointLiteralAccess().getDKeyword_0_4_3(), null); 
+    { 
+    createLeafNode(grammarAccess.getFloatingPointLiteralAccess().getFDsymbolTerminalRuleCall_0_4(), null); 
     }
 )?)
     |(
@@ -4343,130 +4334,70 @@ ruleFloatingPointLiteral returns [AntlrDatatypeRuleToken current=new AntlrDataty
         $current.merge(kw);
         createLeafNode(grammarAccess.getFloatingPointLiteralAccess().getFullStopKeyword_1_0(), null); 
     }
-(    this_INT_9=RULE_INT    {
-		$current.merge(this_INT_9);
+(    this_INT_6=RULE_INT    {
+		$current.merge(this_INT_6);
     }
 
     { 
     createLeafNode(grammarAccess.getFloatingPointLiteralAccess().getINTTerminalRuleCall_1_1(), null); 
     }
-)+(    this_Exponent_10=RULE_EXPONENT    {
-		$current.merge(this_Exponent_10);
+)+(    this_Exponent_7=RULE_EXPONENT    {
+		$current.merge(this_Exponent_7);
     }
 
     { 
     createLeafNode(grammarAccess.getFloatingPointLiteralAccess().getExponentTerminalRuleCall_1_2(), null); 
     }
-)?(
-	kw='f' 
-    {
-        $current.merge(kw);
-        createLeafNode(grammarAccess.getFloatingPointLiteralAccess().getFKeyword_1_3_0(), null); 
+)?(    this_FDsymbol_8=RULE_FDSYMBOL    {
+		$current.merge(this_FDsymbol_8);
     }
 
-    |
-	kw='F' 
-    {
-        $current.merge(kw);
-        createLeafNode(grammarAccess.getFloatingPointLiteralAccess().getFKeyword_1_3_1(), null); 
-    }
-
-    |
-	kw='d' 
-    {
-        $current.merge(kw);
-        createLeafNode(grammarAccess.getFloatingPointLiteralAccess().getDKeyword_1_3_2(), null); 
-    }
-
-    |
-	kw='D' 
-    {
-        $current.merge(kw);
-        createLeafNode(grammarAccess.getFloatingPointLiteralAccess().getDKeyword_1_3_3(), null); 
+    { 
+    createLeafNode(grammarAccess.getFloatingPointLiteralAccess().getFDsymbolTerminalRuleCall_1_3(), null); 
     }
 )?)
-    |((    this_INT_15=RULE_INT    {
-		$current.merge(this_INT_15);
+    |((    this_INT_9=RULE_INT    {
+		$current.merge(this_INT_9);
     }
 
     { 
     createLeafNode(grammarAccess.getFloatingPointLiteralAccess().getINTTerminalRuleCall_2_0(), null); 
     }
-)+    this_Exponent_16=RULE_EXPONENT    {
-		$current.merge(this_Exponent_16);
+)+    this_Exponent_10=RULE_EXPONENT    {
+		$current.merge(this_Exponent_10);
     }
 
     { 
     createLeafNode(grammarAccess.getFloatingPointLiteralAccess().getExponentTerminalRuleCall_2_1(), null); 
     }
-(
-	kw='f' 
-    {
-        $current.merge(kw);
-        createLeafNode(grammarAccess.getFloatingPointLiteralAccess().getFKeyword_2_2_0(), null); 
+(    this_FDsymbol_11=RULE_FDSYMBOL    {
+		$current.merge(this_FDsymbol_11);
     }
 
-    |
-	kw='F' 
-    {
-        $current.merge(kw);
-        createLeafNode(grammarAccess.getFloatingPointLiteralAccess().getFKeyword_2_2_1(), null); 
-    }
-
-    |
-	kw='d' 
-    {
-        $current.merge(kw);
-        createLeafNode(grammarAccess.getFloatingPointLiteralAccess().getDKeyword_2_2_2(), null); 
-    }
-
-    |
-	kw='D' 
-    {
-        $current.merge(kw);
-        createLeafNode(grammarAccess.getFloatingPointLiteralAccess().getDKeyword_2_2_3(), null); 
+    { 
+    createLeafNode(grammarAccess.getFloatingPointLiteralAccess().getFDsymbolTerminalRuleCall_2_2(), null); 
     }
 )?)
-    |((    this_INT_21=RULE_INT    {
-		$current.merge(this_INT_21);
+    |((    this_INT_12=RULE_INT    {
+		$current.merge(this_INT_12);
     }
 
     { 
     createLeafNode(grammarAccess.getFloatingPointLiteralAccess().getINTTerminalRuleCall_3_0(), null); 
     }
-)+(    this_Exponent_22=RULE_EXPONENT    {
-		$current.merge(this_Exponent_22);
+)+(    this_Exponent_13=RULE_EXPONENT    {
+		$current.merge(this_Exponent_13);
     }
 
     { 
     createLeafNode(grammarAccess.getFloatingPointLiteralAccess().getExponentTerminalRuleCall_3_1(), null); 
     }
-)?(
-	kw='f' 
-    {
-        $current.merge(kw);
-        createLeafNode(grammarAccess.getFloatingPointLiteralAccess().getFKeyword_3_2_0(), null); 
+)?(    this_FDsymbol_14=RULE_FDSYMBOL    {
+		$current.merge(this_FDsymbol_14);
     }
 
-    |
-	kw='F' 
-    {
-        $current.merge(kw);
-        createLeafNode(grammarAccess.getFloatingPointLiteralAccess().getFKeyword_3_2_1(), null); 
-    }
-
-    |
-	kw='d' 
-    {
-        $current.merge(kw);
-        createLeafNode(grammarAccess.getFloatingPointLiteralAccess().getDKeyword_3_2_2(), null); 
-    }
-
-    |
-	kw='D' 
-    {
-        $current.merge(kw);
-        createLeafNode(grammarAccess.getFloatingPointLiteralAccess().getDKeyword_3_2_3(), null); 
+    { 
+    createLeafNode(grammarAccess.getFloatingPointLiteralAccess().getFDsymbolTerminalRuleCall_3_2(), null); 
     }
 )?))
     ;
@@ -4651,6 +4582,8 @@ RULE_INCLUDELIB : '<' RULE_ID '.' RULE_ID '>';
 RULE_BOOLEAN : ('true'|'false');
 
 RULE_EXPONENT : ('e'|'E') ('+'|'-')? RULE_INT+;
+
+RULE_FDSYMBOL : ('f'|'F'|'d'|'D');
 
 RULE_ID : '^'? ('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'_'|'0'..'9')*;
 

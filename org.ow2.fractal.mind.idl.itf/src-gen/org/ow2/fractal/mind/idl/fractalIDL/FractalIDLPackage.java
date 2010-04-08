@@ -901,34 +901,6 @@ public interface FractalIDLPackage extends EPackage
   int ARRAY_SPECIFICATION_FEATURE_COUNT = 1;
 
   /**
-   * The meta object id for the '{@link org.ow2.fractal.mind.idl.fractalIDL.impl.LiteralImpl <em>Literal</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see org.ow2.fractal.mind.idl.fractalIDL.impl.LiteralImpl
-   * @see org.ow2.fractal.mind.idl.fractalIDL.impl.FractalIDLPackageImpl#getLiteral()
-   * @generated
-   */
-  int LITERAL = 45;
-
-  /**
-   * The feature id for the '<em><b>Ref</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int LITERAL__REF = 0;
-
-  /**
-   * The number of structural features of the '<em>Literal</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int LITERAL_FEATURE_COUNT = 1;
-
-  /**
    * The meta object id for the '{@link org.ow2.fractal.mind.idl.fractalIDL.impl.ConstantDefinitionImpl <em>Constant Definition</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -939,22 +911,22 @@ public interface FractalIDLPackage extends EPackage
   int CONSTANT_DEFINITION = 20;
 
   /**
-   * The feature id for the '<em><b>Ref</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int CONSTANT_DEFINITION__REF = LITERAL__REF;
-
-  /**
    * The feature id for the '<em><b>Id</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int CONSTANT_DEFINITION__ID = LITERAL_FEATURE_COUNT + 0;
+  int CONSTANT_DEFINITION__ID = 0;
+
+  /**
+   * The feature id for the '<em><b>Expr</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CONSTANT_DEFINITION__EXPR = 1;
 
   /**
    * The number of structural features of the '<em>Constant Definition</em>' class.
@@ -963,7 +935,7 @@ public interface FractalIDLPackage extends EPackage
    * @generated
    * @ordered
    */
-  int CONSTANT_DEFINITION_FEATURE_COUNT = LITERAL_FEATURE_COUNT + 1;
+  int CONSTANT_DEFINITION_FEATURE_COUNT = 2;
 
   /**
    * The meta object id for the '{@link org.ow2.fractal.mind.idl.fractalIDL.impl.InterfaceDefinitionImpl <em>Interface Definition</em>}' class.
@@ -1908,6 +1880,34 @@ public interface FractalIDLPackage extends EPackage
   int UNARY_EXPRESSION_FEATURE_COUNT = 2;
 
   /**
+   * The meta object id for the '{@link org.ow2.fractal.mind.idl.fractalIDL.impl.LiteralImpl <em>Literal</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.ow2.fractal.mind.idl.fractalIDL.impl.LiteralImpl
+   * @see org.ow2.fractal.mind.idl.fractalIDL.impl.FractalIDLPackageImpl#getLiteral()
+   * @generated
+   */
+  int LITERAL = 45;
+
+  /**
+   * The feature id for the '<em><b>Ref</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LITERAL__REF = 0;
+
+  /**
+   * The number of structural features of the '<em>Literal</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LITERAL_FEATURE_COUNT = 1;
+
+  /**
    * The meta object id for the '{@link org.ow2.fractal.mind.idl.fractalIDL.TypeQualifier <em>Type Qualifier</em>}' enum.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -2521,6 +2521,17 @@ public interface FractalIDLPackage extends EPackage
    * @generated
    */
   EAttribute getConstantDefinition_Id();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.ow2.fractal.mind.idl.fractalIDL.ConstantDefinition#getExpr <em>Expr</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Expr</em>'.
+   * @see org.ow2.fractal.mind.idl.fractalIDL.ConstantDefinition#getExpr()
+   * @see #getConstantDefinition()
+   * @generated
+   */
+  EReference getConstantDefinition_Expr();
 
   /**
    * Returns the meta object for class '{@link org.ow2.fractal.mind.idl.fractalIDL.InterfaceDefinition <em>Interface Definition</em>}'.
@@ -3889,6 +3900,14 @@ public interface FractalIDLPackage extends EPackage
      * @generated
      */
     EAttribute CONSTANT_DEFINITION__ID = eINSTANCE.getConstantDefinition_Id();
+
+    /**
+     * The meta object literal for the '<em><b>Expr</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference CONSTANT_DEFINITION__EXPR = eINSTANCE.getConstantDefinition_Expr();
 
     /**
      * The meta object literal for the '{@link org.ow2.fractal.mind.idl.fractalIDL.impl.InterfaceDefinitionImpl <em>Interface Definition</em>}' class.
