@@ -17,15 +17,20 @@
       <tools
           xsi:type="gmftool:CreationTool"
           title="Primitive Component"
-          description="create primitive"/>
+          description="create primitive">
+        <smallIcon
+            xsi:type="gmftool:BundleImage"
+            path="icons/full/obj16/PrimitiveComponentDefinition.gif"
+            bundle="org.ow2.fractal.mind.emf.model.edit"/>
+        <largeIcon
+            xsi:type="gmftool:BundleImage"
+            path="icons/full/obj16/PrimitiveComponentDefinition.gif"
+            bundle="org.ow2.fractal.mind.emf.model.edit"/>
+      </tools>
       <tools
           xsi:type="gmftool:CreationTool"
           title="Type Component"
           description="create type"/>
-      <tools
-          xsi:type="gmftool:CreationTool"
-          title="Template Sub Component"
-          description="create new template sub component"/>
       <tools
           xsi:type="gmftool:CreationTool"
           title="Argument"

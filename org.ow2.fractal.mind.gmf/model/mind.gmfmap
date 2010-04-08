@@ -403,7 +403,7 @@
               href="../../org.ow2.fractal.mind.emf/model/mind.ecore#//CompositeBody"/>
           <tool
               xsi:type="gmftool:CreationTool"
-              href="mind.gmftool#//@palette/@tools.0/@tools.5"/>
+              href="mind.gmftool#//@palette/@tools.0/@tools.4"/>
           <diagramNode
               href="mind.gmfgraph#Body"/>
           <children>
@@ -438,25 +438,26 @@
               <domainMetaElement
                   href="../../org.ow2.fractal.mind.emf/model/mind.ecore#//SubComponentDefinition"/>
               <domainSpecialization
-                  body="self.getHelper() = null"/>
+                  body="Java constraints must be implemented manually (cf. templates)"
+                  language="java"/>
               <domainInitializer
                   xsi:type="gmfmap:FeatureSeqInitializer">
                 <initializers
                     xsi:type="gmfmap:ReferenceNewElementSpec">
                   <feature
                       xsi:type="ecore:EReference"
-                      href="../../org.ow2.fractal.mind.emf/model/mind.ecore#//SubComponentDefinition/referenceDefinition"/>
+                      href="../../org.ow2.fractal.mind.emf/model/mind.ecore#//ArchitectureDefinition/body"/>
                   <newElementInitializers>
                     <initializers
                         xsi:type="gmfmap:FeatureValueSpec">
                       <feature
                           xsi:type="ecore:EAttribute"
-                          href="../../org.ow2.fractal.mind.emf/model/mind.ecore#//ComponentReference/referenceName"/>
+                          href="../../org.ow2.fractal.mind.emf/model/mind.ecore#//MergedObject/merged"/>
                       <value
-                          body="'reference_name'"/>
+                          body="false"/>
                     </initializers>
                     <elementClass
-                        href="../../org.ow2.fractal.mind.emf/model/mind.ecore#//CompositeReferenceDefinition"/>
+                        href="../../org.ow2.fractal.mind.emf/model/mind.ecore#//CompositeBody"/>
                   </newElementInitializers>
                 </initializers>
               </domainInitializer>
@@ -540,25 +541,26 @@
               <domainMetaElement
                   href="../../org.ow2.fractal.mind.emf/model/mind.ecore#//SubComponentDefinition"/>
               <domainSpecialization
-                  body="self.referenceDefinition.oclIsKindOf(PrimitiveReferenceDefinition)"/>
+                  body="Java constraints must be implemented manually (cf. templates)"
+                  language="java"/>
               <domainInitializer
                   xsi:type="gmfmap:FeatureSeqInitializer">
                 <initializers
                     xsi:type="gmfmap:ReferenceNewElementSpec">
                   <feature
                       xsi:type="ecore:EReference"
-                      href="../../org.ow2.fractal.mind.emf/model/mind.ecore#//SubComponentDefinition/referenceDefinition"/>
+                      href="../../org.ow2.fractal.mind.emf/model/mind.ecore#//ArchitectureDefinition/body"/>
                   <newElementInitializers>
                     <initializers
                         xsi:type="gmfmap:FeatureValueSpec">
                       <feature
                           xsi:type="ecore:EAttribute"
-                          href="../../org.ow2.fractal.mind.emf/model/mind.ecore#//ComponentReference/referenceName"/>
+                          href="../../org.ow2.fractal.mind.emf/model/mind.ecore#//MergedObject/merged"/>
                       <value
-                          body="'reference_name'"/>
+                          body="false"/>
                     </initializers>
                     <elementClass
-                        href="../../org.ow2.fractal.mind.emf/model/mind.ecore#//PrimitiveReferenceDefinition"/>
+                        href="../../org.ow2.fractal.mind.emf/model/mind.ecore#//PrimitiveBody"/>
                   </newElementInitializers>
                 </initializers>
               </domainInitializer>
@@ -619,7 +621,7 @@
                       href="../../org.ow2.fractal.mind.emf/model/mind.ecore#//PrimitiveBody"/>
                   <tool
                       xsi:type="gmftool:CreationTool"
-                      href="mind.gmftool#//@palette/@tools.0/@tools.5"/>
+                      href="mind.gmftool#//@palette/@tools.0/@tools.4"/>
                   <diagramNode
                       href="mind.gmfgraph#Body"/>
                   <children

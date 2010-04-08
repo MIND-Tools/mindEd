@@ -38,7 +38,7 @@
         name="Primitive reference name check"
         description="This will check if a reference's name is correct"
         id="reference_namecheck"
-        rule="//@expressionProviders/@providers.0/@expressions.15"
+        rule="//@expressionProviders/@providers.0/@expressions.13"
         message="Reference name not valid"
         category="//@audits/@categories.1">
       <target
@@ -52,7 +52,7 @@
         name="Component name check"
         description="This will check if a component's name is correct"
         id="component_namecheck"
-        rule="//@expressionProviders/@providers.0/@expressions.16"
+        rule="//@expressionProviders/@providers.0/@expressions.14"
         message="Component name not valid"
         category="//@audits/@categories.2">
       <target
@@ -66,7 +66,7 @@
         name="interface_name_check"
         description="This will check that all interfaces have a name"
         id="interface_name_check"
-        rule="//@expressionProviders/@providers.0/@expressions.17"
+        rule="//@expressionProviders/@providers.0/@expressions.15"
         message="Interface must have a name"
         category="//@audits/@categories.2">
       <target
@@ -80,7 +80,7 @@
         name="inline_pattern"
         description="This will check that an inline c code begins and ends with double curly brackets"
         id="inline_pattern"
-        rule="//@expressionProviders/@providers.0/@expressions.18"
+        rule="//@expressionProviders/@providers.0/@expressions.16"
         message="Inline code must begin and end with double curly brackets"
         category="//@audits/@categories.3">
       <target
@@ -94,7 +94,7 @@
         name="data_content"
         description="This will check that datas only has one content"
         id="data_content"
-        rule="//@expressionProviders/@providers.0/@expressions.19"
+        rule="//@expressionProviders/@providers.0/@expressions.17"
         message="Data must be File or Inline"
         useInLiveMode="true"
         category="//@audits/@categories.3">
@@ -109,7 +109,7 @@
         name="source_not_empty"
         description="This will check that an implementation is not empty"
         id="source_not_empty"
-        rule="//@expressionProviders/@providers.0/@expressions.20"
+        rule="//@expressionProviders/@providers.0/@expressions.18"
         message="Source must not be empty"
         category="//@audits/@categories.3">
       <target
@@ -123,7 +123,7 @@
         name="source_content"
         description="This will check that sources only has one content"
         id="source_content"
-        rule="//@expressionProviders/@providers.0/@expressions.21"
+        rule="//@expressionProviders/@providers.0/@expressions.19"
         message="Source must be File or Inline"
         useInLiveMode="true"
         category="//@audits/@categories.3">
@@ -138,7 +138,7 @@
         name="adl_not_empty"
         description="This will check that the adl is not empty"
         id="adl_not_empty"
-        rule="//@expressionProviders/@providers.0/@expressions.22"
+        rule="//@expressionProviders/@providers.0/@expressions.20"
         message="There must be at least one element"
         category="//@audits/@categories.4">
       <target
@@ -464,7 +464,7 @@
       <viewmap
           xsi:type="gmfgen:InnerClassViewmap"
           className="ReferencesListFigure"
-          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class ReferencesListFigure extends org.ow2.fractal.mind.diagram.custom.figures.ReferencesListCustomFigure {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.ow2.fractal.mind.diagram.custom.figures.ContainerShape fFigureReferencesArea; &#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.ow2.fractal.mind.diagram.custom.figures.LabelTitleReferencesListCustomFigure fLabelTitle; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public ReferencesListFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;&#xA;&#xA;&#xA;&#xA;this.setMaximumSize(&#xA;MAXIMUM_SIZE);&#xA;&#xA;&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fLabelTitle = new org.ow2.fractal.mind.diagram.custom.figures.LabelTitleReferencesListCustomFigure();&#xA;&#xA;&#xA;&#xA;this.add(fLabelTitle);&#xA;&#xA;&#xA;&#xA;fFigureReferencesArea = new org.ow2.fractal.mind.diagram.custom.figures.ContainerShape();&#xA;&#xA;&#xA;&#xA;&#xA;fFigureReferencesArea.setBackgroundColor(&#xA;BACKGROUND_COLOR);&#xA;&#xA;&#xA;&#xA;this.add(fFigureReferencesArea);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private boolean myUseLocalCoordinates = false;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;protected boolean useLocalCoordinates() {&#xA;&#x9;&#x9;return myUseLocalCoordinates;&#xA;&#x9;}&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;protected void setUseLocalCoordinates(boolean useLocalCoordinates) {&#xA;&#x9;&#x9;myUseLocalCoordinates = useLocalCoordinates;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.ow2.fractal.mind.diagram.custom.figures.ContainerShape getFigureReferencesArea() {&#xA;&#x9;&#x9;return fFigureReferencesArea;&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.ow2.fractal.mind.diagram.custom.figures.LabelTitleReferencesListCustomFigure getLabelTitle() {&#xA;&#x9;&#x9;return fLabelTitle;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;">
+          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class ReferencesListFigure extends org.ow2.fractal.mind.diagram.custom.figures.ReferencesListCustomFigure {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.ow2.fractal.mind.diagram.custom.figures.ContainerShape fFigureReferencesArea; &#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.ow2.fractal.mind.diagram.custom.figures.LabelTitleReferencesListCustomFigure fLabelTitle; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public ReferencesListFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;&#xA;&#xA;&#xA;&#xA;this.setMaximumSize(&#xA;MAXIMUM_SIZE);&#xA;&#xA;&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fLabelTitle = new org.ow2.fractal.mind.diagram.custom.figures.LabelTitleReferencesListCustomFigure();&#xA;&#xA;&#xA;&#xA;this.add(fLabelTitle);&#xA;&#xA;&#xA;&#xA;fFigureReferencesArea = new org.ow2.fractal.mind.diagram.custom.figures.ContainerShape();&#xA;&#xA;&#xA;&#xA;&#xA;fFigureReferencesArea.setBackgroundColor(&#xA;BACKGROUND_COLOR);&#xA;&#xA;&#xA;&#xA;this.add(fFigureReferencesArea);&#xA;&#xA;&#xA;&#xA;org.ow2.fractal.mind.diagram.custom.figures.ReferencesListCustomFigure referencesListFigure0 = new org.ow2.fractal.mind.diagram.custom.figures.ReferencesListCustomFigure();&#xA;&#xA;&#xA;&#xA;&#xA;referencesListFigure0.setMaximumSize(&#xA;MAXIMUM_SIZE);&#xA;&#xA;&#xA;&#xA;this.add(referencesListFigure0);&#xA;&#xA;&#xA;org.ow2.fractal.mind.diagram.custom.figures.LabelTitleReferencesListCustomFigure labelTitleReferencesList1 = new org.ow2.fractal.mind.diagram.custom.figures.LabelTitleReferencesListCustomFigure();&#xA;&#xA;&#xA;&#xA;referencesListFigure0.add(labelTitleReferencesList1);&#xA;&#xA;&#xA;&#xA;org.ow2.fractal.mind.diagram.custom.figures.ContainerShape referencesArea1 = new org.ow2.fractal.mind.diagram.custom.figures.ContainerShape();&#xA;&#xA;&#xA;&#xA;&#xA;referencesArea1.setBackgroundColor(&#xA;BACKGROUND_COLOR);&#xA;&#xA;&#xA;&#xA;referencesListFigure0.add(referencesArea1);&#xA;&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private boolean myUseLocalCoordinates = false;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;protected boolean useLocalCoordinates() {&#xA;&#x9;&#x9;return myUseLocalCoordinates;&#xA;&#x9;}&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;protected void setUseLocalCoordinates(boolean useLocalCoordinates) {&#xA;&#x9;&#x9;myUseLocalCoordinates = useLocalCoordinates;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.ow2.fractal.mind.diagram.custom.figures.ContainerShape getFigureReferencesArea() {&#xA;&#x9;&#x9;return fFigureReferencesArea;&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.ow2.fractal.mind.diagram.custom.figures.LabelTitleReferencesListCustomFigure getLabelTitle() {&#xA;&#x9;&#x9;return fLabelTitle;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;">
         <attributes
             xsi:type="gmfgen:ResizeConstraints"/>
       </viewmap>
@@ -820,7 +820,7 @@
           className="ComponentFigure"
           classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class ComponentFigure extends org.ow2.fractal.mind.diagram.custom.figures.ComponentFigure {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.ow2.fractal.mind.diagram.custom.figures.AbstractComponentNameWrappingLabel fLabel; &#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.ow2.fractal.mind.diagram.custom.figures.ComponentFigure fFigure; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public ComponentFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;&#xA;&#xA;&#xA;&#xA;this.setPreferredSize(&#xA;getMindPreferredSize());&#xA;&#xA;&#xA;this.setBorder(createBorder0());&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fLabel = new org.ow2.fractal.mind.diagram.custom.figures.AbstractComponentNameWrappingLabel();&#xA;&#xA;&#xA;&#xA;this.add(fLabel);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.draw2d.Border createBorder0() {&#xA;&#x9;&#x9;org.ow2.fractal.mind.diagram.custom.figures.ComponentBorder result = new org.ow2.fractal.mind.diagram.custom.figures.ComponentBorder();&#xA;&#x9;&#x9;&#xA;&#xA;&#xA;&#xA;result.setColor(&#xA;getMindBorderColor());&#xA;&#xA;&#xA;&#xA;&#x9;&#x9;return result;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private boolean myUseLocalCoordinates = false;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;protected boolean useLocalCoordinates() {&#xA;&#x9;&#x9;return myUseLocalCoordinates;&#xA;&#x9;}&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;protected void setUseLocalCoordinates(boolean useLocalCoordinates) {&#xA;&#x9;&#x9;myUseLocalCoordinates = useLocalCoordinates;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.ow2.fractal.mind.diagram.custom.figures.AbstractComponentNameWrappingLabel getLabel() {&#xA;&#x9;&#x9;return fLabel;&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.ow2.fractal.mind.diagram.custom.figures.ComponentFigure getFigure() {&#xA;&#x9;&#x9;return fFigure;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;"/>
       <modelFacet
-          modelElementSelector="//@expressionProviders/@providers.0/@expressions.7">
+          modelElementSelector="//@expressionProviders/@providers.1/@expressions.0">
         <metaClass
             href="../../org.ow2.fractal.mind.emf/model/mind.genmodel#//adl/SubComponentDefinition"/>
         <containmentMetaFeature
@@ -832,16 +832,16 @@
           <initializers
               xsi:type="gmfgen:GenReferenceNewElementSpec">
             <feature
-                href="../../org.ow2.fractal.mind.emf/model/mind.genmodel#//adl/SubComponentDefinition/referenceDefinition"/>
+                href="../../org.ow2.fractal.mind.emf/model/mind.genmodel#//adl/ArchitectureDefinition/body"/>
             <newElementInitializers>
               <initializers
                   xsi:type="gmfgen:GenFeatureValueSpec"
-                  value="//@expressionProviders/@providers.0/@expressions.8">
+                  value="//@expressionProviders/@providers.0/@expressions.7">
                 <feature
-                    href="../../org.ow2.fractal.mind.emf/model/mind.genmodel#//adl/ComponentReference/referenceName"/>
+                    href="../../org.ow2.fractal.mind.emf/model/mind.genmodel#//adl/MergedObject/merged"/>
               </initializers>
               <elementClass
-                  href="../../org.ow2.fractal.mind.emf/model/mind.genmodel#//adl/CompositeReferenceDefinition"/>
+                  href="../../org.ow2.fractal.mind.emf/model/mind.genmodel#//adl/CompositeBody"/>
             </newElementInitializers>
           </initializers>
         </modelElementInitializer>
@@ -888,7 +888,7 @@
           className="ReferenceFigure"
           classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class ReferenceFigure extends org.ow2.fractal.mind.diagram.custom.figures.ReferenceFigure {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.ow2.fractal.mind.diagram.custom.figures.LabelReferenceNameFigure fLabelReference; &#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.ow2.fractal.mind.diagram.custom.figures.ContainerShape fReferenceArea; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public ReferenceFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;&#xA;&#xA;this.setBorder(createBorder0());&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fLabelReference = new org.ow2.fractal.mind.diagram.custom.figures.LabelReferenceNameFigure();&#xA;&#xA;&#xA;&#xA;this.add(fLabelReference);&#xA;&#xA;&#xA;&#xA;fReferenceArea = new org.ow2.fractal.mind.diagram.custom.figures.ContainerShape();&#xA;&#xA;&#xA;&#xA;this.add(fReferenceArea);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.draw2d.Border createBorder0() {&#xA;&#x9;&#x9;org.ow2.fractal.mind.diagram.custom.figures.ComponentBorder result = new org.ow2.fractal.mind.diagram.custom.figures.ComponentBorder();&#xA;&#x9;&#x9;&#xA;&#xA;&#xA;&#xA;result.setColor(&#xA;borderColor);&#xA;&#xA;&#xA;&#xA;&#x9;&#x9;return result;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private boolean myUseLocalCoordinates = false;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;protected boolean useLocalCoordinates() {&#xA;&#x9;&#x9;return myUseLocalCoordinates;&#xA;&#x9;}&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;protected void setUseLocalCoordinates(boolean useLocalCoordinates) {&#xA;&#x9;&#x9;myUseLocalCoordinates = useLocalCoordinates;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.ow2.fractal.mind.diagram.custom.figures.LabelReferenceNameFigure getLabelReference() {&#xA;&#x9;&#x9;return fLabelReference;&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.ow2.fractal.mind.diagram.custom.figures.ContainerShape getReferenceArea() {&#xA;&#x9;&#x9;return fReferenceArea;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;"/>
       <modelFacet
-          modelElementSelector="//@expressionProviders/@providers.0/@expressions.9">
+          modelElementSelector="//@expressionProviders/@providers.0/@expressions.8">
         <metaClass
             href="../../org.ow2.fractal.mind.emf/model/mind.genmodel#//adl/CompositeReferenceDefinition"/>
         <containmentMetaFeature
@@ -976,7 +976,7 @@
           className="ComponentFigure"
           classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class ComponentFigure extends org.ow2.fractal.mind.diagram.custom.figures.ComponentFigure {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.ow2.fractal.mind.diagram.custom.figures.AbstractComponentNameWrappingLabel fLabel; &#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.ow2.fractal.mind.diagram.custom.figures.ComponentFigure fFigure; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public ComponentFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;&#xA;&#xA;&#xA;&#xA;this.setPreferredSize(&#xA;getMindPreferredSize());&#xA;&#xA;&#xA;this.setBorder(createBorder0());&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fLabel = new org.ow2.fractal.mind.diagram.custom.figures.AbstractComponentNameWrappingLabel();&#xA;&#xA;&#xA;&#xA;this.add(fLabel);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.draw2d.Border createBorder0() {&#xA;&#x9;&#x9;org.ow2.fractal.mind.diagram.custom.figures.ComponentBorder result = new org.ow2.fractal.mind.diagram.custom.figures.ComponentBorder();&#xA;&#x9;&#x9;&#xA;&#xA;&#xA;&#xA;result.setColor(&#xA;getMindBorderColor());&#xA;&#xA;&#xA;&#xA;&#x9;&#x9;return result;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private boolean myUseLocalCoordinates = false;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;protected boolean useLocalCoordinates() {&#xA;&#x9;&#x9;return myUseLocalCoordinates;&#xA;&#x9;}&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;protected void setUseLocalCoordinates(boolean useLocalCoordinates) {&#xA;&#x9;&#x9;myUseLocalCoordinates = useLocalCoordinates;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.ow2.fractal.mind.diagram.custom.figures.AbstractComponentNameWrappingLabel getLabel() {&#xA;&#x9;&#x9;return fLabel;&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.ow2.fractal.mind.diagram.custom.figures.ComponentFigure getFigure() {&#xA;&#x9;&#x9;return fFigure;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;"/>
       <modelFacet
-          modelElementSelector="//@expressionProviders/@providers.0/@expressions.10">
+          modelElementSelector="//@expressionProviders/@providers.1/@expressions.1">
         <metaClass
             href="../../org.ow2.fractal.mind.emf/model/mind.genmodel#//adl/SubComponentDefinition"/>
         <containmentMetaFeature
@@ -988,16 +988,16 @@
           <initializers
               xsi:type="gmfgen:GenReferenceNewElementSpec">
             <feature
-                href="../../org.ow2.fractal.mind.emf/model/mind.genmodel#//adl/SubComponentDefinition/referenceDefinition"/>
+                href="../../org.ow2.fractal.mind.emf/model/mind.genmodel#//adl/ArchitectureDefinition/body"/>
             <newElementInitializers>
               <initializers
                   xsi:type="gmfgen:GenFeatureValueSpec"
-                  value="//@expressionProviders/@providers.0/@expressions.11">
+                  value="//@expressionProviders/@providers.0/@expressions.9">
                 <feature
-                    href="../../org.ow2.fractal.mind.emf/model/mind.genmodel#//adl/ComponentReference/referenceName"/>
+                    href="../../org.ow2.fractal.mind.emf/model/mind.genmodel#//adl/MergedObject/merged"/>
               </initializers>
               <elementClass
-                  href="../../org.ow2.fractal.mind.emf/model/mind.genmodel#//adl/PrimitiveReferenceDefinition"/>
+                  href="../../org.ow2.fractal.mind.emf/model/mind.genmodel#//adl/PrimitiveBody"/>
             </newElementInitializers>
           </initializers>
         </modelElementInitializer>
@@ -1044,7 +1044,7 @@
           className="ReferenceFigure"
           classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class ReferenceFigure extends org.ow2.fractal.mind.diagram.custom.figures.ReferenceFigure {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.ow2.fractal.mind.diagram.custom.figures.LabelReferenceNameFigure fLabelReference; &#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.ow2.fractal.mind.diagram.custom.figures.ContainerShape fReferenceArea; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public ReferenceFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;&#xA;&#xA;this.setBorder(createBorder0());&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fLabelReference = new org.ow2.fractal.mind.diagram.custom.figures.LabelReferenceNameFigure();&#xA;&#xA;&#xA;&#xA;this.add(fLabelReference);&#xA;&#xA;&#xA;&#xA;fReferenceArea = new org.ow2.fractal.mind.diagram.custom.figures.ContainerShape();&#xA;&#xA;&#xA;&#xA;this.add(fReferenceArea);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.draw2d.Border createBorder0() {&#xA;&#x9;&#x9;org.ow2.fractal.mind.diagram.custom.figures.ComponentBorder result = new org.ow2.fractal.mind.diagram.custom.figures.ComponentBorder();&#xA;&#x9;&#x9;&#xA;&#xA;&#xA;&#xA;result.setColor(&#xA;borderColor);&#xA;&#xA;&#xA;&#xA;&#x9;&#x9;return result;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private boolean myUseLocalCoordinates = false;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;protected boolean useLocalCoordinates() {&#xA;&#x9;&#x9;return myUseLocalCoordinates;&#xA;&#x9;}&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;protected void setUseLocalCoordinates(boolean useLocalCoordinates) {&#xA;&#x9;&#x9;myUseLocalCoordinates = useLocalCoordinates;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.ow2.fractal.mind.diagram.custom.figures.LabelReferenceNameFigure getLabelReference() {&#xA;&#x9;&#x9;return fLabelReference;&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.ow2.fractal.mind.diagram.custom.figures.ContainerShape getReferenceArea() {&#xA;&#x9;&#x9;return fReferenceArea;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;"/>
       <modelFacet
-          modelElementSelector="//@expressionProviders/@providers.0/@expressions.12">
+          modelElementSelector="//@expressionProviders/@providers.0/@expressions.10">
         <metaClass
             href="../../org.ow2.fractal.mind.emf/model/mind.genmodel#//adl/PrimitiveReferenceDefinition"/>
         <containmentMetaFeature
@@ -1508,7 +1508,7 @@
       <viewmap
           xsi:type="gmfgen:InnerClassViewmap"
           className="ReferencesListFigure"
-          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class ReferencesListFigure extends org.ow2.fractal.mind.diagram.custom.figures.ReferencesListCustomFigure {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.ow2.fractal.mind.diagram.custom.figures.ContainerShape fFigureReferencesArea; &#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.ow2.fractal.mind.diagram.custom.figures.LabelTitleReferencesListCustomFigure fLabelTitle; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public ReferencesListFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;&#xA;&#xA;&#xA;&#xA;this.setMaximumSize(&#xA;MAXIMUM_SIZE);&#xA;&#xA;&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fLabelTitle = new org.ow2.fractal.mind.diagram.custom.figures.LabelTitleReferencesListCustomFigure();&#xA;&#xA;&#xA;&#xA;this.add(fLabelTitle);&#xA;&#xA;&#xA;&#xA;fFigureReferencesArea = new org.ow2.fractal.mind.diagram.custom.figures.ContainerShape();&#xA;&#xA;&#xA;&#xA;&#xA;fFigureReferencesArea.setBackgroundColor(&#xA;BACKGROUND_COLOR);&#xA;&#xA;&#xA;&#xA;this.add(fFigureReferencesArea);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private boolean myUseLocalCoordinates = false;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;protected boolean useLocalCoordinates() {&#xA;&#x9;&#x9;return myUseLocalCoordinates;&#xA;&#x9;}&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;protected void setUseLocalCoordinates(boolean useLocalCoordinates) {&#xA;&#x9;&#x9;myUseLocalCoordinates = useLocalCoordinates;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.ow2.fractal.mind.diagram.custom.figures.ContainerShape getFigureReferencesArea() {&#xA;&#x9;&#x9;return fFigureReferencesArea;&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.ow2.fractal.mind.diagram.custom.figures.LabelTitleReferencesListCustomFigure getLabelTitle() {&#xA;&#x9;&#x9;return fLabelTitle;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;">
+          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class ReferencesListFigure extends org.ow2.fractal.mind.diagram.custom.figures.ReferencesListCustomFigure {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.ow2.fractal.mind.diagram.custom.figures.ContainerShape fFigureReferencesArea; &#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.ow2.fractal.mind.diagram.custom.figures.LabelTitleReferencesListCustomFigure fLabelTitle; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public ReferencesListFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;&#xA;&#xA;&#xA;&#xA;this.setMaximumSize(&#xA;MAXIMUM_SIZE);&#xA;&#xA;&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fLabelTitle = new org.ow2.fractal.mind.diagram.custom.figures.LabelTitleReferencesListCustomFigure();&#xA;&#xA;&#xA;&#xA;this.add(fLabelTitle);&#xA;&#xA;&#xA;&#xA;fFigureReferencesArea = new org.ow2.fractal.mind.diagram.custom.figures.ContainerShape();&#xA;&#xA;&#xA;&#xA;&#xA;fFigureReferencesArea.setBackgroundColor(&#xA;BACKGROUND_COLOR);&#xA;&#xA;&#xA;&#xA;this.add(fFigureReferencesArea);&#xA;&#xA;&#xA;&#xA;org.ow2.fractal.mind.diagram.custom.figures.ReferencesListCustomFigure referencesListFigure0 = new org.ow2.fractal.mind.diagram.custom.figures.ReferencesListCustomFigure();&#xA;&#xA;&#xA;&#xA;&#xA;referencesListFigure0.setMaximumSize(&#xA;MAXIMUM_SIZE);&#xA;&#xA;&#xA;&#xA;this.add(referencesListFigure0);&#xA;&#xA;&#xA;org.ow2.fractal.mind.diagram.custom.figures.LabelTitleReferencesListCustomFigure labelTitleReferencesList1 = new org.ow2.fractal.mind.diagram.custom.figures.LabelTitleReferencesListCustomFigure();&#xA;&#xA;&#xA;&#xA;referencesListFigure0.add(labelTitleReferencesList1);&#xA;&#xA;&#xA;&#xA;org.ow2.fractal.mind.diagram.custom.figures.ContainerShape referencesArea1 = new org.ow2.fractal.mind.diagram.custom.figures.ContainerShape();&#xA;&#xA;&#xA;&#xA;&#xA;referencesArea1.setBackgroundColor(&#xA;BACKGROUND_COLOR);&#xA;&#xA;&#xA;&#xA;referencesListFigure0.add(referencesArea1);&#xA;&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private boolean myUseLocalCoordinates = false;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;protected boolean useLocalCoordinates() {&#xA;&#x9;&#x9;return myUseLocalCoordinates;&#xA;&#x9;}&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;protected void setUseLocalCoordinates(boolean useLocalCoordinates) {&#xA;&#x9;&#x9;myUseLocalCoordinates = useLocalCoordinates;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.ow2.fractal.mind.diagram.custom.figures.ContainerShape getFigureReferencesArea() {&#xA;&#x9;&#x9;return fFigureReferencesArea;&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.ow2.fractal.mind.diagram.custom.figures.LabelTitleReferencesListCustomFigure getLabelTitle() {&#xA;&#x9;&#x9;return fLabelTitle;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;">
         <attributes
             xsi:type="gmfgen:ResizeConstraints"/>
       </viewmap>
@@ -1528,7 +1528,7 @@
             <newElementInitializers>
               <initializers
                   xsi:type="gmfgen:GenFeatureValueSpec"
-                  value="//@expressionProviders/@providers.0/@expressions.13">
+                  value="//@expressionProviders/@providers.0/@expressions.11">
                 <feature
                     href="../../org.ow2.fractal.mind.emf/model/mind.genmodel#//adl/ComponentReference/referenceName"/>
               </initializers>
@@ -1624,7 +1624,7 @@
       <viewmap
           xsi:type="gmfgen:InnerClassViewmap"
           className="ReferencesListFigure"
-          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class ReferencesListFigure extends org.ow2.fractal.mind.diagram.custom.figures.ReferencesListCustomFigure {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.ow2.fractal.mind.diagram.custom.figures.ContainerShape fFigureReferencesArea; &#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.ow2.fractal.mind.diagram.custom.figures.LabelTitleReferencesListCustomFigure fLabelTitle; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public ReferencesListFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;&#xA;&#xA;&#xA;&#xA;this.setMaximumSize(&#xA;MAXIMUM_SIZE);&#xA;&#xA;&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fLabelTitle = new org.ow2.fractal.mind.diagram.custom.figures.LabelTitleReferencesListCustomFigure();&#xA;&#xA;&#xA;&#xA;this.add(fLabelTitle);&#xA;&#xA;&#xA;&#xA;fFigureReferencesArea = new org.ow2.fractal.mind.diagram.custom.figures.ContainerShape();&#xA;&#xA;&#xA;&#xA;&#xA;fFigureReferencesArea.setBackgroundColor(&#xA;BACKGROUND_COLOR);&#xA;&#xA;&#xA;&#xA;this.add(fFigureReferencesArea);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private boolean myUseLocalCoordinates = false;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;protected boolean useLocalCoordinates() {&#xA;&#x9;&#x9;return myUseLocalCoordinates;&#xA;&#x9;}&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;protected void setUseLocalCoordinates(boolean useLocalCoordinates) {&#xA;&#x9;&#x9;myUseLocalCoordinates = useLocalCoordinates;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.ow2.fractal.mind.diagram.custom.figures.ContainerShape getFigureReferencesArea() {&#xA;&#x9;&#x9;return fFigureReferencesArea;&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.ow2.fractal.mind.diagram.custom.figures.LabelTitleReferencesListCustomFigure getLabelTitle() {&#xA;&#x9;&#x9;return fLabelTitle;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;">
+          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class ReferencesListFigure extends org.ow2.fractal.mind.diagram.custom.figures.ReferencesListCustomFigure {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.ow2.fractal.mind.diagram.custom.figures.ContainerShape fFigureReferencesArea; &#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.ow2.fractal.mind.diagram.custom.figures.LabelTitleReferencesListCustomFigure fLabelTitle; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public ReferencesListFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;&#xA;&#xA;&#xA;&#xA;this.setMaximumSize(&#xA;MAXIMUM_SIZE);&#xA;&#xA;&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fLabelTitle = new org.ow2.fractal.mind.diagram.custom.figures.LabelTitleReferencesListCustomFigure();&#xA;&#xA;&#xA;&#xA;this.add(fLabelTitle);&#xA;&#xA;&#xA;&#xA;fFigureReferencesArea = new org.ow2.fractal.mind.diagram.custom.figures.ContainerShape();&#xA;&#xA;&#xA;&#xA;&#xA;fFigureReferencesArea.setBackgroundColor(&#xA;BACKGROUND_COLOR);&#xA;&#xA;&#xA;&#xA;this.add(fFigureReferencesArea);&#xA;&#xA;&#xA;&#xA;org.ow2.fractal.mind.diagram.custom.figures.ReferencesListCustomFigure referencesListFigure0 = new org.ow2.fractal.mind.diagram.custom.figures.ReferencesListCustomFigure();&#xA;&#xA;&#xA;&#xA;&#xA;referencesListFigure0.setMaximumSize(&#xA;MAXIMUM_SIZE);&#xA;&#xA;&#xA;&#xA;this.add(referencesListFigure0);&#xA;&#xA;&#xA;org.ow2.fractal.mind.diagram.custom.figures.LabelTitleReferencesListCustomFigure labelTitleReferencesList1 = new org.ow2.fractal.mind.diagram.custom.figures.LabelTitleReferencesListCustomFigure();&#xA;&#xA;&#xA;&#xA;referencesListFigure0.add(labelTitleReferencesList1);&#xA;&#xA;&#xA;&#xA;org.ow2.fractal.mind.diagram.custom.figures.ContainerShape referencesArea1 = new org.ow2.fractal.mind.diagram.custom.figures.ContainerShape();&#xA;&#xA;&#xA;&#xA;&#xA;referencesArea1.setBackgroundColor(&#xA;BACKGROUND_COLOR);&#xA;&#xA;&#xA;&#xA;referencesListFigure0.add(referencesArea1);&#xA;&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private boolean myUseLocalCoordinates = false;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;protected boolean useLocalCoordinates() {&#xA;&#x9;&#x9;return myUseLocalCoordinates;&#xA;&#x9;}&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;protected void setUseLocalCoordinates(boolean useLocalCoordinates) {&#xA;&#x9;&#x9;myUseLocalCoordinates = useLocalCoordinates;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.ow2.fractal.mind.diagram.custom.figures.ContainerShape getFigureReferencesArea() {&#xA;&#x9;&#x9;return fFigureReferencesArea;&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.ow2.fractal.mind.diagram.custom.figures.LabelTitleReferencesListCustomFigure getLabelTitle() {&#xA;&#x9;&#x9;return fLabelTitle;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;">
         <attributes
             xsi:type="gmfgen:ResizeConstraints"/>
       </viewmap>
@@ -1644,7 +1644,7 @@
             <newElementInitializers>
               <initializers
                   xsi:type="gmfgen:GenFeatureValueSpec"
-                  value="//@expressionProviders/@providers.0/@expressions.14">
+                  value="//@expressionProviders/@providers.0/@expressions.12">
                 <feature
                     href="../../org.ow2.fractal.mind.emf/model/mind.genmodel#//adl/ComponentReference/referenceName"/>
               </initializers>
@@ -2201,6 +2201,7 @@
             xsi:type="gmfgen:ToolEntry"
             title="Primitive Component"
             description="create primitive"
+            smallIconPath="/org.ow2.fractal.mind.emf.model.edit/icons/full/obj16/PrimitiveComponentDefinition.gif"
             genNodes="//@diagram/@childNodes.15 //@diagram/@topLevelNodes.1"/>
         <entries
             xsi:type="gmfgen:ToolEntry"
@@ -2209,18 +2210,13 @@
             genNodes="//@diagram/@topLevelNodes.2"/>
         <entries
             xsi:type="gmfgen:ToolEntry"
-            title="Template Sub Component"
-            description="create new template sub component"/>
-        <entries
-            xsi:type="gmfgen:ToolEntry"
             title="Argument"
-            description="Add Argument"
-            genNodes="//@diagram/@childNodes.3 //@diagram/@childNodes.4 //@diagram/@childNodes.7 //@diagram/@childNodes.25"/>
+            description="Add Argument"/>
         <entries
             xsi:type="gmfgen:ToolEntry"
             title="Body"
             description="Create new Body"
-            genNodes="//@diagram/@childNodes.10 //@diagram/@childNodes.17"/>
+            genNodes="//@diagram/@childNodes.3 //@diagram/@childNodes.4 //@diagram/@childNodes.7 //@diagram/@childNodes.10 //@diagram/@childNodes.17 //@diagram/@childNodes.25"/>
       </groups>
       <groups
           title="Composite"
@@ -2534,18 +2530,12 @@
       <expressions
           body="'reference_name'"/>
       <expressions
-          xsi:type="gmfgen:GenConstraint"
-          body="self.referenceDefinition.oclIsKindOf(CompositeReferenceDefinition)"/>
-      <expressions
-          body="'reference_name'"/>
+          body="false"/>
       <expressions
           xsi:type="gmfgen:GenConstraint"
           body="self.oclIsKindOf(CompositeReferenceDefinition)"/>
       <expressions
-          xsi:type="gmfgen:GenConstraint"
-          body="self.referenceDefinition.oclIsKindOf(PrimitiveReferenceDefinition)"/>
-      <expressions
-          body="'reference_name'"/>
+          body="false"/>
       <expressions
           xsi:type="gmfgen:GenConstraint"
           body="self.oclIsKindOf(PrimitiveReferenceDefinition)"/>
@@ -2577,6 +2567,15 @@
       <expressions
           xsi:type="gmfgen:GenConstraint"
           body="( ArchitectureDefinition.allInstances()->size() > 0)"/>
+    </providers>
+    <providers
+        xsi:type="gmfgen:GenJavaExpressionProvider">
+      <expressions
+          xsi:type="gmfgen:GenConstraint"
+          body="Java constraints must be implemented manually (cf. templates)"/>
+      <expressions
+          xsi:type="gmfgen:GenConstraint"
+          body="Java constraints must be implemented manually (cf. templates)"/>
     </providers>
   </expressionProviders>
   <labelParsers
