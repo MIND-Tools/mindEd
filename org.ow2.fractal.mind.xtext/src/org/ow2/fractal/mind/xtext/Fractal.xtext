@@ -3,9 +3,10 @@ grammar org.ow2.fractal.mind.xtext.Fractal with org.eclipse.xtext.common.Termina
 
 import "platform:/resource/org.ow2.fractal.mind.emf/model/mind.ecore" 
 
+import "http://www.eclipse.org/emf/2002/Ecore" as ecore
+
 AdlDefinition : 
 ((imports+=ImportDefinition)*)
-(annotationsList=AnnotationsList)?
 (architecturedefinition=ArchitectureDefinition);
 
 ImportDefinition :
@@ -20,6 +21,7 @@ ArchitectureDefinition:
 ;
 
 PrimitiveComponentDefinition : 
+(annotationsList=AnnotationsList)?
 (abstract?='abstract')? 
 'primitive' 
 name=FQN
@@ -30,8 +32,6 @@ name=FQN
 body=PrimitiveBody)?
 ;
 
-
-
 PrimitiveDefinitionElement :
 InterfaceDefinition
 |AttributeDefinition
@@ -39,6 +39,7 @@ InterfaceDefinition
 |ImplementationDefinition;
 
 ComponentTypeDefinition :
+(annotationsList=AnnotationsList)?
 'type' name=FQN
 (referencesList=TypeReferencesList)?
 (('{'(body=TypeBody)?'}')
@@ -53,6 +54,7 @@ TypeDefinitionElement :
 InterfaceDefinition;
 
 CompositeComponentDefinition : 
+(annotationsList=AnnotationsList)?
 'composite' name=FQN 
 (templateSpecifiersList=TemplateSpecifiersList)?
 (compositeFormalArgumentsList=FormalArgumentsList)?
@@ -89,13 +91,11 @@ SubComponentDefinition :
 
 (
 	(
-		anonymous?='composite' 
-		'{'body = CompositeBody'}'
+		anonymous?=SubComponentCompositeBody
 	)
 |
 	(
-		anonymous?='primitive' 
-		'{'body = PrimitiveBody'}'
+		anonymous?=SubComponentPrimitiveBody
 	)
 )?
 ;
@@ -103,16 +103,21 @@ SubComponentDefinition :
 Body :
 CompositeBody | PrimitiveBody | TypeBody;
 
+SubComponentCompositeBody :
+(annotationsList=AnnotationsList)? 'composite'
+'{' ((elements+=CompositeDefinitionElement)(';')?)* '}';
+
+SubComponentPrimitiveBody :
+(annotationsList=AnnotationsList)? 'primitive' 
+'{' ((elements+=PrimitiveDefinitionElement)(';')?)* '}';
+
 CompositeBody :
-(annotationsList=AnnotationsList)?
 ((elements+=CompositeDefinitionElement)(';')?)*;
 
 PrimitiveBody :
-(annotationsList=AnnotationsList)?
 ((elements+=PrimitiveDefinitionElement)(';')?)*;
 
 TypeBody :
-(annotationsList=AnnotationsList)?
 ((elements+=TypeDefinitionElement)(';')?)*;
 
 Element :
