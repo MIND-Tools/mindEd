@@ -41,5 +41,6 @@ public class FractalIdtStandaloneSetup implements ISetup {
 
 
 
+
 	}
 }

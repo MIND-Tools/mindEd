@@ -96,14 +96,14 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
             if ( backtracking==0 ) {
                currentNode = createCompositeNode(grammarAccess.getAdlDefinitionRule(), currentNode); 
             }
-            pushFollow(FOLLOW_ruleAdlDefinition_in_entryRuleAdlDefinition81);
+            pushFollow(FollowSets000.FOLLOW_ruleAdlDefinition_in_entryRuleAdlDefinition81);
             iv_ruleAdlDefinition=ruleAdlDefinition();
             _fsp--;
             if (failed) return current;
             if ( backtracking==0 ) {
                current =iv_ruleAdlDefinition; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleAdlDefinition91); if (failed) return current;
+            match(input,EOF,FollowSets000.FOLLOW_EOF_in_entryRuleAdlDefinition91); if (failed) return current;
 
             }
 
@@ -164,7 +164,7 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
             	      	        currentNode=createCompositeNode(grammarAccess.getAdlDefinitionAccess().getImportsImportDefinitionParserRuleCall_0_0(), currentNode); 
             	      	    
             	    }
-            	    pushFollow(FOLLOW_ruleImportDefinition_in_ruleAdlDefinition137);
+            	    pushFollow(FollowSets000.FOLLOW_ruleImportDefinition_in_ruleAdlDefinition137);
             	    lv_imports_0_0=ruleImportDefinition();
             	    _fsp--;
             	    if (failed) return current;
@@ -218,7 +218,7 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
                       	        currentNode=createCompositeNode(grammarAccess.getAdlDefinitionAccess().getAnnotationsListAnnotationsListParserRuleCall_1_0(), currentNode); 
                       	    
                     }
-                    pushFollow(FOLLOW_ruleAnnotationsList_in_ruleAdlDefinition159);
+                    pushFollow(FollowSets000.FOLLOW_ruleAnnotationsList_in_ruleAdlDefinition159);
                     lv_annotationsList_1_0=ruleAnnotationsList();
                     _fsp--;
                     if (failed) return current;
@@ -261,7 +261,7 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
               	        currentNode=createCompositeNode(grammarAccess.getAdlDefinitionAccess().getArchitecturedefinitionArchitectureDefinitionParserRuleCall_2_0(), currentNode); 
               	    
             }
-            pushFollow(FOLLOW_ruleArchitectureDefinition_in_ruleAdlDefinition181);
+            pushFollow(FollowSets000.FOLLOW_ruleArchitectureDefinition_in_ruleAdlDefinition181);
             lv_architecturedefinition_2_0=ruleArchitectureDefinition();
             _fsp--;
             if (failed) return current;
@@ -329,14 +329,14 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
             if ( backtracking==0 ) {
                currentNode = createCompositeNode(grammarAccess.getImportDefinitionRule(), currentNode); 
             }
-            pushFollow(FOLLOW_ruleImportDefinition_in_entryRuleImportDefinition217);
+            pushFollow(FollowSets000.FOLLOW_ruleImportDefinition_in_entryRuleImportDefinition217);
             iv_ruleImportDefinition=ruleImportDefinition();
             _fsp--;
             if (failed) return current;
             if ( backtracking==0 ) {
                current =iv_ruleImportDefinition; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleImportDefinition227); if (failed) return current;
+            match(input,EOF,FollowSets000.FOLLOW_EOF_in_entryRuleImportDefinition227); if (failed) return current;
 
             }
 
@@ -372,7 +372,7 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
             // ../org.ow2.fractal.mind.xtext/src-gen/org/ow2/fractal/mind/xtext/parser/antlr/internal/InternalFractal.g:194:1: ( 'import' ( ( (lv_importName_1_1= ruleFQN | lv_importName_1_2= ruleFULL_IMPORT_NAME ) ) ) ';' )
             // ../org.ow2.fractal.mind.xtext/src-gen/org/ow2/fractal/mind/xtext/parser/antlr/internal/InternalFractal.g:194:3: 'import' ( ( (lv_importName_1_1= ruleFQN | lv_importName_1_2= ruleFULL_IMPORT_NAME ) ) ) ';'
             {
-            match(input,13,FOLLOW_13_in_ruleImportDefinition262); if (failed) return current;
+            match(input,13,FollowSets000.FOLLOW_13_in_ruleImportDefinition262); if (failed) return current;
             if ( backtracking==0 ) {
 
                       createLeafNode(grammarAccess.getImportDefinitionAccess().getImportKeyword_0(), null); 
@@ -396,7 +396,7 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
                       	        currentNode=createCompositeNode(grammarAccess.getImportDefinitionAccess().getImportNameFQNParserRuleCall_1_0_0(), currentNode); 
                       	    
                     }
-                    pushFollow(FOLLOW_ruleFQN_in_ruleImportDefinition285);
+                    pushFollow(FollowSets000.FOLLOW_ruleFQN_in_ruleImportDefinition285);
                     lv_importName_1_1=ruleFQN();
                     _fsp--;
                     if (failed) return current;
@@ -430,7 +430,7 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
                       	        currentNode=createCompositeNode(grammarAccess.getImportDefinitionAccess().getImportNameFULL_IMPORT_NAMEParserRuleCall_1_0_1(), currentNode); 
                       	    
                     }
-                    pushFollow(FOLLOW_ruleFULL_IMPORT_NAME_in_ruleImportDefinition304);
+                    pushFollow(FollowSets000.FOLLOW_ruleFULL_IMPORT_NAME_in_ruleImportDefinition304);
                     lv_importName_1_2=ruleFULL_IMPORT_NAME();
                     _fsp--;
                     if (failed) return current;
@@ -465,7 +465,7 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
 
             }
 
-            match(input,14,FOLLOW_14_in_ruleImportDefinition317); if (failed) return current;
+            match(input,14,FollowSets000.FOLLOW_14_in_ruleImportDefinition317); if (failed) return current;
             if ( backtracking==0 ) {
 
                       createLeafNode(grammarAccess.getImportDefinitionAccess().getSemicolonKeyword_2(), null); 
@@ -510,14 +510,14 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
             if ( backtracking==0 ) {
                currentNode = createCompositeNode(grammarAccess.getArchitectureDefinitionRule(), currentNode); 
             }
-            pushFollow(FOLLOW_ruleArchitectureDefinition_in_entryRuleArchitectureDefinition353);
+            pushFollow(FollowSets000.FOLLOW_ruleArchitectureDefinition_in_entryRuleArchitectureDefinition353);
             iv_ruleArchitectureDefinition=ruleArchitectureDefinition();
             _fsp--;
             if (failed) return current;
             if ( backtracking==0 ) {
                current =iv_ruleArchitectureDefinition; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleArchitectureDefinition363); if (failed) return current;
+            match(input,EOF,FollowSets000.FOLLOW_EOF_in_entryRuleArchitectureDefinition363); if (failed) return current;
 
             }
 
@@ -593,7 +593,7 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
                               currentNode=createCompositeNode(grammarAccess.getArchitectureDefinitionAccess().getComponentTypeDefinitionParserRuleCall_0(), currentNode); 
                           
                     }
-                    pushFollow(FOLLOW_ruleComponentTypeDefinition_in_ruleArchitectureDefinition413);
+                    pushFollow(FollowSets000.FOLLOW_ruleComponentTypeDefinition_in_ruleArchitectureDefinition413);
                     this_ComponentTypeDefinition_0=ruleComponentTypeDefinition();
                     _fsp--;
                     if (failed) return current;
@@ -619,7 +619,7 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
                               currentNode=createCompositeNode(grammarAccess.getArchitectureDefinitionAccess().getPrimitiveComponentDefinitionParserRuleCall_1(), currentNode); 
                           
                     }
-                    pushFollow(FOLLOW_rulePrimitiveComponentDefinition_in_ruleArchitectureDefinition443);
+                    pushFollow(FollowSets000.FOLLOW_rulePrimitiveComponentDefinition_in_ruleArchitectureDefinition443);
                     this_PrimitiveComponentDefinition_1=rulePrimitiveComponentDefinition();
                     _fsp--;
                     if (failed) return current;
@@ -645,7 +645,7 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
                               currentNode=createCompositeNode(grammarAccess.getArchitectureDefinitionAccess().getCompositeComponentDefinitionParserRuleCall_2(), currentNode); 
                           
                     }
-                    pushFollow(FOLLOW_ruleCompositeComponentDefinition_in_ruleArchitectureDefinition473);
+                    pushFollow(FollowSets000.FOLLOW_ruleCompositeComponentDefinition_in_ruleArchitectureDefinition473);
                     this_CompositeComponentDefinition_2=ruleCompositeComponentDefinition();
                     _fsp--;
                     if (failed) return current;
@@ -697,14 +697,14 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
             if ( backtracking==0 ) {
                currentNode = createCompositeNode(grammarAccess.getPrimitiveComponentDefinitionRule(), currentNode); 
             }
-            pushFollow(FOLLOW_rulePrimitiveComponentDefinition_in_entryRulePrimitiveComponentDefinition508);
+            pushFollow(FollowSets000.FOLLOW_rulePrimitiveComponentDefinition_in_entryRulePrimitiveComponentDefinition508);
             iv_rulePrimitiveComponentDefinition=rulePrimitiveComponentDefinition();
             _fsp--;
             if (failed) return current;
             if ( backtracking==0 ) {
                current =iv_rulePrimitiveComponentDefinition; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRulePrimitiveComponentDefinition518); if (failed) return current;
+            match(input,EOF,FollowSets000.FOLLOW_EOF_in_entryRulePrimitiveComponentDefinition518); if (failed) return current;
 
             }
 
@@ -762,7 +762,7 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
                     // ../org.ow2.fractal.mind.xtext/src-gen/org/ow2/fractal/mind/xtext/parser/antlr/internal/InternalFractal.g:336:3: lv_abstract_0_0= 'abstract'
                     {
                     lv_abstract_0_0=(Token)input.LT(1);
-                    match(input,15,FOLLOW_15_in_rulePrimitiveComponentDefinition561); if (failed) return current;
+                    match(input,15,FollowSets000.FOLLOW_15_in_rulePrimitiveComponentDefinition561); if (failed) return current;
                     if ( backtracking==0 ) {
 
                               createLeafNode(grammarAccess.getPrimitiveComponentDefinitionAccess().getAbstractAbstractKeyword_0_0(), "abstract"); 
@@ -791,7 +791,7 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
 
             }
 
-            match(input,16,FOLLOW_16_in_rulePrimitiveComponentDefinition585); if (failed) return current;
+            match(input,16,FollowSets000.FOLLOW_16_in_rulePrimitiveComponentDefinition585); if (failed) return current;
             if ( backtracking==0 ) {
 
                       createLeafNode(grammarAccess.getPrimitiveComponentDefinitionAccess().getPrimitiveKeyword_1(), null); 
@@ -808,7 +808,7 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
               	        currentNode=createCompositeNode(grammarAccess.getPrimitiveComponentDefinitionAccess().getNameFQNParserRuleCall_2_0(), currentNode); 
               	    
             }
-            pushFollow(FOLLOW_ruleFQN_in_rulePrimitiveComponentDefinition606);
+            pushFollow(FollowSets000.FOLLOW_ruleFQN_in_rulePrimitiveComponentDefinition606);
             lv_name_2_0=ruleFQN();
             _fsp--;
             if (failed) return current;
@@ -856,7 +856,7 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
                       	        currentNode=createCompositeNode(grammarAccess.getPrimitiveComponentDefinitionAccess().getPrimitiveFormalArgumentsListFormalArgumentsListParserRuleCall_3_0(), currentNode); 
                       	    
                     }
-                    pushFollow(FOLLOW_ruleFormalArgumentsList_in_rulePrimitiveComponentDefinition627);
+                    pushFollow(FollowSets000.FOLLOW_ruleFormalArgumentsList_in_rulePrimitiveComponentDefinition627);
                     lv_primitiveFormalArgumentsList_3_0=ruleFormalArgumentsList();
                     _fsp--;
                     if (failed) return current;
@@ -907,7 +907,7 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
                       	        currentNode=createCompositeNode(grammarAccess.getPrimitiveComponentDefinitionAccess().getReferencesListPrimitiveReferencesListParserRuleCall_4_0(), currentNode); 
                       	    
                     }
-                    pushFollow(FOLLOW_rulePrimitiveReferencesList_in_rulePrimitiveComponentDefinition649);
+                    pushFollow(FollowSets000.FOLLOW_rulePrimitiveReferencesList_in_rulePrimitiveComponentDefinition649);
                     lv_referencesList_4_0=rulePrimitiveReferencesList();
                     _fsp--;
                     if (failed) return current;
@@ -976,7 +976,7 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
                     // ../org.ow2.fractal.mind.xtext/src-gen/org/ow2/fractal/mind/xtext/parser/antlr/internal/InternalFractal.g:431:4: ( '{' ( (lv_body_6_0= rulePrimitiveBody ) )? '}' )
                     // ../org.ow2.fractal.mind.xtext/src-gen/org/ow2/fractal/mind/xtext/parser/antlr/internal/InternalFractal.g:431:6: '{' ( (lv_body_6_0= rulePrimitiveBody ) )? '}'
                     {
-                    match(input,17,FOLLOW_17_in_rulePrimitiveComponentDefinition662); if (failed) return current;
+                    match(input,17,FollowSets000.FOLLOW_17_in_rulePrimitiveComponentDefinition662); if (failed) return current;
                     if ( backtracking==0 ) {
 
                               createLeafNode(grammarAccess.getPrimitiveComponentDefinitionAccess().getLeftCurlyBracketKeyword_5_0_0(), null); 
@@ -1008,7 +1008,7 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
                               	        currentNode=createCompositeNode(grammarAccess.getPrimitiveComponentDefinitionAccess().getBodyPrimitiveBodyParserRuleCall_5_0_1_0(), currentNode); 
                               	    
                             }
-                            pushFollow(FOLLOW_rulePrimitiveBody_in_rulePrimitiveComponentDefinition683);
+                            pushFollow(FollowSets000.FOLLOW_rulePrimitiveBody_in_rulePrimitiveComponentDefinition683);
                             lv_body_6_0=rulePrimitiveBody();
                             _fsp--;
                             if (failed) return current;
@@ -1040,7 +1040,7 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    match(input,18,FOLLOW_18_in_rulePrimitiveComponentDefinition694); if (failed) return current;
+                    match(input,18,FollowSets000.FOLLOW_18_in_rulePrimitiveComponentDefinition694); if (failed) return current;
                     if ( backtracking==0 ) {
 
                               createLeafNode(grammarAccess.getPrimitiveComponentDefinitionAccess().getRightCurlyBracketKeyword_5_0_2(), null); 
@@ -1066,7 +1066,7 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
                       	        currentNode=createCompositeNode(grammarAccess.getPrimitiveComponentDefinitionAccess().getBodyPrimitiveBodyParserRuleCall_5_1_0(), currentNode); 
                       	    
                     }
-                    pushFollow(FOLLOW_rulePrimitiveBody_in_rulePrimitiveComponentDefinition722);
+                    pushFollow(FollowSets000.FOLLOW_rulePrimitiveBody_in_rulePrimitiveComponentDefinition722);
                     lv_body_8_0=rulePrimitiveBody();
                     _fsp--;
                     if (failed) return current;
@@ -1140,14 +1140,14 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
             if ( backtracking==0 ) {
                currentNode = createCompositeNode(grammarAccess.getPrimitiveDefinitionElementRule(), currentNode); 
             }
-            pushFollow(FOLLOW_rulePrimitiveDefinitionElement_in_entryRulePrimitiveDefinitionElement760);
+            pushFollow(FollowSets000.FOLLOW_rulePrimitiveDefinitionElement_in_entryRulePrimitiveDefinitionElement760);
             iv_rulePrimitiveDefinitionElement=rulePrimitiveDefinitionElement();
             _fsp--;
             if (failed) return current;
             if ( backtracking==0 ) {
                current =iv_rulePrimitiveDefinitionElement; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRulePrimitiveDefinitionElement770); if (failed) return current;
+            match(input,EOF,FollowSets000.FOLLOW_EOF_in_entryRulePrimitiveDefinitionElement770); if (failed) return current;
 
             }
 
@@ -1256,7 +1256,7 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
                               currentNode=createCompositeNode(grammarAccess.getPrimitiveDefinitionElementAccess().getInterfaceDefinitionParserRuleCall_0(), currentNode); 
                           
                     }
-                    pushFollow(FOLLOW_ruleInterfaceDefinition_in_rulePrimitiveDefinitionElement820);
+                    pushFollow(FollowSets000.FOLLOW_ruleInterfaceDefinition_in_rulePrimitiveDefinitionElement820);
                     this_InterfaceDefinition_0=ruleInterfaceDefinition();
                     _fsp--;
                     if (failed) return current;
@@ -1282,7 +1282,7 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
                               currentNode=createCompositeNode(grammarAccess.getPrimitiveDefinitionElementAccess().getAttributeDefinitionParserRuleCall_1(), currentNode); 
                           
                     }
-                    pushFollow(FOLLOW_ruleAttributeDefinition_in_rulePrimitiveDefinitionElement850);
+                    pushFollow(FollowSets000.FOLLOW_ruleAttributeDefinition_in_rulePrimitiveDefinitionElement850);
                     this_AttributeDefinition_1=ruleAttributeDefinition();
                     _fsp--;
                     if (failed) return current;
@@ -1308,7 +1308,7 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
                               currentNode=createCompositeNode(grammarAccess.getPrimitiveDefinitionElementAccess().getDataDefinitionParserRuleCall_2(), currentNode); 
                           
                     }
-                    pushFollow(FOLLOW_ruleDataDefinition_in_rulePrimitiveDefinitionElement880);
+                    pushFollow(FollowSets000.FOLLOW_ruleDataDefinition_in_rulePrimitiveDefinitionElement880);
                     this_DataDefinition_2=ruleDataDefinition();
                     _fsp--;
                     if (failed) return current;
@@ -1334,7 +1334,7 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
                               currentNode=createCompositeNode(grammarAccess.getPrimitiveDefinitionElementAccess().getImplementationDefinitionParserRuleCall_3(), currentNode); 
                           
                     }
-                    pushFollow(FOLLOW_ruleImplementationDefinition_in_rulePrimitiveDefinitionElement910);
+                    pushFollow(FollowSets000.FOLLOW_ruleImplementationDefinition_in_rulePrimitiveDefinitionElement910);
                     this_ImplementationDefinition_3=ruleImplementationDefinition();
                     _fsp--;
                     if (failed) return current;
@@ -1386,14 +1386,14 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
             if ( backtracking==0 ) {
                currentNode = createCompositeNode(grammarAccess.getComponentTypeDefinitionRule(), currentNode); 
             }
-            pushFollow(FOLLOW_ruleComponentTypeDefinition_in_entryRuleComponentTypeDefinition945);
+            pushFollow(FollowSets000.FOLLOW_ruleComponentTypeDefinition_in_entryRuleComponentTypeDefinition945);
             iv_ruleComponentTypeDefinition=ruleComponentTypeDefinition();
             _fsp--;
             if (failed) return current;
             if ( backtracking==0 ) {
                current =iv_ruleComponentTypeDefinition; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleComponentTypeDefinition955); if (failed) return current;
+            match(input,EOF,FollowSets000.FOLLOW_EOF_in_entryRuleComponentTypeDefinition955); if (failed) return current;
 
             }
 
@@ -1433,7 +1433,7 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
             // ../org.ow2.fractal.mind.xtext/src-gen/org/ow2/fractal/mind/xtext/parser/antlr/internal/InternalFractal.g:585:1: ( 'type' ( (lv_name_1_0= ruleFQN ) ) ( (lv_referencesList_2_0= ruleTypeReferencesList ) )? ( ( '{' ( (lv_body_4_0= ruleTypeBody ) )? '}' ) | ( (lv_body_6_0= ruleTypeBody ) ) )? )
             // ../org.ow2.fractal.mind.xtext/src-gen/org/ow2/fractal/mind/xtext/parser/antlr/internal/InternalFractal.g:585:3: 'type' ( (lv_name_1_0= ruleFQN ) ) ( (lv_referencesList_2_0= ruleTypeReferencesList ) )? ( ( '{' ( (lv_body_4_0= ruleTypeBody ) )? '}' ) | ( (lv_body_6_0= ruleTypeBody ) ) )?
             {
-            match(input,19,FOLLOW_19_in_ruleComponentTypeDefinition990); if (failed) return current;
+            match(input,19,FollowSets000.FOLLOW_19_in_ruleComponentTypeDefinition990); if (failed) return current;
             if ( backtracking==0 ) {
 
                       createLeafNode(grammarAccess.getComponentTypeDefinitionAccess().getTypeKeyword_0(), null); 
@@ -1450,7 +1450,7 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
               	        currentNode=createCompositeNode(grammarAccess.getComponentTypeDefinitionAccess().getNameFQNParserRuleCall_1_0(), currentNode); 
               	    
             }
-            pushFollow(FOLLOW_ruleFQN_in_ruleComponentTypeDefinition1011);
+            pushFollow(FollowSets000.FOLLOW_ruleFQN_in_ruleComponentTypeDefinition1011);
             lv_name_1_0=ruleFQN();
             _fsp--;
             if (failed) return current;
@@ -1498,7 +1498,7 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
                       	        currentNode=createCompositeNode(grammarAccess.getComponentTypeDefinitionAccess().getReferencesListTypeReferencesListParserRuleCall_2_0(), currentNode); 
                       	    
                     }
-                    pushFollow(FOLLOW_ruleTypeReferencesList_in_ruleComponentTypeDefinition1032);
+                    pushFollow(FollowSets000.FOLLOW_ruleTypeReferencesList_in_ruleComponentTypeDefinition1032);
                     lv_referencesList_2_0=ruleTypeReferencesList();
                     _fsp--;
                     if (failed) return current;
@@ -1563,7 +1563,7 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
                     // ../org.ow2.fractal.mind.xtext/src-gen/org/ow2/fractal/mind/xtext/parser/antlr/internal/InternalFractal.g:637:4: ( '{' ( (lv_body_4_0= ruleTypeBody ) )? '}' )
                     // ../org.ow2.fractal.mind.xtext/src-gen/org/ow2/fractal/mind/xtext/parser/antlr/internal/InternalFractal.g:637:6: '{' ( (lv_body_4_0= ruleTypeBody ) )? '}'
                     {
-                    match(input,17,FOLLOW_17_in_ruleComponentTypeDefinition1045); if (failed) return current;
+                    match(input,17,FollowSets000.FOLLOW_17_in_ruleComponentTypeDefinition1045); if (failed) return current;
                     if ( backtracking==0 ) {
 
                               createLeafNode(grammarAccess.getComponentTypeDefinitionAccess().getLeftCurlyBracketKeyword_3_0_0(), null); 
@@ -1595,7 +1595,7 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
                               	        currentNode=createCompositeNode(grammarAccess.getComponentTypeDefinitionAccess().getBodyTypeBodyParserRuleCall_3_0_1_0(), currentNode); 
                               	    
                             }
-                            pushFollow(FOLLOW_ruleTypeBody_in_ruleComponentTypeDefinition1066);
+                            pushFollow(FollowSets000.FOLLOW_ruleTypeBody_in_ruleComponentTypeDefinition1066);
                             lv_body_4_0=ruleTypeBody();
                             _fsp--;
                             if (failed) return current;
@@ -1627,7 +1627,7 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    match(input,18,FOLLOW_18_in_ruleComponentTypeDefinition1077); if (failed) return current;
+                    match(input,18,FollowSets000.FOLLOW_18_in_ruleComponentTypeDefinition1077); if (failed) return current;
                     if ( backtracking==0 ) {
 
                               createLeafNode(grammarAccess.getComponentTypeDefinitionAccess().getRightCurlyBracketKeyword_3_0_2(), null); 
@@ -1653,7 +1653,7 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
                       	        currentNode=createCompositeNode(grammarAccess.getComponentTypeDefinitionAccess().getBodyTypeBodyParserRuleCall_3_1_0(), currentNode); 
                       	    
                     }
-                    pushFollow(FOLLOW_ruleTypeBody_in_ruleComponentTypeDefinition1105);
+                    pushFollow(FollowSets000.FOLLOW_ruleTypeBody_in_ruleComponentTypeDefinition1105);
                     lv_body_6_0=ruleTypeBody();
                     _fsp--;
                     if (failed) return current;
@@ -1727,14 +1727,14 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
             if ( backtracking==0 ) {
                currentNode = createCompositeNode(grammarAccess.getTypeReferenceDefinitionRule(), currentNode); 
             }
-            pushFollow(FOLLOW_ruleTypeReferenceDefinition_in_entryRuleTypeReferenceDefinition1143);
+            pushFollow(FollowSets000.FOLLOW_ruleTypeReferenceDefinition_in_entryRuleTypeReferenceDefinition1143);
             iv_ruleTypeReferenceDefinition=ruleTypeReferenceDefinition();
             _fsp--;
             if (failed) return current;
             if ( backtracking==0 ) {
                current =iv_ruleTypeReferenceDefinition; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleTypeReferenceDefinition1153); if (failed) return current;
+            match(input,EOF,FollowSets000.FOLLOW_EOF_in_entryRuleTypeReferenceDefinition1153); if (failed) return current;
 
             }
 
@@ -1776,7 +1776,7 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
               	        currentNode=createCompositeNode(grammarAccess.getTypeReferenceDefinitionAccess().getReferenceNameFQNParserRuleCall_0(), currentNode); 
               	    
             }
-            pushFollow(FOLLOW_ruleFQN_in_ruleTypeReferenceDefinition1198);
+            pushFollow(FollowSets000.FOLLOW_ruleFQN_in_ruleTypeReferenceDefinition1198);
             lv_referenceName_0_0=ruleFQN();
             _fsp--;
             if (failed) return current;
@@ -1841,14 +1841,14 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
             if ( backtracking==0 ) {
                currentNode = createCompositeNode(grammarAccess.getTypeDefinitionElementRule(), currentNode); 
             }
-            pushFollow(FOLLOW_ruleTypeDefinitionElement_in_entryRuleTypeDefinitionElement1233);
+            pushFollow(FollowSets000.FOLLOW_ruleTypeDefinitionElement_in_entryRuleTypeDefinitionElement1233);
             iv_ruleTypeDefinitionElement=ruleTypeDefinitionElement();
             _fsp--;
             if (failed) return current;
             if ( backtracking==0 ) {
                current =iv_ruleTypeDefinitionElement; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleTypeDefinitionElement1243); if (failed) return current;
+            match(input,EOF,FollowSets000.FOLLOW_EOF_in_entryRuleTypeDefinitionElement1243); if (failed) return current;
 
             }
 
@@ -1889,7 +1889,7 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
                       currentNode=createCompositeNode(grammarAccess.getTypeDefinitionElementAccess().getInterfaceDefinitionParserRuleCall(), currentNode); 
                   
             }
-            pushFollow(FOLLOW_ruleInterfaceDefinition_in_ruleTypeDefinitionElement1292);
+            pushFollow(FollowSets000.FOLLOW_ruleInterfaceDefinition_in_ruleTypeDefinitionElement1292);
             this_InterfaceDefinition_0=ruleInterfaceDefinition();
             _fsp--;
             if (failed) return current;
@@ -1935,14 +1935,14 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
             if ( backtracking==0 ) {
                currentNode = createCompositeNode(grammarAccess.getCompositeComponentDefinitionRule(), currentNode); 
             }
-            pushFollow(FOLLOW_ruleCompositeComponentDefinition_in_entryRuleCompositeComponentDefinition1326);
+            pushFollow(FollowSets000.FOLLOW_ruleCompositeComponentDefinition_in_entryRuleCompositeComponentDefinition1326);
             iv_ruleCompositeComponentDefinition=ruleCompositeComponentDefinition();
             _fsp--;
             if (failed) return current;
             if ( backtracking==0 ) {
                current =iv_ruleCompositeComponentDefinition; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleCompositeComponentDefinition1336); if (failed) return current;
+            match(input,EOF,FollowSets000.FOLLOW_EOF_in_entryRuleCompositeComponentDefinition1336); if (failed) return current;
 
             }
 
@@ -1986,7 +1986,7 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
             // ../org.ow2.fractal.mind.xtext/src-gen/org/ow2/fractal/mind/xtext/parser/antlr/internal/InternalFractal.g:799:1: ( 'composite' ( (lv_name_1_0= ruleFQN ) ) ( (lv_templateSpecifiersList_2_0= ruleTemplateSpecifiersList ) )? ( (lv_compositeFormalArgumentsList_3_0= ruleFormalArgumentsList ) )? ( (lv_referencesList_4_0= ruleCompositeReferencesList ) )? ( ( '{' ( (lv_body_6_0= ruleCompositeBody ) )? '}' ) | ( (lv_body_8_0= ruleCompositeBody ) ) )? )
             // ../org.ow2.fractal.mind.xtext/src-gen/org/ow2/fractal/mind/xtext/parser/antlr/internal/InternalFractal.g:799:3: 'composite' ( (lv_name_1_0= ruleFQN ) ) ( (lv_templateSpecifiersList_2_0= ruleTemplateSpecifiersList ) )? ( (lv_compositeFormalArgumentsList_3_0= ruleFormalArgumentsList ) )? ( (lv_referencesList_4_0= ruleCompositeReferencesList ) )? ( ( '{' ( (lv_body_6_0= ruleCompositeBody ) )? '}' ) | ( (lv_body_8_0= ruleCompositeBody ) ) )?
             {
-            match(input,20,FOLLOW_20_in_ruleCompositeComponentDefinition1371); if (failed) return current;
+            match(input,20,FollowSets000.FOLLOW_20_in_ruleCompositeComponentDefinition1371); if (failed) return current;
             if ( backtracking==0 ) {
 
                       createLeafNode(grammarAccess.getCompositeComponentDefinitionAccess().getCompositeKeyword_0(), null); 
@@ -2003,7 +2003,7 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
               	        currentNode=createCompositeNode(grammarAccess.getCompositeComponentDefinitionAccess().getNameFQNParserRuleCall_1_0(), currentNode); 
               	    
             }
-            pushFollow(FOLLOW_ruleFQN_in_ruleCompositeComponentDefinition1392);
+            pushFollow(FollowSets000.FOLLOW_ruleFQN_in_ruleCompositeComponentDefinition1392);
             lv_name_1_0=ruleFQN();
             _fsp--;
             if (failed) return current;
@@ -2051,7 +2051,7 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
                       	        currentNode=createCompositeNode(grammarAccess.getCompositeComponentDefinitionAccess().getTemplateSpecifiersListTemplateSpecifiersListParserRuleCall_2_0(), currentNode); 
                       	    
                     }
-                    pushFollow(FOLLOW_ruleTemplateSpecifiersList_in_ruleCompositeComponentDefinition1413);
+                    pushFollow(FollowSets000.FOLLOW_ruleTemplateSpecifiersList_in_ruleCompositeComponentDefinition1413);
                     lv_templateSpecifiersList_2_0=ruleTemplateSpecifiersList();
                     _fsp--;
                     if (failed) return current;
@@ -2102,7 +2102,7 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
                       	        currentNode=createCompositeNode(grammarAccess.getCompositeComponentDefinitionAccess().getCompositeFormalArgumentsListFormalArgumentsListParserRuleCall_3_0(), currentNode); 
                       	    
                     }
-                    pushFollow(FOLLOW_ruleFormalArgumentsList_in_ruleCompositeComponentDefinition1435);
+                    pushFollow(FollowSets000.FOLLOW_ruleFormalArgumentsList_in_ruleCompositeComponentDefinition1435);
                     lv_compositeFormalArgumentsList_3_0=ruleFormalArgumentsList();
                     _fsp--;
                     if (failed) return current;
@@ -2153,7 +2153,7 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
                       	        currentNode=createCompositeNode(grammarAccess.getCompositeComponentDefinitionAccess().getReferencesListCompositeReferencesListParserRuleCall_4_0(), currentNode); 
                       	    
                     }
-                    pushFollow(FOLLOW_ruleCompositeReferencesList_in_ruleCompositeComponentDefinition1457);
+                    pushFollow(FollowSets000.FOLLOW_ruleCompositeReferencesList_in_ruleCompositeComponentDefinition1457);
                     lv_referencesList_4_0=ruleCompositeReferencesList();
                     _fsp--;
                     if (failed) return current;
@@ -2220,7 +2220,7 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
                     // ../org.ow2.fractal.mind.xtext/src-gen/org/ow2/fractal/mind/xtext/parser/antlr/internal/InternalFractal.g:899:4: ( '{' ( (lv_body_6_0= ruleCompositeBody ) )? '}' )
                     // ../org.ow2.fractal.mind.xtext/src-gen/org/ow2/fractal/mind/xtext/parser/antlr/internal/InternalFractal.g:899:6: '{' ( (lv_body_6_0= ruleCompositeBody ) )? '}'
                     {
-                    match(input,17,FOLLOW_17_in_ruleCompositeComponentDefinition1470); if (failed) return current;
+                    match(input,17,FollowSets000.FOLLOW_17_in_ruleCompositeComponentDefinition1470); if (failed) return current;
                     if ( backtracking==0 ) {
 
                               createLeafNode(grammarAccess.getCompositeComponentDefinitionAccess().getLeftCurlyBracketKeyword_5_0_0(), null); 
@@ -2252,7 +2252,7 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
                               	        currentNode=createCompositeNode(grammarAccess.getCompositeComponentDefinitionAccess().getBodyCompositeBodyParserRuleCall_5_0_1_0(), currentNode); 
                               	    
                             }
-                            pushFollow(FOLLOW_ruleCompositeBody_in_ruleCompositeComponentDefinition1491);
+                            pushFollow(FollowSets000.FOLLOW_ruleCompositeBody_in_ruleCompositeComponentDefinition1491);
                             lv_body_6_0=ruleCompositeBody();
                             _fsp--;
                             if (failed) return current;
@@ -2284,7 +2284,7 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    match(input,18,FOLLOW_18_in_ruleCompositeComponentDefinition1502); if (failed) return current;
+                    match(input,18,FollowSets000.FOLLOW_18_in_ruleCompositeComponentDefinition1502); if (failed) return current;
                     if ( backtracking==0 ) {
 
                               createLeafNode(grammarAccess.getCompositeComponentDefinitionAccess().getRightCurlyBracketKeyword_5_0_2(), null); 
@@ -2310,7 +2310,7 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
                       	        currentNode=createCompositeNode(grammarAccess.getCompositeComponentDefinitionAccess().getBodyCompositeBodyParserRuleCall_5_1_0(), currentNode); 
                       	    
                     }
-                    pushFollow(FOLLOW_ruleCompositeBody_in_ruleCompositeComponentDefinition1530);
+                    pushFollow(FollowSets000.FOLLOW_ruleCompositeBody_in_ruleCompositeComponentDefinition1530);
                     lv_body_8_0=ruleCompositeBody();
                     _fsp--;
                     if (failed) return current;
@@ -2384,14 +2384,14 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
             if ( backtracking==0 ) {
                currentNode = createCompositeNode(grammarAccess.getTemplateSpecifiersListRule(), currentNode); 
             }
-            pushFollow(FOLLOW_ruleTemplateSpecifiersList_in_entryRuleTemplateSpecifiersList1568);
+            pushFollow(FollowSets000.FOLLOW_ruleTemplateSpecifiersList_in_entryRuleTemplateSpecifiersList1568);
             iv_ruleTemplateSpecifiersList=ruleTemplateSpecifiersList();
             _fsp--;
             if (failed) return current;
             if ( backtracking==0 ) {
                current =iv_ruleTemplateSpecifiersList; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleTemplateSpecifiersList1578); if (failed) return current;
+            match(input,EOF,FollowSets000.FOLLOW_EOF_in_entryRuleTemplateSpecifiersList1578); if (failed) return current;
 
             }
 
@@ -2427,7 +2427,7 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
             // ../org.ow2.fractal.mind.xtext/src-gen/org/ow2/fractal/mind/xtext/parser/antlr/internal/InternalFractal.g:979:1: ( '<' ( ( (lv_templateSpecifiers_1_0= ruleTemplateSpecifier ) ) ( ',' ( (lv_templateSpecifiers_3_0= ruleTemplateSpecifier ) ) )* ) '>' )
             // ../org.ow2.fractal.mind.xtext/src-gen/org/ow2/fractal/mind/xtext/parser/antlr/internal/InternalFractal.g:979:3: '<' ( ( (lv_templateSpecifiers_1_0= ruleTemplateSpecifier ) ) ( ',' ( (lv_templateSpecifiers_3_0= ruleTemplateSpecifier ) ) )* ) '>'
             {
-            match(input,21,FOLLOW_21_in_ruleTemplateSpecifiersList1613); if (failed) return current;
+            match(input,21,FollowSets000.FOLLOW_21_in_ruleTemplateSpecifiersList1613); if (failed) return current;
             if ( backtracking==0 ) {
 
                       createLeafNode(grammarAccess.getTemplateSpecifiersListAccess().getLessThanSignKeyword_0(), null); 
@@ -2447,7 +2447,7 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
               	        currentNode=createCompositeNode(grammarAccess.getTemplateSpecifiersListAccess().getTemplateSpecifiersTemplateSpecifierParserRuleCall_1_0_0(), currentNode); 
               	    
             }
-            pushFollow(FOLLOW_ruleTemplateSpecifier_in_ruleTemplateSpecifiersList1635);
+            pushFollow(FollowSets000.FOLLOW_ruleTemplateSpecifier_in_ruleTemplateSpecifiersList1635);
             lv_templateSpecifiers_1_0=ruleTemplateSpecifier();
             _fsp--;
             if (failed) return current;
@@ -2491,7 +2491,7 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
             	case 1 :
             	    // ../org.ow2.fractal.mind.xtext/src-gen/org/ow2/fractal/mind/xtext/parser/antlr/internal/InternalFractal.g:1007:4: ',' ( (lv_templateSpecifiers_3_0= ruleTemplateSpecifier ) )
             	    {
-            	    match(input,22,FOLLOW_22_in_ruleTemplateSpecifiersList1646); if (failed) return current;
+            	    match(input,22,FollowSets000.FOLLOW_22_in_ruleTemplateSpecifiersList1646); if (failed) return current;
             	    if ( backtracking==0 ) {
 
             	              createLeafNode(grammarAccess.getTemplateSpecifiersListAccess().getCommaKeyword_1_1_0(), null); 
@@ -2508,7 +2508,7 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
             	      	        currentNode=createCompositeNode(grammarAccess.getTemplateSpecifiersListAccess().getTemplateSpecifiersTemplateSpecifierParserRuleCall_1_1_1_0(), currentNode); 
             	      	    
             	    }
-            	    pushFollow(FOLLOW_ruleTemplateSpecifier_in_ruleTemplateSpecifiersList1667);
+            	    pushFollow(FollowSets000.FOLLOW_ruleTemplateSpecifier_in_ruleTemplateSpecifiersList1667);
             	    lv_templateSpecifiers_3_0=ruleTemplateSpecifier();
             	    _fsp--;
             	    if (failed) return current;
@@ -2549,7 +2549,7 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
 
             }
 
-            match(input,23,FOLLOW_23_in_ruleTemplateSpecifiersList1680); if (failed) return current;
+            match(input,23,FollowSets000.FOLLOW_23_in_ruleTemplateSpecifiersList1680); if (failed) return current;
             if ( backtracking==0 ) {
 
                       createLeafNode(grammarAccess.getTemplateSpecifiersListAccess().getGreaterThanSignKeyword_2(), null); 
@@ -2594,14 +2594,14 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
             if ( backtracking==0 ) {
                currentNode = createCompositeNode(grammarAccess.getFormalArgumentsListRule(), currentNode); 
             }
-            pushFollow(FOLLOW_ruleFormalArgumentsList_in_entryRuleFormalArgumentsList1716);
+            pushFollow(FollowSets000.FOLLOW_ruleFormalArgumentsList_in_entryRuleFormalArgumentsList1716);
             iv_ruleFormalArgumentsList=ruleFormalArgumentsList();
             _fsp--;
             if (failed) return current;
             if ( backtracking==0 ) {
                current =iv_ruleFormalArgumentsList; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleFormalArgumentsList1726); if (failed) return current;
+            match(input,EOF,FollowSets000.FOLLOW_EOF_in_entryRuleFormalArgumentsList1726); if (failed) return current;
 
             }
 
@@ -2637,7 +2637,7 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
             // ../org.ow2.fractal.mind.xtext/src-gen/org/ow2/fractal/mind/xtext/parser/antlr/internal/InternalFractal.g:1062:1: ( '(' ( ( (lv_formalArguments_1_0= ruleFormalArgument ) ) ( ',' ( (lv_formalArguments_3_0= ruleFormalArgument ) ) )* ) ')' )
             // ../org.ow2.fractal.mind.xtext/src-gen/org/ow2/fractal/mind/xtext/parser/antlr/internal/InternalFractal.g:1062:3: '(' ( ( (lv_formalArguments_1_0= ruleFormalArgument ) ) ( ',' ( (lv_formalArguments_3_0= ruleFormalArgument ) ) )* ) ')'
             {
-            match(input,24,FOLLOW_24_in_ruleFormalArgumentsList1761); if (failed) return current;
+            match(input,24,FollowSets000.FOLLOW_24_in_ruleFormalArgumentsList1761); if (failed) return current;
             if ( backtracking==0 ) {
 
                       createLeafNode(grammarAccess.getFormalArgumentsListAccess().getLeftParenthesisKeyword_0(), null); 
@@ -2657,7 +2657,7 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
               	        currentNode=createCompositeNode(grammarAccess.getFormalArgumentsListAccess().getFormalArgumentsFormalArgumentParserRuleCall_1_0_0(), currentNode); 
               	    
             }
-            pushFollow(FOLLOW_ruleFormalArgument_in_ruleFormalArgumentsList1783);
+            pushFollow(FollowSets000.FOLLOW_ruleFormalArgument_in_ruleFormalArgumentsList1783);
             lv_formalArguments_1_0=ruleFormalArgument();
             _fsp--;
             if (failed) return current;
@@ -2701,7 +2701,7 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
             	case 1 :
             	    // ../org.ow2.fractal.mind.xtext/src-gen/org/ow2/fractal/mind/xtext/parser/antlr/internal/InternalFractal.g:1090:4: ',' ( (lv_formalArguments_3_0= ruleFormalArgument ) )
             	    {
-            	    match(input,22,FOLLOW_22_in_ruleFormalArgumentsList1794); if (failed) return current;
+            	    match(input,22,FollowSets000.FOLLOW_22_in_ruleFormalArgumentsList1794); if (failed) return current;
             	    if ( backtracking==0 ) {
 
             	              createLeafNode(grammarAccess.getFormalArgumentsListAccess().getCommaKeyword_1_1_0(), null); 
@@ -2718,7 +2718,7 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
             	      	        currentNode=createCompositeNode(grammarAccess.getFormalArgumentsListAccess().getFormalArgumentsFormalArgumentParserRuleCall_1_1_1_0(), currentNode); 
             	      	    
             	    }
-            	    pushFollow(FOLLOW_ruleFormalArgument_in_ruleFormalArgumentsList1815);
+            	    pushFollow(FollowSets000.FOLLOW_ruleFormalArgument_in_ruleFormalArgumentsList1815);
             	    lv_formalArguments_3_0=ruleFormalArgument();
             	    _fsp--;
             	    if (failed) return current;
@@ -2759,7 +2759,7 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
 
             }
 
-            match(input,25,FOLLOW_25_in_ruleFormalArgumentsList1828); if (failed) return current;
+            match(input,25,FollowSets000.FOLLOW_25_in_ruleFormalArgumentsList1828); if (failed) return current;
             if ( backtracking==0 ) {
 
                       createLeafNode(grammarAccess.getFormalArgumentsListAccess().getRightParenthesisKeyword_2(), null); 
@@ -2804,14 +2804,14 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
             if ( backtracking==0 ) {
                currentNode = createCompositeNode(grammarAccess.getPrimitiveReferencesListRule(), currentNode); 
             }
-            pushFollow(FOLLOW_rulePrimitiveReferencesList_in_entryRulePrimitiveReferencesList1864);
+            pushFollow(FollowSets000.FOLLOW_rulePrimitiveReferencesList_in_entryRulePrimitiveReferencesList1864);
             iv_rulePrimitiveReferencesList=rulePrimitiveReferencesList();
             _fsp--;
             if (failed) return current;
             if ( backtracking==0 ) {
                current =iv_rulePrimitiveReferencesList; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRulePrimitiveReferencesList1874); if (failed) return current;
+            match(input,EOF,FollowSets000.FOLLOW_EOF_in_entryRulePrimitiveReferencesList1874); if (failed) return current;
 
             }
 
@@ -2847,7 +2847,7 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
             // ../org.ow2.fractal.mind.xtext/src-gen/org/ow2/fractal/mind/xtext/parser/antlr/internal/InternalFractal.g:1145:1: ( 'extends' ( (lv_references_1_0= rulePrimitiveReferenceDefinition ) ) ( ',' ( (lv_references_3_0= rulePrimitiveReferenceDefinition ) ) )* )
             // ../org.ow2.fractal.mind.xtext/src-gen/org/ow2/fractal/mind/xtext/parser/antlr/internal/InternalFractal.g:1145:3: 'extends' ( (lv_references_1_0= rulePrimitiveReferenceDefinition ) ) ( ',' ( (lv_references_3_0= rulePrimitiveReferenceDefinition ) ) )*
             {
-            match(input,26,FOLLOW_26_in_rulePrimitiveReferencesList1909); if (failed) return current;
+            match(input,26,FollowSets000.FOLLOW_26_in_rulePrimitiveReferencesList1909); if (failed) return current;
             if ( backtracking==0 ) {
 
                       createLeafNode(grammarAccess.getPrimitiveReferencesListAccess().getExtendsKeyword_0(), null); 
@@ -2864,7 +2864,7 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
               	        currentNode=createCompositeNode(grammarAccess.getPrimitiveReferencesListAccess().getReferencesPrimitiveReferenceDefinitionParserRuleCall_1_0(), currentNode); 
               	    
             }
-            pushFollow(FOLLOW_rulePrimitiveReferenceDefinition_in_rulePrimitiveReferencesList1930);
+            pushFollow(FollowSets000.FOLLOW_rulePrimitiveReferenceDefinition_in_rulePrimitiveReferencesList1930);
             lv_references_1_0=rulePrimitiveReferenceDefinition();
             _fsp--;
             if (failed) return current;
@@ -2908,7 +2908,7 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
             	case 1 :
             	    // ../org.ow2.fractal.mind.xtext/src-gen/org/ow2/fractal/mind/xtext/parser/antlr/internal/InternalFractal.g:1173:4: ',' ( (lv_references_3_0= rulePrimitiveReferenceDefinition ) )
             	    {
-            	    match(input,22,FOLLOW_22_in_rulePrimitiveReferencesList1941); if (failed) return current;
+            	    match(input,22,FollowSets000.FOLLOW_22_in_rulePrimitiveReferencesList1941); if (failed) return current;
             	    if ( backtracking==0 ) {
 
             	              createLeafNode(grammarAccess.getPrimitiveReferencesListAccess().getCommaKeyword_2_0(), null); 
@@ -2925,7 +2925,7 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
             	      	        currentNode=createCompositeNode(grammarAccess.getPrimitiveReferencesListAccess().getReferencesPrimitiveReferenceDefinitionParserRuleCall_2_1_0(), currentNode); 
             	      	    
             	    }
-            	    pushFollow(FOLLOW_rulePrimitiveReferenceDefinition_in_rulePrimitiveReferencesList1962);
+            	    pushFollow(FollowSets000.FOLLOW_rulePrimitiveReferenceDefinition_in_rulePrimitiveReferencesList1962);
             	    lv_references_3_0=rulePrimitiveReferenceDefinition();
             	    _fsp--;
             	    if (failed) return current;
@@ -3002,14 +3002,14 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
             if ( backtracking==0 ) {
                currentNode = createCompositeNode(grammarAccess.getCompositeReferencesListRule(), currentNode); 
             }
-            pushFollow(FOLLOW_ruleCompositeReferencesList_in_entryRuleCompositeReferencesList2000);
+            pushFollow(FollowSets000.FOLLOW_ruleCompositeReferencesList_in_entryRuleCompositeReferencesList2000);
             iv_ruleCompositeReferencesList=ruleCompositeReferencesList();
             _fsp--;
             if (failed) return current;
             if ( backtracking==0 ) {
                current =iv_ruleCompositeReferencesList; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleCompositeReferencesList2010); if (failed) return current;
+            match(input,EOF,FollowSets000.FOLLOW_EOF_in_entryRuleCompositeReferencesList2010); if (failed) return current;
 
             }
 
@@ -3045,7 +3045,7 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
             // ../org.ow2.fractal.mind.xtext/src-gen/org/ow2/fractal/mind/xtext/parser/antlr/internal/InternalFractal.g:1224:1: ( 'extends' ( (lv_references_1_0= ruleCompositeReferenceDefinition ) ) ( ',' ( (lv_references_3_0= ruleCompositeReferenceDefinition ) ) )* )
             // ../org.ow2.fractal.mind.xtext/src-gen/org/ow2/fractal/mind/xtext/parser/antlr/internal/InternalFractal.g:1224:3: 'extends' ( (lv_references_1_0= ruleCompositeReferenceDefinition ) ) ( ',' ( (lv_references_3_0= ruleCompositeReferenceDefinition ) ) )*
             {
-            match(input,26,FOLLOW_26_in_ruleCompositeReferencesList2045); if (failed) return current;
+            match(input,26,FollowSets000.FOLLOW_26_in_ruleCompositeReferencesList2045); if (failed) return current;
             if ( backtracking==0 ) {
 
                       createLeafNode(grammarAccess.getCompositeReferencesListAccess().getExtendsKeyword_0(), null); 
@@ -3062,7 +3062,7 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
               	        currentNode=createCompositeNode(grammarAccess.getCompositeReferencesListAccess().getReferencesCompositeReferenceDefinitionParserRuleCall_1_0(), currentNode); 
               	    
             }
-            pushFollow(FOLLOW_ruleCompositeReferenceDefinition_in_ruleCompositeReferencesList2066);
+            pushFollow(FollowSets000.FOLLOW_ruleCompositeReferenceDefinition_in_ruleCompositeReferencesList2066);
             lv_references_1_0=ruleCompositeReferenceDefinition();
             _fsp--;
             if (failed) return current;
@@ -3106,7 +3106,7 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
             	case 1 :
             	    // ../org.ow2.fractal.mind.xtext/src-gen/org/ow2/fractal/mind/xtext/parser/antlr/internal/InternalFractal.g:1252:4: ',' ( (lv_references_3_0= ruleCompositeReferenceDefinition ) )
             	    {
-            	    match(input,22,FOLLOW_22_in_ruleCompositeReferencesList2077); if (failed) return current;
+            	    match(input,22,FollowSets000.FOLLOW_22_in_ruleCompositeReferencesList2077); if (failed) return current;
             	    if ( backtracking==0 ) {
 
             	              createLeafNode(grammarAccess.getCompositeReferencesListAccess().getCommaKeyword_2_0(), null); 
@@ -3123,7 +3123,7 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
             	      	        currentNode=createCompositeNode(grammarAccess.getCompositeReferencesListAccess().getReferencesCompositeReferenceDefinitionParserRuleCall_2_1_0(), currentNode); 
             	      	    
             	    }
-            	    pushFollow(FOLLOW_ruleCompositeReferenceDefinition_in_ruleCompositeReferencesList2098);
+            	    pushFollow(FollowSets000.FOLLOW_ruleCompositeReferenceDefinition_in_ruleCompositeReferencesList2098);
             	    lv_references_3_0=ruleCompositeReferenceDefinition();
             	    _fsp--;
             	    if (failed) return current;
@@ -3200,14 +3200,14 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
             if ( backtracking==0 ) {
                currentNode = createCompositeNode(grammarAccess.getTypeReferencesListRule(), currentNode); 
             }
-            pushFollow(FOLLOW_ruleTypeReferencesList_in_entryRuleTypeReferencesList2136);
+            pushFollow(FollowSets000.FOLLOW_ruleTypeReferencesList_in_entryRuleTypeReferencesList2136);
             iv_ruleTypeReferencesList=ruleTypeReferencesList();
             _fsp--;
             if (failed) return current;
             if ( backtracking==0 ) {
                current =iv_ruleTypeReferencesList; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleTypeReferencesList2146); if (failed) return current;
+            match(input,EOF,FollowSets000.FOLLOW_EOF_in_entryRuleTypeReferencesList2146); if (failed) return current;
 
             }
 
@@ -3243,7 +3243,7 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
             // ../org.ow2.fractal.mind.xtext/src-gen/org/ow2/fractal/mind/xtext/parser/antlr/internal/InternalFractal.g:1303:1: ( 'extends' ( (lv_references_1_0= ruleTypeReferenceDefinition ) ) ( ',' ( (lv_references_3_0= ruleTypeReferenceDefinition ) ) )* )
             // ../org.ow2.fractal.mind.xtext/src-gen/org/ow2/fractal/mind/xtext/parser/antlr/internal/InternalFractal.g:1303:3: 'extends' ( (lv_references_1_0= ruleTypeReferenceDefinition ) ) ( ',' ( (lv_references_3_0= ruleTypeReferenceDefinition ) ) )*
             {
-            match(input,26,FOLLOW_26_in_ruleTypeReferencesList2181); if (failed) return current;
+            match(input,26,FollowSets000.FOLLOW_26_in_ruleTypeReferencesList2181); if (failed) return current;
             if ( backtracking==0 ) {
 
                       createLeafNode(grammarAccess.getTypeReferencesListAccess().getExtendsKeyword_0(), null); 
@@ -3260,7 +3260,7 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
               	        currentNode=createCompositeNode(grammarAccess.getTypeReferencesListAccess().getReferencesTypeReferenceDefinitionParserRuleCall_1_0(), currentNode); 
               	    
             }
-            pushFollow(FOLLOW_ruleTypeReferenceDefinition_in_ruleTypeReferencesList2202);
+            pushFollow(FollowSets000.FOLLOW_ruleTypeReferenceDefinition_in_ruleTypeReferencesList2202);
             lv_references_1_0=ruleTypeReferenceDefinition();
             _fsp--;
             if (failed) return current;
@@ -3304,7 +3304,7 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
             	case 1 :
             	    // ../org.ow2.fractal.mind.xtext/src-gen/org/ow2/fractal/mind/xtext/parser/antlr/internal/InternalFractal.g:1331:4: ',' ( (lv_references_3_0= ruleTypeReferenceDefinition ) )
             	    {
-            	    match(input,22,FOLLOW_22_in_ruleTypeReferencesList2213); if (failed) return current;
+            	    match(input,22,FollowSets000.FOLLOW_22_in_ruleTypeReferencesList2213); if (failed) return current;
             	    if ( backtracking==0 ) {
 
             	              createLeafNode(grammarAccess.getTypeReferencesListAccess().getCommaKeyword_2_0(), null); 
@@ -3321,7 +3321,7 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
             	      	        currentNode=createCompositeNode(grammarAccess.getTypeReferencesListAccess().getReferencesTypeReferenceDefinitionParserRuleCall_2_1_0(), currentNode); 
             	      	    
             	    }
-            	    pushFollow(FOLLOW_ruleTypeReferenceDefinition_in_ruleTypeReferencesList2234);
+            	    pushFollow(FollowSets000.FOLLOW_ruleTypeReferenceDefinition_in_ruleTypeReferencesList2234);
             	    lv_references_3_0=ruleTypeReferenceDefinition();
             	    _fsp--;
             	    if (failed) return current;
@@ -3398,14 +3398,14 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
             if ( backtracking==0 ) {
                currentNode = createCompositeNode(grammarAccess.getFormalArgumentRule(), currentNode); 
             }
-            pushFollow(FOLLOW_ruleFormalArgument_in_entryRuleFormalArgument2272);
+            pushFollow(FollowSets000.FOLLOW_ruleFormalArgument_in_entryRuleFormalArgument2272);
             iv_ruleFormalArgument=ruleFormalArgument();
             _fsp--;
             if (failed) return current;
             if ( backtracking==0 ) {
                current =iv_ruleFormalArgument; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleFormalArgument2282); if (failed) return current;
+            match(input,EOF,FollowSets000.FOLLOW_EOF_in_entryRuleFormalArgument2282); if (failed) return current;
 
             }
 
@@ -3442,7 +3442,7 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
             // ../org.ow2.fractal.mind.xtext/src-gen/org/ow2/fractal/mind/xtext/parser/antlr/internal/InternalFractal.g:1384:3: lv_name_0_0= RULE_ID
             {
             lv_name_0_0=(Token)input.LT(1);
-            match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleFormalArgument2323); if (failed) return current;
+            match(input,RULE_ID,FollowSets000.FOLLOW_RULE_ID_in_ruleFormalArgument2323); if (failed) return current;
             if ( backtracking==0 ) {
 
               			createLeafNode(grammarAccess.getFormalArgumentAccess().getNameIDTerminalRuleCall_0(), "name"); 
@@ -3508,14 +3508,14 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
             if ( backtracking==0 ) {
                currentNode = createCompositeNode(grammarAccess.getCompositeDefinitionElementRule(), currentNode); 
             }
-            pushFollow(FOLLOW_ruleCompositeDefinitionElement_in_entryRuleCompositeDefinitionElement2363);
+            pushFollow(FollowSets000.FOLLOW_ruleCompositeDefinitionElement_in_entryRuleCompositeDefinitionElement2363);
             iv_ruleCompositeDefinitionElement=ruleCompositeDefinitionElement();
             _fsp--;
             if (failed) return current;
             if ( backtracking==0 ) {
                current =iv_ruleCompositeDefinitionElement; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleCompositeDefinitionElement2373); if (failed) return current;
+            match(input,EOF,FollowSets000.FOLLOW_EOF_in_entryRuleCompositeDefinitionElement2373); if (failed) return current;
 
             }
 
@@ -3613,7 +3613,7 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
                               currentNode=createCompositeNode(grammarAccess.getCompositeDefinitionElementAccess().getSubComponentDefinitionParserRuleCall_0(), currentNode); 
                           
                     }
-                    pushFollow(FOLLOW_ruleSubComponentDefinition_in_ruleCompositeDefinitionElement2423);
+                    pushFollow(FollowSets000.FOLLOW_ruleSubComponentDefinition_in_ruleCompositeDefinitionElement2423);
                     this_SubComponentDefinition_0=ruleSubComponentDefinition();
                     _fsp--;
                     if (failed) return current;
@@ -3639,7 +3639,7 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
                               currentNode=createCompositeNode(grammarAccess.getCompositeDefinitionElementAccess().getInterfaceDefinitionParserRuleCall_1(), currentNode); 
                           
                     }
-                    pushFollow(FOLLOW_ruleInterfaceDefinition_in_ruleCompositeDefinitionElement2453);
+                    pushFollow(FollowSets000.FOLLOW_ruleInterfaceDefinition_in_ruleCompositeDefinitionElement2453);
                     this_InterfaceDefinition_1=ruleInterfaceDefinition();
                     _fsp--;
                     if (failed) return current;
@@ -3665,7 +3665,7 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
                               currentNode=createCompositeNode(grammarAccess.getCompositeDefinitionElementAccess().getBindingDefinitionParserRuleCall_2(), currentNode); 
                           
                     }
-                    pushFollow(FOLLOW_ruleBindingDefinition_in_ruleCompositeDefinitionElement2483);
+                    pushFollow(FollowSets000.FOLLOW_ruleBindingDefinition_in_ruleCompositeDefinitionElement2483);
                     this_BindingDefinition_2=ruleBindingDefinition();
                     _fsp--;
                     if (failed) return current;
@@ -3717,14 +3717,14 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
             if ( backtracking==0 ) {
                currentNode = createCompositeNode(grammarAccess.getSubComponentDefinitionRule(), currentNode); 
             }
-            pushFollow(FOLLOW_ruleSubComponentDefinition_in_entryRuleSubComponentDefinition2518);
+            pushFollow(FollowSets000.FOLLOW_ruleSubComponentDefinition_in_entryRuleSubComponentDefinition2518);
             iv_ruleSubComponentDefinition=ruleSubComponentDefinition();
             _fsp--;
             if (failed) return current;
             if ( backtracking==0 ) {
                current =iv_ruleSubComponentDefinition; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleSubComponentDefinition2528); if (failed) return current;
+            match(input,EOF,FollowSets000.FOLLOW_EOF_in_entryRuleSubComponentDefinition2528); if (failed) return current;
 
             }
 
@@ -3786,7 +3786,7 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
                       	        currentNode=createCompositeNode(grammarAccess.getSubComponentDefinitionAccess().getAnnotationsListAnnotationsListParserRuleCall_0_0(), currentNode); 
                       	    
                     }
-                    pushFollow(FOLLOW_ruleAnnotationsList_in_ruleSubComponentDefinition2574);
+                    pushFollow(FollowSets000.FOLLOW_ruleAnnotationsList_in_ruleSubComponentDefinition2574);
                     lv_annotationsList_0_0=ruleAnnotationsList();
                     _fsp--;
                     if (failed) return current;
@@ -3818,7 +3818,7 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
 
             }
 
-            match(input,27,FOLLOW_27_in_ruleSubComponentDefinition2585); if (failed) return current;
+            match(input,27,FollowSets000.FOLLOW_27_in_ruleSubComponentDefinition2585); if (failed) return current;
             if ( backtracking==0 ) {
 
                       createLeafNode(grammarAccess.getSubComponentDefinitionAccess().getContainsKeyword_1(), null); 
@@ -3843,7 +3843,7 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
                       	        currentNode=createCompositeNode(grammarAccess.getSubComponentDefinitionAccess().getReferenceDefinitionComponentReferenceParserRuleCall_2_0(), currentNode); 
                       	    
                     }
-                    pushFollow(FOLLOW_ruleComponentReference_in_ruleSubComponentDefinition2606);
+                    pushFollow(FollowSets000.FOLLOW_ruleComponentReference_in_ruleSubComponentDefinition2606);
                     lv_referenceDefinition_2_0=ruleComponentReference();
                     _fsp--;
                     if (failed) return current;
@@ -3875,7 +3875,7 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
 
             }
 
-            match(input,28,FOLLOW_28_in_ruleSubComponentDefinition2617); if (failed) return current;
+            match(input,28,FollowSets000.FOLLOW_28_in_ruleSubComponentDefinition2617); if (failed) return current;
             if ( backtracking==0 ) {
 
                       createLeafNode(grammarAccess.getSubComponentDefinitionAccess().getAsKeyword_3(), null); 
@@ -3888,7 +3888,7 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
             // ../org.ow2.fractal.mind.xtext/src-gen/org/ow2/fractal/mind/xtext/parser/antlr/internal/InternalFractal.g:1548:3: lv_name_4_0= RULE_ID
             {
             lv_name_4_0=(Token)input.LT(1);
-            match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleSubComponentDefinition2634); if (failed) return current;
+            match(input,RULE_ID,FollowSets000.FOLLOW_RULE_ID_in_ruleSubComponentDefinition2634); if (failed) return current;
             if ( backtracking==0 ) {
 
               			createLeafNode(grammarAccess.getSubComponentDefinitionAccess().getNameIDTerminalRuleCall_4_0(), "name"); 
@@ -3942,7 +3942,7 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
                     // ../org.ow2.fractal.mind.xtext/src-gen/org/ow2/fractal/mind/xtext/parser/antlr/internal/InternalFractal.g:1572:3: lv_anonymous_5_0= 'composite'
                     {
                     lv_anonymous_5_0=(Token)input.LT(1);
-                    match(input,20,FOLLOW_20_in_ruleSubComponentDefinition2659); if (failed) return current;
+                    match(input,20,FollowSets000.FOLLOW_20_in_ruleSubComponentDefinition2659); if (failed) return current;
                     if ( backtracking==0 ) {
 
                               createLeafNode(grammarAccess.getSubComponentDefinitionAccess().getAnonymousCompositeKeyword_5_0_0_0(), "anonymous"); 
@@ -3968,7 +3968,7 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    match(input,17,FOLLOW_17_in_ruleSubComponentDefinition2682); if (failed) return current;
+                    match(input,17,FollowSets000.FOLLOW_17_in_ruleSubComponentDefinition2682); if (failed) return current;
                     if ( backtracking==0 ) {
 
                               createLeafNode(grammarAccess.getSubComponentDefinitionAccess().getLeftCurlyBracketKeyword_5_0_1(), null); 
@@ -3985,7 +3985,7 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
                       	        currentNode=createCompositeNode(grammarAccess.getSubComponentDefinitionAccess().getBodyCompositeBodyParserRuleCall_5_0_2_0(), currentNode); 
                       	    
                     }
-                    pushFollow(FOLLOW_ruleCompositeBody_in_ruleSubComponentDefinition2703);
+                    pushFollow(FollowSets000.FOLLOW_ruleCompositeBody_in_ruleSubComponentDefinition2703);
                     lv_body_7_0=ruleCompositeBody();
                     _fsp--;
                     if (failed) return current;
@@ -4014,7 +4014,7 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    match(input,18,FOLLOW_18_in_ruleSubComponentDefinition2713); if (failed) return current;
+                    match(input,18,FollowSets000.FOLLOW_18_in_ruleSubComponentDefinition2713); if (failed) return current;
                     if ( backtracking==0 ) {
 
                               createLeafNode(grammarAccess.getSubComponentDefinitionAccess().getRightCurlyBracketKeyword_5_0_3(), null); 
@@ -4039,7 +4039,7 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
                     // ../org.ow2.fractal.mind.xtext/src-gen/org/ow2/fractal/mind/xtext/parser/antlr/internal/InternalFractal.g:1626:3: lv_anonymous_9_0= 'primitive'
                     {
                     lv_anonymous_9_0=(Token)input.LT(1);
-                    match(input,16,FOLLOW_16_in_ruleSubComponentDefinition2739); if (failed) return current;
+                    match(input,16,FollowSets000.FOLLOW_16_in_ruleSubComponentDefinition2739); if (failed) return current;
                     if ( backtracking==0 ) {
 
                               createLeafNode(grammarAccess.getSubComponentDefinitionAccess().getAnonymousPrimitiveKeyword_5_1_0_0(), "anonymous"); 
@@ -4065,7 +4065,7 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    match(input,17,FOLLOW_17_in_ruleSubComponentDefinition2762); if (failed) return current;
+                    match(input,17,FollowSets000.FOLLOW_17_in_ruleSubComponentDefinition2762); if (failed) return current;
                     if ( backtracking==0 ) {
 
                               createLeafNode(grammarAccess.getSubComponentDefinitionAccess().getLeftCurlyBracketKeyword_5_1_1(), null); 
@@ -4082,7 +4082,7 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
                       	        currentNode=createCompositeNode(grammarAccess.getSubComponentDefinitionAccess().getBodyPrimitiveBodyParserRuleCall_5_1_2_0(), currentNode); 
                       	    
                     }
-                    pushFollow(FOLLOW_rulePrimitiveBody_in_ruleSubComponentDefinition2783);
+                    pushFollow(FollowSets000.FOLLOW_rulePrimitiveBody_in_ruleSubComponentDefinition2783);
                     lv_body_11_0=rulePrimitiveBody();
                     _fsp--;
                     if (failed) return current;
@@ -4111,7 +4111,7 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    match(input,18,FOLLOW_18_in_ruleSubComponentDefinition2793); if (failed) return current;
+                    match(input,18,FollowSets000.FOLLOW_18_in_ruleSubComponentDefinition2793); if (failed) return current;
                     if ( backtracking==0 ) {
 
                               createLeafNode(grammarAccess.getSubComponentDefinitionAccess().getRightCurlyBracketKeyword_5_1_3(), null); 
@@ -4165,14 +4165,14 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
             if ( backtracking==0 ) {
                currentNode = createCompositeNode(grammarAccess.getCompositeBodyRule(), currentNode); 
             }
-            pushFollow(FOLLOW_ruleCompositeBody_in_entryRuleCompositeBody2834);
+            pushFollow(FollowSets000.FOLLOW_ruleCompositeBody_in_entryRuleCompositeBody2834);
             iv_ruleCompositeBody=ruleCompositeBody();
             _fsp--;
             if (failed) return current;
             if ( backtracking==0 ) {
                current =iv_ruleCompositeBody; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleCompositeBody2844); if (failed) return current;
+            match(input,EOF,FollowSets000.FOLLOW_EOF_in_entryRuleCompositeBody2844); if (failed) return current;
 
             }
 
@@ -4274,7 +4274,7 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
                       	        currentNode=createCompositeNode(grammarAccess.getCompositeBodyAccess().getAnnotationsListAnnotationsListParserRuleCall_0_0(), currentNode); 
                       	    
                     }
-                    pushFollow(FOLLOW_ruleAnnotationsList_in_ruleCompositeBody2890);
+                    pushFollow(FollowSets000.FOLLOW_ruleAnnotationsList_in_ruleCompositeBody2890);
                     lv_annotationsList_0_0=ruleAnnotationsList();
                     _fsp--;
                     if (failed) return current;
@@ -4332,7 +4332,7 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
             	      	        currentNode=createCompositeNode(grammarAccess.getCompositeBodyAccess().getElementsCompositeDefinitionElementParserRuleCall_1_0_0(), currentNode); 
             	      	    
             	    }
-            	    pushFollow(FOLLOW_ruleCompositeDefinitionElement_in_ruleCompositeBody2913);
+            	    pushFollow(FollowSets000.FOLLOW_ruleCompositeDefinitionElement_in_ruleCompositeBody2913);
             	    lv_elements_1_0=ruleCompositeDefinitionElement();
             	    _fsp--;
             	    if (failed) return current;
@@ -4372,7 +4372,7 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
             	        case 1 :
             	            // ../org.ow2.fractal.mind.xtext/src-gen/org/ow2/fractal/mind/xtext/parser/antlr/internal/InternalFractal.g:1750:4: ';'
             	            {
-            	            match(input,14,FOLLOW_14_in_ruleCompositeBody2924); if (failed) return current;
+            	            match(input,14,FollowSets000.FOLLOW_14_in_ruleCompositeBody2924); if (failed) return current;
             	            if ( backtracking==0 ) {
 
             	                      createLeafNode(grammarAccess.getCompositeBodyAccess().getSemicolonKeyword_1_1(), null); 
@@ -4432,14 +4432,14 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
             if ( backtracking==0 ) {
                currentNode = createCompositeNode(grammarAccess.getPrimitiveBodyRule(), currentNode); 
             }
-            pushFollow(FOLLOW_rulePrimitiveBody_in_entryRulePrimitiveBody2964);
+            pushFollow(FollowSets000.FOLLOW_rulePrimitiveBody_in_entryRulePrimitiveBody2964);
             iv_rulePrimitiveBody=rulePrimitiveBody();
             _fsp--;
             if (failed) return current;
             if ( backtracking==0 ) {
                current =iv_rulePrimitiveBody; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRulePrimitiveBody2974); if (failed) return current;
+            match(input,EOF,FollowSets000.FOLLOW_EOF_in_entryRulePrimitiveBody2974); if (failed) return current;
 
             }
 
@@ -4541,7 +4541,7 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
                       	        currentNode=createCompositeNode(grammarAccess.getPrimitiveBodyAccess().getAnnotationsListAnnotationsListParserRuleCall_0_0(), currentNode); 
                       	    
                     }
-                    pushFollow(FOLLOW_ruleAnnotationsList_in_rulePrimitiveBody3020);
+                    pushFollow(FollowSets000.FOLLOW_ruleAnnotationsList_in_rulePrimitiveBody3020);
                     lv_annotationsList_0_0=ruleAnnotationsList();
                     _fsp--;
                     if (failed) return current;
@@ -4599,7 +4599,7 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
             	      	        currentNode=createCompositeNode(grammarAccess.getPrimitiveBodyAccess().getElementsPrimitiveDefinitionElementParserRuleCall_1_0_0(), currentNode); 
             	      	    
             	    }
-            	    pushFollow(FOLLOW_rulePrimitiveDefinitionElement_in_rulePrimitiveBody3043);
+            	    pushFollow(FollowSets000.FOLLOW_rulePrimitiveDefinitionElement_in_rulePrimitiveBody3043);
             	    lv_elements_1_0=rulePrimitiveDefinitionElement();
             	    _fsp--;
             	    if (failed) return current;
@@ -4639,7 +4639,7 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
             	        case 1 :
             	            // ../org.ow2.fractal.mind.xtext/src-gen/org/ow2/fractal/mind/xtext/parser/antlr/internal/InternalFractal.g:1825:4: ';'
             	            {
-            	            match(input,14,FOLLOW_14_in_rulePrimitiveBody3054); if (failed) return current;
+            	            match(input,14,FollowSets000.FOLLOW_14_in_rulePrimitiveBody3054); if (failed) return current;
             	            if ( backtracking==0 ) {
 
             	                      createLeafNode(grammarAccess.getPrimitiveBodyAccess().getSemicolonKeyword_1_1(), null); 
@@ -4699,14 +4699,14 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
             if ( backtracking==0 ) {
                currentNode = createCompositeNode(grammarAccess.getTypeBodyRule(), currentNode); 
             }
-            pushFollow(FOLLOW_ruleTypeBody_in_entryRuleTypeBody3094);
+            pushFollow(FollowSets000.FOLLOW_ruleTypeBody_in_entryRuleTypeBody3094);
             iv_ruleTypeBody=ruleTypeBody();
             _fsp--;
             if (failed) return current;
             if ( backtracking==0 ) {
                current =iv_ruleTypeBody; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleTypeBody3104); if (failed) return current;
+            match(input,EOF,FollowSets000.FOLLOW_EOF_in_entryRuleTypeBody3104); if (failed) return current;
 
             }
 
@@ -4808,7 +4808,7 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
                       	        currentNode=createCompositeNode(grammarAccess.getTypeBodyAccess().getAnnotationsListAnnotationsListParserRuleCall_0_0(), currentNode); 
                       	    
                     }
-                    pushFollow(FOLLOW_ruleAnnotationsList_in_ruleTypeBody3150);
+                    pushFollow(FollowSets000.FOLLOW_ruleAnnotationsList_in_ruleTypeBody3150);
                     lv_annotationsList_0_0=ruleAnnotationsList();
                     _fsp--;
                     if (failed) return current;
@@ -4866,7 +4866,7 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
             	      	        currentNode=createCompositeNode(grammarAccess.getTypeBodyAccess().getElementsTypeDefinitionElementParserRuleCall_1_0_0(), currentNode); 
             	      	    
             	    }
-            	    pushFollow(FOLLOW_ruleTypeDefinitionElement_in_ruleTypeBody3173);
+            	    pushFollow(FollowSets000.FOLLOW_ruleTypeDefinitionElement_in_ruleTypeBody3173);
             	    lv_elements_1_0=ruleTypeDefinitionElement();
             	    _fsp--;
             	    if (failed) return current;
@@ -4906,7 +4906,7 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
             	        case 1 :
             	            // ../org.ow2.fractal.mind.xtext/src-gen/org/ow2/fractal/mind/xtext/parser/antlr/internal/InternalFractal.g:1900:4: ';'
             	            {
-            	            match(input,14,FOLLOW_14_in_ruleTypeBody3184); if (failed) return current;
+            	            match(input,14,FollowSets000.FOLLOW_14_in_ruleTypeBody3184); if (failed) return current;
             	            if ( backtracking==0 ) {
 
             	                      createLeafNode(grammarAccess.getTypeBodyAccess().getSemicolonKeyword_1_1(), null); 
@@ -4966,14 +4966,14 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
             if ( backtracking==0 ) {
                currentNode = createCompositeNode(grammarAccess.getComponentReferenceRule(), currentNode); 
             }
-            pushFollow(FOLLOW_ruleComponentReference_in_entryRuleComponentReference3226);
+            pushFollow(FollowSets000.FOLLOW_ruleComponentReference_in_entryRuleComponentReference3226);
             iv_ruleComponentReference=ruleComponentReference();
             _fsp--;
             if (failed) return current;
             if ( backtracking==0 ) {
                current =iv_ruleComponentReference; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleComponentReference3236); if (failed) return current;
+            match(input,EOF,FollowSets000.FOLLOW_EOF_in_entryRuleComponentReference3236); if (failed) return current;
 
             }
 
@@ -5053,7 +5053,7 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
                               currentNode=createCompositeNode(grammarAccess.getComponentReferenceAccess().getCompositeReferenceDefinitionParserRuleCall_0(), currentNode); 
                           
                     }
-                    pushFollow(FOLLOW_ruleCompositeReferenceDefinition_in_ruleComponentReference3286);
+                    pushFollow(FollowSets000.FOLLOW_ruleCompositeReferenceDefinition_in_ruleComponentReference3286);
                     this_CompositeReferenceDefinition_0=ruleCompositeReferenceDefinition();
                     _fsp--;
                     if (failed) return current;
@@ -5079,7 +5079,7 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
                               currentNode=createCompositeNode(grammarAccess.getComponentReferenceAccess().getPrimitiveReferenceDefinitionParserRuleCall_1(), currentNode); 
                           
                     }
-                    pushFollow(FOLLOW_rulePrimitiveReferenceDefinition_in_ruleComponentReference3316);
+                    pushFollow(FollowSets000.FOLLOW_rulePrimitiveReferenceDefinition_in_ruleComponentReference3316);
                     this_PrimitiveReferenceDefinition_1=rulePrimitiveReferenceDefinition();
                     _fsp--;
                     if (failed) return current;
@@ -5105,7 +5105,7 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
                               currentNode=createCompositeNode(grammarAccess.getComponentReferenceAccess().getTypeReferenceDefinitionParserRuleCall_2(), currentNode); 
                           
                     }
-                    pushFollow(FOLLOW_ruleTypeReferenceDefinition_in_ruleComponentReference3346);
+                    pushFollow(FollowSets000.FOLLOW_ruleTypeReferenceDefinition_in_ruleComponentReference3346);
                     this_TypeReferenceDefinition_2=ruleTypeReferenceDefinition();
                     _fsp--;
                     if (failed) return current;
@@ -5157,14 +5157,14 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
             if ( backtracking==0 ) {
                currentNode = createCompositeNode(grammarAccess.getCompositeReferenceDefinitionRule(), currentNode); 
             }
-            pushFollow(FOLLOW_ruleCompositeReferenceDefinition_in_entryRuleCompositeReferenceDefinition3381);
+            pushFollow(FollowSets000.FOLLOW_ruleCompositeReferenceDefinition_in_entryRuleCompositeReferenceDefinition3381);
             iv_ruleCompositeReferenceDefinition=ruleCompositeReferenceDefinition();
             _fsp--;
             if (failed) return current;
             if ( backtracking==0 ) {
                current =iv_ruleCompositeReferenceDefinition; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleCompositeReferenceDefinition3391); if (failed) return current;
+            match(input,EOF,FollowSets000.FOLLOW_EOF_in_entryRuleCompositeReferenceDefinition3391); if (failed) return current;
 
             }
 
@@ -5217,7 +5217,7 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
               	        currentNode=createCompositeNode(grammarAccess.getCompositeReferenceDefinitionAccess().getReferenceNameFQNParserRuleCall_0_0(), currentNode); 
               	    
             }
-            pushFollow(FOLLOW_ruleFQN_in_ruleCompositeReferenceDefinition3437);
+            pushFollow(FollowSets000.FOLLOW_ruleFQN_in_ruleCompositeReferenceDefinition3437);
             lv_referenceName_0_0=ruleFQN();
             _fsp--;
             if (failed) return current;
@@ -5257,7 +5257,7 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
                 case 1 :
                     // ../org.ow2.fractal.mind.xtext/src-gen/org/ow2/fractal/mind/xtext/parser/antlr/internal/InternalFractal.g:2014:4: '<' ( (lv_templatesList_2_0= ruleTemplateDefinition ) ) ( ',' ( (lv_templatesList_4_0= ruleTemplateDefinition ) ) )* '>'
                     {
-                    match(input,21,FOLLOW_21_in_ruleCompositeReferenceDefinition3448); if (failed) return current;
+                    match(input,21,FollowSets000.FOLLOW_21_in_ruleCompositeReferenceDefinition3448); if (failed) return current;
                     if ( backtracking==0 ) {
 
                               createLeafNode(grammarAccess.getCompositeReferenceDefinitionAccess().getLessThanSignKeyword_1_0(), null); 
@@ -5274,7 +5274,7 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
                       	        currentNode=createCompositeNode(grammarAccess.getCompositeReferenceDefinitionAccess().getTemplatesListTemplateDefinitionParserRuleCall_1_1_0(), currentNode); 
                       	    
                     }
-                    pushFollow(FOLLOW_ruleTemplateDefinition_in_ruleCompositeReferenceDefinition3469);
+                    pushFollow(FollowSets000.FOLLOW_ruleTemplateDefinition_in_ruleCompositeReferenceDefinition3469);
                     lv_templatesList_2_0=ruleTemplateDefinition();
                     _fsp--;
                     if (failed) return current;
@@ -5318,7 +5318,7 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
                     	case 1 :
                     	    // ../org.ow2.fractal.mind.xtext/src-gen/org/ow2/fractal/mind/xtext/parser/antlr/internal/InternalFractal.g:2042:4: ',' ( (lv_templatesList_4_0= ruleTemplateDefinition ) )
                     	    {
-                    	    match(input,22,FOLLOW_22_in_ruleCompositeReferenceDefinition3480); if (failed) return current;
+                    	    match(input,22,FollowSets000.FOLLOW_22_in_ruleCompositeReferenceDefinition3480); if (failed) return current;
                     	    if ( backtracking==0 ) {
 
                     	              createLeafNode(grammarAccess.getCompositeReferenceDefinitionAccess().getCommaKeyword_1_2_0(), null); 
@@ -5335,7 +5335,7 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
                     	      	        currentNode=createCompositeNode(grammarAccess.getCompositeReferenceDefinitionAccess().getTemplatesListTemplateDefinitionParserRuleCall_1_2_1_0(), currentNode); 
                     	      	    
                     	    }
-                    	    pushFollow(FOLLOW_ruleTemplateDefinition_in_ruleCompositeReferenceDefinition3501);
+                    	    pushFollow(FollowSets000.FOLLOW_ruleTemplateDefinition_in_ruleCompositeReferenceDefinition3501);
                     	    lv_templatesList_4_0=ruleTemplateDefinition();
                     	    _fsp--;
                     	    if (failed) return current;
@@ -5373,7 +5373,7 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
                         }
                     } while (true);
 
-                    match(input,23,FOLLOW_23_in_ruleCompositeReferenceDefinition3513); if (failed) return current;
+                    match(input,23,FollowSets000.FOLLOW_23_in_ruleCompositeReferenceDefinition3513); if (failed) return current;
                     if ( backtracking==0 ) {
 
                               createLeafNode(grammarAccess.getCompositeReferenceDefinitionAccess().getGreaterThanSignKeyword_1_3(), null); 
@@ -5396,7 +5396,7 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
                 case 1 :
                     // ../org.ow2.fractal.mind.xtext/src-gen/org/ow2/fractal/mind/xtext/parser/antlr/internal/InternalFractal.g:2074:5: '(' ( (lv_argumentsList_7_0= ruleArgumentDefinition ) ) ( ',' ( (lv_argumentsList_9_0= ruleArgumentDefinition ) ) )* ')'
                     {
-                    match(input,24,FOLLOW_24_in_ruleCompositeReferenceDefinition3526); if (failed) return current;
+                    match(input,24,FollowSets000.FOLLOW_24_in_ruleCompositeReferenceDefinition3526); if (failed) return current;
                     if ( backtracking==0 ) {
 
                               createLeafNode(grammarAccess.getCompositeReferenceDefinitionAccess().getLeftParenthesisKeyword_2_0(), null); 
@@ -5413,7 +5413,7 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
                       	        currentNode=createCompositeNode(grammarAccess.getCompositeReferenceDefinitionAccess().getArgumentsListArgumentDefinitionParserRuleCall_2_1_0(), currentNode); 
                       	    
                     }
-                    pushFollow(FOLLOW_ruleArgumentDefinition_in_ruleCompositeReferenceDefinition3547);
+                    pushFollow(FollowSets000.FOLLOW_ruleArgumentDefinition_in_ruleCompositeReferenceDefinition3547);
                     lv_argumentsList_7_0=ruleArgumentDefinition();
                     _fsp--;
                     if (failed) return current;
@@ -5457,7 +5457,7 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
                     	case 1 :
                     	    // ../org.ow2.fractal.mind.xtext/src-gen/org/ow2/fractal/mind/xtext/parser/antlr/internal/InternalFractal.g:2102:4: ',' ( (lv_argumentsList_9_0= ruleArgumentDefinition ) )
                     	    {
-                    	    match(input,22,FOLLOW_22_in_ruleCompositeReferenceDefinition3558); if (failed) return current;
+                    	    match(input,22,FollowSets000.FOLLOW_22_in_ruleCompositeReferenceDefinition3558); if (failed) return current;
                     	    if ( backtracking==0 ) {
 
                     	              createLeafNode(grammarAccess.getCompositeReferenceDefinitionAccess().getCommaKeyword_2_2_0(), null); 
@@ -5474,7 +5474,7 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
                     	      	        currentNode=createCompositeNode(grammarAccess.getCompositeReferenceDefinitionAccess().getArgumentsListArgumentDefinitionParserRuleCall_2_2_1_0(), currentNode); 
                     	      	    
                     	    }
-                    	    pushFollow(FOLLOW_ruleArgumentDefinition_in_ruleCompositeReferenceDefinition3579);
+                    	    pushFollow(FollowSets000.FOLLOW_ruleArgumentDefinition_in_ruleCompositeReferenceDefinition3579);
                     	    lv_argumentsList_9_0=ruleArgumentDefinition();
                     	    _fsp--;
                     	    if (failed) return current;
@@ -5512,7 +5512,7 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
                         }
                     } while (true);
 
-                    match(input,25,FOLLOW_25_in_ruleCompositeReferenceDefinition3591); if (failed) return current;
+                    match(input,25,FollowSets000.FOLLOW_25_in_ruleCompositeReferenceDefinition3591); if (failed) return current;
                     if ( backtracking==0 ) {
 
                               createLeafNode(grammarAccess.getCompositeReferenceDefinitionAccess().getRightParenthesisKeyword_2_3(), null); 
@@ -5563,14 +5563,14 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
             if ( backtracking==0 ) {
                currentNode = createCompositeNode(grammarAccess.getPrimitiveReferenceDefinitionRule(), currentNode); 
             }
-            pushFollow(FOLLOW_rulePrimitiveReferenceDefinition_in_entryRulePrimitiveReferenceDefinition3629);
+            pushFollow(FollowSets000.FOLLOW_rulePrimitiveReferenceDefinition_in_entryRulePrimitiveReferenceDefinition3629);
             iv_rulePrimitiveReferenceDefinition=rulePrimitiveReferenceDefinition();
             _fsp--;
             if (failed) return current;
             if ( backtracking==0 ) {
                current =iv_rulePrimitiveReferenceDefinition; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRulePrimitiveReferenceDefinition3639); if (failed) return current;
+            match(input,EOF,FollowSets000.FOLLOW_EOF_in_entryRulePrimitiveReferenceDefinition3639); if (failed) return current;
 
             }
 
@@ -5619,7 +5619,7 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
               	        currentNode=createCompositeNode(grammarAccess.getPrimitiveReferenceDefinitionAccess().getReferenceNameFQNParserRuleCall_0_0(), currentNode); 
               	    
             }
-            pushFollow(FOLLOW_ruleFQN_in_rulePrimitiveReferenceDefinition3685);
+            pushFollow(FollowSets000.FOLLOW_ruleFQN_in_rulePrimitiveReferenceDefinition3685);
             lv_referenceName_0_0=ruleFQN();
             _fsp--;
             if (failed) return current;
@@ -5659,7 +5659,7 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
                 case 1 :
                     // ../org.ow2.fractal.mind.xtext/src-gen/org/ow2/fractal/mind/xtext/parser/antlr/internal/InternalFractal.g:2181:4: '(' ( (lv_argumentsList_2_0= ruleArgumentDefinition ) ) ( ',' ( (lv_argumentsList_4_0= ruleArgumentDefinition ) ) )* ')'
                     {
-                    match(input,24,FOLLOW_24_in_rulePrimitiveReferenceDefinition3696); if (failed) return current;
+                    match(input,24,FollowSets000.FOLLOW_24_in_rulePrimitiveReferenceDefinition3696); if (failed) return current;
                     if ( backtracking==0 ) {
 
                               createLeafNode(grammarAccess.getPrimitiveReferenceDefinitionAccess().getLeftParenthesisKeyword_1_0(), null); 
@@ -5676,7 +5676,7 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
                       	        currentNode=createCompositeNode(grammarAccess.getPrimitiveReferenceDefinitionAccess().getArgumentsListArgumentDefinitionParserRuleCall_1_1_0(), currentNode); 
                       	    
                     }
-                    pushFollow(FOLLOW_ruleArgumentDefinition_in_rulePrimitiveReferenceDefinition3717);
+                    pushFollow(FollowSets000.FOLLOW_ruleArgumentDefinition_in_rulePrimitiveReferenceDefinition3717);
                     lv_argumentsList_2_0=ruleArgumentDefinition();
                     _fsp--;
                     if (failed) return current;
@@ -5720,7 +5720,7 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
                     	case 1 :
                     	    // ../org.ow2.fractal.mind.xtext/src-gen/org/ow2/fractal/mind/xtext/parser/antlr/internal/InternalFractal.g:2209:4: ',' ( (lv_argumentsList_4_0= ruleArgumentDefinition ) )
                     	    {
-                    	    match(input,22,FOLLOW_22_in_rulePrimitiveReferenceDefinition3728); if (failed) return current;
+                    	    match(input,22,FollowSets000.FOLLOW_22_in_rulePrimitiveReferenceDefinition3728); if (failed) return current;
                     	    if ( backtracking==0 ) {
 
                     	              createLeafNode(grammarAccess.getPrimitiveReferenceDefinitionAccess().getCommaKeyword_1_2_0(), null); 
@@ -5737,7 +5737,7 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
                     	      	        currentNode=createCompositeNode(grammarAccess.getPrimitiveReferenceDefinitionAccess().getArgumentsListArgumentDefinitionParserRuleCall_1_2_1_0(), currentNode); 
                     	      	    
                     	    }
-                    	    pushFollow(FOLLOW_ruleArgumentDefinition_in_rulePrimitiveReferenceDefinition3749);
+                    	    pushFollow(FollowSets000.FOLLOW_ruleArgumentDefinition_in_rulePrimitiveReferenceDefinition3749);
                     	    lv_argumentsList_4_0=ruleArgumentDefinition();
                     	    _fsp--;
                     	    if (failed) return current;
@@ -5775,7 +5775,7 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
                         }
                     } while (true);
 
-                    match(input,25,FOLLOW_25_in_rulePrimitiveReferenceDefinition3761); if (failed) return current;
+                    match(input,25,FollowSets000.FOLLOW_25_in_rulePrimitiveReferenceDefinition3761); if (failed) return current;
                     if ( backtracking==0 ) {
 
                               createLeafNode(grammarAccess.getPrimitiveReferenceDefinitionAccess().getRightParenthesisKeyword_1_3(), null); 
@@ -5826,14 +5826,14 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
             if ( backtracking==0 ) {
                currentNode = createCompositeNode(grammarAccess.getTemplateDefinitionRule(), currentNode); 
             }
-            pushFollow(FOLLOW_ruleTemplateDefinition_in_entryRuleTemplateDefinition3799);
+            pushFollow(FollowSets000.FOLLOW_ruleTemplateDefinition_in_entryRuleTemplateDefinition3799);
             iv_ruleTemplateDefinition=ruleTemplateDefinition();
             _fsp--;
             if (failed) return current;
             if ( backtracking==0 ) {
                current =iv_ruleTemplateDefinition; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleTemplateDefinition3809); if (failed) return current;
+            match(input,EOF,FollowSets000.FOLLOW_EOF_in_entryRuleTemplateDefinition3809); if (failed) return current;
 
             }
 
@@ -5890,7 +5890,7 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
                     // ../org.ow2.fractal.mind.xtext/src-gen/org/ow2/fractal/mind/xtext/parser/antlr/internal/InternalFractal.g:2266:3: lv_name_0_0= RULE_ID
                     {
                     lv_name_0_0=(Token)input.LT(1);
-                    match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleTemplateDefinition3852); if (failed) return current;
+                    match(input,RULE_ID,FollowSets000.FOLLOW_RULE_ID_in_ruleTemplateDefinition3852); if (failed) return current;
                     if ( backtracking==0 ) {
 
                       			createLeafNode(grammarAccess.getTemplateDefinitionAccess().getNameIDTerminalRuleCall_0_0_0(), "name"); 
@@ -5920,7 +5920,7 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    match(input,29,FOLLOW_29_in_ruleTemplateDefinition3867); if (failed) return current;
+                    match(input,29,FollowSets000.FOLLOW_29_in_ruleTemplateDefinition3867); if (failed) return current;
                     if ( backtracking==0 ) {
 
                               createLeafNode(grammarAccess.getTemplateDefinitionAccess().getEqualsSignKeyword_0_1(), null); 
@@ -5943,7 +5943,7 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
               	        currentNode=createCompositeNode(grammarAccess.getTemplateDefinitionAccess().getReferenceCompositeReferenceDefinitionParserRuleCall_1_0(), currentNode); 
               	    
             }
-            pushFollow(FOLLOW_ruleCompositeReferenceDefinition_in_ruleTemplateDefinition3890);
+            pushFollow(FollowSets000.FOLLOW_ruleCompositeReferenceDefinition_in_ruleTemplateDefinition3890);
             lv_reference_2_0=ruleCompositeReferenceDefinition();
             _fsp--;
             if (failed) return current;
@@ -6011,14 +6011,14 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
             if ( backtracking==0 ) {
                currentNode = createCompositeNode(grammarAccess.getAttributeDefinitionRule(), currentNode); 
             }
-            pushFollow(FOLLOW_ruleAttributeDefinition_in_entryRuleAttributeDefinition3926);
+            pushFollow(FollowSets000.FOLLOW_ruleAttributeDefinition_in_entryRuleAttributeDefinition3926);
             iv_ruleAttributeDefinition=ruleAttributeDefinition();
             _fsp--;
             if (failed) return current;
             if ( backtracking==0 ) {
                current =iv_ruleAttributeDefinition; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleAttributeDefinition3936); if (failed) return current;
+            match(input,EOF,FollowSets000.FOLLOW_EOF_in_entryRuleAttributeDefinition3936); if (failed) return current;
 
             }
 
@@ -6076,7 +6076,7 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
                       	        currentNode=createCompositeNode(grammarAccess.getAttributeDefinitionAccess().getAnnotationsListAnnotationsListParserRuleCall_0_0(), currentNode); 
                       	    
                     }
-                    pushFollow(FOLLOW_ruleAnnotationsList_in_ruleAttributeDefinition3982);
+                    pushFollow(FollowSets000.FOLLOW_ruleAnnotationsList_in_ruleAttributeDefinition3982);
                     lv_annotationsList_0_0=ruleAnnotationsList();
                     _fsp--;
                     if (failed) return current;
@@ -6108,7 +6108,7 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
 
             }
 
-            match(input,30,FOLLOW_30_in_ruleAttributeDefinition3993); if (failed) return current;
+            match(input,30,FollowSets000.FOLLOW_30_in_ruleAttributeDefinition3993); if (failed) return current;
             if ( backtracking==0 ) {
 
                       createLeafNode(grammarAccess.getAttributeDefinitionAccess().getAttributeKeyword_1(), null); 
@@ -6140,7 +6140,7 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
                       	        currentNode=createCompositeNode(grammarAccess.getAttributeDefinitionAccess().getTypeAttributeTypeParserRuleCall_2_0(), currentNode); 
                       	    
                     }
-                    pushFollow(FOLLOW_ruleAttributeType_in_ruleAttributeDefinition4014);
+                    pushFollow(FollowSets000.FOLLOW_ruleAttributeType_in_ruleAttributeDefinition4014);
                     lv_type_2_0=ruleAttributeType();
                     _fsp--;
                     if (failed) return current;
@@ -6179,7 +6179,7 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
             // ../org.ow2.fractal.mind.xtext/src-gen/org/ow2/fractal/mind/xtext/parser/antlr/internal/InternalFractal.g:2393:3: lv_attributeName_3_0= RULE_ID
             {
             lv_attributeName_3_0=(Token)input.LT(1);
-            match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleAttributeDefinition4032); if (failed) return current;
+            match(input,RULE_ID,FollowSets000.FOLLOW_RULE_ID_in_ruleAttributeDefinition4032); if (failed) return current;
             if ( backtracking==0 ) {
 
               			createLeafNode(grammarAccess.getAttributeDefinitionAccess().getAttributeNameIDTerminalRuleCall_3_0(), "attributeName"); 
@@ -6220,7 +6220,7 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
                 case 1 :
                     // ../org.ow2.fractal.mind.xtext/src-gen/org/ow2/fractal/mind/xtext/parser/antlr/internal/InternalFractal.g:2415:4: '=' ( (lv_value_5_0= ruleValue ) )
                     {
-                    match(input,29,FOLLOW_29_in_ruleAttributeDefinition4048); if (failed) return current;
+                    match(input,29,FollowSets000.FOLLOW_29_in_ruleAttributeDefinition4048); if (failed) return current;
                     if ( backtracking==0 ) {
 
                               createLeafNode(grammarAccess.getAttributeDefinitionAccess().getEqualsSignKeyword_4_0(), null); 
@@ -6237,7 +6237,7 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
                       	        currentNode=createCompositeNode(grammarAccess.getAttributeDefinitionAccess().getValueValueParserRuleCall_4_1_0(), currentNode); 
                       	    
                     }
-                    pushFollow(FOLLOW_ruleValue_in_ruleAttributeDefinition4069);
+                    pushFollow(FollowSets000.FOLLOW_ruleValue_in_ruleAttributeDefinition4069);
                     lv_value_5_0=ruleValue();
                     _fsp--;
                     if (failed) return current;
@@ -6311,14 +6311,14 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
             if ( backtracking==0 ) {
                currentNode = createCompositeNode(grammarAccess.getArgumentDefinitionRule(), currentNode); 
             }
-            pushFollow(FOLLOW_ruleArgumentDefinition_in_entryRuleArgumentDefinition4107);
+            pushFollow(FollowSets000.FOLLOW_ruleArgumentDefinition_in_entryRuleArgumentDefinition4107);
             iv_ruleArgumentDefinition=ruleArgumentDefinition();
             _fsp--;
             if (failed) return current;
             if ( backtracking==0 ) {
                current =iv_ruleArgumentDefinition; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleArgumentDefinition4117); if (failed) return current;
+            match(input,EOF,FollowSets000.FOLLOW_EOF_in_entryRuleArgumentDefinition4117); if (failed) return current;
 
             }
 
@@ -6397,7 +6397,7 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
                     // ../org.ow2.fractal.mind.xtext/src-gen/org/ow2/fractal/mind/xtext/parser/antlr/internal/InternalFractal.g:2468:3: lv_argumentName_0_0= RULE_ID
                     {
                     lv_argumentName_0_0=(Token)input.LT(1);
-                    match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleArgumentDefinition4160); if (failed) return current;
+                    match(input,RULE_ID,FollowSets000.FOLLOW_RULE_ID_in_ruleArgumentDefinition4160); if (failed) return current;
                     if ( backtracking==0 ) {
 
                       			createLeafNode(grammarAccess.getArgumentDefinitionAccess().getArgumentNameIDTerminalRuleCall_0_0_0(), "argumentName"); 
@@ -6427,7 +6427,7 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    match(input,29,FOLLOW_29_in_ruleArgumentDefinition4175); if (failed) return current;
+                    match(input,29,FollowSets000.FOLLOW_29_in_ruleArgumentDefinition4175); if (failed) return current;
                     if ( backtracking==0 ) {
 
                               createLeafNode(grammarAccess.getArgumentDefinitionAccess().getEqualsSignKeyword_0_1(), null); 
@@ -6444,7 +6444,7 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
                       	        currentNode=createCompositeNode(grammarAccess.getArgumentDefinitionAccess().getArgumentValueValueParserRuleCall_0_2_0(), currentNode); 
                       	    
                     }
-                    pushFollow(FOLLOW_ruleValue_in_ruleArgumentDefinition4196);
+                    pushFollow(FollowSets000.FOLLOW_ruleValue_in_ruleArgumentDefinition4196);
                     lv_argumentValue_2_0=ruleValue();
                     _fsp--;
                     if (failed) return current;
@@ -6493,7 +6493,7 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
                       	        currentNode=createCompositeNode(grammarAccess.getArgumentDefinitionAccess().getArgumentValueValueParserRuleCall_1_0(), currentNode); 
                       	    
                     }
-                    pushFollow(FOLLOW_ruleValue_in_ruleArgumentDefinition4224);
+                    pushFollow(FollowSets000.FOLLOW_ruleValue_in_ruleArgumentDefinition4224);
                     lv_argumentValue_3_0=ruleValue();
                     _fsp--;
                     if (failed) return current;
@@ -6564,14 +6564,14 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
             if ( backtracking==0 ) {
                currentNode = createCompositeNode(grammarAccess.getInterfaceDefinitionRule(), currentNode); 
             }
-            pushFollow(FOLLOW_ruleInterfaceDefinition_in_entryRuleInterfaceDefinition4260);
+            pushFollow(FollowSets000.FOLLOW_ruleInterfaceDefinition_in_entryRuleInterfaceDefinition4260);
             iv_ruleInterfaceDefinition=ruleInterfaceDefinition();
             _fsp--;
             if (failed) return current;
             if ( backtracking==0 ) {
                current =iv_ruleInterfaceDefinition; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleInterfaceDefinition4270); if (failed) return current;
+            match(input,EOF,FollowSets000.FOLLOW_EOF_in_entryRuleInterfaceDefinition4270); if (failed) return current;
 
             }
 
@@ -6634,7 +6634,7 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
                       	        currentNode=createCompositeNode(grammarAccess.getInterfaceDefinitionAccess().getAnnotationsListAnnotationsListParserRuleCall_0_0(), currentNode); 
                       	    
                     }
-                    pushFollow(FOLLOW_ruleAnnotationsList_in_ruleInterfaceDefinition4316);
+                    pushFollow(FollowSets000.FOLLOW_ruleAnnotationsList_in_ruleInterfaceDefinition4316);
                     lv_annotationsList_0_0=ruleAnnotationsList();
                     _fsp--;
                     if (failed) return current;
@@ -6677,7 +6677,7 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
               	        currentNode=createCompositeNode(grammarAccess.getInterfaceDefinitionAccess().getRoleRoleEnumRuleCall_1_0(), currentNode); 
               	    
             }
-            pushFollow(FOLLOW_ruleRole_in_ruleInterfaceDefinition4338);
+            pushFollow(FollowSets000.FOLLOW_ruleRole_in_ruleInterfaceDefinition4338);
             lv_role_1_0=ruleRole();
             _fsp--;
             if (failed) return current;
@@ -6725,7 +6725,7 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
                       	        currentNode=createCompositeNode(grammarAccess.getInterfaceDefinitionAccess().getSignatureFQNParserRuleCall_2_0(), currentNode); 
                       	    
                     }
-                    pushFollow(FOLLOW_ruleFQN_in_ruleInterfaceDefinition4359);
+                    pushFollow(FollowSets000.FOLLOW_ruleFQN_in_ruleInterfaceDefinition4359);
                     lv_signature_2_0=ruleFQN();
                     _fsp--;
                     if (failed) return current;
@@ -6757,7 +6757,7 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
 
             }
 
-            match(input,28,FOLLOW_28_in_ruleInterfaceDefinition4370); if (failed) return current;
+            match(input,28,FollowSets000.FOLLOW_28_in_ruleInterfaceDefinition4370); if (failed) return current;
             if ( backtracking==0 ) {
 
                       createLeafNode(grammarAccess.getInterfaceDefinitionAccess().getAsKeyword_3(), null); 
@@ -6770,7 +6770,7 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
             // ../org.ow2.fractal.mind.xtext/src-gen/org/ow2/fractal/mind/xtext/parser/antlr/internal/InternalFractal.g:2644:3: lv_name_4_0= RULE_ID
             {
             lv_name_4_0=(Token)input.LT(1);
-            match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleInterfaceDefinition4387); if (failed) return current;
+            match(input,RULE_ID,FollowSets000.FOLLOW_RULE_ID_in_ruleInterfaceDefinition4387); if (failed) return current;
             if ( backtracking==0 ) {
 
               			createLeafNode(grammarAccess.getInterfaceDefinitionAccess().getNameIDTerminalRuleCall_4_0(), "name"); 
@@ -6818,7 +6818,7 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
                     // ../org.ow2.fractal.mind.xtext/src-gen/org/ow2/fractal/mind/xtext/parser/antlr/internal/InternalFractal.g:2668:3: lv_collection_5_0= '['
                     {
                     lv_collection_5_0=(Token)input.LT(1);
-                    match(input,31,FOLLOW_31_in_ruleInterfaceDefinition4411); if (failed) return current;
+                    match(input,31,FollowSets000.FOLLOW_31_in_ruleInterfaceDefinition4411); if (failed) return current;
                     if ( backtracking==0 ) {
 
                               createLeafNode(grammarAccess.getInterfaceDefinitionAccess().getCollectionLeftSquareBracketKeyword_5_0_0(), "collection"); 
@@ -6859,7 +6859,7 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
                             // ../org.ow2.fractal.mind.xtext/src-gen/org/ow2/fractal/mind/xtext/parser/antlr/internal/InternalFractal.g:2689:3: lv_collectionsize_6_0= RULE_INT
                             {
                             lv_collectionsize_6_0=(Token)input.LT(1);
-                            match(input,RULE_INT,FOLLOW_RULE_INT_in_ruleInterfaceDefinition4441); if (failed) return current;
+                            match(input,RULE_INT,FollowSets000.FOLLOW_RULE_INT_in_ruleInterfaceDefinition4441); if (failed) return current;
                             if ( backtracking==0 ) {
 
                               			createLeafNode(grammarAccess.getInterfaceDefinitionAccess().getCollectionsizeINTTerminalRuleCall_5_1_0(), "collectionsize"); 
@@ -6899,7 +6899,7 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
                     // ../org.ow2.fractal.mind.xtext/src-gen/org/ow2/fractal/mind/xtext/parser/antlr/internal/InternalFractal.g:2713:3: lv_collection_7_0= ']'
                     {
                     lv_collection_7_0=(Token)input.LT(1);
-                    match(input,32,FOLLOW_32_in_ruleInterfaceDefinition4465); if (failed) return current;
+                    match(input,32,FollowSets000.FOLLOW_32_in_ruleInterfaceDefinition4465); if (failed) return current;
                     if ( backtracking==0 ) {
 
                               createLeafNode(grammarAccess.getInterfaceDefinitionAccess().getCollectionRightSquareBracketKeyword_5_2_0(), "collection"); 
@@ -6950,7 +6950,7 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
                       	        currentNode=createCompositeNode(grammarAccess.getInterfaceDefinitionAccess().getContingencyContingencyEnumRuleCall_6_0(), currentNode); 
                       	    
                     }
-                    pushFollow(FOLLOW_ruleContingency_in_ruleInterfaceDefinition4501);
+                    pushFollow(FollowSets000.FOLLOW_ruleContingency_in_ruleInterfaceDefinition4501);
                     lv_contingency_8_0=ruleContingency();
                     _fsp--;
                     if (failed) return current;
@@ -7021,14 +7021,14 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
             if ( backtracking==0 ) {
                currentNode = createCompositeNode(grammarAccess.getBindingDefinitionRule(), currentNode); 
             }
-            pushFollow(FOLLOW_ruleBindingDefinition_in_entryRuleBindingDefinition4538);
+            pushFollow(FollowSets000.FOLLOW_ruleBindingDefinition_in_entryRuleBindingDefinition4538);
             iv_ruleBindingDefinition=ruleBindingDefinition();
             _fsp--;
             if (failed) return current;
             if ( backtracking==0 ) {
                current =iv_ruleBindingDefinition; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleBindingDefinition4548); if (failed) return current;
+            match(input,EOF,FollowSets000.FOLLOW_EOF_in_entryRuleBindingDefinition4548); if (failed) return current;
 
             }
 
@@ -7087,7 +7087,7 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
                       	        currentNode=createCompositeNode(grammarAccess.getBindingDefinitionAccess().getAnnotationsListAnnotationsListParserRuleCall_0_0(), currentNode); 
                       	    
                     }
-                    pushFollow(FOLLOW_ruleAnnotationsList_in_ruleBindingDefinition4594);
+                    pushFollow(FollowSets000.FOLLOW_ruleAnnotationsList_in_ruleBindingDefinition4594);
                     lv_annotationsList_0_0=ruleAnnotationsList();
                     _fsp--;
                     if (failed) return current;
@@ -7122,7 +7122,7 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
             // ../org.ow2.fractal.mind.xtext/src-gen/org/ow2/fractal/mind/xtext/parser/antlr/internal/InternalFractal.g:2803:3: ( 'binds' ( 'this' | ( (lv_interfaceSourceParentName_3_0= RULE_ID ) ) ) '.' ( (lv_interfaceSourceName_5_0= RULE_ID ) ) ( '[' ( (lv_interfaceSourceIndex_7_0= RULE_INT ) ) ']' )? 'to' ( 'this' | ( (lv_interfaceTargetParentName_11_0= RULE_ID ) ) ) '.' ( (lv_interfaceTargetName_13_0= RULE_ID ) ) ( '[' ( (lv_interfaceTargetIndex_15_0= RULE_INT ) ) ']' )? )
             // ../org.ow2.fractal.mind.xtext/src-gen/org/ow2/fractal/mind/xtext/parser/antlr/internal/InternalFractal.g:2803:5: 'binds' ( 'this' | ( (lv_interfaceSourceParentName_3_0= RULE_ID ) ) ) '.' ( (lv_interfaceSourceName_5_0= RULE_ID ) ) ( '[' ( (lv_interfaceSourceIndex_7_0= RULE_INT ) ) ']' )? 'to' ( 'this' | ( (lv_interfaceTargetParentName_11_0= RULE_ID ) ) ) '.' ( (lv_interfaceTargetName_13_0= RULE_ID ) ) ( '[' ( (lv_interfaceTargetIndex_15_0= RULE_INT ) ) ']' )?
             {
-            match(input,33,FOLLOW_33_in_ruleBindingDefinition4606); if (failed) return current;
+            match(input,33,FollowSets000.FOLLOW_33_in_ruleBindingDefinition4606); if (failed) return current;
             if ( backtracking==0 ) {
 
                       createLeafNode(grammarAccess.getBindingDefinitionAccess().getBindsKeyword_1_0(), null); 
@@ -7149,7 +7149,7 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
                 case 1 :
                     // ../org.ow2.fractal.mind.xtext/src-gen/org/ow2/fractal/mind/xtext/parser/antlr/internal/InternalFractal.g:2807:3: 'this'
                     {
-                    match(input,34,FOLLOW_34_in_ruleBindingDefinition4617); if (failed) return current;
+                    match(input,34,FollowSets000.FOLLOW_34_in_ruleBindingDefinition4617); if (failed) return current;
                     if ( backtracking==0 ) {
 
                               createLeafNode(grammarAccess.getBindingDefinitionAccess().getThisKeyword_1_1_0(), null); 
@@ -7168,7 +7168,7 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
                     // ../org.ow2.fractal.mind.xtext/src-gen/org/ow2/fractal/mind/xtext/parser/antlr/internal/InternalFractal.g:2814:3: lv_interfaceSourceParentName_3_0= RULE_ID
                     {
                     lv_interfaceSourceParentName_3_0=(Token)input.LT(1);
-                    match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleBindingDefinition4640); if (failed) return current;
+                    match(input,RULE_ID,FollowSets000.FOLLOW_RULE_ID_in_ruleBindingDefinition4640); if (failed) return current;
                     if ( backtracking==0 ) {
 
                       			createLeafNode(grammarAccess.getBindingDefinitionAccess().getInterfaceSourceParentNameIDTerminalRuleCall_1_1_1_0(), "interfaceSourceParentName"); 
@@ -7204,7 +7204,7 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
 
             }
 
-            match(input,35,FOLLOW_35_in_ruleBindingDefinition4656); if (failed) return current;
+            match(input,35,FollowSets000.FOLLOW_35_in_ruleBindingDefinition4656); if (failed) return current;
             if ( backtracking==0 ) {
 
                       createLeafNode(grammarAccess.getBindingDefinitionAccess().getFullStopKeyword_1_2(), null); 
@@ -7217,7 +7217,7 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
             // ../org.ow2.fractal.mind.xtext/src-gen/org/ow2/fractal/mind/xtext/parser/antlr/internal/InternalFractal.g:2842:3: lv_interfaceSourceName_5_0= RULE_ID
             {
             lv_interfaceSourceName_5_0=(Token)input.LT(1);
-            match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleBindingDefinition4673); if (failed) return current;
+            match(input,RULE_ID,FollowSets000.FOLLOW_RULE_ID_in_ruleBindingDefinition4673); if (failed) return current;
             if ( backtracking==0 ) {
 
               			createLeafNode(grammarAccess.getBindingDefinitionAccess().getInterfaceSourceNameIDTerminalRuleCall_1_3_0(), "interfaceSourceName"); 
@@ -7258,7 +7258,7 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
                 case 1 :
                     // ../org.ow2.fractal.mind.xtext/src-gen/org/ow2/fractal/mind/xtext/parser/antlr/internal/InternalFractal.g:2864:4: '[' ( (lv_interfaceSourceIndex_7_0= RULE_INT ) ) ']'
                     {
-                    match(input,31,FOLLOW_31_in_ruleBindingDefinition4689); if (failed) return current;
+                    match(input,31,FollowSets000.FOLLOW_31_in_ruleBindingDefinition4689); if (failed) return current;
                     if ( backtracking==0 ) {
 
                               createLeafNode(grammarAccess.getBindingDefinitionAccess().getLeftSquareBracketKeyword_1_4_0(), null); 
@@ -7271,7 +7271,7 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
                     // ../org.ow2.fractal.mind.xtext/src-gen/org/ow2/fractal/mind/xtext/parser/antlr/internal/InternalFractal.g:2870:3: lv_interfaceSourceIndex_7_0= RULE_INT
                     {
                     lv_interfaceSourceIndex_7_0=(Token)input.LT(1);
-                    match(input,RULE_INT,FOLLOW_RULE_INT_in_ruleBindingDefinition4706); if (failed) return current;
+                    match(input,RULE_INT,FollowSets000.FOLLOW_RULE_INT_in_ruleBindingDefinition4706); if (failed) return current;
                     if ( backtracking==0 ) {
 
                       			createLeafNode(grammarAccess.getBindingDefinitionAccess().getInterfaceSourceIndexINTTerminalRuleCall_1_4_1_0(), "interfaceSourceIndex"); 
@@ -7301,7 +7301,7 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    match(input,32,FOLLOW_32_in_ruleBindingDefinition4721); if (failed) return current;
+                    match(input,32,FollowSets000.FOLLOW_32_in_ruleBindingDefinition4721); if (failed) return current;
                     if ( backtracking==0 ) {
 
                               createLeafNode(grammarAccess.getBindingDefinitionAccess().getRightSquareBracketKeyword_1_4_2(), null); 
@@ -7313,7 +7313,7 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
 
             }
 
-            match(input,36,FOLLOW_36_in_ruleBindingDefinition4733); if (failed) return current;
+            match(input,36,FollowSets000.FOLLOW_36_in_ruleBindingDefinition4733); if (failed) return current;
             if ( backtracking==0 ) {
 
                       createLeafNode(grammarAccess.getBindingDefinitionAccess().getToKeyword_1_5(), null); 
@@ -7340,7 +7340,7 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
                 case 1 :
                     // ../org.ow2.fractal.mind.xtext/src-gen/org/ow2/fractal/mind/xtext/parser/antlr/internal/InternalFractal.g:2900:3: 'this'
                     {
-                    match(input,34,FOLLOW_34_in_ruleBindingDefinition4744); if (failed) return current;
+                    match(input,34,FollowSets000.FOLLOW_34_in_ruleBindingDefinition4744); if (failed) return current;
                     if ( backtracking==0 ) {
 
                               createLeafNode(grammarAccess.getBindingDefinitionAccess().getThisKeyword_1_6_0(), null); 
@@ -7359,7 +7359,7 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
                     // ../org.ow2.fractal.mind.xtext/src-gen/org/ow2/fractal/mind/xtext/parser/antlr/internal/InternalFractal.g:2907:3: lv_interfaceTargetParentName_11_0= RULE_ID
                     {
                     lv_interfaceTargetParentName_11_0=(Token)input.LT(1);
-                    match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleBindingDefinition4767); if (failed) return current;
+                    match(input,RULE_ID,FollowSets000.FOLLOW_RULE_ID_in_ruleBindingDefinition4767); if (failed) return current;
                     if ( backtracking==0 ) {
 
                       			createLeafNode(grammarAccess.getBindingDefinitionAccess().getInterfaceTargetParentNameIDTerminalRuleCall_1_6_1_0(), "interfaceTargetParentName"); 
@@ -7395,7 +7395,7 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
 
             }
 
-            match(input,35,FOLLOW_35_in_ruleBindingDefinition4783); if (failed) return current;
+            match(input,35,FollowSets000.FOLLOW_35_in_ruleBindingDefinition4783); if (failed) return current;
             if ( backtracking==0 ) {
 
                       createLeafNode(grammarAccess.getBindingDefinitionAccess().getFullStopKeyword_1_7(), null); 
@@ -7408,7 +7408,7 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
             // ../org.ow2.fractal.mind.xtext/src-gen/org/ow2/fractal/mind/xtext/parser/antlr/internal/InternalFractal.g:2935:3: lv_interfaceTargetName_13_0= RULE_ID
             {
             lv_interfaceTargetName_13_0=(Token)input.LT(1);
-            match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleBindingDefinition4800); if (failed) return current;
+            match(input,RULE_ID,FollowSets000.FOLLOW_RULE_ID_in_ruleBindingDefinition4800); if (failed) return current;
             if ( backtracking==0 ) {
 
               			createLeafNode(grammarAccess.getBindingDefinitionAccess().getInterfaceTargetNameIDTerminalRuleCall_1_8_0(), "interfaceTargetName"); 
@@ -7449,7 +7449,7 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
                 case 1 :
                     // ../org.ow2.fractal.mind.xtext/src-gen/org/ow2/fractal/mind/xtext/parser/antlr/internal/InternalFractal.g:2957:4: '[' ( (lv_interfaceTargetIndex_15_0= RULE_INT ) ) ']'
                     {
-                    match(input,31,FOLLOW_31_in_ruleBindingDefinition4816); if (failed) return current;
+                    match(input,31,FollowSets000.FOLLOW_31_in_ruleBindingDefinition4816); if (failed) return current;
                     if ( backtracking==0 ) {
 
                               createLeafNode(grammarAccess.getBindingDefinitionAccess().getLeftSquareBracketKeyword_1_9_0(), null); 
@@ -7462,7 +7462,7 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
                     // ../org.ow2.fractal.mind.xtext/src-gen/org/ow2/fractal/mind/xtext/parser/antlr/internal/InternalFractal.g:2963:3: lv_interfaceTargetIndex_15_0= RULE_INT
                     {
                     lv_interfaceTargetIndex_15_0=(Token)input.LT(1);
-                    match(input,RULE_INT,FOLLOW_RULE_INT_in_ruleBindingDefinition4833); if (failed) return current;
+                    match(input,RULE_INT,FollowSets000.FOLLOW_RULE_INT_in_ruleBindingDefinition4833); if (failed) return current;
                     if ( backtracking==0 ) {
 
                       			createLeafNode(grammarAccess.getBindingDefinitionAccess().getInterfaceTargetIndexINTTerminalRuleCall_1_9_1_0(), "interfaceTargetIndex"); 
@@ -7492,7 +7492,7 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    match(input,32,FOLLOW_32_in_ruleBindingDefinition4848); if (failed) return current;
+                    match(input,32,FollowSets000.FOLLOW_32_in_ruleBindingDefinition4848); if (failed) return current;
                     if ( backtracking==0 ) {
 
                               createLeafNode(grammarAccess.getBindingDefinitionAccess().getRightSquareBracketKeyword_1_9_2(), null); 
@@ -7546,14 +7546,14 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
             if ( backtracking==0 ) {
                currentNode = createCompositeNode(grammarAccess.getDataDefinitionRule(), currentNode); 
             }
-            pushFollow(FOLLOW_ruleDataDefinition_in_entryRuleDataDefinition4887);
+            pushFollow(FollowSets000.FOLLOW_ruleDataDefinition_in_entryRuleDataDefinition4887);
             iv_ruleDataDefinition=ruleDataDefinition();
             _fsp--;
             if (failed) return current;
             if ( backtracking==0 ) {
                current =iv_ruleDataDefinition; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleDataDefinition4897); if (failed) return current;
+            match(input,EOF,FollowSets000.FOLLOW_EOF_in_entryRuleDataDefinition4897); if (failed) return current;
 
             }
 
@@ -7610,7 +7610,7 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
                       	        currentNode=createCompositeNode(grammarAccess.getDataDefinitionAccess().getAnnotationsListAnnotationsListParserRuleCall_0_0(), currentNode); 
                       	    
                     }
-                    pushFollow(FOLLOW_ruleAnnotationsList_in_ruleDataDefinition4943);
+                    pushFollow(FollowSets000.FOLLOW_ruleAnnotationsList_in_ruleDataDefinition4943);
                     lv_annotationsList_0_0=ruleAnnotationsList();
                     _fsp--;
                     if (failed) return current;
@@ -7666,7 +7666,7 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
                     // ../org.ow2.fractal.mind.xtext/src-gen/org/ow2/fractal/mind/xtext/parser/antlr/internal/InternalFractal.g:3036:4: ( 'data' ( ( (lv_fileC_2_0= ruleFileC ) ) | ( (lv_inlineCcode_3_0= ruleInlineCodeC ) ) ) )
                     // ../org.ow2.fractal.mind.xtext/src-gen/org/ow2/fractal/mind/xtext/parser/antlr/internal/InternalFractal.g:3036:6: 'data' ( ( (lv_fileC_2_0= ruleFileC ) ) | ( (lv_inlineCcode_3_0= ruleInlineCodeC ) ) )
                     {
-                    match(input,37,FOLLOW_37_in_ruleDataDefinition4956); if (failed) return current;
+                    match(input,37,FollowSets000.FOLLOW_37_in_ruleDataDefinition4956); if (failed) return current;
                     if ( backtracking==0 ) {
 
                               createLeafNode(grammarAccess.getDataDefinitionAccess().getDataKeyword_1_0_0(), null); 
@@ -7704,7 +7704,7 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
                               	        currentNode=createCompositeNode(grammarAccess.getDataDefinitionAccess().getFileCFileCParserRuleCall_1_0_1_0_0(), currentNode); 
                               	    
                             }
-                            pushFollow(FOLLOW_ruleFileC_in_ruleDataDefinition4978);
+                            pushFollow(FollowSets000.FOLLOW_ruleFileC_in_ruleDataDefinition4978);
                             lv_fileC_2_0=ruleFileC();
                             _fsp--;
                             if (failed) return current;
@@ -7750,7 +7750,7 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
                               	        currentNode=createCompositeNode(grammarAccess.getDataDefinitionAccess().getInlineCcodeInlineCodeCParserRuleCall_1_0_1_1_0(), currentNode); 
                               	    
                             }
-                            pushFollow(FOLLOW_ruleInlineCodeC_in_ruleDataDefinition5005);
+                            pushFollow(FollowSets000.FOLLOW_ruleInlineCodeC_in_ruleDataDefinition5005);
                             lv_inlineCcode_3_0=ruleInlineCodeC();
                             _fsp--;
                             if (failed) return current;
@@ -7794,7 +7794,7 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
                 case 2 :
                     // ../org.ow2.fractal.mind.xtext/src-gen/org/ow2/fractal/mind/xtext/parser/antlr/internal/InternalFractal.g:3090:7: 'nodata'
                     {
-                    match(input,38,FOLLOW_38_in_ruleDataDefinition5023); if (failed) return current;
+                    match(input,38,FollowSets000.FOLLOW_38_in_ruleDataDefinition5023); if (failed) return current;
                     if ( backtracking==0 ) {
 
                               createLeafNode(grammarAccess.getDataDefinitionAccess().getNodataKeyword_1_1(), null); 
@@ -7845,14 +7845,14 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
             if ( backtracking==0 ) {
                currentNode = createCompositeNode(grammarAccess.getImplementationDefinitionRule(), currentNode); 
             }
-            pushFollow(FOLLOW_ruleImplementationDefinition_in_entryRuleImplementationDefinition5060);
+            pushFollow(FollowSets000.FOLLOW_ruleImplementationDefinition_in_entryRuleImplementationDefinition5060);
             iv_ruleImplementationDefinition=ruleImplementationDefinition();
             _fsp--;
             if (failed) return current;
             if ( backtracking==0 ) {
                current =iv_ruleImplementationDefinition; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleImplementationDefinition5070); if (failed) return current;
+            match(input,EOF,FollowSets000.FOLLOW_EOF_in_entryRuleImplementationDefinition5070); if (failed) return current;
 
             }
 
@@ -7909,7 +7909,7 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
                       	        currentNode=createCompositeNode(grammarAccess.getImplementationDefinitionAccess().getAnnotationsListAnnotationsListParserRuleCall_0_0(), currentNode); 
                       	    
                     }
-                    pushFollow(FOLLOW_ruleAnnotationsList_in_ruleImplementationDefinition5116);
+                    pushFollow(FollowSets000.FOLLOW_ruleAnnotationsList_in_ruleImplementationDefinition5116);
                     lv_annotationsList_0_0=ruleAnnotationsList();
                     _fsp--;
                     if (failed) return current;
@@ -7941,7 +7941,7 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
 
             }
 
-            match(input,39,FOLLOW_39_in_ruleImplementationDefinition5127); if (failed) return current;
+            match(input,39,FollowSets000.FOLLOW_39_in_ruleImplementationDefinition5127); if (failed) return current;
             if ( backtracking==0 ) {
 
                       createLeafNode(grammarAccess.getImplementationDefinitionAccess().getSourceKeyword_1(), null); 
@@ -7979,7 +7979,7 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
                       	        currentNode=createCompositeNode(grammarAccess.getImplementationDefinitionAccess().getFileCFileCParserRuleCall_2_0_0(), currentNode); 
                       	    
                     }
-                    pushFollow(FOLLOW_ruleFileC_in_ruleImplementationDefinition5149);
+                    pushFollow(FollowSets000.FOLLOW_ruleFileC_in_ruleImplementationDefinition5149);
                     lv_fileC_2_0=ruleFileC();
                     _fsp--;
                     if (failed) return current;
@@ -8025,7 +8025,7 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
                       	        currentNode=createCompositeNode(grammarAccess.getImplementationDefinitionAccess().getInlineCcodeInlineCodeCParserRuleCall_2_1_0(), currentNode); 
                       	    
                     }
-                    pushFollow(FOLLOW_ruleInlineCodeC_in_ruleImplementationDefinition5176);
+                    pushFollow(FollowSets000.FOLLOW_ruleInlineCodeC_in_ruleImplementationDefinition5176);
                     lv_inlineCcode_3_0=ruleInlineCodeC();
                     _fsp--;
                     if (failed) return current;
@@ -8099,14 +8099,14 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
             if ( backtracking==0 ) {
                currentNode = createCompositeNode(grammarAccess.getTemplateSpecifierRule(), currentNode); 
             }
-            pushFollow(FOLLOW_ruleTemplateSpecifier_in_entryRuleTemplateSpecifier5213);
+            pushFollow(FollowSets000.FOLLOW_ruleTemplateSpecifier_in_entryRuleTemplateSpecifier5213);
             iv_ruleTemplateSpecifier=ruleTemplateSpecifier();
             _fsp--;
             if (failed) return current;
             if ( backtracking==0 ) {
                current =iv_ruleTemplateSpecifier; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleTemplateSpecifier5223); if (failed) return current;
+            match(input,EOF,FollowSets000.FOLLOW_EOF_in_entryRuleTemplateSpecifier5223); if (failed) return current;
 
             }
 
@@ -8148,7 +8148,7 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
             // ../org.ow2.fractal.mind.xtext/src-gen/org/ow2/fractal/mind/xtext/parser/antlr/internal/InternalFractal.g:3219:3: lv_name_0_0= RULE_ID
             {
             lv_name_0_0=(Token)input.LT(1);
-            match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleTemplateSpecifier5265); if (failed) return current;
+            match(input,RULE_ID,FollowSets000.FOLLOW_RULE_ID_in_ruleTemplateSpecifier5265); if (failed) return current;
             if ( backtracking==0 ) {
 
               			createLeafNode(grammarAccess.getTemplateSpecifierAccess().getNameIDTerminalRuleCall_0_0(), "name"); 
@@ -8178,7 +8178,7 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
 
             }
 
-            match(input,40,FOLLOW_40_in_ruleTemplateSpecifier5280); if (failed) return current;
+            match(input,40,FollowSets000.FOLLOW_40_in_ruleTemplateSpecifier5280); if (failed) return current;
             if ( backtracking==0 ) {
 
                       createLeafNode(grammarAccess.getTemplateSpecifierAccess().getConformstoKeyword_1(), null); 
@@ -8195,7 +8195,7 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
               	        currentNode=createCompositeNode(grammarAccess.getTemplateSpecifierAccess().getReferenceTypeReferenceDefinitionParserRuleCall_2_0(), currentNode); 
               	    
             }
-            pushFollow(FOLLOW_ruleTypeReferenceDefinition_in_ruleTemplateSpecifier5301);
+            pushFollow(FollowSets000.FOLLOW_ruleTypeReferenceDefinition_in_ruleTemplateSpecifier5301);
             lv_reference_2_0=ruleTypeReferenceDefinition();
             _fsp--;
             if (failed) return current;
@@ -8263,14 +8263,14 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
             if ( backtracking==0 ) {
                currentNode = createCompositeNode(grammarAccess.getFileCRule(), currentNode); 
             }
-            pushFollow(FOLLOW_ruleFileC_in_entryRuleFileC5337);
+            pushFollow(FollowSets000.FOLLOW_ruleFileC_in_entryRuleFileC5337);
             iv_ruleFileC=ruleFileC();
             _fsp--;
             if (failed) return current;
             if ( backtracking==0 ) {
                current =iv_ruleFileC; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleFileC5347); if (failed) return current;
+            match(input,EOF,FollowSets000.FOLLOW_EOF_in_entryRuleFileC5347); if (failed) return current;
 
             }
 
@@ -8320,7 +8320,7 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
                     // ../org.ow2.fractal.mind.xtext/src-gen/org/ow2/fractal/mind/xtext/parser/antlr/internal/InternalFractal.g:3294:3: lv_directory_0_0= RULE_PATH
                     {
                     lv_directory_0_0=(Token)input.LT(1);
-                    match(input,RULE_PATH,FOLLOW_RULE_PATH_in_ruleFileC5389); if (failed) return current;
+                    match(input,RULE_PATH,FollowSets000.FOLLOW_RULE_PATH_in_ruleFileC5389); if (failed) return current;
                     if ( backtracking==0 ) {
 
                       			createLeafNode(grammarAccess.getFileCAccess().getDirectoryPathTerminalRuleCall_0_0(), "directory"); 
@@ -8364,7 +8364,7 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
               	        currentNode=createCompositeNode(grammarAccess.getFileCAccess().getFileNameFileNameParserRuleCall_1_0(), currentNode); 
               	    
             }
-            pushFollow(FOLLOW_ruleFileName_in_ruleFileC5416);
+            pushFollow(FollowSets000.FOLLOW_ruleFileName_in_ruleFileC5416);
             lv_fileName_1_0=ruleFileName();
             _fsp--;
             if (failed) return current;
@@ -8432,14 +8432,14 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
             if ( backtracking==0 ) {
                currentNode = createCompositeNode(grammarAccess.getFileNameRule(), currentNode); 
             }
-            pushFollow(FOLLOW_ruleFileName_in_entryRuleFileName5453);
+            pushFollow(FollowSets000.FOLLOW_ruleFileName_in_entryRuleFileName5453);
             iv_ruleFileName=ruleFileName();
             _fsp--;
             if (failed) return current;
             if ( backtracking==0 ) {
                current =iv_ruleFileName.getText(); 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleFileName5464); if (failed) return current;
+            match(input,EOF,FollowSets000.FOLLOW_EOF_in_entryRuleFileName5464); if (failed) return current;
 
             }
 
@@ -8475,7 +8475,7 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
             // ../org.ow2.fractal.mind.xtext/src-gen/org/ow2/fractal/mind/xtext/parser/antlr/internal/InternalFractal.g:3363:6: this_ID_0= RULE_ID (kw= '.' this_ID_2= RULE_ID )?
             {
             this_ID_0=(Token)input.LT(1);
-            match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleFileName5504); if (failed) return current;
+            match(input,RULE_ID,FollowSets000.FOLLOW_RULE_ID_in_ruleFileName5504); if (failed) return current;
             if ( backtracking==0 ) {
 
               		current.merge(this_ID_0);
@@ -8498,7 +8498,7 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
                     // ../org.ow2.fractal.mind.xtext/src-gen/org/ow2/fractal/mind/xtext/parser/antlr/internal/InternalFractal.g:3371:2: kw= '.' this_ID_2= RULE_ID
                     {
                     kw=(Token)input.LT(1);
-                    match(input,35,FOLLOW_35_in_ruleFileName5523); if (failed) return current;
+                    match(input,35,FollowSets000.FOLLOW_35_in_ruleFileName5523); if (failed) return current;
                     if ( backtracking==0 ) {
 
                               current.merge(kw);
@@ -8506,7 +8506,7 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
                           
                     }
                     this_ID_2=(Token)input.LT(1);
-                    match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleFileName5538); if (failed) return current;
+                    match(input,RULE_ID,FollowSets000.FOLLOW_RULE_ID_in_ruleFileName5538); if (failed) return current;
                     if ( backtracking==0 ) {
 
                       		current.merge(this_ID_2);
@@ -8562,14 +8562,14 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
             if ( backtracking==0 ) {
                currentNode = createCompositeNode(grammarAccess.getInlineCodeCRule(), currentNode); 
             }
-            pushFollow(FOLLOW_ruleInlineCodeC_in_entryRuleInlineCodeC5585);
+            pushFollow(FollowSets000.FOLLOW_ruleInlineCodeC_in_entryRuleInlineCodeC5585);
             iv_ruleInlineCodeC=ruleInlineCodeC();
             _fsp--;
             if (failed) return current;
             if ( backtracking==0 ) {
                current =iv_ruleInlineCodeC; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleInlineCodeC5595); if (failed) return current;
+            match(input,EOF,FollowSets000.FOLLOW_EOF_in_entryRuleInlineCodeC5595); if (failed) return current;
 
             }
 
@@ -8606,7 +8606,7 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
             // ../org.ow2.fractal.mind.xtext/src-gen/org/ow2/fractal/mind/xtext/parser/antlr/internal/InternalFractal.g:3408:3: lv_codeC_0_0= RULE_CODEC
             {
             lv_codeC_0_0=(Token)input.LT(1);
-            match(input,RULE_CODEC,FOLLOW_RULE_CODEC_in_ruleInlineCodeC5636); if (failed) return current;
+            match(input,RULE_CODEC,FollowSets000.FOLLOW_RULE_CODEC_in_ruleInlineCodeC5636); if (failed) return current;
             if ( backtracking==0 ) {
 
               			createLeafNode(grammarAccess.getInlineCodeCAccess().getCodeCCodeCTerminalRuleCall_0(), "codeC"); 
@@ -8672,14 +8672,14 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
             if ( backtracking==0 ) {
                currentNode = createCompositeNode(grammarAccess.getAnnotationsListRule(), currentNode); 
             }
-            pushFollow(FOLLOW_ruleAnnotationsList_in_entryRuleAnnotationsList5676);
+            pushFollow(FollowSets000.FOLLOW_ruleAnnotationsList_in_entryRuleAnnotationsList5676);
             iv_ruleAnnotationsList=ruleAnnotationsList();
             _fsp--;
             if (failed) return current;
             if ( backtracking==0 ) {
                current =iv_ruleAnnotationsList; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleAnnotationsList5686); if (failed) return current;
+            match(input,EOF,FollowSets000.FOLLOW_EOF_in_entryRuleAnnotationsList5686); if (failed) return current;
 
             }
 
@@ -8726,7 +8726,7 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
               	        currentNode=createCompositeNode(grammarAccess.getAnnotationsListAccess().getAnnotationsAnnotationParserRuleCall_0_0(), currentNode); 
               	    
             }
-            pushFollow(FOLLOW_ruleAnnotation_in_ruleAnnotationsList5732);
+            pushFollow(FollowSets000.FOLLOW_ruleAnnotation_in_ruleAnnotationsList5732);
             lv_annotations_0_0=ruleAnnotation();
             _fsp--;
             if (failed) return current;
@@ -8836,7 +8836,7 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
             	      	        currentNode=createCompositeNode(grammarAccess.getAnnotationsListAccess().getAnnotationsAnnotationParserRuleCall_1_0(), currentNode); 
             	      	    
             	    }
-            	    pushFollow(FOLLOW_ruleAnnotation_in_ruleAnnotationsList5753);
+            	    pushFollow(FollowSets000.FOLLOW_ruleAnnotation_in_ruleAnnotationsList5753);
             	    lv_annotations_1_0=ruleAnnotation();
             	    _fsp--;
             	    if (failed) return current;
@@ -8910,14 +8910,14 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
             if ( backtracking==0 ) {
                currentNode = createCompositeNode(grammarAccess.getAnnotationRule(), currentNode); 
             }
-            pushFollow(FOLLOW_ruleAnnotation_in_entryRuleAnnotation5790);
+            pushFollow(FollowSets000.FOLLOW_ruleAnnotation_in_entryRuleAnnotation5790);
             iv_ruleAnnotation=ruleAnnotation();
             _fsp--;
             if (failed) return current;
             if ( backtracking==0 ) {
                current =iv_ruleAnnotation; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleAnnotation5800); if (failed) return current;
+            match(input,EOF,FollowSets000.FOLLOW_EOF_in_entryRuleAnnotation5800); if (failed) return current;
 
             }
 
@@ -8955,7 +8955,7 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
             // ../org.ow2.fractal.mind.xtext/src-gen/org/ow2/fractal/mind/xtext/parser/antlr/internal/InternalFractal.g:3524:1: ( '@' ( (lv_name_1_0= ruleAnnotationType ) ) ( '(' ( (lv_annotationElements_3_0= ruleAnnotationElement ) ) ( ',' ( (lv_annotationElements_5_0= ruleAnnotationElement ) ) )* ')' )? )
             // ../org.ow2.fractal.mind.xtext/src-gen/org/ow2/fractal/mind/xtext/parser/antlr/internal/InternalFractal.g:3524:3: '@' ( (lv_name_1_0= ruleAnnotationType ) ) ( '(' ( (lv_annotationElements_3_0= ruleAnnotationElement ) ) ( ',' ( (lv_annotationElements_5_0= ruleAnnotationElement ) ) )* ')' )?
             {
-            match(input,41,FOLLOW_41_in_ruleAnnotation5835); if (failed) return current;
+            match(input,41,FollowSets000.FOLLOW_41_in_ruleAnnotation5835); if (failed) return current;
             if ( backtracking==0 ) {
 
                       createLeafNode(grammarAccess.getAnnotationAccess().getCommercialAtKeyword_0(), null); 
@@ -8972,7 +8972,7 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
               	        currentNode=createCompositeNode(grammarAccess.getAnnotationAccess().getNameAnnotationTypeParserRuleCall_1_0(), currentNode); 
               	    
             }
-            pushFollow(FOLLOW_ruleAnnotationType_in_ruleAnnotation5856);
+            pushFollow(FollowSets000.FOLLOW_ruleAnnotationType_in_ruleAnnotation5856);
             lv_name_1_0=ruleAnnotationType();
             _fsp--;
             if (failed) return current;
@@ -9012,7 +9012,7 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
                 case 1 :
                     // ../org.ow2.fractal.mind.xtext/src-gen/org/ow2/fractal/mind/xtext/parser/antlr/internal/InternalFractal.g:3552:4: '(' ( (lv_annotationElements_3_0= ruleAnnotationElement ) ) ( ',' ( (lv_annotationElements_5_0= ruleAnnotationElement ) ) )* ')'
                     {
-                    match(input,24,FOLLOW_24_in_ruleAnnotation5867); if (failed) return current;
+                    match(input,24,FollowSets000.FOLLOW_24_in_ruleAnnotation5867); if (failed) return current;
                     if ( backtracking==0 ) {
 
                               createLeafNode(grammarAccess.getAnnotationAccess().getLeftParenthesisKeyword_2_0(), null); 
@@ -9029,7 +9029,7 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
                       	        currentNode=createCompositeNode(grammarAccess.getAnnotationAccess().getAnnotationElementsAnnotationElementParserRuleCall_2_1_0(), currentNode); 
                       	    
                     }
-                    pushFollow(FOLLOW_ruleAnnotationElement_in_ruleAnnotation5888);
+                    pushFollow(FollowSets000.FOLLOW_ruleAnnotationElement_in_ruleAnnotation5888);
                     lv_annotationElements_3_0=ruleAnnotationElement();
                     _fsp--;
                     if (failed) return current;
@@ -9073,7 +9073,7 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
                     	case 1 :
                     	    // ../org.ow2.fractal.mind.xtext/src-gen/org/ow2/fractal/mind/xtext/parser/antlr/internal/InternalFractal.g:3580:4: ',' ( (lv_annotationElements_5_0= ruleAnnotationElement ) )
                     	    {
-                    	    match(input,22,FOLLOW_22_in_ruleAnnotation5899); if (failed) return current;
+                    	    match(input,22,FollowSets000.FOLLOW_22_in_ruleAnnotation5899); if (failed) return current;
                     	    if ( backtracking==0 ) {
 
                     	              createLeafNode(grammarAccess.getAnnotationAccess().getCommaKeyword_2_2_0(), null); 
@@ -9090,7 +9090,7 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
                     	      	        currentNode=createCompositeNode(grammarAccess.getAnnotationAccess().getAnnotationElementsAnnotationElementParserRuleCall_2_2_1_0(), currentNode); 
                     	      	    
                     	    }
-                    	    pushFollow(FOLLOW_ruleAnnotationElement_in_ruleAnnotation5920);
+                    	    pushFollow(FollowSets000.FOLLOW_ruleAnnotationElement_in_ruleAnnotation5920);
                     	    lv_annotationElements_5_0=ruleAnnotationElement();
                     	    _fsp--;
                     	    if (failed) return current;
@@ -9128,7 +9128,7 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
                         }
                     } while (true);
 
-                    match(input,25,FOLLOW_25_in_ruleAnnotation5932); if (failed) return current;
+                    match(input,25,FollowSets000.FOLLOW_25_in_ruleAnnotation5932); if (failed) return current;
                     if ( backtracking==0 ) {
 
                               createLeafNode(grammarAccess.getAnnotationAccess().getRightParenthesisKeyword_2_3(), null); 
@@ -9179,14 +9179,14 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
             if ( backtracking==0 ) {
                currentNode = createCompositeNode(grammarAccess.getAnnotationElementRule(), currentNode); 
             }
-            pushFollow(FOLLOW_ruleAnnotationElement_in_entryRuleAnnotationElement5970);
+            pushFollow(FollowSets000.FOLLOW_ruleAnnotationElement_in_entryRuleAnnotationElement5970);
             iv_ruleAnnotationElement=ruleAnnotationElement();
             _fsp--;
             if (failed) return current;
             if ( backtracking==0 ) {
                current =iv_ruleAnnotationElement; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleAnnotationElement5980); if (failed) return current;
+            match(input,EOF,FollowSets000.FOLLOW_EOF_in_entryRuleAnnotationElement5980); if (failed) return current;
 
             }
 
@@ -9252,7 +9252,7 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
                       	        currentNode=createCompositeNode(grammarAccess.getAnnotationElementAccess().getElementValueElementValueParserRuleCall_0_0(), currentNode); 
                       	    
                     }
-                    pushFollow(FOLLOW_ruleElementValue_in_ruleAnnotationElement6026);
+                    pushFollow(FollowSets000.FOLLOW_ruleElementValue_in_ruleAnnotationElement6026);
                     lv_elementValue_0_0=ruleElementValue();
                     _fsp--;
                     if (failed) return current;
@@ -9297,7 +9297,7 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
                     // ../org.ow2.fractal.mind.xtext/src-gen/org/ow2/fractal/mind/xtext/parser/antlr/internal/InternalFractal.g:3662:3: lv_elementName_1_0= RULE_ID
                     {
                     lv_elementName_1_0=(Token)input.LT(1);
-                    match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleAnnotationElement6050); if (failed) return current;
+                    match(input,RULE_ID,FollowSets000.FOLLOW_RULE_ID_in_ruleAnnotationElement6050); if (failed) return current;
                     if ( backtracking==0 ) {
 
                       			createLeafNode(grammarAccess.getAnnotationElementAccess().getElementNameIDTerminalRuleCall_1_0_0(), "elementName"); 
@@ -9327,7 +9327,7 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    match(input,29,FOLLOW_29_in_ruleAnnotationElement6065); if (failed) return current;
+                    match(input,29,FollowSets000.FOLLOW_29_in_ruleAnnotationElement6065); if (failed) return current;
                     if ( backtracking==0 ) {
 
                               createLeafNode(grammarAccess.getAnnotationElementAccess().getEqualsSignKeyword_1_1(), null); 
@@ -9344,7 +9344,7 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
                       	        currentNode=createCompositeNode(grammarAccess.getAnnotationElementAccess().getElementValueElementValueParserRuleCall_1_2_0(), currentNode); 
                       	    
                     }
-                    pushFollow(FOLLOW_ruleElementValue_in_ruleAnnotationElement6086);
+                    pushFollow(FollowSets000.FOLLOW_ruleElementValue_in_ruleAnnotationElement6086);
                     lv_elementValue_3_0=ruleElementValue();
                     _fsp--;
                     if (failed) return current;
@@ -9418,14 +9418,14 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
             if ( backtracking==0 ) {
                currentNode = createCompositeNode(grammarAccess.getElementValueRule(), currentNode); 
             }
-            pushFollow(FOLLOW_ruleElementValue_in_entryRuleElementValue6123);
+            pushFollow(FollowSets000.FOLLOW_ruleElementValue_in_entryRuleElementValue6123);
             iv_ruleElementValue=ruleElementValue();
             _fsp--;
             if (failed) return current;
             if ( backtracking==0 ) {
                current =iv_ruleElementValue; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleElementValue6133); if (failed) return current;
+            match(input,EOF,FollowSets000.FOLLOW_EOF_in_entryRuleElementValue6133); if (failed) return current;
 
             }
 
@@ -9501,7 +9501,7 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
                               currentNode=createCompositeNode(grammarAccess.getElementValueAccess().getConstantValueParserRuleCall_0(), currentNode); 
                           
                     }
-                    pushFollow(FOLLOW_ruleConstantValue_in_ruleElementValue6183);
+                    pushFollow(FollowSets000.FOLLOW_ruleConstantValue_in_ruleElementValue6183);
                     this_ConstantValue_0=ruleConstantValue();
                     _fsp--;
                     if (failed) return current;
@@ -9527,7 +9527,7 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
                               currentNode=createCompositeNode(grammarAccess.getElementValueAccess().getAnnotationParserRuleCall_1(), currentNode); 
                           
                     }
-                    pushFollow(FOLLOW_ruleAnnotation_in_ruleElementValue6213);
+                    pushFollow(FollowSets000.FOLLOW_ruleAnnotation_in_ruleElementValue6213);
                     this_Annotation_1=ruleAnnotation();
                     _fsp--;
                     if (failed) return current;
@@ -9553,7 +9553,7 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
                               currentNode=createCompositeNode(grammarAccess.getElementValueAccess().getElementValueArrayInitializerParserRuleCall_2(), currentNode); 
                           
                     }
-                    pushFollow(FOLLOW_ruleElementValueArrayInitializer_in_ruleElementValue6243);
+                    pushFollow(FollowSets000.FOLLOW_ruleElementValueArrayInitializer_in_ruleElementValue6243);
                     this_ElementValueArrayInitializer_2=ruleElementValueArrayInitializer();
                     _fsp--;
                     if (failed) return current;
@@ -9605,14 +9605,14 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
             if ( backtracking==0 ) {
                currentNode = createCompositeNode(grammarAccess.getConstantValueRule(), currentNode); 
             }
-            pushFollow(FOLLOW_ruleConstantValue_in_entryRuleConstantValue6278);
+            pushFollow(FollowSets000.FOLLOW_ruleConstantValue_in_entryRuleConstantValue6278);
             iv_ruleConstantValue=ruleConstantValue();
             _fsp--;
             if (failed) return current;
             if ( backtracking==0 ) {
                current =iv_ruleConstantValue; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleConstantValue6288); if (failed) return current;
+            match(input,EOF,FollowSets000.FOLLOW_EOF_in_entryRuleConstantValue6288); if (failed) return current;
 
             }
 
@@ -9654,7 +9654,7 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
               	        currentNode=createCompositeNode(grammarAccess.getConstantValueAccess().getValueConstantFormatParserRuleCall_0(), currentNode); 
               	    
             }
-            pushFollow(FOLLOW_ruleConstantFormat_in_ruleConstantValue6333);
+            pushFollow(FollowSets000.FOLLOW_ruleConstantFormat_in_ruleConstantValue6333);
             lv_value_0_0=ruleConstantFormat();
             _fsp--;
             if (failed) return current;
@@ -9719,14 +9719,14 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
             if ( backtracking==0 ) {
                currentNode = createCompositeNode(grammarAccess.getConstantFormatRule(), currentNode); 
             }
-            pushFollow(FOLLOW_ruleConstantFormat_in_entryRuleConstantFormat6369);
+            pushFollow(FollowSets000.FOLLOW_ruleConstantFormat_in_entryRuleConstantFormat6369);
             iv_ruleConstantFormat=ruleConstantFormat();
             _fsp--;
             if (failed) return current;
             if ( backtracking==0 ) {
                current =iv_ruleConstantFormat.getText(); 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleConstantFormat6380); if (failed) return current;
+            match(input,EOF,FollowSets000.FOLLOW_EOF_in_entryRuleConstantFormat6380); if (failed) return current;
 
             }
 
@@ -9779,7 +9779,7 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
                     // ../org.ow2.fractal.mind.xtext/src-gen/org/ow2/fractal/mind/xtext/parser/antlr/internal/InternalFractal.g:3843:6: this_INT_0= RULE_INT
                     {
                     this_INT_0=(Token)input.LT(1);
-                    match(input,RULE_INT,FOLLOW_RULE_INT_in_ruleConstantFormat6420); if (failed) return current;
+                    match(input,RULE_INT,FollowSets000.FOLLOW_RULE_INT_in_ruleConstantFormat6420); if (failed) return current;
                     if ( backtracking==0 ) {
 
                       		current.merge(this_INT_0);
@@ -9797,7 +9797,7 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
                     // ../org.ow2.fractal.mind.xtext/src-gen/org/ow2/fractal/mind/xtext/parser/antlr/internal/InternalFractal.g:3851:10: this_STRING_1= RULE_STRING
                     {
                     this_STRING_1=(Token)input.LT(1);
-                    match(input,RULE_STRING,FOLLOW_RULE_STRING_in_ruleConstantFormat6446); if (failed) return current;
+                    match(input,RULE_STRING,FollowSets000.FOLLOW_RULE_STRING_in_ruleConstantFormat6446); if (failed) return current;
                     if ( backtracking==0 ) {
 
                       		current.merge(this_STRING_1);
@@ -9850,14 +9850,14 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
             if ( backtracking==0 ) {
                currentNode = createCompositeNode(grammarAccess.getElementValueArrayInitializerRule(), currentNode); 
             }
-            pushFollow(FOLLOW_ruleElementValueArrayInitializer_in_entryRuleElementValueArrayInitializer6491);
+            pushFollow(FollowSets000.FOLLOW_ruleElementValueArrayInitializer_in_entryRuleElementValueArrayInitializer6491);
             iv_ruleElementValueArrayInitializer=ruleElementValueArrayInitializer();
             _fsp--;
             if (failed) return current;
             if ( backtracking==0 ) {
                current =iv_ruleElementValueArrayInitializer; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleElementValueArrayInitializer6501); if (failed) return current;
+            match(input,EOF,FollowSets000.FOLLOW_EOF_in_entryRuleElementValueArrayInitializer6501); if (failed) return current;
 
             }
 
@@ -9893,7 +9893,7 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
             // ../org.ow2.fractal.mind.xtext/src-gen/org/ow2/fractal/mind/xtext/parser/antlr/internal/InternalFractal.g:3881:1: ( '{' ( (lv_values_1_0= ruleElementValue ) ) ( ',' ( (lv_values_3_0= ruleElementValue ) ) )* '}' )
             // ../org.ow2.fractal.mind.xtext/src-gen/org/ow2/fractal/mind/xtext/parser/antlr/internal/InternalFractal.g:3881:3: '{' ( (lv_values_1_0= ruleElementValue ) ) ( ',' ( (lv_values_3_0= ruleElementValue ) ) )* '}'
             {
-            match(input,17,FOLLOW_17_in_ruleElementValueArrayInitializer6536); if (failed) return current;
+            match(input,17,FollowSets000.FOLLOW_17_in_ruleElementValueArrayInitializer6536); if (failed) return current;
             if ( backtracking==0 ) {
 
                       createLeafNode(grammarAccess.getElementValueArrayInitializerAccess().getLeftCurlyBracketKeyword_0(), null); 
@@ -9910,7 +9910,7 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
               	        currentNode=createCompositeNode(grammarAccess.getElementValueArrayInitializerAccess().getValuesElementValueParserRuleCall_1_0(), currentNode); 
               	    
             }
-            pushFollow(FOLLOW_ruleElementValue_in_ruleElementValueArrayInitializer6557);
+            pushFollow(FollowSets000.FOLLOW_ruleElementValue_in_ruleElementValueArrayInitializer6557);
             lv_values_1_0=ruleElementValue();
             _fsp--;
             if (failed) return current;
@@ -9954,7 +9954,7 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
             	case 1 :
             	    // ../org.ow2.fractal.mind.xtext/src-gen/org/ow2/fractal/mind/xtext/parser/antlr/internal/InternalFractal.g:3909:4: ',' ( (lv_values_3_0= ruleElementValue ) )
             	    {
-            	    match(input,22,FOLLOW_22_in_ruleElementValueArrayInitializer6568); if (failed) return current;
+            	    match(input,22,FollowSets000.FOLLOW_22_in_ruleElementValueArrayInitializer6568); if (failed) return current;
             	    if ( backtracking==0 ) {
 
             	              createLeafNode(grammarAccess.getElementValueArrayInitializerAccess().getCommaKeyword_2_0(), null); 
@@ -9971,7 +9971,7 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
             	      	        currentNode=createCompositeNode(grammarAccess.getElementValueArrayInitializerAccess().getValuesElementValueParserRuleCall_2_1_0(), currentNode); 
             	      	    
             	    }
-            	    pushFollow(FOLLOW_ruleElementValue_in_ruleElementValueArrayInitializer6589);
+            	    pushFollow(FollowSets000.FOLLOW_ruleElementValue_in_ruleElementValueArrayInitializer6589);
             	    lv_values_3_0=ruleElementValue();
             	    _fsp--;
             	    if (failed) return current;
@@ -10009,7 +10009,7 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
                 }
             } while (true);
 
-            match(input,18,FOLLOW_18_in_ruleElementValueArrayInitializer6601); if (failed) return current;
+            match(input,18,FollowSets000.FOLLOW_18_in_ruleElementValueArrayInitializer6601); if (failed) return current;
             if ( backtracking==0 ) {
 
                       createLeafNode(grammarAccess.getElementValueArrayInitializerAccess().getRightCurlyBracketKeyword_3(), null); 
@@ -10054,14 +10054,14 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
             if ( backtracking==0 ) {
                currentNode = createCompositeNode(grammarAccess.getValueRule(), currentNode); 
             }
-            pushFollow(FOLLOW_ruleValue_in_entryRuleValue6638);
+            pushFollow(FollowSets000.FOLLOW_ruleValue_in_entryRuleValue6638);
             iv_ruleValue=ruleValue();
             _fsp--;
             if (failed) return current;
             if ( backtracking==0 ) {
                current =iv_ruleValue.getText(); 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleValue6649); if (failed) return current;
+            match(input,EOF,FollowSets000.FOLLOW_EOF_in_entryRuleValue6649); if (failed) return current;
 
             }
 
@@ -10140,7 +10140,7 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
                     // ../org.ow2.fractal.mind.xtext/src-gen/org/ow2/fractal/mind/xtext/parser/antlr/internal/InternalFractal.g:3964:6: this_ID_0= RULE_ID
                     {
                     this_ID_0=(Token)input.LT(1);
-                    match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleValue6689); if (failed) return current;
+                    match(input,RULE_ID,FollowSets000.FOLLOW_RULE_ID_in_ruleValue6689); if (failed) return current;
                     if ( backtracking==0 ) {
 
                       		current.merge(this_ID_0);
@@ -10162,7 +10162,7 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
                               currentNode=createCompositeNode(grammarAccess.getValueAccess().getSignedINTParserRuleCall_1(), currentNode); 
                           
                     }
-                    pushFollow(FOLLOW_rulesignedINT_in_ruleValue6722);
+                    pushFollow(FollowSets000.FOLLOW_rulesignedINT_in_ruleValue6722);
                     this_signedINT_1=rulesignedINT();
                     _fsp--;
                     if (failed) return current;
@@ -10187,7 +10187,7 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
                               currentNode=createCompositeNode(grammarAccess.getValueAccess().getHexadecimalTypeParserRuleCall_2(), currentNode); 
                           
                     }
-                    pushFollow(FOLLOW_ruleHexadecimalType_in_ruleValue6755);
+                    pushFollow(FollowSets000.FOLLOW_ruleHexadecimalType_in_ruleValue6755);
                     this_HexadecimalType_2=ruleHexadecimalType();
                     _fsp--;
                     if (failed) return current;
@@ -10208,7 +10208,7 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
                     // ../org.ow2.fractal.mind.xtext/src-gen/org/ow2/fractal/mind/xtext/parser/antlr/internal/InternalFractal.g:3996:10: this_STRING_3= RULE_STRING
                     {
                     this_STRING_3=(Token)input.LT(1);
-                    match(input,RULE_STRING,FOLLOW_RULE_STRING_in_ruleValue6781); if (failed) return current;
+                    match(input,RULE_STRING,FollowSets000.FOLLOW_RULE_STRING_in_ruleValue6781); if (failed) return current;
                     if ( backtracking==0 ) {
 
                       		current.merge(this_STRING_3);
@@ -10226,7 +10226,7 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
                     // ../org.ow2.fractal.mind.xtext/src-gen/org/ow2/fractal/mind/xtext/parser/antlr/internal/InternalFractal.g:4005:2: kw= 'null'
                     {
                     kw=(Token)input.LT(1);
-                    match(input,42,FOLLOW_42_in_ruleValue6805); if (failed) return current;
+                    match(input,42,FollowSets000.FOLLOW_42_in_ruleValue6805); if (failed) return current;
                     if ( backtracking==0 ) {
 
                               current.merge(kw);
@@ -10275,14 +10275,14 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
             if ( backtracking==0 ) {
                currentNode = createCompositeNode(grammarAccess.getHexadecimalTypeRule(), currentNode); 
             }
-            pushFollow(FOLLOW_ruleHexadecimalType_in_entryRuleHexadecimalType6846);
+            pushFollow(FollowSets000.FOLLOW_ruleHexadecimalType_in_entryRuleHexadecimalType6846);
             iv_ruleHexadecimalType=ruleHexadecimalType();
             _fsp--;
             if (failed) return current;
             if ( backtracking==0 ) {
                current =iv_ruleHexadecimalType.getText(); 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleHexadecimalType6857); if (failed) return current;
+            match(input,EOF,FollowSets000.FOLLOW_EOF_in_entryRuleHexadecimalType6857); if (failed) return current;
 
             }
 
@@ -10317,7 +10317,7 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
             // ../org.ow2.fractal.mind.xtext/src-gen/org/ow2/fractal/mind/xtext/parser/antlr/internal/InternalFractal.g:4034:2: kw= '0x' this_INT_1= RULE_INT
             {
             kw=(Token)input.LT(1);
-            match(input,43,FOLLOW_43_in_ruleHexadecimalType6895); if (failed) return current;
+            match(input,43,FollowSets000.FOLLOW_43_in_ruleHexadecimalType6895); if (failed) return current;
             if ( backtracking==0 ) {
 
                       current.merge(kw);
@@ -10325,7 +10325,7 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
                   
             }
             this_INT_1=(Token)input.LT(1);
-            match(input,RULE_INT,FOLLOW_RULE_INT_in_ruleHexadecimalType6910); if (failed) return current;
+            match(input,RULE_INT,FollowSets000.FOLLOW_RULE_INT_in_ruleHexadecimalType6910); if (failed) return current;
             if ( backtracking==0 ) {
 
               		current.merge(this_INT_1);
@@ -10375,14 +10375,14 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
             if ( backtracking==0 ) {
                currentNode = createCompositeNode(grammarAccess.getAnnotationTypeRule(), currentNode); 
             }
-            pushFollow(FOLLOW_ruleAnnotationType_in_entryRuleAnnotationType6956);
+            pushFollow(FollowSets000.FOLLOW_ruleAnnotationType_in_entryRuleAnnotationType6956);
             iv_ruleAnnotationType=ruleAnnotationType();
             _fsp--;
             if (failed) return current;
             if ( backtracking==0 ) {
                current =iv_ruleAnnotationType.getText(); 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleAnnotationType6967); if (failed) return current;
+            match(input,EOF,FollowSets000.FOLLOW_EOF_in_entryRuleAnnotationType6967); if (failed) return current;
 
             }
 
@@ -10455,7 +10455,7 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
                     // ../org.ow2.fractal.mind.xtext/src-gen/org/ow2/fractal/mind/xtext/parser/antlr/internal/InternalFractal.g:4070:2: kw= 'Override'
                     {
                     kw=(Token)input.LT(1);
-                    match(input,44,FOLLOW_44_in_ruleAnnotationType7005); if (failed) return current;
+                    match(input,44,FollowSets000.FOLLOW_44_in_ruleAnnotationType7005); if (failed) return current;
                     if ( backtracking==0 ) {
 
                               current.merge(kw);
@@ -10469,7 +10469,7 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
                     // ../org.ow2.fractal.mind.xtext/src-gen/org/ow2/fractal/mind/xtext/parser/antlr/internal/InternalFractal.g:4077:2: kw= 'Singleton'
                     {
                     kw=(Token)input.LT(1);
-                    match(input,45,FOLLOW_45_in_ruleAnnotationType7024); if (failed) return current;
+                    match(input,45,FollowSets000.FOLLOW_45_in_ruleAnnotationType7024); if (failed) return current;
                     if ( backtracking==0 ) {
 
                               current.merge(kw);
@@ -10483,7 +10483,7 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
                     // ../org.ow2.fractal.mind.xtext/src-gen/org/ow2/fractal/mind/xtext/parser/antlr/internal/InternalFractal.g:4084:2: kw= 'LDFlags'
                     {
                     kw=(Token)input.LT(1);
-                    match(input,46,FOLLOW_46_in_ruleAnnotationType7043); if (failed) return current;
+                    match(input,46,FollowSets000.FOLLOW_46_in_ruleAnnotationType7043); if (failed) return current;
                     if ( backtracking==0 ) {
 
                               current.merge(kw);
@@ -10497,7 +10497,7 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
                     // ../org.ow2.fractal.mind.xtext/src-gen/org/ow2/fractal/mind/xtext/parser/antlr/internal/InternalFractal.g:4091:2: kw= 'CFlags'
                     {
                     kw=(Token)input.LT(1);
-                    match(input,47,FOLLOW_47_in_ruleAnnotationType7062); if (failed) return current;
+                    match(input,47,FollowSets000.FOLLOW_47_in_ruleAnnotationType7062); if (failed) return current;
                     if ( backtracking==0 ) {
 
                               current.merge(kw);
@@ -10515,7 +10515,7 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
                               currentNode=createCompositeNode(grammarAccess.getAnnotationTypeAccess().getFQNParserRuleCall_4(), currentNode); 
                           
                     }
-                    pushFollow(FOLLOW_ruleFQN_in_ruleAnnotationType7090);
+                    pushFollow(FollowSets000.FOLLOW_ruleFQN_in_ruleAnnotationType7090);
                     this_FQN_4=ruleFQN();
                     _fsp--;
                     if (failed) return current;
@@ -10571,14 +10571,14 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
             if ( backtracking==0 ) {
                currentNode = createCompositeNode(grammarAccess.getAttributeTypeRule(), currentNode); 
             }
-            pushFollow(FOLLOW_ruleAttributeType_in_entryRuleAttributeType7136);
+            pushFollow(FollowSets000.FOLLOW_ruleAttributeType_in_entryRuleAttributeType7136);
             iv_ruleAttributeType=ruleAttributeType();
             _fsp--;
             if (failed) return current;
             if ( backtracking==0 ) {
                current =iv_ruleAttributeType.getText(); 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleAttributeType7147); if (failed) return current;
+            match(input,EOF,FollowSets000.FOLLOW_EOF_in_entryRuleAttributeType7147); if (failed) return current;
 
             }
 
@@ -10645,7 +10645,7 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
                     // ../org.ow2.fractal.mind.xtext/src-gen/org/ow2/fractal/mind/xtext/parser/antlr/internal/InternalFractal.g:4132:2: kw= 'STRUCT'
                     {
                     kw=(Token)input.LT(1);
-                    match(input,48,FOLLOW_48_in_ruleAttributeType7185); if (failed) return current;
+                    match(input,48,FollowSets000.FOLLOW_48_in_ruleAttributeType7185); if (failed) return current;
                     if ( backtracking==0 ) {
 
                               current.merge(kw);
@@ -10659,7 +10659,7 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
                     // ../org.ow2.fractal.mind.xtext/src-gen/org/ow2/fractal/mind/xtext/parser/antlr/internal/InternalFractal.g:4139:2: kw= 'UNION'
                     {
                     kw=(Token)input.LT(1);
-                    match(input,49,FOLLOW_49_in_ruleAttributeType7204); if (failed) return current;
+                    match(input,49,FollowSets000.FOLLOW_49_in_ruleAttributeType7204); if (failed) return current;
                     if ( backtracking==0 ) {
 
                               current.merge(kw);
@@ -10673,7 +10673,7 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
                     // ../org.ow2.fractal.mind.xtext/src-gen/org/ow2/fractal/mind/xtext/parser/antlr/internal/InternalFractal.g:4146:2: kw= 'ENUM'
                     {
                     kw=(Token)input.LT(1);
-                    match(input,50,FOLLOW_50_in_ruleAttributeType7223); if (failed) return current;
+                    match(input,50,FollowSets000.FOLLOW_50_in_ruleAttributeType7223); if (failed) return current;
                     if ( backtracking==0 ) {
 
                               current.merge(kw);
@@ -10687,7 +10687,7 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
                     // ../org.ow2.fractal.mind.xtext/src-gen/org/ow2/fractal/mind/xtext/parser/antlr/internal/InternalFractal.g:4152:10: this_ID_3= RULE_ID
                     {
                     this_ID_3=(Token)input.LT(1);
-                    match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleAttributeType7244); if (failed) return current;
+                    match(input,RULE_ID,FollowSets000.FOLLOW_RULE_ID_in_ruleAttributeType7244); if (failed) return current;
                     if ( backtracking==0 ) {
 
                       		current.merge(this_ID_3);
@@ -10740,14 +10740,14 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
             if ( backtracking==0 ) {
                currentNode = createCompositeNode(grammarAccess.getFQNRule(), currentNode); 
             }
-            pushFollow(FOLLOW_ruleFQN_in_entryRuleFQN7290);
+            pushFollow(FollowSets000.FOLLOW_ruleFQN_in_entryRuleFQN7290);
             iv_ruleFQN=ruleFQN();
             _fsp--;
             if (failed) return current;
             if ( backtracking==0 ) {
                current =iv_ruleFQN.getText(); 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleFQN7301); if (failed) return current;
+            match(input,EOF,FollowSets000.FOLLOW_EOF_in_entryRuleFQN7301); if (failed) return current;
 
             }
 
@@ -10783,7 +10783,7 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
             // ../org.ow2.fractal.mind.xtext/src-gen/org/ow2/fractal/mind/xtext/parser/antlr/internal/InternalFractal.g:4182:6: this_ID_0= RULE_ID (kw= '.' this_ID_2= RULE_ID )*
             {
             this_ID_0=(Token)input.LT(1);
-            match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleFQN7341); if (failed) return current;
+            match(input,RULE_ID,FollowSets000.FOLLOW_RULE_ID_in_ruleFQN7341); if (failed) return current;
             if ( backtracking==0 ) {
 
               		current.merge(this_ID_0);
@@ -10810,7 +10810,7 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
             	    // ../org.ow2.fractal.mind.xtext/src-gen/org/ow2/fractal/mind/xtext/parser/antlr/internal/InternalFractal.g:4190:2: kw= '.' this_ID_2= RULE_ID
             	    {
             	    kw=(Token)input.LT(1);
-            	    match(input,35,FOLLOW_35_in_ruleFQN7360); if (failed) return current;
+            	    match(input,35,FollowSets000.FOLLOW_35_in_ruleFQN7360); if (failed) return current;
             	    if ( backtracking==0 ) {
 
             	              current.merge(kw);
@@ -10818,7 +10818,7 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
             	          
             	    }
             	    this_ID_2=(Token)input.LT(1);
-            	    match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleFQN7375); if (failed) return current;
+            	    match(input,RULE_ID,FollowSets000.FOLLOW_RULE_ID_in_ruleFQN7375); if (failed) return current;
             	    if ( backtracking==0 ) {
 
             	      		current.merge(this_ID_2);
@@ -10877,14 +10877,14 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
             if ( backtracking==0 ) {
                currentNode = createCompositeNode(grammarAccess.getFULL_IMPORT_NAMERule(), currentNode); 
             }
-            pushFollow(FOLLOW_ruleFULL_IMPORT_NAME_in_entryRuleFULL_IMPORT_NAME7423);
+            pushFollow(FollowSets000.FOLLOW_ruleFULL_IMPORT_NAME_in_entryRuleFULL_IMPORT_NAME7423);
             iv_ruleFULL_IMPORT_NAME=ruleFULL_IMPORT_NAME();
             _fsp--;
             if (failed) return current;
             if ( backtracking==0 ) {
                current =iv_ruleFULL_IMPORT_NAME.getText(); 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleFULL_IMPORT_NAME7434); if (failed) return current;
+            match(input,EOF,FollowSets000.FOLLOW_EOF_in_entryRuleFULL_IMPORT_NAME7434); if (failed) return current;
 
             }
 
@@ -10924,7 +10924,7 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
                       currentNode=createCompositeNode(grammarAccess.getFULL_IMPORT_NAMEAccess().getFQNParserRuleCall_0(), currentNode); 
                   
             }
-            pushFollow(FOLLOW_ruleFQN_in_ruleFULL_IMPORT_NAME7481);
+            pushFollow(FollowSets000.FOLLOW_ruleFQN_in_ruleFULL_IMPORT_NAME7481);
             this_FQN_0=ruleFQN();
             _fsp--;
             if (failed) return current;
@@ -10939,7 +10939,7 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
                   
             }
             kw=(Token)input.LT(1);
-            match(input,51,FOLLOW_51_in_ruleFULL_IMPORT_NAME7499); if (failed) return current;
+            match(input,51,FollowSets000.FOLLOW_51_in_ruleFULL_IMPORT_NAME7499); if (failed) return current;
             if ( backtracking==0 ) {
 
                       current.merge(kw);
@@ -10985,14 +10985,14 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
             if ( backtracking==0 ) {
                currentNode = createCompositeNode(grammarAccess.getSignedINTRule(), currentNode); 
             }
-            pushFollow(FOLLOW_rulesignedINT_in_entryRulesignedINT7540);
+            pushFollow(FollowSets000.FOLLOW_rulesignedINT_in_entryRulesignedINT7540);
             iv_rulesignedINT=rulesignedINT();
             _fsp--;
             if (failed) return current;
             if ( backtracking==0 ) {
                current =iv_rulesignedINT.getText(); 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRulesignedINT7551); if (failed) return current;
+            match(input,EOF,FollowSets000.FOLLOW_EOF_in_entryRulesignedINT7551); if (failed) return current;
 
             }
 
@@ -11041,7 +11041,7 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
                     // ../org.ow2.fractal.mind.xtext/src-gen/org/ow2/fractal/mind/xtext/parser/antlr/internal/InternalFractal.g:4266:2: kw= '+'
                     {
                     kw=(Token)input.LT(1);
-                    match(input,52,FOLLOW_52_in_rulesignedINT7590); if (failed) return current;
+                    match(input,52,FollowSets000.FOLLOW_52_in_rulesignedINT7590); if (failed) return current;
                     if ( backtracking==0 ) {
 
                               current.merge(kw);
@@ -11055,7 +11055,7 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
                     // ../org.ow2.fractal.mind.xtext/src-gen/org/ow2/fractal/mind/xtext/parser/antlr/internal/InternalFractal.g:4273:2: kw= '-'
                     {
                     kw=(Token)input.LT(1);
-                    match(input,53,FOLLOW_53_in_rulesignedINT7609); if (failed) return current;
+                    match(input,53,FollowSets000.FOLLOW_53_in_rulesignedINT7609); if (failed) return current;
                     if ( backtracking==0 ) {
 
                               current.merge(kw);
@@ -11069,7 +11069,7 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
             }
 
             this_INT_2=(Token)input.LT(1);
-            match(input,RULE_INT,FOLLOW_RULE_INT_in_rulesignedINT7626); if (failed) return current;
+            match(input,RULE_INT,FollowSets000.FOLLOW_RULE_INT_in_rulesignedINT7626); if (failed) return current;
             if ( backtracking==0 ) {
 
               		current.merge(this_INT_2);
@@ -11138,7 +11138,7 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
                     // ../org.ow2.fractal.mind.xtext/src-gen/org/ow2/fractal/mind/xtext/parser/antlr/internal/InternalFractal.g:4298:2: ( 'optional' )
                     // ../org.ow2.fractal.mind.xtext/src-gen/org/ow2/fractal/mind/xtext/parser/antlr/internal/InternalFractal.g:4298:4: 'optional'
                     {
-                    match(input,54,FOLLOW_54_in_ruleContingency7683); if (failed) return current;
+                    match(input,54,FollowSets000.FOLLOW_54_in_ruleContingency7683); if (failed) return current;
                     if ( backtracking==0 ) {
 
                               current = grammarAccess.getContingencyAccess().getOptionalEnumLiteralDeclaration_0().getEnumLiteral().getInstance();
@@ -11157,7 +11157,7 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
                     // ../org.ow2.fractal.mind.xtext/src-gen/org/ow2/fractal/mind/xtext/parser/antlr/internal/InternalFractal.g:4304:6: ( 'mandatory' )
                     // ../org.ow2.fractal.mind.xtext/src-gen/org/ow2/fractal/mind/xtext/parser/antlr/internal/InternalFractal.g:4304:8: 'mandatory'
                     {
-                    match(input,55,FOLLOW_55_in_ruleContingency7698); if (failed) return current;
+                    match(input,55,FollowSets000.FOLLOW_55_in_ruleContingency7698); if (failed) return current;
                     if ( backtracking==0 ) {
 
                               current = grammarAccess.getContingencyAccess().getMandatoryEnumLiteralDeclaration_1().getEnumLiteral().getInstance();
@@ -11228,7 +11228,7 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
                     // ../org.ow2.fractal.mind.xtext/src-gen/org/ow2/fractal/mind/xtext/parser/antlr/internal/InternalFractal.g:4319:2: ( 'provides' )
                     // ../org.ow2.fractal.mind.xtext/src-gen/org/ow2/fractal/mind/xtext/parser/antlr/internal/InternalFractal.g:4319:4: 'provides'
                     {
-                    match(input,56,FOLLOW_56_in_ruleRole7741); if (failed) return current;
+                    match(input,56,FollowSets000.FOLLOW_56_in_ruleRole7741); if (failed) return current;
                     if ( backtracking==0 ) {
 
                               current = grammarAccess.getRoleAccess().getProvidesEnumLiteralDeclaration_0().getEnumLiteral().getInstance();
@@ -11247,7 +11247,7 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
                     // ../org.ow2.fractal.mind.xtext/src-gen/org/ow2/fractal/mind/xtext/parser/antlr/internal/InternalFractal.g:4325:6: ( 'requires' )
                     // ../org.ow2.fractal.mind.xtext/src-gen/org/ow2/fractal/mind/xtext/parser/antlr/internal/InternalFractal.g:4325:8: 'requires'
                     {
-                    match(input,57,FOLLOW_57_in_ruleRole7756); if (failed) return current;
+                    match(input,57,FollowSets000.FOLLOW_57_in_ruleRole7756); if (failed) return current;
                     if ( backtracking==0 ) {
 
                               current = grammarAccess.getRoleAccess().getRequiresEnumLiteralDeclaration_1().getEnumLiteral().getInstance();
@@ -11296,7 +11296,7 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
           	        currentNode=createCompositeNode(grammarAccess.getPrimitiveComponentDefinitionAccess().getBodyPrimitiveBodyParserRuleCall_5_0_1_0(), currentNode); 
           	    
         }
-        pushFollow(FOLLOW_rulePrimitiveBody_in_synpred9683);
+        pushFollow(FollowSets000.FOLLOW_rulePrimitiveBody_in_synpred9683);
         rulePrimitiveBody();
         _fsp--;
         if (failed) return ;
@@ -11324,7 +11324,7 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
           	        currentNode=createCompositeNode(grammarAccess.getPrimitiveComponentDefinitionAccess().getBodyPrimitiveBodyParserRuleCall_5_1_0(), currentNode); 
           	    
         }
-        pushFollow(FOLLOW_rulePrimitiveBody_in_synpred11722);
+        pushFollow(FollowSets000.FOLLOW_rulePrimitiveBody_in_synpred11722);
         rulePrimitiveBody();
         _fsp--;
         if (failed) return ;
@@ -11349,7 +11349,7 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
           	  /* */ 
           	
         }
-        pushFollow(FOLLOW_ruleInterfaceDefinition_in_synpred12820);
+        pushFollow(FollowSets000.FOLLOW_ruleInterfaceDefinition_in_synpred12820);
         ruleInterfaceDefinition();
         _fsp--;
         if (failed) return ;
@@ -11368,7 +11368,7 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
           	  /* */ 
           	
         }
-        pushFollow(FOLLOW_ruleAttributeDefinition_in_synpred13850);
+        pushFollow(FollowSets000.FOLLOW_ruleAttributeDefinition_in_synpred13850);
         ruleAttributeDefinition();
         _fsp--;
         if (failed) return ;
@@ -11387,7 +11387,7 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
           	  /* */ 
           	
         }
-        pushFollow(FOLLOW_ruleDataDefinition_in_synpred14880);
+        pushFollow(FollowSets000.FOLLOW_ruleDataDefinition_in_synpred14880);
         ruleDataDefinition();
         _fsp--;
         if (failed) return ;
@@ -11409,7 +11409,7 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
           	        currentNode=createCompositeNode(grammarAccess.getComponentTypeDefinitionAccess().getBodyTypeBodyParserRuleCall_3_0_1_0(), currentNode); 
           	    
         }
-        pushFollow(FOLLOW_ruleTypeBody_in_synpred161066);
+        pushFollow(FollowSets000.FOLLOW_ruleTypeBody_in_synpred161066);
         ruleTypeBody();
         _fsp--;
         if (failed) return ;
@@ -11437,7 +11437,7 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
           	        currentNode=createCompositeNode(grammarAccess.getComponentTypeDefinitionAccess().getBodyTypeBodyParserRuleCall_3_1_0(), currentNode); 
           	    
         }
-        pushFollow(FOLLOW_ruleTypeBody_in_synpred181105);
+        pushFollow(FollowSets000.FOLLOW_ruleTypeBody_in_synpred181105);
         ruleTypeBody();
         _fsp--;
         if (failed) return ;
@@ -11465,7 +11465,7 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
           	        currentNode=createCompositeNode(grammarAccess.getCompositeComponentDefinitionAccess().getBodyCompositeBodyParserRuleCall_5_0_1_0(), currentNode); 
           	    
         }
-        pushFollow(FOLLOW_ruleCompositeBody_in_synpred221491);
+        pushFollow(FollowSets000.FOLLOW_ruleCompositeBody_in_synpred221491);
         ruleCompositeBody();
         _fsp--;
         if (failed) return ;
@@ -11493,7 +11493,7 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
           	        currentNode=createCompositeNode(grammarAccess.getCompositeComponentDefinitionAccess().getBodyCompositeBodyParserRuleCall_5_1_0(), currentNode); 
           	    
         }
-        pushFollow(FOLLOW_ruleCompositeBody_in_synpred241530);
+        pushFollow(FollowSets000.FOLLOW_ruleCompositeBody_in_synpred241530);
         ruleCompositeBody();
         _fsp--;
         if (failed) return ;
@@ -11518,7 +11518,7 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
           	  /* */ 
           	
         }
-        pushFollow(FOLLOW_ruleSubComponentDefinition_in_synpred302423);
+        pushFollow(FollowSets000.FOLLOW_ruleSubComponentDefinition_in_synpred302423);
         ruleSubComponentDefinition();
         _fsp--;
         if (failed) return ;
@@ -11537,7 +11537,7 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
           	  /* */ 
           	
         }
-        pushFollow(FOLLOW_ruleInterfaceDefinition_in_synpred312453);
+        pushFollow(FollowSets000.FOLLOW_ruleInterfaceDefinition_in_synpred312453);
         ruleInterfaceDefinition();
         _fsp--;
         if (failed) return ;
@@ -11559,7 +11559,7 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
           	        currentNode=createCompositeNode(grammarAccess.getCompositeBodyAccess().getAnnotationsListAnnotationsListParserRuleCall_0_0(), currentNode); 
           	    
         }
-        pushFollow(FOLLOW_ruleAnnotationsList_in_synpred362890);
+        pushFollow(FollowSets000.FOLLOW_ruleAnnotationsList_in_synpred362890);
         ruleAnnotationsList();
         _fsp--;
         if (failed) return ;
@@ -11584,7 +11584,7 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
           	        currentNode=createCompositeNode(grammarAccess.getPrimitiveBodyAccess().getAnnotationsListAnnotationsListParserRuleCall_0_0(), currentNode); 
           	    
         }
-        pushFollow(FOLLOW_ruleAnnotationsList_in_synpred393020);
+        pushFollow(FollowSets000.FOLLOW_ruleAnnotationsList_in_synpred393020);
         ruleAnnotationsList();
         _fsp--;
         if (failed) return ;
@@ -11609,7 +11609,7 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
           	        currentNode=createCompositeNode(grammarAccess.getTypeBodyAccess().getAnnotationsListAnnotationsListParserRuleCall_0_0(), currentNode); 
           	    
         }
-        pushFollow(FOLLOW_ruleAnnotationsList_in_synpred423150);
+        pushFollow(FollowSets000.FOLLOW_ruleAnnotationsList_in_synpred423150);
         ruleAnnotationsList();
         _fsp--;
         if (failed) return ;
@@ -11631,7 +11631,7 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
           	  /* */ 
           	
         }
-        pushFollow(FOLLOW_ruleCompositeReferenceDefinition_in_synpred453286);
+        pushFollow(FollowSets000.FOLLOW_ruleCompositeReferenceDefinition_in_synpred453286);
         ruleCompositeReferenceDefinition();
         _fsp--;
         if (failed) return ;
@@ -11650,7 +11650,7 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
           	  /* */ 
           	
         }
-        pushFollow(FOLLOW_rulePrimitiveReferenceDefinition_in_synpred463316);
+        pushFollow(FollowSets000.FOLLOW_rulePrimitiveReferenceDefinition_in_synpred463316);
         rulePrimitiveReferenceDefinition();
         _fsp--;
         if (failed) return ;
@@ -11672,7 +11672,7 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
           	        currentNode=createCompositeNode(grammarAccess.getAnnotationsListAccess().getAnnotationsAnnotationParserRuleCall_1_0(), currentNode); 
           	    
         }
-        pushFollow(FOLLOW_ruleAnnotation_in_synpred755753);
+        pushFollow(FollowSets000.FOLLOW_ruleAnnotation_in_synpred755753);
         ruleAnnotation();
         _fsp--;
         if (failed) return ;
@@ -11981,336 +11981,340 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
     }
  
 
-    public static final BitSet FOLLOW_ruleAdlDefinition_in_entryRuleAdlDefinition81 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleAdlDefinition91 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleImportDefinition_in_ruleAdlDefinition137 = new BitSet(new long[]{0x000002000019A000L});
-    public static final BitSet FOLLOW_ruleAnnotationsList_in_ruleAdlDefinition159 = new BitSet(new long[]{0x0000000000198000L});
-    public static final BitSet FOLLOW_ruleArchitectureDefinition_in_ruleAdlDefinition181 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleImportDefinition_in_entryRuleImportDefinition217 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleImportDefinition227 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_13_in_ruleImportDefinition262 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_ruleFQN_in_ruleImportDefinition285 = new BitSet(new long[]{0x0000000000004000L});
-    public static final BitSet FOLLOW_ruleFULL_IMPORT_NAME_in_ruleImportDefinition304 = new BitSet(new long[]{0x0000000000004000L});
-    public static final BitSet FOLLOW_14_in_ruleImportDefinition317 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleArchitectureDefinition_in_entryRuleArchitectureDefinition353 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleArchitectureDefinition363 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleComponentTypeDefinition_in_ruleArchitectureDefinition413 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rulePrimitiveComponentDefinition_in_ruleArchitectureDefinition443 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleCompositeComponentDefinition_in_ruleArchitectureDefinition473 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rulePrimitiveComponentDefinition_in_entryRulePrimitiveComponentDefinition508 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRulePrimitiveComponentDefinition518 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_15_in_rulePrimitiveComponentDefinition561 = new BitSet(new long[]{0x0000000000010000L});
-    public static final BitSet FOLLOW_16_in_rulePrimitiveComponentDefinition585 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_ruleFQN_in_rulePrimitiveComponentDefinition606 = new BitSet(new long[]{0x030002E045020002L});
-    public static final BitSet FOLLOW_ruleFormalArgumentsList_in_rulePrimitiveComponentDefinition627 = new BitSet(new long[]{0x030002E044020002L});
-    public static final BitSet FOLLOW_rulePrimitiveReferencesList_in_rulePrimitiveComponentDefinition649 = new BitSet(new long[]{0x030002E040020002L});
-    public static final BitSet FOLLOW_17_in_rulePrimitiveComponentDefinition662 = new BitSet(new long[]{0x030002E040040000L});
-    public static final BitSet FOLLOW_rulePrimitiveBody_in_rulePrimitiveComponentDefinition683 = new BitSet(new long[]{0x0000000000040000L});
-    public static final BitSet FOLLOW_18_in_rulePrimitiveComponentDefinition694 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rulePrimitiveBody_in_rulePrimitiveComponentDefinition722 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rulePrimitiveDefinitionElement_in_entryRulePrimitiveDefinitionElement760 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRulePrimitiveDefinitionElement770 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleInterfaceDefinition_in_rulePrimitiveDefinitionElement820 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleAttributeDefinition_in_rulePrimitiveDefinitionElement850 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleDataDefinition_in_rulePrimitiveDefinitionElement880 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleImplementationDefinition_in_rulePrimitiveDefinitionElement910 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleComponentTypeDefinition_in_entryRuleComponentTypeDefinition945 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleComponentTypeDefinition955 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_19_in_ruleComponentTypeDefinition990 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_ruleFQN_in_ruleComponentTypeDefinition1011 = new BitSet(new long[]{0x0300020004020002L});
-    public static final BitSet FOLLOW_ruleTypeReferencesList_in_ruleComponentTypeDefinition1032 = new BitSet(new long[]{0x0300020000020002L});
-    public static final BitSet FOLLOW_17_in_ruleComponentTypeDefinition1045 = new BitSet(new long[]{0x0300020000040000L});
-    public static final BitSet FOLLOW_ruleTypeBody_in_ruleComponentTypeDefinition1066 = new BitSet(new long[]{0x0000000000040000L});
-    public static final BitSet FOLLOW_18_in_ruleComponentTypeDefinition1077 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleTypeBody_in_ruleComponentTypeDefinition1105 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleTypeReferenceDefinition_in_entryRuleTypeReferenceDefinition1143 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleTypeReferenceDefinition1153 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleFQN_in_ruleTypeReferenceDefinition1198 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleTypeDefinitionElement_in_entryRuleTypeDefinitionElement1233 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleTypeDefinitionElement1243 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleInterfaceDefinition_in_ruleTypeDefinitionElement1292 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleCompositeComponentDefinition_in_entryRuleCompositeComponentDefinition1326 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleCompositeComponentDefinition1336 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_20_in_ruleCompositeComponentDefinition1371 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_ruleFQN_in_ruleCompositeComponentDefinition1392 = new BitSet(new long[]{0x030002020D220002L});
-    public static final BitSet FOLLOW_ruleTemplateSpecifiersList_in_ruleCompositeComponentDefinition1413 = new BitSet(new long[]{0x030002020D020002L});
-    public static final BitSet FOLLOW_ruleFormalArgumentsList_in_ruleCompositeComponentDefinition1435 = new BitSet(new long[]{0x030002020C020002L});
-    public static final BitSet FOLLOW_ruleCompositeReferencesList_in_ruleCompositeComponentDefinition1457 = new BitSet(new long[]{0x0300020208020002L});
-    public static final BitSet FOLLOW_17_in_ruleCompositeComponentDefinition1470 = new BitSet(new long[]{0x0300020208040000L});
-    public static final BitSet FOLLOW_ruleCompositeBody_in_ruleCompositeComponentDefinition1491 = new BitSet(new long[]{0x0000000000040000L});
-    public static final BitSet FOLLOW_18_in_ruleCompositeComponentDefinition1502 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleCompositeBody_in_ruleCompositeComponentDefinition1530 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleTemplateSpecifiersList_in_entryRuleTemplateSpecifiersList1568 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleTemplateSpecifiersList1578 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_21_in_ruleTemplateSpecifiersList1613 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_ruleTemplateSpecifier_in_ruleTemplateSpecifiersList1635 = new BitSet(new long[]{0x0000000000C00000L});
-    public static final BitSet FOLLOW_22_in_ruleTemplateSpecifiersList1646 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_ruleTemplateSpecifier_in_ruleTemplateSpecifiersList1667 = new BitSet(new long[]{0x0000000000C00000L});
-    public static final BitSet FOLLOW_23_in_ruleTemplateSpecifiersList1680 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleFormalArgumentsList_in_entryRuleFormalArgumentsList1716 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleFormalArgumentsList1726 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_24_in_ruleFormalArgumentsList1761 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_ruleFormalArgument_in_ruleFormalArgumentsList1783 = new BitSet(new long[]{0x0000000002400000L});
-    public static final BitSet FOLLOW_22_in_ruleFormalArgumentsList1794 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_ruleFormalArgument_in_ruleFormalArgumentsList1815 = new BitSet(new long[]{0x0000000002400000L});
-    public static final BitSet FOLLOW_25_in_ruleFormalArgumentsList1828 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rulePrimitiveReferencesList_in_entryRulePrimitiveReferencesList1864 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRulePrimitiveReferencesList1874 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_26_in_rulePrimitiveReferencesList1909 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_rulePrimitiveReferenceDefinition_in_rulePrimitiveReferencesList1930 = new BitSet(new long[]{0x0000000000400002L});
-    public static final BitSet FOLLOW_22_in_rulePrimitiveReferencesList1941 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_rulePrimitiveReferenceDefinition_in_rulePrimitiveReferencesList1962 = new BitSet(new long[]{0x0000000000400002L});
-    public static final BitSet FOLLOW_ruleCompositeReferencesList_in_entryRuleCompositeReferencesList2000 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleCompositeReferencesList2010 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_26_in_ruleCompositeReferencesList2045 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_ruleCompositeReferenceDefinition_in_ruleCompositeReferencesList2066 = new BitSet(new long[]{0x0000000000400002L});
-    public static final BitSet FOLLOW_22_in_ruleCompositeReferencesList2077 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_ruleCompositeReferenceDefinition_in_ruleCompositeReferencesList2098 = new BitSet(new long[]{0x0000000000400002L});
-    public static final BitSet FOLLOW_ruleTypeReferencesList_in_entryRuleTypeReferencesList2136 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleTypeReferencesList2146 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_26_in_ruleTypeReferencesList2181 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_ruleTypeReferenceDefinition_in_ruleTypeReferencesList2202 = new BitSet(new long[]{0x0000000000400002L});
-    public static final BitSet FOLLOW_22_in_ruleTypeReferencesList2213 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_ruleTypeReferenceDefinition_in_ruleTypeReferencesList2234 = new BitSet(new long[]{0x0000000000400002L});
-    public static final BitSet FOLLOW_ruleFormalArgument_in_entryRuleFormalArgument2272 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleFormalArgument2282 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleFormalArgument2323 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleCompositeDefinitionElement_in_entryRuleCompositeDefinitionElement2363 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleCompositeDefinitionElement2373 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleSubComponentDefinition_in_ruleCompositeDefinitionElement2423 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleInterfaceDefinition_in_ruleCompositeDefinitionElement2453 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleBindingDefinition_in_ruleCompositeDefinitionElement2483 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleSubComponentDefinition_in_entryRuleSubComponentDefinition2518 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleSubComponentDefinition2528 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleAnnotationsList_in_ruleSubComponentDefinition2574 = new BitSet(new long[]{0x0000000008000000L});
-    public static final BitSet FOLLOW_27_in_ruleSubComponentDefinition2585 = new BitSet(new long[]{0x0000000010000010L});
-    public static final BitSet FOLLOW_ruleComponentReference_in_ruleSubComponentDefinition2606 = new BitSet(new long[]{0x0000000010000000L});
-    public static final BitSet FOLLOW_28_in_ruleSubComponentDefinition2617 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleSubComponentDefinition2634 = new BitSet(new long[]{0x0000000000110002L});
-    public static final BitSet FOLLOW_20_in_ruleSubComponentDefinition2659 = new BitSet(new long[]{0x0000000000020000L});
-    public static final BitSet FOLLOW_17_in_ruleSubComponentDefinition2682 = new BitSet(new long[]{0x0300020208040000L});
-    public static final BitSet FOLLOW_ruleCompositeBody_in_ruleSubComponentDefinition2703 = new BitSet(new long[]{0x0000000000040000L});
-    public static final BitSet FOLLOW_18_in_ruleSubComponentDefinition2713 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_16_in_ruleSubComponentDefinition2739 = new BitSet(new long[]{0x0000000000020000L});
-    public static final BitSet FOLLOW_17_in_ruleSubComponentDefinition2762 = new BitSet(new long[]{0x030002E040040000L});
-    public static final BitSet FOLLOW_rulePrimitiveBody_in_ruleSubComponentDefinition2783 = new BitSet(new long[]{0x0000000000040000L});
-    public static final BitSet FOLLOW_18_in_ruleSubComponentDefinition2793 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleCompositeBody_in_entryRuleCompositeBody2834 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleCompositeBody2844 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleAnnotationsList_in_ruleCompositeBody2890 = new BitSet(new long[]{0x0300020208000002L});
-    public static final BitSet FOLLOW_ruleCompositeDefinitionElement_in_ruleCompositeBody2913 = new BitSet(new long[]{0x0300020208004002L});
-    public static final BitSet FOLLOW_14_in_ruleCompositeBody2924 = new BitSet(new long[]{0x0300020208000002L});
-    public static final BitSet FOLLOW_rulePrimitiveBody_in_entryRulePrimitiveBody2964 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRulePrimitiveBody2974 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleAnnotationsList_in_rulePrimitiveBody3020 = new BitSet(new long[]{0x030002E040000002L});
-    public static final BitSet FOLLOW_rulePrimitiveDefinitionElement_in_rulePrimitiveBody3043 = new BitSet(new long[]{0x030002E040004002L});
-    public static final BitSet FOLLOW_14_in_rulePrimitiveBody3054 = new BitSet(new long[]{0x030002E040000002L});
-    public static final BitSet FOLLOW_ruleTypeBody_in_entryRuleTypeBody3094 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleTypeBody3104 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleAnnotationsList_in_ruleTypeBody3150 = new BitSet(new long[]{0x0300020000000002L});
-    public static final BitSet FOLLOW_ruleTypeDefinitionElement_in_ruleTypeBody3173 = new BitSet(new long[]{0x0300020000004002L});
-    public static final BitSet FOLLOW_14_in_ruleTypeBody3184 = new BitSet(new long[]{0x0300020000000002L});
-    public static final BitSet FOLLOW_ruleComponentReference_in_entryRuleComponentReference3226 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleComponentReference3236 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleCompositeReferenceDefinition_in_ruleComponentReference3286 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rulePrimitiveReferenceDefinition_in_ruleComponentReference3316 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleTypeReferenceDefinition_in_ruleComponentReference3346 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleCompositeReferenceDefinition_in_entryRuleCompositeReferenceDefinition3381 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleCompositeReferenceDefinition3391 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleFQN_in_ruleCompositeReferenceDefinition3437 = new BitSet(new long[]{0x0000000001200002L});
-    public static final BitSet FOLLOW_21_in_ruleCompositeReferenceDefinition3448 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_ruleTemplateDefinition_in_ruleCompositeReferenceDefinition3469 = new BitSet(new long[]{0x0000000000C00000L});
-    public static final BitSet FOLLOW_22_in_ruleCompositeReferenceDefinition3480 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_ruleTemplateDefinition_in_ruleCompositeReferenceDefinition3501 = new BitSet(new long[]{0x0000000000C00000L});
-    public static final BitSet FOLLOW_23_in_ruleCompositeReferenceDefinition3513 = new BitSet(new long[]{0x0000000001000002L});
-    public static final BitSet FOLLOW_24_in_ruleCompositeReferenceDefinition3526 = new BitSet(new long[]{0x00300C0000000130L});
-    public static final BitSet FOLLOW_ruleArgumentDefinition_in_ruleCompositeReferenceDefinition3547 = new BitSet(new long[]{0x0000000002400000L});
-    public static final BitSet FOLLOW_22_in_ruleCompositeReferenceDefinition3558 = new BitSet(new long[]{0x00300C0000000130L});
-    public static final BitSet FOLLOW_ruleArgumentDefinition_in_ruleCompositeReferenceDefinition3579 = new BitSet(new long[]{0x0000000002400000L});
-    public static final BitSet FOLLOW_25_in_ruleCompositeReferenceDefinition3591 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rulePrimitiveReferenceDefinition_in_entryRulePrimitiveReferenceDefinition3629 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRulePrimitiveReferenceDefinition3639 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleFQN_in_rulePrimitiveReferenceDefinition3685 = new BitSet(new long[]{0x0000000001000002L});
-    public static final BitSet FOLLOW_24_in_rulePrimitiveReferenceDefinition3696 = new BitSet(new long[]{0x00300C0000000130L});
-    public static final BitSet FOLLOW_ruleArgumentDefinition_in_rulePrimitiveReferenceDefinition3717 = new BitSet(new long[]{0x0000000002400000L});
-    public static final BitSet FOLLOW_22_in_rulePrimitiveReferenceDefinition3728 = new BitSet(new long[]{0x00300C0000000130L});
-    public static final BitSet FOLLOW_ruleArgumentDefinition_in_rulePrimitiveReferenceDefinition3749 = new BitSet(new long[]{0x0000000002400000L});
-    public static final BitSet FOLLOW_25_in_rulePrimitiveReferenceDefinition3761 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleTemplateDefinition_in_entryRuleTemplateDefinition3799 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleTemplateDefinition3809 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleTemplateDefinition3852 = new BitSet(new long[]{0x0000000020000000L});
-    public static final BitSet FOLLOW_29_in_ruleTemplateDefinition3867 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_ruleCompositeReferenceDefinition_in_ruleTemplateDefinition3890 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleAttributeDefinition_in_entryRuleAttributeDefinition3926 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleAttributeDefinition3936 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleAnnotationsList_in_ruleAttributeDefinition3982 = new BitSet(new long[]{0x0000000040000000L});
-    public static final BitSet FOLLOW_30_in_ruleAttributeDefinition3993 = new BitSet(new long[]{0x0007000000000010L});
-    public static final BitSet FOLLOW_ruleAttributeType_in_ruleAttributeDefinition4014 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleAttributeDefinition4032 = new BitSet(new long[]{0x0000000020000002L});
-    public static final BitSet FOLLOW_29_in_ruleAttributeDefinition4048 = new BitSet(new long[]{0x00300C0000000130L});
-    public static final BitSet FOLLOW_ruleValue_in_ruleAttributeDefinition4069 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleArgumentDefinition_in_entryRuleArgumentDefinition4107 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleArgumentDefinition4117 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleArgumentDefinition4160 = new BitSet(new long[]{0x0000000020000000L});
-    public static final BitSet FOLLOW_29_in_ruleArgumentDefinition4175 = new BitSet(new long[]{0x00300C0000000130L});
-    public static final BitSet FOLLOW_ruleValue_in_ruleArgumentDefinition4196 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleValue_in_ruleArgumentDefinition4224 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleInterfaceDefinition_in_entryRuleInterfaceDefinition4260 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleInterfaceDefinition4270 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleAnnotationsList_in_ruleInterfaceDefinition4316 = new BitSet(new long[]{0x0300000000000000L});
-    public static final BitSet FOLLOW_ruleRole_in_ruleInterfaceDefinition4338 = new BitSet(new long[]{0x0000000010000010L});
-    public static final BitSet FOLLOW_ruleFQN_in_ruleInterfaceDefinition4359 = new BitSet(new long[]{0x0000000010000000L});
-    public static final BitSet FOLLOW_28_in_ruleInterfaceDefinition4370 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleInterfaceDefinition4387 = new BitSet(new long[]{0x00C0000080000002L});
-    public static final BitSet FOLLOW_31_in_ruleInterfaceDefinition4411 = new BitSet(new long[]{0x0000000100000020L});
-    public static final BitSet FOLLOW_RULE_INT_in_ruleInterfaceDefinition4441 = new BitSet(new long[]{0x0000000100000000L});
-    public static final BitSet FOLLOW_32_in_ruleInterfaceDefinition4465 = new BitSet(new long[]{0x00C0000000000002L});
-    public static final BitSet FOLLOW_ruleContingency_in_ruleInterfaceDefinition4501 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleBindingDefinition_in_entryRuleBindingDefinition4538 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleBindingDefinition4548 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleAnnotationsList_in_ruleBindingDefinition4594 = new BitSet(new long[]{0x0000000200000000L});
-    public static final BitSet FOLLOW_33_in_ruleBindingDefinition4606 = new BitSet(new long[]{0x0000000400000010L});
-    public static final BitSet FOLLOW_34_in_ruleBindingDefinition4617 = new BitSet(new long[]{0x0000000800000000L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleBindingDefinition4640 = new BitSet(new long[]{0x0000000800000000L});
-    public static final BitSet FOLLOW_35_in_ruleBindingDefinition4656 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleBindingDefinition4673 = new BitSet(new long[]{0x0000001080000000L});
-    public static final BitSet FOLLOW_31_in_ruleBindingDefinition4689 = new BitSet(new long[]{0x0000000000000020L});
-    public static final BitSet FOLLOW_RULE_INT_in_ruleBindingDefinition4706 = new BitSet(new long[]{0x0000000100000000L});
-    public static final BitSet FOLLOW_32_in_ruleBindingDefinition4721 = new BitSet(new long[]{0x0000001000000000L});
-    public static final BitSet FOLLOW_36_in_ruleBindingDefinition4733 = new BitSet(new long[]{0x0000000400000010L});
-    public static final BitSet FOLLOW_34_in_ruleBindingDefinition4744 = new BitSet(new long[]{0x0000000800000000L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleBindingDefinition4767 = new BitSet(new long[]{0x0000000800000000L});
-    public static final BitSet FOLLOW_35_in_ruleBindingDefinition4783 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleBindingDefinition4800 = new BitSet(new long[]{0x0000000080000002L});
-    public static final BitSet FOLLOW_31_in_ruleBindingDefinition4816 = new BitSet(new long[]{0x0000000000000020L});
-    public static final BitSet FOLLOW_RULE_INT_in_ruleBindingDefinition4833 = new BitSet(new long[]{0x0000000100000000L});
-    public static final BitSet FOLLOW_32_in_ruleBindingDefinition4848 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleDataDefinition_in_entryRuleDataDefinition4887 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleDataDefinition4897 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleAnnotationsList_in_ruleDataDefinition4943 = new BitSet(new long[]{0x0000006000000000L});
-    public static final BitSet FOLLOW_37_in_ruleDataDefinition4956 = new BitSet(new long[]{0x00000000000000D0L});
-    public static final BitSet FOLLOW_ruleFileC_in_ruleDataDefinition4978 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleInlineCodeC_in_ruleDataDefinition5005 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_38_in_ruleDataDefinition5023 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleImplementationDefinition_in_entryRuleImplementationDefinition5060 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleImplementationDefinition5070 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleAnnotationsList_in_ruleImplementationDefinition5116 = new BitSet(new long[]{0x0000008000000000L});
-    public static final BitSet FOLLOW_39_in_ruleImplementationDefinition5127 = new BitSet(new long[]{0x00000000000000D0L});
-    public static final BitSet FOLLOW_ruleFileC_in_ruleImplementationDefinition5149 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleInlineCodeC_in_ruleImplementationDefinition5176 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleTemplateSpecifier_in_entryRuleTemplateSpecifier5213 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleTemplateSpecifier5223 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleTemplateSpecifier5265 = new BitSet(new long[]{0x0000010000000000L});
-    public static final BitSet FOLLOW_40_in_ruleTemplateSpecifier5280 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_ruleTypeReferenceDefinition_in_ruleTemplateSpecifier5301 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleFileC_in_entryRuleFileC5337 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleFileC5347 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_PATH_in_ruleFileC5389 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_ruleFileName_in_ruleFileC5416 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleFileName_in_entryRuleFileName5453 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleFileName5464 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleFileName5504 = new BitSet(new long[]{0x0000000800000002L});
-    public static final BitSet FOLLOW_35_in_ruleFileName5523 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleFileName5538 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleInlineCodeC_in_entryRuleInlineCodeC5585 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleInlineCodeC5595 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_CODEC_in_ruleInlineCodeC5636 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleAnnotationsList_in_entryRuleAnnotationsList5676 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleAnnotationsList5686 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleAnnotation_in_ruleAnnotationsList5732 = new BitSet(new long[]{0x0000020000000002L});
-    public static final BitSet FOLLOW_ruleAnnotation_in_ruleAnnotationsList5753 = new BitSet(new long[]{0x0000020000000002L});
-    public static final BitSet FOLLOW_ruleAnnotation_in_entryRuleAnnotation5790 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleAnnotation5800 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_41_in_ruleAnnotation5835 = new BitSet(new long[]{0x0000F00000000010L});
-    public static final BitSet FOLLOW_ruleAnnotationType_in_ruleAnnotation5856 = new BitSet(new long[]{0x0000000001000002L});
-    public static final BitSet FOLLOW_24_in_ruleAnnotation5867 = new BitSet(new long[]{0x0000020000020130L});
-    public static final BitSet FOLLOW_ruleAnnotationElement_in_ruleAnnotation5888 = new BitSet(new long[]{0x0000000002400000L});
-    public static final BitSet FOLLOW_22_in_ruleAnnotation5899 = new BitSet(new long[]{0x0000020000020130L});
-    public static final BitSet FOLLOW_ruleAnnotationElement_in_ruleAnnotation5920 = new BitSet(new long[]{0x0000000002400000L});
-    public static final BitSet FOLLOW_25_in_ruleAnnotation5932 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleAnnotationElement_in_entryRuleAnnotationElement5970 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleAnnotationElement5980 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleElementValue_in_ruleAnnotationElement6026 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleAnnotationElement6050 = new BitSet(new long[]{0x0000000020000000L});
-    public static final BitSet FOLLOW_29_in_ruleAnnotationElement6065 = new BitSet(new long[]{0x0000020000020120L});
-    public static final BitSet FOLLOW_ruleElementValue_in_ruleAnnotationElement6086 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleElementValue_in_entryRuleElementValue6123 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleElementValue6133 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleConstantValue_in_ruleElementValue6183 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleAnnotation_in_ruleElementValue6213 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleElementValueArrayInitializer_in_ruleElementValue6243 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleConstantValue_in_entryRuleConstantValue6278 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleConstantValue6288 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleConstantFormat_in_ruleConstantValue6333 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleConstantFormat_in_entryRuleConstantFormat6369 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleConstantFormat6380 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_INT_in_ruleConstantFormat6420 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_STRING_in_ruleConstantFormat6446 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleElementValueArrayInitializer_in_entryRuleElementValueArrayInitializer6491 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleElementValueArrayInitializer6501 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_17_in_ruleElementValueArrayInitializer6536 = new BitSet(new long[]{0x0000020000020120L});
-    public static final BitSet FOLLOW_ruleElementValue_in_ruleElementValueArrayInitializer6557 = new BitSet(new long[]{0x0000000000440000L});
-    public static final BitSet FOLLOW_22_in_ruleElementValueArrayInitializer6568 = new BitSet(new long[]{0x0000020000020120L});
-    public static final BitSet FOLLOW_ruleElementValue_in_ruleElementValueArrayInitializer6589 = new BitSet(new long[]{0x0000000000440000L});
-    public static final BitSet FOLLOW_18_in_ruleElementValueArrayInitializer6601 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleValue_in_entryRuleValue6638 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleValue6649 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleValue6689 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rulesignedINT_in_ruleValue6722 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleHexadecimalType_in_ruleValue6755 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_STRING_in_ruleValue6781 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_42_in_ruleValue6805 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleHexadecimalType_in_entryRuleHexadecimalType6846 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleHexadecimalType6857 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_43_in_ruleHexadecimalType6895 = new BitSet(new long[]{0x0000000000000020L});
-    public static final BitSet FOLLOW_RULE_INT_in_ruleHexadecimalType6910 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleAnnotationType_in_entryRuleAnnotationType6956 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleAnnotationType6967 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_44_in_ruleAnnotationType7005 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_45_in_ruleAnnotationType7024 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_46_in_ruleAnnotationType7043 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_47_in_ruleAnnotationType7062 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleFQN_in_ruleAnnotationType7090 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleAttributeType_in_entryRuleAttributeType7136 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleAttributeType7147 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_48_in_ruleAttributeType7185 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_49_in_ruleAttributeType7204 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_50_in_ruleAttributeType7223 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleAttributeType7244 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleFQN_in_entryRuleFQN7290 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleFQN7301 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleFQN7341 = new BitSet(new long[]{0x0000000800000002L});
-    public static final BitSet FOLLOW_35_in_ruleFQN7360 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleFQN7375 = new BitSet(new long[]{0x0000000800000002L});
-    public static final BitSet FOLLOW_ruleFULL_IMPORT_NAME_in_entryRuleFULL_IMPORT_NAME7423 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleFULL_IMPORT_NAME7434 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleFQN_in_ruleFULL_IMPORT_NAME7481 = new BitSet(new long[]{0x0008000000000000L});
-    public static final BitSet FOLLOW_51_in_ruleFULL_IMPORT_NAME7499 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rulesignedINT_in_entryRulesignedINT7540 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRulesignedINT7551 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_52_in_rulesignedINT7590 = new BitSet(new long[]{0x0000000000000020L});
-    public static final BitSet FOLLOW_53_in_rulesignedINT7609 = new BitSet(new long[]{0x0000000000000020L});
-    public static final BitSet FOLLOW_RULE_INT_in_rulesignedINT7626 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_54_in_ruleContingency7683 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_55_in_ruleContingency7698 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_56_in_ruleRole7741 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_57_in_ruleRole7756 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rulePrimitiveBody_in_synpred9683 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rulePrimitiveBody_in_synpred11722 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleInterfaceDefinition_in_synpred12820 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleAttributeDefinition_in_synpred13850 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleDataDefinition_in_synpred14880 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleTypeBody_in_synpred161066 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleTypeBody_in_synpred181105 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleCompositeBody_in_synpred221491 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleCompositeBody_in_synpred241530 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleSubComponentDefinition_in_synpred302423 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleInterfaceDefinition_in_synpred312453 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleAnnotationsList_in_synpred362890 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleAnnotationsList_in_synpred393020 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleAnnotationsList_in_synpred423150 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleCompositeReferenceDefinition_in_synpred453286 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rulePrimitiveReferenceDefinition_in_synpred463316 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleAnnotation_in_synpred755753 = new BitSet(new long[]{0x0000000000000002L});
+    
+    private static class FollowSets000 {
+        public static final BitSet FOLLOW_ruleAdlDefinition_in_entryRuleAdlDefinition81 = new BitSet(new long[]{0x0000000000000000L});
+        public static final BitSet FOLLOW_EOF_in_entryRuleAdlDefinition91 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleImportDefinition_in_ruleAdlDefinition137 = new BitSet(new long[]{0x000002000019A000L});
+        public static final BitSet FOLLOW_ruleAnnotationsList_in_ruleAdlDefinition159 = new BitSet(new long[]{0x0000000000198000L});
+        public static final BitSet FOLLOW_ruleArchitectureDefinition_in_ruleAdlDefinition181 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleImportDefinition_in_entryRuleImportDefinition217 = new BitSet(new long[]{0x0000000000000000L});
+        public static final BitSet FOLLOW_EOF_in_entryRuleImportDefinition227 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_13_in_ruleImportDefinition262 = new BitSet(new long[]{0x0000000000000010L});
+        public static final BitSet FOLLOW_ruleFQN_in_ruleImportDefinition285 = new BitSet(new long[]{0x0000000000004000L});
+        public static final BitSet FOLLOW_ruleFULL_IMPORT_NAME_in_ruleImportDefinition304 = new BitSet(new long[]{0x0000000000004000L});
+        public static final BitSet FOLLOW_14_in_ruleImportDefinition317 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleArchitectureDefinition_in_entryRuleArchitectureDefinition353 = new BitSet(new long[]{0x0000000000000000L});
+        public static final BitSet FOLLOW_EOF_in_entryRuleArchitectureDefinition363 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleComponentTypeDefinition_in_ruleArchitectureDefinition413 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_rulePrimitiveComponentDefinition_in_ruleArchitectureDefinition443 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleCompositeComponentDefinition_in_ruleArchitectureDefinition473 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_rulePrimitiveComponentDefinition_in_entryRulePrimitiveComponentDefinition508 = new BitSet(new long[]{0x0000000000000000L});
+        public static final BitSet FOLLOW_EOF_in_entryRulePrimitiveComponentDefinition518 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_15_in_rulePrimitiveComponentDefinition561 = new BitSet(new long[]{0x0000000000010000L});
+        public static final BitSet FOLLOW_16_in_rulePrimitiveComponentDefinition585 = new BitSet(new long[]{0x0000000000000010L});
+        public static final BitSet FOLLOW_ruleFQN_in_rulePrimitiveComponentDefinition606 = new BitSet(new long[]{0x030002E045020002L});
+        public static final BitSet FOLLOW_ruleFormalArgumentsList_in_rulePrimitiveComponentDefinition627 = new BitSet(new long[]{0x030002E044020002L});
+        public static final BitSet FOLLOW_rulePrimitiveReferencesList_in_rulePrimitiveComponentDefinition649 = new BitSet(new long[]{0x030002E040020002L});
+        public static final BitSet FOLLOW_17_in_rulePrimitiveComponentDefinition662 = new BitSet(new long[]{0x030002E040040000L});
+        public static final BitSet FOLLOW_rulePrimitiveBody_in_rulePrimitiveComponentDefinition683 = new BitSet(new long[]{0x0000000000040000L});
+        public static final BitSet FOLLOW_18_in_rulePrimitiveComponentDefinition694 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_rulePrimitiveBody_in_rulePrimitiveComponentDefinition722 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_rulePrimitiveDefinitionElement_in_entryRulePrimitiveDefinitionElement760 = new BitSet(new long[]{0x0000000000000000L});
+        public static final BitSet FOLLOW_EOF_in_entryRulePrimitiveDefinitionElement770 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleInterfaceDefinition_in_rulePrimitiveDefinitionElement820 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleAttributeDefinition_in_rulePrimitiveDefinitionElement850 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleDataDefinition_in_rulePrimitiveDefinitionElement880 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleImplementationDefinition_in_rulePrimitiveDefinitionElement910 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleComponentTypeDefinition_in_entryRuleComponentTypeDefinition945 = new BitSet(new long[]{0x0000000000000000L});
+        public static final BitSet FOLLOW_EOF_in_entryRuleComponentTypeDefinition955 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_19_in_ruleComponentTypeDefinition990 = new BitSet(new long[]{0x0000000000000010L});
+        public static final BitSet FOLLOW_ruleFQN_in_ruleComponentTypeDefinition1011 = new BitSet(new long[]{0x0300020004020002L});
+        public static final BitSet FOLLOW_ruleTypeReferencesList_in_ruleComponentTypeDefinition1032 = new BitSet(new long[]{0x0300020000020002L});
+        public static final BitSet FOLLOW_17_in_ruleComponentTypeDefinition1045 = new BitSet(new long[]{0x0300020000040000L});
+        public static final BitSet FOLLOW_ruleTypeBody_in_ruleComponentTypeDefinition1066 = new BitSet(new long[]{0x0000000000040000L});
+        public static final BitSet FOLLOW_18_in_ruleComponentTypeDefinition1077 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleTypeBody_in_ruleComponentTypeDefinition1105 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleTypeReferenceDefinition_in_entryRuleTypeReferenceDefinition1143 = new BitSet(new long[]{0x0000000000000000L});
+        public static final BitSet FOLLOW_EOF_in_entryRuleTypeReferenceDefinition1153 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleFQN_in_ruleTypeReferenceDefinition1198 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleTypeDefinitionElement_in_entryRuleTypeDefinitionElement1233 = new BitSet(new long[]{0x0000000000000000L});
+        public static final BitSet FOLLOW_EOF_in_entryRuleTypeDefinitionElement1243 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleInterfaceDefinition_in_ruleTypeDefinitionElement1292 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleCompositeComponentDefinition_in_entryRuleCompositeComponentDefinition1326 = new BitSet(new long[]{0x0000000000000000L});
+        public static final BitSet FOLLOW_EOF_in_entryRuleCompositeComponentDefinition1336 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_20_in_ruleCompositeComponentDefinition1371 = new BitSet(new long[]{0x0000000000000010L});
+        public static final BitSet FOLLOW_ruleFQN_in_ruleCompositeComponentDefinition1392 = new BitSet(new long[]{0x030002020D220002L});
+        public static final BitSet FOLLOW_ruleTemplateSpecifiersList_in_ruleCompositeComponentDefinition1413 = new BitSet(new long[]{0x030002020D020002L});
+        public static final BitSet FOLLOW_ruleFormalArgumentsList_in_ruleCompositeComponentDefinition1435 = new BitSet(new long[]{0x030002020C020002L});
+        public static final BitSet FOLLOW_ruleCompositeReferencesList_in_ruleCompositeComponentDefinition1457 = new BitSet(new long[]{0x0300020208020002L});
+        public static final BitSet FOLLOW_17_in_ruleCompositeComponentDefinition1470 = new BitSet(new long[]{0x0300020208040000L});
+        public static final BitSet FOLLOW_ruleCompositeBody_in_ruleCompositeComponentDefinition1491 = new BitSet(new long[]{0x0000000000040000L});
+        public static final BitSet FOLLOW_18_in_ruleCompositeComponentDefinition1502 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleCompositeBody_in_ruleCompositeComponentDefinition1530 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleTemplateSpecifiersList_in_entryRuleTemplateSpecifiersList1568 = new BitSet(new long[]{0x0000000000000000L});
+        public static final BitSet FOLLOW_EOF_in_entryRuleTemplateSpecifiersList1578 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_21_in_ruleTemplateSpecifiersList1613 = new BitSet(new long[]{0x0000000000000010L});
+        public static final BitSet FOLLOW_ruleTemplateSpecifier_in_ruleTemplateSpecifiersList1635 = new BitSet(new long[]{0x0000000000C00000L});
+        public static final BitSet FOLLOW_22_in_ruleTemplateSpecifiersList1646 = new BitSet(new long[]{0x0000000000000010L});
+        public static final BitSet FOLLOW_ruleTemplateSpecifier_in_ruleTemplateSpecifiersList1667 = new BitSet(new long[]{0x0000000000C00000L});
+        public static final BitSet FOLLOW_23_in_ruleTemplateSpecifiersList1680 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleFormalArgumentsList_in_entryRuleFormalArgumentsList1716 = new BitSet(new long[]{0x0000000000000000L});
+        public static final BitSet FOLLOW_EOF_in_entryRuleFormalArgumentsList1726 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_24_in_ruleFormalArgumentsList1761 = new BitSet(new long[]{0x0000000000000010L});
+        public static final BitSet FOLLOW_ruleFormalArgument_in_ruleFormalArgumentsList1783 = new BitSet(new long[]{0x0000000002400000L});
+        public static final BitSet FOLLOW_22_in_ruleFormalArgumentsList1794 = new BitSet(new long[]{0x0000000000000010L});
+        public static final BitSet FOLLOW_ruleFormalArgument_in_ruleFormalArgumentsList1815 = new BitSet(new long[]{0x0000000002400000L});
+        public static final BitSet FOLLOW_25_in_ruleFormalArgumentsList1828 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_rulePrimitiveReferencesList_in_entryRulePrimitiveReferencesList1864 = new BitSet(new long[]{0x0000000000000000L});
+        public static final BitSet FOLLOW_EOF_in_entryRulePrimitiveReferencesList1874 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_26_in_rulePrimitiveReferencesList1909 = new BitSet(new long[]{0x0000000000000010L});
+        public static final BitSet FOLLOW_rulePrimitiveReferenceDefinition_in_rulePrimitiveReferencesList1930 = new BitSet(new long[]{0x0000000000400002L});
+        public static final BitSet FOLLOW_22_in_rulePrimitiveReferencesList1941 = new BitSet(new long[]{0x0000000000000010L});
+        public static final BitSet FOLLOW_rulePrimitiveReferenceDefinition_in_rulePrimitiveReferencesList1962 = new BitSet(new long[]{0x0000000000400002L});
+        public static final BitSet FOLLOW_ruleCompositeReferencesList_in_entryRuleCompositeReferencesList2000 = new BitSet(new long[]{0x0000000000000000L});
+        public static final BitSet FOLLOW_EOF_in_entryRuleCompositeReferencesList2010 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_26_in_ruleCompositeReferencesList2045 = new BitSet(new long[]{0x0000000000000010L});
+        public static final BitSet FOLLOW_ruleCompositeReferenceDefinition_in_ruleCompositeReferencesList2066 = new BitSet(new long[]{0x0000000000400002L});
+        public static final BitSet FOLLOW_22_in_ruleCompositeReferencesList2077 = new BitSet(new long[]{0x0000000000000010L});
+        public static final BitSet FOLLOW_ruleCompositeReferenceDefinition_in_ruleCompositeReferencesList2098 = new BitSet(new long[]{0x0000000000400002L});
+        public static final BitSet FOLLOW_ruleTypeReferencesList_in_entryRuleTypeReferencesList2136 = new BitSet(new long[]{0x0000000000000000L});
+        public static final BitSet FOLLOW_EOF_in_entryRuleTypeReferencesList2146 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_26_in_ruleTypeReferencesList2181 = new BitSet(new long[]{0x0000000000000010L});
+        public static final BitSet FOLLOW_ruleTypeReferenceDefinition_in_ruleTypeReferencesList2202 = new BitSet(new long[]{0x0000000000400002L});
+        public static final BitSet FOLLOW_22_in_ruleTypeReferencesList2213 = new BitSet(new long[]{0x0000000000000010L});
+        public static final BitSet FOLLOW_ruleTypeReferenceDefinition_in_ruleTypeReferencesList2234 = new BitSet(new long[]{0x0000000000400002L});
+        public static final BitSet FOLLOW_ruleFormalArgument_in_entryRuleFormalArgument2272 = new BitSet(new long[]{0x0000000000000000L});
+        public static final BitSet FOLLOW_EOF_in_entryRuleFormalArgument2282 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_RULE_ID_in_ruleFormalArgument2323 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleCompositeDefinitionElement_in_entryRuleCompositeDefinitionElement2363 = new BitSet(new long[]{0x0000000000000000L});
+        public static final BitSet FOLLOW_EOF_in_entryRuleCompositeDefinitionElement2373 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleSubComponentDefinition_in_ruleCompositeDefinitionElement2423 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleInterfaceDefinition_in_ruleCompositeDefinitionElement2453 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleBindingDefinition_in_ruleCompositeDefinitionElement2483 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleSubComponentDefinition_in_entryRuleSubComponentDefinition2518 = new BitSet(new long[]{0x0000000000000000L});
+        public static final BitSet FOLLOW_EOF_in_entryRuleSubComponentDefinition2528 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleAnnotationsList_in_ruleSubComponentDefinition2574 = new BitSet(new long[]{0x0000000008000000L});
+        public static final BitSet FOLLOW_27_in_ruleSubComponentDefinition2585 = new BitSet(new long[]{0x0000000010000010L});
+        public static final BitSet FOLLOW_ruleComponentReference_in_ruleSubComponentDefinition2606 = new BitSet(new long[]{0x0000000010000000L});
+        public static final BitSet FOLLOW_28_in_ruleSubComponentDefinition2617 = new BitSet(new long[]{0x0000000000000010L});
+        public static final BitSet FOLLOW_RULE_ID_in_ruleSubComponentDefinition2634 = new BitSet(new long[]{0x0000000000110002L});
+        public static final BitSet FOLLOW_20_in_ruleSubComponentDefinition2659 = new BitSet(new long[]{0x0000000000020000L});
+        public static final BitSet FOLLOW_17_in_ruleSubComponentDefinition2682 = new BitSet(new long[]{0x0300020208040000L});
+        public static final BitSet FOLLOW_ruleCompositeBody_in_ruleSubComponentDefinition2703 = new BitSet(new long[]{0x0000000000040000L});
+        public static final BitSet FOLLOW_18_in_ruleSubComponentDefinition2713 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_16_in_ruleSubComponentDefinition2739 = new BitSet(new long[]{0x0000000000020000L});
+        public static final BitSet FOLLOW_17_in_ruleSubComponentDefinition2762 = new BitSet(new long[]{0x030002E040040000L});
+        public static final BitSet FOLLOW_rulePrimitiveBody_in_ruleSubComponentDefinition2783 = new BitSet(new long[]{0x0000000000040000L});
+        public static final BitSet FOLLOW_18_in_ruleSubComponentDefinition2793 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleCompositeBody_in_entryRuleCompositeBody2834 = new BitSet(new long[]{0x0000000000000000L});
+        public static final BitSet FOLLOW_EOF_in_entryRuleCompositeBody2844 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleAnnotationsList_in_ruleCompositeBody2890 = new BitSet(new long[]{0x0300020208000002L});
+        public static final BitSet FOLLOW_ruleCompositeDefinitionElement_in_ruleCompositeBody2913 = new BitSet(new long[]{0x0300020208004002L});
+        public static final BitSet FOLLOW_14_in_ruleCompositeBody2924 = new BitSet(new long[]{0x0300020208000002L});
+        public static final BitSet FOLLOW_rulePrimitiveBody_in_entryRulePrimitiveBody2964 = new BitSet(new long[]{0x0000000000000000L});
+        public static final BitSet FOLLOW_EOF_in_entryRulePrimitiveBody2974 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleAnnotationsList_in_rulePrimitiveBody3020 = new BitSet(new long[]{0x030002E040000002L});
+        public static final BitSet FOLLOW_rulePrimitiveDefinitionElement_in_rulePrimitiveBody3043 = new BitSet(new long[]{0x030002E040004002L});
+        public static final BitSet FOLLOW_14_in_rulePrimitiveBody3054 = new BitSet(new long[]{0x030002E040000002L});
+        public static final BitSet FOLLOW_ruleTypeBody_in_entryRuleTypeBody3094 = new BitSet(new long[]{0x0000000000000000L});
+        public static final BitSet FOLLOW_EOF_in_entryRuleTypeBody3104 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleAnnotationsList_in_ruleTypeBody3150 = new BitSet(new long[]{0x0300020000000002L});
+        public static final BitSet FOLLOW_ruleTypeDefinitionElement_in_ruleTypeBody3173 = new BitSet(new long[]{0x0300020000004002L});
+        public static final BitSet FOLLOW_14_in_ruleTypeBody3184 = new BitSet(new long[]{0x0300020000000002L});
+        public static final BitSet FOLLOW_ruleComponentReference_in_entryRuleComponentReference3226 = new BitSet(new long[]{0x0000000000000000L});
+        public static final BitSet FOLLOW_EOF_in_entryRuleComponentReference3236 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleCompositeReferenceDefinition_in_ruleComponentReference3286 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_rulePrimitiveReferenceDefinition_in_ruleComponentReference3316 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleTypeReferenceDefinition_in_ruleComponentReference3346 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleCompositeReferenceDefinition_in_entryRuleCompositeReferenceDefinition3381 = new BitSet(new long[]{0x0000000000000000L});
+        public static final BitSet FOLLOW_EOF_in_entryRuleCompositeReferenceDefinition3391 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleFQN_in_ruleCompositeReferenceDefinition3437 = new BitSet(new long[]{0x0000000001200002L});
+        public static final BitSet FOLLOW_21_in_ruleCompositeReferenceDefinition3448 = new BitSet(new long[]{0x0000000000000010L});
+        public static final BitSet FOLLOW_ruleTemplateDefinition_in_ruleCompositeReferenceDefinition3469 = new BitSet(new long[]{0x0000000000C00000L});
+        public static final BitSet FOLLOW_22_in_ruleCompositeReferenceDefinition3480 = new BitSet(new long[]{0x0000000000000010L});
+        public static final BitSet FOLLOW_ruleTemplateDefinition_in_ruleCompositeReferenceDefinition3501 = new BitSet(new long[]{0x0000000000C00000L});
+        public static final BitSet FOLLOW_23_in_ruleCompositeReferenceDefinition3513 = new BitSet(new long[]{0x0000000001000002L});
+        public static final BitSet FOLLOW_24_in_ruleCompositeReferenceDefinition3526 = new BitSet(new long[]{0x00300C0000000130L});
+        public static final BitSet FOLLOW_ruleArgumentDefinition_in_ruleCompositeReferenceDefinition3547 = new BitSet(new long[]{0x0000000002400000L});
+        public static final BitSet FOLLOW_22_in_ruleCompositeReferenceDefinition3558 = new BitSet(new long[]{0x00300C0000000130L});
+        public static final BitSet FOLLOW_ruleArgumentDefinition_in_ruleCompositeReferenceDefinition3579 = new BitSet(new long[]{0x0000000002400000L});
+        public static final BitSet FOLLOW_25_in_ruleCompositeReferenceDefinition3591 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_rulePrimitiveReferenceDefinition_in_entryRulePrimitiveReferenceDefinition3629 = new BitSet(new long[]{0x0000000000000000L});
+        public static final BitSet FOLLOW_EOF_in_entryRulePrimitiveReferenceDefinition3639 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleFQN_in_rulePrimitiveReferenceDefinition3685 = new BitSet(new long[]{0x0000000001000002L});
+        public static final BitSet FOLLOW_24_in_rulePrimitiveReferenceDefinition3696 = new BitSet(new long[]{0x00300C0000000130L});
+        public static final BitSet FOLLOW_ruleArgumentDefinition_in_rulePrimitiveReferenceDefinition3717 = new BitSet(new long[]{0x0000000002400000L});
+        public static final BitSet FOLLOW_22_in_rulePrimitiveReferenceDefinition3728 = new BitSet(new long[]{0x00300C0000000130L});
+        public static final BitSet FOLLOW_ruleArgumentDefinition_in_rulePrimitiveReferenceDefinition3749 = new BitSet(new long[]{0x0000000002400000L});
+        public static final BitSet FOLLOW_25_in_rulePrimitiveReferenceDefinition3761 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleTemplateDefinition_in_entryRuleTemplateDefinition3799 = new BitSet(new long[]{0x0000000000000000L});
+        public static final BitSet FOLLOW_EOF_in_entryRuleTemplateDefinition3809 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_RULE_ID_in_ruleTemplateDefinition3852 = new BitSet(new long[]{0x0000000020000000L});
+        public static final BitSet FOLLOW_29_in_ruleTemplateDefinition3867 = new BitSet(new long[]{0x0000000000000010L});
+        public static final BitSet FOLLOW_ruleCompositeReferenceDefinition_in_ruleTemplateDefinition3890 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleAttributeDefinition_in_entryRuleAttributeDefinition3926 = new BitSet(new long[]{0x0000000000000000L});
+        public static final BitSet FOLLOW_EOF_in_entryRuleAttributeDefinition3936 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleAnnotationsList_in_ruleAttributeDefinition3982 = new BitSet(new long[]{0x0000000040000000L});
+        public static final BitSet FOLLOW_30_in_ruleAttributeDefinition3993 = new BitSet(new long[]{0x0007000000000010L});
+        public static final BitSet FOLLOW_ruleAttributeType_in_ruleAttributeDefinition4014 = new BitSet(new long[]{0x0000000000000010L});
+        public static final BitSet FOLLOW_RULE_ID_in_ruleAttributeDefinition4032 = new BitSet(new long[]{0x0000000020000002L});
+        public static final BitSet FOLLOW_29_in_ruleAttributeDefinition4048 = new BitSet(new long[]{0x00300C0000000130L});
+        public static final BitSet FOLLOW_ruleValue_in_ruleAttributeDefinition4069 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleArgumentDefinition_in_entryRuleArgumentDefinition4107 = new BitSet(new long[]{0x0000000000000000L});
+        public static final BitSet FOLLOW_EOF_in_entryRuleArgumentDefinition4117 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_RULE_ID_in_ruleArgumentDefinition4160 = new BitSet(new long[]{0x0000000020000000L});
+        public static final BitSet FOLLOW_29_in_ruleArgumentDefinition4175 = new BitSet(new long[]{0x00300C0000000130L});
+        public static final BitSet FOLLOW_ruleValue_in_ruleArgumentDefinition4196 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleValue_in_ruleArgumentDefinition4224 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleInterfaceDefinition_in_entryRuleInterfaceDefinition4260 = new BitSet(new long[]{0x0000000000000000L});
+        public static final BitSet FOLLOW_EOF_in_entryRuleInterfaceDefinition4270 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleAnnotationsList_in_ruleInterfaceDefinition4316 = new BitSet(new long[]{0x0300000000000000L});
+        public static final BitSet FOLLOW_ruleRole_in_ruleInterfaceDefinition4338 = new BitSet(new long[]{0x0000000010000010L});
+        public static final BitSet FOLLOW_ruleFQN_in_ruleInterfaceDefinition4359 = new BitSet(new long[]{0x0000000010000000L});
+        public static final BitSet FOLLOW_28_in_ruleInterfaceDefinition4370 = new BitSet(new long[]{0x0000000000000010L});
+        public static final BitSet FOLLOW_RULE_ID_in_ruleInterfaceDefinition4387 = new BitSet(new long[]{0x00C0000080000002L});
+        public static final BitSet FOLLOW_31_in_ruleInterfaceDefinition4411 = new BitSet(new long[]{0x0000000100000020L});
+        public static final BitSet FOLLOW_RULE_INT_in_ruleInterfaceDefinition4441 = new BitSet(new long[]{0x0000000100000000L});
+        public static final BitSet FOLLOW_32_in_ruleInterfaceDefinition4465 = new BitSet(new long[]{0x00C0000000000002L});
+        public static final BitSet FOLLOW_ruleContingency_in_ruleInterfaceDefinition4501 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleBindingDefinition_in_entryRuleBindingDefinition4538 = new BitSet(new long[]{0x0000000000000000L});
+        public static final BitSet FOLLOW_EOF_in_entryRuleBindingDefinition4548 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleAnnotationsList_in_ruleBindingDefinition4594 = new BitSet(new long[]{0x0000000200000000L});
+        public static final BitSet FOLLOW_33_in_ruleBindingDefinition4606 = new BitSet(new long[]{0x0000000400000010L});
+        public static final BitSet FOLLOW_34_in_ruleBindingDefinition4617 = new BitSet(new long[]{0x0000000800000000L});
+        public static final BitSet FOLLOW_RULE_ID_in_ruleBindingDefinition4640 = new BitSet(new long[]{0x0000000800000000L});
+        public static final BitSet FOLLOW_35_in_ruleBindingDefinition4656 = new BitSet(new long[]{0x0000000000000010L});
+        public static final BitSet FOLLOW_RULE_ID_in_ruleBindingDefinition4673 = new BitSet(new long[]{0x0000001080000000L});
+        public static final BitSet FOLLOW_31_in_ruleBindingDefinition4689 = new BitSet(new long[]{0x0000000000000020L});
+        public static final BitSet FOLLOW_RULE_INT_in_ruleBindingDefinition4706 = new BitSet(new long[]{0x0000000100000000L});
+        public static final BitSet FOLLOW_32_in_ruleBindingDefinition4721 = new BitSet(new long[]{0x0000001000000000L});
+        public static final BitSet FOLLOW_36_in_ruleBindingDefinition4733 = new BitSet(new long[]{0x0000000400000010L});
+        public static final BitSet FOLLOW_34_in_ruleBindingDefinition4744 = new BitSet(new long[]{0x0000000800000000L});
+        public static final BitSet FOLLOW_RULE_ID_in_ruleBindingDefinition4767 = new BitSet(new long[]{0x0000000800000000L});
+        public static final BitSet FOLLOW_35_in_ruleBindingDefinition4783 = new BitSet(new long[]{0x0000000000000010L});
+        public static final BitSet FOLLOW_RULE_ID_in_ruleBindingDefinition4800 = new BitSet(new long[]{0x0000000080000002L});
+        public static final BitSet FOLLOW_31_in_ruleBindingDefinition4816 = new BitSet(new long[]{0x0000000000000020L});
+        public static final BitSet FOLLOW_RULE_INT_in_ruleBindingDefinition4833 = new BitSet(new long[]{0x0000000100000000L});
+        public static final BitSet FOLLOW_32_in_ruleBindingDefinition4848 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleDataDefinition_in_entryRuleDataDefinition4887 = new BitSet(new long[]{0x0000000000000000L});
+        public static final BitSet FOLLOW_EOF_in_entryRuleDataDefinition4897 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleAnnotationsList_in_ruleDataDefinition4943 = new BitSet(new long[]{0x0000006000000000L});
+        public static final BitSet FOLLOW_37_in_ruleDataDefinition4956 = new BitSet(new long[]{0x00000000000000D0L});
+        public static final BitSet FOLLOW_ruleFileC_in_ruleDataDefinition4978 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleInlineCodeC_in_ruleDataDefinition5005 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_38_in_ruleDataDefinition5023 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleImplementationDefinition_in_entryRuleImplementationDefinition5060 = new BitSet(new long[]{0x0000000000000000L});
+        public static final BitSet FOLLOW_EOF_in_entryRuleImplementationDefinition5070 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleAnnotationsList_in_ruleImplementationDefinition5116 = new BitSet(new long[]{0x0000008000000000L});
+        public static final BitSet FOLLOW_39_in_ruleImplementationDefinition5127 = new BitSet(new long[]{0x00000000000000D0L});
+        public static final BitSet FOLLOW_ruleFileC_in_ruleImplementationDefinition5149 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleInlineCodeC_in_ruleImplementationDefinition5176 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleTemplateSpecifier_in_entryRuleTemplateSpecifier5213 = new BitSet(new long[]{0x0000000000000000L});
+        public static final BitSet FOLLOW_EOF_in_entryRuleTemplateSpecifier5223 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_RULE_ID_in_ruleTemplateSpecifier5265 = new BitSet(new long[]{0x0000010000000000L});
+        public static final BitSet FOLLOW_40_in_ruleTemplateSpecifier5280 = new BitSet(new long[]{0x0000000000000010L});
+        public static final BitSet FOLLOW_ruleTypeReferenceDefinition_in_ruleTemplateSpecifier5301 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleFileC_in_entryRuleFileC5337 = new BitSet(new long[]{0x0000000000000000L});
+        public static final BitSet FOLLOW_EOF_in_entryRuleFileC5347 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_RULE_PATH_in_ruleFileC5389 = new BitSet(new long[]{0x0000000000000010L});
+        public static final BitSet FOLLOW_ruleFileName_in_ruleFileC5416 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleFileName_in_entryRuleFileName5453 = new BitSet(new long[]{0x0000000000000000L});
+        public static final BitSet FOLLOW_EOF_in_entryRuleFileName5464 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_RULE_ID_in_ruleFileName5504 = new BitSet(new long[]{0x0000000800000002L});
+        public static final BitSet FOLLOW_35_in_ruleFileName5523 = new BitSet(new long[]{0x0000000000000010L});
+        public static final BitSet FOLLOW_RULE_ID_in_ruleFileName5538 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleInlineCodeC_in_entryRuleInlineCodeC5585 = new BitSet(new long[]{0x0000000000000000L});
+        public static final BitSet FOLLOW_EOF_in_entryRuleInlineCodeC5595 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_RULE_CODEC_in_ruleInlineCodeC5636 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleAnnotationsList_in_entryRuleAnnotationsList5676 = new BitSet(new long[]{0x0000000000000000L});
+        public static final BitSet FOLLOW_EOF_in_entryRuleAnnotationsList5686 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleAnnotation_in_ruleAnnotationsList5732 = new BitSet(new long[]{0x0000020000000002L});
+        public static final BitSet FOLLOW_ruleAnnotation_in_ruleAnnotationsList5753 = new BitSet(new long[]{0x0000020000000002L});
+        public static final BitSet FOLLOW_ruleAnnotation_in_entryRuleAnnotation5790 = new BitSet(new long[]{0x0000000000000000L});
+        public static final BitSet FOLLOW_EOF_in_entryRuleAnnotation5800 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_41_in_ruleAnnotation5835 = new BitSet(new long[]{0x0000F00000000010L});
+        public static final BitSet FOLLOW_ruleAnnotationType_in_ruleAnnotation5856 = new BitSet(new long[]{0x0000000001000002L});
+        public static final BitSet FOLLOW_24_in_ruleAnnotation5867 = new BitSet(new long[]{0x0000020000020130L});
+        public static final BitSet FOLLOW_ruleAnnotationElement_in_ruleAnnotation5888 = new BitSet(new long[]{0x0000000002400000L});
+        public static final BitSet FOLLOW_22_in_ruleAnnotation5899 = new BitSet(new long[]{0x0000020000020130L});
+        public static final BitSet FOLLOW_ruleAnnotationElement_in_ruleAnnotation5920 = new BitSet(new long[]{0x0000000002400000L});
+        public static final BitSet FOLLOW_25_in_ruleAnnotation5932 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleAnnotationElement_in_entryRuleAnnotationElement5970 = new BitSet(new long[]{0x0000000000000000L});
+        public static final BitSet FOLLOW_EOF_in_entryRuleAnnotationElement5980 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleElementValue_in_ruleAnnotationElement6026 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_RULE_ID_in_ruleAnnotationElement6050 = new BitSet(new long[]{0x0000000020000000L});
+        public static final BitSet FOLLOW_29_in_ruleAnnotationElement6065 = new BitSet(new long[]{0x0000020000020120L});
+        public static final BitSet FOLLOW_ruleElementValue_in_ruleAnnotationElement6086 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleElementValue_in_entryRuleElementValue6123 = new BitSet(new long[]{0x0000000000000000L});
+        public static final BitSet FOLLOW_EOF_in_entryRuleElementValue6133 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleConstantValue_in_ruleElementValue6183 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleAnnotation_in_ruleElementValue6213 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleElementValueArrayInitializer_in_ruleElementValue6243 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleConstantValue_in_entryRuleConstantValue6278 = new BitSet(new long[]{0x0000000000000000L});
+        public static final BitSet FOLLOW_EOF_in_entryRuleConstantValue6288 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleConstantFormat_in_ruleConstantValue6333 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleConstantFormat_in_entryRuleConstantFormat6369 = new BitSet(new long[]{0x0000000000000000L});
+        public static final BitSet FOLLOW_EOF_in_entryRuleConstantFormat6380 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_RULE_INT_in_ruleConstantFormat6420 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_RULE_STRING_in_ruleConstantFormat6446 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleElementValueArrayInitializer_in_entryRuleElementValueArrayInitializer6491 = new BitSet(new long[]{0x0000000000000000L});
+        public static final BitSet FOLLOW_EOF_in_entryRuleElementValueArrayInitializer6501 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_17_in_ruleElementValueArrayInitializer6536 = new BitSet(new long[]{0x0000020000020120L});
+        public static final BitSet FOLLOW_ruleElementValue_in_ruleElementValueArrayInitializer6557 = new BitSet(new long[]{0x0000000000440000L});
+        public static final BitSet FOLLOW_22_in_ruleElementValueArrayInitializer6568 = new BitSet(new long[]{0x0000020000020120L});
+        public static final BitSet FOLLOW_ruleElementValue_in_ruleElementValueArrayInitializer6589 = new BitSet(new long[]{0x0000000000440000L});
+        public static final BitSet FOLLOW_18_in_ruleElementValueArrayInitializer6601 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleValue_in_entryRuleValue6638 = new BitSet(new long[]{0x0000000000000000L});
+        public static final BitSet FOLLOW_EOF_in_entryRuleValue6649 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_RULE_ID_in_ruleValue6689 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_rulesignedINT_in_ruleValue6722 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleHexadecimalType_in_ruleValue6755 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_RULE_STRING_in_ruleValue6781 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_42_in_ruleValue6805 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleHexadecimalType_in_entryRuleHexadecimalType6846 = new BitSet(new long[]{0x0000000000000000L});
+        public static final BitSet FOLLOW_EOF_in_entryRuleHexadecimalType6857 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_43_in_ruleHexadecimalType6895 = new BitSet(new long[]{0x0000000000000020L});
+        public static final BitSet FOLLOW_RULE_INT_in_ruleHexadecimalType6910 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleAnnotationType_in_entryRuleAnnotationType6956 = new BitSet(new long[]{0x0000000000000000L});
+        public static final BitSet FOLLOW_EOF_in_entryRuleAnnotationType6967 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_44_in_ruleAnnotationType7005 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_45_in_ruleAnnotationType7024 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_46_in_ruleAnnotationType7043 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_47_in_ruleAnnotationType7062 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleFQN_in_ruleAnnotationType7090 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleAttributeType_in_entryRuleAttributeType7136 = new BitSet(new long[]{0x0000000000000000L});
+        public static final BitSet FOLLOW_EOF_in_entryRuleAttributeType7147 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_48_in_ruleAttributeType7185 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_49_in_ruleAttributeType7204 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_50_in_ruleAttributeType7223 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_RULE_ID_in_ruleAttributeType7244 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleFQN_in_entryRuleFQN7290 = new BitSet(new long[]{0x0000000000000000L});
+        public static final BitSet FOLLOW_EOF_in_entryRuleFQN7301 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_RULE_ID_in_ruleFQN7341 = new BitSet(new long[]{0x0000000800000002L});
+        public static final BitSet FOLLOW_35_in_ruleFQN7360 = new BitSet(new long[]{0x0000000000000010L});
+        public static final BitSet FOLLOW_RULE_ID_in_ruleFQN7375 = new BitSet(new long[]{0x0000000800000002L});
+        public static final BitSet FOLLOW_ruleFULL_IMPORT_NAME_in_entryRuleFULL_IMPORT_NAME7423 = new BitSet(new long[]{0x0000000000000000L});
+        public static final BitSet FOLLOW_EOF_in_entryRuleFULL_IMPORT_NAME7434 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleFQN_in_ruleFULL_IMPORT_NAME7481 = new BitSet(new long[]{0x0008000000000000L});
+        public static final BitSet FOLLOW_51_in_ruleFULL_IMPORT_NAME7499 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_rulesignedINT_in_entryRulesignedINT7540 = new BitSet(new long[]{0x0000000000000000L});
+        public static final BitSet FOLLOW_EOF_in_entryRulesignedINT7551 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_52_in_rulesignedINT7590 = new BitSet(new long[]{0x0000000000000020L});
+        public static final BitSet FOLLOW_53_in_rulesignedINT7609 = new BitSet(new long[]{0x0000000000000020L});
+        public static final BitSet FOLLOW_RULE_INT_in_rulesignedINT7626 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_54_in_ruleContingency7683 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_55_in_ruleContingency7698 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_56_in_ruleRole7741 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_57_in_ruleRole7756 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_rulePrimitiveBody_in_synpred9683 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_rulePrimitiveBody_in_synpred11722 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleInterfaceDefinition_in_synpred12820 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleAttributeDefinition_in_synpred13850 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleDataDefinition_in_synpred14880 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleTypeBody_in_synpred161066 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleTypeBody_in_synpred181105 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleCompositeBody_in_synpred221491 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleCompositeBody_in_synpred241530 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleSubComponentDefinition_in_synpred302423 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleInterfaceDefinition_in_synpred312453 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleAnnotationsList_in_synpred362890 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleAnnotationsList_in_synpred393020 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleAnnotationsList_in_synpred423150 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleCompositeReferenceDefinition_in_synpred453286 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_rulePrimitiveReferenceDefinition_in_synpred463316 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleAnnotation_in_synpred755753 = new BitSet(new long[]{0x0000000000000002L});
+    }
+
 
 }

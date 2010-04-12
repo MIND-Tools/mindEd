@@ -141,8 +141,8 @@ ArrayAnnotationValue:
 terminal Boolean:
   'true' | 'false';
 
-terminal signedINT:
-  ('+'|'-')? INT;
+signedINT:
+  (AdditiveOperation)? INT;
 
 ConstantExpression:
   LogicalOrExpression;
@@ -184,16 +184,16 @@ PrimaryExpression:
 Literal:
   ID|STRING|FloatingPointLiteral|ref=[ConstantDefinition|ID];
 
-ShiftOperation:
+terminal ShiftOperation:
   '<<'|'>>';
 
-AdditiveOperation:
+terminal AdditiveOperation:
   '+'|'-';
 
-MulOperation:
+terminal MulOperation:
   '*'|'/'|'%';
 
-UnaryOperation:
+terminal UnaryOperation:
   '&'|'*'|'+'|'-'|'~'|'!';
 
 FloatingPointLiteral:
@@ -202,8 +202,8 @@ FloatingPointLiteral:
   | INT+ Exponent FDsymbol? 
   | INT+ Exponent? FDsymbol? ;
 
-terminal Exponent:
-  ('e' | 'E') ('+' | '-')? INT+;
+Exponent:
+  ('e' | 'E') (AdditiveOperation)? INT+;
   
 terminal FDsymbol:
  'f' | 'F' | 'd' | 'D';

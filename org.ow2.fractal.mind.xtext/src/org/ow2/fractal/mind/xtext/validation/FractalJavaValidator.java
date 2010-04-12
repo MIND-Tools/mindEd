@@ -162,8 +162,12 @@ public class FractalJavaValidator extends AbstractFractalJavaValidator {
 
 		String name;
 		for (EObject e : eContainer.eContents()) {
-			name = ((TemplateSpecifier) e).getName();
-			multiset.add(name);
+			// TODO verify test condition is correct 
+			if (e instanceof TemplateSpecifier) {
+				TemplateSpecifier tSpecifier = (TemplateSpecifier) e;
+				name = tSpecifier.getName();
+				multiset.add(name);
+			}
 		}
 
 		// number of element with the given name into the container
@@ -229,6 +233,7 @@ public class FractalJavaValidator extends AbstractFractalJavaValidator {
 		String name;
 		for (EObject e : eContainer.eContents()) {
 			// we assert that we iterate over an interface definition
+			// TODO verify test condition is correct 
 			if (e instanceof InterfaceDefinition) {
 				name = ((InterfaceDefinition) e).getName();
 				multiset.add(name);

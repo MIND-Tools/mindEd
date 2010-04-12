@@ -1,12 +1,12 @@
-module org.ow2.fractal.mind.idl.itf.FractalItf
+module org.ow2.fractal.mind.idl.idt.FractalIdt
 
 import org.eclipse.emf.mwe.utils.*
 import org.eclipse.xtext.generator.*
 import org.eclipse.xtext.ui.generator.*
 
-var grammarURI = "classpath:/org/ow2/fractal/mind/idl/FractalItf.xtext"
-var file.extensions = "itf"
-var projectName = "org.ow2.fractal.mind.idl.itf"
+var grammarURI = "classpath:/org/ow2/fractal/mind/idl/FractalIdt.xtext"
+var file.extensions = "idt"
+var projectName = "org.ow2.fractal.mind.idl.idt"
 var runtimeProject = "../${projectName}"
 
 Workflow {
@@ -37,7 +37,7 @@ Workflow {
 			
 			// generates Java API for the generated EPackages 
 			fragment = ecore.EcoreGeneratorFragment {
-			// referencedGenModels = "uri to genmodel, uri to next genmodel"
+			  referencedGenModels = "platform:/resource/org.ow2.fractal.mind.idl.itf/src-gen/org/ow2/fractal/mind/idl/FractalItf.genmodel"
 			}
 			
 			// the serialization component

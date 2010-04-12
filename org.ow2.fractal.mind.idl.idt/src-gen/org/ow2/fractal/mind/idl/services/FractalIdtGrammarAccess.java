@@ -627,7 +627,7 @@ public class FractalIdtGrammarAccess extends AbstractGrammarElementFinder {
 	} 
 
 	//signedINT returns ecore::EString:
-	//  ("+"|"-")? INT;
+	//  AdditiveOperation? INT;
 	public FractalItfGrammarAccess.SignedINTElements getSignedINTAccess() {
 		return gaFractalItf.getSignedINTAccess();
 	}
@@ -767,45 +767,29 @@ public class FractalIdtGrammarAccess extends AbstractGrammarElementFinder {
 		return getLiteralAccess().getRule();
 	}
 
-	//ShiftOperation returns ecore::EString:
-	//  "<<"|">>";
-	public FractalItfGrammarAccess.ShiftOperationElements getShiftOperationAccess() {
-		return gaFractalItf.getShiftOperationAccess();
-	}
-	
-	public ParserRule getShiftOperationRule() {
-		return getShiftOperationAccess().getRule();
-	}
+	//terminal ShiftOperation:
+	//  "<<" | ">>";
+	public TerminalRule getShiftOperationRule() {
+		return gaFractalItf.getShiftOperationRule();
+	} 
 
-	//AdditiveOperation returns ecore::EString:
-	//  "+"|"-";
-	public FractalItfGrammarAccess.AdditiveOperationElements getAdditiveOperationAccess() {
-		return gaFractalItf.getAdditiveOperationAccess();
-	}
-	
-	public ParserRule getAdditiveOperationRule() {
-		return getAdditiveOperationAccess().getRule();
-	}
+	//terminal AdditiveOperation:
+	//  "+" | "-";
+	public TerminalRule getAdditiveOperationRule() {
+		return gaFractalItf.getAdditiveOperationRule();
+	} 
 
-	//MulOperation returns ecore::EString:
-	//  "*"|"/"|"%";
-	public FractalItfGrammarAccess.MulOperationElements getMulOperationAccess() {
-		return gaFractalItf.getMulOperationAccess();
-	}
-	
-	public ParserRule getMulOperationRule() {
-		return getMulOperationAccess().getRule();
-	}
+	//terminal MulOperation:
+	//  "*" | "/" | "%";
+	public TerminalRule getMulOperationRule() {
+		return gaFractalItf.getMulOperationRule();
+	} 
 
-	//UnaryOperation returns ecore::EString:
-	//  "&"|"*"|"+"|"-"|"~"|"!";
-	public FractalItfGrammarAccess.UnaryOperationElements getUnaryOperationAccess() {
-		return gaFractalItf.getUnaryOperationAccess();
-	}
-	
-	public ParserRule getUnaryOperationRule() {
-		return getUnaryOperationAccess().getRule();
-	}
+	//terminal UnaryOperation:
+	//  "&" | "*" | "+" | "-" | "~" | "!";
+	public TerminalRule getUnaryOperationRule() {
+		return gaFractalItf.getUnaryOperationRule();
+	} 
 
 	//FloatingPointLiteral returns ecore::EString:
 	//  INT+ "." INT* Exponent? FDsymbol?|"." INT+ Exponent? FDsymbol?|INT+ Exponent FDsymbol?|
@@ -818,11 +802,15 @@ public class FractalIdtGrammarAccess extends AbstractGrammarElementFinder {
 		return getFloatingPointLiteralAccess().getRule();
 	}
 
-	//terminal Exponent:
-	//  ("e" | "E") ("+" | "-")? INT+;
-	public TerminalRule getExponentRule() {
-		return gaFractalItf.getExponentRule();
-	} 
+	//Exponent returns ecore::EString:
+	//  ("e"|"E") AdditiveOperation? INT+;
+	public FractalItfGrammarAccess.ExponentElements getExponentAccess() {
+		return gaFractalItf.getExponentAccess();
+	}
+	
+	public ParserRule getExponentRule() {
+		return getExponentAccess().getRule();
+	}
 
 	//terminal FDsymbol:
 	//  "f" | "F" | "d" | "D";

@@ -1364,26 +1364,18 @@ public class FractalItfGrammarAccess extends AbstractGrammarElementFinder {
 	public class SignedINTElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "signedINT");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Alternatives cAlternatives_0 = (Alternatives)cGroup.eContents().get(0);
-		private final Keyword cPlusSignKeyword_0_0 = (Keyword)cAlternatives_0.eContents().get(0);
-		private final Keyword cHyphenMinusKeyword_0_1 = (Keyword)cAlternatives_0.eContents().get(1);
+		private final RuleCall cAdditiveOperationTerminalRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
 		private final RuleCall cINTTerminalRuleCall_1 = (RuleCall)cGroup.eContents().get(1);
 		
 		//signedINT returns ecore::EString:
-		//  ("+"|"-")? INT;
+		//  AdditiveOperation? INT;
 		public ParserRule getRule() { return rule; }
 
-		//("+"|"-")? INT
+		//AdditiveOperation? INT
 		public Group getGroup() { return cGroup; }
 
-		//("+"|"-")?
-		public Alternatives getAlternatives_0() { return cAlternatives_0; }
-
-		//"+"
-		public Keyword getPlusSignKeyword_0_0() { return cPlusSignKeyword_0_0; }
-
-		//"-"
-		public Keyword getHyphenMinusKeyword_0_1() { return cHyphenMinusKeyword_0_1; }
+		//AdditiveOperation?
+		public RuleCall getAdditiveOperationTerminalRuleCall_0() { return cAdditiveOperationTerminalRuleCall_0; }
 
 		//INT
 		public RuleCall getINTTerminalRuleCall_1() { return cINTTerminalRuleCall_1; }
@@ -1588,7 +1580,7 @@ public class FractalItfGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cLeftExprAdditiveExpressionParserRuleCall_0_0 = (RuleCall)cLeftExprAssignment_0.eContents().get(0);
 		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
 		private final Assignment cOpAssignment_1_0 = (Assignment)cGroup_1.eContents().get(0);
-		private final RuleCall cOpShiftOperationParserRuleCall_1_0_0 = (RuleCall)cOpAssignment_1_0.eContents().get(0);
+		private final RuleCall cOpShiftOperationTerminalRuleCall_1_0_0 = (RuleCall)cOpAssignment_1_0.eContents().get(0);
 		private final Assignment cRightExprAssignment_1_1 = (Assignment)cGroup_1.eContents().get(1);
 		private final RuleCall cRightExprShiftExpressionParserRuleCall_1_1_0 = (RuleCall)cRightExprAssignment_1_1.eContents().get(0);
 		
@@ -1612,7 +1604,7 @@ public class FractalItfGrammarAccess extends AbstractGrammarElementFinder {
 		public Assignment getOpAssignment_1_0() { return cOpAssignment_1_0; }
 
 		//ShiftOperation
-		public RuleCall getOpShiftOperationParserRuleCall_1_0_0() { return cOpShiftOperationParserRuleCall_1_0_0; }
+		public RuleCall getOpShiftOperationTerminalRuleCall_1_0_0() { return cOpShiftOperationTerminalRuleCall_1_0_0; }
 
 		//rightExpr=ShiftExpression
 		public Assignment getRightExprAssignment_1_1() { return cRightExprAssignment_1_1; }
@@ -1628,7 +1620,7 @@ public class FractalItfGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cLeftExprMulExpressionParserRuleCall_0_0 = (RuleCall)cLeftExprAssignment_0.eContents().get(0);
 		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
 		private final Assignment cOpAssignment_1_0 = (Assignment)cGroup_1.eContents().get(0);
-		private final RuleCall cOpAdditiveOperationParserRuleCall_1_0_0 = (RuleCall)cOpAssignment_1_0.eContents().get(0);
+		private final RuleCall cOpAdditiveOperationTerminalRuleCall_1_0_0 = (RuleCall)cOpAssignment_1_0.eContents().get(0);
 		private final Assignment cRightExprAssignment_1_1 = (Assignment)cGroup_1.eContents().get(1);
 		private final RuleCall cRightExprAdditiveExpressionParserRuleCall_1_1_0 = (RuleCall)cRightExprAssignment_1_1.eContents().get(0);
 		
@@ -1652,7 +1644,7 @@ public class FractalItfGrammarAccess extends AbstractGrammarElementFinder {
 		public Assignment getOpAssignment_1_0() { return cOpAssignment_1_0; }
 
 		//AdditiveOperation
-		public RuleCall getOpAdditiveOperationParserRuleCall_1_0_0() { return cOpAdditiveOperationParserRuleCall_1_0_0; }
+		public RuleCall getOpAdditiveOperationTerminalRuleCall_1_0_0() { return cOpAdditiveOperationTerminalRuleCall_1_0_0; }
 
 		//rightExpr=AdditiveExpression
 		public Assignment getRightExprAssignment_1_1() { return cRightExprAssignment_1_1; }
@@ -1668,7 +1660,7 @@ public class FractalItfGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cLeftExprCastExpressionParserRuleCall_0_0 = (RuleCall)cLeftExprAssignment_0.eContents().get(0);
 		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
 		private final Assignment cOpAssignment_1_0 = (Assignment)cGroup_1.eContents().get(0);
-		private final RuleCall cOpMulOperationParserRuleCall_1_0_0 = (RuleCall)cOpAssignment_1_0.eContents().get(0);
+		private final RuleCall cOpMulOperationTerminalRuleCall_1_0_0 = (RuleCall)cOpAssignment_1_0.eContents().get(0);
 		private final Assignment cRightExprAssignment_1_1 = (Assignment)cGroup_1.eContents().get(1);
 		private final RuleCall cRightExprMulExpressionParserRuleCall_1_1_0 = (RuleCall)cRightExprAssignment_1_1.eContents().get(0);
 		
@@ -1692,7 +1684,7 @@ public class FractalItfGrammarAccess extends AbstractGrammarElementFinder {
 		public Assignment getOpAssignment_1_0() { return cOpAssignment_1_0; }
 
 		//MulOperation
-		public RuleCall getOpMulOperationParserRuleCall_1_0_0() { return cOpMulOperationParserRuleCall_1_0_0; }
+		public RuleCall getOpMulOperationTerminalRuleCall_1_0_0() { return cOpMulOperationTerminalRuleCall_1_0_0; }
 
 		//rightExpr=MulExpression
 		public Assignment getRightExprAssignment_1_1() { return cRightExprAssignment_1_1; }
@@ -1755,7 +1747,7 @@ public class FractalItfGrammarAccess extends AbstractGrammarElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "UnaryExpression");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Assignment cUnaryExprAssignment_0 = (Assignment)cGroup.eContents().get(0);
-		private final RuleCall cUnaryExprUnaryOperationParserRuleCall_0_0 = (RuleCall)cUnaryExprAssignment_0.eContents().get(0);
+		private final RuleCall cUnaryExprUnaryOperationTerminalRuleCall_0_0 = (RuleCall)cUnaryExprAssignment_0.eContents().get(0);
 		private final Assignment cPrimaryExprAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final RuleCall cPrimaryExprPrimaryExpressionParserRuleCall_1_0 = (RuleCall)cPrimaryExprAssignment_1.eContents().get(0);
 		
@@ -1770,7 +1762,7 @@ public class FractalItfGrammarAccess extends AbstractGrammarElementFinder {
 		public Assignment getUnaryExprAssignment_0() { return cUnaryExprAssignment_0; }
 
 		//UnaryOperation
-		public RuleCall getUnaryExprUnaryOperationParserRuleCall_0_0() { return cUnaryExprUnaryOperationParserRuleCall_0_0; }
+		public RuleCall getUnaryExprUnaryOperationTerminalRuleCall_0_0() { return cUnaryExprUnaryOperationTerminalRuleCall_0_0; }
 
 		//primaryExpr=PrimaryExpression
 		public Assignment getPrimaryExprAssignment_1() { return cPrimaryExprAssignment_1; }
@@ -1851,106 +1843,6 @@ public class FractalItfGrammarAccess extends AbstractGrammarElementFinder {
 		public RuleCall getRefConstantDefinitionIDTerminalRuleCall_3_0_1() { return cRefConstantDefinitionIDTerminalRuleCall_3_0_1; }
 	}
 
-	public class ShiftOperationElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "ShiftOperation");
-		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final Keyword cLessThanSignLessThanSignKeyword_0 = (Keyword)cAlternatives.eContents().get(0);
-		private final Keyword cGreaterThanSignGreaterThanSignKeyword_1 = (Keyword)cAlternatives.eContents().get(1);
-		
-		//ShiftOperation returns ecore::EString:
-		//  "<<"|">>";
-		public ParserRule getRule() { return rule; }
-
-		//"<<"|">>"
-		public Alternatives getAlternatives() { return cAlternatives; }
-
-		//"<<"
-		public Keyword getLessThanSignLessThanSignKeyword_0() { return cLessThanSignLessThanSignKeyword_0; }
-
-		//">>"
-		public Keyword getGreaterThanSignGreaterThanSignKeyword_1() { return cGreaterThanSignGreaterThanSignKeyword_1; }
-	}
-
-	public class AdditiveOperationElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "AdditiveOperation");
-		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final Keyword cPlusSignKeyword_0 = (Keyword)cAlternatives.eContents().get(0);
-		private final Keyword cHyphenMinusKeyword_1 = (Keyword)cAlternatives.eContents().get(1);
-		
-		//AdditiveOperation returns ecore::EString:
-		//  "+"|"-";
-		public ParserRule getRule() { return rule; }
-
-		//"+"|"-"
-		public Alternatives getAlternatives() { return cAlternatives; }
-
-		//"+"
-		public Keyword getPlusSignKeyword_0() { return cPlusSignKeyword_0; }
-
-		//"-"
-		public Keyword getHyphenMinusKeyword_1() { return cHyphenMinusKeyword_1; }
-	}
-
-	public class MulOperationElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "MulOperation");
-		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final Keyword cAsteriskKeyword_0 = (Keyword)cAlternatives.eContents().get(0);
-		private final Keyword cSolidusKeyword_1 = (Keyword)cAlternatives.eContents().get(1);
-		private final Keyword cPercentSignKeyword_2 = (Keyword)cAlternatives.eContents().get(2);
-		
-		//MulOperation returns ecore::EString:
-		//  "*"|"/"|"%";
-		public ParserRule getRule() { return rule; }
-
-		//"*"|"/"|"%"
-		public Alternatives getAlternatives() { return cAlternatives; }
-
-		//"*"
-		public Keyword getAsteriskKeyword_0() { return cAsteriskKeyword_0; }
-
-		//"/"
-		public Keyword getSolidusKeyword_1() { return cSolidusKeyword_1; }
-
-		//"%"
-		public Keyword getPercentSignKeyword_2() { return cPercentSignKeyword_2; }
-	}
-
-	public class UnaryOperationElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "UnaryOperation");
-		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final Keyword cAmpersandKeyword_0 = (Keyword)cAlternatives.eContents().get(0);
-		private final Keyword cAsteriskKeyword_1 = (Keyword)cAlternatives.eContents().get(1);
-		private final Keyword cPlusSignKeyword_2 = (Keyword)cAlternatives.eContents().get(2);
-		private final Keyword cHyphenMinusKeyword_3 = (Keyword)cAlternatives.eContents().get(3);
-		private final Keyword cTildeKeyword_4 = (Keyword)cAlternatives.eContents().get(4);
-		private final Keyword cExclamationMarkKeyword_5 = (Keyword)cAlternatives.eContents().get(5);
-		
-		//UnaryOperation returns ecore::EString:
-		//  "&"|"*"|"+"|"-"|"~"|"!";
-		public ParserRule getRule() { return rule; }
-
-		//"&"|"*"|"+"|"-"|"~"|"!"
-		public Alternatives getAlternatives() { return cAlternatives; }
-
-		//"&"
-		public Keyword getAmpersandKeyword_0() { return cAmpersandKeyword_0; }
-
-		//"*"
-		public Keyword getAsteriskKeyword_1() { return cAsteriskKeyword_1; }
-
-		//"+"
-		public Keyword getPlusSignKeyword_2() { return cPlusSignKeyword_2; }
-
-		//"-"
-		public Keyword getHyphenMinusKeyword_3() { return cHyphenMinusKeyword_3; }
-
-		//"~"
-		public Keyword getTildeKeyword_4() { return cTildeKeyword_4; }
-
-		//"!"
-		public Keyword getExclamationMarkKeyword_5() { return cExclamationMarkKeyword_5; }
-	}
-
 	public class FloatingPointLiteralElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "FloatingPointLiteral");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
@@ -1958,20 +1850,20 @@ public class FractalItfGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cINTTerminalRuleCall_0_0 = (RuleCall)cGroup_0.eContents().get(0);
 		private final Keyword cFullStopKeyword_0_1 = (Keyword)cGroup_0.eContents().get(1);
 		private final RuleCall cINTTerminalRuleCall_0_2 = (RuleCall)cGroup_0.eContents().get(2);
-		private final RuleCall cExponentTerminalRuleCall_0_3 = (RuleCall)cGroup_0.eContents().get(3);
+		private final RuleCall cExponentParserRuleCall_0_3 = (RuleCall)cGroup_0.eContents().get(3);
 		private final RuleCall cFDsymbolTerminalRuleCall_0_4 = (RuleCall)cGroup_0.eContents().get(4);
 		private final Group cGroup_1 = (Group)cAlternatives.eContents().get(1);
 		private final Keyword cFullStopKeyword_1_0 = (Keyword)cGroup_1.eContents().get(0);
 		private final RuleCall cINTTerminalRuleCall_1_1 = (RuleCall)cGroup_1.eContents().get(1);
-		private final RuleCall cExponentTerminalRuleCall_1_2 = (RuleCall)cGroup_1.eContents().get(2);
+		private final RuleCall cExponentParserRuleCall_1_2 = (RuleCall)cGroup_1.eContents().get(2);
 		private final RuleCall cFDsymbolTerminalRuleCall_1_3 = (RuleCall)cGroup_1.eContents().get(3);
 		private final Group cGroup_2 = (Group)cAlternatives.eContents().get(2);
 		private final RuleCall cINTTerminalRuleCall_2_0 = (RuleCall)cGroup_2.eContents().get(0);
-		private final RuleCall cExponentTerminalRuleCall_2_1 = (RuleCall)cGroup_2.eContents().get(1);
+		private final RuleCall cExponentParserRuleCall_2_1 = (RuleCall)cGroup_2.eContents().get(1);
 		private final RuleCall cFDsymbolTerminalRuleCall_2_2 = (RuleCall)cGroup_2.eContents().get(2);
 		private final Group cGroup_3 = (Group)cAlternatives.eContents().get(3);
 		private final RuleCall cINTTerminalRuleCall_3_0 = (RuleCall)cGroup_3.eContents().get(0);
-		private final RuleCall cExponentTerminalRuleCall_3_1 = (RuleCall)cGroup_3.eContents().get(1);
+		private final RuleCall cExponentParserRuleCall_3_1 = (RuleCall)cGroup_3.eContents().get(1);
 		private final RuleCall cFDsymbolTerminalRuleCall_3_2 = (RuleCall)cGroup_3.eContents().get(2);
 		
 		//FloatingPointLiteral returns ecore::EString:
@@ -1996,7 +1888,7 @@ public class FractalItfGrammarAccess extends AbstractGrammarElementFinder {
 		public RuleCall getINTTerminalRuleCall_0_2() { return cINTTerminalRuleCall_0_2; }
 
 		//Exponent?
-		public RuleCall getExponentTerminalRuleCall_0_3() { return cExponentTerminalRuleCall_0_3; }
+		public RuleCall getExponentParserRuleCall_0_3() { return cExponentParserRuleCall_0_3; }
 
 		//FDsymbol?
 		public RuleCall getFDsymbolTerminalRuleCall_0_4() { return cFDsymbolTerminalRuleCall_0_4; }
@@ -2011,7 +1903,7 @@ public class FractalItfGrammarAccess extends AbstractGrammarElementFinder {
 		public RuleCall getINTTerminalRuleCall_1_1() { return cINTTerminalRuleCall_1_1; }
 
 		//Exponent?
-		public RuleCall getExponentTerminalRuleCall_1_2() { return cExponentTerminalRuleCall_1_2; }
+		public RuleCall getExponentParserRuleCall_1_2() { return cExponentParserRuleCall_1_2; }
 
 		//FDsymbol?
 		public RuleCall getFDsymbolTerminalRuleCall_1_3() { return cFDsymbolTerminalRuleCall_1_3; }
@@ -2023,7 +1915,7 @@ public class FractalItfGrammarAccess extends AbstractGrammarElementFinder {
 		public RuleCall getINTTerminalRuleCall_2_0() { return cINTTerminalRuleCall_2_0; }
 
 		//Exponent
-		public RuleCall getExponentTerminalRuleCall_2_1() { return cExponentTerminalRuleCall_2_1; }
+		public RuleCall getExponentParserRuleCall_2_1() { return cExponentParserRuleCall_2_1; }
 
 		//FDsymbol?
 		public RuleCall getFDsymbolTerminalRuleCall_2_2() { return cFDsymbolTerminalRuleCall_2_2; }
@@ -2035,10 +1927,42 @@ public class FractalItfGrammarAccess extends AbstractGrammarElementFinder {
 		public RuleCall getINTTerminalRuleCall_3_0() { return cINTTerminalRuleCall_3_0; }
 
 		//Exponent?
-		public RuleCall getExponentTerminalRuleCall_3_1() { return cExponentTerminalRuleCall_3_1; }
+		public RuleCall getExponentParserRuleCall_3_1() { return cExponentParserRuleCall_3_1; }
 
 		//FDsymbol?
 		public RuleCall getFDsymbolTerminalRuleCall_3_2() { return cFDsymbolTerminalRuleCall_3_2; }
+	}
+
+	public class ExponentElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Exponent");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Alternatives cAlternatives_0 = (Alternatives)cGroup.eContents().get(0);
+		private final Keyword cEKeyword_0_0 = (Keyword)cAlternatives_0.eContents().get(0);
+		private final Keyword cEKeyword_0_1 = (Keyword)cAlternatives_0.eContents().get(1);
+		private final RuleCall cAdditiveOperationTerminalRuleCall_1 = (RuleCall)cGroup.eContents().get(1);
+		private final RuleCall cINTTerminalRuleCall_2 = (RuleCall)cGroup.eContents().get(2);
+		
+		//Exponent returns ecore::EString:
+		//  ("e"|"E") AdditiveOperation? INT+;
+		public ParserRule getRule() { return rule; }
+
+		//("e"|"E") AdditiveOperation? INT+
+		public Group getGroup() { return cGroup; }
+
+		//"e"|"E"
+		public Alternatives getAlternatives_0() { return cAlternatives_0; }
+
+		//"e"
+		public Keyword getEKeyword_0_0() { return cEKeyword_0_0; }
+
+		//"E"
+		public Keyword getEKeyword_0_1() { return cEKeyword_0_1; }
+
+		//AdditiveOperation?
+		public RuleCall getAdditiveOperationTerminalRuleCall_1() { return cAdditiveOperationTerminalRuleCall_1; }
+
+		//INT+
+		public RuleCall getINTTerminalRuleCall_2() { return cINTTerminalRuleCall_2; }
 	}
 	
 	
@@ -2333,12 +2257,12 @@ public class FractalItfGrammarAccess extends AbstractGrammarElementFinder {
 	private UnaryExpressionElements pUnaryExpression;
 	private PrimaryExpressionElements pPrimaryExpression;
 	private LiteralElements pLiteral;
-	private ShiftOperationElements pShiftOperation;
-	private AdditiveOperationElements pAdditiveOperation;
-	private MulOperationElements pMulOperation;
-	private UnaryOperationElements pUnaryOperation;
+	private TerminalRule tShiftOperation;
+	private TerminalRule tAdditiveOperation;
+	private TerminalRule tMulOperation;
+	private TerminalRule tUnaryOperation;
 	private FloatingPointLiteralElements pFloatingPointLiteral;
-	private TerminalRule tExponent;
+	private ExponentElements pExponent;
 	private TerminalRule tFDsymbol;
 	
 	private final GrammarProvider grammarProvider;
@@ -2798,7 +2722,7 @@ public class FractalItfGrammarAccess extends AbstractGrammarElementFinder {
 	} 
 
 	//signedINT returns ecore::EString:
-	//  ("+"|"-")? INT;
+	//  AdditiveOperation? INT;
 	public SignedINTElements getSignedINTAccess() {
 		return (pSignedINT != null) ? pSignedINT : (pSignedINT = new SignedINTElements());
 	}
@@ -2938,45 +2862,29 @@ public class FractalItfGrammarAccess extends AbstractGrammarElementFinder {
 		return getLiteralAccess().getRule();
 	}
 
-	//ShiftOperation returns ecore::EString:
-	//  "<<"|">>";
-	public ShiftOperationElements getShiftOperationAccess() {
-		return (pShiftOperation != null) ? pShiftOperation : (pShiftOperation = new ShiftOperationElements());
-	}
-	
-	public ParserRule getShiftOperationRule() {
-		return getShiftOperationAccess().getRule();
-	}
+	//terminal ShiftOperation:
+	//  "<<" | ">>";
+	public TerminalRule getShiftOperationRule() {
+		return (tShiftOperation != null) ? tShiftOperation : (tShiftOperation = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "ShiftOperation"));
+	} 
 
-	//AdditiveOperation returns ecore::EString:
-	//  "+"|"-";
-	public AdditiveOperationElements getAdditiveOperationAccess() {
-		return (pAdditiveOperation != null) ? pAdditiveOperation : (pAdditiveOperation = new AdditiveOperationElements());
-	}
-	
-	public ParserRule getAdditiveOperationRule() {
-		return getAdditiveOperationAccess().getRule();
-	}
+	//terminal AdditiveOperation:
+	//  "+" | "-";
+	public TerminalRule getAdditiveOperationRule() {
+		return (tAdditiveOperation != null) ? tAdditiveOperation : (tAdditiveOperation = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "AdditiveOperation"));
+	} 
 
-	//MulOperation returns ecore::EString:
-	//  "*"|"/"|"%";
-	public MulOperationElements getMulOperationAccess() {
-		return (pMulOperation != null) ? pMulOperation : (pMulOperation = new MulOperationElements());
-	}
-	
-	public ParserRule getMulOperationRule() {
-		return getMulOperationAccess().getRule();
-	}
+	//terminal MulOperation:
+	//  "*" | "/" | "%";
+	public TerminalRule getMulOperationRule() {
+		return (tMulOperation != null) ? tMulOperation : (tMulOperation = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "MulOperation"));
+	} 
 
-	//UnaryOperation returns ecore::EString:
-	//  "&"|"*"|"+"|"-"|"~"|"!";
-	public UnaryOperationElements getUnaryOperationAccess() {
-		return (pUnaryOperation != null) ? pUnaryOperation : (pUnaryOperation = new UnaryOperationElements());
-	}
-	
-	public ParserRule getUnaryOperationRule() {
-		return getUnaryOperationAccess().getRule();
-	}
+	//terminal UnaryOperation:
+	//  "&" | "*" | "+" | "-" | "~" | "!";
+	public TerminalRule getUnaryOperationRule() {
+		return (tUnaryOperation != null) ? tUnaryOperation : (tUnaryOperation = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "UnaryOperation"));
+	} 
 
 	//FloatingPointLiteral returns ecore::EString:
 	//  INT+ "." INT* Exponent? FDsymbol?|"." INT+ Exponent? FDsymbol?|INT+ Exponent FDsymbol?|
@@ -2989,11 +2897,15 @@ public class FractalItfGrammarAccess extends AbstractGrammarElementFinder {
 		return getFloatingPointLiteralAccess().getRule();
 	}
 
-	//terminal Exponent:
-	//  ("e" | "E") ("+" | "-")? INT+;
-	public TerminalRule getExponentRule() {
-		return (tExponent != null) ? tExponent : (tExponent = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "Exponent"));
-	} 
+	//Exponent returns ecore::EString:
+	//  ("e"|"E") AdditiveOperation? INT+;
+	public ExponentElements getExponentAccess() {
+		return (pExponent != null) ? pExponent : (pExponent = new ExponentElements());
+	}
+	
+	public ParserRule getExponentRule() {
+		return getExponentAccess().getRule();
+	}
 
 	//terminal FDsymbol:
 	//  "f" | "F" | "d" | "D";

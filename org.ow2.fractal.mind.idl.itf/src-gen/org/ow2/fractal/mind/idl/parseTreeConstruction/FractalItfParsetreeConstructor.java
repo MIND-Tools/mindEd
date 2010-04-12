@@ -7088,8 +7088,8 @@ protected class ShiftExpression_OpAssignment_1_0 extends AssignmentToken  {
 		if((value = current.getConsumable("op",true)) == null) return null;
 		IInstanceDescription obj = current.cloneAndConsume("op");
 		if(Boolean.TRUE.booleanValue()) { 
-			type = AssignmentType.DRC;
-			element = grammarAccess.getShiftExpressionAccess().getOpShiftOperationParserRuleCall_1_0_0();
+			type = AssignmentType.LRC;
+			element = grammarAccess.getShiftExpressionAccess().getOpShiftOperationTerminalRuleCall_1_0_0();
 			return obj;
 		}
 		return null;
@@ -7275,8 +7275,8 @@ protected class AdditiveExpression_OpAssignment_1_0 extends AssignmentToken  {
 		if((value = current.getConsumable("op",true)) == null) return null;
 		IInstanceDescription obj = current.cloneAndConsume("op");
 		if(Boolean.TRUE.booleanValue()) { 
-			type = AssignmentType.DRC;
-			element = grammarAccess.getAdditiveExpressionAccess().getOpAdditiveOperationParserRuleCall_1_0_0();
+			type = AssignmentType.LRC;
+			element = grammarAccess.getAdditiveExpressionAccess().getOpAdditiveOperationTerminalRuleCall_1_0_0();
 			return obj;
 		}
 		return null;
@@ -7462,8 +7462,8 @@ protected class MulExpression_OpAssignment_1_0 extends AssignmentToken  {
 		if((value = current.getConsumable("op",true)) == null) return null;
 		IInstanceDescription obj = current.cloneAndConsume("op");
 		if(Boolean.TRUE.booleanValue()) { 
-			type = AssignmentType.DRC;
-			element = grammarAccess.getMulExpressionAccess().getOpMulOperationParserRuleCall_1_0_0();
+			type = AssignmentType.LRC;
+			element = grammarAccess.getMulExpressionAccess().getOpMulOperationTerminalRuleCall_1_0_0();
 			return obj;
 		}
 		return null;
@@ -7824,8 +7824,8 @@ protected class UnaryExpression_UnaryExprAssignment_0 extends AssignmentToken  {
 		if((value = current.getConsumable("unaryExpr",false)) == null) return null;
 		IInstanceDescription obj = current.cloneAndConsume("unaryExpr");
 		if(Boolean.TRUE.booleanValue()) { 
-			type = AssignmentType.DRC;
-			element = grammarAccess.getUnaryExpressionAccess().getUnaryExprUnaryOperationParserRuleCall_0_0();
+			type = AssignmentType.LRC;
+			element = grammarAccess.getUnaryExpressionAccess().getUnaryExprUnaryOperationTerminalRuleCall_0_0();
 			return obj;
 		}
 		return null;
@@ -8207,9 +8207,6 @@ protected class Literal_RefAssignment_3 extends AssignmentToken  {
 
 
 /************ end Rule Literal ****************/
-
-
-
 
 
 

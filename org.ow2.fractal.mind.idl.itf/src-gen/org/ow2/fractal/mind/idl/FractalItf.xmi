@@ -718,10 +718,7 @@
         <classifier xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       </type>
       <alternatives xsi:type="xtext:Group">
-        <elements xsi:type="xtext:Alternatives" cardinality="?">
-          <elements xsi:type="xtext:Keyword" value="+"/>
-          <elements xsi:type="xtext:Keyword" value="-"/>
-        </elements>
+        <elements xsi:type="xtext:RuleCall" cardinality="?" rule="/0/@rules.56"/>
         <elements xsi:type="xtext:RuleCall" rule="/1/@rules.1"/>
       </alternatives>
     </rules>
@@ -931,7 +928,7 @@
         </elements>
       </alternatives>
     </rules>
-    <rules xsi:type="xtext:ParserRule" name="ShiftOperation">
+    <rules xsi:type="xtext:TerminalRule" name="ShiftOperation">
       <type metamodel="/1/@metamodelDeclarations.0">
         <classifier xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       </type>
@@ -940,7 +937,7 @@
         <elements xsi:type="xtext:Keyword" value=">>"/>
       </alternatives>
     </rules>
-    <rules xsi:type="xtext:ParserRule" name="AdditiveOperation">
+    <rules xsi:type="xtext:TerminalRule" name="AdditiveOperation">
       <type metamodel="/1/@metamodelDeclarations.0">
         <classifier xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       </type>
@@ -949,7 +946,7 @@
         <elements xsi:type="xtext:Keyword" value="-"/>
       </alternatives>
     </rules>
-    <rules xsi:type="xtext:ParserRule" name="MulOperation">
+    <rules xsi:type="xtext:TerminalRule" name="MulOperation">
       <type metamodel="/1/@metamodelDeclarations.0">
         <classifier xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       </type>
@@ -959,7 +956,7 @@
         <elements xsi:type="xtext:Keyword" value="%"/>
       </alternatives>
     </rules>
-    <rules xsi:type="xtext:ParserRule" name="UnaryOperation">
+    <rules xsi:type="xtext:TerminalRule" name="UnaryOperation">
       <type metamodel="/1/@metamodelDeclarations.0">
         <classifier xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       </type>
@@ -1002,7 +999,7 @@
         </elements>
       </alternatives>
     </rules>
-    <rules xsi:type="xtext:TerminalRule" name="Exponent">
+    <rules xsi:type="xtext:ParserRule" name="Exponent">
       <type metamodel="/1/@metamodelDeclarations.0">
         <classifier xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       </type>
@@ -1011,10 +1008,7 @@
           <elements xsi:type="xtext:Keyword" value="e"/>
           <elements xsi:type="xtext:Keyword" value="E"/>
         </elements>
-        <elements xsi:type="xtext:Alternatives" cardinality="?">
-          <elements xsi:type="xtext:Keyword" value="+"/>
-          <elements xsi:type="xtext:Keyword" value="-"/>
-        </elements>
+        <elements xsi:type="xtext:RuleCall" cardinality="?" rule="/0/@rules.56"/>
         <elements xsi:type="xtext:RuleCall" cardinality="+" rule="/1/@rules.1"/>
       </alternatives>
     </rules>

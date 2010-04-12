@@ -48,15 +48,11 @@ public class FractalItfParser extends AbstractContentAssistParser {
 					put(grammarAccess.getIncludeDirectiveAccess().getAlternatives_1(), "rule__IncludeDirective__Alternatives_1");
 					put(grammarAccess.getAnnotationParametersAccess().getAlternatives_2(), "rule__AnnotationParameters__Alternatives_2");
 					put(grammarAccess.getAnnotationValueAccess().getAlternatives(), "rule__AnnotationValue__Alternatives");
-					put(grammarAccess.getSignedINTAccess().getAlternatives_0(), "rule__SignedINT__Alternatives_0");
 					put(grammarAccess.getCastExpressionAccess().getAlternatives(), "rule__CastExpression__Alternatives");
 					put(grammarAccess.getPrimaryExpressionAccess().getAlternatives(), "rule__PrimaryExpression__Alternatives");
 					put(grammarAccess.getLiteralAccess().getAlternatives(), "rule__Literal__Alternatives");
-					put(grammarAccess.getShiftOperationAccess().getAlternatives(), "rule__ShiftOperation__Alternatives");
-					put(grammarAccess.getAdditiveOperationAccess().getAlternatives(), "rule__AdditiveOperation__Alternatives");
-					put(grammarAccess.getMulOperationAccess().getAlternatives(), "rule__MulOperation__Alternatives");
-					put(grammarAccess.getUnaryOperationAccess().getAlternatives(), "rule__UnaryOperation__Alternatives");
 					put(grammarAccess.getFloatingPointLiteralAccess().getAlternatives(), "rule__FloatingPointLiteral__Alternatives");
+					put(grammarAccess.getExponentAccess().getAlternatives_0(), "rule__Exponent__Alternatives_0");
 					put(grammarAccess.getTypeQualifierAccess().getAlternatives(), "rule__TypeQualifier__Alternatives");
 					put(grammarAccess.getTypeSpecifierAccess().getAlternatives(), "rule__TypeSpecifier__Alternatives");
 					put(grammarAccess.getParameterQualifierAccess().getAlternatives(), "rule__ParameterQualifier__Alternatives");
@@ -128,6 +124,7 @@ public class FractalItfParser extends AbstractContentAssistParser {
 					put(grammarAccess.getFloatingPointLiteralAccess().getGroup_1(), "rule__FloatingPointLiteral__Group_1__0");
 					put(grammarAccess.getFloatingPointLiteralAccess().getGroup_2(), "rule__FloatingPointLiteral__Group_2__0");
 					put(grammarAccess.getFloatingPointLiteralAccess().getGroup_3(), "rule__FloatingPointLiteral__Group_3__0");
+					put(grammarAccess.getExponentAccess().getGroup(), "rule__Exponent__Group__0");
 					put(grammarAccess.getItfFileAccess().getIncludesAssignment_0(), "rule__ItfFile__IncludesAssignment_0");
 					put(grammarAccess.getItfFileAccess().getConstantAssignment_1_0(), "rule__ItfFile__ConstantAssignment_1_0");
 					put(grammarAccess.getItfFileAccess().getTypeAssignment_1_1(), "rule__ItfFile__TypeAssignment_1_1");

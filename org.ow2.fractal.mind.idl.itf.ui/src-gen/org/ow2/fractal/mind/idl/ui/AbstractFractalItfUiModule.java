@@ -102,5 +102,10 @@ public abstract class AbstractFractalItfUiModule extends DefaultUiModule {
 		return org.eclipse.xtext.builder.nature.NatureAddingEditorCallback.class;
 	}
 
+	// contributed by org.eclipse.xtext.ui.generator.quickfix.QuickfixProviderFragment
+	public Class<? extends org.eclipse.xtext.ui.editor.quickfix.IssueResolutionProvider> bindIssueResolutionProvider() {
+		return org.ow2.fractal.mind.idl.ui.quickfix.FractalItfQuickfixProvider.class;
+	}
+
 
 }
