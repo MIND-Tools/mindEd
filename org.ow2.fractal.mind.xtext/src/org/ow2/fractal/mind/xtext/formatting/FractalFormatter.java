@@ -51,29 +51,29 @@ public class FractalFormatter extends AbstractDeclarativeFormatter {
 	private void formatBlocs() {
 		// PrimitiveComponent
 		this.formatBloc(this.f.getPrimitiveComponentDefinitionAccess()
-				.getLeftCurlyBracketKeyword_5_0_0(), this.f
+				.getLeftCurlyBracketKeyword_6_0_0(), this.f
 				.getPrimitiveComponentDefinitionAccess()
-				.getRightCurlyBracketKeyword_5_0_2());
+				.getRightCurlyBracketKeyword_6_0_2());
 		// CompositeComponent
 		this.formatBloc(this.f.getCompositeComponentDefinitionAccess()
-				.getLeftCurlyBracketKeyword_5_0_0(), this.f
+				.getLeftCurlyBracketKeyword_6_0_0(), this.f
 				.getCompositeComponentDefinitionAccess()
-				.getRightCurlyBracketKeyword_5_0_2());
+				.getRightCurlyBracketKeyword_6_0_2());
 		// TypeDefinition
 		this.formatBloc(this.f.getComponentTypeDefinitionAccess()
-				.getLeftCurlyBracketKeyword_3_0_0(), this.f
+				.getLeftCurlyBracketKeyword_4_0_0(), this.f
 				.getComponentTypeDefinitionAccess()
-				.getRightCurlyBracketKeyword_3_0_2());
+				.getRightCurlyBracketKeyword_4_0_2());
 		// SubComponentDefinition
-		this.formatBloc(this.f.getSubComponentDefinitionAccess()
-				.getLeftCurlyBracketKeyword_5_0_1(), this.f
-				.getSubComponentDefinitionAccess()
-				.getRightCurlyBracketKeyword_5_0_3());
+		this.formatBloc(this.f.getSubComponentCompositeBodyAccess()
+				.getLeftCurlyBracketKeyword_2(), this.f
+				.getSubComponentCompositeBodyAccess()
+				.getRightCurlyBracketKeyword_4());
 
-		this.formatBloc(this.f.getSubComponentDefinitionAccess()
-				.getLeftCurlyBracketKeyword_5_1_1(), this.f
-				.getSubComponentDefinitionAccess()
-				.getRightCurlyBracketKeyword_5_1_3());
+		this.formatBloc(this.f.getSubComponentPrimitiveBodyAccess()
+				.getLeftCurlyBracketKeyword_2(), this.f
+				.getSubComponentPrimitiveBodyAccess()
+				.getRightCurlyBracketKeyword_4());
 	}
 
 	/**
@@ -140,9 +140,9 @@ public class FractalFormatter extends AbstractDeclarativeFormatter {
 
 		// Semicolon rules
 		Keyword[] keys = new Keyword[] {
-				this.f.getCompositeBodyAccess().getSemicolonKeyword_1_1(),
-				this.f.getPrimitiveBodyAccess().getSemicolonKeyword_1_1(),
-				this.f.getTypeBodyAccess().getSemicolonKeyword_1_1() };
+				this.f.getCompositeBodyAccess().getSemicolonKeyword_1(),
+				this.f.getPrimitiveBodyAccess().getSemicolonKeyword_1(),
+				this.f.getTypeBodyAccess().getSemicolonKeyword_1() };
 		for (Keyword k : keys)
 			this.formatSemicolon(k);
 
