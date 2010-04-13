@@ -3960,12 +3960,16 @@ ruleFloatingPointLiteral returns [AntlrDatatypeRuleToken current=new AntlrDataty
     @after { resetLookahead(); 
 	    lastConsumedNode = currentNode;
     }:
-(((    this_INT_0=RULE_INT    {
-		$current.merge(this_INT_0);
+(((
+    { 
+        currentNode=createCompositeNode(grammarAccess.getFloatingPointLiteralAccess().getSignedINTParserRuleCall_0_0(), currentNode); 
+    }
+    this_signedINT_0=rulesignedINT    {
+		$current.merge(this_signedINT_0);
     }
 
     { 
-    createLeafNode(grammarAccess.getFloatingPointLiteralAccess().getINTTerminalRuleCall_0_0(), null); 
+        currentNode = currentNode.getParent();
     }
 )+
 	kw='.' 
@@ -3973,12 +3977,16 @@ ruleFloatingPointLiteral returns [AntlrDatatypeRuleToken current=new AntlrDataty
         $current.merge(kw);
         createLeafNode(grammarAccess.getFloatingPointLiteralAccess().getFullStopKeyword_0_1(), null); 
     }
-(    this_INT_2=RULE_INT    {
-		$current.merge(this_INT_2);
+(
+    { 
+        currentNode=createCompositeNode(grammarAccess.getFloatingPointLiteralAccess().getSignedINTParserRuleCall_0_2(), currentNode); 
+    }
+    this_signedINT_2=rulesignedINT    {
+		$current.merge(this_signedINT_2);
     }
 
     { 
-    createLeafNode(grammarAccess.getFloatingPointLiteralAccess().getINTTerminalRuleCall_0_2(), null); 
+        currentNode = currentNode.getParent();
     }
 )*(
     { 
@@ -4005,12 +4013,16 @@ ruleFloatingPointLiteral returns [AntlrDatatypeRuleToken current=new AntlrDataty
         $current.merge(kw);
         createLeafNode(grammarAccess.getFloatingPointLiteralAccess().getFullStopKeyword_1_0(), null); 
     }
-(    this_INT_6=RULE_INT    {
-		$current.merge(this_INT_6);
+(
+    { 
+        currentNode=createCompositeNode(grammarAccess.getFloatingPointLiteralAccess().getSignedINTParserRuleCall_1_1(), currentNode); 
+    }
+    this_signedINT_6=rulesignedINT    {
+		$current.merge(this_signedINT_6);
     }
 
     { 
-    createLeafNode(grammarAccess.getFloatingPointLiteralAccess().getINTTerminalRuleCall_1_1(), null); 
+        currentNode = currentNode.getParent();
     }
 )+(
     { 
@@ -4031,12 +4043,16 @@ ruleFloatingPointLiteral returns [AntlrDatatypeRuleToken current=new AntlrDataty
     createLeafNode(grammarAccess.getFloatingPointLiteralAccess().getFDsymbolTerminalRuleCall_1_3(), null); 
     }
 )?)
-    |((    this_INT_9=RULE_INT    {
-		$current.merge(this_INT_9);
+    |((
+    { 
+        currentNode=createCompositeNode(grammarAccess.getFloatingPointLiteralAccess().getSignedINTParserRuleCall_2_0(), currentNode); 
+    }
+    this_signedINT_9=rulesignedINT    {
+		$current.merge(this_signedINT_9);
     }
 
     { 
-    createLeafNode(grammarAccess.getFloatingPointLiteralAccess().getINTTerminalRuleCall_2_0(), null); 
+        currentNode = currentNode.getParent();
     }
 )+
     { 
@@ -4057,12 +4073,16 @@ ruleFloatingPointLiteral returns [AntlrDatatypeRuleToken current=new AntlrDataty
     createLeafNode(grammarAccess.getFloatingPointLiteralAccess().getFDsymbolTerminalRuleCall_2_2(), null); 
     }
 )?)
-    |((    this_INT_12=RULE_INT    {
-		$current.merge(this_INT_12);
+    |((
+    { 
+        currentNode=createCompositeNode(grammarAccess.getFloatingPointLiteralAccess().getSignedINTParserRuleCall_3_0(), currentNode); 
+    }
+    this_signedINT_12=rulesignedINT    {
+		$current.merge(this_signedINT_12);
     }
 
     { 
-    createLeafNode(grammarAccess.getFloatingPointLiteralAccess().getINTTerminalRuleCall_3_0(), null); 
+        currentNode = currentNode.getParent();
     }
 )+(
     { 

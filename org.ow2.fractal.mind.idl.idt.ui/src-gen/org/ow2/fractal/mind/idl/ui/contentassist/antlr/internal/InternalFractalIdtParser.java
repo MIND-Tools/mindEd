@@ -5145,11 +5145,11 @@ public class InternalFractalIdtParser extends AbstractInternalContentAssistParse
                 if ( (LA5_1==RULE_ID) ) {
                     int LA5_3 = input.LA(3);
 
-                    if ( (LA5_3==EOF||LA5_3==RULE_ID||LA5_3==49||LA5_3==55||(LA5_3>=57 && LA5_3<=59)) ) {
-                        alt5=2;
-                    }
-                    else if ( (LA5_3==51) ) {
+                    if ( (LA5_3==51) ) {
                         alt5=1;
+                    }
+                    else if ( (LA5_3==EOF||LA5_3==RULE_ID||LA5_3==49||LA5_3==55||(LA5_3>=57 && LA5_3<=59)) ) {
+                        alt5=2;
                     }
                     else {
                         if (backtracking>0) {failed=true; return ;}
@@ -5176,11 +5176,11 @@ public class InternalFractalIdtParser extends AbstractInternalContentAssistParse
                 if ( (LA5_2==RULE_ID) ) {
                     int LA5_3 = input.LA(3);
 
-                    if ( (LA5_3==EOF||LA5_3==RULE_ID||LA5_3==49||LA5_3==55||(LA5_3>=57 && LA5_3<=59)) ) {
-                        alt5=2;
-                    }
-                    else if ( (LA5_3==51) ) {
+                    if ( (LA5_3==51) ) {
                         alt5=1;
+                    }
+                    else if ( (LA5_3==EOF||LA5_3==RULE_ID||LA5_3==49||LA5_3==55||(LA5_3>=57 && LA5_3<=59)) ) {
+                        alt5=2;
                     }
                     else {
                         if (backtracking>0) {failed=true; return ;}
@@ -5367,11 +5367,11 @@ public class InternalFractalIdtParser extends AbstractInternalContentAssistParse
                 if ( (LA7_1==RULE_ID) ) {
                     int LA7_2 = input.LA(3);
 
-                    if ( (LA7_2==EOF||LA7_2==RULE_ID||LA7_2==49||LA7_2==55||(LA7_2>=57 && LA7_2<=59)) ) {
-                        alt7=2;
-                    }
-                    else if ( (LA7_2==51) ) {
+                    if ( (LA7_2==51) ) {
                         alt7=1;
+                    }
+                    else if ( (LA7_2==EOF||LA7_2==RULE_ID||LA7_2==49||LA7_2==55||(LA7_2>=57 && LA7_2<=59)) ) {
+                        alt7=2;
                     }
                     else {
                         if (backtracking>0) {failed=true; return ;}
@@ -5608,10 +5608,7 @@ public class InternalFractalIdtParser extends AbstractInternalContentAssistParse
                     {
                     int LA9_3 = input.LA(3);
 
-                    if ( (LA9_3==RULE_ID||(LA9_3>=25 && LA9_3<=44)||LA9_3==55||(LA9_3>=57 && LA9_3<=58)) ) {
-                        alt9=2;
-                    }
-                    else if ( (LA9_3==59) ) {
+                    if ( (LA9_3==59) ) {
                         int LA9_5 = input.LA(4);
 
                         if ( (synpred12()) ) {
@@ -5627,6 +5624,9 @@ public class InternalFractalIdtParser extends AbstractInternalContentAssistParse
 
                             throw nvae;
                         }
+                    }
+                    else if ( (LA9_3==RULE_ID||(LA9_3>=25 && LA9_3<=44)||LA9_3==55||(LA9_3>=57 && LA9_3<=58)) ) {
+                        alt9=2;
                     }
                     else {
                         if (backtracking>0) {failed=true; return ;}
@@ -5844,11 +5844,11 @@ public class InternalFractalIdtParser extends AbstractInternalContentAssistParse
             if ( (LA11_0==RULE_ID) ) {
                 int LA11_1 = input.LA(2);
 
-                if ( (LA11_1==56) ) {
-                    alt11=1;
-                }
-                else if ( (LA11_1==EOF||LA11_1==59) ) {
+                if ( (LA11_1==EOF||LA11_1==59) ) {
                     alt11=2;
+                }
+                else if ( (LA11_1==56) ) {
+                    alt11=1;
                 }
                 else {
                     if (backtracking>0) {failed=true; return ;}
@@ -6170,6 +6170,7 @@ public class InternalFractalIdtParser extends AbstractInternalContentAssistParse
             if ( (LA13_0==58) ) {
                 switch ( input.LA(2) ) {
                 case RULE_STRING:
+                case RULE_ADDITIVEOPERATION:
                 case RULE_INT:
                 case RULE_UNARYOPERATION:
                 case 58:
@@ -6265,7 +6266,7 @@ public class InternalFractalIdtParser extends AbstractInternalContentAssistParse
                 }
 
             }
-            else if ( ((LA13_0>=RULE_ID && LA13_0<=RULE_STRING)||LA13_0==RULE_INT||LA13_0==RULE_UNARYOPERATION||LA13_0==62) ) {
+            else if ( ((LA13_0>=RULE_ID && LA13_0<=RULE_INT)||LA13_0==RULE_UNARYOPERATION||LA13_0==62) ) {
                 alt13=2;
             }
             else {
@@ -6360,7 +6361,7 @@ public class InternalFractalIdtParser extends AbstractInternalContentAssistParse
             int alt14=2;
             int LA14_0 = input.LA(1);
 
-            if ( ((LA14_0>=RULE_ID && LA14_0<=RULE_STRING)||LA14_0==RULE_INT||LA14_0==62) ) {
+            if ( ((LA14_0>=RULE_ID && LA14_0<=RULE_INT)||LA14_0==62) ) {
                 alt14=1;
             }
             else if ( (LA14_0==58) ) {
@@ -6481,6 +6482,7 @@ public class InternalFractalIdtParser extends AbstractInternalContentAssistParse
                 alt15=2;
                 }
                 break;
+            case RULE_ADDITIVEOPERATION:
             case RULE_INT:
             case 62:
                 {
@@ -10990,7 +10992,7 @@ public class InternalFractalIdtParser extends AbstractInternalContentAssistParse
             int alt34=2;
             int LA34_0 = input.LA(1);
 
-            if ( ((LA34_0>=RULE_ID && LA34_0<=RULE_STRING)||LA34_0==RULE_INT||LA34_0==RULE_UNARYOPERATION||LA34_0==58||LA34_0==62) ) {
+            if ( ((LA34_0>=RULE_ID && LA34_0<=RULE_INT)||LA34_0==RULE_UNARYOPERATION||LA34_0==58||LA34_0==62) ) {
                 alt34=1;
             }
             switch (alt34) {
@@ -11394,7 +11396,7 @@ public class InternalFractalIdtParser extends AbstractInternalContentAssistParse
             int alt36=2;
             int LA36_0 = input.LA(1);
 
-            if ( ((LA36_0>=RULE_ID && LA36_0<=RULE_STRING)||LA36_0==RULE_INT||LA36_0==RULE_UNARYOPERATION||LA36_0==58||LA36_0==62) ) {
+            if ( ((LA36_0>=RULE_ID && LA36_0<=RULE_INT)||LA36_0==RULE_UNARYOPERATION||LA36_0==58||LA36_0==62) ) {
                 alt36=1;
             }
             switch (alt36) {
@@ -16688,59 +16690,65 @@ public class InternalFractalIdtParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start rule__FloatingPointLiteral__Group_0__0
-    // ../org.ow2.fractal.mind.idl.idt.ui/src-gen/org/ow2/fractal/mind/idl/ui/contentassist/antlr/internal/InternalFractalIdt.g:5765:1: rule__FloatingPointLiteral__Group_0__0 : ( ( ( RULE_INT ) ) ( ( RULE_INT )* ) ) rule__FloatingPointLiteral__Group_0__1 ;
+    // ../org.ow2.fractal.mind.idl.idt.ui/src-gen/org/ow2/fractal/mind/idl/ui/contentassist/antlr/internal/InternalFractalIdt.g:5765:1: rule__FloatingPointLiteral__Group_0__0 : ( ( ( rulesignedINT ) ) ( ( rulesignedINT )* ) ) rule__FloatingPointLiteral__Group_0__1 ;
     public final void rule__FloatingPointLiteral__Group_0__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.ow2.fractal.mind.idl.idt.ui/src-gen/org/ow2/fractal/mind/idl/ui/contentassist/antlr/internal/InternalFractalIdt.g:5769:1: ( ( ( ( RULE_INT ) ) ( ( RULE_INT )* ) ) rule__FloatingPointLiteral__Group_0__1 )
-            // ../org.ow2.fractal.mind.idl.idt.ui/src-gen/org/ow2/fractal/mind/idl/ui/contentassist/antlr/internal/InternalFractalIdt.g:5770:1: ( ( ( RULE_INT ) ) ( ( RULE_INT )* ) ) rule__FloatingPointLiteral__Group_0__1
+            // ../org.ow2.fractal.mind.idl.idt.ui/src-gen/org/ow2/fractal/mind/idl/ui/contentassist/antlr/internal/InternalFractalIdt.g:5769:1: ( ( ( ( rulesignedINT ) ) ( ( rulesignedINT )* ) ) rule__FloatingPointLiteral__Group_0__1 )
+            // ../org.ow2.fractal.mind.idl.idt.ui/src-gen/org/ow2/fractal/mind/idl/ui/contentassist/antlr/internal/InternalFractalIdt.g:5770:1: ( ( ( rulesignedINT ) ) ( ( rulesignedINT )* ) ) rule__FloatingPointLiteral__Group_0__1
             {
-            // ../org.ow2.fractal.mind.idl.idt.ui/src-gen/org/ow2/fractal/mind/idl/ui/contentassist/antlr/internal/InternalFractalIdt.g:5770:1: ( ( ( RULE_INT ) ) ( ( RULE_INT )* ) )
-            // ../org.ow2.fractal.mind.idl.idt.ui/src-gen/org/ow2/fractal/mind/idl/ui/contentassist/antlr/internal/InternalFractalIdt.g:5771:1: ( ( RULE_INT ) ) ( ( RULE_INT )* )
+            // ../org.ow2.fractal.mind.idl.idt.ui/src-gen/org/ow2/fractal/mind/idl/ui/contentassist/antlr/internal/InternalFractalIdt.g:5770:1: ( ( ( rulesignedINT ) ) ( ( rulesignedINT )* ) )
+            // ../org.ow2.fractal.mind.idl.idt.ui/src-gen/org/ow2/fractal/mind/idl/ui/contentassist/antlr/internal/InternalFractalIdt.g:5771:1: ( ( rulesignedINT ) ) ( ( rulesignedINT )* )
             {
-            // ../org.ow2.fractal.mind.idl.idt.ui/src-gen/org/ow2/fractal/mind/idl/ui/contentassist/antlr/internal/InternalFractalIdt.g:5771:1: ( ( RULE_INT ) )
-            // ../org.ow2.fractal.mind.idl.idt.ui/src-gen/org/ow2/fractal/mind/idl/ui/contentassist/antlr/internal/InternalFractalIdt.g:5772:1: ( RULE_INT )
-            {
-            if ( backtracking==0 ) {
-               before(grammarAccess.getFloatingPointLiteralAccess().getINTTerminalRuleCall_0_0()); 
-            }
-            // ../org.ow2.fractal.mind.idl.idt.ui/src-gen/org/ow2/fractal/mind/idl/ui/contentassist/antlr/internal/InternalFractalIdt.g:5773:1: ( RULE_INT )
-            // ../org.ow2.fractal.mind.idl.idt.ui/src-gen/org/ow2/fractal/mind/idl/ui/contentassist/antlr/internal/InternalFractalIdt.g:5773:3: RULE_INT
-            {
-            match(input,RULE_INT,FollowSets000.FOLLOW_RULE_INT_in_rule__FloatingPointLiteral__Group_0__011683); if (failed) return ;
-
-            }
-
-            if ( backtracking==0 ) {
-               after(grammarAccess.getFloatingPointLiteralAccess().getINTTerminalRuleCall_0_0()); 
-            }
-
-            }
-
-            // ../org.ow2.fractal.mind.idl.idt.ui/src-gen/org/ow2/fractal/mind/idl/ui/contentassist/antlr/internal/InternalFractalIdt.g:5776:1: ( ( RULE_INT )* )
-            // ../org.ow2.fractal.mind.idl.idt.ui/src-gen/org/ow2/fractal/mind/idl/ui/contentassist/antlr/internal/InternalFractalIdt.g:5777:1: ( RULE_INT )*
+            // ../org.ow2.fractal.mind.idl.idt.ui/src-gen/org/ow2/fractal/mind/idl/ui/contentassist/antlr/internal/InternalFractalIdt.g:5771:1: ( ( rulesignedINT ) )
+            // ../org.ow2.fractal.mind.idl.idt.ui/src-gen/org/ow2/fractal/mind/idl/ui/contentassist/antlr/internal/InternalFractalIdt.g:5772:1: ( rulesignedINT )
             {
             if ( backtracking==0 ) {
-               before(grammarAccess.getFloatingPointLiteralAccess().getINTTerminalRuleCall_0_0()); 
+               before(grammarAccess.getFloatingPointLiteralAccess().getSignedINTParserRuleCall_0_0()); 
             }
-            // ../org.ow2.fractal.mind.idl.idt.ui/src-gen/org/ow2/fractal/mind/idl/ui/contentassist/antlr/internal/InternalFractalIdt.g:5778:1: ( RULE_INT )*
+            // ../org.ow2.fractal.mind.idl.idt.ui/src-gen/org/ow2/fractal/mind/idl/ui/contentassist/antlr/internal/InternalFractalIdt.g:5773:1: ( rulesignedINT )
+            // ../org.ow2.fractal.mind.idl.idt.ui/src-gen/org/ow2/fractal/mind/idl/ui/contentassist/antlr/internal/InternalFractalIdt.g:5773:3: rulesignedINT
+            {
+            pushFollow(FollowSets000.FOLLOW_rulesignedINT_in_rule__FloatingPointLiteral__Group_0__011683);
+            rulesignedINT();
+            _fsp--;
+            if (failed) return ;
+
+            }
+
+            if ( backtracking==0 ) {
+               after(grammarAccess.getFloatingPointLiteralAccess().getSignedINTParserRuleCall_0_0()); 
+            }
+
+            }
+
+            // ../org.ow2.fractal.mind.idl.idt.ui/src-gen/org/ow2/fractal/mind/idl/ui/contentassist/antlr/internal/InternalFractalIdt.g:5776:1: ( ( rulesignedINT )* )
+            // ../org.ow2.fractal.mind.idl.idt.ui/src-gen/org/ow2/fractal/mind/idl/ui/contentassist/antlr/internal/InternalFractalIdt.g:5777:1: ( rulesignedINT )*
+            {
+            if ( backtracking==0 ) {
+               before(grammarAccess.getFloatingPointLiteralAccess().getSignedINTParserRuleCall_0_0()); 
+            }
+            // ../org.ow2.fractal.mind.idl.idt.ui/src-gen/org/ow2/fractal/mind/idl/ui/contentassist/antlr/internal/InternalFractalIdt.g:5778:1: ( rulesignedINT )*
             loop61:
             do {
                 int alt61=2;
                 int LA61_0 = input.LA(1);
 
-                if ( (LA61_0==RULE_INT) ) {
+                if ( ((LA61_0>=RULE_ADDITIVEOPERATION && LA61_0<=RULE_INT)) ) {
                     alt61=1;
                 }
 
 
                 switch (alt61) {
             	case 1 :
-            	    // ../org.ow2.fractal.mind.idl.idt.ui/src-gen/org/ow2/fractal/mind/idl/ui/contentassist/antlr/internal/InternalFractalIdt.g:5778:3: RULE_INT
+            	    // ../org.ow2.fractal.mind.idl.idt.ui/src-gen/org/ow2/fractal/mind/idl/ui/contentassist/antlr/internal/InternalFractalIdt.g:5778:3: rulesignedINT
             	    {
-            	    match(input,RULE_INT,FollowSets000.FOLLOW_RULE_INT_in_rule__FloatingPointLiteral__Group_0__011696); if (failed) return ;
+            	    pushFollow(FollowSets000.FOLLOW_rulesignedINT_in_rule__FloatingPointLiteral__Group_0__011696);
+            	    rulesignedINT();
+            	    _fsp--;
+            	    if (failed) return ;
 
             	    }
             	    break;
@@ -16751,7 +16759,7 @@ public class InternalFractalIdtParser extends AbstractInternalContentAssistParse
             } while (true);
 
             if ( backtracking==0 ) {
-               after(grammarAccess.getFloatingPointLiteralAccess().getINTTerminalRuleCall_0_0()); 
+               after(grammarAccess.getFloatingPointLiteralAccess().getSignedINTParserRuleCall_0_0()); 
             }
 
             }
@@ -16827,37 +16835,55 @@ public class InternalFractalIdtParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start rule__FloatingPointLiteral__Group_0__2
-    // ../org.ow2.fractal.mind.idl.idt.ui/src-gen/org/ow2/fractal/mind/idl/ui/contentassist/antlr/internal/InternalFractalIdt.g:5810:1: rule__FloatingPointLiteral__Group_0__2 : ( ( RULE_INT )* ) rule__FloatingPointLiteral__Group_0__3 ;
+    // ../org.ow2.fractal.mind.idl.idt.ui/src-gen/org/ow2/fractal/mind/idl/ui/contentassist/antlr/internal/InternalFractalIdt.g:5810:1: rule__FloatingPointLiteral__Group_0__2 : ( ( rulesignedINT )* ) rule__FloatingPointLiteral__Group_0__3 ;
     public final void rule__FloatingPointLiteral__Group_0__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.ow2.fractal.mind.idl.idt.ui/src-gen/org/ow2/fractal/mind/idl/ui/contentassist/antlr/internal/InternalFractalIdt.g:5814:1: ( ( ( RULE_INT )* ) rule__FloatingPointLiteral__Group_0__3 )
-            // ../org.ow2.fractal.mind.idl.idt.ui/src-gen/org/ow2/fractal/mind/idl/ui/contentassist/antlr/internal/InternalFractalIdt.g:5815:1: ( ( RULE_INT )* ) rule__FloatingPointLiteral__Group_0__3
+            // ../org.ow2.fractal.mind.idl.idt.ui/src-gen/org/ow2/fractal/mind/idl/ui/contentassist/antlr/internal/InternalFractalIdt.g:5814:1: ( ( ( rulesignedINT )* ) rule__FloatingPointLiteral__Group_0__3 )
+            // ../org.ow2.fractal.mind.idl.idt.ui/src-gen/org/ow2/fractal/mind/idl/ui/contentassist/antlr/internal/InternalFractalIdt.g:5815:1: ( ( rulesignedINT )* ) rule__FloatingPointLiteral__Group_0__3
             {
-            // ../org.ow2.fractal.mind.idl.idt.ui/src-gen/org/ow2/fractal/mind/idl/ui/contentassist/antlr/internal/InternalFractalIdt.g:5815:1: ( ( RULE_INT )* )
-            // ../org.ow2.fractal.mind.idl.idt.ui/src-gen/org/ow2/fractal/mind/idl/ui/contentassist/antlr/internal/InternalFractalIdt.g:5816:1: ( RULE_INT )*
+            // ../org.ow2.fractal.mind.idl.idt.ui/src-gen/org/ow2/fractal/mind/idl/ui/contentassist/antlr/internal/InternalFractalIdt.g:5815:1: ( ( rulesignedINT )* )
+            // ../org.ow2.fractal.mind.idl.idt.ui/src-gen/org/ow2/fractal/mind/idl/ui/contentassist/antlr/internal/InternalFractalIdt.g:5816:1: ( rulesignedINT )*
             {
             if ( backtracking==0 ) {
-               before(grammarAccess.getFloatingPointLiteralAccess().getINTTerminalRuleCall_0_2()); 
+               before(grammarAccess.getFloatingPointLiteralAccess().getSignedINTParserRuleCall_0_2()); 
             }
-            // ../org.ow2.fractal.mind.idl.idt.ui/src-gen/org/ow2/fractal/mind/idl/ui/contentassist/antlr/internal/InternalFractalIdt.g:5817:1: ( RULE_INT )*
+            // ../org.ow2.fractal.mind.idl.idt.ui/src-gen/org/ow2/fractal/mind/idl/ui/contentassist/antlr/internal/InternalFractalIdt.g:5817:1: ( rulesignedINT )*
             loop62:
             do {
                 int alt62=2;
                 int LA62_0 = input.LA(1);
 
-                if ( (LA62_0==RULE_INT) ) {
+                if ( (LA62_0==RULE_ADDITIVEOPERATION) ) {
+                    int LA62_2 = input.LA(2);
+
+                    if ( (LA62_2==RULE_INT) ) {
+                        int LA62_4 = input.LA(3);
+
+                        if ( (synpred92()) ) {
+                            alt62=1;
+                        }
+
+
+                    }
+
+
+                }
+                else if ( (LA62_0==RULE_INT) ) {
                     alt62=1;
                 }
 
 
                 switch (alt62) {
             	case 1 :
-            	    // ../org.ow2.fractal.mind.idl.idt.ui/src-gen/org/ow2/fractal/mind/idl/ui/contentassist/antlr/internal/InternalFractalIdt.g:5817:3: RULE_INT
+            	    // ../org.ow2.fractal.mind.idl.idt.ui/src-gen/org/ow2/fractal/mind/idl/ui/contentassist/antlr/internal/InternalFractalIdt.g:5817:3: rulesignedINT
             	    {
-            	    match(input,RULE_INT,FollowSets000.FOLLOW_RULE_INT_in_rule__FloatingPointLiteral__Group_0__211776); if (failed) return ;
+            	    pushFollow(FollowSets000.FOLLOW_rulesignedINT_in_rule__FloatingPointLiteral__Group_0__211776);
+            	    rulesignedINT();
+            	    _fsp--;
+            	    if (failed) return ;
 
             	    }
             	    break;
@@ -16868,7 +16894,7 @@ public class InternalFractalIdtParser extends AbstractInternalContentAssistParse
             } while (true);
 
             if ( backtracking==0 ) {
-               after(grammarAccess.getFloatingPointLiteralAccess().getINTTerminalRuleCall_0_2()); 
+               after(grammarAccess.getFloatingPointLiteralAccess().getSignedINTParserRuleCall_0_2()); 
             }
 
             }
@@ -17064,59 +17090,80 @@ public class InternalFractalIdtParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start rule__FloatingPointLiteral__Group_1__1
-    // ../org.ow2.fractal.mind.idl.idt.ui/src-gen/org/ow2/fractal/mind/idl/ui/contentassist/antlr/internal/InternalFractalIdt.g:5893:1: rule__FloatingPointLiteral__Group_1__1 : ( ( ( RULE_INT ) ) ( ( RULE_INT )* ) ) rule__FloatingPointLiteral__Group_1__2 ;
+    // ../org.ow2.fractal.mind.idl.idt.ui/src-gen/org/ow2/fractal/mind/idl/ui/contentassist/antlr/internal/InternalFractalIdt.g:5893:1: rule__FloatingPointLiteral__Group_1__1 : ( ( ( rulesignedINT ) ) ( ( rulesignedINT )* ) ) rule__FloatingPointLiteral__Group_1__2 ;
     public final void rule__FloatingPointLiteral__Group_1__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.ow2.fractal.mind.idl.idt.ui/src-gen/org/ow2/fractal/mind/idl/ui/contentassist/antlr/internal/InternalFractalIdt.g:5897:1: ( ( ( ( RULE_INT ) ) ( ( RULE_INT )* ) ) rule__FloatingPointLiteral__Group_1__2 )
-            // ../org.ow2.fractal.mind.idl.idt.ui/src-gen/org/ow2/fractal/mind/idl/ui/contentassist/antlr/internal/InternalFractalIdt.g:5898:1: ( ( ( RULE_INT ) ) ( ( RULE_INT )* ) ) rule__FloatingPointLiteral__Group_1__2
+            // ../org.ow2.fractal.mind.idl.idt.ui/src-gen/org/ow2/fractal/mind/idl/ui/contentassist/antlr/internal/InternalFractalIdt.g:5897:1: ( ( ( ( rulesignedINT ) ) ( ( rulesignedINT )* ) ) rule__FloatingPointLiteral__Group_1__2 )
+            // ../org.ow2.fractal.mind.idl.idt.ui/src-gen/org/ow2/fractal/mind/idl/ui/contentassist/antlr/internal/InternalFractalIdt.g:5898:1: ( ( ( rulesignedINT ) ) ( ( rulesignedINT )* ) ) rule__FloatingPointLiteral__Group_1__2
             {
-            // ../org.ow2.fractal.mind.idl.idt.ui/src-gen/org/ow2/fractal/mind/idl/ui/contentassist/antlr/internal/InternalFractalIdt.g:5898:1: ( ( ( RULE_INT ) ) ( ( RULE_INT )* ) )
-            // ../org.ow2.fractal.mind.idl.idt.ui/src-gen/org/ow2/fractal/mind/idl/ui/contentassist/antlr/internal/InternalFractalIdt.g:5899:1: ( ( RULE_INT ) ) ( ( RULE_INT )* )
+            // ../org.ow2.fractal.mind.idl.idt.ui/src-gen/org/ow2/fractal/mind/idl/ui/contentassist/antlr/internal/InternalFractalIdt.g:5898:1: ( ( ( rulesignedINT ) ) ( ( rulesignedINT )* ) )
+            // ../org.ow2.fractal.mind.idl.idt.ui/src-gen/org/ow2/fractal/mind/idl/ui/contentassist/antlr/internal/InternalFractalIdt.g:5899:1: ( ( rulesignedINT ) ) ( ( rulesignedINT )* )
             {
-            // ../org.ow2.fractal.mind.idl.idt.ui/src-gen/org/ow2/fractal/mind/idl/ui/contentassist/antlr/internal/InternalFractalIdt.g:5899:1: ( ( RULE_INT ) )
-            // ../org.ow2.fractal.mind.idl.idt.ui/src-gen/org/ow2/fractal/mind/idl/ui/contentassist/antlr/internal/InternalFractalIdt.g:5900:1: ( RULE_INT )
-            {
-            if ( backtracking==0 ) {
-               before(grammarAccess.getFloatingPointLiteralAccess().getINTTerminalRuleCall_1_1()); 
-            }
-            // ../org.ow2.fractal.mind.idl.idt.ui/src-gen/org/ow2/fractal/mind/idl/ui/contentassist/antlr/internal/InternalFractalIdt.g:5901:1: ( RULE_INT )
-            // ../org.ow2.fractal.mind.idl.idt.ui/src-gen/org/ow2/fractal/mind/idl/ui/contentassist/antlr/internal/InternalFractalIdt.g:5901:3: RULE_INT
-            {
-            match(input,RULE_INT,FollowSets000.FOLLOW_RULE_INT_in_rule__FloatingPointLiteral__Group_1__111941); if (failed) return ;
-
-            }
-
-            if ( backtracking==0 ) {
-               after(grammarAccess.getFloatingPointLiteralAccess().getINTTerminalRuleCall_1_1()); 
-            }
-
-            }
-
-            // ../org.ow2.fractal.mind.idl.idt.ui/src-gen/org/ow2/fractal/mind/idl/ui/contentassist/antlr/internal/InternalFractalIdt.g:5904:1: ( ( RULE_INT )* )
-            // ../org.ow2.fractal.mind.idl.idt.ui/src-gen/org/ow2/fractal/mind/idl/ui/contentassist/antlr/internal/InternalFractalIdt.g:5905:1: ( RULE_INT )*
+            // ../org.ow2.fractal.mind.idl.idt.ui/src-gen/org/ow2/fractal/mind/idl/ui/contentassist/antlr/internal/InternalFractalIdt.g:5899:1: ( ( rulesignedINT ) )
+            // ../org.ow2.fractal.mind.idl.idt.ui/src-gen/org/ow2/fractal/mind/idl/ui/contentassist/antlr/internal/InternalFractalIdt.g:5900:1: ( rulesignedINT )
             {
             if ( backtracking==0 ) {
-               before(grammarAccess.getFloatingPointLiteralAccess().getINTTerminalRuleCall_1_1()); 
+               before(grammarAccess.getFloatingPointLiteralAccess().getSignedINTParserRuleCall_1_1()); 
             }
-            // ../org.ow2.fractal.mind.idl.idt.ui/src-gen/org/ow2/fractal/mind/idl/ui/contentassist/antlr/internal/InternalFractalIdt.g:5906:1: ( RULE_INT )*
+            // ../org.ow2.fractal.mind.idl.idt.ui/src-gen/org/ow2/fractal/mind/idl/ui/contentassist/antlr/internal/InternalFractalIdt.g:5901:1: ( rulesignedINT )
+            // ../org.ow2.fractal.mind.idl.idt.ui/src-gen/org/ow2/fractal/mind/idl/ui/contentassist/antlr/internal/InternalFractalIdt.g:5901:3: rulesignedINT
+            {
+            pushFollow(FollowSets000.FOLLOW_rulesignedINT_in_rule__FloatingPointLiteral__Group_1__111941);
+            rulesignedINT();
+            _fsp--;
+            if (failed) return ;
+
+            }
+
+            if ( backtracking==0 ) {
+               after(grammarAccess.getFloatingPointLiteralAccess().getSignedINTParserRuleCall_1_1()); 
+            }
+
+            }
+
+            // ../org.ow2.fractal.mind.idl.idt.ui/src-gen/org/ow2/fractal/mind/idl/ui/contentassist/antlr/internal/InternalFractalIdt.g:5904:1: ( ( rulesignedINT )* )
+            // ../org.ow2.fractal.mind.idl.idt.ui/src-gen/org/ow2/fractal/mind/idl/ui/contentassist/antlr/internal/InternalFractalIdt.g:5905:1: ( rulesignedINT )*
+            {
+            if ( backtracking==0 ) {
+               before(grammarAccess.getFloatingPointLiteralAccess().getSignedINTParserRuleCall_1_1()); 
+            }
+            // ../org.ow2.fractal.mind.idl.idt.ui/src-gen/org/ow2/fractal/mind/idl/ui/contentassist/antlr/internal/InternalFractalIdt.g:5906:1: ( rulesignedINT )*
             loop65:
             do {
                 int alt65=2;
                 int LA65_0 = input.LA(1);
 
-                if ( (LA65_0==RULE_INT) ) {
+                if ( (LA65_0==RULE_ADDITIVEOPERATION) ) {
+                    int LA65_2 = input.LA(2);
+
+                    if ( (LA65_2==RULE_INT) ) {
+                        int LA65_4 = input.LA(3);
+
+                        if ( (synpred95()) ) {
+                            alt65=1;
+                        }
+
+
+                    }
+
+
+                }
+                else if ( (LA65_0==RULE_INT) ) {
                     alt65=1;
                 }
 
 
                 switch (alt65) {
             	case 1 :
-            	    // ../org.ow2.fractal.mind.idl.idt.ui/src-gen/org/ow2/fractal/mind/idl/ui/contentassist/antlr/internal/InternalFractalIdt.g:5906:3: RULE_INT
+            	    // ../org.ow2.fractal.mind.idl.idt.ui/src-gen/org/ow2/fractal/mind/idl/ui/contentassist/antlr/internal/InternalFractalIdt.g:5906:3: rulesignedINT
             	    {
-            	    match(input,RULE_INT,FollowSets000.FOLLOW_RULE_INT_in_rule__FloatingPointLiteral__Group_1__111954); if (failed) return ;
+            	    pushFollow(FollowSets000.FOLLOW_rulesignedINT_in_rule__FloatingPointLiteral__Group_1__111954);
+            	    rulesignedINT();
+            	    _fsp--;
+            	    if (failed) return ;
 
             	    }
             	    break;
@@ -17127,7 +17174,7 @@ public class InternalFractalIdtParser extends AbstractInternalContentAssistParse
             } while (true);
 
             if ( backtracking==0 ) {
-               after(grammarAccess.getFloatingPointLiteralAccess().getINTTerminalRuleCall_1_1()); 
+               after(grammarAccess.getFloatingPointLiteralAccess().getSignedINTParserRuleCall_1_1()); 
             }
 
             }
@@ -17281,59 +17328,65 @@ public class InternalFractalIdtParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start rule__FloatingPointLiteral__Group_2__0
-    // ../org.ow2.fractal.mind.idl.idt.ui/src-gen/org/ow2/fractal/mind/idl/ui/contentassist/antlr/internal/InternalFractalIdt.g:5961:1: rule__FloatingPointLiteral__Group_2__0 : ( ( ( RULE_INT ) ) ( ( RULE_INT )* ) ) rule__FloatingPointLiteral__Group_2__1 ;
+    // ../org.ow2.fractal.mind.idl.idt.ui/src-gen/org/ow2/fractal/mind/idl/ui/contentassist/antlr/internal/InternalFractalIdt.g:5961:1: rule__FloatingPointLiteral__Group_2__0 : ( ( ( rulesignedINT ) ) ( ( rulesignedINT )* ) ) rule__FloatingPointLiteral__Group_2__1 ;
     public final void rule__FloatingPointLiteral__Group_2__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.ow2.fractal.mind.idl.idt.ui/src-gen/org/ow2/fractal/mind/idl/ui/contentassist/antlr/internal/InternalFractalIdt.g:5965:1: ( ( ( ( RULE_INT ) ) ( ( RULE_INT )* ) ) rule__FloatingPointLiteral__Group_2__1 )
-            // ../org.ow2.fractal.mind.idl.idt.ui/src-gen/org/ow2/fractal/mind/idl/ui/contentassist/antlr/internal/InternalFractalIdt.g:5966:1: ( ( ( RULE_INT ) ) ( ( RULE_INT )* ) ) rule__FloatingPointLiteral__Group_2__1
+            // ../org.ow2.fractal.mind.idl.idt.ui/src-gen/org/ow2/fractal/mind/idl/ui/contentassist/antlr/internal/InternalFractalIdt.g:5965:1: ( ( ( ( rulesignedINT ) ) ( ( rulesignedINT )* ) ) rule__FloatingPointLiteral__Group_2__1 )
+            // ../org.ow2.fractal.mind.idl.idt.ui/src-gen/org/ow2/fractal/mind/idl/ui/contentassist/antlr/internal/InternalFractalIdt.g:5966:1: ( ( ( rulesignedINT ) ) ( ( rulesignedINT )* ) ) rule__FloatingPointLiteral__Group_2__1
             {
-            // ../org.ow2.fractal.mind.idl.idt.ui/src-gen/org/ow2/fractal/mind/idl/ui/contentassist/antlr/internal/InternalFractalIdt.g:5966:1: ( ( ( RULE_INT ) ) ( ( RULE_INT )* ) )
-            // ../org.ow2.fractal.mind.idl.idt.ui/src-gen/org/ow2/fractal/mind/idl/ui/contentassist/antlr/internal/InternalFractalIdt.g:5967:1: ( ( RULE_INT ) ) ( ( RULE_INT )* )
+            // ../org.ow2.fractal.mind.idl.idt.ui/src-gen/org/ow2/fractal/mind/idl/ui/contentassist/antlr/internal/InternalFractalIdt.g:5966:1: ( ( ( rulesignedINT ) ) ( ( rulesignedINT )* ) )
+            // ../org.ow2.fractal.mind.idl.idt.ui/src-gen/org/ow2/fractal/mind/idl/ui/contentassist/antlr/internal/InternalFractalIdt.g:5967:1: ( ( rulesignedINT ) ) ( ( rulesignedINT )* )
             {
-            // ../org.ow2.fractal.mind.idl.idt.ui/src-gen/org/ow2/fractal/mind/idl/ui/contentassist/antlr/internal/InternalFractalIdt.g:5967:1: ( ( RULE_INT ) )
-            // ../org.ow2.fractal.mind.idl.idt.ui/src-gen/org/ow2/fractal/mind/idl/ui/contentassist/antlr/internal/InternalFractalIdt.g:5968:1: ( RULE_INT )
-            {
-            if ( backtracking==0 ) {
-               before(grammarAccess.getFloatingPointLiteralAccess().getINTTerminalRuleCall_2_0()); 
-            }
-            // ../org.ow2.fractal.mind.idl.idt.ui/src-gen/org/ow2/fractal/mind/idl/ui/contentassist/antlr/internal/InternalFractalIdt.g:5969:1: ( RULE_INT )
-            // ../org.ow2.fractal.mind.idl.idt.ui/src-gen/org/ow2/fractal/mind/idl/ui/contentassist/antlr/internal/InternalFractalIdt.g:5969:3: RULE_INT
-            {
-            match(input,RULE_INT,FollowSets000.FOLLOW_RULE_INT_in_rule__FloatingPointLiteral__Group_2__012080); if (failed) return ;
-
-            }
-
-            if ( backtracking==0 ) {
-               after(grammarAccess.getFloatingPointLiteralAccess().getINTTerminalRuleCall_2_0()); 
-            }
-
-            }
-
-            // ../org.ow2.fractal.mind.idl.idt.ui/src-gen/org/ow2/fractal/mind/idl/ui/contentassist/antlr/internal/InternalFractalIdt.g:5972:1: ( ( RULE_INT )* )
-            // ../org.ow2.fractal.mind.idl.idt.ui/src-gen/org/ow2/fractal/mind/idl/ui/contentassist/antlr/internal/InternalFractalIdt.g:5973:1: ( RULE_INT )*
+            // ../org.ow2.fractal.mind.idl.idt.ui/src-gen/org/ow2/fractal/mind/idl/ui/contentassist/antlr/internal/InternalFractalIdt.g:5967:1: ( ( rulesignedINT ) )
+            // ../org.ow2.fractal.mind.idl.idt.ui/src-gen/org/ow2/fractal/mind/idl/ui/contentassist/antlr/internal/InternalFractalIdt.g:5968:1: ( rulesignedINT )
             {
             if ( backtracking==0 ) {
-               before(grammarAccess.getFloatingPointLiteralAccess().getINTTerminalRuleCall_2_0()); 
+               before(grammarAccess.getFloatingPointLiteralAccess().getSignedINTParserRuleCall_2_0()); 
             }
-            // ../org.ow2.fractal.mind.idl.idt.ui/src-gen/org/ow2/fractal/mind/idl/ui/contentassist/antlr/internal/InternalFractalIdt.g:5974:1: ( RULE_INT )*
+            // ../org.ow2.fractal.mind.idl.idt.ui/src-gen/org/ow2/fractal/mind/idl/ui/contentassist/antlr/internal/InternalFractalIdt.g:5969:1: ( rulesignedINT )
+            // ../org.ow2.fractal.mind.idl.idt.ui/src-gen/org/ow2/fractal/mind/idl/ui/contentassist/antlr/internal/InternalFractalIdt.g:5969:3: rulesignedINT
+            {
+            pushFollow(FollowSets000.FOLLOW_rulesignedINT_in_rule__FloatingPointLiteral__Group_2__012080);
+            rulesignedINT();
+            _fsp--;
+            if (failed) return ;
+
+            }
+
+            if ( backtracking==0 ) {
+               after(grammarAccess.getFloatingPointLiteralAccess().getSignedINTParserRuleCall_2_0()); 
+            }
+
+            }
+
+            // ../org.ow2.fractal.mind.idl.idt.ui/src-gen/org/ow2/fractal/mind/idl/ui/contentassist/antlr/internal/InternalFractalIdt.g:5972:1: ( ( rulesignedINT )* )
+            // ../org.ow2.fractal.mind.idl.idt.ui/src-gen/org/ow2/fractal/mind/idl/ui/contentassist/antlr/internal/InternalFractalIdt.g:5973:1: ( rulesignedINT )*
+            {
+            if ( backtracking==0 ) {
+               before(grammarAccess.getFloatingPointLiteralAccess().getSignedINTParserRuleCall_2_0()); 
+            }
+            // ../org.ow2.fractal.mind.idl.idt.ui/src-gen/org/ow2/fractal/mind/idl/ui/contentassist/antlr/internal/InternalFractalIdt.g:5974:1: ( rulesignedINT )*
             loop68:
             do {
                 int alt68=2;
                 int LA68_0 = input.LA(1);
 
-                if ( (LA68_0==RULE_INT) ) {
+                if ( ((LA68_0>=RULE_ADDITIVEOPERATION && LA68_0<=RULE_INT)) ) {
                     alt68=1;
                 }
 
 
                 switch (alt68) {
             	case 1 :
-            	    // ../org.ow2.fractal.mind.idl.idt.ui/src-gen/org/ow2/fractal/mind/idl/ui/contentassist/antlr/internal/InternalFractalIdt.g:5974:3: RULE_INT
+            	    // ../org.ow2.fractal.mind.idl.idt.ui/src-gen/org/ow2/fractal/mind/idl/ui/contentassist/antlr/internal/InternalFractalIdt.g:5974:3: rulesignedINT
             	    {
-            	    match(input,RULE_INT,FollowSets000.FOLLOW_RULE_INT_in_rule__FloatingPointLiteral__Group_2__012093); if (failed) return ;
+            	    pushFollow(FollowSets000.FOLLOW_rulesignedINT_in_rule__FloatingPointLiteral__Group_2__012093);
+            	    rulesignedINT();
+            	    _fsp--;
+            	    if (failed) return ;
 
             	    }
             	    break;
@@ -17344,7 +17397,7 @@ public class InternalFractalIdtParser extends AbstractInternalContentAssistParse
             } while (true);
 
             if ( backtracking==0 ) {
-               after(grammarAccess.getFloatingPointLiteralAccess().getINTTerminalRuleCall_2_0()); 
+               after(grammarAccess.getFloatingPointLiteralAccess().getSignedINTParserRuleCall_2_0()); 
             }
 
             }
@@ -17481,59 +17534,80 @@ public class InternalFractalIdtParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start rule__FloatingPointLiteral__Group_3__0
-    // ../org.ow2.fractal.mind.idl.idt.ui/src-gen/org/ow2/fractal/mind/idl/ui/contentassist/antlr/internal/InternalFractalIdt.g:6027:1: rule__FloatingPointLiteral__Group_3__0 : ( ( ( RULE_INT ) ) ( ( RULE_INT )* ) ) rule__FloatingPointLiteral__Group_3__1 ;
+    // ../org.ow2.fractal.mind.idl.idt.ui/src-gen/org/ow2/fractal/mind/idl/ui/contentassist/antlr/internal/InternalFractalIdt.g:6027:1: rule__FloatingPointLiteral__Group_3__0 : ( ( ( rulesignedINT ) ) ( ( rulesignedINT )* ) ) rule__FloatingPointLiteral__Group_3__1 ;
     public final void rule__FloatingPointLiteral__Group_3__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.ow2.fractal.mind.idl.idt.ui/src-gen/org/ow2/fractal/mind/idl/ui/contentassist/antlr/internal/InternalFractalIdt.g:6031:1: ( ( ( ( RULE_INT ) ) ( ( RULE_INT )* ) ) rule__FloatingPointLiteral__Group_3__1 )
-            // ../org.ow2.fractal.mind.idl.idt.ui/src-gen/org/ow2/fractal/mind/idl/ui/contentassist/antlr/internal/InternalFractalIdt.g:6032:1: ( ( ( RULE_INT ) ) ( ( RULE_INT )* ) ) rule__FloatingPointLiteral__Group_3__1
+            // ../org.ow2.fractal.mind.idl.idt.ui/src-gen/org/ow2/fractal/mind/idl/ui/contentassist/antlr/internal/InternalFractalIdt.g:6031:1: ( ( ( ( rulesignedINT ) ) ( ( rulesignedINT )* ) ) rule__FloatingPointLiteral__Group_3__1 )
+            // ../org.ow2.fractal.mind.idl.idt.ui/src-gen/org/ow2/fractal/mind/idl/ui/contentassist/antlr/internal/InternalFractalIdt.g:6032:1: ( ( ( rulesignedINT ) ) ( ( rulesignedINT )* ) ) rule__FloatingPointLiteral__Group_3__1
             {
-            // ../org.ow2.fractal.mind.idl.idt.ui/src-gen/org/ow2/fractal/mind/idl/ui/contentassist/antlr/internal/InternalFractalIdt.g:6032:1: ( ( ( RULE_INT ) ) ( ( RULE_INT )* ) )
-            // ../org.ow2.fractal.mind.idl.idt.ui/src-gen/org/ow2/fractal/mind/idl/ui/contentassist/antlr/internal/InternalFractalIdt.g:6033:1: ( ( RULE_INT ) ) ( ( RULE_INT )* )
+            // ../org.ow2.fractal.mind.idl.idt.ui/src-gen/org/ow2/fractal/mind/idl/ui/contentassist/antlr/internal/InternalFractalIdt.g:6032:1: ( ( ( rulesignedINT ) ) ( ( rulesignedINT )* ) )
+            // ../org.ow2.fractal.mind.idl.idt.ui/src-gen/org/ow2/fractal/mind/idl/ui/contentassist/antlr/internal/InternalFractalIdt.g:6033:1: ( ( rulesignedINT ) ) ( ( rulesignedINT )* )
             {
-            // ../org.ow2.fractal.mind.idl.idt.ui/src-gen/org/ow2/fractal/mind/idl/ui/contentassist/antlr/internal/InternalFractalIdt.g:6033:1: ( ( RULE_INT ) )
-            // ../org.ow2.fractal.mind.idl.idt.ui/src-gen/org/ow2/fractal/mind/idl/ui/contentassist/antlr/internal/InternalFractalIdt.g:6034:1: ( RULE_INT )
-            {
-            if ( backtracking==0 ) {
-               before(grammarAccess.getFloatingPointLiteralAccess().getINTTerminalRuleCall_3_0()); 
-            }
-            // ../org.ow2.fractal.mind.idl.idt.ui/src-gen/org/ow2/fractal/mind/idl/ui/contentassist/antlr/internal/InternalFractalIdt.g:6035:1: ( RULE_INT )
-            // ../org.ow2.fractal.mind.idl.idt.ui/src-gen/org/ow2/fractal/mind/idl/ui/contentassist/antlr/internal/InternalFractalIdt.g:6035:3: RULE_INT
-            {
-            match(input,RULE_INT,FollowSets000.FOLLOW_RULE_INT_in_rule__FloatingPointLiteral__Group_3__012214); if (failed) return ;
-
-            }
-
-            if ( backtracking==0 ) {
-               after(grammarAccess.getFloatingPointLiteralAccess().getINTTerminalRuleCall_3_0()); 
-            }
-
-            }
-
-            // ../org.ow2.fractal.mind.idl.idt.ui/src-gen/org/ow2/fractal/mind/idl/ui/contentassist/antlr/internal/InternalFractalIdt.g:6038:1: ( ( RULE_INT )* )
-            // ../org.ow2.fractal.mind.idl.idt.ui/src-gen/org/ow2/fractal/mind/idl/ui/contentassist/antlr/internal/InternalFractalIdt.g:6039:1: ( RULE_INT )*
+            // ../org.ow2.fractal.mind.idl.idt.ui/src-gen/org/ow2/fractal/mind/idl/ui/contentassist/antlr/internal/InternalFractalIdt.g:6033:1: ( ( rulesignedINT ) )
+            // ../org.ow2.fractal.mind.idl.idt.ui/src-gen/org/ow2/fractal/mind/idl/ui/contentassist/antlr/internal/InternalFractalIdt.g:6034:1: ( rulesignedINT )
             {
             if ( backtracking==0 ) {
-               before(grammarAccess.getFloatingPointLiteralAccess().getINTTerminalRuleCall_3_0()); 
+               before(grammarAccess.getFloatingPointLiteralAccess().getSignedINTParserRuleCall_3_0()); 
             }
-            // ../org.ow2.fractal.mind.idl.idt.ui/src-gen/org/ow2/fractal/mind/idl/ui/contentassist/antlr/internal/InternalFractalIdt.g:6040:1: ( RULE_INT )*
+            // ../org.ow2.fractal.mind.idl.idt.ui/src-gen/org/ow2/fractal/mind/idl/ui/contentassist/antlr/internal/InternalFractalIdt.g:6035:1: ( rulesignedINT )
+            // ../org.ow2.fractal.mind.idl.idt.ui/src-gen/org/ow2/fractal/mind/idl/ui/contentassist/antlr/internal/InternalFractalIdt.g:6035:3: rulesignedINT
+            {
+            pushFollow(FollowSets000.FOLLOW_rulesignedINT_in_rule__FloatingPointLiteral__Group_3__012214);
+            rulesignedINT();
+            _fsp--;
+            if (failed) return ;
+
+            }
+
+            if ( backtracking==0 ) {
+               after(grammarAccess.getFloatingPointLiteralAccess().getSignedINTParserRuleCall_3_0()); 
+            }
+
+            }
+
+            // ../org.ow2.fractal.mind.idl.idt.ui/src-gen/org/ow2/fractal/mind/idl/ui/contentassist/antlr/internal/InternalFractalIdt.g:6038:1: ( ( rulesignedINT )* )
+            // ../org.ow2.fractal.mind.idl.idt.ui/src-gen/org/ow2/fractal/mind/idl/ui/contentassist/antlr/internal/InternalFractalIdt.g:6039:1: ( rulesignedINT )*
+            {
+            if ( backtracking==0 ) {
+               before(grammarAccess.getFloatingPointLiteralAccess().getSignedINTParserRuleCall_3_0()); 
+            }
+            // ../org.ow2.fractal.mind.idl.idt.ui/src-gen/org/ow2/fractal/mind/idl/ui/contentassist/antlr/internal/InternalFractalIdt.g:6040:1: ( rulesignedINT )*
             loop70:
             do {
                 int alt70=2;
                 int LA70_0 = input.LA(1);
 
-                if ( (LA70_0==RULE_INT) ) {
+                if ( (LA70_0==RULE_ADDITIVEOPERATION) ) {
+                    int LA70_2 = input.LA(2);
+
+                    if ( (LA70_2==RULE_INT) ) {
+                        int LA70_4 = input.LA(3);
+
+                        if ( (synpred100()) ) {
+                            alt70=1;
+                        }
+
+
+                    }
+
+
+                }
+                else if ( (LA70_0==RULE_INT) ) {
                     alt70=1;
                 }
 
 
                 switch (alt70) {
             	case 1 :
-            	    // ../org.ow2.fractal.mind.idl.idt.ui/src-gen/org/ow2/fractal/mind/idl/ui/contentassist/antlr/internal/InternalFractalIdt.g:6040:3: RULE_INT
+            	    // ../org.ow2.fractal.mind.idl.idt.ui/src-gen/org/ow2/fractal/mind/idl/ui/contentassist/antlr/internal/InternalFractalIdt.g:6040:3: rulesignedINT
             	    {
-            	    match(input,RULE_INT,FollowSets000.FOLLOW_RULE_INT_in_rule__FloatingPointLiteral__Group_3__012227); if (failed) return ;
+            	    pushFollow(FollowSets000.FOLLOW_rulesignedINT_in_rule__FloatingPointLiteral__Group_3__012227);
+            	    rulesignedINT();
+            	    _fsp--;
+            	    if (failed) return ;
 
             	    }
             	    break;
@@ -17544,7 +17618,7 @@ public class InternalFractalIdtParser extends AbstractInternalContentAssistParse
             } while (true);
 
             if ( backtracking==0 ) {
-               after(grammarAccess.getFloatingPointLiteralAccess().getINTTerminalRuleCall_3_0()); 
+               after(grammarAccess.getFloatingPointLiteralAccess().getSignedINTParserRuleCall_3_0()); 
             }
 
             }
@@ -22118,6 +22192,35 @@ public class InternalFractalIdtParser extends AbstractInternalContentAssistParse
     }
     // $ANTLR end synpred23
 
+    // $ANTLR start synpred26
+    public final void synpred26_fragment() throws RecognitionException {   
+        // ../org.ow2.fractal.mind.idl.idt.ui/src-gen/org/ow2/fractal/mind/idl/ui/contentassist/antlr/internal/InternalFractalIdt.g:2019:1: ( ( ( rule__FloatingPointLiteral__Group_0__0 ) ) )
+        // ../org.ow2.fractal.mind.idl.idt.ui/src-gen/org/ow2/fractal/mind/idl/ui/contentassist/antlr/internal/InternalFractalIdt.g:2019:1: ( ( rule__FloatingPointLiteral__Group_0__0 ) )
+        {
+        // ../org.ow2.fractal.mind.idl.idt.ui/src-gen/org/ow2/fractal/mind/idl/ui/contentassist/antlr/internal/InternalFractalIdt.g:2019:1: ( ( rule__FloatingPointLiteral__Group_0__0 ) )
+        // ../org.ow2.fractal.mind.idl.idt.ui/src-gen/org/ow2/fractal/mind/idl/ui/contentassist/antlr/internal/InternalFractalIdt.g:2020:1: ( rule__FloatingPointLiteral__Group_0__0 )
+        {
+        if ( backtracking==0 ) {
+           before(grammarAccess.getFloatingPointLiteralAccess().getGroup_0()); 
+        }
+        // ../org.ow2.fractal.mind.idl.idt.ui/src-gen/org/ow2/fractal/mind/idl/ui/contentassist/antlr/internal/InternalFractalIdt.g:2021:1: ( rule__FloatingPointLiteral__Group_0__0 )
+        // ../org.ow2.fractal.mind.idl.idt.ui/src-gen/org/ow2/fractal/mind/idl/ui/contentassist/antlr/internal/InternalFractalIdt.g:2021:2: rule__FloatingPointLiteral__Group_0__0
+        {
+        pushFollow(FollowSets000.FOLLOW_rule__FloatingPointLiteral__Group_0__0_in_synpred264324);
+        rule__FloatingPointLiteral__Group_0__0();
+        _fsp--;
+        if (failed) return ;
+
+        }
+
+
+        }
+
+
+        }
+    }
+    // $ANTLR end synpred26
+
     // $ANTLR start synpred28
     public final void synpred28_fragment() throws RecognitionException {   
         // ../org.ow2.fractal.mind.idl.idt.ui/src-gen/org/ow2/fractal/mind/idl/ui/contentassist/antlr/internal/InternalFractalIdt.g:2031:6: ( ( ( rule__FloatingPointLiteral__Group_2__0 ) ) )
@@ -22147,11 +22250,109 @@ public class InternalFractalIdtParser extends AbstractInternalContentAssistParse
     }
     // $ANTLR end synpred28
 
+    // $ANTLR start synpred92
+    public final void synpred92_fragment() throws RecognitionException {   
+        // ../org.ow2.fractal.mind.idl.idt.ui/src-gen/org/ow2/fractal/mind/idl/ui/contentassist/antlr/internal/InternalFractalIdt.g:5817:3: ( rulesignedINT )
+        // ../org.ow2.fractal.mind.idl.idt.ui/src-gen/org/ow2/fractal/mind/idl/ui/contentassist/antlr/internal/InternalFractalIdt.g:5817:3: rulesignedINT
+        {
+        pushFollow(FollowSets000.FOLLOW_rulesignedINT_in_synpred9211776);
+        rulesignedINT();
+        _fsp--;
+        if (failed) return ;
+
+        }
+    }
+    // $ANTLR end synpred92
+
+    // $ANTLR start synpred95
+    public final void synpred95_fragment() throws RecognitionException {   
+        // ../org.ow2.fractal.mind.idl.idt.ui/src-gen/org/ow2/fractal/mind/idl/ui/contentassist/antlr/internal/InternalFractalIdt.g:5906:3: ( rulesignedINT )
+        // ../org.ow2.fractal.mind.idl.idt.ui/src-gen/org/ow2/fractal/mind/idl/ui/contentassist/antlr/internal/InternalFractalIdt.g:5906:3: rulesignedINT
+        {
+        pushFollow(FollowSets000.FOLLOW_rulesignedINT_in_synpred9511954);
+        rulesignedINT();
+        _fsp--;
+        if (failed) return ;
+
+        }
+    }
+    // $ANTLR end synpred95
+
+    // $ANTLR start synpred100
+    public final void synpred100_fragment() throws RecognitionException {   
+        // ../org.ow2.fractal.mind.idl.idt.ui/src-gen/org/ow2/fractal/mind/idl/ui/contentassist/antlr/internal/InternalFractalIdt.g:6040:3: ( rulesignedINT )
+        // ../org.ow2.fractal.mind.idl.idt.ui/src-gen/org/ow2/fractal/mind/idl/ui/contentassist/antlr/internal/InternalFractalIdt.g:6040:3: rulesignedINT
+        {
+        pushFollow(FollowSets000.FOLLOW_rulesignedINT_in_synpred10012227);
+        rulesignedINT();
+        _fsp--;
+        if (failed) return ;
+
+        }
+    }
+    // $ANTLR end synpred100
+
+    public final boolean synpred95() {
+        backtracking++;
+        int start = input.mark();
+        try {
+            synpred95_fragment(); // can never throw exception
+        } catch (RecognitionException re) {
+            System.err.println("impossible: "+re);
+        }
+        boolean success = !failed;
+        input.rewind(start);
+        backtracking--;
+        failed=false;
+        return success;
+    }
+    public final boolean synpred92() {
+        backtracking++;
+        int start = input.mark();
+        try {
+            synpred92_fragment(); // can never throw exception
+        } catch (RecognitionException re) {
+            System.err.println("impossible: "+re);
+        }
+        boolean success = !failed;
+        input.rewind(start);
+        backtracking--;
+        failed=false;
+        return success;
+    }
+    public final boolean synpred100() {
+        backtracking++;
+        int start = input.mark();
+        try {
+            synpred100_fragment(); // can never throw exception
+        } catch (RecognitionException re) {
+            System.err.println("impossible: "+re);
+        }
+        boolean success = !failed;
+        input.rewind(start);
+        backtracking--;
+        failed=false;
+        return success;
+    }
     public final boolean synpred28() {
         backtracking++;
         int start = input.mark();
         try {
             synpred28_fragment(); // can never throw exception
+        } catch (RecognitionException re) {
+            System.err.println("impossible: "+re);
+        }
+        boolean success = !failed;
+        input.rewind(start);
+        backtracking--;
+        failed=false;
+        return success;
+    }
+    public final boolean synpred26() {
+        backtracking++;
+        int start = input.mark();
+        try {
+            synpred26_fragment(); // can never throw exception
         } catch (RecognitionException re) {
             System.err.println("impossible: "+re);
         }
@@ -22207,32 +22408,38 @@ public class InternalFractalIdtParser extends AbstractInternalContentAssistParse
 
     protected DFA16 dfa16 = new DFA16(this);
     static final String DFA16_eotS =
-        "\13\uffff";
+        "\17\uffff";
     static final String DFA16_eofS =
-        "\1\uffff\1\7\1\uffff\1\7\7\uffff";
+        "\2\uffff\1\11\2\uffff\1\11\11\uffff";
     static final String DFA16_minS =
-        "\1\10\1\7\1\uffff\3\7\2\uffff\1\10\1\0\1\uffff";
+        "\1\7\1\10\1\7\1\uffff\1\5\1\7\1\uffff\2\7\1\uffff\1\0\1\10\1\0\2"+
+        "\uffff";
     static final String DFA16_maxS =
-        "\1\76\1\111\1\uffff\1\111\2\10\2\uffff\1\10\1\0\1\uffff";
+        "\1\76\1\10\1\111\1\uffff\1\76\1\111\1\uffff\2\10\1\uffff\1\0\1\10"+
+        "\1\0\2\uffff";
     static final String DFA16_acceptS =
-        "\2\uffff\1\2\3\uffff\1\1\1\4\2\uffff\1\3";
+        "\3\uffff\1\2\2\uffff\1\1\2\uffff\1\4\3\uffff\2\3";
     static final String DFA16_specialS =
-        "\11\uffff\1\0\1\uffff}>";
+        "\12\uffff\1\0\1\uffff\1\1\2\uffff}>";
     static final String[] DFA16_transitionS = {
-            "\1\1\65\uffff\1\2",
-            "\1\7\1\3\1\7\1\uffff\2\7\5\uffff\2\7\1\uffff\1\4\1\5\31\uffff"+
-            "\3\7\1\uffff\1\7\1\uffff\2\7\3\uffff\1\7\1\uffff\1\7\1\6\1\7"+
-            "\3\uffff\1\7\1\uffff\5\7",
+            "\1\1\1\2\65\uffff\1\3",
+            "\1\2",
+            "\1\4\1\5\1\11\1\uffff\2\11\5\uffff\2\11\1\uffff\1\7\1\10\31"+
+            "\uffff\3\11\1\uffff\1\11\1\uffff\2\11\3\uffff\1\11\1\uffff\1"+
+            "\11\1\6\1\11\3\uffff\1\11\1\uffff\5\11",
             "",
-            "\1\7\1\3\1\7\1\uffff\2\7\5\uffff\2\7\1\uffff\1\4\1\5\31\uffff"+
-            "\3\7\1\uffff\1\7\1\uffff\2\7\3\uffff\1\7\1\uffff\1\7\1\6\1\7"+
-            "\3\uffff\1\7\1\uffff\5\7",
-            "\1\10\1\11",
-            "\1\10\1\11",
+            "\3\11\1\12\4\uffff\1\11\54\uffff\1\11\3\uffff\1\11",
+            "\1\4\1\5\1\11\1\uffff\2\11\5\uffff\2\11\1\uffff\1\7\1\10\31"+
+            "\uffff\3\11\1\uffff\1\11\1\uffff\2\11\3\uffff\1\11\1\uffff\1"+
+            "\11\1\6\1\11\3\uffff\1\11\1\uffff\5\11",
             "",
+            "\1\13\1\14",
+            "\1\13\1\14",
             "",
-            "\1\11",
             "\1\uffff",
+            "\1\14",
+            "\1\uffff",
+            "",
             ""
     };
 
@@ -22272,18 +22479,35 @@ public class InternalFractalIdtParser extends AbstractInternalContentAssistParse
         	int _s = s;
             switch ( s ) {
                     case 0 : 
-                        int LA16_9 = input.LA(1);
+                        int LA16_10 = input.LA(1);
 
                          
-                        int index16_9 = input.index();
+                        int index16_10 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( (synpred28()) ) {s = 10;}
+                        if ( (synpred26()) ) {s = 6;}
 
-                        else if ( (true) ) {s = 7;}
+                        else if ( (synpred28()) ) {s = 13;}
+
+                        else if ( (true) ) {s = 9;}
 
                          
-                        input.seek(index16_9);
+                        input.seek(index16_10);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 1 : 
+                        int LA16_12 = input.LA(1);
+
+                         
+                        int index16_12 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred28()) ) {s = 14;}
+
+                        else if ( (true) ) {s = 9;}
+
+                         
+                        input.seek(index16_12);
                         if ( s>=0 ) return s;
                         break;
             }
@@ -22579,7 +22803,7 @@ public class InternalFractalIdtParser extends AbstractInternalContentAssistParse
         public static final BitSet FOLLOW_rule__StructMember__Group_3__0_in_rule__StructMember__Group__36019 = new BitSet(new long[]{0x0002000000000000L});
         public static final BitSet FOLLOW_rule__StructMember__Group__4_in_rule__StructMember__Group__36029 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_49_in_rule__StructMember__Group__46058 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_53_in_rule__StructMember__Group_3__06104 = new BitSet(new long[]{0x4400000000002160L});
+        public static final BitSet FOLLOW_53_in_rule__StructMember__Group_3__06104 = new BitSet(new long[]{0x44000000000021E0L});
         public static final BitSet FOLLOW_rule__StructMember__Group_3__1_in_rule__StructMember__Group_3__06114 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_rule__StructMember__ConstExprAssignment_3_1_in_rule__StructMember__Group_3__16142 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_54_in_rule__EnumDefinition__Group__06181 = new BitSet(new long[]{0x0008000000000020L});
@@ -22605,7 +22829,7 @@ public class InternalFractalIdtParser extends AbstractInternalContentAssistParse
         public static final BitSet FOLLOW_rule__EnumMember__IdAssignment_1_in_rule__EnumMember__Group__16645 = new BitSet(new long[]{0x0100000000000002L});
         public static final BitSet FOLLOW_rule__EnumMember__Group__2_in_rule__EnumMember__Group__16654 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_rule__EnumMember__Group_2__0_in_rule__EnumMember__Group__26682 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_56_in_rule__EnumMember__Group_2__06724 = new BitSet(new long[]{0x4400000000002160L});
+        public static final BitSet FOLLOW_56_in_rule__EnumMember__Group_2__06724 = new BitSet(new long[]{0x44000000000021E0L});
         public static final BitSet FOLLOW_rule__EnumMember__Group_2__1_in_rule__EnumMember__Group_2__06734 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_rule__EnumMember__ConstExprAssignment_2_1_in_rule__EnumMember__Group_2__16762 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_rule__Declarators__DecAssignment_0_in_rule__Declarators__Group__06800 = new BitSet(new long[]{0x0080000000000002L});
@@ -22631,7 +22855,7 @@ public class InternalFractalIdtParser extends AbstractInternalContentAssistParse
         public static final BitSet FOLLOW_rule__DirectDeclarator__DecAssignment_0_1_1_in_rule__DirectDeclarator__Group_0_1__17338 = new BitSet(new long[]{0x0800000000000000L});
         public static final BitSet FOLLOW_rule__DirectDeclarator__Group_0_1__2_in_rule__DirectDeclarator__Group_0_1__17347 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_59_in_rule__DirectDeclarator__Group_0_1__27376 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_60_in_rule__ArraySpecification__Group__07418 = new BitSet(new long[]{0x6400000000002160L});
+        public static final BitSet FOLLOW_60_in_rule__ArraySpecification__Group__07418 = new BitSet(new long[]{0x64000000000021E0L});
         public static final BitSet FOLLOW_rule__ArraySpecification__Group__1_in_rule__ArraySpecification__Group__07428 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_rule__ArraySpecification__ConstExprAssignment_1_in_rule__ArraySpecification__Group__17456 = new BitSet(new long[]{0x2000000000000000L});
         public static final BitSet FOLLOW_rule__ArraySpecification__Group__2_in_rule__ArraySpecification__Group__17466 = new BitSet(new long[]{0x0000000000000002L});
@@ -22644,7 +22868,7 @@ public class InternalFractalIdtParser extends AbstractInternalContentAssistParse
         public static final BitSet FOLLOW_RULE_ID_in_rule__FullyQualifiedName__Group_1__17650 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_63_in_rule__ConstantDefinition__Group__07688 = new BitSet(new long[]{0x0000000000000020L});
         public static final BitSet FOLLOW_rule__ConstantDefinition__Group__1_in_rule__ConstantDefinition__Group__07698 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rule__ConstantDefinition__IdAssignment_1_in_rule__ConstantDefinition__Group__17726 = new BitSet(new long[]{0x4400000000002162L});
+        public static final BitSet FOLLOW_rule__ConstantDefinition__IdAssignment_1_in_rule__ConstantDefinition__Group__17726 = new BitSet(new long[]{0x44000000000021E2L});
         public static final BitSet FOLLOW_rule__ConstantDefinition__Group__2_in_rule__ConstantDefinition__Group__17735 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_rule__ConstantDefinition__ExprAssignment_2_in_rule__ConstantDefinition__Group__27763 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_rule__InterfaceDefinition__AnnotationsAssignment_0_in_rule__InterfaceDefinition__Group__07804 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000001L});
@@ -22746,92 +22970,92 @@ public class InternalFractalIdtParser extends AbstractInternalContentAssistParse
         public static final BitSet FOLLOW_rule__LogicalOrExpression__LeftExprAssignment_0_in_rule__LogicalOrExpression__Group__010112 = new BitSet(new long[]{0x0000000000000002L,0x0000000000000020L});
         public static final BitSet FOLLOW_rule__LogicalOrExpression__Group__1_in_rule__LogicalOrExpression__Group__010121 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_rule__LogicalOrExpression__Group_1__0_in_rule__LogicalOrExpression__Group__110149 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_69_in_rule__LogicalOrExpression__Group_1__010189 = new BitSet(new long[]{0x4400000000002160L});
+        public static final BitSet FOLLOW_69_in_rule__LogicalOrExpression__Group_1__010189 = new BitSet(new long[]{0x44000000000021E0L});
         public static final BitSet FOLLOW_rule__LogicalOrExpression__Group_1__1_in_rule__LogicalOrExpression__Group_1__010199 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_rule__LogicalOrExpression__RightExprAssignment_1_1_in_rule__LogicalOrExpression__Group_1__110227 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_rule__LogicalAndExpression__LeftExprAssignment_0_in_rule__LogicalAndExpression__Group__010265 = new BitSet(new long[]{0x0000000000000002L,0x0000000000000040L});
         public static final BitSet FOLLOW_rule__LogicalAndExpression__Group__1_in_rule__LogicalAndExpression__Group__010274 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_rule__LogicalAndExpression__Group_1__0_in_rule__LogicalAndExpression__Group__110302 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_70_in_rule__LogicalAndExpression__Group_1__010342 = new BitSet(new long[]{0x4400000000002160L});
+        public static final BitSet FOLLOW_70_in_rule__LogicalAndExpression__Group_1__010342 = new BitSet(new long[]{0x44000000000021E0L});
         public static final BitSet FOLLOW_rule__LogicalAndExpression__Group_1__1_in_rule__LogicalAndExpression__Group_1__010352 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_rule__LogicalAndExpression__RightExprAssignment_1_1_in_rule__LogicalAndExpression__Group_1__110380 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_rule__OrExpression__LeftExprAssignment_0_in_rule__OrExpression__Group__010418 = new BitSet(new long[]{0x0000000000000002L,0x0000000000000080L});
         public static final BitSet FOLLOW_rule__OrExpression__Group__1_in_rule__OrExpression__Group__010427 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_rule__OrExpression__Group_1__0_in_rule__OrExpression__Group__110455 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_71_in_rule__OrExpression__Group_1__010495 = new BitSet(new long[]{0x4400000000002160L});
+        public static final BitSet FOLLOW_71_in_rule__OrExpression__Group_1__010495 = new BitSet(new long[]{0x44000000000021E0L});
         public static final BitSet FOLLOW_rule__OrExpression__Group_1__1_in_rule__OrExpression__Group_1__010505 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_rule__OrExpression__RightExprAssignment_1_1_in_rule__OrExpression__Group_1__110533 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_rule__XorExpression__LeftExprAssignment_0_in_rule__XorExpression__Group__010571 = new BitSet(new long[]{0x0000000000000002L,0x0000000000000100L});
         public static final BitSet FOLLOW_rule__XorExpression__Group__1_in_rule__XorExpression__Group__010580 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_rule__XorExpression__Group_1__0_in_rule__XorExpression__Group__110608 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_72_in_rule__XorExpression__Group_1__010648 = new BitSet(new long[]{0x4400000000002160L});
+        public static final BitSet FOLLOW_72_in_rule__XorExpression__Group_1__010648 = new BitSet(new long[]{0x44000000000021E0L});
         public static final BitSet FOLLOW_rule__XorExpression__Group_1__1_in_rule__XorExpression__Group_1__010658 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_rule__XorExpression__RightExprAssignment_1_1_in_rule__XorExpression__Group_1__110686 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_rule__AndExpression__LeftExprAssignment_0_in_rule__AndExpression__Group__010724 = new BitSet(new long[]{0x0000000000000002L,0x0000000000000200L});
         public static final BitSet FOLLOW_rule__AndExpression__Group__1_in_rule__AndExpression__Group__010733 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_rule__AndExpression__Group_1__0_in_rule__AndExpression__Group__110761 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_73_in_rule__AndExpression__Group_1__010801 = new BitSet(new long[]{0x4400000000002160L});
+        public static final BitSet FOLLOW_73_in_rule__AndExpression__Group_1__010801 = new BitSet(new long[]{0x44000000000021E0L});
         public static final BitSet FOLLOW_rule__AndExpression__Group_1__1_in_rule__AndExpression__Group_1__010811 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_rule__AndExpression__RightExprAssignment_1_1_in_rule__AndExpression__Group_1__110839 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_rule__ShiftExpression__LeftExprAssignment_0_in_rule__ShiftExpression__Group__010877 = new BitSet(new long[]{0x0000000000000802L});
         public static final BitSet FOLLOW_rule__ShiftExpression__Group__1_in_rule__ShiftExpression__Group__010886 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_rule__ShiftExpression__Group_1__0_in_rule__ShiftExpression__Group__110914 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rule__ShiftExpression__OpAssignment_1_0_in_rule__ShiftExpression__Group_1__010953 = new BitSet(new long[]{0x4400000000002160L});
+        public static final BitSet FOLLOW_rule__ShiftExpression__OpAssignment_1_0_in_rule__ShiftExpression__Group_1__010953 = new BitSet(new long[]{0x44000000000021E0L});
         public static final BitSet FOLLOW_rule__ShiftExpression__Group_1__1_in_rule__ShiftExpression__Group_1__010962 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_rule__ShiftExpression__RightExprAssignment_1_1_in_rule__ShiftExpression__Group_1__110990 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_rule__AdditiveExpression__LeftExprAssignment_0_in_rule__AdditiveExpression__Group__011028 = new BitSet(new long[]{0x0000000000000082L});
         public static final BitSet FOLLOW_rule__AdditiveExpression__Group__1_in_rule__AdditiveExpression__Group__011037 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_rule__AdditiveExpression__Group_1__0_in_rule__AdditiveExpression__Group__111065 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rule__AdditiveExpression__OpAssignment_1_0_in_rule__AdditiveExpression__Group_1__011104 = new BitSet(new long[]{0x4400000000002160L});
+        public static final BitSet FOLLOW_rule__AdditiveExpression__OpAssignment_1_0_in_rule__AdditiveExpression__Group_1__011104 = new BitSet(new long[]{0x44000000000021E0L});
         public static final BitSet FOLLOW_rule__AdditiveExpression__Group_1__1_in_rule__AdditiveExpression__Group_1__011113 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_rule__AdditiveExpression__RightExprAssignment_1_1_in_rule__AdditiveExpression__Group_1__111141 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_rule__MulExpression__LeftExprAssignment_0_in_rule__MulExpression__Group__011179 = new BitSet(new long[]{0x0000000000001002L});
         public static final BitSet FOLLOW_rule__MulExpression__Group__1_in_rule__MulExpression__Group__011188 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_rule__MulExpression__Group_1__0_in_rule__MulExpression__Group__111216 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rule__MulExpression__OpAssignment_1_0_in_rule__MulExpression__Group_1__011255 = new BitSet(new long[]{0x4400000000002160L});
+        public static final BitSet FOLLOW_rule__MulExpression__OpAssignment_1_0_in_rule__MulExpression__Group_1__011255 = new BitSet(new long[]{0x44000000000021E0L});
         public static final BitSet FOLLOW_rule__MulExpression__Group_1__1_in_rule__MulExpression__Group_1__011264 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_rule__MulExpression__RightExprAssignment_1_1_in_rule__MulExpression__Group_1__111292 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_58_in_rule__CastExpression__Group_0__011331 = new BitSet(new long[]{0x00401FFFFF8C0020L});
         public static final BitSet FOLLOW_rule__CastExpression__Group_0__1_in_rule__CastExpression__Group_0__011341 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_rule__CastExpression__TypeAssignment_0_1_in_rule__CastExpression__Group_0__111369 = new BitSet(new long[]{0x0800000000000000L});
         public static final BitSet FOLLOW_rule__CastExpression__Group_0__2_in_rule__CastExpression__Group_0__111378 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_59_in_rule__CastExpression__Group_0__211407 = new BitSet(new long[]{0x4400000000002160L});
+        public static final BitSet FOLLOW_59_in_rule__CastExpression__Group_0__211407 = new BitSet(new long[]{0x44000000000021E0L});
         public static final BitSet FOLLOW_rule__CastExpression__Group_0__3_in_rule__CastExpression__Group_0__211417 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_rule__CastExpression__ExprAssignment_0_3_in_rule__CastExpression__Group_0__311445 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rule__UnaryExpression__UnaryExprAssignment_0_in_rule__UnaryExpression__Group__011487 = new BitSet(new long[]{0x4400000000000160L});
+        public static final BitSet FOLLOW_rule__UnaryExpression__UnaryExprAssignment_0_in_rule__UnaryExpression__Group__011487 = new BitSet(new long[]{0x44000000000001E0L});
         public static final BitSet FOLLOW_rule__UnaryExpression__Group__1_in_rule__UnaryExpression__Group__011497 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_rule__UnaryExpression__PrimaryExprAssignment_1_in_rule__UnaryExpression__Group__111525 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_58_in_rule__PrimaryExpression__Group_1__011564 = new BitSet(new long[]{0x4400000000002160L});
+        public static final BitSet FOLLOW_58_in_rule__PrimaryExpression__Group_1__011564 = new BitSet(new long[]{0x44000000000021E0L});
         public static final BitSet FOLLOW_rule__PrimaryExpression__Group_1__1_in_rule__PrimaryExpression__Group_1__011574 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_ruleConstantExpression_in_rule__PrimaryExpression__Group_1__111602 = new BitSet(new long[]{0x0800000000000000L});
         public static final BitSet FOLLOW_rule__PrimaryExpression__Group_1__2_in_rule__PrimaryExpression__Group_1__111610 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_59_in_rule__PrimaryExpression__Group_1__211639 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_RULE_INT_in_rule__FloatingPointLiteral__Group_0__011683 = new BitSet(new long[]{0x4000000000000100L});
-        public static final BitSet FOLLOW_RULE_INT_in_rule__FloatingPointLiteral__Group_0__011696 = new BitSet(new long[]{0x4000000000000100L});
+        public static final BitSet FOLLOW_rulesignedINT_in_rule__FloatingPointLiteral__Group_0__011683 = new BitSet(new long[]{0x4000000000000180L});
+        public static final BitSet FOLLOW_rulesignedINT_in_rule__FloatingPointLiteral__Group_0__011696 = new BitSet(new long[]{0x4000000000000180L});
         public static final BitSet FOLLOW_rule__FloatingPointLiteral__Group_0__1_in_rule__FloatingPointLiteral__Group_0__011708 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_62_in_rule__FloatingPointLiteral__Group_0__111737 = new BitSet(new long[]{0x0000000000600302L});
+        public static final BitSet FOLLOW_62_in_rule__FloatingPointLiteral__Group_0__111737 = new BitSet(new long[]{0x0000000000600382L});
         public static final BitSet FOLLOW_rule__FloatingPointLiteral__Group_0__2_in_rule__FloatingPointLiteral__Group_0__111747 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_RULE_INT_in_rule__FloatingPointLiteral__Group_0__211776 = new BitSet(new long[]{0x0000000000600302L});
+        public static final BitSet FOLLOW_rulesignedINT_in_rule__FloatingPointLiteral__Group_0__211776 = new BitSet(new long[]{0x0000000000600382L});
         public static final BitSet FOLLOW_rule__FloatingPointLiteral__Group_0__3_in_rule__FloatingPointLiteral__Group_0__211786 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_ruleExponent_in_rule__FloatingPointLiteral__Group_0__311815 = new BitSet(new long[]{0x0000000000000202L});
         public static final BitSet FOLLOW_rule__FloatingPointLiteral__Group_0__4_in_rule__FloatingPointLiteral__Group_0__311825 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_RULE_FDSYMBOL_in_rule__FloatingPointLiteral__Group_0__411854 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_62_in_rule__FloatingPointLiteral__Group_1__011900 = new BitSet(new long[]{0x0000000000000100L});
+        public static final BitSet FOLLOW_62_in_rule__FloatingPointLiteral__Group_1__011900 = new BitSet(new long[]{0x0000000000000180L});
         public static final BitSet FOLLOW_rule__FloatingPointLiteral__Group_1__1_in_rule__FloatingPointLiteral__Group_1__011910 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_RULE_INT_in_rule__FloatingPointLiteral__Group_1__111941 = new BitSet(new long[]{0x0000000000600302L});
-        public static final BitSet FOLLOW_RULE_INT_in_rule__FloatingPointLiteral__Group_1__111954 = new BitSet(new long[]{0x0000000000600302L});
+        public static final BitSet FOLLOW_rulesignedINT_in_rule__FloatingPointLiteral__Group_1__111941 = new BitSet(new long[]{0x0000000000600382L});
+        public static final BitSet FOLLOW_rulesignedINT_in_rule__FloatingPointLiteral__Group_1__111954 = new BitSet(new long[]{0x0000000000600382L});
         public static final BitSet FOLLOW_rule__FloatingPointLiteral__Group_1__2_in_rule__FloatingPointLiteral__Group_1__111966 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_ruleExponent_in_rule__FloatingPointLiteral__Group_1__211995 = new BitSet(new long[]{0x0000000000000202L});
         public static final BitSet FOLLOW_rule__FloatingPointLiteral__Group_1__3_in_rule__FloatingPointLiteral__Group_1__212005 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_RULE_FDSYMBOL_in_rule__FloatingPointLiteral__Group_1__312034 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_RULE_INT_in_rule__FloatingPointLiteral__Group_2__012080 = new BitSet(new long[]{0x0000000000600100L});
-        public static final BitSet FOLLOW_RULE_INT_in_rule__FloatingPointLiteral__Group_2__012093 = new BitSet(new long[]{0x0000000000600100L});
+        public static final BitSet FOLLOW_rulesignedINT_in_rule__FloatingPointLiteral__Group_2__012080 = new BitSet(new long[]{0x0000000000600180L});
+        public static final BitSet FOLLOW_rulesignedINT_in_rule__FloatingPointLiteral__Group_2__012093 = new BitSet(new long[]{0x0000000000600180L});
         public static final BitSet FOLLOW_rule__FloatingPointLiteral__Group_2__1_in_rule__FloatingPointLiteral__Group_2__012105 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_ruleExponent_in_rule__FloatingPointLiteral__Group_2__112133 = new BitSet(new long[]{0x0000000000000202L});
         public static final BitSet FOLLOW_rule__FloatingPointLiteral__Group_2__2_in_rule__FloatingPointLiteral__Group_2__112141 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_RULE_FDSYMBOL_in_rule__FloatingPointLiteral__Group_2__212170 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_RULE_INT_in_rule__FloatingPointLiteral__Group_3__012214 = new BitSet(new long[]{0x0000000000600302L});
-        public static final BitSet FOLLOW_RULE_INT_in_rule__FloatingPointLiteral__Group_3__012227 = new BitSet(new long[]{0x0000000000600302L});
+        public static final BitSet FOLLOW_rulesignedINT_in_rule__FloatingPointLiteral__Group_3__012214 = new BitSet(new long[]{0x0000000000600382L});
+        public static final BitSet FOLLOW_rulesignedINT_in_rule__FloatingPointLiteral__Group_3__012227 = new BitSet(new long[]{0x0000000000600382L});
         public static final BitSet FOLLOW_rule__FloatingPointLiteral__Group_3__1_in_rule__FloatingPointLiteral__Group_3__012239 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_ruleExponent_in_rule__FloatingPointLiteral__Group_3__112268 = new BitSet(new long[]{0x0000000000000202L});
         public static final BitSet FOLLOW_rule__FloatingPointLiteral__Group_3__2_in_rule__FloatingPointLiteral__Group_3__112278 = new BitSet(new long[]{0x0000000000000002L});
@@ -22940,7 +23164,11 @@ public class InternalFractalIdtParser extends AbstractInternalContentAssistParse
         public static final BitSet FOLLOW_rule__MethodDefinition__Group_3_0__0_in_synpred123848 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_rule__CastExpression__Group_0__0_in_synpred214138 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_RULE_ID_in_synpred234240 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_rule__FloatingPointLiteral__Group_0__0_in_synpred264324 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_rule__FloatingPointLiteral__Group_2__0_in_synpred284360 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_rulesignedINT_in_synpred9211776 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_rulesignedINT_in_synpred9511954 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_rulesignedINT_in_synpred10012227 = new BitSet(new long[]{0x0000000000000002L});
     }
 
 

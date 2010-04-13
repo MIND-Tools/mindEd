@@ -51,6 +51,11 @@ public class FractalIdtFormatter extends FractalItfFormatter {
 
 		c.setLinewrap().before(
 				f.getConstantDefinitionAccess().getDefineKeyword_0());
+		c.setNoSpace().around(f.getAdditiveOperationRule());
+		c.setNoSpace().around(f.getMulOperationRule());
+		c.setNoSpace().around(f.getShiftOperationRule());
+		c.setNoSpace().around(f.getUnaryOperationRule());
+		
 	}
 
 }

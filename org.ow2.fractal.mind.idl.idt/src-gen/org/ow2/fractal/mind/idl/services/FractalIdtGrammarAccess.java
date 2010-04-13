@@ -792,8 +792,8 @@ public class FractalIdtGrammarAccess extends AbstractGrammarElementFinder {
 	} 
 
 	//FloatingPointLiteral returns ecore::EString:
-	//  INT+ "." INT* Exponent? FDsymbol?|"." INT+ Exponent? FDsymbol?|INT+ Exponent FDsymbol?|
-	//  INT+ Exponent? FDsymbol?;
+	//  signedINT+ "." signedINT* Exponent? FDsymbol?|"." signedINT+ Exponent? FDsymbol?|
+	//  signedINT+ Exponent FDsymbol?|signedINT+ Exponent? FDsymbol?;
 	public FractalItfGrammarAccess.FloatingPointLiteralElements getFloatingPointLiteralAccess() {
 		return gaFractalItf.getFloatingPointLiteralAccess();
 	}

@@ -79,6 +79,10 @@ public class FractalItfFormatter extends AbstractDeclarativeFormatter {
 	protected void formatDefine(FractalItfGrammarAccess f, FormattingConfig c) {
 		c.setLinewrap().after(
 				f.getConstantDefinitionAccess().getIdIDTerminalRuleCall_1_0());
+		c.setNoSpace().around(f.getAdditiveOperationRule());
+		c.setNoSpace().around(f.getMulOperationRule());
+		c.setNoSpace().around(f.getShiftOperationRule());
+		c.setNoSpace().around(f.getUnaryOperationRule());
 	}
 
 	/**

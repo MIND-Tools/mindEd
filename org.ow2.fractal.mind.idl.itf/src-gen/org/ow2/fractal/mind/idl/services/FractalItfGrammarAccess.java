@@ -1847,45 +1847,45 @@ public class FractalItfGrammarAccess extends AbstractGrammarElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "FloatingPointLiteral");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
 		private final Group cGroup_0 = (Group)cAlternatives.eContents().get(0);
-		private final RuleCall cINTTerminalRuleCall_0_0 = (RuleCall)cGroup_0.eContents().get(0);
+		private final RuleCall cSignedINTParserRuleCall_0_0 = (RuleCall)cGroup_0.eContents().get(0);
 		private final Keyword cFullStopKeyword_0_1 = (Keyword)cGroup_0.eContents().get(1);
-		private final RuleCall cINTTerminalRuleCall_0_2 = (RuleCall)cGroup_0.eContents().get(2);
+		private final RuleCall cSignedINTParserRuleCall_0_2 = (RuleCall)cGroup_0.eContents().get(2);
 		private final RuleCall cExponentParserRuleCall_0_3 = (RuleCall)cGroup_0.eContents().get(3);
 		private final RuleCall cFDsymbolTerminalRuleCall_0_4 = (RuleCall)cGroup_0.eContents().get(4);
 		private final Group cGroup_1 = (Group)cAlternatives.eContents().get(1);
 		private final Keyword cFullStopKeyword_1_0 = (Keyword)cGroup_1.eContents().get(0);
-		private final RuleCall cINTTerminalRuleCall_1_1 = (RuleCall)cGroup_1.eContents().get(1);
+		private final RuleCall cSignedINTParserRuleCall_1_1 = (RuleCall)cGroup_1.eContents().get(1);
 		private final RuleCall cExponentParserRuleCall_1_2 = (RuleCall)cGroup_1.eContents().get(2);
 		private final RuleCall cFDsymbolTerminalRuleCall_1_3 = (RuleCall)cGroup_1.eContents().get(3);
 		private final Group cGroup_2 = (Group)cAlternatives.eContents().get(2);
-		private final RuleCall cINTTerminalRuleCall_2_0 = (RuleCall)cGroup_2.eContents().get(0);
+		private final RuleCall cSignedINTParserRuleCall_2_0 = (RuleCall)cGroup_2.eContents().get(0);
 		private final RuleCall cExponentParserRuleCall_2_1 = (RuleCall)cGroup_2.eContents().get(1);
 		private final RuleCall cFDsymbolTerminalRuleCall_2_2 = (RuleCall)cGroup_2.eContents().get(2);
 		private final Group cGroup_3 = (Group)cAlternatives.eContents().get(3);
-		private final RuleCall cINTTerminalRuleCall_3_0 = (RuleCall)cGroup_3.eContents().get(0);
+		private final RuleCall cSignedINTParserRuleCall_3_0 = (RuleCall)cGroup_3.eContents().get(0);
 		private final RuleCall cExponentParserRuleCall_3_1 = (RuleCall)cGroup_3.eContents().get(1);
 		private final RuleCall cFDsymbolTerminalRuleCall_3_2 = (RuleCall)cGroup_3.eContents().get(2);
 		
 		//FloatingPointLiteral returns ecore::EString:
-		//  INT+ "." INT* Exponent? FDsymbol?|"." INT+ Exponent? FDsymbol?|INT+ Exponent FDsymbol?|
-		//  INT+ Exponent? FDsymbol?;
+		//  signedINT+ "." signedINT* Exponent? FDsymbol?|"." signedINT+ Exponent? FDsymbol?|
+		//  signedINT+ Exponent FDsymbol?|signedINT+ Exponent? FDsymbol?;
 		public ParserRule getRule() { return rule; }
 
-		//INT+ "." INT* Exponent? FDsymbol?|"." INT+ Exponent? FDsymbol?|INT+ Exponent FDsymbol?|
-		//INT+ Exponent? FDsymbol?
+		//signedINT+ "." signedINT* Exponent? FDsymbol?|"." signedINT+ Exponent? FDsymbol?|
+		//signedINT+ Exponent FDsymbol?|signedINT+ Exponent? FDsymbol?
 		public Alternatives getAlternatives() { return cAlternatives; }
 
-		//INT+ "." INT* Exponent? FDsymbol?
+		//signedINT+ "." signedINT* Exponent? FDsymbol?
 		public Group getGroup_0() { return cGroup_0; }
 
-		//INT+
-		public RuleCall getINTTerminalRuleCall_0_0() { return cINTTerminalRuleCall_0_0; }
+		//signedINT+
+		public RuleCall getSignedINTParserRuleCall_0_0() { return cSignedINTParserRuleCall_0_0; }
 
 		//"."
 		public Keyword getFullStopKeyword_0_1() { return cFullStopKeyword_0_1; }
 
-		//INT*
-		public RuleCall getINTTerminalRuleCall_0_2() { return cINTTerminalRuleCall_0_2; }
+		//signedINT*
+		public RuleCall getSignedINTParserRuleCall_0_2() { return cSignedINTParserRuleCall_0_2; }
 
 		//Exponent?
 		public RuleCall getExponentParserRuleCall_0_3() { return cExponentParserRuleCall_0_3; }
@@ -1893,14 +1893,14 @@ public class FractalItfGrammarAccess extends AbstractGrammarElementFinder {
 		//FDsymbol?
 		public RuleCall getFDsymbolTerminalRuleCall_0_4() { return cFDsymbolTerminalRuleCall_0_4; }
 
-		//"." INT+ Exponent? FDsymbol?
+		//"." signedINT+ Exponent? FDsymbol?
 		public Group getGroup_1() { return cGroup_1; }
 
 		//"."
 		public Keyword getFullStopKeyword_1_0() { return cFullStopKeyword_1_0; }
 
-		//INT+
-		public RuleCall getINTTerminalRuleCall_1_1() { return cINTTerminalRuleCall_1_1; }
+		//signedINT+
+		public RuleCall getSignedINTParserRuleCall_1_1() { return cSignedINTParserRuleCall_1_1; }
 
 		//Exponent?
 		public RuleCall getExponentParserRuleCall_1_2() { return cExponentParserRuleCall_1_2; }
@@ -1908,11 +1908,11 @@ public class FractalItfGrammarAccess extends AbstractGrammarElementFinder {
 		//FDsymbol?
 		public RuleCall getFDsymbolTerminalRuleCall_1_3() { return cFDsymbolTerminalRuleCall_1_3; }
 
-		//INT+ Exponent FDsymbol?
+		//signedINT+ Exponent FDsymbol?
 		public Group getGroup_2() { return cGroup_2; }
 
-		//INT+
-		public RuleCall getINTTerminalRuleCall_2_0() { return cINTTerminalRuleCall_2_0; }
+		//signedINT+
+		public RuleCall getSignedINTParserRuleCall_2_0() { return cSignedINTParserRuleCall_2_0; }
 
 		//Exponent
 		public RuleCall getExponentParserRuleCall_2_1() { return cExponentParserRuleCall_2_1; }
@@ -1920,11 +1920,11 @@ public class FractalItfGrammarAccess extends AbstractGrammarElementFinder {
 		//FDsymbol?
 		public RuleCall getFDsymbolTerminalRuleCall_2_2() { return cFDsymbolTerminalRuleCall_2_2; }
 
-		//INT+ Exponent? FDsymbol?
+		//signedINT+ Exponent? FDsymbol?
 		public Group getGroup_3() { return cGroup_3; }
 
-		//INT+
-		public RuleCall getINTTerminalRuleCall_3_0() { return cINTTerminalRuleCall_3_0; }
+		//signedINT+
+		public RuleCall getSignedINTParserRuleCall_3_0() { return cSignedINTParserRuleCall_3_0; }
 
 		//Exponent?
 		public RuleCall getExponentParserRuleCall_3_1() { return cExponentParserRuleCall_3_1; }
@@ -2887,8 +2887,8 @@ public class FractalItfGrammarAccess extends AbstractGrammarElementFinder {
 	} 
 
 	//FloatingPointLiteral returns ecore::EString:
-	//  INT+ "." INT* Exponent? FDsymbol?|"." INT+ Exponent? FDsymbol?|INT+ Exponent FDsymbol?|
-	//  INT+ Exponent? FDsymbol?;
+	//  signedINT+ "." signedINT* Exponent? FDsymbol?|"." signedINT+ Exponent? FDsymbol?|
+	//  signedINT+ Exponent FDsymbol?|signedINT+ Exponent? FDsymbol?;
 	public FloatingPointLiteralElements getFloatingPointLiteralAccess() {
 		return (pFloatingPointLiteral != null) ? pFloatingPointLiteral : (pFloatingPointLiteral = new FloatingPointLiteralElements());
 	}

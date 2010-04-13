@@ -197,10 +197,10 @@ terminal UnaryOperation:
   '&'|'*'|'+'|'-'|'~'|'!';
 
 FloatingPointLiteral:
-  INT+ '.' INT* (Exponent)? FDsymbol?
-  | '.' INT+ (Exponent)? FDsymbol? 
-  | INT+ Exponent FDsymbol? 
-  | INT+ Exponent? FDsymbol? ;
+  signedINT+ '.' signedINT* (Exponent)? FDsymbol?
+  | '.' signedINT+ (Exponent)? FDsymbol? 
+  | signedINT+ Exponent FDsymbol? 
+  | signedINT+ Exponent? FDsymbol? ;
 
 Exponent:
   ('e' | 'E') (AdditiveOperation)? INT+;
