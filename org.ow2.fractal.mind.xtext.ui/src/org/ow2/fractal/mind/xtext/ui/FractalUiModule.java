@@ -18,19 +18,19 @@ public class FractalUiModule extends org.ow2.fractal.mind.xtext.ui.AbstractFract
 	 * @return class which define MIND ADL syntax coloring
 	 */
 	
-//TODO activate once Fractal Shape from GMF editor will be accessible
-//	public Class<? extends IHighlightingConfiguration> bindILexicalHighlightingConfiguration() {
-//		return LexicalHighlightingConfiguration.class;
-//		}
+	//TODO activate once Fractal Shape from GMF editor will be accessible
+	public Class<? extends IHighlightingConfiguration> bindILexicalHighlightingConfiguration() {
+		return LexicalHighlightingConfiguration.class;
+		}	
+	/**
+	 * register mapping tokens to IDs
+	 * @return MIND ADL tokens mapping
+	 */
 	
-//	/**
-//	 * register mapping tokens to IDs
-//	 * @return MIND ADL tokens mapping
-//	 */
-//	public Class<? extends AbstractAntlrTokenToAttributeIdMapper> bindTokenToAttributeIdMapper() {
-//		return AntlrTokenToAttributeIdMapper.class;
-//		}
-//	
+	public Class<? extends AbstractAntlrTokenToAttributeIdMapper> bindTokenToAttributeIdMapper() {
+		return AntlrTokenToAttributeIdMapper.class;
+		}
+	
 	/**
 	 * 
 	 * @return class which define the token that will be highlighted

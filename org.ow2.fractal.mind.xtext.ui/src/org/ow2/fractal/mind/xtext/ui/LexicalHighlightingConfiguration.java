@@ -3,6 +3,7 @@ package org.ow2.fractal.mind.xtext.ui;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.RGB;
 import org.eclipse.xtext.ui.editor.syntaxcoloring.IHighlightingConfigurationAcceptor;
+import org.eclipse.xtext.ui.editor.syntaxcoloring.IHighlightingConfiguration;
 import org.eclipse.xtext.ui.editor.utils.TextStyle;
 //import org.ow2.fractal.mind.diagram.custom.figures.IFractalShape;
 import org.ow2.fractal.mind.diagram.custom.figures.IFractalShape;
@@ -13,8 +14,7 @@ import org.ow2.fractal.mind.diagram.custom.figures.IFractalShape;
  * @author Nicolas LINGOIS
  * 
  */
-public class LexicalHighlightingConfiguration extends
-		SemanticHighlightingConfiguration {
+public class LexicalHighlightingConfiguration implements IHighlightingConfiguration {
 
 	public static final String KEYWORD_ID = "keyword";
 	public static final String PUNCTUATION_ID = "punctuation";
@@ -35,6 +35,7 @@ public class LexicalHighlightingConfiguration extends
 	
 	public static final String HEXA_ID = "0x";
 
+	@Override
 	public void configure(IHighlightingConfigurationAcceptor acceptor) {
 		
 		acceptor.acceptDefaultHighlighting(KEYWORD_ID, "Keyword",
@@ -62,11 +63,11 @@ public class LexicalHighlightingConfiguration extends
 				numberTextStyle());
 		
 		// From SemanticHighlightingConfiguration
-		acceptor.acceptDefaultHighlighting(DATA_ID, "data/source style",
-				dataTextStyle());
-		
-		acceptor.acceptDefaultHighlighting(ANNOTATIONS_ID, "annotation style",
-				annotationTextStyle());
+//		acceptor.acceptDefaultHighlighting(DATA_ID, "data/source style",
+//				dataTextStyle());
+//		
+//		acceptor.acceptDefaultHighlighting(ANNOTATIONS_ID, "annotation style",
+//				annotationTextStyle());
 
 		// Component definition
 		acceptor.acceptDefaultHighlighting(COMPOSITE_ID, "composite style",
