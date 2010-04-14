@@ -5,6 +5,8 @@ import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Set;
 
 import org.eclipse.cdt.core.CProjectNature;
 import org.eclipse.cdt.core.envvar.IEnvironmentVariable;
@@ -320,12 +322,22 @@ public class CDTUtil {
 		config.setSourceEntries(new ICSourceEntry[] { srcEntry });
 		config.exportArtifactInfo();
 		
+				
 		CConfigurationData data = config.getConfigurationData();
 		data.getBuildData();
 		
 		des.createConfiguration(ManagedBuildManager.CFG_DATA_PROVIDER_ID, data);
-		
+
+		// ADD CPL Macro settings
+		ICConfigurationDescription cfgDes = des.getConfigurationById(id);
+		Set<String> settingProviders = new HashSet<String>(Arrays.asList(cfgDes.getExternalSettingsProviderIds())); 
+
+		settingProviders.add(CPLMacroSettings.ID);
+		cfgDes.setExternalSettingsProviderIds(settingProviders.toArray(new String[settingProviders.size()]));
+
 		mgr.setProjectDescription(newProject, des);
+		
+
 	}
 	
 	/**

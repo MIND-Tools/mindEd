@@ -68,5 +68,13 @@
       <extension
             point="org.eclipse.cdt.managedbuilder.core.buildDefinitions">
       </extension>
+	  <extension
+		id="mind.cpl.settings"
+		name="Mind CPL project settings"
+		point="org.eclipse.cdt.core.externalSettingsProvider">
+		<provider
+				class="org.ow2.fractal.mind.ide.impl.CPLMacroSettings">
+		</provider>
+	  </extension>
 
 </plugin>
