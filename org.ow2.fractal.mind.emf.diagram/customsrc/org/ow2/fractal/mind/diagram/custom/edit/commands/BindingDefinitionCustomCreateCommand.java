@@ -1,21 +1,28 @@
 package org.ow2.fractal.mind.diagram.custom.edit.commands;
 
+import java.util.ArrayList;
+
 import org.eclipse.core.commands.ExecutionException;
 import org.eclipse.core.runtime.IAdaptable;
 import org.eclipse.core.runtime.IProgressMonitor;
+import org.eclipse.core.runtime.NullProgressMonitor;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.transaction.Transaction;
+import org.eclipse.emf.transaction.impl.TransactionImpl;
 import org.eclipse.gef.commands.Command;
 import org.eclipse.gmf.runtime.common.core.command.CommandResult;
 import org.eclipse.gmf.runtime.diagram.ui.commands.ICommandProxy;
 import org.eclipse.gmf.runtime.emf.type.core.IElementType;
 import org.eclipse.gmf.runtime.emf.type.core.requests.CreateElementRequest;
 import org.eclipse.gmf.runtime.emf.type.core.requests.CreateRelationshipRequest;
-import org.eclipse.gmf.runtime.notation.View;
 
 import adl.AdlFactory;
 import adl.BindingDefinition;
 import adl.Body;
+import adl.Element;
 import adl.InterfaceDefinition;
+import adl.Role;
 import adl.diagram.edit.commands.BindingDefinitionCreateCommand;
 import adl.diagram.edit.commands.InterfaceDefinitionCreateCommand;
 import adl.diagram.edit.parts.InterfaceDefinitionEditPart;
@@ -33,41 +40,63 @@ public class BindingDefinitionCustomCreateCommand extends
 		BindingDefinitionCreateCommand {
 
 	
-	private final EObject customSource;
+	private EObject customSource;
 
-	private final EObject customTarget;
+	private EObject customTarget;
 	
-	private final Body customContainer;
+	private Body customContainer;
 
 	
 	public BindingDefinitionCustomCreateCommand(
 			CreateRelationshipRequest request, EObject source, EObject target) {
 		super(request, source, target);
+		//edg28 - automatically create an interface if creating from body
+		if (source == null)
+			source = request.getContainer();
 		customSource = source;
 		customTarget = target;
 		customContainer = deduceContainer(customSource,customTarget);
 	}
 	
-//	public BindingDefinitionCustomCreateCommand(CreateRelationshipRequest req) {
-//		
-//		// Trying to create on a component without interfaces
-//		// Create one
-//		EObject container = req.getContainer();
-//		IElementType type = MindElementTypes.getElementType(InterfaceDefinitionEditPart.VISUAL_ID);
-//		CreateElementRequest createInterfaceRequest = new CreateElementRequest(container, type);
-//		Command createInterface = new ICommandProxy(new InterfaceDefinitionCreateCommand(createInterfaceRequest));
-//		try {
-//			createInterface.execute();
-//		}
-//		catch(Exception e) {
-//			MindDiagramEditorPlugin.getInstance().logError("Could not create interface", e);
-//		}
-//		
-//		container.
-//		
-//		super(req,)
-//		
-//	}
+	/**
+	 * Create an interface in the given container and returns it
+	 * @param body 
+	 * @return the created InterfaceDefinition
+	 */
+	protected InterfaceDefinition createInterface(Body body) {
+		// Get existing interfaces to be able to find the new one
+		ArrayList<InterfaceDefinition> interfaces = new ArrayList<InterfaceDefinition>();
+		EList<Element> elements = body.getElements();
+		for (Element element : elements) {
+			if (element instanceof InterfaceDefinition)
+				interfaces.add((InterfaceDefinition)element);
+		}
+		
+		// Create a new interface for the binding
+		IElementType type = MindElementTypes.getElementType(InterfaceDefinitionEditPart.VISUAL_ID);
+		CreateElementRequest createInterfaceRequest = new CreateElementRequest(body, type);
+		InterfaceDefinitionCreateCommand createInterface = new InterfaceDefinitionCreateCommand(createInterfaceRequest);
+		Command command = new ICommandProxy(createInterface);
+		
+		try {
+			createInterface.execute(new NullProgressMonitor(), null);
+		}
+		catch(Exception e) {
+			MindDiagramEditorPlugin.getInstance().logError("Could not create interface", e);
+		}
+		
+		// Find the newly created interface
+		InterfaceDefinition newInterface = null;
+		elements = body.getElements();
+		for (Element element : elements) {
+			if ((element instanceof InterfaceDefinition) &&
+					(!(interfaces.contains(element))))
+				newInterface = (InterfaceDefinition) element;
+		}
+		
+		return newInterface;
+	}
+	
 
 	/**
 	 * Check constraints 
@@ -76,30 +105,40 @@ public class BindingDefinitionCustomCreateCommand extends
 		if (customSource == null && customTarget == null) {
 			return false;
 		}
-		EObject sourceParent = null;
-		EObject targetParent = null;
+		
+		EObject sourceComponent = null;
+		EObject targetComponent = null;
 		adl.Role sourceRole = null;
 		adl.Role targetRole = null;
 		
 		if (customSource != null) {
-			if (false == customSource instanceof InterfaceDefinition) {
-				// Source is not an interface, return false
-				return false;
+			if (customSource instanceof InterfaceDefinition){
+				// configure source
+				sourceRole = ((InterfaceDefinition) customSource).getRole();
+				sourceComponent = customSource.eContainer().eContainer();
 			}
-			// Else configure source
-			sourceParent = customSource.eContainer();
-			sourceRole = ((InterfaceDefinition) customSource).getRole();
+			else if (customSource instanceof Body) {
+				// edg28
+				// If source is a body, an interface will be created later
+				sourceComponent = customSource.eContainer();
+			}
+			else return false;
 		}
 		
 		if (customTarget != null) {
 			
-			if (false == customTarget instanceof InterfaceDefinition) {
-				// Target is not an interface, return false
-				return false;
+			if (customTarget instanceof InterfaceDefinition) {
+				// Configure target
+				targetRole = ((InterfaceDefinition) customTarget).getRole();
+				targetComponent = customTarget.eContainer().eContainer();
+				
 			}
-			// Else configure target
-			targetParent = customTarget.eContainer();
-			targetRole = ((InterfaceDefinition) customTarget).getRole();
+			else if (customTarget instanceof Body) {
+				// edg28
+				// If target is a body, an interface will be created later
+				targetComponent = customTarget.eContainer();
+			}
+			else return false;
 		}
 		
 		if (customTarget != null && customSource != null) {
@@ -107,19 +146,19 @@ public class BindingDefinitionCustomCreateCommand extends
 				// User is trying to bind an interface with itself - return false
 				return false;
 			}
-			if (sourceParent == targetParent) {
+			if (sourceComponent == targetComponent) {
 				// User is trying to bind two interfaces of the same component - return false
 				return false;
 			}
-			if (sourceParent.eContainer() != targetParent &&
-					sourceParent.eContainer() != targetParent.eContainer() &&
-					sourceParent != targetParent.eContainer()) {
+			if (sourceComponent.eContainer().eContainer() != targetComponent &&
+					sourceComponent.eContainer() != targetComponent.eContainer() &&
+					sourceComponent != targetComponent.eContainer().eContainer()) {
 				// User is trying to bind from more than one rank of components - return false
 				return false;
 			}
-			if (sourceParent.eContainer() == targetParent ||
-					sourceParent == targetParent.eContainer()) {
-				if (sourceRole != targetRole) {
+			if (sourceComponent.eContainer().eContainer() == targetComponent ||
+					sourceComponent == targetComponent.eContainer().eContainer()) {
+				if ((sourceRole != targetRole) && (sourceRole != null) && (targetRole != null)) {
 					// User is trying to bind a component with its parent
 					// Roles must be the same - return false
 					return false;
@@ -134,17 +173,18 @@ public class BindingDefinitionCustomCreateCommand extends
 			}
 		}
 		
-		if (getSource() == null) {
+		if (customSource == null) {
 			return true; // link creation is in progress; source is not defined yet
 		}
 		
 		// target may be null here but it's possible to check constraint
-		if (getContainer() == null) {
-			return false;
+		if ((customSource instanceof InterfaceDefinition) &&
+				(customTarget instanceof InterfaceDefinition)) {
+			return MindBaseItemSemanticEditPolicy.LinkConstraints
+			.canCreateBindingDefinition_4003(getContainer(), getSource(),
+					getTarget());
 		}
-		return MindBaseItemSemanticEditPolicy.LinkConstraints
-				.canCreateBindingDefinition_4003(getContainer(), getSource(),
-						getTarget());
+		return true;
 	}
 
 	@Override
@@ -157,12 +197,94 @@ public class BindingDefinitionCustomCreateCommand extends
 
 		BindingDefinition newElement = AdlFactory.eINSTANCE
 				.createBindingDefinition();
-		getContainer().getElements().add(newElement);
+		
+		Boolean returnResult = false;
+		
+		EObject sourceComponent = null;
+		EObject targetComponent = null;
+		
+		// edg28
+		if (customSource instanceof Body) {
+			// If a body is the source create the interface source
+			customSource = createInterface((Body)customSource);
+			sourceComponent = getSource().eContainer().eContainer();
+			
+			if (customTarget instanceof Body) {
+				// Two new interfaces
+				customTarget = createInterface((Body)customTarget);
+				targetComponent = getTarget().eContainer().eContainer();
+				
+				if (sourceComponent.eContainer() == targetComponent.eContainer()) {
+					// Components are on the same level, bind provides to requires
+					getSource().setRole(Role.REQUIRES);
+					getTarget().setRole(Role.PROVIDES);
+				}
+				if ((sourceComponent.eContainer().eContainer() == targetComponent) ||
+						(targetComponent.eContainer().eContainer() == sourceComponent)) {
+					// Parent to child, bind provides to provides
+					getSource().setRole(Role.PROVIDES);
+					getTarget().setRole(Role.PROVIDES);
+				}
+			}
+			else {
+				// Only source is created
+				// Role depends on the target
+				targetComponent = getTarget().eContainer().eContainer();
+				if (sourceComponent.eContainer() == targetComponent.eContainer()) {
+					// Components are on the same level, bind provides to requires
+					if (getTarget().getRole() == Role.PROVIDES)
+						getSource().setRole(Role.REQUIRES);
+					else
+						getSource().setRole(Role.PROVIDES);
+				}
+				if ((sourceComponent.eContainer().eContainer() == targetComponent) ||
+						(targetComponent.eContainer().eContainer() == sourceComponent)) {
+					// Parent to child, bind provides to provides and requires to requires
+					getSource().setRole(getTarget().getRole());
+				}
+			}
+		}
+		else if (customTarget instanceof Body){
+			// Only target is created
+			// Role depends on the source
+			customTarget = createInterface((Body)customTarget);
+			targetComponent = getTarget().eContainer().eContainer();
+			sourceComponent = getSource().eContainer().eContainer();
+			
+			if (sourceComponent.eContainer() == targetComponent.eContainer()) {
+				// Components are on the same level, bind provides to requires
+				if (getSource().getRole() == Role.PROVIDES)
+					getTarget().setRole(Role.REQUIRES);
+				else
+					getTarget().setRole(Role.PROVIDES);
+			}
+			if ((sourceComponent.eContainer().eContainer() == targetComponent) ||
+					(targetComponent.eContainer().eContainer() == sourceComponent)) {
+				// Parent to child, bind provides to provides and requires to requires
+				getTarget().setRole(getSource().getRole());
+			}
+		}
+		else {
+			// Normal behavior
+			returnResult = true;
+		}
+		// An interface has been created
+		// Reprocess container deduction
+		customContainer = deduceContainer(getSource(),getTarget());
+
 		newElement.setInterfaceSource(getSource());
 		newElement.setInterfaceTarget(getTarget());
+		getContainer().getElements().add(newElement);
 		doConfigure(newElement, monitor, info);
 		((CreateElementRequest) getRequest()).setNewElement(newElement);
-		return CommandResult.newOKCommandResult(newElement);
+
+		// If an interface was created, the element must not be returned
+		// Else a view is created with source = body
+		if (returnResult)
+			return CommandResult.newOKCommandResult(newElement);
+		else 
+			return CommandResult.newOKCommandResult(null);
+		
 	}
 
 	@Override
@@ -214,12 +336,16 @@ public class BindingDefinitionCustomCreateCommand extends
 	
 	@Override
 	public InterfaceDefinition getSource() {
-		return (InterfaceDefinition) customSource;
+		if (customSource instanceof InterfaceDefinition)
+			return (InterfaceDefinition) customSource;
+		return null;
 	}
 
 	@Override
 	public InterfaceDefinition getTarget() {
-		return (InterfaceDefinition) customTarget;
+		if (customTarget instanceof InterfaceDefinition)
+			return (InterfaceDefinition) customTarget;
+		return null;
 	}
 
 }

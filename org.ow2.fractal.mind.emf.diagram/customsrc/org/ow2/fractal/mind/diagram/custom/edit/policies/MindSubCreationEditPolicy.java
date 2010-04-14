@@ -6,8 +6,10 @@ import java.util.List;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
 import org.eclipse.gef.EditPart;
+import org.eclipse.gef.Request;
 import org.eclipse.gef.commands.Command;
 import org.eclipse.gef.commands.UnexecutableCommand;
+import org.eclipse.gef.requests.ChangeBoundsRequest;
 import org.eclipse.gmf.runtime.common.core.command.CompositeCommand;
 import org.eclipse.gmf.runtime.diagram.core.edithelpers.CreateElementRequestAdapter;
 import org.eclipse.gmf.runtime.diagram.core.util.ViewUtil;
@@ -20,10 +22,13 @@ import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.CreationEditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
 import org.eclipse.gmf.runtime.diagram.ui.l10n.DiagramUIMessages;
+import org.eclipse.gmf.runtime.diagram.ui.requests.CreateUnspecifiedTypeConnectionRequest;
+import org.eclipse.gmf.runtime.diagram.ui.requests.CreateUnspecifiedTypeRequest;
 import org.eclipse.gmf.runtime.diagram.ui.requests.CreateViewAndElementRequest;
 import org.eclipse.gmf.runtime.diagram.ui.requests.CreateViewRequest;
 import org.eclipse.gmf.runtime.diagram.ui.requests.EditCommandRequestWrapper;
 import org.eclipse.gmf.runtime.diagram.ui.requests.RefreshConnectionsRequest;
+import org.eclipse.gmf.runtime.diagram.ui.requests.RequestConstants;
 import org.eclipse.gmf.runtime.emf.commands.core.command.CompositeTransactionalCommand;
 import org.eclipse.gmf.runtime.emf.type.core.requests.CreateElementRequest;
 import org.eclipse.gmf.runtime.notation.View;
@@ -44,8 +49,7 @@ import adl.diagram.part.MindVisualIDRegistry;
  *
  */
 public class MindSubCreationEditPolicy extends
-		CreationEditPolicy {
-
+		CreationEditPolicy {	
 	
 	protected Command getCreateElementAndViewCommand(CreateViewAndElementRequest request) {
 		// get the element descriptor
@@ -80,7 +84,6 @@ public class MindSubCreationEditPolicy extends
 				return null;
 			}
 			createElementRequest.setContainer(hostElement);
-			
 		}
 
 		// get the create element command based on the elementdescriptor's
@@ -119,7 +122,7 @@ public class MindSubCreationEditPolicy extends
 	}
 	
 	
-	
+	@Override
 	protected Command getCreateCommand(CreateViewRequest request) {
 
         TransactionalEditingDomain editingDomain = ((IGraphicalEditPart) getHost())
@@ -146,6 +149,10 @@ public class MindSubCreationEditPolicy extends
 		return new ICommandProxy(cc.reduce());
 
 	}
+	
+	
+	
+	
 	
 	/**
 	 * Method to get the host even when creating by pointing on a sub edit part (such as the body).

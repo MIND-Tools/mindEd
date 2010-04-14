@@ -8,7 +8,6 @@ import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.ConstrainedToolbarLayout;
 import org.ow2.fractal.mind.diagram.custom.edit.policies.FixedChildrenLayoutEditPolicy;
 import org.ow2.fractal.mind.diagram.custom.edit.policies.MindSuperCreationEditPolicy;
-import org.ow2.fractal.mind.diagram.custom.layouts.ConstrainedFlowLayout;
 
 public class MindCompartmentEditPart extends MindEditPart {
 

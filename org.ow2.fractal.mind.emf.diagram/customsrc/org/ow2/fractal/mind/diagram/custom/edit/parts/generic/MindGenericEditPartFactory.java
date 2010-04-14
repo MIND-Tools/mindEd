@@ -184,8 +184,6 @@ public class MindGenericEditPartFactory implements MindTypes {
 			// -- Miscellaneous Compartments
 		case DataDefinitionCompartmentEditPart.VISUAL_ID:
 		case ImplementationDefinitionCompartmentEditPart.VISUAL_ID:
-//		case PrimitiveSubReferenceCompartmentEditPart.VISUAL_ID:
-//		case CompositeSubReferenceCompartmentEditPart.VISUAL_ID:
 			return TYPE_COMPARTMENT;
 			
 			// -- References

@@ -8,6 +8,7 @@ import org.eclipse.gmf.runtime.diagram.ui.editparts.GraphicalEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
 import org.ow2.fractal.mind.diagram.custom.edit.policies.CustomDragDropEditPolicy;
 import org.ow2.fractal.mind.diagram.custom.edit.policies.CustomXYLayoutEditPolicy;
+import org.ow2.fractal.mind.diagram.custom.edit.policies.MindBodyContainerNodeEditPolicy;
 import org.ow2.fractal.mind.diagram.custom.edit.policies.MindSubCreationEditPolicy;
 import org.ow2.fractal.mind.diagram.custom.layouts.CustomFreeFormLayoutEx;
 import org.ow2.fractal.mind.diagram.custom.providers.CustomDragEditPartsTracker;
@@ -37,6 +38,10 @@ public class MindBodyCompartmentEditPart extends MindCompartmentEditPart {
 		realEditPart.installEditPolicy(
 				EditPolicy.LAYOUT_ROLE, 
 				new CustomXYLayoutEditPolicy());
+		// Binding creation delegated to body edit part
+//		realEditPart.installEditPolicy(
+//				EditPolicy.GRAPHICAL_NODE_ROLE,
+//				new MindBodyContainerNodeEditPolicy());
 	}
 	
 	/**
