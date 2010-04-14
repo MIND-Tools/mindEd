@@ -19,6 +19,7 @@ import org.ow2.fractal.mind.diagram.custom.figures.IFractalShape;
 import org.ow2.fractal.mind.diagram.custom.layouts.InterfaceBorderItemLocator;
 import org.ow2.fractal.mind.diagram.custom.providers.NoDragTracker;
 
+import adl.diagram.edit.parts.CompositeBodyCompartmentEditPart;
 import adl.diagram.edit.parts.InterfaceDefinitionEditPart;
 
 public class MindBodyEditPart extends MindEditPart {
@@ -84,6 +85,20 @@ public class MindBodyEditPart extends MindEditPart {
 		}
 		return false;
 	}
+	
+	
+	public boolean removeFixedChild(EditPart childEditPart) {
+		if (childEditPart instanceof InterfaceDefinitionEditPart) {
+			if (getParentComponent() == null) return false;
+			AbstractBorderedShapeEditPart parentBorderedEditPart = parentComponent.borderedEditPart;
+			if (parentBorderedEditPart == null) return false;
+			parentBorderedEditPart.getBorderedFigure().getBorderItemContainer().remove(
+					((InterfaceDefinitionEditPart) childEditPart).getFigure());
+			return true;
+		}
+		return false;
+	}
+	
 	
 	public IFigure getCompartmentFigure() {
 		try {

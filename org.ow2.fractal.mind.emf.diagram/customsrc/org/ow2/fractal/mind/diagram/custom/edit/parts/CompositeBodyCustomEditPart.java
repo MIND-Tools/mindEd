@@ -34,6 +34,11 @@ public class CompositeBodyCustomEditPart extends CompositeBodyEditPart {
 		return super.addFixedChild(childEditPart);
 	}
 	
+	protected boolean removeFixedChild(EditPart childEditPart) {
+		if (genericEditPart.removeFixedChild(childEditPart)) return true;
+		return super.removeFixedChild(childEditPart);
+	}
+	
 	@Override
 	protected void addChildVisual(EditPart childEditPart, int index) {
 		if(genericEditPart.addChildVisual(childEditPart, index))
