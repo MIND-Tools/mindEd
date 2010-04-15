@@ -19,6 +19,7 @@ import adl.ArchitectureDefinition;
 import adl.ComponentReference;
 import adl.CompositeComponentDefinition;
 import adl.CompositeReferenceDefinition;
+import adl.CompositeReferencesList;
 import adl.Element;
 import adl.FileC;
 import adl.FormalArgument;
@@ -27,8 +28,11 @@ import adl.ImplementationDefinition;
 import adl.ImportDefinition;
 import adl.InterfaceDefinition;
 import adl.PrimitiveReferenceDefinition;
+import adl.PrimitiveReferencesList;
+import adl.SubComponentDefinition;
 import adl.TemplateSpecifier;
 import adl.TypeReferenceDefinition;
+import adl.TypeReferencesList;
 import adl.custom.impl.CompositeComponentDefinitionCustomImpl;
 import adl.custom.util.AdlMergeUtil;
 import adl.impl.AdlDefinitionImpl;
@@ -63,7 +67,6 @@ public class FractalJavaValidator extends AbstractFractalJavaValidator {
 	 * 
 	 * @see org.ow2.fractal.mind.xtext.validation.AbstractFractalJavaValidator#getEPackages()
 	 */
-
 	@Override
 	protected List<EPackage> getEPackages() {
 		List<EPackage> result = (List<EPackage>) super.getEPackages();
@@ -76,7 +79,6 @@ public class FractalJavaValidator extends AbstractFractalJavaValidator {
 	 * 
 	 * @param definition
 	 */
-
 	@Check
 	public void duplicateNames(ArchitectureDefinition definition) {
 
@@ -113,7 +115,6 @@ public class FractalJavaValidator extends AbstractFractalJavaValidator {
 	 * 
 	 * @param import definition to be test
 	 */
-
 	@Check
 	public void existImport(ImportDefinition importDefinition) {
 
@@ -147,10 +148,8 @@ public class FractalJavaValidator extends AbstractFractalJavaValidator {
 	 * Check for unique template specifier name.
 	 * 
 	 * @param Template
-	 *            specifier to be test
-	 * 
+	 *            specifier to be test 
 	 */
-
 	@Check
 	public void checkTemplateSpecifierName(TemplateSpecifier templateSpecifier) {
 
@@ -188,7 +187,6 @@ public class FractalJavaValidator extends AbstractFractalJavaValidator {
 	 *            argument to be test
 	 * 
 	 */
-
 	@Check
 	public void duplicateFormalArgumentName(FormalArgument formalArgument) {
 
@@ -221,7 +219,6 @@ public class FractalJavaValidator extends AbstractFractalJavaValidator {
 	 *            to be test
 	 * 
 	 */
-
 	@Check
 	public void duplicateInterfaceName(InterfaceDefinition interfaceDefinition) {
 		// a local set for stock names
@@ -256,54 +253,31 @@ public class FractalJavaValidator extends AbstractFractalJavaValidator {
 	 * @param interfaceDefinition
 	 */
 	@Check
-	public void existingInterfaceSignature(
+	public void assertInterfaceSignatureExists(
 			InterfaceDefinition interfaceDefinition) {
 		
 		// Get the idl files using mind path
-		List<String> itf = ModelToProjectUtil.INSTANCE.getInterfacesInProject();
+		List<String> interfaces = ModelToProjectUtil.INSTANCE.getInterfacesInProject();
 		
 		String signature = interfaceDefinition.getSignature();
 		
+		// Retrieve architecture definition from interface definition
+		ArchitectureDefinition architectureDefinition = FractalUtil.getArchitecureDefinitionFromChild(interfaceDefinition);
+				
+		signature = FractalUtil.getInterfaceFQNFromPartialName(architectureDefinition, signature);
+		
 		// assert signature is available
-		if (!signature.equals("signature") & !signature.isEmpty() & !itf.contains(signature)) {
+		if ((signature == null) || signature.equals("signature") || signature.isEmpty() || !interfaces.contains(signature)) {
 			// warning if not
 			warning("Interface signature '"+interfaceDefinition.getSignature()+ "' does not exist",
 					AdlPackage.INTERFACE_DEFINITION,
-					FractalJavaValidator.UNKNOWN_INTERFACE);
+					FractalJavaValidator.UNKNOWN_INTERFACE,
+					// include name of interface and package for quickfix
+					interfaceDefinition.getSignature(),
+					FractalUtil.getPackageNameFromFQN(architectureDefinition.getNameFQN())
+					);
 		}
 		return;
-	}
-
-	/**
-	 * Check if component type of template specifier exists
-	 * 
-	 * @param TemplateSpecifier
-	 */
-	@Check
-	public void existingTemplateSpecifierComponentType(
-			TemplateSpecifier templateSpecifier) {
-		ArrayList<String> list = new ArrayList<String>();
-		String type = null;
-
-		if (templateSpecifier.getReference() != null) {
-			type = templateSpecifier.getReference().getNameFQN();
-		}
-
-		Collection<? extends MindAdl> c = mindModel.getMindModel()
-				.getAllComponents();
-
-		// MindModelManager.getMindModelManager().getMindProject(project);
-		for (MindAdl mindAdl : c) {
-			// if (mindAdl.getKind().equals(ComponentKind.TYPE)){
-			list.add(mindAdl.getQualifiedName());
-			// }
-		}
-
-		if (type != null && !list.contains(type)) {
-			error("Unknown template specifier type",
-					AdlPackage.TEMPLATE_SPECIFIER__REFERENCE,
-					FractalJavaValidator.UNKNOWN_TEMPLATE_SPECIFIER_TYPE);
-		}
 	}
 
 	/**
@@ -312,7 +286,7 @@ public class FractalJavaValidator extends AbstractFractalJavaValidator {
 	 * @param implementationDefinition
 	 */
 	@Check
-	public void existingImplementationFile(
+	public void assertImplementationFileExists(
 			ImplementationDefinition implementationDefinition) {
 
 		FileC fileC = implementationDefinition.getFileC();
@@ -359,24 +333,134 @@ public class FractalJavaValidator extends AbstractFractalJavaValidator {
 	}
 
 	/**
+	 * 
+	 * Manage different cases for Composite Reference Definition 
+	 * 
+	 * @param compositeReferenceDefinition
+	 */
+	@Check
+	public void assertValidExtendComposite(
+			CompositeReferenceDefinition compositeReferenceDefinition) {
+		
+		// case of subcomponent usage
+		if (compositeReferenceDefinition.eContainer() instanceof SubComponentDefinition)
+			return;
+		
+		// case of reference list	
+		if (compositeReferenceDefinition.eContainer() instanceof CompositeReferencesList) {
+			this.assertValidExtendGeneric((ComponentReference) compositeReferenceDefinition);
+			return;
+		}
+		
+		//TODO manage complex extends
+		/*ArchitectureDefinition a = FractalUtil
+				.getArchitecureDefinitionFromChild(compositeReferenceComponentDefinition);
+		CompositeComponentDefinition b = (CompositeComponentDefinition) a;
+		FormalArgumentsList l = b.getCompositeFormalArgumentsList();
+		*/
+	}
+
+	/**
+	 * 
+	 * Assert that there is no problem for this primitive definition to extend
+	 * another one
+	 * 
+	 * @param primitiveReferenceDefinition
+	 */
+	@Check
+	public void assertValidExtendPrimitive(
+			PrimitiveReferenceDefinition primitiveReferenceDefinition) {
+		
+		// case of subcomponent usage
+		if (primitiveReferenceDefinition.eContainer() instanceof SubComponentDefinition)
+			return;
+		
+		// case of reference list
+		if (primitiveReferenceDefinition.eContainer() instanceof PrimitiveReferencesList) {
+			this.assertValidExtendGeneric((ComponentReference) primitiveReferenceDefinition);
+			return;
+		}
+	}
+
+	/**
+	 * 
+	 * Assert that there is no problem for this type definition to extend another
+	 * one
+	 * 
+	 * @param typeReferenceDefinition
+	 */
+	@Check
+	public void assertValidExtendType(
+			TypeReferenceDefinition typeReferenceDefinition) {		
+		
+		// case of template specifier
+		if (typeReferenceDefinition.eContainer() instanceof TemplateSpecifier){
+			existingTemplateSpecifierComponentType((TemplateSpecifier) typeReferenceDefinition.eContainer());
+			return;
+		}
+		
+		// case of subcomponent usage
+		if (typeReferenceDefinition.eContainer() instanceof SubComponentDefinition)
+			return;
+		
+		// case of reference list
+		if (typeReferenceDefinition.eContainer() instanceof TypeReferencesList) {
+			this.assertValidExtendGeneric((ComponentReference) typeReferenceDefinition);
+		}
+	}
+
+	/**
+	 * Check if component type of template specifier exists
+	 * TODO assert this is a type and not a composite or a primitive
+	 * 
+	 * @param TemplateSpecifier
+	 */
+	public void existingTemplateSpecifierComponentType(
+			TemplateSpecifier templateSpecifier) {
+		ArrayList<String> list = new ArrayList<String>();
+		String typeFQN = null;
+
+		if (templateSpecifier.getReference() != null) {
+			String typeSimple = templateSpecifier.getReference().getNameFQN();
+			typeFQN = FractalUtil.getComponentFQNFromPartialName((ArchitectureDefinition)templateSpecifier.eContainer().eContainer(), typeSimple);
+		}
+
+		Collection<? extends MindAdl> c = mindModel.getMindModel()
+				.getAllComponents();
+
+		// MindModelManager.getMindModelManager().getMindProject(project);
+		for (MindAdl mindAdl : c) {
+			// if (mindAdl.getKind().equals(ComponentKind.TYPE)){
+			list.add(mindAdl.getQualifiedName());
+			// }
+		}
+
+		if (typeFQN != null && !list.contains(typeFQN)) {
+			error("Unknown template specifier type",
+					AdlPackage.TEMPLATE_SPECIFIER__REFERENCE,
+					FractalJavaValidator.UNKNOWN_TEMPLATE_SPECIFIER_TYPE);
+		}
+	}
+	
+	/**
 	 * Generic validation for component reference
 	 * 
 	 * @param eObject
 	 */
 	public void assertValidExtendGeneric(ComponentReference componentReference) {
-
+		
 		ArchitectureDefinition architectureDefinition = FractalUtil
 				.getArchitecureDefinitionFromChild(componentReference);
 
 		// -- Retrieve fully qualified name from reference name
 		String referenceName = componentReference.getReferenceName();
-		String extendFQN = FractalUtil.getFQNFromPartialName(
+		String extendFQN = FractalUtil.getComponentFQNFromPartialName(
 				architectureDefinition, referenceName);
 		// --
 
 		AdlMergeUtil adlMergeUtil = AdlMergeUtil.getInstance();
 
-		// if extendFQN has ben found merge is valid -> return without any error
+		// if extendFQN has been found merge is valid -> return without any error
 		if (extendFQN != null) {
 			boolean isValid = adlMergeUtil.isValidDefinitionForMerge(
 					architectureDefinition, extendFQN);
@@ -388,49 +472,4 @@ public class FractalJavaValidator extends AbstractFractalJavaValidator {
 		error("Extend is not valid.", AdlPackage.COMPOSITE_COMPONENT_DEFINITION);
 
 	}
-
-	/**
-	 * 
-	 * Assert that there i no problem for this composite definition to extend
-	 * another one
-	 * 
-	 * @param compositeReferenceDefinitionCustomImpl
-	 */
-	@Check
-	public void assertValidExtendComposite(
-			CompositeReferenceDefinition compositeReferenceComponentDefinition) {
-		this.assertValidExtendGeneric((ComponentReference) compositeReferenceComponentDefinition);
-		ArchitectureDefinition a = FractalUtil
-				.getArchitecureDefinitionFromChild(compositeReferenceComponentDefinition);
-		CompositeComponentDefinition b = (CompositeComponentDefinition) a;
-		FormalArgumentsList l = b.getCompositeFormalArgumentsList();
-
-	}
-
-	/**
-	 * 
-	 * Assert that there i no problem for this primitive definition to extend
-	 * another one
-	 * 
-	 * @param compositeReferenceDefinitionCustomImpl
-	 */
-	@Check
-	public void assertValidExtendComposite(
-			PrimitiveReferenceDefinition primitiveReferenceComponentDefinition) {
-		this.assertValidExtendGeneric((ComponentReference) primitiveReferenceComponentDefinition);
-	}
-
-	/**
-	 * 
-	 * Assert that there i no problem for this type definition to extend another
-	 * one
-	 * 
-	 * @param compositeReferenceDefinitionCustomImpl
-	 */
-	@Check
-	public void assertValidExtendComposite(
-			TypeReferenceDefinition typeReferenceComponentDefinition) {
-		this.assertValidExtendGeneric((ComponentReference) typeReferenceComponentDefinition);
-	}
-
 }

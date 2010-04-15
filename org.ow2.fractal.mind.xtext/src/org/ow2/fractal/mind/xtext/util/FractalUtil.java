@@ -3,10 +3,12 @@ package org.ow2.fractal.mind.xtext.util;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashSet;
+import java.util.List;
 
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 import org.ow2.fractal.mind.ide.MindModelManager;
+import org.ow2.fractal.mind.ide.ModelToProjectUtil;
 import org.ow2.fractal.mind.ide.emf.mindide.MindAdl;
 
 import adl.AdlDefinition;
@@ -34,7 +36,6 @@ public class FractalUtil {
 	 * @param importDefinition
 	 * @return
 	 */
-
 	public static String getImportPackageName(ImportDefinition importDefinition) {
 
 		String packageName = importDefinition.getImportName();
@@ -52,10 +53,8 @@ public class FractalUtil {
 	 * 
 	 * @param packageName : name of the package we are looking into
 	 * @param componentNames : list of all components name
-	 * @return simple names of components
-	 * 
+	 * @return simple names of components 
 	 */
-
 	public static ArrayList<String> getComponentNamesFromPackage(
 			String packageName, Collection<? extends MindAdl> components) {
 
@@ -80,7 +79,7 @@ public class FractalUtil {
 	 * 
 	 * @param architectureDefinition
 	 * @param components
-	 * @return
+	 * @return filtered component list
 	 */
 	public static Collection<? extends MindAdl> filterAccordingToExtendValidity(ArchitectureDefinition architectureDefinition, Collection<? extends MindAdl> components){
 		Collection<MindAdl> list = new ArrayList<MindAdl>();
@@ -101,11 +100,13 @@ public class FractalUtil {
 	 * 
 	 * @param fQN represent the component fully qualified name
 	 * @return the name of the package
-	 */
-	
+	 */	
 	public static String getPackageNameFromFQN(String fQN){		
 		int index = fQN.lastIndexOf('.');		
-		return fQN.substring(0, index);
+		if (index < 0) 
+			return fQN;
+		else
+			return fQN.substring(0, index);
 	}
 	
 	public static String getSimpleNameFromFQN(String fQN){
@@ -185,12 +186,13 @@ public class FractalUtil {
 	}
 	
 	/**
+	 * Return component FQN from its partial name according to available packages in import section of the architecture definition. 
 	 * 
 	 * @param architectureDefinition
-	 * @param partialName
+	 * @param partialName the name we want to complete
 	 * @return null if unknown component, else FQN
 	 */
-	public static String getFQNFromPartialName(ArchitectureDefinition architectureDefinition, String partialName){
+	public static String getComponentFQNFromPartialName(ArchitectureDefinition architectureDefinition, String partialName){
 		
 		String FQN = null;
 		
@@ -203,9 +205,31 @@ public class FractalUtil {
 			componentNames.add(component.getQualifiedName());
 		// -- 
 		
+		return getFQNFromSimpleName(architectureDefinition, componentNames, partialName);
+	}
+	
+	/**
+	 * Return interface FQN from its partial name according to available packages in import section of the architecture definition.
+	 * 
+	 * @param architectureDefinition
+	 * @param interfaceName the name we want to complete
+	 * @return null if unknown interface, else FQN
+	 */
+	public static String getInterfaceFQNFromPartialName(ArchitectureDefinition architectureDefinition, String interfaceName){
+		String FQN = null;
+		
+		// Retrieve all interfaces declared into mind project
+		List<String> interfaces = ModelToProjectUtil.INSTANCE.getInterfacesInProject();
+		
+		return getFQNFromSimpleName(architectureDefinition, interfaces, interfaceName);		
+	}
+	
+	private static String getFQNFromSimpleName(ArchitectureDefinition architectureDefinition, Collection<String> projectNames, String simpleName){
+		String FQN = null;
+		
 		// if already a FQN, so simple...
-		if (componentNames.contains(partialName)){
-			FQN = partialName;
+		if (projectNames.contains(simpleName)){
+			FQN = simpleName;
 		} 
 		// else trying to find a concatenation with an import
 		else {		
@@ -216,15 +240,14 @@ public class FractalUtil {
 			
 			for (String iImport : imports){
 				// when component is directly import
-				if (iImport.endsWith(partialName))
+				if (iImport.endsWith(simpleName))
 					FQN = iImport;
 				// when 'import package' + 'partial name' exist into component list
-				if (componentNames.contains(iImport + "." + partialName))
-					FQN = iImport + "." + partialName;
+				if (projectNames.contains(iImport + "." + simpleName))
+					FQN = iImport + "." + simpleName;
 			}
 		}
-		
-		
+				
 		return FQN;
 	}
 
@@ -235,7 +258,6 @@ public class FractalUtil {
 	 *            - Adl definition with declared imports
 	 * @return imports list for this definition
 	 */
-
 	public static Collection<String> getDeclaredImports(AdlDefinition definition) {
 
 		ArrayList<String> list = new ArrayList<String>();
