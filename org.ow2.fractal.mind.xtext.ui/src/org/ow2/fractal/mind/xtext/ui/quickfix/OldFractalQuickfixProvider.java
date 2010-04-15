@@ -119,7 +119,7 @@ public class OldFractalQuickfixProvider extends
 	@Fix(code = FractalJavaValidator.DUPLICATE_INTERFACE_NAME, label = "Rename interface", description = "Change this name in order to make it unique.")
 	public void fixDuplicateInterfaceName(
 			InterfaceDefinition interfaceDefinition, IssueContext issueContext) {
-		interfaceDefinition.setName(interfaceDefinition.getName() + "1");
+		interfaceDefinition.setName(interfaceDefinition.getName() + "4");
 		return;
 	}
 
