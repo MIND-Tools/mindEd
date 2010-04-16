@@ -3,6 +3,7 @@ package org.ow2.fractal.mind.idl.ui.contentassist;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.jface.text.contentassist.ICompletionProposal;
 import org.eclipse.xtext.Assignment;
+import org.eclipse.xtext.RuleCall;
 import org.eclipse.xtext.ui.editor.contentassist.ContentAssistContext;
 import org.eclipse.xtext.ui.editor.contentassist.ICompletionProposalAcceptor;
 import org.ow2.fractal.mind.idl.ui.contentassist.AbstractFractalIdtProposalProvider;
@@ -37,6 +38,23 @@ public class FractalIdtProposalProvider extends
 
 		completionProposal = createCompletionProposal(proposal, proposal
 				+ " - end definition", getImage(idtFile.getBegindef()), context);
+
+		acceptor.accept(completionProposal);
+	}
+
+	@Override
+	public void completeConstantDefinition_Id(EObject model,
+			Assignment assignment, ContentAssistContext context,
+			ICompletionProposalAcceptor acceptor) {
+
+		ICompletionProposal completionProposal = null;
+
+		IdtFile idtFile = (IdtFile) model;
+
+		String proposal = idtFile.getBegindef().getId();
+
+		completionProposal = createCompletionProposal(proposal, proposal
+				+ " - definition", getImage(idtFile.getBegindef()), context);
 
 		acceptor.accept(completionProposal);
 	}

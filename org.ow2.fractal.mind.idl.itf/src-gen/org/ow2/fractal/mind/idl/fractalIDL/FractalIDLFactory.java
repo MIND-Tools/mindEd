@@ -171,6 +171,15 @@ public interface FractalIDLFactory extends EFactory
   Declarator createDeclarator();
 
   /**
+   * Returns a new object of class '<em>Abstract Declarator</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Abstract Declarator</em>'.
+   * @generated
+   */
+  AbstractDeclarator createAbstractDeclarator();
+
+  /**
    * Returns a new object of class '<em>Pointer Specification</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -196,6 +205,15 @@ public interface FractalIDLFactory extends EFactory
    * @generated
    */
   DirectDeclarator createDirectDeclarator();
+
+  /**
+   * Returns a new object of class '<em>Abstract Direct Declarator</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Abstract Direct Declarator</em>'.
+   * @generated
+   */
+  AbstractDirectDeclarator createAbstractDirectDeclarator();
 
   /**
    * Returns a new object of class '<em>Array Specification</em>'.

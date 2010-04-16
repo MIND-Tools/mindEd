@@ -85,9 +85,11 @@ public class FractalIDLFactoryImpl extends EFactoryImpl implements FractalIDLFac
       case FractalIDLPackage.ENUM_MEMBER: return createEnumMember();
       case FractalIDLPackage.DECLARATORS: return createDeclarators();
       case FractalIDLPackage.DECLARATOR: return createDeclarator();
+      case FractalIDLPackage.ABSTRACT_DECLARATOR: return createAbstractDeclarator();
       case FractalIDLPackage.POINTER_SPECIFICATION: return createPointerSpecification();
       case FractalIDLPackage.QUALIFIED_POINTER_SPECIFICATION: return createQualified_PointerSpecification();
       case FractalIDLPackage.DIRECT_DECLARATOR: return createDirectDeclarator();
+      case FractalIDLPackage.ABSTRACT_DIRECT_DECLARATOR: return createAbstractDirectDeclarator();
       case FractalIDLPackage.ARRAY_SPECIFICATION: return createArraySpecification();
       case FractalIDLPackage.CONSTANT_DEFINITION: return createConstantDefinition();
       case FractalIDLPackage.INTERFACE_DEFINITION: return createInterfaceDefinition();
@@ -343,6 +345,17 @@ public class FractalIDLFactoryImpl extends EFactoryImpl implements FractalIDLFac
    * <!-- end-user-doc -->
    * @generated
    */
+  public AbstractDeclarator createAbstractDeclarator()
+  {
+    AbstractDeclaratorImpl abstractDeclarator = new AbstractDeclaratorImpl();
+    return abstractDeclarator;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public PointerSpecification createPointerSpecification()
   {
     PointerSpecificationImpl pointerSpecification = new PointerSpecificationImpl();
@@ -369,6 +382,17 @@ public class FractalIDLFactoryImpl extends EFactoryImpl implements FractalIDLFac
   {
     DirectDeclaratorImpl directDeclarator = new DirectDeclaratorImpl();
     return directDeclarator;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public AbstractDirectDeclarator createAbstractDirectDeclarator()
+  {
+    AbstractDirectDeclaratorImpl abstractDirectDeclarator = new AbstractDirectDeclaratorImpl();
+    return abstractDirectDeclarator;
   }
 
   /**

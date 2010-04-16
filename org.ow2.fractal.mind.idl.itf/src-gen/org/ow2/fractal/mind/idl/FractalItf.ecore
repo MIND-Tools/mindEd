@@ -106,6 +106,12 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="dc" eType="#//DirectDeclarator"
         containment="true"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="AbstractDeclarator">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="pointer" eType="#//PointerSpecification"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="dc" eType="#//AbstractDirectDeclarator"
+        containment="true"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="PointerSpecification">
     <eStructuralFeatures xsi:type="ecore:EReference" name="qualifiedPointer" upperBound="-1"
         eType="#//Qualified_PointerSpecification" containment="true"/>
@@ -118,6 +124,14 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="dec" eType="#//Declarator"
         containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="array" upperBound="-1"
+        eType="#//ArraySpecification" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="AbstractDirectDeclarator">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="dec" eType="#//AbstractDeclarator"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="arrays" upperBound="-1"
+        eType="#//ArraySpecification" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="array" upperBound="-1"
         eType="#//ArraySpecification" containment="true"/>
   </eClassifiers>
@@ -161,6 +175,8 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="qualifiedTypeSpec" eType="#//QualifiedTypeSpecification"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="dec" eType="#//Declarator"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="absDec" eType="#//AbstractDeclarator"
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="ParameterQualifier">

@@ -66,11 +66,12 @@ Declarators:
   dec=Declarator (',' declaratorList+=Declarator)*;
 
 Declarator:
-  pointer=PointerSpecification dc=DirectDeclarator; /*
-AbstractDeclarator:
-  pointer=PointerSpecification dc=AbstractDirectDeclarator;
-  */
+  pointer=PointerSpecification dc=DirectDeclarator; 
 
+AbstractDeclarator:
+  pointer=PointerSpecification dc=AbstractDirectDeclarator?;
+  
+  
 PointerSpecification:
   {PointerSpecification} qualifiedPointer+=Qualified_PointerSpecification*;
 
@@ -78,8 +79,10 @@ Qualified_PointerSpecification:
   {Qualified_PointerSpecification} '*' typeQualifier+=TypeQualifier*;
 
 DirectDeclarator:
-  (id=ID|'(' dec=Declarator ')') array+=ArraySpecification*; /*AbstractDirectDeclarator:
-  '(' dec=AbstractDeclarator ')' array+=ArraySpecification*;*/
+  (id=ID|'(' dec=Declarator ')') array+=ArraySpecification*; 
+  
+ AbstractDirectDeclarator:
+  '(' dec=AbstractDeclarator ')' arrays+=ArraySpecification*;
 
 ArraySpecification:
   '[' (constExpr=ConstantExpression)? ']';
@@ -104,7 +107,7 @@ ParameterList:
 
 Parameter:
   annotations=Annotations ParameterQualifier+=ParameterQualifier* qualifiedTypeSpec=
-  QualifiedTypeSpecification dec=Declarator?;
+  QualifiedTypeSpecification (dec=Declarator|absDec=AbstractDeclarator);
 
 enum ParameterQualifier:
   in | out; // include directive

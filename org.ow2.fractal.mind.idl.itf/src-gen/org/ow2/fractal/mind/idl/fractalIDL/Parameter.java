@@ -22,6 +22,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link org.ow2.fractal.mind.idl.fractalIDL.Parameter#getParameterQualifier <em>Parameter Qualifier</em>}</li>
  *   <li>{@link org.ow2.fractal.mind.idl.fractalIDL.Parameter#getQualifiedTypeSpec <em>Qualified Type Spec</em>}</li>
  *   <li>{@link org.ow2.fractal.mind.idl.fractalIDL.Parameter#getDec <em>Dec</em>}</li>
+ *   <li>{@link org.ow2.fractal.mind.idl.fractalIDL.Parameter#getAbsDec <em>Abs Dec</em>}</li>
  * </ul>
  * </p>
  *
@@ -126,5 +127,31 @@ public interface Parameter extends EObject
    * @generated
    */
   void setDec(Declarator value);
+
+  /**
+   * Returns the value of the '<em><b>Abs Dec</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Abs Dec</em>' containment reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Abs Dec</em>' containment reference.
+   * @see #setAbsDec(AbstractDeclarator)
+   * @see org.ow2.fractal.mind.idl.fractalIDL.FractalIDLPackage#getParameter_AbsDec()
+   * @model containment="true"
+   * @generated
+   */
+  AbstractDeclarator getAbsDec();
+
+  /**
+   * Sets the value of the '{@link org.ow2.fractal.mind.idl.fractalIDL.Parameter#getAbsDec <em>Abs Dec</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Abs Dec</em>' containment reference.
+   * @see #getAbsDec()
+   * @generated
+   */
+  void setAbsDec(AbstractDeclarator value);
 
 } // Parameter

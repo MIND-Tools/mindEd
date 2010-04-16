@@ -197,42 +197,57 @@ public class FractalItfTransformer extends
 
 		String label = obj.getId() + "(";
 
-		if (obj.getParameterList().getParam() != null)
+		if (obj.getParameterList() != null) {
 
-			try {
-				label = label
-						+ obj.getParameterList().getParam()
-								.getQualifiedTypeSpec().getTypeSpec()
-								.getTypeSpecifier().get(0);
-			}
-			// If paramater type is not a primitive type then an exception is
-			// raised
-			catch (Exception e) {
-				label = label
+			if ((obj.getParameterList().getParam() != null))
+
+				try {
+					label = label
+							+ obj.getParameterList().getParam()
+									.getQualifiedTypeSpec().getTypeSpec()
+									.getTypeSpecifier().get(0);
+				}
+				// If paramater type is not a primitive type then an exception
+				// is
+				// raised
+				catch (Exception e) {
+					try {
+						label = label
 						+ obj.getParameterList().getParam()
 								.getQualifiedTypeSpec().getTypeSpec()
 								.getTypeDefName();
-			}
+						
+					}catch (Exception e2) {
+						label = label + "?";
+					}
 
-		for (Parameter parameter : obj.getParameterList().getParams()) {
+				}
 
-			try {
-				label = label
-						+ ","
-						+ parameter.getQualifiedTypeSpec().getTypeSpec()
-								.getTypeSpecifier().get(0);
-			}
-			// If paramater type is not a primitive type then an exception is
-			// raised
-			catch (Exception e) {
+			for (Parameter parameter : obj.getParameterList().getParams()) {
 
-				label = label
-						+ ","
-						+ parameter.getQualifiedTypeSpec().getTypeSpec()
-								.getTypeDefName();
+				try {
+					label = label
+							+ ","
+							+ parameter.getQualifiedTypeSpec().getTypeSpec()
+									.getTypeSpecifier().get(0);
+				}
+				// If paramater type is not a primitive type then an exception
+				// is
+				// raised
+				catch (Exception e) {
+
+					try {
+						label = label
+								+ ","
+								+ parameter.getQualifiedTypeSpec().getTypeSpec()
+										.getTypeDefName();
+					} catch (Exception e1) {
+						System.out.println(e1);
+						label = label + ",?";
+					}
+				}
 			}
 		}
-
 		label = label + ")";
 
 		node.setLabel(label);
@@ -262,7 +277,7 @@ public class FractalItfTransformer extends
 	// --------------------------//
 	// Customize Children nodes //
 	// --------------------------//
-	
+
 	public List<EObject> getChildren(ConstantDefinition obj) {
 		return NO_CHILDREN;
 	}
@@ -290,7 +305,7 @@ public class FractalItfTransformer extends
 	public List<EObject> getChildren(ItfFile obj) {
 		return obj.eContents();
 	}
-	
+
 	public List<EObject> getChildren(Annotation obj) {
 		return NO_CHILDREN;
 	}

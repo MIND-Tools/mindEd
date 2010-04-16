@@ -593,13 +593,7 @@ public class FractalItfGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cDcDirectDeclaratorParserRuleCall_1_0 = (RuleCall)cDcAssignment_1.eContents().get(0);
 		
 		//Declarator:
-		//  pointer=PointerSpecification dc=DirectDeclarator; 
-		//
-		//
-		//      / *
-		//AbstractDeclarator:
-		//  pointer=PointerSpecification dc=AbstractDirectDeclarator;
-		//  * /
+		//  pointer=PointerSpecification dc=DirectDeclarator;
 		public ParserRule getRule() { return rule; }
 
 		//pointer=PointerSpecification dc=DirectDeclarator
@@ -618,6 +612,34 @@ public class FractalItfGrammarAccess extends AbstractGrammarElementFinder {
 		public RuleCall getDcDirectDeclaratorParserRuleCall_1_0() { return cDcDirectDeclaratorParserRuleCall_1_0; }
 	}
 
+	public class AbstractDeclaratorElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "AbstractDeclarator");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Assignment cPointerAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final RuleCall cPointerPointerSpecificationParserRuleCall_0_0 = (RuleCall)cPointerAssignment_0.eContents().get(0);
+		private final Assignment cDcAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cDcAbstractDirectDeclaratorParserRuleCall_1_0 = (RuleCall)cDcAssignment_1.eContents().get(0);
+		
+		//AbstractDeclarator:
+		//  pointer=PointerSpecification dc=AbstractDirectDeclarator?;
+		public ParserRule getRule() { return rule; }
+
+		//pointer=PointerSpecification dc=AbstractDirectDeclarator?
+		public Group getGroup() { return cGroup; }
+
+		//pointer=PointerSpecification
+		public Assignment getPointerAssignment_0() { return cPointerAssignment_0; }
+
+		//PointerSpecification
+		public RuleCall getPointerPointerSpecificationParserRuleCall_0_0() { return cPointerPointerSpecificationParserRuleCall_0_0; }
+
+		//dc=AbstractDirectDeclarator?
+		public Assignment getDcAssignment_1() { return cDcAssignment_1; }
+
+		//AbstractDirectDeclarator
+		public RuleCall getDcAbstractDirectDeclaratorParserRuleCall_1_0() { return cDcAbstractDirectDeclaratorParserRuleCall_1_0; }
+	}
+
 	public class PointerSpecificationElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "PointerSpecification");
 		private final Group cGroup = (Group)rule.eContents().get(1);
@@ -626,10 +648,7 @@ public class FractalItfGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cQualifiedPointerQualified_PointerSpecificationParserRuleCall_1_0 = (RuleCall)cQualifiedPointerAssignment_1.eContents().get(0);
 		
 		//PointerSpecification:
-		//  {PointerSpecification} qualifiedPointer+=Qualified_PointerSpecification*;   / *
-		//AbstractDeclarator:
-		//  pointer=PointerSpecification dc=AbstractDirectDeclarator;
-		//  * /
+		//  {PointerSpecification} qualifiedPointer+=Qualified_PointerSpecification*;
 		public ParserRule getRule() { return rule; }
 
 		//{PointerSpecification} qualifiedPointer+=Qualified_PointerSpecification*
@@ -688,11 +707,7 @@ public class FractalItfGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cArrayArraySpecificationParserRuleCall_1_0 = (RuleCall)cArrayAssignment_1.eContents().get(0);
 		
 		//DirectDeclarator:
-		//  (id=ID|"(" dec=Declarator ")") array+=ArraySpecification*; 
-		//
-		//
-		//          / *AbstractDirectDeclarator:
-		//  '(' dec=AbstractDeclarator ')' array+=ArraySpecification*;* /
+		//  (id=ID|"(" dec=Declarator ")") array+=ArraySpecification*;
 		public ParserRule getRule() { return rule; }
 
 		//(id=ID|"(" dec=Declarator ")") array+=ArraySpecification*
@@ -729,6 +744,56 @@ public class FractalItfGrammarAccess extends AbstractGrammarElementFinder {
 		public RuleCall getArrayArraySpecificationParserRuleCall_1_0() { return cArrayArraySpecificationParserRuleCall_1_0; }
 	}
 
+	public class AbstractDirectDeclaratorElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "AbstractDirectDeclarator");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final Group cGroup_0 = (Group)cAlternatives.eContents().get(0);
+		private final Keyword cLeftParenthesisKeyword_0_0 = (Keyword)cGroup_0.eContents().get(0);
+		private final Assignment cDecAssignment_0_1 = (Assignment)cGroup_0.eContents().get(1);
+		private final RuleCall cDecAbstractDeclaratorParserRuleCall_0_1_0 = (RuleCall)cDecAssignment_0_1.eContents().get(0);
+		private final Keyword cRightParenthesisKeyword_0_2 = (Keyword)cGroup_0.eContents().get(2);
+		private final Assignment cArraysAssignment_0_3 = (Assignment)cGroup_0.eContents().get(3);
+		private final RuleCall cArraysArraySpecificationParserRuleCall_0_3_0 = (RuleCall)cArraysAssignment_0_3.eContents().get(0);
+		private final Assignment cArrayAssignment_1 = (Assignment)cAlternatives.eContents().get(1);
+		private final RuleCall cArrayArraySpecificationParserRuleCall_1_0 = (RuleCall)cArrayAssignment_1.eContents().get(0);
+		
+		//AbstractDirectDeclarator:
+		//  "(" dec=AbstractDeclarator ")" arrays+=ArraySpecification*|array+=
+		//  ArraySpecification+;
+		public ParserRule getRule() { return rule; }
+
+		//"(" dec=AbstractDeclarator ")" arrays+=ArraySpecification*|array+=
+		//ArraySpecification+
+		public Alternatives getAlternatives() { return cAlternatives; }
+
+		//"(" dec=AbstractDeclarator ")" arrays+=ArraySpecification*
+		public Group getGroup_0() { return cGroup_0; }
+
+		//"("
+		public Keyword getLeftParenthesisKeyword_0_0() { return cLeftParenthesisKeyword_0_0; }
+
+		//dec=AbstractDeclarator
+		public Assignment getDecAssignment_0_1() { return cDecAssignment_0_1; }
+
+		//AbstractDeclarator
+		public RuleCall getDecAbstractDeclaratorParserRuleCall_0_1_0() { return cDecAbstractDeclaratorParserRuleCall_0_1_0; }
+
+		//")"
+		public Keyword getRightParenthesisKeyword_0_2() { return cRightParenthesisKeyword_0_2; }
+
+		//arrays+=ArraySpecification*
+		public Assignment getArraysAssignment_0_3() { return cArraysAssignment_0_3; }
+
+		//ArraySpecification
+		public RuleCall getArraysArraySpecificationParserRuleCall_0_3_0() { return cArraysArraySpecificationParserRuleCall_0_3_0; }
+
+		//array+=ArraySpecification+
+		public Assignment getArrayAssignment_1() { return cArrayAssignment_1; }
+
+		//ArraySpecification
+		public RuleCall getArrayArraySpecificationParserRuleCall_1_0() { return cArrayArraySpecificationParserRuleCall_1_0; }
+	}
+
 	public class ArraySpecificationElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "ArraySpecification");
 		private final Group cGroup = (Group)rule.eContents().get(1);
@@ -738,8 +803,7 @@ public class FractalItfGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cRightSquareBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
 		
 		//ArraySpecification:
-		//  "[" constExpr=ConstantExpression? "]";   / *AbstractDirectDeclarator:
-		//  '(' dec=AbstractDeclarator ')' array+=ArraySpecification*;* /
+		//  "[" constExpr=ConstantExpression? "]";
 		public ParserRule getRule() { return rule; }
 
 		//"[" constExpr=ConstantExpression? "]"
@@ -1030,16 +1094,19 @@ public class FractalItfGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cParameterQualifierParameterQualifierEnumRuleCall_1_0 = (RuleCall)cParameterQualifierAssignment_1.eContents().get(0);
 		private final Assignment cQualifiedTypeSpecAssignment_2 = (Assignment)cGroup.eContents().get(2);
 		private final RuleCall cQualifiedTypeSpecQualifiedTypeSpecificationParserRuleCall_2_0 = (RuleCall)cQualifiedTypeSpecAssignment_2.eContents().get(0);
-		private final Assignment cDecAssignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final RuleCall cDecDeclaratorParserRuleCall_3_0 = (RuleCall)cDecAssignment_3.eContents().get(0);
+		private final Alternatives cAlternatives_3 = (Alternatives)cGroup.eContents().get(3);
+		private final Assignment cDecAssignment_3_0 = (Assignment)cAlternatives_3.eContents().get(0);
+		private final RuleCall cDecDeclaratorParserRuleCall_3_0_0 = (RuleCall)cDecAssignment_3_0.eContents().get(0);
+		private final Assignment cAbsDecAssignment_3_1 = (Assignment)cAlternatives_3.eContents().get(1);
+		private final RuleCall cAbsDecAbstractDeclaratorParserRuleCall_3_1_0 = (RuleCall)cAbsDecAssignment_3_1.eContents().get(0);
 		
 		//Parameter:
 		//  annotations=Annotations ParameterQualifier+=ParameterQualifier* qualifiedTypeSpec=
-		//  QualifiedTypeSpecification dec=Declarator?;
+		//  QualifiedTypeSpecification (dec=Declarator|absDec=AbstractDeclarator);
 		public ParserRule getRule() { return rule; }
 
 		//annotations=Annotations ParameterQualifier+=ParameterQualifier* qualifiedTypeSpec=
-		//QualifiedTypeSpecification dec=Declarator?
+		//QualifiedTypeSpecification (dec=Declarator|absDec=AbstractDeclarator)
 		public Group getGroup() { return cGroup; }
 
 		//annotations=Annotations
@@ -1060,11 +1127,20 @@ public class FractalItfGrammarAccess extends AbstractGrammarElementFinder {
 		//QualifiedTypeSpecification
 		public RuleCall getQualifiedTypeSpecQualifiedTypeSpecificationParserRuleCall_2_0() { return cQualifiedTypeSpecQualifiedTypeSpecificationParserRuleCall_2_0; }
 
-		//dec=Declarator?
-		public Assignment getDecAssignment_3() { return cDecAssignment_3; }
+		//dec=Declarator|absDec=AbstractDeclarator
+		public Alternatives getAlternatives_3() { return cAlternatives_3; }
+
+		//dec=Declarator
+		public Assignment getDecAssignment_3_0() { return cDecAssignment_3_0; }
 
 		//Declarator
-		public RuleCall getDecDeclaratorParserRuleCall_3_0() { return cDecDeclaratorParserRuleCall_3_0; }
+		public RuleCall getDecDeclaratorParserRuleCall_3_0_0() { return cDecDeclaratorParserRuleCall_3_0_0; }
+
+		//absDec=AbstractDeclarator
+		public Assignment getAbsDecAssignment_3_1() { return cAbsDecAssignment_3_1; }
+
+		//AbstractDeclarator
+		public RuleCall getAbsDecAbstractDeclaratorParserRuleCall_3_1_0() { return cAbsDecAbstractDeclaratorParserRuleCall_3_1_0; }
 	}
 
 	public class IncludeDirectiveElements extends AbstractParserRuleElementFinder {
@@ -2222,9 +2298,11 @@ public class FractalItfGrammarAccess extends AbstractGrammarElementFinder {
 	private EnumMemberElements pEnumMember;
 	private DeclaratorsElements pDeclarators;
 	private DeclaratorElements pDeclarator;
+	private AbstractDeclaratorElements pAbstractDeclarator;
 	private PointerSpecificationElements pPointerSpecification;
 	private Qualified_PointerSpecificationElements pQualified_PointerSpecification;
 	private DirectDeclaratorElements pDirectDeclarator;
+	private AbstractDirectDeclaratorElements pAbstractDirectDeclarator;
 	private ArraySpecificationElements pArraySpecification;
 	private FullyQualifiedNameElements pFullyQualifiedName;
 	private ConstantDefinitionElements pConstantDefinition;
@@ -2486,13 +2564,7 @@ public class FractalItfGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//Declarator:
-	//  pointer=PointerSpecification dc=DirectDeclarator; 
-	//
-	//
-	//      / *
-	//AbstractDeclarator:
-	//  pointer=PointerSpecification dc=AbstractDirectDeclarator;
-	//  * /
+	//  pointer=PointerSpecification dc=DirectDeclarator;
 	public DeclaratorElements getDeclaratorAccess() {
 		return (pDeclarator != null) ? pDeclarator : (pDeclarator = new DeclaratorElements());
 	}
@@ -2501,11 +2573,18 @@ public class FractalItfGrammarAccess extends AbstractGrammarElementFinder {
 		return getDeclaratorAccess().getRule();
 	}
 
-	//PointerSpecification:
-	//  {PointerSpecification} qualifiedPointer+=Qualified_PointerSpecification*;   / *
 	//AbstractDeclarator:
-	//  pointer=PointerSpecification dc=AbstractDirectDeclarator;
-	//  * /
+	//  pointer=PointerSpecification dc=AbstractDirectDeclarator?;
+	public AbstractDeclaratorElements getAbstractDeclaratorAccess() {
+		return (pAbstractDeclarator != null) ? pAbstractDeclarator : (pAbstractDeclarator = new AbstractDeclaratorElements());
+	}
+	
+	public ParserRule getAbstractDeclaratorRule() {
+		return getAbstractDeclaratorAccess().getRule();
+	}
+
+	//PointerSpecification:
+	//  {PointerSpecification} qualifiedPointer+=Qualified_PointerSpecification*;
 	public PointerSpecificationElements getPointerSpecificationAccess() {
 		return (pPointerSpecification != null) ? pPointerSpecification : (pPointerSpecification = new PointerSpecificationElements());
 	}
@@ -2525,11 +2604,7 @@ public class FractalItfGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//DirectDeclarator:
-	//  (id=ID|"(" dec=Declarator ")") array+=ArraySpecification*; 
-	//
-	//
-	//          / *AbstractDirectDeclarator:
-	//  '(' dec=AbstractDeclarator ')' array+=ArraySpecification*;* /
+	//  (id=ID|"(" dec=Declarator ")") array+=ArraySpecification*;
 	public DirectDeclaratorElements getDirectDeclaratorAccess() {
 		return (pDirectDeclarator != null) ? pDirectDeclarator : (pDirectDeclarator = new DirectDeclaratorElements());
 	}
@@ -2538,9 +2613,19 @@ public class FractalItfGrammarAccess extends AbstractGrammarElementFinder {
 		return getDirectDeclaratorAccess().getRule();
 	}
 
+	//AbstractDirectDeclarator:
+	//  "(" dec=AbstractDeclarator ")" arrays+=ArraySpecification*|array+=
+	//  ArraySpecification+;
+	public AbstractDirectDeclaratorElements getAbstractDirectDeclaratorAccess() {
+		return (pAbstractDirectDeclarator != null) ? pAbstractDirectDeclarator : (pAbstractDirectDeclarator = new AbstractDirectDeclaratorElements());
+	}
+	
+	public ParserRule getAbstractDirectDeclaratorRule() {
+		return getAbstractDirectDeclaratorAccess().getRule();
+	}
+
 	//ArraySpecification:
-	//  "[" constExpr=ConstantExpression? "]";   / *AbstractDirectDeclarator:
-	//  '(' dec=AbstractDeclarator ')' array+=ArraySpecification*;* /
+	//  "[" constExpr=ConstantExpression? "]";
 	public ArraySpecificationElements getArraySpecificationAccess() {
 		return (pArraySpecification != null) ? pArraySpecification : (pArraySpecification = new ArraySpecificationElements());
 	}
@@ -2606,7 +2691,7 @@ public class FractalItfGrammarAccess extends AbstractGrammarElementFinder {
 
 	//Parameter:
 	//  annotations=Annotations ParameterQualifier+=ParameterQualifier* qualifiedTypeSpec=
-	//  QualifiedTypeSpecification dec=Declarator?;
+	//  QualifiedTypeSpecification (dec=Declarator|absDec=AbstractDeclarator);
 	public ParameterElements getParameterAccess() {
 		return (pParameter != null) ? pParameter : (pParameter = new ParameterElements());
 	}

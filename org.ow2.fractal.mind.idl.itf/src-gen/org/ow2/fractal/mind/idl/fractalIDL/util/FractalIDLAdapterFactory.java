@@ -159,6 +159,11 @@ public class FractalIDLAdapterFactory extends AdapterFactoryImpl
         return createDeclaratorAdapter();
       }
       @Override
+      public Adapter caseAbstractDeclarator(AbstractDeclarator object)
+      {
+        return createAbstractDeclaratorAdapter();
+      }
+      @Override
       public Adapter casePointerSpecification(PointerSpecification object)
       {
         return createPointerSpecificationAdapter();
@@ -172,6 +177,11 @@ public class FractalIDLAdapterFactory extends AdapterFactoryImpl
       public Adapter caseDirectDeclarator(DirectDeclarator object)
       {
         return createDirectDeclaratorAdapter();
+      }
+      @Override
+      public Adapter caseAbstractDirectDeclarator(AbstractDirectDeclarator object)
+      {
+        return createAbstractDirectDeclaratorAdapter();
       }
       @Override
       public Adapter caseArraySpecification(ArraySpecification object)
@@ -571,6 +581,21 @@ public class FractalIDLAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
+   * Creates a new adapter for an object of class '{@link org.ow2.fractal.mind.idl.fractalIDL.AbstractDeclarator <em>Abstract Declarator</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.ow2.fractal.mind.idl.fractalIDL.AbstractDeclarator
+   * @generated
+   */
+  public Adapter createAbstractDeclaratorAdapter()
+  {
+    return null;
+  }
+
+  /**
    * Creates a new adapter for an object of class '{@link org.ow2.fractal.mind.idl.fractalIDL.PointerSpecification <em>Pointer Specification</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -611,6 +636,21 @@ public class FractalIDLAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createDirectDeclaratorAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.ow2.fractal.mind.idl.fractalIDL.AbstractDirectDeclarator <em>Abstract Direct Declarator</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.ow2.fractal.mind.idl.fractalIDL.AbstractDirectDeclarator
+   * @generated
+   */
+  public Adapter createAbstractDirectDeclaratorAdapter()
   {
     return null;
   }
