@@ -82,7 +82,7 @@ DirectDeclarator:
   (id=ID|'(' dec=Declarator ')') array+=ArraySpecification*; 
   
  AbstractDirectDeclarator:
-  '(' dec=AbstractDeclarator ')' arrays+=ArraySpecification*;
+  ('(' dec=AbstractDeclarator ')' arrays+=ArraySpecification*) | array+=ArraySpecification+;
 
 ArraySpecification:
   '[' (constExpr=ConstantExpression)? ']';
@@ -99,7 +99,7 @@ InterfaceDefinition:
   FullyQualifiedName)? '{' (methodDef+=MethodDefinition)* '}';
 
 MethodDefinition:
-  annotations=Annotations qualifiedTypeSpec=QualifiedTypeSpecification id=ID ('(' (
+  annotations=Annotations qualifiedTypeSpec=QualifiedTypeSpecification pointerSpecification=PointerSpecification id=ID ('(' (
   'void')? ')'|'(' ParameterList=ParameterList ')') ';';
 
 ParameterList:

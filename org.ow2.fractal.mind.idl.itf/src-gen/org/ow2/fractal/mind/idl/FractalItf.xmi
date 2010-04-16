@@ -520,6 +520,9 @@
         <elements xsi:type="xtext:Assignment" feature="qualifiedTypeSpec" operator="=">
           <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.3"/>
         </elements>
+        <elements xsi:type="xtext:Assignment" feature="pointerSpecification" operator="=">
+          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.21"/>
+        </elements>
         <elements xsi:type="xtext:Assignment" feature="id" operator="=">
           <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.0"/>
         </elements>

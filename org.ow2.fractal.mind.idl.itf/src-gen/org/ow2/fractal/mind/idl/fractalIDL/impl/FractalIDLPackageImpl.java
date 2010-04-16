@@ -1211,9 +1211,19 @@ public class FractalIDLPackageImpl extends EPackageImpl implements FractalIDLPac
    * <!-- end-user-doc -->
    * @generated
    */
+  public EReference getMethodDefinition_PointerSpecification()
+  {
+    return (EReference)methodDefinitionEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EAttribute getMethodDefinition_Id()
   {
-    return (EAttribute)methodDefinitionEClass.getEStructuralFeatures().get(2);
+    return (EAttribute)methodDefinitionEClass.getEStructuralFeatures().get(3);
   }
 
   /**
@@ -1223,7 +1233,7 @@ public class FractalIDLPackageImpl extends EPackageImpl implements FractalIDLPac
    */
   public EReference getMethodDefinition_ParameterList()
   {
-    return (EReference)methodDefinitionEClass.getEStructuralFeatures().get(3);
+    return (EReference)methodDefinitionEClass.getEStructuralFeatures().get(4);
   }
 
   /**
@@ -2071,6 +2081,7 @@ public class FractalIDLPackageImpl extends EPackageImpl implements FractalIDLPac
     methodDefinitionEClass = createEClass(METHOD_DEFINITION);
     createEReference(methodDefinitionEClass, METHOD_DEFINITION__ANNOTATIONS);
     createEReference(methodDefinitionEClass, METHOD_DEFINITION__QUALIFIED_TYPE_SPEC);
+    createEReference(methodDefinitionEClass, METHOD_DEFINITION__POINTER_SPECIFICATION);
     createEAttribute(methodDefinitionEClass, METHOD_DEFINITION__ID);
     createEReference(methodDefinitionEClass, METHOD_DEFINITION__PARAMETER_LIST);
 
@@ -2312,6 +2323,7 @@ public class FractalIDLPackageImpl extends EPackageImpl implements FractalIDLPac
     initEClass(methodDefinitionEClass, MethodDefinition.class, "MethodDefinition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getMethodDefinition_Annotations(), this.getAnnotations(), null, "annotations", null, 0, 1, MethodDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getMethodDefinition_QualifiedTypeSpec(), this.getQualifiedTypeSpecification(), null, "qualifiedTypeSpec", null, 0, 1, MethodDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getMethodDefinition_PointerSpecification(), this.getPointerSpecification(), null, "pointerSpecification", null, 0, 1, MethodDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getMethodDefinition_Id(), ecorePackage.getEString(), "id", null, 0, 1, MethodDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getMethodDefinition_ParameterList(), this.getParameterList(), null, "ParameterList", null, 0, 1, MethodDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 

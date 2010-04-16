@@ -19,6 +19,7 @@ import org.ow2.fractal.mind.idl.fractalIDL.Annotations;
 import org.ow2.fractal.mind.idl.fractalIDL.FractalIDLPackage;
 import org.ow2.fractal.mind.idl.fractalIDL.MethodDefinition;
 import org.ow2.fractal.mind.idl.fractalIDL.ParameterList;
+import org.ow2.fractal.mind.idl.fractalIDL.PointerSpecification;
 import org.ow2.fractal.mind.idl.fractalIDL.QualifiedTypeSpecification;
 
 /**
@@ -30,6 +31,7 @@ import org.ow2.fractal.mind.idl.fractalIDL.QualifiedTypeSpecification;
  * <ul>
  *   <li>{@link org.ow2.fractal.mind.idl.fractalIDL.impl.MethodDefinitionImpl#getAnnotations <em>Annotations</em>}</li>
  *   <li>{@link org.ow2.fractal.mind.idl.fractalIDL.impl.MethodDefinitionImpl#getQualifiedTypeSpec <em>Qualified Type Spec</em>}</li>
+ *   <li>{@link org.ow2.fractal.mind.idl.fractalIDL.impl.MethodDefinitionImpl#getPointerSpecification <em>Pointer Specification</em>}</li>
  *   <li>{@link org.ow2.fractal.mind.idl.fractalIDL.impl.MethodDefinitionImpl#getId <em>Id</em>}</li>
  *   <li>{@link org.ow2.fractal.mind.idl.fractalIDL.impl.MethodDefinitionImpl#getParameterList <em>Parameter List</em>}</li>
  * </ul>
@@ -58,6 +60,16 @@ public class MethodDefinitionImpl extends MinimalEObjectImpl.Container implement
    * @ordered
    */
   protected QualifiedTypeSpecification qualifiedTypeSpec;
+
+  /**
+   * The cached value of the '{@link #getPointerSpecification() <em>Pointer Specification</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getPointerSpecification()
+   * @generated
+   * @ordered
+   */
+  protected PointerSpecification pointerSpecification;
 
   /**
    * The default value of the '{@link #getId() <em>Id</em>}' attribute.
@@ -211,6 +223,54 @@ public class MethodDefinitionImpl extends MinimalEObjectImpl.Container implement
    * <!-- end-user-doc -->
    * @generated
    */
+  public PointerSpecification getPointerSpecification()
+  {
+    return pointerSpecification;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetPointerSpecification(PointerSpecification newPointerSpecification, NotificationChain msgs)
+  {
+    PointerSpecification oldPointerSpecification = pointerSpecification;
+    pointerSpecification = newPointerSpecification;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FractalIDLPackage.METHOD_DEFINITION__POINTER_SPECIFICATION, oldPointerSpecification, newPointerSpecification);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setPointerSpecification(PointerSpecification newPointerSpecification)
+  {
+    if (newPointerSpecification != pointerSpecification)
+    {
+      NotificationChain msgs = null;
+      if (pointerSpecification != null)
+        msgs = ((InternalEObject)pointerSpecification).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FractalIDLPackage.METHOD_DEFINITION__POINTER_SPECIFICATION, null, msgs);
+      if (newPointerSpecification != null)
+        msgs = ((InternalEObject)newPointerSpecification).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FractalIDLPackage.METHOD_DEFINITION__POINTER_SPECIFICATION, null, msgs);
+      msgs = basicSetPointerSpecification(newPointerSpecification, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, FractalIDLPackage.METHOD_DEFINITION__POINTER_SPECIFICATION, newPointerSpecification, newPointerSpecification));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public String getId()
   {
     return id;
@@ -291,6 +351,8 @@ public class MethodDefinitionImpl extends MinimalEObjectImpl.Container implement
         return basicSetAnnotations(null, msgs);
       case FractalIDLPackage.METHOD_DEFINITION__QUALIFIED_TYPE_SPEC:
         return basicSetQualifiedTypeSpec(null, msgs);
+      case FractalIDLPackage.METHOD_DEFINITION__POINTER_SPECIFICATION:
+        return basicSetPointerSpecification(null, msgs);
       case FractalIDLPackage.METHOD_DEFINITION__PARAMETER_LIST:
         return basicSetParameterList(null, msgs);
     }
@@ -311,6 +373,8 @@ public class MethodDefinitionImpl extends MinimalEObjectImpl.Container implement
         return getAnnotations();
       case FractalIDLPackage.METHOD_DEFINITION__QUALIFIED_TYPE_SPEC:
         return getQualifiedTypeSpec();
+      case FractalIDLPackage.METHOD_DEFINITION__POINTER_SPECIFICATION:
+        return getPointerSpecification();
       case FractalIDLPackage.METHOD_DEFINITION__ID:
         return getId();
       case FractalIDLPackage.METHOD_DEFINITION__PARAMETER_LIST:
@@ -334,6 +398,9 @@ public class MethodDefinitionImpl extends MinimalEObjectImpl.Container implement
         return;
       case FractalIDLPackage.METHOD_DEFINITION__QUALIFIED_TYPE_SPEC:
         setQualifiedTypeSpec((QualifiedTypeSpecification)newValue);
+        return;
+      case FractalIDLPackage.METHOD_DEFINITION__POINTER_SPECIFICATION:
+        setPointerSpecification((PointerSpecification)newValue);
         return;
       case FractalIDLPackage.METHOD_DEFINITION__ID:
         setId((String)newValue);
@@ -361,6 +428,9 @@ public class MethodDefinitionImpl extends MinimalEObjectImpl.Container implement
       case FractalIDLPackage.METHOD_DEFINITION__QUALIFIED_TYPE_SPEC:
         setQualifiedTypeSpec((QualifiedTypeSpecification)null);
         return;
+      case FractalIDLPackage.METHOD_DEFINITION__POINTER_SPECIFICATION:
+        setPointerSpecification((PointerSpecification)null);
+        return;
       case FractalIDLPackage.METHOD_DEFINITION__ID:
         setId(ID_EDEFAULT);
         return;
@@ -385,6 +455,8 @@ public class MethodDefinitionImpl extends MinimalEObjectImpl.Container implement
         return annotations != null;
       case FractalIDLPackage.METHOD_DEFINITION__QUALIFIED_TYPE_SPEC:
         return qualifiedTypeSpec != null;
+      case FractalIDLPackage.METHOD_DEFINITION__POINTER_SPECIFICATION:
+        return pointerSpecification != null;
       case FractalIDLPackage.METHOD_DEFINITION__ID:
         return ID_EDEFAULT == null ? id != null : !ID_EDEFAULT.equals(id);
       case FractalIDLPackage.METHOD_DEFINITION__PARAMETER_LIST:

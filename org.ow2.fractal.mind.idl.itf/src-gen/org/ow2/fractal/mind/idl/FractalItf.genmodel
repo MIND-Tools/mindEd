@@ -130,6 +130,7 @@
     <genClasses ecoreClass="FractalItf.ecore#//MethodDefinition">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference FractalItf.ecore#//MethodDefinition/annotations"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference FractalItf.ecore#//MethodDefinition/qualifiedTypeSpec"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference FractalItf.ecore#//MethodDefinition/pointerSpecification"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute FractalItf.ecore#//MethodDefinition/id"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference FractalItf.ecore#//MethodDefinition/ParameterList"/>
     </genClasses>

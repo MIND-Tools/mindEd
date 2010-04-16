@@ -18,6 +18,7 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link org.ow2.fractal.mind.idl.fractalIDL.MethodDefinition#getAnnotations <em>Annotations</em>}</li>
  *   <li>{@link org.ow2.fractal.mind.idl.fractalIDL.MethodDefinition#getQualifiedTypeSpec <em>Qualified Type Spec</em>}</li>
+ *   <li>{@link org.ow2.fractal.mind.idl.fractalIDL.MethodDefinition#getPointerSpecification <em>Pointer Specification</em>}</li>
  *   <li>{@link org.ow2.fractal.mind.idl.fractalIDL.MethodDefinition#getId <em>Id</em>}</li>
  *   <li>{@link org.ow2.fractal.mind.idl.fractalIDL.MethodDefinition#getParameterList <em>Parameter List</em>}</li>
  * </ul>
@@ -80,6 +81,32 @@ public interface MethodDefinition extends EObject
    * @generated
    */
   void setQualifiedTypeSpec(QualifiedTypeSpecification value);
+
+  /**
+   * Returns the value of the '<em><b>Pointer Specification</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Pointer Specification</em>' containment reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Pointer Specification</em>' containment reference.
+   * @see #setPointerSpecification(PointerSpecification)
+   * @see org.ow2.fractal.mind.idl.fractalIDL.FractalIDLPackage#getMethodDefinition_PointerSpecification()
+   * @model containment="true"
+   * @generated
+   */
+  PointerSpecification getPointerSpecification();
+
+  /**
+   * Sets the value of the '{@link org.ow2.fractal.mind.idl.fractalIDL.MethodDefinition#getPointerSpecification <em>Pointer Specification</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Pointer Specification</em>' containment reference.
+   * @see #getPointerSpecification()
+   * @generated
+   */
+  void setPointerSpecification(PointerSpecification value);
 
   /**
    * Returns the value of the '<em><b>Id</b></em>' attribute.

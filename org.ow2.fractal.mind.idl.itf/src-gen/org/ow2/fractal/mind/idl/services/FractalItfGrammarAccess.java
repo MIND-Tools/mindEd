@@ -962,27 +962,31 @@ public class FractalItfGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cAnnotationsAnnotationsParserRuleCall_0_0 = (RuleCall)cAnnotationsAssignment_0.eContents().get(0);
 		private final Assignment cQualifiedTypeSpecAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final RuleCall cQualifiedTypeSpecQualifiedTypeSpecificationParserRuleCall_1_0 = (RuleCall)cQualifiedTypeSpecAssignment_1.eContents().get(0);
-		private final Assignment cIdAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cIdIDTerminalRuleCall_2_0 = (RuleCall)cIdAssignment_2.eContents().get(0);
-		private final Alternatives cAlternatives_3 = (Alternatives)cGroup.eContents().get(3);
-		private final Group cGroup_3_0 = (Group)cAlternatives_3.eContents().get(0);
-		private final Keyword cLeftParenthesisKeyword_3_0_0 = (Keyword)cGroup_3_0.eContents().get(0);
-		private final Keyword cVoidKeyword_3_0_1 = (Keyword)cGroup_3_0.eContents().get(1);
-		private final Keyword cRightParenthesisKeyword_3_0_2 = (Keyword)cGroup_3_0.eContents().get(2);
-		private final Group cGroup_3_1 = (Group)cAlternatives_3.eContents().get(1);
-		private final Keyword cLeftParenthesisKeyword_3_1_0 = (Keyword)cGroup_3_1.eContents().get(0);
-		private final Assignment cParameterListAssignment_3_1_1 = (Assignment)cGroup_3_1.eContents().get(1);
-		private final RuleCall cParameterListParameterListParserRuleCall_3_1_1_0 = (RuleCall)cParameterListAssignment_3_1_1.eContents().get(0);
-		private final Keyword cRightParenthesisKeyword_3_1_2 = (Keyword)cGroup_3_1.eContents().get(2);
-		private final Keyword cSemicolonKeyword_4 = (Keyword)cGroup.eContents().get(4);
+		private final Assignment cPointerSpecificationAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cPointerSpecificationPointerSpecificationParserRuleCall_2_0 = (RuleCall)cPointerSpecificationAssignment_2.eContents().get(0);
+		private final Assignment cIdAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cIdIDTerminalRuleCall_3_0 = (RuleCall)cIdAssignment_3.eContents().get(0);
+		private final Alternatives cAlternatives_4 = (Alternatives)cGroup.eContents().get(4);
+		private final Group cGroup_4_0 = (Group)cAlternatives_4.eContents().get(0);
+		private final Keyword cLeftParenthesisKeyword_4_0_0 = (Keyword)cGroup_4_0.eContents().get(0);
+		private final Keyword cVoidKeyword_4_0_1 = (Keyword)cGroup_4_0.eContents().get(1);
+		private final Keyword cRightParenthesisKeyword_4_0_2 = (Keyword)cGroup_4_0.eContents().get(2);
+		private final Group cGroup_4_1 = (Group)cAlternatives_4.eContents().get(1);
+		private final Keyword cLeftParenthesisKeyword_4_1_0 = (Keyword)cGroup_4_1.eContents().get(0);
+		private final Assignment cParameterListAssignment_4_1_1 = (Assignment)cGroup_4_1.eContents().get(1);
+		private final RuleCall cParameterListParameterListParserRuleCall_4_1_1_0 = (RuleCall)cParameterListAssignment_4_1_1.eContents().get(0);
+		private final Keyword cRightParenthesisKeyword_4_1_2 = (Keyword)cGroup_4_1.eContents().get(2);
+		private final Keyword cSemicolonKeyword_5 = (Keyword)cGroup.eContents().get(5);
 		
 		//MethodDefinition:
-		//  annotations=Annotations qualifiedTypeSpec=QualifiedTypeSpecification id=ID ("("
-		//  "void"? ")"|"(" ParameterList=ParameterList ")") ";";
+		//  annotations=Annotations qualifiedTypeSpec=QualifiedTypeSpecification
+		//  pointerSpecification=PointerSpecification id=ID ("(" "void"? ")"|"(" ParameterList=
+		//  ParameterList ")") ";";
 		public ParserRule getRule() { return rule; }
 
-		//annotations=Annotations qualifiedTypeSpec=QualifiedTypeSpecification id=ID ("("
-		//"void"? ")"|"(" ParameterList=ParameterList ")") ";"
+		//annotations=Annotations qualifiedTypeSpec=QualifiedTypeSpecification
+		//pointerSpecification=PointerSpecification id=ID ("(" "void"? ")"|"(" ParameterList=
+		//ParameterList ")") ";"
 		public Group getGroup() { return cGroup; }
 
 		//annotations=Annotations
@@ -997,44 +1001,50 @@ public class FractalItfGrammarAccess extends AbstractGrammarElementFinder {
 		//QualifiedTypeSpecification
 		public RuleCall getQualifiedTypeSpecQualifiedTypeSpecificationParserRuleCall_1_0() { return cQualifiedTypeSpecQualifiedTypeSpecificationParserRuleCall_1_0; }
 
+		//pointerSpecification=PointerSpecification
+		public Assignment getPointerSpecificationAssignment_2() { return cPointerSpecificationAssignment_2; }
+
+		//PointerSpecification
+		public RuleCall getPointerSpecificationPointerSpecificationParserRuleCall_2_0() { return cPointerSpecificationPointerSpecificationParserRuleCall_2_0; }
+
 		//id=ID
-		public Assignment getIdAssignment_2() { return cIdAssignment_2; }
+		public Assignment getIdAssignment_3() { return cIdAssignment_3; }
 
 		//ID
-		public RuleCall getIdIDTerminalRuleCall_2_0() { return cIdIDTerminalRuleCall_2_0; }
+		public RuleCall getIdIDTerminalRuleCall_3_0() { return cIdIDTerminalRuleCall_3_0; }
 
 		//"(" "void"? ")"|"(" ParameterList=ParameterList ")"
-		public Alternatives getAlternatives_3() { return cAlternatives_3; }
+		public Alternatives getAlternatives_4() { return cAlternatives_4; }
 
 		//"(" "void"? ")"
-		public Group getGroup_3_0() { return cGroup_3_0; }
+		public Group getGroup_4_0() { return cGroup_4_0; }
 
 		//"("
-		public Keyword getLeftParenthesisKeyword_3_0_0() { return cLeftParenthesisKeyword_3_0_0; }
+		public Keyword getLeftParenthesisKeyword_4_0_0() { return cLeftParenthesisKeyword_4_0_0; }
 
 		//"void"?
-		public Keyword getVoidKeyword_3_0_1() { return cVoidKeyword_3_0_1; }
+		public Keyword getVoidKeyword_4_0_1() { return cVoidKeyword_4_0_1; }
 
 		//")"
-		public Keyword getRightParenthesisKeyword_3_0_2() { return cRightParenthesisKeyword_3_0_2; }
+		public Keyword getRightParenthesisKeyword_4_0_2() { return cRightParenthesisKeyword_4_0_2; }
 
 		//"(" ParameterList=ParameterList ")"
-		public Group getGroup_3_1() { return cGroup_3_1; }
+		public Group getGroup_4_1() { return cGroup_4_1; }
 
 		//"("
-		public Keyword getLeftParenthesisKeyword_3_1_0() { return cLeftParenthesisKeyword_3_1_0; }
+		public Keyword getLeftParenthesisKeyword_4_1_0() { return cLeftParenthesisKeyword_4_1_0; }
 
 		//ParameterList=ParameterList
-		public Assignment getParameterListAssignment_3_1_1() { return cParameterListAssignment_3_1_1; }
+		public Assignment getParameterListAssignment_4_1_1() { return cParameterListAssignment_4_1_1; }
 
 		//ParameterList
-		public RuleCall getParameterListParameterListParserRuleCall_3_1_1_0() { return cParameterListParameterListParserRuleCall_3_1_1_0; }
+		public RuleCall getParameterListParameterListParserRuleCall_4_1_1_0() { return cParameterListParameterListParserRuleCall_4_1_1_0; }
 
 		//")"
-		public Keyword getRightParenthesisKeyword_3_1_2() { return cRightParenthesisKeyword_3_1_2; }
+		public Keyword getRightParenthesisKeyword_4_1_2() { return cRightParenthesisKeyword_4_1_2; }
 
 		//";"
-		public Keyword getSemicolonKeyword_4() { return cSemicolonKeyword_4; }
+		public Keyword getSemicolonKeyword_5() { return cSemicolonKeyword_5; }
 	}
 
 	public class ParameterListElements extends AbstractParserRuleElementFinder {
@@ -2669,8 +2679,9 @@ public class FractalItfGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//MethodDefinition:
-	//  annotations=Annotations qualifiedTypeSpec=QualifiedTypeSpecification id=ID ("("
-	//  "void"? ")"|"(" ParameterList=ParameterList ")") ";";
+	//  annotations=Annotations qualifiedTypeSpec=QualifiedTypeSpecification
+	//  pointerSpecification=PointerSpecification id=ID ("(" "void"? ")"|"(" ParameterList=
+	//  ParameterList ")") ";";
 	public MethodDefinitionElements getMethodDefinitionAccess() {
 		return (pMethodDefinition != null) ? pMethodDefinition : (pMethodDefinition = new MethodDefinitionElements());
 	}

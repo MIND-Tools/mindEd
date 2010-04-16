@@ -108,7 +108,7 @@ public class FractalItfFormatter extends AbstractDeclarativeFormatter {
 	 */
 	protected void formatMethod(FractalItfGrammarAccess f, FormattingConfig c) {
 		c.setLinewrap().after(
-				f.getMethodDefinitionAccess().getSemicolonKeyword_4());
+				f.getMethodDefinitionAccess().getSemicolonKeyword_5());
 	}
 
 	/**

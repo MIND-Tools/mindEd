@@ -2353,9 +2353,33 @@ ruleMethodDefinition returns [EObject current=null]
 )
 )(
 (
-		lv_id_2_0=RULE_ID
+		{ 
+	        currentNode=createCompositeNode(grammarAccess.getMethodDefinitionAccess().getPointerSpecificationPointerSpecificationParserRuleCall_2_0(), currentNode); 
+	    }
+		lv_pointerSpecification_2_0=rulePointerSpecification		{
+	        if ($current==null) {
+	            $current = factory.create(grammarAccess.getMethodDefinitionRule().getType().getClassifier());
+	            associateNodeWithAstElement(currentNode.getParent(), $current);
+	        }
+	        try {
+	       		set(
+	       			$current, 
+	       			"pointerSpecification",
+	        		lv_pointerSpecification_2_0, 
+	        		"PointerSpecification", 
+	        		currentNode);
+	        } catch (ValueConverterException vce) {
+				handleValueConverterException(vce);
+	        }
+	        currentNode = currentNode.getParent();
+	    }
+
+)
+)(
+(
+		lv_id_3_0=RULE_ID
 		{
-			createLeafNode(grammarAccess.getMethodDefinitionAccess().getIdIDTerminalRuleCall_2_0(), "id"); 
+			createLeafNode(grammarAccess.getMethodDefinitionAccess().getIdIDTerminalRuleCall_3_0(), "id"); 
 		}
 		{
 	        if ($current==null) {
@@ -2366,7 +2390,7 @@ ruleMethodDefinition returns [EObject current=null]
 	       		set(
 	       			$current, 
 	       			"id",
-	        		lv_id_2_0, 
+	        		lv_id_3_0, 
 	        		"ID", 
 	        		lastConsumedNode);
 	        } catch (ValueConverterException vce) {
@@ -2377,27 +2401,27 @@ ruleMethodDefinition returns [EObject current=null]
 )
 )((	'(' 
     {
-        createLeafNode(grammarAccess.getMethodDefinitionAccess().getLeftParenthesisKeyword_3_0_0(), null); 
+        createLeafNode(grammarAccess.getMethodDefinitionAccess().getLeftParenthesisKeyword_4_0_0(), null); 
     }
 (	'void' 
     {
-        createLeafNode(grammarAccess.getMethodDefinitionAccess().getVoidKeyword_3_0_1(), null); 
+        createLeafNode(grammarAccess.getMethodDefinitionAccess().getVoidKeyword_4_0_1(), null); 
     }
 )?	')' 
     {
-        createLeafNode(grammarAccess.getMethodDefinitionAccess().getRightParenthesisKeyword_3_0_2(), null); 
+        createLeafNode(grammarAccess.getMethodDefinitionAccess().getRightParenthesisKeyword_4_0_2(), null); 
     }
 )
     |(	'(' 
     {
-        createLeafNode(grammarAccess.getMethodDefinitionAccess().getLeftParenthesisKeyword_3_1_0(), null); 
+        createLeafNode(grammarAccess.getMethodDefinitionAccess().getLeftParenthesisKeyword_4_1_0(), null); 
     }
 (
 (
 		{ 
-	        currentNode=createCompositeNode(grammarAccess.getMethodDefinitionAccess().getParameterListParameterListParserRuleCall_3_1_1_0(), currentNode); 
+	        currentNode=createCompositeNode(grammarAccess.getMethodDefinitionAccess().getParameterListParameterListParserRuleCall_4_1_1_0(), currentNode); 
 	    }
-		lv_ParameterList_7_0=ruleParameterList		{
+		lv_ParameterList_8_0=ruleParameterList		{
 	        if ($current==null) {
 	            $current = factory.create(grammarAccess.getMethodDefinitionRule().getType().getClassifier());
 	            associateNodeWithAstElement(currentNode.getParent(), $current);
@@ -2406,7 +2430,7 @@ ruleMethodDefinition returns [EObject current=null]
 	       		set(
 	       			$current, 
 	       			"ParameterList",
-	        		lv_ParameterList_7_0, 
+	        		lv_ParameterList_8_0, 
 	        		"ParameterList", 
 	        		currentNode);
 	        } catch (ValueConverterException vce) {
@@ -2418,11 +2442,11 @@ ruleMethodDefinition returns [EObject current=null]
 )
 )	')' 
     {
-        createLeafNode(grammarAccess.getMethodDefinitionAccess().getRightParenthesisKeyword_3_1_2(), null); 
+        createLeafNode(grammarAccess.getMethodDefinitionAccess().getRightParenthesisKeyword_4_1_2(), null); 
     }
 ))	';' 
     {
-        createLeafNode(grammarAccess.getMethodDefinitionAccess().getSemicolonKeyword_4(), null); 
+        createLeafNode(grammarAccess.getMethodDefinitionAccess().getSemicolonKeyword_5(), null); 
     }
 )
 ;

@@ -496,8 +496,9 @@ public class FractalIdtGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//MethodDefinition:
-	//  annotations=Annotations qualifiedTypeSpec=QualifiedTypeSpecification id=ID ("("
-	//  "void"? ")"|"(" ParameterList=ParameterList ")") ";";
+	//  annotations=Annotations qualifiedTypeSpec=QualifiedTypeSpecification
+	//  pointerSpecification=PointerSpecification id=ID ("(" "void"? ")"|"(" ParameterList=
+	//  ParameterList ")") ";";
 	public FractalItfGrammarAccess.MethodDefinitionElements getMethodDefinitionAccess() {
 		return gaFractalItf.getMethodDefinitionAccess();
 	}

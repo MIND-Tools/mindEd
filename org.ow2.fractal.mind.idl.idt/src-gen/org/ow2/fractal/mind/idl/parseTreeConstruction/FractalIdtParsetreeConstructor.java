@@ -4747,13 +4747,15 @@ protected class InterfaceDefinition_RightCurlyBracketKeyword_7 extends KeywordTo
 /************ begin Rule MethodDefinition ****************
  *
  * MethodDefinition:
- *   annotations=Annotations qualifiedTypeSpec=QualifiedTypeSpecification id=ID ("("
- *   "void"? ")"|"(" ParameterList=ParameterList ")") ";";
+ *   annotations=Annotations qualifiedTypeSpec=QualifiedTypeSpecification
+ *   pointerSpecification=PointerSpecification id=ID ("(" "void"? ")"|"(" ParameterList=
+ *   ParameterList ")") ";";
  *
  **/
 
-// annotations=Annotations qualifiedTypeSpec=QualifiedTypeSpecification id=ID ("("
-// "void"? ")"|"(" ParameterList=ParameterList ")") ";"
+// annotations=Annotations qualifiedTypeSpec=QualifiedTypeSpecification
+// pointerSpecification=PointerSpecification id=ID ("(" "void"? ")"|"(" ParameterList=
+// ParameterList ")") ";"
 protected class MethodDefinition_Group extends GroupToken {
 	
 	public MethodDefinition_Group(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
@@ -4768,7 +4770,7 @@ protected class MethodDefinition_Group extends GroupToken {
     @Override
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new MethodDefinition_SemicolonKeyword_4(parent, this, 0, inst);
+			case 0: return new MethodDefinition_SemicolonKeyword_5(parent, this, 0, inst);
 			default: return null;
 		}	
 	}	
@@ -4871,22 +4873,68 @@ protected class MethodDefinition_QualifiedTypeSpecAssignment_1 extends Assignmen
 	}	
 }
 
-// id=ID
-protected class MethodDefinition_IdAssignment_2 extends AssignmentToken  {
+// pointerSpecification=PointerSpecification
+protected class MethodDefinition_PointerSpecificationAssignment_2 extends AssignmentToken  {
 	
-	public MethodDefinition_IdAssignment_2(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	public MethodDefinition_PointerSpecificationAssignment_2(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	@Override
 	public Assignment getGrammarElement() {
-		return grammarAccess.getMethodDefinitionAccess().getIdAssignment_2();
+		return grammarAccess.getMethodDefinitionAccess().getPointerSpecificationAssignment_2();
 	}
 
     @Override
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new MethodDefinition_QualifiedTypeSpecAssignment_1(parent, this, 0, inst);
+			case 0: return new PointerSpecification_Group(this, this, 0, inst);
+			default: return null;
+		}	
+	}	
+		
+    @Override	
+	protected IInstanceDescription tryConsumeVal() {
+		if((value = current.getConsumable("pointerSpecification",true)) == null) return null;
+		IInstanceDescription obj = current.cloneAndConsume("pointerSpecification");
+		if(value instanceof EObject) { // org::eclipse::xtext::impl::RuleCallImpl
+			IInstanceDescription param = getDescr((EObject)value);
+			if(param.isInstanceOf(grammarAccess.getPointerSpecificationRule().getType().getClassifier())) {
+				type = AssignmentType.PRC;
+				element = grammarAccess.getMethodDefinitionAccess().getPointerSpecificationPointerSpecificationParserRuleCall_2_0(); 
+				consumed = obj;
+				return param;
+			}
+		}
+		return null;
+	}
+
+    @Override
+	public AbstractToken createParentFollower(AbstractToken next,	int actIndex, int index, IInstanceDescription inst) {
+		if(value == inst.getDelegate() && !inst.isConsumed()) return null;
+		switch(index) {
+			case 0: return new MethodDefinition_QualifiedTypeSpecAssignment_1(parent, next, actIndex, consumed);
+			default: return null;
+		}	
+	}	
+}
+
+// id=ID
+protected class MethodDefinition_IdAssignment_3 extends AssignmentToken  {
+	
+	public MethodDefinition_IdAssignment_3(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Assignment getGrammarElement() {
+		return grammarAccess.getMethodDefinitionAccess().getIdAssignment_3();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new MethodDefinition_PointerSpecificationAssignment_2(parent, this, 0, inst);
 			default: return null;
 		}	
 	}	
@@ -4897,7 +4945,7 @@ protected class MethodDefinition_IdAssignment_2 extends AssignmentToken  {
 		IInstanceDescription obj = current.cloneAndConsume("id");
 		if(Boolean.TRUE.booleanValue()) { 
 			type = AssignmentType.LRC;
-			element = grammarAccess.getMethodDefinitionAccess().getIdIDTerminalRuleCall_2_0();
+			element = grammarAccess.getMethodDefinitionAccess().getIdIDTerminalRuleCall_3_0();
 			return obj;
 		}
 		return null;
@@ -4906,22 +4954,22 @@ protected class MethodDefinition_IdAssignment_2 extends AssignmentToken  {
 }
 
 // "(" "void"? ")"|"(" ParameterList=ParameterList ")"
-protected class MethodDefinition_Alternatives_3 extends AlternativesToken {
+protected class MethodDefinition_Alternatives_4 extends AlternativesToken {
 
-	public MethodDefinition_Alternatives_3(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	public MethodDefinition_Alternatives_4(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	@Override
 	public Alternatives getGrammarElement() {
-		return grammarAccess.getMethodDefinitionAccess().getAlternatives_3();
+		return grammarAccess.getMethodDefinitionAccess().getAlternatives_4();
 	}
 
     @Override
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new MethodDefinition_Group_3_0(parent, this, 0, inst);
-			case 1: return new MethodDefinition_Group_3_1(parent, this, 1, inst);
+			case 0: return new MethodDefinition_Group_4_0(parent, this, 0, inst);
+			case 1: return new MethodDefinition_Group_4_1(parent, this, 1, inst);
 			default: return null;
 		}	
 	}	
@@ -4929,21 +4977,21 @@ protected class MethodDefinition_Alternatives_3 extends AlternativesToken {
 }
 
 // "(" "void"? ")"
-protected class MethodDefinition_Group_3_0 extends GroupToken {
+protected class MethodDefinition_Group_4_0 extends GroupToken {
 	
-	public MethodDefinition_Group_3_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	public MethodDefinition_Group_4_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	@Override
 	public Group getGrammarElement() {
-		return grammarAccess.getMethodDefinitionAccess().getGroup_3_0();
+		return grammarAccess.getMethodDefinitionAccess().getGroup_4_0();
 	}
 
     @Override
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new MethodDefinition_RightParenthesisKeyword_3_0_2(parent, this, 0, inst);
+			case 0: return new MethodDefinition_RightParenthesisKeyword_4_0_2(parent, this, 0, inst);
 			default: return null;
 		}	
 	}	
@@ -4951,21 +4999,21 @@ protected class MethodDefinition_Group_3_0 extends GroupToken {
 }
 
 // "("
-protected class MethodDefinition_LeftParenthesisKeyword_3_0_0 extends KeywordToken  {
+protected class MethodDefinition_LeftParenthesisKeyword_4_0_0 extends KeywordToken  {
 	
-	public MethodDefinition_LeftParenthesisKeyword_3_0_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	public MethodDefinition_LeftParenthesisKeyword_4_0_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	@Override
 	public Keyword getGrammarElement() {
-		return grammarAccess.getMethodDefinitionAccess().getLeftParenthesisKeyword_3_0_0();
+		return grammarAccess.getMethodDefinitionAccess().getLeftParenthesisKeyword_4_0_0();
 	}
 
     @Override
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new MethodDefinition_IdAssignment_2(parent, this, 0, inst);
+			case 0: return new MethodDefinition_IdAssignment_3(parent, this, 0, inst);
 			default: return null;
 		}	
 	}	
@@ -4973,21 +5021,21 @@ protected class MethodDefinition_LeftParenthesisKeyword_3_0_0 extends KeywordTok
 }
 
 // ")"
-protected class MethodDefinition_RightParenthesisKeyword_3_0_2 extends KeywordToken  {
+protected class MethodDefinition_RightParenthesisKeyword_4_0_2 extends KeywordToken  {
 	
-	public MethodDefinition_RightParenthesisKeyword_3_0_2(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	public MethodDefinition_RightParenthesisKeyword_4_0_2(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	@Override
 	public Keyword getGrammarElement() {
-		return grammarAccess.getMethodDefinitionAccess().getRightParenthesisKeyword_3_0_2();
+		return grammarAccess.getMethodDefinitionAccess().getRightParenthesisKeyword_4_0_2();
 	}
 
     @Override
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new MethodDefinition_LeftParenthesisKeyword_3_0_0(parent, this, 0, inst);
+			case 0: return new MethodDefinition_LeftParenthesisKeyword_4_0_0(parent, this, 0, inst);
 			default: return null;
 		}	
 	}	
@@ -4996,21 +5044,21 @@ protected class MethodDefinition_RightParenthesisKeyword_3_0_2 extends KeywordTo
 
 
 // "(" ParameterList=ParameterList ")"
-protected class MethodDefinition_Group_3_1 extends GroupToken {
+protected class MethodDefinition_Group_4_1 extends GroupToken {
 	
-	public MethodDefinition_Group_3_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	public MethodDefinition_Group_4_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	@Override
 	public Group getGrammarElement() {
-		return grammarAccess.getMethodDefinitionAccess().getGroup_3_1();
+		return grammarAccess.getMethodDefinitionAccess().getGroup_4_1();
 	}
 
     @Override
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new MethodDefinition_RightParenthesisKeyword_3_1_2(parent, this, 0, inst);
+			case 0: return new MethodDefinition_RightParenthesisKeyword_4_1_2(parent, this, 0, inst);
 			default: return null;
 		}	
 	}	
@@ -5018,21 +5066,21 @@ protected class MethodDefinition_Group_3_1 extends GroupToken {
 }
 
 // "("
-protected class MethodDefinition_LeftParenthesisKeyword_3_1_0 extends KeywordToken  {
+protected class MethodDefinition_LeftParenthesisKeyword_4_1_0 extends KeywordToken  {
 	
-	public MethodDefinition_LeftParenthesisKeyword_3_1_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	public MethodDefinition_LeftParenthesisKeyword_4_1_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	@Override
 	public Keyword getGrammarElement() {
-		return grammarAccess.getMethodDefinitionAccess().getLeftParenthesisKeyword_3_1_0();
+		return grammarAccess.getMethodDefinitionAccess().getLeftParenthesisKeyword_4_1_0();
 	}
 
     @Override
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new MethodDefinition_IdAssignment_2(parent, this, 0, inst);
+			case 0: return new MethodDefinition_IdAssignment_3(parent, this, 0, inst);
 			default: return null;
 		}	
 	}	
@@ -5040,15 +5088,15 @@ protected class MethodDefinition_LeftParenthesisKeyword_3_1_0 extends KeywordTok
 }
 
 // ParameterList=ParameterList
-protected class MethodDefinition_ParameterListAssignment_3_1_1 extends AssignmentToken  {
+protected class MethodDefinition_ParameterListAssignment_4_1_1 extends AssignmentToken  {
 	
-	public MethodDefinition_ParameterListAssignment_3_1_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	public MethodDefinition_ParameterListAssignment_4_1_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	@Override
 	public Assignment getGrammarElement() {
-		return grammarAccess.getMethodDefinitionAccess().getParameterListAssignment_3_1_1();
+		return grammarAccess.getMethodDefinitionAccess().getParameterListAssignment_4_1_1();
 	}
 
     @Override
@@ -5067,7 +5115,7 @@ protected class MethodDefinition_ParameterListAssignment_3_1_1 extends Assignmen
 			IInstanceDescription param = getDescr((EObject)value);
 			if(param.isInstanceOf(grammarAccess.getParameterListRule().getType().getClassifier())) {
 				type = AssignmentType.PRC;
-				element = grammarAccess.getMethodDefinitionAccess().getParameterListParameterListParserRuleCall_3_1_1_0(); 
+				element = grammarAccess.getMethodDefinitionAccess().getParameterListParameterListParserRuleCall_4_1_1_0(); 
 				consumed = obj;
 				return param;
 			}
@@ -5079,28 +5127,28 @@ protected class MethodDefinition_ParameterListAssignment_3_1_1 extends Assignmen
 	public AbstractToken createParentFollower(AbstractToken next,	int actIndex, int index, IInstanceDescription inst) {
 		if(value == inst.getDelegate() && !inst.isConsumed()) return null;
 		switch(index) {
-			case 0: return new MethodDefinition_LeftParenthesisKeyword_3_1_0(parent, next, actIndex, consumed);
+			case 0: return new MethodDefinition_LeftParenthesisKeyword_4_1_0(parent, next, actIndex, consumed);
 			default: return null;
 		}	
 	}	
 }
 
 // ")"
-protected class MethodDefinition_RightParenthesisKeyword_3_1_2 extends KeywordToken  {
+protected class MethodDefinition_RightParenthesisKeyword_4_1_2 extends KeywordToken  {
 	
-	public MethodDefinition_RightParenthesisKeyword_3_1_2(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	public MethodDefinition_RightParenthesisKeyword_4_1_2(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	@Override
 	public Keyword getGrammarElement() {
-		return grammarAccess.getMethodDefinitionAccess().getRightParenthesisKeyword_3_1_2();
+		return grammarAccess.getMethodDefinitionAccess().getRightParenthesisKeyword_4_1_2();
 	}
 
     @Override
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new MethodDefinition_ParameterListAssignment_3_1_1(parent, this, 0, inst);
+			case 0: return new MethodDefinition_ParameterListAssignment_4_1_1(parent, this, 0, inst);
 			default: return null;
 		}	
 	}	
@@ -5110,21 +5158,21 @@ protected class MethodDefinition_RightParenthesisKeyword_3_1_2 extends KeywordTo
 
 
 // ";"
-protected class MethodDefinition_SemicolonKeyword_4 extends KeywordToken  {
+protected class MethodDefinition_SemicolonKeyword_5 extends KeywordToken  {
 	
-	public MethodDefinition_SemicolonKeyword_4(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	public MethodDefinition_SemicolonKeyword_5(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	@Override
 	public Keyword getGrammarElement() {
-		return grammarAccess.getMethodDefinitionAccess().getSemicolonKeyword_4();
+		return grammarAccess.getMethodDefinitionAccess().getSemicolonKeyword_5();
 	}
 
     @Override
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new MethodDefinition_Alternatives_3(parent, this, 0, inst);
+			case 0: return new MethodDefinition_Alternatives_4(parent, this, 0, inst);
 			default: return null;
 		}	
 	}	

@@ -1104,13 +1104,22 @@ public interface FractalIDLPackage extends EPackage
   int METHOD_DEFINITION__QUALIFIED_TYPE_SPEC = 1;
 
   /**
+   * The feature id for the '<em><b>Pointer Specification</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int METHOD_DEFINITION__POINTER_SPECIFICATION = 2;
+
+  /**
    * The feature id for the '<em><b>Id</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int METHOD_DEFINITION__ID = 2;
+  int METHOD_DEFINITION__ID = 3;
 
   /**
    * The feature id for the '<em><b>Parameter List</b></em>' containment reference.
@@ -1119,7 +1128,7 @@ public interface FractalIDLPackage extends EPackage
    * @generated
    * @ordered
    */
-  int METHOD_DEFINITION__PARAMETER_LIST = 3;
+  int METHOD_DEFINITION__PARAMETER_LIST = 4;
 
   /**
    * The number of structural features of the '<em>Method Definition</em>' class.
@@ -1128,7 +1137,7 @@ public interface FractalIDLPackage extends EPackage
    * @generated
    * @ordered
    */
-  int METHOD_DEFINITION_FEATURE_COUNT = 4;
+  int METHOD_DEFINITION_FEATURE_COUNT = 5;
 
   /**
    * The meta object id for the '{@link org.ow2.fractal.mind.idl.fractalIDL.impl.ParameterListImpl <em>Parameter List</em>}' class.
@@ -2787,6 +2796,17 @@ public interface FractalIDLPackage extends EPackage
   EReference getMethodDefinition_QualifiedTypeSpec();
 
   /**
+   * Returns the meta object for the containment reference '{@link org.ow2.fractal.mind.idl.fractalIDL.MethodDefinition#getPointerSpecification <em>Pointer Specification</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Pointer Specification</em>'.
+   * @see org.ow2.fractal.mind.idl.fractalIDL.MethodDefinition#getPointerSpecification()
+   * @see #getMethodDefinition()
+   * @generated
+   */
+  EReference getMethodDefinition_PointerSpecification();
+
+  /**
    * Returns the meta object for the attribute '{@link org.ow2.fractal.mind.idl.fractalIDL.MethodDefinition#getId <em>Id</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -4214,6 +4234,14 @@ public interface FractalIDLPackage extends EPackage
      * @generated
      */
     EReference METHOD_DEFINITION__QUALIFIED_TYPE_SPEC = eINSTANCE.getMethodDefinition_QualifiedTypeSpec();
+
+    /**
+     * The meta object literal for the '<em><b>Pointer Specification</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference METHOD_DEFINITION__POINTER_SPECIFICATION = eINSTANCE.getMethodDefinition_PointerSpecification();
 
     /**
      * The meta object literal for the '<em><b>Id</b></em>' attribute feature.
