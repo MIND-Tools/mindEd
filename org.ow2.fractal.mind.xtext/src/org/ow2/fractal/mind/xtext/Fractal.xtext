@@ -88,27 +88,18 @@ SubComponentDefinition|InterfaceDefinition|BindingDefinition;
 SubComponentDefinition :
 (annotationsList=AnnotationsList)?
 'contains' (referenceDefinition=ComponentReference)? 'as' name=ID
-
-(
-	(
-		anonymous?=SubComponentCompositeBody
-	)
-|
-	(
-		anonymous?=SubComponentPrimitiveBody
-	)
-)?
+(body=(SubComponentCompositeBody|SubComponentPrimitiveBody))?
 ;
 
 Body :
 CompositeBody | PrimitiveBody | TypeBody;
 
 SubComponentCompositeBody :
-(annotationsList=AnnotationsList)? 'composite'
+(annotationsList=AnnotationsList)? anonymous?='composite'
 '{' ((elements+=CompositeDefinitionElement)(';')?)* '}';
 
 SubComponentPrimitiveBody :
-(annotationsList=AnnotationsList)? 'primitive' 
+(annotationsList=AnnotationsList)? anonymous?='primitive' 
 '{' ((elements+=PrimitiveDefinitionElement)(';')?)* '}';
 
 CompositeBody :
