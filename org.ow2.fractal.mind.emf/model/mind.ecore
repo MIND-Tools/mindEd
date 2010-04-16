@@ -82,6 +82,8 @@
         eType="#//Element" containment="true" eOpposite="#//Element/parentBody"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="annotationsList" eType="#//AnnotationsList"
         containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="anonymous" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+        defaultValueLiteral="false"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ComponentReference" eSuperTypes="#//MergedObject">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="referenceName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
@@ -203,8 +205,6 @@
   <eClassifiers xsi:type="ecore:EClass" name="SubComponentDefinition" eSuperTypes="#//CompositeDefinitionElement #//ArchitectureDefinition">
     <eStructuralFeatures xsi:type="ecore:EReference" name="referenceDefinition" eType="#//ComponentReference"
         unsettable="true" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="anonymous" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
-        defaultValueLiteral="false"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="SubComponentPrimitiveBody" eSuperTypes="#//PrimitiveBody"/>
   <eClassifiers xsi:type="ecore:EClass" name="TemplateDefinition" eSuperTypes="#//TemplateSpecifier #//MergedObject">
