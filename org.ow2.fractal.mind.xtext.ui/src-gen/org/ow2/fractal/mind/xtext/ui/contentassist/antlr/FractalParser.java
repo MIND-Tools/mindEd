@@ -44,7 +44,7 @@ public class FractalParser extends AbstractContentAssistParser {
 					put(grammarAccess.getComponentTypeDefinitionAccess().getAlternatives_4(), "rule__ComponentTypeDefinition__Alternatives_4");
 					put(grammarAccess.getCompositeComponentDefinitionAccess().getAlternatives_6(), "rule__CompositeComponentDefinition__Alternatives_6");
 					put(grammarAccess.getCompositeDefinitionElementAccess().getAlternatives(), "rule__CompositeDefinitionElement__Alternatives");
-					put(grammarAccess.getSubComponentDefinitionAccess().getAlternatives_5(), "rule__SubComponentDefinition__Alternatives_5");
+					put(grammarAccess.getSubComponentDefinitionAccess().getBodyAlternatives_5_0(), "rule__SubComponentDefinition__BodyAlternatives_5_0");
 					put(grammarAccess.getBodyAccess().getAlternatives(), "rule__Body__Alternatives");
 					put(grammarAccess.getElementAccess().getAlternatives(), "rule__Element__Alternatives");
 					put(grammarAccess.getComponentReferenceAccess().getAlternatives(), "rule__ComponentReference__Alternatives");
@@ -166,11 +166,12 @@ public class FractalParser extends AbstractContentAssistParser {
 					put(grammarAccess.getSubComponentDefinitionAccess().getAnnotationsListAssignment_0(), "rule__SubComponentDefinition__AnnotationsListAssignment_0");
 					put(grammarAccess.getSubComponentDefinitionAccess().getReferenceDefinitionAssignment_2(), "rule__SubComponentDefinition__ReferenceDefinitionAssignment_2");
 					put(grammarAccess.getSubComponentDefinitionAccess().getNameAssignment_4(), "rule__SubComponentDefinition__NameAssignment_4");
-					put(grammarAccess.getSubComponentDefinitionAccess().getAnonymousAssignment_5_0(), "rule__SubComponentDefinition__AnonymousAssignment_5_0");
-					put(grammarAccess.getSubComponentDefinitionAccess().getAnonymousAssignment_5_1(), "rule__SubComponentDefinition__AnonymousAssignment_5_1");
+					put(grammarAccess.getSubComponentDefinitionAccess().getBodyAssignment_5(), "rule__SubComponentDefinition__BodyAssignment_5");
 					put(grammarAccess.getSubComponentCompositeBodyAccess().getAnnotationsListAssignment_0(), "rule__SubComponentCompositeBody__AnnotationsListAssignment_0");
+					put(grammarAccess.getSubComponentCompositeBodyAccess().getAnonymousAssignment_1(), "rule__SubComponentCompositeBody__AnonymousAssignment_1");
 					put(grammarAccess.getSubComponentCompositeBodyAccess().getElementsAssignment_3_0(), "rule__SubComponentCompositeBody__ElementsAssignment_3_0");
 					put(grammarAccess.getSubComponentPrimitiveBodyAccess().getAnnotationsListAssignment_0(), "rule__SubComponentPrimitiveBody__AnnotationsListAssignment_0");
+					put(grammarAccess.getSubComponentPrimitiveBodyAccess().getAnonymousAssignment_1(), "rule__SubComponentPrimitiveBody__AnonymousAssignment_1");
 					put(grammarAccess.getSubComponentPrimitiveBodyAccess().getElementsAssignment_3_0(), "rule__SubComponentPrimitiveBody__ElementsAssignment_3_0");
 					put(grammarAccess.getCompositeBodyAccess().getElementsAssignment_0(), "rule__CompositeBody__ElementsAssignment_0");
 					put(grammarAccess.getPrimitiveBodyAccess().getElementsAssignment_0(), "rule__PrimitiveBody__ElementsAssignment_0");

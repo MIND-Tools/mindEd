@@ -8,7 +8,7 @@
         <editor
             class="org.ow2.fractal.mind.xtext.ui.FractalExecutableExtensionFactory:org.eclipse.xtext.ui.editor.XtextEditor"
             contributorClass="org.eclipse.ui.editors.text.TextEditorActionContributor"
-            default="false"
+            default="true"
             extensions="adl"
             id="org.ow2.fractal.mind.xtext.Fractal"
             name="MindEd Fractal Editor">

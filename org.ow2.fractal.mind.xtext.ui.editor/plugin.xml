@@ -7,7 +7,7 @@
         <editor
               class="org.ow2.fractal.mind.xtext.ui.editor.MindMultipageEditor"
               contributorClass="org.eclipse.ui.editors.text.TextEditorActionContributor"
-              default="true"
+              default="false"
               extensions="adl"
               icon="icons/obj16/component.png"
               id="org.ow2.fractal.mind.xtext.FractalMulti"

@@ -698,21 +698,18 @@ public class FractalGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cAsKeyword_3 = (Keyword)cGroup.eContents().get(3);
 		private final Assignment cNameAssignment_4 = (Assignment)cGroup.eContents().get(4);
 		private final RuleCall cNameIDTerminalRuleCall_4_0 = (RuleCall)cNameAssignment_4.eContents().get(0);
-		private final Alternatives cAlternatives_5 = (Alternatives)cGroup.eContents().get(5);
-		private final Assignment cAnonymousAssignment_5_0 = (Assignment)cAlternatives_5.eContents().get(0);
-		private final RuleCall cAnonymousSubComponentCompositeBodyParserRuleCall_5_0_0 = (RuleCall)cAnonymousAssignment_5_0.eContents().get(0);
-		private final Assignment cAnonymousAssignment_5_1 = (Assignment)cAlternatives_5.eContents().get(1);
-		private final RuleCall cAnonymousSubComponentPrimitiveBodyParserRuleCall_5_1_0 = (RuleCall)cAnonymousAssignment_5_1.eContents().get(0);
+		private final Assignment cBodyAssignment_5 = (Assignment)cGroup.eContents().get(5);
+		private final Alternatives cBodyAlternatives_5_0 = (Alternatives)cBodyAssignment_5.eContents().get(0);
+		private final RuleCall cBodySubComponentCompositeBodyParserRuleCall_5_0_0 = (RuleCall)cBodyAlternatives_5_0.eContents().get(0);
+		private final RuleCall cBodySubComponentPrimitiveBodyParserRuleCall_5_0_1 = (RuleCall)cBodyAlternatives_5_0.eContents().get(1);
 		
 		//SubComponentDefinition:
 		//  annotationsList=AnnotationsList? "contains" referenceDefinition=ComponentReference
-		//  ? "as" name=ID (anonymous?=SubComponentCompositeBody|anonymous?=
-		//  SubComponentPrimitiveBody)?;
+		//  ? "as" name=ID body=( SubComponentCompositeBody | SubComponentPrimitiveBody )?;
 		public ParserRule getRule() { return rule; }
 
 		//annotationsList=AnnotationsList? "contains" referenceDefinition=ComponentReference
-		//? "as" name=ID (anonymous?=SubComponentCompositeBody|anonymous?=
-		//SubComponentPrimitiveBody)?
+		//? "as" name=ID body=( SubComponentCompositeBody | SubComponentPrimitiveBody )?
 		public Group getGroup() { return cGroup; }
 
 		//annotationsList=AnnotationsList?
@@ -739,20 +736,17 @@ public class FractalGrammarAccess extends AbstractGrammarElementFinder {
 		//ID
 		public RuleCall getNameIDTerminalRuleCall_4_0() { return cNameIDTerminalRuleCall_4_0; }
 
-		//(anonymous?=SubComponentCompositeBody|anonymous?=SubComponentPrimitiveBody)?
-		public Alternatives getAlternatives_5() { return cAlternatives_5; }
+		//body=( SubComponentCompositeBody | SubComponentPrimitiveBody )?
+		public Assignment getBodyAssignment_5() { return cBodyAssignment_5; }
 
-		//anonymous?=SubComponentCompositeBody
-		public Assignment getAnonymousAssignment_5_0() { return cAnonymousAssignment_5_0; }
+		//SubComponentCompositeBody|SubComponentPrimitiveBody
+		public Alternatives getBodyAlternatives_5_0() { return cBodyAlternatives_5_0; }
 
 		//SubComponentCompositeBody
-		public RuleCall getAnonymousSubComponentCompositeBodyParserRuleCall_5_0_0() { return cAnonymousSubComponentCompositeBodyParserRuleCall_5_0_0; }
-
-		//anonymous?=SubComponentPrimitiveBody
-		public Assignment getAnonymousAssignment_5_1() { return cAnonymousAssignment_5_1; }
+		public RuleCall getBodySubComponentCompositeBodyParserRuleCall_5_0_0() { return cBodySubComponentCompositeBodyParserRuleCall_5_0_0; }
 
 		//SubComponentPrimitiveBody
-		public RuleCall getAnonymousSubComponentPrimitiveBodyParserRuleCall_5_1_0() { return cAnonymousSubComponentPrimitiveBodyParserRuleCall_5_1_0; }
+		public RuleCall getBodySubComponentPrimitiveBodyParserRuleCall_5_0_1() { return cBodySubComponentPrimitiveBodyParserRuleCall_5_0_1; }
 	}
 
 	public class BodyElements extends AbstractParserRuleElementFinder {
@@ -784,7 +778,8 @@ public class FractalGrammarAccess extends AbstractGrammarElementFinder {
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Assignment cAnnotationsListAssignment_0 = (Assignment)cGroup.eContents().get(0);
 		private final RuleCall cAnnotationsListAnnotationsListParserRuleCall_0_0 = (RuleCall)cAnnotationsListAssignment_0.eContents().get(0);
-		private final Keyword cCompositeKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Assignment cAnonymousAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final Keyword cAnonymousCompositeKeyword_1_0 = (Keyword)cAnonymousAssignment_1.eContents().get(0);
 		private final Keyword cLeftCurlyBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
 		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
 		private final Assignment cElementsAssignment_3_0 = (Assignment)cGroup_3.eContents().get(0);
@@ -793,11 +788,11 @@ public class FractalGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cRightCurlyBracketKeyword_4 = (Keyword)cGroup.eContents().get(4);
 		
 		//SubComponentCompositeBody:
-		//  annotationsList=AnnotationsList? "composite" "{" (elements+=
+		//  annotationsList=AnnotationsList? anonymous?="composite" "{" (elements+=
 		//  CompositeDefinitionElement ";"?)* "}";
 		public ParserRule getRule() { return rule; }
 
-		//annotationsList=AnnotationsList? "composite" "{" (elements+=
+		//annotationsList=AnnotationsList? anonymous?="composite" "{" (elements+=
 		//CompositeDefinitionElement ";"?)* "}"
 		public Group getGroup() { return cGroup; }
 
@@ -807,8 +802,11 @@ public class FractalGrammarAccess extends AbstractGrammarElementFinder {
 		//AnnotationsList
 		public RuleCall getAnnotationsListAnnotationsListParserRuleCall_0_0() { return cAnnotationsListAnnotationsListParserRuleCall_0_0; }
 
+		//anonymous?="composite"
+		public Assignment getAnonymousAssignment_1() { return cAnonymousAssignment_1; }
+
 		//"composite"
-		public Keyword getCompositeKeyword_1() { return cCompositeKeyword_1; }
+		public Keyword getAnonymousCompositeKeyword_1_0() { return cAnonymousCompositeKeyword_1_0; }
 
 		//"{"
 		public Keyword getLeftCurlyBracketKeyword_2() { return cLeftCurlyBracketKeyword_2; }
@@ -834,7 +832,8 @@ public class FractalGrammarAccess extends AbstractGrammarElementFinder {
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Assignment cAnnotationsListAssignment_0 = (Assignment)cGroup.eContents().get(0);
 		private final RuleCall cAnnotationsListAnnotationsListParserRuleCall_0_0 = (RuleCall)cAnnotationsListAssignment_0.eContents().get(0);
-		private final Keyword cPrimitiveKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Assignment cAnonymousAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final Keyword cAnonymousPrimitiveKeyword_1_0 = (Keyword)cAnonymousAssignment_1.eContents().get(0);
 		private final Keyword cLeftCurlyBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
 		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
 		private final Assignment cElementsAssignment_3_0 = (Assignment)cGroup_3.eContents().get(0);
@@ -843,11 +842,11 @@ public class FractalGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cRightCurlyBracketKeyword_4 = (Keyword)cGroup.eContents().get(4);
 		
 		//SubComponentPrimitiveBody:
-		//  annotationsList=AnnotationsList? "primitive" "{" (elements+=
+		//  annotationsList=AnnotationsList? anonymous?="primitive" "{" (elements+=
 		//  PrimitiveDefinitionElement ";"?)* "}";
 		public ParserRule getRule() { return rule; }
 
-		//annotationsList=AnnotationsList? "primitive" "{" (elements+=
+		//annotationsList=AnnotationsList? anonymous?="primitive" "{" (elements+=
 		//PrimitiveDefinitionElement ";"?)* "}"
 		public Group getGroup() { return cGroup; }
 
@@ -857,8 +856,11 @@ public class FractalGrammarAccess extends AbstractGrammarElementFinder {
 		//AnnotationsList
 		public RuleCall getAnnotationsListAnnotationsListParserRuleCall_0_0() { return cAnnotationsListAnnotationsListParserRuleCall_0_0; }
 
+		//anonymous?="primitive"
+		public Assignment getAnonymousAssignment_1() { return cAnonymousAssignment_1; }
+
 		//"primitive"
-		public Keyword getPrimitiveKeyword_1() { return cPrimitiveKeyword_1; }
+		public Keyword getAnonymousPrimitiveKeyword_1_0() { return cAnonymousPrimitiveKeyword_1_0; }
 
 		//"{"
 		public Keyword getLeftCurlyBracketKeyword_2() { return cLeftCurlyBracketKeyword_2; }
@@ -2459,8 +2461,7 @@ public class FractalGrammarAccess extends AbstractGrammarElementFinder {
 
 	//SubComponentDefinition:
 	//  annotationsList=AnnotationsList? "contains" referenceDefinition=ComponentReference
-	//  ? "as" name=ID (anonymous?=SubComponentCompositeBody|anonymous?=
-	//  SubComponentPrimitiveBody)?;
+	//  ? "as" name=ID body=( SubComponentCompositeBody | SubComponentPrimitiveBody )?;
 	public SubComponentDefinitionElements getSubComponentDefinitionAccess() {
 		return (pSubComponentDefinition != null) ? pSubComponentDefinition : (pSubComponentDefinition = new SubComponentDefinitionElements());
 	}
@@ -2480,7 +2481,7 @@ public class FractalGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//SubComponentCompositeBody:
-	//  annotationsList=AnnotationsList? "composite" "{" (elements+=
+	//  annotationsList=AnnotationsList? anonymous?="composite" "{" (elements+=
 	//  CompositeDefinitionElement ";"?)* "}";
 	public SubComponentCompositeBodyElements getSubComponentCompositeBodyAccess() {
 		return (pSubComponentCompositeBody != null) ? pSubComponentCompositeBody : (pSubComponentCompositeBody = new SubComponentCompositeBodyElements());
@@ -2491,7 +2492,7 @@ public class FractalGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//SubComponentPrimitiveBody:
-	//  annotationsList=AnnotationsList? "primitive" "{" (elements+=
+	//  annotationsList=AnnotationsList? anonymous?="primitive" "{" (elements+=
 	//  PrimitiveDefinitionElement ";"?)* "}";
 	public SubComponentPrimitiveBodyElements getSubComponentPrimitiveBodyAccess() {
 		return (pSubComponentPrimitiveBody != null) ? pSubComponentPrimitiveBody : (pSubComponentPrimitiveBody = new SubComponentPrimitiveBodyElements());

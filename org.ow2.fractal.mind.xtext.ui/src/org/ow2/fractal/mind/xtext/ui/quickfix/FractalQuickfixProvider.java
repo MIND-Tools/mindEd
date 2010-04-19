@@ -27,55 +27,50 @@ public class FractalQuickfixProvider extends DefaultQuickfixProvider {
 							InterfaceDefinition interfaceDefinition = (InterfaceDefinition) element;
 							String name = interfaceDefinition.getName();
 							if (Character.isDigit(name
-									.charAt(name.length() - 1))) {
-								// name = name.substring(0, name.length()-2) +
-								// (Character.valueOf((name.charAt(name.length()-1))));
-								name = name + 1;
+									.charAt(name.length()-1))) {
+								name = name.substring(0, name.length() - 1);
+								int nbr = (Character.valueOf((name.charAt(name
+										.length()-1)))+1);
+								name= name + nbr;
 							} else
-								name = name + "1";
+								name = name + 1;
 							interfaceDefinition.setName(name);
 						}
 
 					}
 				});
 	}
-	
+
 	@Fix(FractalJavaValidator.UNKNOWN_IMPORT)
 	public void fixImport(final Issue issue, IssueResolutionAcceptor acceptor) {
-		acceptor.accept(
-				issue, 
-				"Remove unknown import", 
-				"Remove this unavailable package.", 
-				null, 
+		acceptor.accept(issue, "Remove unknown import",
+				"Remove this unavailable package.", null,
 				new ISemanticModification() {
 
 					@Override
 					public void apply(EObject element,
 							IModificationContext context) throws Exception {
-						// TODO Auto-generated method stub						
+						// TODO Auto-generated method stub
 					}
-				}				
-		);
+				});
 	}
 
 	@Fix(FractalJavaValidator.UNKNOWN_INTERFACE)
-	public void createInterface(final Issue issue, IssueResolutionAcceptor acceptor) {
-		acceptor.accept(
-				issue, 
-				"Create interface " + issue.getData()[0], 
-				"Create a new interface definition file " + issue.getData()[0] + " in package " + issue.getData()[1] +".", 
-				null, 
+	public void createInterface(final Issue issue,
+			IssueResolutionAcceptor acceptor) {
+		acceptor.accept(issue, "Create interface " + issue.getData()[0],
+				"Create a new interface definition file " + issue.getData()[0]
+						+ " in package " + issue.getData()[1] + ".", null,
 				new IModification() {
 
 					@Override
 					public void apply(IModificationContext context)
 							throws Exception {
-						
-						//TODO create interface
-						//ModelToProjectUtil.INSTANCE.						
-						
+
+						// TODO create interface
+						// ModelToProjectUtil.INSTANCE.
+
 					}
-				}				
-		);
+				});
 	}
 }

@@ -294,13 +294,11 @@
         <elements xsi:type="xtext:Assignment" feature="name" operator="=">
           <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.0"/>
         </elements>
-        <elements xsi:type="xtext:Alternatives" cardinality="?">
-          <elements xsi:type="xtext:Assignment" feature="anonymous" operator="?=">
-            <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.18"/>
-          </elements>
-          <elements xsi:type="xtext:Assignment" feature="anonymous" operator="?=">
-            <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.19"/>
-          </elements>
+        <elements xsi:type="xtext:Assignment" cardinality="?" feature="body" operator="=">
+          <terminal xsi:type="xtext:Alternatives">
+            <elements xsi:type="xtext:RuleCall" rule="/0/@rules.18"/>
+            <elements xsi:type="xtext:RuleCall" rule="/0/@rules.19"/>
+          </terminal>
         </elements>
       </alternatives>
     </rules>
@@ -322,7 +320,9 @@
         <elements xsi:type="xtext:Assignment" cardinality="?" feature="annotationsList" operator="=">
           <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.38"/>
         </elements>
-        <elements xsi:type="xtext:Keyword" value="composite"/>
+        <elements xsi:type="xtext:Assignment" feature="anonymous" operator="?=">
+          <terminal xsi:type="xtext:Keyword" value="composite"/>
+        </elements>
         <elements xsi:type="xtext:Keyword" value="{"/>
         <elements xsi:type="xtext:Group" cardinality="*">
           <elements xsi:type="xtext:Assignment" feature="elements" operator="+=">
@@ -341,7 +341,9 @@
         <elements xsi:type="xtext:Assignment" cardinality="?" feature="annotationsList" operator="=">
           <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.38"/>
         </elements>
-        <elements xsi:type="xtext:Keyword" value="primitive"/>
+        <elements xsi:type="xtext:Assignment" feature="anonymous" operator="?=">
+          <terminal xsi:type="xtext:Keyword" value="primitive"/>
+        </elements>
         <elements xsi:type="xtext:Keyword" value="{"/>
         <elements xsi:type="xtext:Group" cardinality="*">
           <elements xsi:type="xtext:Assignment" feature="elements" operator="+=">

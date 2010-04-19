@@ -1615,12 +1615,13 @@ ruleSubComponentDefinition returns [EObject current=null]
 	    }
 
 )
-)((
+)(
+(
 (
 		{ 
-	        currentNode=createCompositeNode(grammarAccess.getSubComponentDefinitionAccess().getAnonymousSubComponentCompositeBodyParserRuleCall_5_0_0(), currentNode); 
+	        currentNode=createCompositeNode(grammarAccess.getSubComponentDefinitionAccess().getBodySubComponentCompositeBodyParserRuleCall_5_0_0(), currentNode); 
 	    }
-		lv_anonymous_5_0=ruleSubComponentCompositeBody		{
+		lv_body_5_1=ruleSubComponentCompositeBody		{
 	        if ($current==null) {
 	            $current = factory.create(grammarAccess.getSubComponentDefinitionRule().getType().getClassifier());
 	            associateNodeWithAstElement(currentNode.getParent(), $current);
@@ -1628,8 +1629,8 @@ ruleSubComponentDefinition returns [EObject current=null]
 	        try {
 	       		set(
 	       			$current, 
-	       			"anonymous",
-	        		true, 
+	       			"body",
+	        		lv_body_5_1, 
 	        		"SubComponentCompositeBody", 
 	        		currentNode);
 	        } catch (ValueConverterException vce) {
@@ -1638,14 +1639,10 @@ ruleSubComponentDefinition returns [EObject current=null]
 	        currentNode = currentNode.getParent();
 	    }
 
-)
-)
-    |(
-(
-		{ 
-	        currentNode=createCompositeNode(grammarAccess.getSubComponentDefinitionAccess().getAnonymousSubComponentPrimitiveBodyParserRuleCall_5_1_0(), currentNode); 
+    |		{ 
+	        currentNode=createCompositeNode(grammarAccess.getSubComponentDefinitionAccess().getBodySubComponentPrimitiveBodyParserRuleCall_5_0_1(), currentNode); 
 	    }
-		lv_anonymous_6_0=ruleSubComponentPrimitiveBody		{
+		lv_body_5_2=ruleSubComponentPrimitiveBody		{
 	        if ($current==null) {
 	            $current = factory.create(grammarAccess.getSubComponentDefinitionRule().getType().getClassifier());
 	            associateNodeWithAstElement(currentNode.getParent(), $current);
@@ -1653,8 +1650,8 @@ ruleSubComponentDefinition returns [EObject current=null]
 	        try {
 	       		set(
 	       			$current, 
-	       			"anonymous",
-	        		true, 
+	       			"body",
+	        		lv_body_5_2, 
 	        		"SubComponentPrimitiveBody", 
 	        		currentNode);
 	        } catch (ValueConverterException vce) {
@@ -1664,7 +1661,9 @@ ruleSubComponentDefinition returns [EObject current=null]
 	    }
 
 )
-))?)
+
+)
+)?)
 ;
 
 
@@ -1713,11 +1712,28 @@ ruleSubComponentCompositeBody returns [EObject current=null]
 	    }
 
 )
-)?	'composite' 
+)?(
+(
+		lv_anonymous_1_0=	'composite' 
     {
-        createLeafNode(grammarAccess.getSubComponentCompositeBodyAccess().getCompositeKeyword_1(), null); 
+        createLeafNode(grammarAccess.getSubComponentCompositeBodyAccess().getAnonymousCompositeKeyword_1_0(), "anonymous"); 
     }
-	'{' 
+ 
+	    {
+	        if ($current==null) {
+	            $current = factory.create(grammarAccess.getSubComponentCompositeBodyRule().getType().getClassifier());
+	            associateNodeWithAstElement(currentNode, $current);
+	        }
+	        
+	        try {
+	       		set($current, "anonymous", true, "composite", lastConsumedNode);
+	        } catch (ValueConverterException vce) {
+				handleValueConverterException(vce);
+	        }
+	    }
+
+)
+)	'{' 
     {
         createLeafNode(grammarAccess.getSubComponentCompositeBodyAccess().getLeftCurlyBracketKeyword_2(), null); 
     }
@@ -1800,11 +1816,28 @@ ruleSubComponentPrimitiveBody returns [EObject current=null]
 	    }
 
 )
-)?	'primitive' 
+)?(
+(
+		lv_anonymous_1_0=	'primitive' 
     {
-        createLeafNode(grammarAccess.getSubComponentPrimitiveBodyAccess().getPrimitiveKeyword_1(), null); 
+        createLeafNode(grammarAccess.getSubComponentPrimitiveBodyAccess().getAnonymousPrimitiveKeyword_1_0(), "anonymous"); 
     }
-	'{' 
+ 
+	    {
+	        if ($current==null) {
+	            $current = factory.create(grammarAccess.getSubComponentPrimitiveBodyRule().getType().getClassifier());
+	            associateNodeWithAstElement(currentNode, $current);
+	        }
+	        
+	        try {
+	       		set($current, "anonymous", true, "primitive", lastConsumedNode);
+	        } catch (ValueConverterException vce) {
+				handleValueConverterException(vce);
+	        }
+	    }
+
+)
+)	'{' 
     {
         createLeafNode(grammarAccess.getSubComponentPrimitiveBodyAccess().getLeftCurlyBracketKeyword_2(), null); 
     }

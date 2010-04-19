@@ -3359,14 +3359,12 @@ protected class CompositeDefinitionElement_BindingDefinitionParserRuleCall_2 ext
  *
  * SubComponentDefinition:
  *   annotationsList=AnnotationsList? "contains" referenceDefinition=ComponentReference
- *   ? "as" name=ID (anonymous?=SubComponentCompositeBody|anonymous?=
- *   SubComponentPrimitiveBody)?;
+ *   ? "as" name=ID body=( SubComponentCompositeBody | SubComponentPrimitiveBody )?;
  *
  **/
 
 // annotationsList=AnnotationsList? "contains" referenceDefinition=ComponentReference
-// ? "as" name=ID (anonymous?=SubComponentCompositeBody|anonymous?=
-// SubComponentPrimitiveBody)?
+// ? "as" name=ID body=( SubComponentCompositeBody | SubComponentPrimitiveBody )?
 protected class SubComponentDefinition_Group extends GroupToken {
 	
 	public SubComponentDefinition_Group(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
@@ -3381,7 +3379,7 @@ protected class SubComponentDefinition_Group extends GroupToken {
     @Override
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new SubComponentDefinition_Alternatives_5(parent, this, 0, inst);
+			case 0: return new SubComponentDefinition_BodyAssignment_5(parent, this, 0, inst);
 			case 1: return new SubComponentDefinition_NameAssignment_4(parent, this, 1, inst);
 			default: return null;
 		}	
@@ -3564,104 +3562,45 @@ protected class SubComponentDefinition_NameAssignment_4 extends AssignmentToken 
 
 }
 
-// (anonymous?=SubComponentCompositeBody|anonymous?=SubComponentPrimitiveBody)?
-protected class SubComponentDefinition_Alternatives_5 extends AlternativesToken {
-
-	public SubComponentDefinition_Alternatives_5(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
-		super(parent, next, no, current);
-	}
+// body=( SubComponentCompositeBody | SubComponentPrimitiveBody )?
+protected class SubComponentDefinition_BodyAssignment_5 extends AssignmentToken  {
 	
-	@Override
-	public Alternatives getGrammarElement() {
-		return grammarAccess.getSubComponentDefinitionAccess().getAlternatives_5();
-	}
-
-    @Override
-	public AbstractToken createFollower(int index, IInstanceDescription inst) {
-		switch(index) {
-			case 0: return new SubComponentDefinition_AnonymousAssignment_5_0(parent, this, 0, inst);
-			case 1: return new SubComponentDefinition_AnonymousAssignment_5_1(parent, this, 1, inst);
-			default: return null;
-		}	
-	}	
-		
-}
-
-// anonymous?=SubComponentCompositeBody
-protected class SubComponentDefinition_AnonymousAssignment_5_0 extends AssignmentToken  {
-	
-	public SubComponentDefinition_AnonymousAssignment_5_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	public SubComponentDefinition_BodyAssignment_5(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	@Override
 	public Assignment getGrammarElement() {
-		return grammarAccess.getSubComponentDefinitionAccess().getAnonymousAssignment_5_0();
+		return grammarAccess.getSubComponentDefinitionAccess().getBodyAssignment_5();
 	}
 
     @Override
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
 			case 0: return new SubComponentCompositeBody_Group(this, this, 0, inst);
+			case 1: return new SubComponentPrimitiveBody_Group(this, this, 1, inst);
 			default: return null;
 		}	
 	}	
 		
     @Override	
 	protected IInstanceDescription tryConsumeVal() {
-		if((value = current.getConsumable("anonymous",true)) == null) return null;
-		IInstanceDescription obj = current.cloneAndConsume("anonymous");
+		if((value = current.getConsumable("body",false)) == null) return null;
+		IInstanceDescription obj = current.cloneAndConsume("body");
 		if(value instanceof EObject) { // org::eclipse::xtext::impl::RuleCallImpl
 			IInstanceDescription param = getDescr((EObject)value);
 			if(param.isInstanceOf(grammarAccess.getSubComponentCompositeBodyRule().getType().getClassifier())) {
 				type = AssignmentType.PRC;
-				element = grammarAccess.getSubComponentDefinitionAccess().getAnonymousSubComponentCompositeBodyParserRuleCall_5_0_0(); 
+				element = grammarAccess.getSubComponentDefinitionAccess().getBodySubComponentCompositeBodyParserRuleCall_5_0_0(); 
 				consumed = obj;
 				return param;
 			}
 		}
-		return null;
-	}
-
-    @Override
-	public AbstractToken createParentFollower(AbstractToken next,	int actIndex, int index, IInstanceDescription inst) {
-		if(value == inst.getDelegate() && !inst.isConsumed()) return null;
-		switch(index) {
-			case 0: return new SubComponentDefinition_NameAssignment_4(parent, next, actIndex, consumed);
-			default: return null;
-		}	
-	}	
-}
-
-// anonymous?=SubComponentPrimitiveBody
-protected class SubComponentDefinition_AnonymousAssignment_5_1 extends AssignmentToken  {
-	
-	public SubComponentDefinition_AnonymousAssignment_5_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
-		super(parent, next, no, current);
-	}
-	
-	@Override
-	public Assignment getGrammarElement() {
-		return grammarAccess.getSubComponentDefinitionAccess().getAnonymousAssignment_5_1();
-	}
-
-    @Override
-	public AbstractToken createFollower(int index, IInstanceDescription inst) {
-		switch(index) {
-			case 0: return new SubComponentPrimitiveBody_Group(this, this, 0, inst);
-			default: return null;
-		}	
-	}	
-		
-    @Override	
-	protected IInstanceDescription tryConsumeVal() {
-		if((value = current.getConsumable("anonymous",true)) == null) return null;
-		IInstanceDescription obj = current.cloneAndConsume("anonymous");
 		if(value instanceof EObject) { // org::eclipse::xtext::impl::RuleCallImpl
 			IInstanceDescription param = getDescr((EObject)value);
 			if(param.isInstanceOf(grammarAccess.getSubComponentPrimitiveBodyRule().getType().getClassifier())) {
 				type = AssignmentType.PRC;
-				element = grammarAccess.getSubComponentDefinitionAccess().getAnonymousSubComponentPrimitiveBodyParserRuleCall_5_1_0(); 
+				element = grammarAccess.getSubComponentDefinitionAccess().getBodySubComponentPrimitiveBodyParserRuleCall_5_0_1(); 
 				consumed = obj;
 				return param;
 			}
@@ -3678,7 +3617,6 @@ protected class SubComponentDefinition_AnonymousAssignment_5_1 extends Assignmen
 		}	
 	}	
 }
-
 
 
 /************ end Rule SubComponentDefinition ****************/
@@ -3832,12 +3770,12 @@ protected class Body_TypeBodyParserRuleCall_2 extends RuleCallToken {
 /************ begin Rule SubComponentCompositeBody ****************
  *
  * SubComponentCompositeBody:
- *   annotationsList=AnnotationsList? "composite" "{" (elements+=
+ *   annotationsList=AnnotationsList? anonymous?="composite" "{" (elements+=
  *   CompositeDefinitionElement ";"?)* "}";
  *
  **/
 
-// annotationsList=AnnotationsList? "composite" "{" (elements+=
+// annotationsList=AnnotationsList? anonymous?="composite" "{" (elements+=
 // CompositeDefinitionElement ";"?)* "}"
 protected class SubComponentCompositeBody_Group extends GroupToken {
 	
@@ -3910,16 +3848,16 @@ protected class SubComponentCompositeBody_AnnotationsListAssignment_0 extends As
 	}	
 }
 
-// "composite"
-protected class SubComponentCompositeBody_CompositeKeyword_1 extends KeywordToken  {
+// anonymous?="composite"
+protected class SubComponentCompositeBody_AnonymousAssignment_1 extends AssignmentToken  {
 	
-	public SubComponentCompositeBody_CompositeKeyword_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	public SubComponentCompositeBody_AnonymousAssignment_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	@Override
-	public Keyword getGrammarElement() {
-		return grammarAccess.getSubComponentCompositeBodyAccess().getCompositeKeyword_1();
+	public Assignment getGrammarElement() {
+		return grammarAccess.getSubComponentCompositeBodyAccess().getAnonymousAssignment_1();
 	}
 
     @Override
@@ -3930,6 +3868,18 @@ protected class SubComponentCompositeBody_CompositeKeyword_1 extends KeywordToke
 		}	
 	}	
 		
+    @Override	
+	protected IInstanceDescription tryConsumeVal() {
+		if((value = current.getConsumable("anonymous",true)) == null) return null;
+		IInstanceDescription obj = current.cloneAndConsume("anonymous");
+		if(Boolean.TRUE.equals(value)) { // org::eclipse::xtext::impl::KeywordImpl
+			type = AssignmentType.KW;
+			element = grammarAccess.getSubComponentCompositeBodyAccess().getAnonymousCompositeKeyword_1_0();
+			return obj;
+		}
+		return null;
+	}
+
 }
 
 // "{"
@@ -3947,7 +3897,7 @@ protected class SubComponentCompositeBody_LeftCurlyBracketKeyword_2 extends Keyw
     @Override
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new SubComponentCompositeBody_CompositeKeyword_1(parent, this, 0, inst);
+			case 0: return new SubComponentCompositeBody_AnonymousAssignment_1(parent, this, 0, inst);
 			default: return null;
 		}	
 	}	
@@ -4054,12 +4004,12 @@ protected class SubComponentCompositeBody_RightCurlyBracketKeyword_4 extends Key
 /************ begin Rule SubComponentPrimitiveBody ****************
  *
  * SubComponentPrimitiveBody:
- *   annotationsList=AnnotationsList? "primitive" "{" (elements+=
+ *   annotationsList=AnnotationsList? anonymous?="primitive" "{" (elements+=
  *   PrimitiveDefinitionElement ";"?)* "}";
  *
  **/
 
-// annotationsList=AnnotationsList? "primitive" "{" (elements+=
+// annotationsList=AnnotationsList? anonymous?="primitive" "{" (elements+=
 // PrimitiveDefinitionElement ";"?)* "}"
 protected class SubComponentPrimitiveBody_Group extends GroupToken {
 	
@@ -4132,16 +4082,16 @@ protected class SubComponentPrimitiveBody_AnnotationsListAssignment_0 extends As
 	}	
 }
 
-// "primitive"
-protected class SubComponentPrimitiveBody_PrimitiveKeyword_1 extends KeywordToken  {
+// anonymous?="primitive"
+protected class SubComponentPrimitiveBody_AnonymousAssignment_1 extends AssignmentToken  {
 	
-	public SubComponentPrimitiveBody_PrimitiveKeyword_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	public SubComponentPrimitiveBody_AnonymousAssignment_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	@Override
-	public Keyword getGrammarElement() {
-		return grammarAccess.getSubComponentPrimitiveBodyAccess().getPrimitiveKeyword_1();
+	public Assignment getGrammarElement() {
+		return grammarAccess.getSubComponentPrimitiveBodyAccess().getAnonymousAssignment_1();
 	}
 
     @Override
@@ -4152,6 +4102,18 @@ protected class SubComponentPrimitiveBody_PrimitiveKeyword_1 extends KeywordToke
 		}	
 	}	
 		
+    @Override	
+	protected IInstanceDescription tryConsumeVal() {
+		if((value = current.getConsumable("anonymous",true)) == null) return null;
+		IInstanceDescription obj = current.cloneAndConsume("anonymous");
+		if(Boolean.TRUE.equals(value)) { // org::eclipse::xtext::impl::KeywordImpl
+			type = AssignmentType.KW;
+			element = grammarAccess.getSubComponentPrimitiveBodyAccess().getAnonymousPrimitiveKeyword_1_0();
+			return obj;
+		}
+		return null;
+	}
+
 }
 
 // "{"
@@ -4169,7 +4131,7 @@ protected class SubComponentPrimitiveBody_LeftCurlyBracketKeyword_2 extends Keyw
     @Override
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new SubComponentPrimitiveBody_PrimitiveKeyword_1(parent, this, 0, inst);
+			case 0: return new SubComponentPrimitiveBody_AnonymousAssignment_1(parent, this, 0, inst);
 			default: return null;
 		}	
 	}	
