@@ -1,6 +1,7 @@
 package org.ow2.fractal.mind.idl.ui.labeling;
 
 
+import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider;
 import org.eclipse.xtext.ui.label.DeclarativeLabelProvider;
 import org.ow2.fractal.mind.idl.fractalIDL.ConstantDefinition;
 import org.ow2.fractal.mind.idl.fractalIDL.EnumDefinition;
@@ -12,6 +13,8 @@ import org.ow2.fractal.mind.idl.fractalIDL.MethodDefinition;
 import org.ow2.fractal.mind.idl.fractalIDL.StructOrUnionDefinition;
 import org.ow2.fractal.mind.idl.fractalIDL.TypeDefinition;
 
+import com.google.inject.Inject;
+
 /**
  * see
  * http://www.eclipse.org/Xtext/documentation/latest/xtext.html#labelProvider
@@ -21,6 +24,11 @@ import org.ow2.fractal.mind.idl.fractalIDL.TypeDefinition;
  */
 
 public class FractalItfLabelProvider extends DeclarativeLabelProvider {
+	
+	@Inject
+	public FractalItfLabelProvider(AdapterFactoryLabelProvider delegate) {
+		super(delegate);
+	}
 
 	public String image(MethodDefinition obj) {
 		// Reuse Image from jdt

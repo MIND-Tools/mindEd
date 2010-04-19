@@ -19,7 +19,7 @@ import com.google.inject.Inject;
  * @author Damien Fournier
  */
 
-public class FractalIdtLabelProvider extends DefaultEObjectLabelProvider {
+public class FractalIdtLabelProvider extends FractalItfLabelProvider {
 
 	@Inject
 	public FractalIdtLabelProvider(AdapterFactoryLabelProvider delegate) {
