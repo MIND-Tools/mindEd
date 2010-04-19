@@ -62,7 +62,7 @@
             <constraint lang="Java" severity="ERROR" mode="Batch" name="noSubComponentBody" id="noSubComponentBody" statusCode="100"
             	class="org.ow2.fractal.mind.emf.validation.adapter.constraints.SubComponentConstraint">
                <description>"SubComponentError"</description>
-               <message>"Neither reference or Body found for subcomponent"</message>
+               <message>"SubComponent {0} must have at least a body or reference"</message>
                <!-- This constraint applies to any library element. -->
                <target class="SubComponentDefinition"/>
             </constraint>

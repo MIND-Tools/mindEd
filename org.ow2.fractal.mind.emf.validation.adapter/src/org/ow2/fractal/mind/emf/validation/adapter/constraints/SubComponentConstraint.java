@@ -21,6 +21,7 @@ import org.eclipse.core.runtime.IStatus;
 
 import org.eclipse.emf.validation.AbstractModelConstraint;
 import org.eclipse.emf.validation.IValidationContext;
+import org.eclipse.emf.validation.service.IValidator;
 
 import adl.AdlPackage;
 import adl.SubComponentDefinition;
@@ -38,6 +39,7 @@ public class SubComponentConstraint
 	 * Initializes me.
 	 */
 	public SubComponentConstraint() {
+		
 		super();
 	}
 
@@ -46,11 +48,12 @@ public class SubComponentConstraint
 	 */
 	@Override
 	public IStatus validate(IValidationContext ctx) {
+		
 		if(ctx.getTarget().eClass().getClassifierID()==AdlPackage.SUB_COMPONENT_DEFINITION)
 		{
 			SubComponentDefinition subComponent = (SubComponentDefinition) ctx.getTarget();
 			if(subComponent.getBody()==null && subComponent.getReferenceDefinition()==null)
-				return ctx.createFailureStatus(ctx.getTarget());
+				return ctx.createFailureStatus(subComponent.getName());
 		}
 		return ctx.createSuccessStatus();
 	}
