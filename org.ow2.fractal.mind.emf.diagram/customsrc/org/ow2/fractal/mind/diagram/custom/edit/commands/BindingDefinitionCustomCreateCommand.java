@@ -51,8 +51,8 @@ public class BindingDefinitionCustomCreateCommand extends
 			CreateRelationshipRequest request, EObject source, EObject target) {
 		super(request, source, target);
 		//edg28 - automatically create an interface if creating from body
-		if (source == null)
-			source = request.getContainer();
+//		if (source == null)
+//			source = request.getContainer();
 		customSource = source;
 		customTarget = target;
 		customContainer = deduceContainer(customSource,customTarget);
@@ -117,11 +117,11 @@ public class BindingDefinitionCustomCreateCommand extends
 				sourceRole = ((InterfaceDefinition) customSource).getRole();
 				sourceComponent = customSource.eContainer().eContainer();
 			}
-			else if (customSource instanceof Body) {
-				// edg28
-				// If source is a body, an interface will be created later
-				sourceComponent = customSource.eContainer();
-			}
+//			else if (customSource instanceof Body) {
+//				// edg28
+//				// If source is a body, an interface will be created later
+//				sourceComponent = customSource.eContainer();
+//			}
 			else return false;
 		}
 		
@@ -133,11 +133,11 @@ public class BindingDefinitionCustomCreateCommand extends
 				targetComponent = customTarget.eContainer().eContainer();
 				
 			}
-			else if (customTarget instanceof Body) {
-				// edg28
-				// If target is a body, an interface will be created later
-				targetComponent = customTarget.eContainer();
-			}
+//			else if (customTarget instanceof Body) {
+//				// edg28
+//				// If target is a body, an interface will be created later
+//				targetComponent = customTarget.eContainer();
+//			}
 			else return false;
 		}
 		
@@ -204,86 +204,87 @@ public class BindingDefinitionCustomCreateCommand extends
 		EObject targetComponent = null;
 		
 		// edg28
-		if (customSource instanceof Body) {
-			// If a body is the source create the interface source
-			customSource = createInterface((Body)customSource);
-			sourceComponent = getSource().eContainer().eContainer();
-			
-			if (customTarget instanceof Body) {
-				// Two new interfaces
-				customTarget = createInterface((Body)customTarget);
-				targetComponent = getTarget().eContainer().eContainer();
-				
-				if (sourceComponent.eContainer() == targetComponent.eContainer()) {
-					// Components are on the same level, bind provides to requires
-					getSource().setRole(Role.REQUIRES);
-					getTarget().setRole(Role.PROVIDES);
-				}
-				if ((sourceComponent.eContainer().eContainer() == targetComponent) ||
-						(targetComponent.eContainer().eContainer() == sourceComponent)) {
-					// Parent to child, bind provides to provides
-					getSource().setRole(Role.PROVIDES);
-					getTarget().setRole(Role.PROVIDES);
-				}
-			}
-			else {
-				// Only source is created
-				// Role depends on the target
-				targetComponent = getTarget().eContainer().eContainer();
-				if (sourceComponent.eContainer() == targetComponent.eContainer()) {
-					// Components are on the same level, bind provides to requires
-					if (getTarget().getRole() == Role.PROVIDES)
-						getSource().setRole(Role.REQUIRES);
-					else
-						getSource().setRole(Role.PROVIDES);
-				}
-				if ((sourceComponent.eContainer().eContainer() == targetComponent) ||
-						(targetComponent.eContainer().eContainer() == sourceComponent)) {
-					// Parent to child, bind provides to provides and requires to requires
-					getSource().setRole(getTarget().getRole());
-				}
-			}
-		}
-		else if (customTarget instanceof Body){
-			// Only target is created
-			// Role depends on the source
-			customTarget = createInterface((Body)customTarget);
-			targetComponent = getTarget().eContainer().eContainer();
-			sourceComponent = getSource().eContainer().eContainer();
-			
-			if (sourceComponent.eContainer() == targetComponent.eContainer()) {
-				// Components are on the same level, bind provides to requires
-				if (getSource().getRole() == Role.PROVIDES)
-					getTarget().setRole(Role.REQUIRES);
-				else
-					getTarget().setRole(Role.PROVIDES);
-			}
-			if ((sourceComponent.eContainer().eContainer() == targetComponent) ||
-					(targetComponent.eContainer().eContainer() == sourceComponent)) {
-				// Parent to child, bind provides to provides and requires to requires
-				getTarget().setRole(getSource().getRole());
-			}
-		}
-		else {
-			// Normal behavior
-			returnResult = true;
-		}
+//		if (customSource instanceof Body) {
+//			// If a body is the source create the interface source
+//			customSource = createInterface((Body)customSource);
+//			sourceComponent = getSource().eContainer().eContainer();
+//			
+//			if (customTarget instanceof Body) {
+//				// Two new interfaces
+//				customTarget = createInterface((Body)customTarget);
+//				targetComponent = getTarget().eContainer().eContainer();
+//				
+//				if (sourceComponent.eContainer() == targetComponent.eContainer()) {
+//					// Components are on the same level, bind provides to requires
+//					getSource().setRole(Role.REQUIRES);
+//					getTarget().setRole(Role.PROVIDES);
+//				}
+//				if ((sourceComponent.eContainer().eContainer() == targetComponent) ||
+//						(targetComponent.eContainer().eContainer() == sourceComponent)) {
+//					// Parent to child, bind provides to provides
+//					getSource().setRole(Role.PROVIDES);
+//					getTarget().setRole(Role.PROVIDES);
+//				}
+//			}
+//			else {
+//				// Only source is created
+//				// Role depends on the target
+//				targetComponent = getTarget().eContainer().eContainer();
+//				if (sourceComponent.eContainer() == targetComponent.eContainer()) {
+//					// Components are on the same level, bind provides to requires
+//					if (getTarget().getRole() == Role.PROVIDES)
+//						getSource().setRole(Role.REQUIRES);
+//					else
+//						getSource().setRole(Role.PROVIDES);
+//				}
+//				if ((sourceComponent.eContainer().eContainer() == targetComponent) ||
+//						(targetComponent.eContainer().eContainer() == sourceComponent)) {
+//					// Parent to child, bind provides to provides and requires to requires
+//					getSource().setRole(getTarget().getRole());
+//				}
+//			}
+//		}
+//		else if (customTarget instanceof Body){
+//			// Only target is created
+//			// Role depends on the source
+//			customTarget = createInterface((Body)customTarget);
+//			targetComponent = getTarget().eContainer().eContainer();
+//			sourceComponent = getSource().eContainer().eContainer();
+//			
+//			if (sourceComponent.eContainer() == targetComponent.eContainer()) {
+//				// Components are on the same level, bind provides to requires
+//				if (getSource().getRole() == Role.PROVIDES)
+//					getTarget().setRole(Role.REQUIRES);
+//				else
+//					getTarget().setRole(Role.PROVIDES);
+//			}
+//			if ((sourceComponent.eContainer().eContainer() == targetComponent) ||
+//					(targetComponent.eContainer().eContainer() == sourceComponent)) {
+//				// Parent to child, bind provides to provides and requires to requires
+//				getTarget().setRole(getSource().getRole());
+//			}
+//		}
+//		else {
+//			// Normal behavior
+//			returnResult = true;
+//		}
 		// An interface has been created
 		// Reprocess container deduction
-		customContainer = deduceContainer(getSource(),getTarget());
+//		customContainer = deduceContainer(getSource(),getTarget());
 
 		newElement.setInterfaceSource(getSource());
 		newElement.setInterfaceTarget(getTarget());
 		getContainer().getElements().add(newElement);
 		doConfigure(newElement, monitor, info);
 		((CreateElementRequest) getRequest()).setNewElement(newElement);
-
+		
+		
 		// If an interface was created, the element must not be returned
 		// Else a view is created with source = body
-		if (returnResult)
+//		if (returnResult)
 			return CommandResult.newOKCommandResult(newElement);
-		else 
-			return CommandResult.newOKCommandResult(null);
+//		else 
+//			return CommandResult.newOKCommandResult(null);
 		
 	}
 

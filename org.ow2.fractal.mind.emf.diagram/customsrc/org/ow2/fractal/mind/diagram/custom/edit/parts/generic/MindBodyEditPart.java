@@ -100,6 +100,13 @@ public class MindBodyEditPart extends MindEditPart {
 	}
 	
 	
+	public boolean setLayoutConstraint(EditPart child, IFigure childFigure,
+			Object constraint) {
+		parentComponent.setLayoutConstraint(child, childFigure, constraint);
+		return true;
+	}
+	
+	
 	public IFigure getCompartmentFigure() {
 		try {
 			

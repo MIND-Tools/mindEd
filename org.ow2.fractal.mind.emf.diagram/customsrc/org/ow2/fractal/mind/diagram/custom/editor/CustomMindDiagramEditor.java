@@ -1,5 +1,7 @@
 package org.ow2.fractal.mind.diagram.custom.editor;
 
+import java.util.List;
+
 import org.eclipse.draw2d.DelegatingLayout;
 import org.eclipse.draw2d.FreeformLayer;
 import org.eclipse.draw2d.Layer;
@@ -7,6 +9,8 @@ import org.eclipse.draw2d.LayeredPane;
 import org.eclipse.emf.common.ui.URIEditorInput;
 import org.eclipse.gef.EditPart;
 import org.eclipse.gef.LayerConstants;
+import org.eclipse.gef.palette.PaletteEntry;
+import org.eclipse.gef.palette.PaletteRoot;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.DiagramRootEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.resources.editor.document.IDocumentProvider;
 import org.eclipse.ui.IEditorInput;
@@ -14,9 +18,11 @@ import org.eclipse.ui.IFileEditorInput;
 import org.eclipse.ui.views.contentoutline.IContentOutlinePage;
 import org.ow2.fractal.mind.diagram.custom.providers.MindCustomDocumentProvider;
 import org.ow2.fractal.mind.emf.diagram.custom.router.CustomConnectionLayerEx;
+import org.ow2.fractal.mind.emf.diagram.custom.tools.MindCustomPaletteFactory;
 import org.ow2.fractal.mind.ide.ModelToProjectUtil;
 
 import adl.diagram.part.MindDiagramEditor;
+import adl.diagram.part.MindPaletteFactory;
 
 public class CustomMindDiagramEditor extends MindDiagramEditor {
 
@@ -131,5 +137,7 @@ public class CustomMindDiagramEditor extends MindDiagramEditor {
 				LayerConstants.SCALED_FEEDBACK_LAYER,
 				DiagramRootEditPart.DECORATION_UNPRINTABLE_LAYER);
 	}
+	
+	
 	
 }

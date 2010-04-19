@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
+import org.eclipse.core.runtime.IAdaptable;
+import org.eclipse.draw2d.geometry.Point;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.gef.EditPart;
 import org.eclipse.gef.Request;
@@ -13,6 +15,7 @@ import org.eclipse.gmf.runtime.common.core.command.CompositeCommand;
 import org.eclipse.gmf.runtime.diagram.core.edithelpers.CreateElementRequestAdapter;
 import org.eclipse.gmf.runtime.diagram.core.util.ViewUtil;
 import org.eclipse.gmf.runtime.diagram.ui.commands.CommandProxy;
+import org.eclipse.gmf.runtime.diagram.ui.commands.CreateViewAndOptionallyElementCommand;
 import org.eclipse.gmf.runtime.diagram.ui.commands.ICommandProxy;
 import org.eclipse.gmf.runtime.diagram.ui.commands.SemanticCreateCommand;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.INodeEditPart;
@@ -26,8 +29,14 @@ import org.eclipse.gmf.runtime.diagram.ui.requests.RequestConstants;
 import org.eclipse.gmf.runtime.emf.type.core.requests.CreateRelationshipRequest;
 import org.eclipse.gmf.runtime.notation.View;
 
-public class MindBodyContainerNodeEditPolicy extends GraphicalNodeEditPolicy {
+public class MindBodyContainerNodeEditPolicy extends ContainerNodeEditPolicy {
 		
+	@Override
+	protected CreateViewAndOptionallyElementCommand getCreateOtherEndCommand(
+			IAdaptable endAdapter, Point location) {
+		return super.getCreateOtherEndCommand(endAdapter, location);
+	}
+
 	/**
 	 * Only handles connection end requests. Cannot start a connection on a
 	 * container.
@@ -84,8 +93,7 @@ public class MindBodyContainerNodeEditPolicy extends GraphicalNodeEditPolicy {
 				Request individualRequest = (Request) iter.next();				
 				Command cmd = null;
 				if (individualRequest instanceof CreateConnectionViewAndElementRequest) {
-//					((CreateConnectionViewAndElementRequest) individualRequest).setTargetEditPart(getConnectableEditPart());
-					return getConnectionAndRelationshipCreateCommand((CreateConnectionViewAndElementRequest) individualRequest);
+					cmd = getConnectionAndRelationshipCreateCommand((CreateConnectionViewAndElementRequest) individualRequest);
 				} else if (individualRequest instanceof CreateConnectionViewRequest) {
 					cmd = getConnectionCreateCommand((CreateConnectionViewRequest) individualRequest);
 				}

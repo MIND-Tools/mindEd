@@ -144,5 +144,10 @@ public class MindEditPart extends AbstractMindEditPart {
 	public Dimension getMindPreferredSize() {
 		return new Dimension(500,500);
 	}
+
+	public boolean setLayoutConstraint(EditPart child, IFigure childFigure,
+			Object constraint) {
+		return false;
+	}
 	
 }

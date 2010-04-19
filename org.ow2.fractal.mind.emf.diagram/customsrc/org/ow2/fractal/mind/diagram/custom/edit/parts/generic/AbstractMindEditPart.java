@@ -137,5 +137,7 @@ public abstract class AbstractMindEditPart implements MindTypes {
 	public abstract void refresh();
 	public abstract LayoutEditPolicy createLayoutEditPolicy();
 	public abstract NodeFigure createNodePlate();
+	public abstract boolean setLayoutConstraint(EditPart child, IFigure childFigure,
+			Object constraint);
 
 }

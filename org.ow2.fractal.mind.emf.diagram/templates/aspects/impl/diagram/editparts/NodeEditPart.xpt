@@ -2,6 +2,7 @@
 «EXTENSION xpt::diagram::ViewmapAttributesUtils»
 «EXTENSION xpt::diagram::editparts::Utils»
 «EXTENSION xpt::diagram::Utils»
+
 «DEFINE getMindEditpart FOR gmfgen::InnerClassViewmap»
 	«EXPAND xpt::Common::generatedMemberComment»
 	protected org.ow2.fractal.mind.diagram.custom.edit.parts.generic.MindEditPart genericEditPart = org.ow2.fractal.mind.diagram.custom.edit.parts.generic.MindGenericEditPartFactory.INSTANCE.createGenericEditPart (this, VISUAL_ID);

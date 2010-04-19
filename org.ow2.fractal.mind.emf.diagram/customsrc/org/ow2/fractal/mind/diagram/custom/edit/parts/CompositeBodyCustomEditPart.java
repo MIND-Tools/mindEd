@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.eclipse.draw2d.IFigure;
 import org.eclipse.gef.ConnectionEditPart;
 import org.eclipse.gef.DragTracker;
 import org.eclipse.gef.EditPart;
@@ -16,6 +17,13 @@ import org.ow2.fractal.mind.diagram.custom.edit.parts.generic.MindGenericEditPar
 import adl.diagram.edit.parts.CompositeBodyEditPart;
 
 public class CompositeBodyCustomEditPart extends CompositeBodyEditPart {
+
+	@Override
+	public void setLayoutConstraint(EditPart child, IFigure childFigure,
+			Object constraint) {
+		if ((genericEditPart.setLayoutConstraint(child,childFigure,constraint)) == false)
+		super.setLayoutConstraint(child, childFigure, constraint);
+	}
 
 	public CompositeBodyCustomEditPart(View view) {
 		super(view);
