@@ -3,6 +3,7 @@ package org.ow2.fractal.mind.diagram.custom.figures;
 import org.eclipse.draw2d.AbstractBackground;
 import org.eclipse.draw2d.ColorConstants;
 import org.eclipse.draw2d.Graphics;
+import org.eclipse.draw2d.geometry.Dimension;
 import org.eclipse.draw2d.geometry.Point;
 import org.eclipse.draw2d.geometry.Rectangle;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel;
@@ -102,6 +103,12 @@ public class AbstractComponentNameWrappingLabel extends WrappingLabel
 		
 		public boolean getEditable(){
 			return this.editable;
+		}
+		
+		
+		public Dimension getMinimumSize(int w, int h) {
+			// Return the size needed to display every character instead of the size of one character
+			return super.getPreferredSize(w, h);
 		}
 		
 //		private void updateBackground(){

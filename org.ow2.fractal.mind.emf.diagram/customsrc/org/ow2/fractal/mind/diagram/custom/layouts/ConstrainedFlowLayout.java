@@ -87,33 +87,42 @@ public class ConstrainedFlowLayout extends FlowLayout {
 		Iterator iterator = parent.getChildren().iterator();
 		int dx;
 
-		//Calculate the hints to be passed to children
-		int wHint = -1;
-		int hHint = -1;
-		if (isHorizontal())
-			wHint = parent.getClientArea().width;
-		else
-			hHint = parent.getClientArea().height;
-
 		initVariables(parent);
 		initRow();
 		int i = 0; 
 		while (iterator.hasNext()) {
 			IFigure f = (IFigure)iterator.next();
-			Dimension pref = transposer.t(getChildSize(f, wHint, hHint));
 			
-			Rectangle cons = getConstraint(f);
-			if (cons.width > 0) {
-				pref.width = cons.width;
-			}
-			if (cons.height > 0) {
-				pref.height = cons.height;
-			}
+			Rectangle bounds = getConstraint(f);
+
+			 // -- There is a constraint, process width and height
+            int widthHint = bounds.width;
+            int heightHint = bounds.height;
+            if (widthHint == -1 || heightHint == -1) {
+                Dimension _preferredSize = f.getPreferredSize(widthHint, heightHint);
+                bounds = bounds.getCopy();
+                if (widthHint == -1)
+                	bounds.width = _preferredSize.width;
+                if (heightHint == -1)
+                	bounds.height = _preferredSize.height;
+            }
+            Dimension min = f.getMinimumSize(widthHint, heightHint);
+            Dimension max = f.getMaximumSize();
+            
+            if (min.width>bounds.width)
+                bounds.width = min.width;
+            else if (max.width < bounds.width)
+                bounds.width = max.width;
+            
+            if (min.height>bounds.height)
+                bounds.height = min.height;
+            else if (max.height < bounds.height)
+                bounds.height = max.height;
 			
-			Rectangle r = new Rectangle(0, 0, pref.width, pref.height);
+			Rectangle r = new Rectangle(0, 0, bounds.width, bounds.height);
 			
 			if (constrainedData.rowCount > 0) {
-				if (constrainedData.rowWidth + pref.width > constrainedData.maxWidth)
+				if (constrainedData.rowWidth + bounds.width > constrainedData.maxWidth)
 					layoutRow(parent);
 			}
 			r.x = constrainedData.rowX;
@@ -158,7 +167,7 @@ public class ConstrainedFlowLayout extends FlowLayout {
 
 		for (int j = 0; j < constrainedData.rowCount; j++) {
 			if (fill) {
-//				constrainedData.bounds[j].height = constrainedData.rowHeight;	
+				constrainedData.bounds[j].height = constrainedData.rowHeight;	
 			} else {
 				minorAdjustment = constrainedData.rowHeight - constrainedData.bounds[j].height;
 				switch (correctMinorAlignment) {

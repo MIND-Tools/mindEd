@@ -1,6 +1,8 @@
 package org.ow2.fractal.mind.diagram.custom.figures;
 
+import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.geometry.Dimension;
+import org.eclipse.draw2d.geometry.Rectangle;
 import org.eclipse.swt.graphics.Color;
 
 /**
@@ -12,6 +14,7 @@ import org.eclipse.swt.graphics.Color;
  */
 public class LabelTitleAnnotationCustomFigure extends
 		AbstractComponentNameWrappingLabel {
+	
 
 	protected static Dimension PREFERRED_SIZE = new Dimension(100,20);
 	protected static Dimension MAXIMUM_SIZE = new Dimension(500000,20);

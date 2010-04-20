@@ -83,8 +83,7 @@ public abstract class AbstractMindEditPart implements MindTypes {
 	protected MindBaseItemSemanticEditPolicy getCustomItemSemanticEditPolicy() {
 		String simpleName = 
 			realEditPart.getClass().getSimpleName().replace("EditPart", "ItemSemanticEditPolicy");
-		String packageName = EDIT_POLICY_PACKAGE;
-		String editPolicyName = packageName.concat(simpleName);
+		String editPolicyName = EDIT_POLICY_PACKAGE.concat(simpleName);
 		
 		EditPolicy policy = getEditPolicyFromName(editPolicyName);
 		MindBaseItemSemanticEditPolicy semanticPolicy = null;

@@ -18,9 +18,9 @@ import adl.diagram.edit.parts.CompositeAnnotationsListEditPart;
  * @author maroto
  *
  */
-public class AnnotationsListCustomEditPart extends CompositeAnnotationsListEditPart {
+public class CompositeAnnotationsListCustomEditPart extends CompositeAnnotationsListEditPart {
 
-	public AnnotationsListCustomEditPart(View view) {
+	public CompositeAnnotationsListCustomEditPart(View view) {
 		super(view);
 	}
 	

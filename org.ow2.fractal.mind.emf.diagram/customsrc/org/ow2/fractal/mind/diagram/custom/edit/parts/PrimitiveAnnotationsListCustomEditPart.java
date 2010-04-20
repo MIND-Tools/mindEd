@@ -7,7 +7,7 @@ import org.eclipse.gef.DragTracker;
 import org.eclipse.gef.EditPart;
 import org.eclipse.gef.Request;
 import org.eclipse.gmf.runtime.notation.View;
-import adl.diagram.edit.parts.CompositeAnnotationsListEditPart;
+import adl.diagram.edit.parts.PrimitiveAnnotationsListEditPart;
 
 /**
  * This EditPart stands for the list of annotations. 
@@ -18,9 +18,9 @@ import adl.diagram.edit.parts.CompositeAnnotationsListEditPart;
  * @author maroto
  *
  */
-public class AnnotationsListCustomEditPart extends CompositeAnnotationsListEditPart {
+public class PrimitiveAnnotationsListCustomEditPart extends PrimitiveAnnotationsListEditPart {
 
-	public AnnotationsListCustomEditPart(View view) {
+	public PrimitiveAnnotationsListCustomEditPart(View view) {
 		super(view);
 	}
 	

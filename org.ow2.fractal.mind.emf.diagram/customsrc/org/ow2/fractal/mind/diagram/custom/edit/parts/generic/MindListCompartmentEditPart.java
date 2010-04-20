@@ -8,6 +8,7 @@ import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
 import org.ow2.fractal.mind.diagram.custom.edit.policies.FixedChildrenLayoutEditPolicy;
 import org.ow2.fractal.mind.diagram.custom.edit.policies.MindSuperCreationEditPolicy;
 import org.ow2.fractal.mind.diagram.custom.layouts.ConstrainedFlowLayout;
+import org.ow2.fractal.mind.diagram.custom.layouts.CustomFreeFormLayoutEx;
 
 public class MindListCompartmentEditPart extends MindCompartmentEditPart {
 
@@ -46,7 +47,7 @@ public class MindListCompartmentEditPart extends MindCompartmentEditPart {
 	@Override
 	public LayoutManager getLayoutManager() {
 		if (layoutManager == null) {
-			layoutManager = new ConstrainedFlowLayout(false);
+			layoutManager = new ConstrainedFlowLayout(true);
 			((ConstrainedFlowLayout)layoutManager).setMinorSpacing(0);
 			((ConstrainedFlowLayout)layoutManager).setMajorSpacing(0);
 		}

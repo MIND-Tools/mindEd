@@ -154,6 +154,10 @@ public class MindGenericEditPartFactory implements MindTypes {
 			return TYPE_BODY;
 			
 			// -- Lists
+		case CompositeAnnotationsListEditPart.VISUAL_ID:
+		case PrimitiveAnnotationsListEditPart.VISUAL_ID:
+		case TypeAnnotationsListEditPart.VISUAL_ID:
+		case SubAnnotationsListEditPart.VISUAL_ID:
 		case CompositeFormalArgumentsListEditPart.VISUAL_ID:
 		case CompositeReferencesListEditPart.VISUAL_ID:
 		case PrimitiveFormalArgumentsListEditPart.VISUAL_ID:
@@ -169,6 +173,10 @@ public class MindGenericEditPartFactory implements MindTypes {
 			return TYPE_COMPARTMENT_BODY;
 			
 			// -- List Compartments
+		case CompositeAnnotationsListCompartmentEditPart.VISUAL_ID:
+		case PrimitiveAnnotationsListCompartmentEditPart.VISUAL_ID:
+		case TypeAnnotationsListCompartmentEditPart.VISUAL_ID:
+		case SubAnnotationsListCompartmentEditPart.VISUAL_ID:
 		case CompositeFormalArgumentsListCompartmentEditPart.VISUAL_ID:
 		case CompositeReferencesListCompartmentEditPart.VISUAL_ID:
 		case PrimitiveFormalArgumentsListCompartmentEditPart.VISUAL_ID:
@@ -220,6 +228,7 @@ public class MindGenericEditPartFactory implements MindTypes {
 			return TYPE_MISC;
 			
 			// -- Items
+		case AnnotationEditPart.VISUAL_ID:
 		case ArgumentDefinitionEditPart.VISUAL_ID:
 		case AttributeDefinitionEditPart.VISUAL_ID:
 		case FormalArgumentEditPart.VISUAL_ID:

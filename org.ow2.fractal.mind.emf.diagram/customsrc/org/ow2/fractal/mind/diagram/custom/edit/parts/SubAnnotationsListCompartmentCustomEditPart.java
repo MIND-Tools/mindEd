@@ -6,18 +6,13 @@ import org.eclipse.gef.Request;
 import org.eclipse.gmf.runtime.notation.View;
 import org.ow2.fractal.mind.diagram.custom.edit.parts.generic.MindEditPart;
 import org.ow2.fractal.mind.diagram.custom.edit.parts.generic.MindGenericEditPartFactory;
-import adl.diagram.edit.parts.CompositeReferencesListCompartmentEditPart;
 
-/**
- * This is the area for a ReferencesList (in a CompositeComponentDefinition or a
- * PrimitiveComponentDefinition).
- * @author maroto
- *
- */
-public class CompositeReferencesListCompartmentCustomEditPart extends
-		CompositeReferencesListCompartmentEditPart {
+import adl.diagram.edit.parts.SubAnnotationsListCompartmentEditPart;
 
-	public CompositeReferencesListCompartmentCustomEditPart(View view) {
+public class SubAnnotationsListCompartmentCustomEditPart extends
+		SubAnnotationsListCompartmentEditPart {
+
+	public SubAnnotationsListCompartmentCustomEditPart(View view) {
 		super(view);
 	}
 	
@@ -56,7 +51,5 @@ public class CompositeReferencesListCompartmentCustomEditPart extends
 		}
 		return layoutManager;
 	}
-	
-	
 
 }

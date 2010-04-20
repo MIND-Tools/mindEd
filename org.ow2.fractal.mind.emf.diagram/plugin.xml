@@ -215,7 +215,7 @@
       <viewProvider class="adl.diagram.providers.MindViewProvider">
          <Priority name="Lowest"/>
          <context viewClass="org.eclipse.gmf.runtime.notation.Diagram" semanticHints="Mind"/>
-         <context viewClass="org.eclipse.gmf.runtime.notation.Node" semanticHints="2007,2008,2009,3096,3097,3098,3099,3100,3101,3102,3103,3104,3105,3129,3130,3131,3132,3143,3135,3136,3137,3140,3115,3116,3139,3118,3119,3138,3144,3145,3146,3123,3124,3125,3127,3128,3142"/>
+         <context viewClass="org.eclipse.gmf.runtime.notation.Node" semanticHints="2007,2008,2009,3096,3097,3098,3099,3100,3101,3102,3103,3104,3105,3129,3130,3131,3132,3143,3150,3145,3146,3148,3149,3135,3136,3137,3140,3115,3116,3139,3118,3119,3138,3147,3123,3124,3125,3151,3127,3128,3142,3152"/>
          <context viewClass="org.eclipse.gmf.runtime.notation.Edge" semanticHints="4003"/>
       </viewProvider>
    </extension>
@@ -460,6 +460,55 @@
          </metamodelType>
       </metamodel>
       <metamodel nsURI="http://org.ow2.fractal/mind/mind.ecore/0.2.0">
+         <metamodelType
+               id="org.ow2.fractal.mind.emf.diagram.AnnotationsList_3150"
+               name="%metatype.name.AnnotationsList_3150"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="AnnotationsList"
+               edithelper="adl.diagram.edit.helpers.AnnotationsListEditHelper">
+            <param name="semanticHint" value="3150"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://org.ow2.fractal/mind/mind.ecore/0.2.0">
+         <metamodelType
+               id="org.ow2.fractal.mind.emf.diagram.Annotation_3145"
+               name="%metatype.name.Annotation_3145"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="Annotation"
+               edithelper="adl.diagram.edit.helpers.AnnotationEditHelper">
+            <param name="semanticHint" value="3145"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://org.ow2.fractal/mind/mind.ecore/0.2.0">
+         <metamodelType
+               id="org.ow2.fractal.mind.emf.diagram.AnnotationElement_3146"
+               name="%metatype.name.AnnotationElement_3146"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="AnnotationElement"
+               edithelper="adl.diagram.edit.helpers.AnnotationElementEditHelper">
+            <param name="semanticHint" value="3146"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://org.ow2.fractal/mind/mind.ecore/0.2.0">
+         <metamodelType
+               id="org.ow2.fractal.mind.emf.diagram.ConstantValue_3148"
+               name="%metatype.name.ConstantValue_3148"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="ConstantValue"
+               edithelper="adl.diagram.edit.helpers.ConstantValueEditHelper">
+            <param name="semanticHint" value="3148"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://org.ow2.fractal/mind/mind.ecore/0.2.0">
+         <specializationType
+               id="org.ow2.fractal.mind.emf.diagram.Annotation_3149"
+               name="%metatype.name.Annotation_3149"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
+            <specializes id="org.ow2.fractal.mind.emf.diagram.Annotation_3145"/>
+            <param name="semanticHint" value="3149"/>
+         </specializationType>
+      </metamodel>
+      <metamodel nsURI="http://org.ow2.fractal/mind/mind.ecore/0.2.0">
          <specializationType
                id="org.ow2.fractal.mind.emf.diagram.SubComponentDefinition_3135"
                name="%metatype.name.SubComponentDefinition_3135"
@@ -557,34 +606,13 @@
          </metamodelType>
       </metamodel>
       <metamodel nsURI="http://org.ow2.fractal/mind/mind.ecore/0.2.0">
-         <metamodelType
-               id="org.ow2.fractal.mind.emf.diagram.AnnotationsList_3144"
-               name="%metatype.name.AnnotationsList_3144"
-               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
-               eclass="AnnotationsList"
-               edithelper="adl.diagram.edit.helpers.AnnotationsListEditHelper">
-            <param name="semanticHint" value="3144"/>
-         </metamodelType>
-      </metamodel>
-      <metamodel nsURI="http://org.ow2.fractal/mind/mind.ecore/0.2.0">
-         <metamodelType
-               id="org.ow2.fractal.mind.emf.diagram.Annotation_3145"
-               name="%metatype.name.Annotation_3145"
-               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
-               eclass="Annotation"
-               edithelper="adl.diagram.edit.helpers.AnnotationEditHelper">
-            <param name="semanticHint" value="3145"/>
-         </metamodelType>
-      </metamodel>
-      <metamodel nsURI="http://org.ow2.fractal/mind/mind.ecore/0.2.0">
-         <metamodelType
-               id="org.ow2.fractal.mind.emf.diagram.AnnotationElement_3146"
-               name="%metatype.name.AnnotationElement_3146"
-               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
-               eclass="AnnotationElement"
-               edithelper="adl.diagram.edit.helpers.AnnotationElementEditHelper">
-            <param name="semanticHint" value="3146"/>
-         </metamodelType>
+         <specializationType
+               id="org.ow2.fractal.mind.emf.diagram.AnnotationsList_3147"
+               name="%metatype.name.AnnotationsList_3147"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
+            <specializes id="org.ow2.fractal.mind.emf.diagram.AnnotationsList_3150"/>
+            <param name="semanticHint" value="3147"/>
+         </specializationType>
       </metamodel>
       <metamodel nsURI="http://org.ow2.fractal/mind/mind.ecore/0.2.0">
          <specializationType
@@ -616,6 +644,15 @@
          </specializationType>
       </metamodel>
       <metamodel nsURI="http://org.ow2.fractal/mind/mind.ecore/0.2.0">
+         <specializationType
+               id="org.ow2.fractal.mind.emf.diagram.AnnotationsList_3151"
+               name="%metatype.name.AnnotationsList_3151"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
+            <specializes id="org.ow2.fractal.mind.emf.diagram.AnnotationsList_3150"/>
+            <param name="semanticHint" value="3151"/>
+         </specializationType>
+      </metamodel>
+      <metamodel nsURI="http://org.ow2.fractal/mind/mind.ecore/0.2.0">
          <metamodelType
                id="org.ow2.fractal.mind.emf.diagram.TypeReferencesList_3127"
                name="%metatype.name.TypeReferencesList_3127"
@@ -644,6 +681,15 @@
                edithelper="adl.diagram.edit.helpers.TypeBodyEditHelper">
             <param name="semanticHint" value="3142"/>
          </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://org.ow2.fractal/mind/mind.ecore/0.2.0">
+         <specializationType
+               id="org.ow2.fractal.mind.emf.diagram.AnnotationsList_3152"
+               name="%metatype.name.AnnotationsList_3152"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
+            <specializes id="org.ow2.fractal.mind.emf.diagram.AnnotationsList_3150"/>
+            <param name="semanticHint" value="3152"/>
+         </specializationType>
       </metamodel>
       <metamodel nsURI="http://org.ow2.fractal/mind/mind.ecore/0.2.0">
          <metamodelType
@@ -686,6 +732,11 @@
          <elementType ref="org.ow2.fractal.mind.emf.diagram.SubComponentDefinition_3131"/>
          <elementType ref="org.ow2.fractal.mind.emf.diagram.CompositeReferenceDefinition_3132"/>
          <elementType ref="org.ow2.fractal.mind.emf.diagram.Body_3143"/>
+         <elementType ref="org.ow2.fractal.mind.emf.diagram.AnnotationsList_3150"/>
+         <elementType ref="org.ow2.fractal.mind.emf.diagram.Annotation_3145"/>
+         <elementType ref="org.ow2.fractal.mind.emf.diagram.AnnotationElement_3146"/>
+         <elementType ref="org.ow2.fractal.mind.emf.diagram.ConstantValue_3148"/>
+         <elementType ref="org.ow2.fractal.mind.emf.diagram.Annotation_3149"/>
          <elementType ref="org.ow2.fractal.mind.emf.diagram.SubComponentDefinition_3135"/>
          <elementType ref="org.ow2.fractal.mind.emf.diagram.PrimitiveReferenceDefinition_3136"/>
          <elementType ref="org.ow2.fractal.mind.emf.diagram.PrimitiveBody_3137"/>
@@ -696,15 +747,15 @@
          <elementType ref="org.ow2.fractal.mind.emf.diagram.FileC_3118"/>
          <elementType ref="org.ow2.fractal.mind.emf.diagram.InlineCodeC_3119"/>
          <elementType ref="org.ow2.fractal.mind.emf.diagram.AttributeDefinition_3138"/>
-         <elementType ref="org.ow2.fractal.mind.emf.diagram.AnnotationsList_3144"/>
-         <elementType ref="org.ow2.fractal.mind.emf.diagram.Annotation_3145"/>
-         <elementType ref="org.ow2.fractal.mind.emf.diagram.AnnotationElement_3146"/>
+         <elementType ref="org.ow2.fractal.mind.emf.diagram.AnnotationsList_3147"/>
          <elementType ref="org.ow2.fractal.mind.emf.diagram.FormalArgumentsList_3123"/>
          <elementType ref="org.ow2.fractal.mind.emf.diagram.PrimitiveReferencesList_3124"/>
          <elementType ref="org.ow2.fractal.mind.emf.diagram.PrimitiveReferenceDefinition_3125"/>
+         <elementType ref="org.ow2.fractal.mind.emf.diagram.AnnotationsList_3151"/>
          <elementType ref="org.ow2.fractal.mind.emf.diagram.TypeReferencesList_3127"/>
          <elementType ref="org.ow2.fractal.mind.emf.diagram.TypeReferenceDefinition_3128"/>
          <elementType ref="org.ow2.fractal.mind.emf.diagram.TypeBody_3142"/>
+         <elementType ref="org.ow2.fractal.mind.emf.diagram.AnnotationsList_3152"/>
          <elementType ref="org.ow2.fractal.mind.emf.diagram.BindingDefinition_4003"/>
          <advice ref="org.eclipse.gmf.runtime.diagram.core.advice.notationDepdendents"/>
       </binding>
@@ -1042,6 +1093,18 @@ and
          documentType="org.eclipse.gmf.runtime.diagram.ui.editor.IDocument"
          id="adl.diagram.part.MindDocumentProvider">
    </provider>
+</extension>
+<extension
+      point="org.eclipse.gmf.runtime.diagram.ui.paletteProviders">
+   <paletteProvider
+         class="org.eclipse.gef.ui.palette.PaletteViewerProvider">
+      <Priority
+            name="Highest">
+      </Priority>
+      <content
+            class="org.ow2.fractal.mind.emf.diagram.tool.BindingCreationTool">
+      </content>
+   </paletteProvider>
 </extension>
 
 
