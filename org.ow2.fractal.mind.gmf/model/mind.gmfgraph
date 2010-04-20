@@ -25,6 +25,25 @@
           figure="//@figures.0/@descriptors.0/@actualFigure/@children.0"/>
     </descriptors>
     <descriptors
+        name="AnnotationElementValueFigure">
+      <actualFigure
+          xsi:type="gmfgraph:CustomFigure"
+          name="AnnotationElementValueFigure"
+          qualifiedClassName="org.ow2.fractal.mind.diagram.custom.figures.AnnotationElementValueCustomFigure">
+        <children
+            xsi:type="gmfgraph:CustomFigure"
+            name="LabelAnnotationElementName"
+            qualifiedClassName="org.ow2.fractal.mind.diagram.custom.figures.LabelAnnotationElementCustomFigure">
+          <attributes
+              name="backgroundColor"
+              value="BACKGROUND_COLOR"/>
+        </children>
+      </actualFigure>
+      <accessors
+          accessor="getLabelAnnotationElementValue"
+          figure="//@figures.0/@descriptors.1/@actualFigure/@children.0"/>
+    </descriptors>
+    <descriptors
         name="AnnotationFigure">
       <actualFigure
           xsi:type="gmfgraph:CustomFigure"
@@ -55,10 +74,10 @@
       </actualFigure>
       <accessors
           accessor="getFigureLabelAnnotation"
-          figure="//@figures.0/@descriptors.1/@actualFigure/@children.0"/>
+          figure="//@figures.0/@descriptors.2/@actualFigure/@children.0"/>
       <accessors
           accessor="getFigureAnnotationArea"
-          figure="//@figures.0/@descriptors.1/@actualFigure/@children.1"/>
+          figure="//@figures.0/@descriptors.2/@actualFigure/@children.1"/>
     </descriptors>
     <descriptors
         name="AnnotationsListFigure">
@@ -84,7 +103,7 @@
       </actualFigure>
       <accessors
           accessor="getFigureAnnotationsArea"
-          figure="//@figures.0/@descriptors.2/@actualFigure/@children.1"/>
+          figure="//@figures.0/@descriptors.3/@actualFigure/@children.1"/>
     </descriptors>
     <descriptors
         name="ArgumentDefinitionFigure">
@@ -99,7 +118,7 @@
       </actualFigure>
       <accessors
           accessor="getFigureLabelArgumentDefinitionName"
-          figure="//@figures.0/@descriptors.3/@actualFigure/@children.0"/>
+          figure="//@figures.0/@descriptors.4/@actualFigure/@children.0"/>
     </descriptors>
     <descriptors
         name="AttributeDefinitionFigure">
@@ -121,7 +140,7 @@
       </actualFigure>
       <accessors
           accessor="getFigureLabelAttributeDefinitionContent"
-          figure="//@figures.0/@descriptors.4/@actualFigure/@children.0"/>
+          figure="//@figures.0/@descriptors.5/@actualFigure/@children.0"/>
     </descriptors>
     <descriptors
         name="BindingFigure">
@@ -154,10 +173,10 @@
       </actualFigure>
       <accessors
           accessor="getFigure"
-          figure="//@figures.0/@descriptors.6/@actualFigure"/>
+          figure="//@figures.0/@descriptors.7/@actualFigure"/>
       <accessors
           accessor="getCompartment"
-          figure="//@figures.0/@descriptors.6/@actualFigure/@children.0"/>
+          figure="//@figures.0/@descriptors.7/@actualFigure/@children.0"/>
     </descriptors>
     <descriptors
         name="ComponentTypeDefinitionFigure">
@@ -194,13 +213,13 @@
       </actualFigure>
       <accessors
           accessor="getLabelName"
-          figure="//@figures.0/@descriptors.7/@actualFigure/@children.0"/>
+          figure="//@figures.0/@descriptors.8/@actualFigure/@children.0"/>
       <accessors
           accessor="getFigure"
-          figure="//@figures.0/@descriptors.7/@actualFigure"/>
+          figure="//@figures.0/@descriptors.8/@actualFigure"/>
       <accessors
           accessor="getBody"
-          figure="//@figures.0/@descriptors.7/@actualFigure/@children.1"/>
+          figure="//@figures.0/@descriptors.8/@actualFigure/@children.1"/>
     </descriptors>
     <descriptors
         name="CompositeAnonymousSubComponentFigure">
@@ -237,13 +256,13 @@
       </actualFigure>
       <accessors
           accessor="getFigureLabelCompositeAnonymousSubComponentName"
-          figure="//@figures.0/@descriptors.8/@actualFigure/@children.0"/>
+          figure="//@figures.0/@descriptors.9/@actualFigure/@children.0"/>
       <accessors
           accessor="getFigureCompositeAnonymousSubComponentFigure"
-          figure="//@figures.0/@descriptors.8/@actualFigure"/>
+          figure="//@figures.0/@descriptors.9/@actualFigure"/>
       <accessors
           accessor="getFigureCompositeAnonymousSubBodyArea"
-          figure="//@figures.0/@descriptors.8/@actualFigure/@children.1"/>
+          figure="//@figures.0/@descriptors.9/@actualFigure/@children.1"/>
     </descriptors>
     <descriptors
         name="ComponentFigure">
@@ -268,10 +287,10 @@
       </actualFigure>
       <accessors
           accessor="getLabel"
-          figure="//@figures.0/@descriptors.9/@actualFigure/@children.0"/>
+          figure="//@figures.0/@descriptors.10/@actualFigure/@children.0"/>
       <accessors
           accessor="getFigure"
-          figure="//@figures.0/@descriptors.9/@actualFigure"/>
+          figure="//@figures.0/@descriptors.10/@actualFigure"/>
     </descriptors>
     <descriptors
         name="CompositeSubComponentFigure">
@@ -308,13 +327,13 @@
       </actualFigure>
       <accessors
           accessor="getFigureLabelCompositeSubComponentName"
-          figure="//@figures.0/@descriptors.10/@actualFigure/@children.0"/>
+          figure="//@figures.0/@descriptors.11/@actualFigure/@children.0"/>
       <accessors
           accessor="getFigureCompositeSubComponentFigure"
-          figure="//@figures.0/@descriptors.10/@actualFigure"/>
+          figure="//@figures.0/@descriptors.11/@actualFigure"/>
       <accessors
           accessor="getFigureCompositeSubBodyArea"
-          figure="//@figures.0/@descriptors.10/@actualFigure/@children.1"/>
+          figure="//@figures.0/@descriptors.11/@actualFigure/@children.1"/>
     </descriptors>
     <descriptors
         name="DataDefinitionFigure">
@@ -351,10 +370,10 @@
       </actualFigure>
       <accessors
           accessor="getFigureDataDefinitionBody"
-          figure="//@figures.0/@descriptors.11/@actualFigure/@children.1"/>
+          figure="//@figures.0/@descriptors.12/@actualFigure/@children.1"/>
       <accessors
           accessor="getFigureLabelDataDefinitionTitle"
-          figure="//@figures.0/@descriptors.11/@actualFigure/@children.0"/>
+          figure="//@figures.0/@descriptors.12/@actualFigure/@children.0"/>
     </descriptors>
     <descriptors
         name="FileCFigure">
@@ -372,7 +391,7 @@
       </actualFigure>
       <accessors
           accessor="getLabelFileC"
-          figure="//@figures.0/@descriptors.12/@actualFigure/@children.0"/>
+          figure="//@figures.0/@descriptors.13/@actualFigure/@children.0"/>
     </descriptors>
     <descriptors
         name="FormalArgumentFigure">
@@ -391,7 +410,7 @@
       </actualFigure>
       <accessors
           accessor="getFigureLabelFormalArgumentName"
-          figure="//@figures.0/@descriptors.13/@actualFigure/@children.0"/>
+          figure="//@figures.0/@descriptors.14/@actualFigure/@children.0"/>
     </descriptors>
     <descriptors
         name="FormalArgumentsListFigure">
@@ -414,7 +433,7 @@
       </actualFigure>
       <accessors
           accessor="getFigureFormalArgumentsArea"
-          figure="//@figures.0/@descriptors.14/@actualFigure/@children.1"/>
+          figure="//@figures.0/@descriptors.15/@actualFigure/@children.1"/>
     </descriptors>
     <descriptors
         name="ImplementationFigure">
@@ -451,10 +470,10 @@
       </actualFigure>
       <accessors
           accessor="getFigureImplementationBody"
-          figure="//@figures.0/@descriptors.15/@actualFigure/@children.1"/>
+          figure="//@figures.0/@descriptors.16/@actualFigure/@children.1"/>
       <accessors
           accessor="getFigureLabelImplementationTitle"
-          figure="//@figures.0/@descriptors.15/@actualFigure/@children.0"/>
+          figure="//@figures.0/@descriptors.16/@actualFigure/@children.0"/>
     </descriptors>
     <descriptors
         name="InlineCFigure">
@@ -476,7 +495,7 @@
       </actualFigure>
       <accessors
           accessor="getLabelInlineC"
-          figure="//@figures.0/@descriptors.16/@actualFigure/@children.0"/>
+          figure="//@figures.0/@descriptors.17/@actualFigure/@children.0"/>
     </descriptors>
     <descriptors
         name="InterfaceDefinitionFigure">
@@ -494,10 +513,10 @@
       </actualFigure>
       <accessors
           accessor="getFigureLabelInterfaceDefinitionName"
-          figure="//@figures.0/@descriptors.17/@actualFigure/@children.0"/>
+          figure="//@figures.0/@descriptors.18/@actualFigure/@children.0"/>
       <accessors
           accessor="getFigureInterfaceDefinitionFigure"
-          figure="//@figures.0/@descriptors.17/@actualFigure"/>
+          figure="//@figures.0/@descriptors.18/@actualFigure"/>
     </descriptors>
     <descriptors
         name="PrimitiveAnonymousSubComponentFigure">
@@ -534,13 +553,13 @@
       </actualFigure>
       <accessors
           accessor="getFigurePrimitiveAnonymousSubComponentFigure"
-          figure="//@figures.0/@descriptors.18/@actualFigure"/>
+          figure="//@figures.0/@descriptors.19/@actualFigure"/>
       <accessors
           accessor="getFigureLabelPrimitiveAnonymousSubComponentName"
-          figure="//@figures.0/@descriptors.18/@actualFigure/@children.0"/>
+          figure="//@figures.0/@descriptors.19/@actualFigure/@children.0"/>
       <accessors
           accessor="getFigurePrimitiveAnonymousSubBodyArea"
-          figure="//@figures.0/@descriptors.18/@actualFigure/@children.1"/>
+          figure="//@figures.0/@descriptors.19/@actualFigure/@children.1"/>
     </descriptors>
     <descriptors
         name="PrimitiveComponentDefinitionFigure">
@@ -569,10 +588,10 @@
       </actualFigure>
       <accessors
           accessor="getLabel"
-          figure="//@figures.0/@descriptors.19/@actualFigure/@children.0"/>
+          figure="//@figures.0/@descriptors.20/@actualFigure/@children.0"/>
       <accessors
           accessor="getFigure"
-          figure="//@figures.0/@descriptors.19/@actualFigure"/>
+          figure="//@figures.0/@descriptors.20/@actualFigure"/>
     </descriptors>
     <descriptors
         name="PrimitiveSubComponentFigure">
@@ -609,13 +628,13 @@
       </actualFigure>
       <accessors
           accessor="getFigurePrimitiveSubComponentFigure"
-          figure="//@figures.0/@descriptors.20/@actualFigure"/>
+          figure="//@figures.0/@descriptors.21/@actualFigure"/>
       <accessors
           accessor="getFigureLabelPrimitiveSubComponentName"
-          figure="//@figures.0/@descriptors.20/@actualFigure/@children.0"/>
+          figure="//@figures.0/@descriptors.21/@actualFigure/@children.0"/>
       <accessors
           accessor="getFigurePrimitiveSubBodyArea"
-          figure="//@figures.0/@descriptors.20/@actualFigure/@children.1"/>
+          figure="//@figures.0/@descriptors.21/@actualFigure/@children.1"/>
     </descriptors>
     <descriptors
         name="ReferenceFigure">
@@ -641,10 +660,10 @@
       </actualFigure>
       <accessors
           accessor="getLabelReference"
-          figure="//@figures.0/@descriptors.21/@actualFigure/@children.0"/>
+          figure="//@figures.0/@descriptors.22/@actualFigure/@children.0"/>
       <accessors
           accessor="getReferenceArea"
-          figure="//@figures.0/@descriptors.21/@actualFigure/@children.1"/>
+          figure="//@figures.0/@descriptors.22/@actualFigure/@children.1"/>
     </descriptors>
     <descriptors
         name="ReferencesListFigure">
@@ -690,10 +709,10 @@
       </actualFigure>
       <accessors
           accessor="getFigureReferencesArea"
-          figure="//@figures.0/@descriptors.22/@actualFigure/@children.1"/>
+          figure="//@figures.0/@descriptors.23/@actualFigure/@children.1"/>
       <accessors
           accessor="getLabelTitle"
-          figure="//@figures.0/@descriptors.22/@actualFigure/@children.0"/>
+          figure="//@figures.0/@descriptors.23/@actualFigure/@children.0"/>
     </descriptors>
     <descriptors
         name="TemplateSpecifierFigure">
@@ -712,7 +731,7 @@
       </actualFigure>
       <accessors
           accessor="getLabelName"
-          figure="//@figures.0/@descriptors.23/@actualFigure/@children.0"/>
+          figure="//@figures.0/@descriptors.24/@actualFigure/@children.0"/>
     </descriptors>
     <descriptors
         name="TemplateSpecifiersListFigure">
@@ -738,10 +757,10 @@
       </actualFigure>
       <accessors
           accessor="getArea"
-          figure="//@figures.0/@descriptors.24/@actualFigure/@children.1"/>
+          figure="//@figures.0/@descriptors.25/@actualFigure/@children.1"/>
       <accessors
           accessor="getLabelName"
-          figure="//@figures.0/@descriptors.24/@actualFigure/@children.0"/>
+          figure="//@figures.0/@descriptors.25/@actualFigure/@children.0"/>
     </descriptors>
     <descriptors
         name="SubComponentFigure">
@@ -770,10 +789,10 @@
       </actualFigure>
       <accessors
           accessor="getFigure"
-          figure="//@figures.0/@descriptors.25/@actualFigure"/>
+          figure="//@figures.0/@descriptors.26/@actualFigure"/>
       <accessors
           accessor="getLabel"
-          figure="//@figures.0/@descriptors.25/@actualFigure/@children.0"/>
+          figure="//@figures.0/@descriptors.26/@actualFigure/@children.0"/>
     </descriptors>
     <descriptors
         name="TemplateDefinitionFigure">
@@ -799,10 +818,10 @@
       </actualFigure>
       <accessors
           accessor="getFigureLabelTemplateDefinitionName"
-          figure="//@figures.0/@descriptors.26/@actualFigure/@children.0"/>
+          figure="//@figures.0/@descriptors.27/@actualFigure/@children.0"/>
       <accessors
           accessor="getFigureTemplateDefinitionArea"
-          figure="//@figures.0/@descriptors.26/@actualFigure/@children.1"/>
+          figure="//@figures.0/@descriptors.27/@actualFigure/@children.1"/>
     </descriptors>
     <descriptors
         name="TemplateReferenceFigure">
@@ -821,10 +840,10 @@
       </actualFigure>
       <accessors
           accessor="getFigureLabelTemplateReference"
-          figure="//@figures.0/@descriptors.27/@actualFigure/@children.0"/>
+          figure="//@figures.0/@descriptors.28/@actualFigure/@children.0"/>
       <accessors
           accessor="getFigureTemplateReferenceArea"
-          figure="//@figures.0/@descriptors.27/@actualFigure/@children.1"/>
+          figure="//@figures.0/@descriptors.28/@actualFigure/@children.1"/>
     </descriptors>
   </figures>
   <nodes
@@ -849,6 +868,9 @@
       name="AnnotationsList"
       figure="AnnotationsListFigure"/>
   <nodes
+      name="AnnotationElementValue"
+      figure="AnnotationElementValueFigure"/>
+  <nodes
       name="Annotation"
       figure="AnnotationFigure"/>
   <nodes
@@ -866,7 +888,7 @@
   <nodes
       name="Body"
       figure="BodyFigure"
-      contentPane="//@figures.0/@descriptors.6/@accessors.1"/>
+      contentPane="//@figures.0/@descriptors.7/@accessors.1"/>
   <nodes
       name="ImportsList"/>
   <nodes
@@ -887,7 +909,7 @@
   <nodes
       name="Implementation"
       figure="ImplementationFigure"
-      contentPane="//@figures.0/@descriptors.15/@accessors.0"/>
+      contentPane="//@figures.0/@descriptors.16/@accessors.0"/>
   <nodes
       name="DataDefinition"
       figure="DataDefinitionFigure"/>
@@ -907,17 +929,17 @@
       name="FormalArgumentsList"
       figure="FormalArgumentsListFigure"
       resizeConstraint="NONE"
-      contentPane="//@figures.0/@descriptors.14/@accessors.0"/>
+      contentPane="//@figures.0/@descriptors.15/@accessors.0"/>
   <nodes
       name="TemplateSpecifiersList"
       figure="TemplateSpecifiersListFigure"
       resizeConstraint="NONE"
-      contentPane="//@figures.0/@descriptors.24/@accessors.0"/>
+      contentPane="//@figures.0/@descriptors.25/@accessors.0"/>
   <nodes
       name="ReferencesList"
       figure="ReferencesListFigure"
       resizeConstraint="NONE"
-      contentPane="//@figures.0/@descriptors.22/@accessors.0"/>
+      contentPane="//@figures.0/@descriptors.23/@accessors.0"/>
   <nodes
       name="ComponentReferenceDefinition"/>
   <nodes
@@ -932,12 +954,12 @@
   <nodes
       name="TemplateReference"
       figure="TemplateReferenceFigure"
-      contentPane="//@figures.0/@descriptors.27/@accessors.1"/>
+      contentPane="//@figures.0/@descriptors.28/@accessors.1"/>
   <nodes
       name="PrimitiveBody"
       figure="BodyFigure"
       affixedParentSide="NORTH"
-      contentPane="//@figures.0/@descriptors.6/@accessors.1"/>
+      contentPane="//@figures.0/@descriptors.7/@accessors.1"/>
   <nodes
       name="PrimitiveSubComponent"
       figure="ComponentFigure"/>
@@ -951,17 +973,17 @@
       name="BodyCompartment"
       figure="BodyFigure"
       collapsible="true"
-      accessor="//@figures.0/@descriptors.6/@accessors.1"/>
+      accessor="//@figures.0/@descriptors.7/@accessors.1"/>
   <compartments
       name="CompartmentSubComponentBody"
       figure="BodyFigure"
       collapsible="true"
-      accessor="//@figures.0/@descriptors.6/@accessors.1"/>
+      accessor="//@figures.0/@descriptors.7/@accessors.1"/>
   <compartments
       name="CompartmentPrimitiveComponentDataDefinition"
       figure="DataDefinitionFigure"
       collapsible="true"
-      accessor="//@figures.0/@descriptors.11/@accessors.0"/>
+      accessor="//@figures.0/@descriptors.12/@accessors.0"/>
   <compartments
       name="CompartmentPrimitiveComponentImplementation"
       collapsible="true"/>
@@ -969,7 +991,7 @@
       name="CompartmentTemplateSpecifierList"
       figure="TemplateSpecifiersListFigure"
       collapsible="true"
-      accessor="//@figures.0/@descriptors.24/@accessors.0"/>
+      accessor="//@figures.0/@descriptors.25/@accessors.0"/>
   <compartments
       name="CompartmentPrimitiveDefinitionBody"
       figure="PrimitiveComponentDefinitionFigure"
@@ -978,7 +1000,7 @@
       name="CompartmentFormalArgumentsList"
       figure="FormalArgumentsListFigure"
       collapsible="true"
-      accessor="//@figures.0/@descriptors.14/@accessors.0"/>
+      accessor="//@figures.0/@descriptors.15/@accessors.0"/>
   <compartments
       name="CompartmentComponentReferenceDefinitionArea"
       collapsible="true"/>
@@ -986,26 +1008,26 @@
       name="CompartmentReferenceDefinitionArea"
       figure="ReferenceFigure"
       collapsible="true"
-      accessor="//@figures.0/@descriptors.21/@accessors.1"/>
+      accessor="//@figures.0/@descriptors.22/@accessors.1"/>
   <compartments
       name="CompartmentReferencesListArea"
       figure="ReferencesListFigure"
       collapsible="true"
-      accessor="//@figures.0/@descriptors.22/@accessors.0"/>
+      accessor="//@figures.0/@descriptors.23/@accessors.0"/>
   <compartments
       name="CompartmentCompositeSubComponentBody"
       figure="CompositeSubComponentFigure"
       collapsible="true"
-      accessor="//@figures.0/@descriptors.10/@accessors.2"/>
+      accessor="//@figures.0/@descriptors.11/@accessors.2"/>
   <compartments
       name="CompartmentPrimitiveSubComponentBody"
       figure="PrimitiveSubComponentFigure"
       collapsible="true"
-      accessor="//@figures.0/@descriptors.20/@accessors.2"/>
+      accessor="//@figures.0/@descriptors.21/@accessors.2"/>
   <compartments
       name="CompartmentComponentTypeBody"
       figure="ComponentTypeDefinitionFigure"
-      accessor="//@figures.0/@descriptors.7/@accessors.2"/>
+      accessor="//@figures.0/@descriptors.8/@accessors.2"/>
   <compartments
       name="CompartmentImportsListArea"
       collapsible="true"/>
@@ -1013,38 +1035,38 @@
       name="CompartmentDataDefinitionBodyArea"
       figure="DataDefinitionFigure"
       collapsible="true"
-      accessor="//@figures.0/@descriptors.11/@accessors.0"/>
+      accessor="//@figures.0/@descriptors.12/@accessors.0"/>
   <compartments
       name="CompartmentImplementationBodyArea"
       figure="ImplementationFigure"
       collapsible="true"
-      accessor="//@figures.0/@descriptors.15/@accessors.0"/>
+      accessor="//@figures.0/@descriptors.16/@accessors.0"/>
   <compartments
       name="CompartmentCompositeAnonymousSubBody"
       figure="CompositeAnonymousSubComponentFigure"
       collapsible="true"
-      accessor="//@figures.0/@descriptors.8/@accessors.2"/>
+      accessor="//@figures.0/@descriptors.9/@accessors.2"/>
   <compartments
       name="CompartmentPrimitiveAnonymousSubBody"
       figure="PrimitiveAnonymousSubComponentFigure"
       collapsible="true"
-      accessor="//@figures.0/@descriptors.18/@accessors.2"/>
+      accessor="//@figures.0/@descriptors.19/@accessors.2"/>
   <compartments
       name="CompartmentAnnotationArea"
       figure="AnnotationFigure"
-      accessor="//@figures.0/@descriptors.1/@accessors.1"/>
+      accessor="//@figures.0/@descriptors.2/@accessors.1"/>
   <compartments
       name="CompartmentAnnotationsArea"
       figure="AnnotationsListFigure"
-      accessor="//@figures.0/@descriptors.2/@accessors.0"/>
+      accessor="//@figures.0/@descriptors.3/@accessors.0"/>
   <compartments
       name="CompartmentTemplateReferenceArea"
       figure="TemplateReferenceFigure"
-      accessor="//@figures.0/@descriptors.27/@accessors.1"/>
+      accessor="//@figures.0/@descriptors.28/@accessors.1"/>
   <compartments
       name="TemplateDefinitionArea"
       figure="TemplateDefinitionFigure"
-      accessor="//@figures.0/@descriptors.26/@accessors.1"/>
+      accessor="//@figures.0/@descriptors.27/@accessors.1"/>
   <compartments
       name="CompositeCompartment"
       figure="ComponentFigure"/>
@@ -1053,96 +1075,104 @@
       figure="AnnotationElementFigure"
       accessor="//@figures.0/@descriptors.0/@accessors.0"/>
   <labels
+      name="LabelAnnotationElementValue"
+      figure="AnnotationElementValueFigure"
+      accessor="//@figures.0/@descriptors.1/@accessors.0"/>
+  <labels
+      name="LabelAnnotationName"
+      figure="AnnotationFigure"
+      accessor="//@figures.0/@descriptors.2/@accessors.0"/>
+  <labels
       name="LabelArgumentDefinitionName"
       figure="ArgumentDefinitionFigure"
-      accessor="//@figures.0/@descriptors.3/@accessors.0"/>
+      accessor="//@figures.0/@descriptors.4/@accessors.0"/>
   <labels
       name="LabelAttributeDefinitionContent"
       figure="AttributeDefinitionFigure"
-      accessor="//@figures.0/@descriptors.4/@accessors.0"/>
+      accessor="//@figures.0/@descriptors.5/@accessors.0"/>
   <labels
       name="LabelComponentTypeDefinitionName"
       figure="ComponentTypeDefinitionFigure"
-      accessor="//@figures.0/@descriptors.7/@accessors.0"/>
+      accessor="//@figures.0/@descriptors.8/@accessors.0"/>
   <labels
       name="LabelCompositeAnonymousSubComponentName"
       figure="CompositeAnonymousSubComponentFigure"
-      accessor="//@figures.0/@descriptors.8/@accessors.0"/>
+      accessor="//@figures.0/@descriptors.9/@accessors.0"/>
   <labels
       name="LabelComponentName"
       figure="ComponentFigure"
-      accessor="//@figures.0/@descriptors.9/@accessors.0"/>
+      accessor="//@figures.0/@descriptors.10/@accessors.0"/>
   <labels
       name="LabelCompositeReferenceName"
       elementIcon="false"/>
   <labels
       name="LabelCompositeSubComponentName"
       figure="CompositeSubComponentFigure"
-      accessor="//@figures.0/@descriptors.10/@accessors.0"/>
+      accessor="//@figures.0/@descriptors.11/@accessors.0"/>
   <labels
       name="LabelDataDefinitionTitle"
       figure="DataDefinitionFigure"
-      accessor="//@figures.0/@descriptors.11/@accessors.1"/>
+      accessor="//@figures.0/@descriptors.12/@accessors.1"/>
   <labels
       name="LabelFormalArgumentName"
       figure="FormalArgumentFigure"
       affixedParentSide="SOUTH"
       elementIcon="false"
-      accessor="//@figures.0/@descriptors.13/@accessors.0"/>
+      accessor="//@figures.0/@descriptors.14/@accessors.0"/>
   <labels
       name="LabelFileC"
       figure="FileCFigure"
-      accessor="//@figures.0/@descriptors.12/@accessors.0"/>
+      accessor="//@figures.0/@descriptors.13/@accessors.0"/>
   <labels
       name="LabelImplementationTitle"
       figure="ImplementationFigure"
-      accessor="//@figures.0/@descriptors.15/@accessors.1"/>
+      accessor="//@figures.0/@descriptors.16/@accessors.1"/>
   <labels
       name="LabelInlineC"
       figure="InlineCFigure"
-      accessor="//@figures.0/@descriptors.16/@accessors.0"/>
+      accessor="//@figures.0/@descriptors.17/@accessors.0"/>
   <labels
       name="LabelInterfaceDefinitionName"
       figure="InterfaceDefinitionFigure"
       resizeConstraint="SOUTH_EAST"
       affixedParentSide="EAST"
       elementIcon="false"
-      accessor="//@figures.0/@descriptors.17/@accessors.0"/>
+      accessor="//@figures.0/@descriptors.18/@accessors.0"/>
   <labels
       name="LabelPrimitiveAnonymousSubComponentName"
       figure="PrimitiveAnonymousSubComponentFigure"
-      accessor="//@figures.0/@descriptors.18/@accessors.1"/>
+      accessor="//@figures.0/@descriptors.19/@accessors.1"/>
   <labels
       name="LabelPrimitiveComponentDefinitionName"
       figure="PrimitiveComponentDefinitionFigure"
-      accessor="//@figures.0/@descriptors.19/@accessors.0"/>
+      accessor="//@figures.0/@descriptors.20/@accessors.0"/>
   <labels
       name="LabelPrimitiveSubComponentName"
       figure="PrimitiveSubComponentFigure"
-      accessor="//@figures.0/@descriptors.20/@accessors.1"/>
+      accessor="//@figures.0/@descriptors.21/@accessors.1"/>
   <labels
       name="LabelReferenceName"
       figure="ReferenceFigure"
-      accessor="//@figures.0/@descriptors.21/@accessors.0"/>
+      accessor="//@figures.0/@descriptors.22/@accessors.0"/>
   <labels
       name="LabelReferencesListTitle"
       figure="ReferencesListFigure"
-      accessor="//@figures.0/@descriptors.22/@accessors.1"/>
+      accessor="//@figures.0/@descriptors.23/@accessors.1"/>
   <labels
       name="LabelTemplateDefinitionName"
       figure="TemplateDefinitionFigure"
-      accessor="//@figures.0/@descriptors.26/@accessors.0"/>
+      accessor="//@figures.0/@descriptors.27/@accessors.0"/>
   <labels
       name="LabelTemplateSpecifierName"
       figure="TemplateSpecifierFigure"
       elementIcon="false"
-      accessor="//@figures.0/@descriptors.23/@accessors.0"/>
+      accessor="//@figures.0/@descriptors.24/@accessors.0"/>
   <labels
       name="LabelTemplateSubComponentName"
       figure="SubComponentFigure"
-      accessor="//@figures.0/@descriptors.25/@accessors.1"/>
+      accessor="//@figures.0/@descriptors.26/@accessors.1"/>
   <labels
       name="LabelTemplateReferenceName"
       figure="TemplateReferenceFigure"
-      accessor="//@figures.0/@descriptors.27/@accessors.0"/>
+      accessor="//@figures.0/@descriptors.28/@accessors.0"/>
 </gmfgraph:Canvas>
