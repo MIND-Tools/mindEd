@@ -33,6 +33,7 @@ public class FractalIdtFormatter extends FractalItfFormatter {
 		formatInclude(f, c);
 		formatDefine(f, c);
 		formatTypeDefinition(f, c);
+		formatExpression(f, c);
 
 		// Formatting after 'ifndef' and 'endif'
 		c.setLinewrap().before(
@@ -51,11 +52,6 @@ public class FractalIdtFormatter extends FractalItfFormatter {
 
 		c.setLinewrap().before(
 				f.getConstantDefinitionAccess().getDefineKeyword_0());
-		c.setNoSpace().around(f.getAdditiveOperationRule());
-		c.setNoSpace().around(f.getMulOperationRule());
-		c.setNoSpace().around(f.getShiftOperationRule());
-		c.setNoSpace().around(f.getUnaryOperationRule());
-		
 	}
 
 }

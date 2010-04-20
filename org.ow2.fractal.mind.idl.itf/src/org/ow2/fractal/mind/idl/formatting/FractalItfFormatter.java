@@ -33,7 +33,8 @@ public class FractalItfFormatter extends AbstractDeclarativeFormatter {
 		formatMethod(f, c);
 		formatAnnotations(f, c);
 		formatComment(f, c);
-		
+		formatExpression(f, c);
+
 		c.setLinewrap().after(f.getANY_OTHERRule());
 
 	}
@@ -141,9 +142,23 @@ public class FractalItfFormatter extends AbstractDeclarativeFormatter {
 				f.getAnnotationValuePairAccess().getEqualsSignKeyword_1());
 	}
 
+	/**
+	 * Format Comments
+	 */
 	protected void formatComment(FractalItfGrammarAccess f, FormattingConfig c) {
 		c.setLinewrap().after(f.getML_COMMENTRule());
 		c.setLinewrap().after(f.getSL_COMMENTRule());
+	}
+
+	/**
+	 * Format Expression
+	 */
+	protected void formatExpression(FractalItfGrammarAccess f,
+			FormattingConfig c) {
+		c.setNoSpace().around(f.getAdditiveExpressionAccess().getOpAdditiveOperationTerminalRuleCall_1_0_0());
+		c.setNoSpace().around(f.getMulExpressionAccess().getOpMulOperationTerminalRuleCall_1_0_0());
+		c.setNoSpace().around(f.getShiftExpressionAccess().getOpShiftOperationTerminalRuleCall_1_0_0());
+		c.setNoSpace().around(f.getUnaryExpressionAccess().getPrimaryExprPrimaryExpressionParserRuleCall_1_0());
 	}
 
 }
