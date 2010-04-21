@@ -121,8 +121,6 @@ public class Activator extends AbstractUIPlugin {
 
 	public static void initGmfDiagram(URI diagramURI, URI modelURI,
 			IProgressMonitor monitor) {
-		
-		
 		try {
 			Bundle bundle = Platform.getBundle("org.ow2.fractal.mind.emf.diagram");
 			if (bundle == null) return;
