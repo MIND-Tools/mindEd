@@ -37,11 +37,6 @@ public class CompositeReferencesListCustomEditPart extends
 		genericEditPart.refresh();
 	}
 	
-	@Override
-	protected void refreshBounds() {
-		genericEditPart.refreshBounds();
-	}
-	
 
 	@Override
 	public void createDefaultEditPolicies() {
@@ -64,12 +59,6 @@ public class CompositeReferencesListCustomEditPart extends
 		genericEditPart.activate();
 	}
 	
-
-	@Override
-	protected boolean addFixedChild(EditPart childEditPart) {
-		if (genericEditPart.addFixedChild(childEditPart)) return true;
-		return super.addFixedChild(childEditPart);
-	}
 	
 	@Override
 	protected boolean removeFixedChild(EditPart childEditPart) {

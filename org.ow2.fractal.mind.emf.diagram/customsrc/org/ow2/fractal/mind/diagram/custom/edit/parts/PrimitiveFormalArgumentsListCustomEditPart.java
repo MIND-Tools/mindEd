@@ -21,8 +21,6 @@ public class PrimitiveFormalArgumentsListCustomEditPart extends
 		super(view);
 	}
 	
-	protected MindEditPart genericEditPart = MindGenericEditPartFactory.INSTANCE.createGenericEditPart (this, VISUAL_ID);
-	
 	@Override
 	protected IFigure setupContentPane(IFigure nodeShape) {
 		IFigure shape = genericEditPart.setupContentPane(nodeShape);
@@ -35,10 +33,6 @@ public class PrimitiveFormalArgumentsListCustomEditPart extends
 		genericEditPart.refresh();
 	}
 	
-	@Override
-	protected void refreshBounds() {
-		genericEditPart.refreshBounds();
-	}
 	
 
 	@Override
@@ -62,29 +56,5 @@ public class PrimitiveFormalArgumentsListCustomEditPart extends
 		genericEditPart.activate();
 	}
 	
-//	@Override
-//	protected boolean addFixedChild(EditPart childEditPart) {
-//		if (childEditPart instanceof FormalArgumentsListCompartmentFormalArgumentsList2EditPart) {
-//			IFigure pane = getPrimaryShape().getFigureFormalArgumentsArea();
-//			setupContentPane(pane); 
-//			pane.add(((FormalArgumentsListCompartmentFormalArgumentsListEditPart) childEditPart)
-//							.getFigure());
-//			return true;
-//		}
-//		return super.addFixedChild(childEditPart);
-//	}
-//	
-//	@Override
-//	protected IFigure getContentPaneFor(IGraphicalEditPart editPart) {
-//		if (editPart instanceof FormalArgumentsListCompartmentFormalArgumentsList2EditPart) {
-//			return getPrimaryShape().getFigureFormalArgumentsArea();
-//		}
-//		return super.getContentPane();
-//	}
-//	
-//	public EditPolicy getPrimaryDragEditPolicy() {
-//		// No drag and drop allowed
-//		return new NoDragDropEditPolicy();
-//	}
 
 }

@@ -2,11 +2,11 @@ package org.ow2.fractal.mind.diagram.custom.edit.parts;
 
 import org.eclipse.draw2d.LayoutManager;
 import org.eclipse.gef.DragTracker;
-import org.eclipse.gef.EditPart;
 import org.eclipse.gef.Request;
 import org.eclipse.gmf.runtime.notation.View;
 import org.ow2.fractal.mind.diagram.custom.edit.parts.generic.MindEditPart;
 import org.ow2.fractal.mind.diagram.custom.edit.parts.generic.MindGenericEditPartFactory;
+
 import adl.diagram.edit.parts.TemplateSpecifiersListCompartmentEditPart;
 
 public class TemplateSpecifiersListCompartmentCustomEditPart extends
@@ -53,19 +53,19 @@ public class TemplateSpecifiersListCompartmentCustomEditPart extends
 		genericEditPart.refresh();
 	}
 	
-	
-	
-	@Override
-	protected void addChild(EditPart childEditPart, int index) {
-		super.addChild(childEditPart, index);
-		getParent().refresh();
-	}
-	
-	@Override
-	protected void removeChild(EditPart childEditPart) {
-		super.removeChild(childEditPart);
-		getParent().refresh();
-	}
+//	
+//	
+//	@Override
+//	protected void addChild(EditPart childEditPart, int index) {
+//		super.addChild(childEditPart, index);
+//		getParent().refresh();
+//	}
+//	
+//	@Override
+//	protected void removeChild(EditPart childEditPart) {
+//		super.removeChild(childEditPart);
+//		getParent().refresh();
+//	}
 	
 
 }

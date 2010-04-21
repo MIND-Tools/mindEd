@@ -28,11 +28,6 @@ public class CompositeFormalArgumentsListCustomEditPart extends
 		genericEditPart.refresh();
 	}
 	
-	@Override
-	protected void refreshBounds() {
-		genericEditPart.refreshBounds();
-	}
-	
 
 	@Override
 	public void createDefaultEditPolicies() {

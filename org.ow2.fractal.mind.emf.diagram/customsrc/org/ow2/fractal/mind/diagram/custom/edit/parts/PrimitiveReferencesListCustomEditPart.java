@@ -17,8 +17,6 @@ public class PrimitiveReferencesListCustomEditPart extends
 		super(view);
 	}
 	
-	protected MindEditPart genericEditPart = MindGenericEditPartFactory.INSTANCE.createGenericEditPart (this, VISUAL_ID);
-	
 	@Override
 	protected IFigure setupContentPane(IFigure nodeShape) {
 		IFigure shape = genericEditPart.setupContentPane(nodeShape);
@@ -29,11 +27,6 @@ public class PrimitiveReferencesListCustomEditPart extends
 	public void refresh() {
 		super.refresh();
 		genericEditPart.refresh();
-	}
-	
-	@Override
-	protected void refreshBounds() {
-		genericEditPart.refreshBounds();
 	}
 	
 

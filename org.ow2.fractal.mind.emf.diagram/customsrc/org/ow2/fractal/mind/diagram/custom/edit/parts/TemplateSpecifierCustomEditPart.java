@@ -25,7 +25,6 @@ public class TemplateSpecifierCustomEditPart extends TemplateSpecifierEditPart {
 		super(view);
 	}
 	
-	protected MindEditPart genericEditPart = MindGenericEditPartFactory.INSTANCE.createGenericEditPart (this, VISUAL_ID);
 	
 	@Override
 	protected IFigure setupContentPane(IFigure nodeShape) {
@@ -34,10 +33,6 @@ public class TemplateSpecifierCustomEditPart extends TemplateSpecifierEditPart {
 		return super.setupContentPane(nodeShape);
 	}
 	
-	@Override
-	protected void refreshBounds() {
-		genericEditPart.refreshBounds();
-	}
 	
 	@Override
 	public void createDefaultEditPolicies() {
@@ -58,12 +53,6 @@ public class TemplateSpecifierCustomEditPart extends TemplateSpecifierEditPart {
 	public void activate() {
 		super.activate();
 		genericEditPart.activate();
-	}
-	
-	
-	protected boolean addFixedChild(EditPart childEditPart) {
-		if (genericEditPart.addFixedChild(childEditPart)) return true;
-		return super.addFixedChild(childEditPart);
 	}
 	
 

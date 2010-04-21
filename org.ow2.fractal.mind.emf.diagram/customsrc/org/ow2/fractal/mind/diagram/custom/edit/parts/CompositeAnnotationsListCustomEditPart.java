@@ -35,12 +35,6 @@ public class CompositeAnnotationsListCustomEditPart extends CompositeAnnotations
 		super.refresh();
 		genericEditPart.refresh();
 	}
-	
-	@Override
-	protected void refreshBounds() {
-		genericEditPart.refreshBounds();
-	}
-	
 
 	@Override
 	public void createDefaultEditPolicies() {
@@ -61,13 +55,6 @@ public class CompositeAnnotationsListCustomEditPart extends CompositeAnnotations
 	public void activate() {
 		super.activate();
 		genericEditPart.activate();
-	}
-	
-
-	@Override
-	protected boolean addFixedChild(EditPart childEditPart) {
-		if (genericEditPart.addFixedChild(childEditPart)) return true;
-		return super.addFixedChild(childEditPart);
 	}
 	
 	@Override

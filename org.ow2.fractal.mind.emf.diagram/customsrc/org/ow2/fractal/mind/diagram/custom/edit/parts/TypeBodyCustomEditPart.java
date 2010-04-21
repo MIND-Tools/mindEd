@@ -15,20 +15,12 @@ public class TypeBodyCustomEditPart extends TypeBodyEditPart {
 		super(view);
 	}
 	
-	protected MindEditPart genericEditPart = MindGenericEditPartFactory.INSTANCE.createGenericEditPart (this, VISUAL_ID);
-	
 	@Override
 	public void createDefaultEditPolicies() {
 		super.createDefaultEditPolicies();
 		genericEditPart.createDefaultEditPolicies();
 	}
 	
-	
-	@Override
-	protected boolean addFixedChild(EditPart childEditPart) {
-		if (genericEditPart.addFixedChild(childEditPart)) return true;
-		return super.addFixedChild(childEditPart);
-	}
 	
 	@Override
 	protected void addChildVisual(EditPart childEditPart, int index) {

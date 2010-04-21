@@ -19,13 +19,6 @@ public class AttributeDefinitionCustomEditPart extends
 	}
 	
 	
-	/**
-	 * Custom constraint for the custom layout
-	 */
-	public void refreshBounds() {
-		if (genericEditPart.refreshBounds() == false)
-			super.refreshBounds();
-	}
 
 	/**
 	 * Implements custom policies

@@ -27,11 +27,6 @@ public class FormalArgumentCustomEditPart extends FormalArgumentEditPart {
 		genericEditPart.createDefaultEditPolicies();
 	}
 	
-	public void refreshBounds() {
-		if (genericEditPart.refreshBounds() == false)
-			super.refreshBounds();
-	}
-	
 	public void refresh() {
 		super.refresh();
 		genericEditPart.refresh();

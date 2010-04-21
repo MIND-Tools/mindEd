@@ -16,6 +16,7 @@ import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.ConstrainedToolbarLayout;
 import org.eclipse.gmf.runtime.gef.ui.figures.DefaultSizeNodeFigure;
 import org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure;
+import org.eclipse.gmf.runtime.notation.NotationPackage;
 import org.ow2.fractal.mind.diagram.custom.edit.policies.CustomDragDropEditPolicy;
 import org.ow2.fractal.mind.diagram.custom.edit.policies.FixedChildrenLayoutEditPolicy;
 import org.ow2.fractal.mind.diagram.custom.edit.policies.MindSubCreationEditPolicy;
@@ -87,11 +88,15 @@ public class MindReferenceEditPart extends MindEditPart {
 		List<EditPart> children = realEditPart.getChildren();
 		int nbChildren = children.size();
 		
-		int height = 20 * nbChildren;
+		int height = IFractalSize.TITLE_HEIGHT + 20 * nbChildren;
 		
 		// Now set the constraint
 		Dimension size = new Dimension(width, height);
-		Point loc = new Point(0, 0);
+		
+		int x = ((Integer) realEditPart.getStructuralFeatureValue(NotationPackage.eINSTANCE.getLocation_X())).intValue();
+		int y = ((Integer) realEditPart.getStructuralFeatureValue(NotationPackage.eINSTANCE.getLocation_Y())).intValue();
+		Point loc = new Point(x, y);
+		
 		((GraphicalEditPart)realEditPart.getParent()).setLayoutConstraint(
 			realEditPart,
 			realEditPart.getFigure(),
@@ -99,8 +104,9 @@ public class MindReferenceEditPart extends MindEditPart {
 		
 		realEditPart.getParent().refresh();
 		
-
 		return true;
+
+//		return false;
 	}
 	
 	@Override

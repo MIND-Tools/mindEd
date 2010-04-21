@@ -26,7 +26,6 @@ public class PrimitiveComponentDefinitionCustomEditPart extends
 		super(view);
 	}
 	
-	protected MindEditPart genericEditPart = MindGenericEditPartFactory.INSTANCE.createGenericEditPart (this, VISUAL_ID);
 	
 	@Override
 	protected void createDefaultEditPolicies() {
@@ -49,12 +48,6 @@ public class PrimitiveComponentDefinitionCustomEditPart extends
 		if (tracker == null)
 			tracker = super.getDragTracker(request);
 		return tracker;
-	}
-	
-	@Override
-	protected boolean addFixedChild(EditPart childEditPart) {
-		if (genericEditPart.addFixedChild(childEditPart)) return true;
-		return super.addFixedChild(childEditPart);
 	}
 	
 	@Override

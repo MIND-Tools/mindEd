@@ -29,10 +29,6 @@ public class CompositeSubReferenceCustomEditPart extends
 		return super.setupContentPane(nodeShape);
 	}
 	
-	@Override
-	protected void refreshBounds() {
-		genericEditPart.refreshBounds();
-	}
 	
 	@Override
 	public void createDefaultEditPolicies() {
@@ -46,12 +42,6 @@ public class CompositeSubReferenceCustomEditPart extends
 		if (tracker == null)
 			tracker = super.getDragTracker(request);
 		return tracker;
-	}
-	
-	protected boolean addFixedChild(EditPart childEditPart) {
-		if (genericEditPart.addFixedChild(childEditPart))
-			return true;
-		return super.addFixedChild(childEditPart);
 	}
 	
 //	/**

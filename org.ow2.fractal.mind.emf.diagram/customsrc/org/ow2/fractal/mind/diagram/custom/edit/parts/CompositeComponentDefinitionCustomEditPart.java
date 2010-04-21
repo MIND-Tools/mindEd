@@ -40,11 +40,6 @@ public class CompositeComponentDefinitionCustomEditPart extends
 		return shape;
 	}
 	
-	@Override
-	protected boolean addFixedChild(EditPart childEditPart) {
-		if (genericEditPart.addFixedChild(childEditPart)) return true;
-		return super.addFixedChild(childEditPart);
-	}
 	
 	@Override
 	public DragTracker getDragTracker(Request request) {

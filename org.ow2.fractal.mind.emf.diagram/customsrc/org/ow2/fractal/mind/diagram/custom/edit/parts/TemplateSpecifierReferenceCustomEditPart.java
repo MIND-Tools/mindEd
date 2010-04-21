@@ -19,8 +19,6 @@ public class TemplateSpecifierReferenceCustomEditPart extends
 		super(view);
 	}
 	
-	protected MindEditPart genericEditPart = MindGenericEditPartFactory.INSTANCE.createGenericEditPart (this, VISUAL_ID);
-	
 	@Override
 	protected IFigure setupContentPane(IFigure nodeShape) {
 		IFigure shape = genericEditPart.setupContentPane(nodeShape);
@@ -28,10 +26,6 @@ public class TemplateSpecifierReferenceCustomEditPart extends
 		return super.setupContentPane(nodeShape);
 	}
 	
-	@Override
-	protected void refreshBounds() {
-		genericEditPart.refreshBounds();
-	}
 	
 	@Override
 	public void createDefaultEditPolicies() {
@@ -54,11 +48,6 @@ public class TemplateSpecifierReferenceCustomEditPart extends
 		genericEditPart.activate();
 	}
 	
-	
-	protected boolean addFixedChild(EditPart childEditPart) {
-		if (genericEditPart.addFixedChild(childEditPart)) return true;
-		return super.addFixedChild(childEditPart);
-	}
 	
 	public void refresh() {
 		super.refresh();

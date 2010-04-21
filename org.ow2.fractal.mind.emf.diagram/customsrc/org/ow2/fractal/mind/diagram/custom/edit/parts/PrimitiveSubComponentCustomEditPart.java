@@ -26,9 +26,6 @@ public class PrimitiveSubComponentCustomEditPart extends
 		super(view);
 	}
 	
-	protected MindEditPart genericEditPart = MindGenericEditPartFactory.INSTANCE.createGenericEditPart (this, VISUAL_ID);
-	
-	
 	@Override
 	protected void createDefaultEditPolicies() {
 		super.createDefaultEditPolicies();
@@ -42,12 +39,6 @@ public class PrimitiveSubComponentCustomEditPart extends
 		if (shape == null)
 			shape = super.setupContentPane(nodeShape);
 		return shape;
-	}
-	
-	@Override
-	protected boolean addFixedChild(EditPart childEditPart) {
-		if (genericEditPart.addFixedChild(childEditPart)) return true;
-		return super.addFixedChild(childEditPart);
 	}
 	
 	@Override

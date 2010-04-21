@@ -1,0 +1,29 @@
+
+«AROUND additions FOR gmfgen::GenNode-»
+	«EXPAND xpt::Common::generatedMemberComment»
+	@Override
+	protected void refreshBounds() {
+		if (!getGenericEditPart().refreshBounds())
+			super.refreshBounds();
+	}
+	
+	@Override
+	public void refresh() {
+		super.refresh();
+		getGenericEditPart().refresh();
+	}
+	
+	@Override
+	public void activate() {
+		super.activate();
+		getGenericEditPart().activate();
+	}
+	
+	@Override
+	public org.eclipse.gef.DragTracker getDragTracker(org.eclipse.gef.Request request) {
+		org.eclipse.gef.DragTracker tracker = getGenericEditPart().getDragTracker(request);
+		if (tracker == null)
+			tracker = super.getDragTracker(request);
+		return tracker;
+	}
+«ENDAROUND»

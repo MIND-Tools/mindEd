@@ -207,7 +207,6 @@ public class MindGenericEditPartFactory implements MindTypes {
 		case DataFileCEditPart.VISUAL_ID:
 		case DataInlineCodeCEditPart.VISUAL_ID:
 		case TemplateDefinitionEditPart.VISUAL_ID:
-		case TemplateSpecifierEditPart.VISUAL_ID:
 			return TYPE_REFERENCE;
 			
 			// -- Label
@@ -232,6 +231,7 @@ public class MindGenericEditPartFactory implements MindTypes {
 		case ArgumentDefinitionEditPart.VISUAL_ID:
 		case AttributeDefinitionEditPart.VISUAL_ID:
 		case FormalArgumentEditPart.VISUAL_ID:
+		case TemplateSpecifierEditPart.VISUAL_ID:
 			return TYPE_ITEM;
 			
 		}

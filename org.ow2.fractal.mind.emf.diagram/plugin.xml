@@ -333,7 +333,7 @@
       </metamodel>
       <metamodel nsURI="http://org.ow2.fractal/mind/mind.ecore/0.2.0">
          <metamodelType
-               id="org.ow2.fractal.mind.emf.diagram.TypeReferenceDefinition_3098"
+               id="org.ow2.fractal.mind.emf.diagram.TemplateSpecifierReference_3098"
                name="%metatype.name.TypeReferenceDefinition_3098"
                kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
                eclass="TypeReferenceDefinition"
@@ -668,7 +668,7 @@
                name="%metatype.name.TypeReferenceDefinition_3128"
                kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
                edithelperadvice="adl.diagram.edit.helpers.TypeReferenceEditHelper">
-            <specializes id="org.ow2.fractal.mind.emf.diagram.TypeReferenceDefinition_3098"/>
+            <specializes id="org.ow2.fractal.mind.emf.diagram.TemplateSpecifierReference_3098"/>
             <param name="semanticHint" value="3128"/>
          </specializationType>
       </metamodel>
@@ -719,7 +719,7 @@
          <elementType ref="org.ow2.fractal.mind.emf.diagram.ComponentTypeDefinition_2009"/>
          <elementType ref="org.ow2.fractal.mind.emf.diagram.TemplateSpecifiersList_3096"/>
          <elementType ref="org.ow2.fractal.mind.emf.diagram.TemplateSpecifier_3097"/>
-         <elementType ref="org.ow2.fractal.mind.emf.diagram.TypeReferenceDefinition_3098"/>
+         <elementType ref="org.ow2.fractal.mind.emf.diagram.TemplateSpecifierReference_3098"/>
          <elementType ref="org.ow2.fractal.mind.emf.diagram.FormalArgumentsList_3099"/>
          <elementType ref="org.ow2.fractal.mind.emf.diagram.FormalArgument_3100"/>
          <elementType ref="org.ow2.fractal.mind.emf.diagram.CompositeReferencesList_3101"/>

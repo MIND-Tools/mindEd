@@ -3,7 +3,19 @@
 «EXTENSION xpt::diagram::editparts::Utils»
 «EXTENSION xpt::diagram::Utils»
 
+
+
+
+«AROUND createDefaultEditPolicies FOR gmfgen::GenNode-»
+	«EXPAND xpt::Common::generatedMemberComment»
+	protected void createDefaultEditPolicies() {
+		«EXPAND impl::diagram::editparts::NodeEditPart::createDefaultEditPoliciesBody-»
+		getGenericEditPart().createDefaultEditPolicies();
+	}
+«ENDAROUND»
+
 «DEFINE getMindEditpart FOR gmfgen::InnerClassViewmap»
+
 	«EXPAND xpt::Common::generatedMemberComment»
 	protected org.ow2.fractal.mind.diagram.custom.edit.parts.generic.MindEditPart genericEditPart = org.ow2.fractal.mind.diagram.custom.edit.parts.generic.MindGenericEditPartFactory.INSTANCE.createGenericEditPart (this, VISUAL_ID);
 	
@@ -14,6 +26,7 @@
 «ENDDEFINE»
 
 «AROUND addFixedChild FOR gmfgen::GenNode-»
+	
 	«EXPAND xpt::Common::generatedMemberComment»
 	protected boolean addFixedChild(org.eclipse.gef.EditPart childEditPart) {
 		if (getGenericEditPart().addFixedChild(childEditPart)) return true;
@@ -65,4 +78,37 @@
 	«classBody»
 «ENDAROUND»
 
+«AROUND setupContentPane FOR gmfgen::GenNode-»
+	«EXPAND xpt::Common::generatedMemberComment(
+		'Default implementation treats passed figure as content pane.\n' + 
+		'Respects layout one may have set for generated figure.\n' + 
+		'@param nodeShape instance of generated figure class'
+	)»
+	protected org.eclipse.draw2d.IFigure setupContentPane(org.eclipse.draw2d.IFigure nodeShape) {
+		org.eclipse.draw2d.IFigure shape = getGenericEditPart().setupContentPane(nodeShape);
+		if (shape != null) return shape;
+		
+		«IF not childNodes->isEmpty() or (not compartments->isEmpty() or labels[not oclIsKindOf(gmfgen::GenExternalNodeLabel)]->notEmpty())-»
+			if (nodeShape.getLayoutManager() == null) {
+				«IF getLayoutType() = gmfgen::ViewmapLayoutType::XY_LAYOUT-»
+					nodeShape.setLayoutManager(new org.eclipse.draw2d.FreeformLayout() {
+
+						public Object getConstraint(org.eclipse.draw2d.IFigure figure) {
+							Object result = constraints.get(figure);
+							if (result == null) {
+								result = new org.eclipse.draw2d.geometry.Rectangle(0, 0, -1, -1);
+							}
+							return result;
+						}
+					});
+				«ELSE-»
+					org.eclipse.gmf.runtime.draw2d.ui.figures.ConstrainedToolbarLayout layout =new org.eclipse.gmf.runtime.draw2d.ui.figures.ConstrainedToolbarLayout();
+					layout.setSpacing(«IF getDiagram().isPixelMapMode()»5«ELSE»getMapMode().DPtoLP(5)«ENDIF»);
+					nodeShape.setLayoutManager(layout);
+				«ENDIF-»
+			}
+		«ENDIF-»
+		return nodeShape; // use nodeShape itself as contentPane
+	}
+«ENDAROUND»
 

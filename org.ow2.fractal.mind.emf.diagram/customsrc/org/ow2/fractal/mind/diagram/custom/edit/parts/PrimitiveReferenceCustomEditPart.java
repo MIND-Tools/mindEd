@@ -17,18 +17,11 @@ public class PrimitiveReferenceCustomEditPart extends
 		super(view);
 	}
 	
-	protected MindEditPart genericEditPart = MindGenericEditPartFactory.INSTANCE.createGenericEditPart (this, VISUAL_ID);
-	
 	@Override
 	protected IFigure setupContentPane(IFigure nodeShape) {
 		IFigure shape = genericEditPart.setupContentPane(nodeShape);
 		if (shape != null) return shape;
 		return super.setupContentPane(nodeShape);
-	}
-	
-	@Override
-	protected void refreshBounds() {
-		genericEditPart.refreshBounds();
 	}
 	
 	@Override
@@ -49,17 +42,9 @@ public class PrimitiveReferenceCustomEditPart extends
 	@Override
 	public void activate() {
 		super.activate();
-		if (ComponentHelper.isMerged(this)) 
-			// If the component is merged handle custom behaviour
-			ComponentHelper.handleMergedElement(this);
-		refreshBounds();
+		genericEditPart.activate();
 	}
 	
-	
-	protected boolean addFixedChild(EditPart childEditPart) {
-		if (genericEditPart.addFixedChild(childEditPart)) return true;
-		return false;
-	}
 	
 
 }

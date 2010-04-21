@@ -1,46 +1,66 @@
-/**
- * Not used yet - annotations disabled
- */
+package org.ow2.fractal.mind.diagram.custom.edit.parts;
 
-//package org.ow2.fractal.mind.diagram.custom.edit.parts;
-//
-//import org.eclipse.draw2d.IFigure;
-//import org.eclipse.gmf.runtime.draw2d.ui.figures.ConstrainedToolbarLayout;
-//import org.eclipse.gmf.runtime.gef.ui.figures.DefaultSizeNodeFigure;
-//import org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure;
-//import org.eclipse.gmf.runtime.notation.View;
-//
-//import adl.diagram.edit.parts.AnnotationEditPart;
-//
-///**
-// * Old code - needs to be updated, but will do for now
-// * Check other list-type EditParts
-// * @author maroto
-// *
-// */
-//public class AnnotationCustomEditPart extends AnnotationEditPart {
-//
-//	public AnnotationCustomEditPart(View view) {
-//		super(view);
-//	}
-//	
-//	@Override
-//	protected NodeFigure createNodePlate() {
-//		//Set default size
-//		DefaultSizeNodeFigure result = new DefaultSizeNodeFigure(100, 15);
-//		return result;
-//	}
-//	
-//	@Override
-//	protected IFigure setupContentPane(IFigure nodeShape) {
-//		if (nodeShape.getLayoutManager() == null) {
-//			//No spacing anymore
-//			ConstrainedToolbarLayout layout = new ConstrainedToolbarLayout();
-//			nodeShape.setLayoutManager(layout);
-//		}
-//		return nodeShape; // use nodeShape itself as contentPane
-//	}
-//
-//	
-//	
-//}
+import org.eclipse.draw2d.IFigure;
+import org.eclipse.gef.DragTracker;
+import org.eclipse.gef.EditPart;
+import org.eclipse.gef.Request;
+import org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure;
+import org.eclipse.gmf.runtime.notation.View;
+import org.ow2.fractal.mind.diagram.custom.edit.parts.generic.MindEditPart;
+import org.ow2.fractal.mind.diagram.custom.edit.parts.generic.MindGenericEditPartFactory;
+import adl.diagram.edit.parts.AnnotationEditPart;
+
+
+/**
+ * Extends TemplateSpecifierEditPart to implement custom behavior
+ * - disable spacing
+ * - set default size
+ * @author maroto
+ *
+ */
+public class AnnotationCustomEditPart extends AnnotationEditPart {
+
+	public AnnotationCustomEditPart(View view) {
+		super(view);
+	}
+	
+	@Override
+	protected IFigure setupContentPane(IFigure nodeShape) {
+		IFigure shape = genericEditPart.setupContentPane(nodeShape);
+		if (shape != null) return shape;
+		return super.setupContentPane(nodeShape);
+	}
+	
+	@Override
+	public void createDefaultEditPolicies() {
+		super.createDefaultEditPolicies();
+		genericEditPart.createDefaultEditPolicies();
+	}
+	
+	@Override
+	public DragTracker getDragTracker(Request request) {
+		DragTracker tracker = genericEditPart.getDragTracker(request);
+		if (tracker == null)
+			tracker = super.getDragTracker(request);
+		return tracker;
+	}
+	
+	@Override
+	public void activate() {
+		super.activate();
+		genericEditPart.activate();
+	}
+	
+	public void refresh() {
+		super.refresh();
+		genericEditPart.refresh();
+	}
+	
+	public NodeFigure createNodePlate() {
+		NodeFigure fig = genericEditPart.createNodePlate();
+		if (fig == null)
+			fig = super.createNodePlate();
+		return fig;
+	}
+	
+}

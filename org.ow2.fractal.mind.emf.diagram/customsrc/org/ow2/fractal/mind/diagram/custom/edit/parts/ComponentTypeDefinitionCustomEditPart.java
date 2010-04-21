@@ -43,13 +43,6 @@ public class ComponentTypeDefinitionCustomEditPart extends
 	
 	
 	@Override
-	protected boolean addFixedChild(EditPart childEditPart) {
-		if (genericEditPart.addFixedChild(childEditPart)) return true;
-		return super.addFixedChild(childEditPart);
-	}
-	
-	
-	@Override
 	public void activate() {
 		super.activate();
 		genericEditPart.activate();

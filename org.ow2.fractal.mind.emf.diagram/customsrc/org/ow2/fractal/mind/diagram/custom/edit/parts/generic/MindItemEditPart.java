@@ -93,27 +93,23 @@ public class MindItemEditPart extends MindEditPart {
 	}
 
 	public Boolean refreshBounds() {
-//		int width = ((Integer) realEditPart.getStructuralFeatureValue(NotationPackage.eINSTANCE.getSize_Width())).intValue();
-//		int height = ((Integer) realEditPart.getStructuralFeatureValue(NotationPackage.eINSTANCE.getSize_Height())).intValue();
+//		
+//		int width = -1;
+//		int height = IFractalSize.TITLE_HEIGHT;
 //		Dimension size = new Dimension(width, height);
 //		int x = ((Integer) realEditPart.getStructuralFeatureValue(NotationPackage.eINSTANCE.getLocation_X())).intValue();
 //		int y = ((Integer) realEditPart.getStructuralFeatureValue(NotationPackage.eINSTANCE.getLocation_Y())).intValue();
 //		Point loc = new Point(x, y);
+//		
+//		realEditPart.getFigure().setBounds(new Rectangle(loc,size));
+//		((GraphicalEditPart) realEditPart.getParent()).setLayoutConstraint(
+//				realEditPart,
+//				realEditPart.getFigure(),
+//				new Rectangle(loc,size)
+//				);
+//		return true;
 		
-		int width = 100;
-		int height = IFractalSize.TITLE_HEIGHT;
-		Dimension size = new Dimension(width, height);
-		int x = ((Integer) realEditPart.getStructuralFeatureValue(NotationPackage.eINSTANCE.getLocation_X())).intValue();
-		int y = ((Integer) realEditPart.getStructuralFeatureValue(NotationPackage.eINSTANCE.getLocation_Y())).intValue();
-		Point loc = new Point(x, y);
-		
-		realEditPart.getFigure().setBounds(new Rectangle(loc,size));
-		((GraphicalEditPart) realEditPart.getParent()).setLayoutConstraint(
-				realEditPart,
-				realEditPart.getFigure(),
-				new Rectangle(loc,size)
-				);
-		return true;
+		return false;
 	}
 	
 	public void setLayoutManager(IFigure figure) {}

@@ -16,6 +16,7 @@ import adl.diagram.edit.parts.TypeReferencesListEditPart;
  * @author maroto
  *
  */
+
 public class TypeReferencesListCustomEditPart extends
 		TypeReferencesListEditPart {
 
@@ -35,11 +36,6 @@ public class TypeReferencesListCustomEditPart extends
 	public void refresh() {
 		super.refresh();
 		genericEditPart.refresh();
-	}
-	
-	@Override
-	protected void refreshBounds() {
-		genericEditPart.refreshBounds();
 	}
 	
 

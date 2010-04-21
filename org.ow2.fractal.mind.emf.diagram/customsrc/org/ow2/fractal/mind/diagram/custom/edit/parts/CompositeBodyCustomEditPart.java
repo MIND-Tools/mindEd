@@ -35,13 +35,6 @@ public class CompositeBodyCustomEditPart extends CompositeBodyEditPart {
 		genericEditPart.createDefaultEditPolicies();
 	}
 	
-	
-	@Override
-	protected boolean addFixedChild(EditPart childEditPart) {
-		if (genericEditPart.addFixedChild(childEditPart)) return true;
-		return super.addFixedChild(childEditPart);
-	}
-	
 	protected boolean removeFixedChild(EditPart childEditPart) {
 		if (genericEditPart.removeFixedChild(childEditPart)) return true;
 		return super.removeFixedChild(childEditPart);

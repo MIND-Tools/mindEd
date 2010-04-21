@@ -23,18 +23,12 @@ public class FileCCustomEditPart extends
 		super(view);
 	}
 	
-	protected MindEditPart genericEditPart = MindGenericEditPartFactory.INSTANCE.createGenericEditPart (this, VISUAL_ID);
 	
 	@Override
 	protected IFigure setupContentPane(IFigure nodeShape) {
 		IFigure shape = genericEditPart.setupContentPane(nodeShape);
 		if (shape != null) return shape;
 		return super.setupContentPane(nodeShape);
-	}
-	
-	@Override
-	protected void refreshBounds() {
-		genericEditPart.refreshBounds();
 	}
 	
 	@Override
@@ -49,12 +43,6 @@ public class FileCCustomEditPart extends
 		if (tracker == null)
 			tracker = super.getDragTracker(request);
 		return tracker;
-	}
-	
-	protected boolean addFixedChild(EditPart childEditPart) {
-		if (genericEditPart.addFixedChild(childEditPart))
-			return true;
-		return super.addFixedChild(childEditPart);
 	}
 
 }
