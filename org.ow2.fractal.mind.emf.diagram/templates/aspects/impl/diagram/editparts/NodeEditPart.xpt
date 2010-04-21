@@ -5,6 +5,10 @@
 
 
 
+«REM» Default size set to 10 instead of 40 «ENDREM» 
+«AROUND setupNodePlate FOR gmfgen::GenNode»
+		result.setDefaultSize(0, 0);
+«ENDAROUND»
 
 «AROUND createDefaultEditPolicies FOR gmfgen::GenNode-»
 	«EXPAND xpt::Common::generatedMemberComment»
