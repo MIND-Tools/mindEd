@@ -264,8 +264,6 @@ public class FractalJavaValidator extends AbstractFractalJavaValidator {
 				.getInterfacesInProject();
 
 		String signature = interfaceDefinition.getSignature();
-		System.out.println("signature : " + signature + " "
-				+ !interfaceDefinition.getSignature().equals("signature"));
 
 		// Retrieve architecture definition from interface definition
 		ArchitectureDefinition architectureDefinition = FractalUtil
@@ -430,6 +428,7 @@ public class FractalJavaValidator extends AbstractFractalJavaValidator {
 	 */
 	public void existingTemplateSpecifierComponentType(
 			TemplateSpecifier templateSpecifier) {
+		
 		ArrayList<String> list = new ArrayList<String>();
 		String typeFQN = null;
 
