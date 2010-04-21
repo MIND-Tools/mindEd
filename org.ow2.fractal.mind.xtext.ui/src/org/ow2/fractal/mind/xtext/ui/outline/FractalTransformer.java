@@ -26,12 +26,10 @@ import adl.SubComponentPrimitiveBody;
  */
 public class FractalTransformer extends
 		AbstractDeclarativeSemanticModelTransformer {
-	
-	
+
 	// -----------------------//
-	// Customize Nodes label  //
+	// Customize Nodes label //
 	// -----------------------//
-	
 
 	/**
 	 * Customize outline label for Body object
@@ -84,7 +82,12 @@ public class FractalTransformer extends
 			ContentOutlineNode parentNode) {
 		ContentOutlineNode node = super.newOutlineNode(obj, parentNode);
 
-		node.setLabel("Implementation " + obj.getFileC().getFileName());
+		String data = "Implementation";
+
+		if (obj.getFileC() != null)
+			data = data + " " + obj.getFileC().getFileName();
+
+		node.setLabel(data);
 		return node;
 	}
 
@@ -100,10 +103,15 @@ public class FractalTransformer extends
 			ContentOutlineNode parentNode) {
 		ContentOutlineNode node = super.newOutlineNode(obj, parentNode);
 
-		node.setLabel("Data " + obj.getFileC().getFileName());
+		String data = "Data";
+
+		if (obj.getFileC() != null)
+			data = data + " " + obj.getFileC().getFileName();
+
+		node.setLabel(data);
 		return node;
 	}
-	
+
 	/**
 	 * Customize outline label for BindingDefinition object
 	 * 
@@ -115,12 +123,12 @@ public class FractalTransformer extends
 	public ContentOutlineNode createNode(BindingDefinition obj,
 			ContentOutlineNode parentNode) {
 		ContentOutlineNode node = super.newOutlineNode(obj, parentNode);
-		
-		node.setLabel(obj.getInterfaceSourceName() + " <-> " + obj.getInterfaceTargetName());
+
+		node.setLabel(obj.getInterfaceSourceName() + " <-> "
+				+ obj.getInterfaceTargetName());
 		return node;
 	}
-	
-	
+
 	/**
 	 * Customize outline label for AdlDefinition object
 	 * 
@@ -135,10 +143,9 @@ public class FractalTransformer extends
 		node.setLabel("Fractal Adl Definition");
 		return node;
 	}
-	
-	
+
 	// --------------------------//
-	// Customize Children nodes  //
+	// Customize Children nodes //
 	// --------------------------//
 
 	public List<EObject> getChildren(DataDefinition obj) {
@@ -148,7 +155,7 @@ public class FractalTransformer extends
 	public List<EObject> getChildren(ImplementationDefinition obj) {
 		return NO_CHILDREN;
 	}
-	
+
 	/**
 	 * Remove Body elements in outline view
 	 * 
@@ -180,5 +187,5 @@ public class FractalTransformer extends
 		return list;
 
 	}
-	
+
 }
