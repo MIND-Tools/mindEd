@@ -139,6 +139,18 @@ public class FractalProposalProvider extends AbstractFractalProposalProvider {
 
 				acceptor.accept(completionProposal);
 			}
+			
+			
+			// Interface proposals
+			
+			List<String> itfList = ModelToProjectUtil.INSTANCE.getInterfacesInProject();
+			for (String itf : itfList) {
+				completionProposal = createCompletionProposal(itf + ";",
+						itf + " - interface", null, context);
+
+				acceptor.accept(completionProposal);
+			}
+			
 		}
 	}
 
