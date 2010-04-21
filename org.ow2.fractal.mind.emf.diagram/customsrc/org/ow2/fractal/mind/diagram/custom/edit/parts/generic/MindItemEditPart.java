@@ -88,7 +88,7 @@ public class MindItemEditPart extends MindEditPart {
 	}
 	
 	public NodeFigure createNodePlate() {
-		DefaultSizeNodeFigure result = new DefaultSizeNodeFigure(100,15);
+		DefaultSizeNodeFigure result = new DefaultSizeNodeFigure(15,15);
 		return result;
 	}
 

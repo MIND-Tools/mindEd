@@ -1,18 +1,10 @@
 package org.ow2.fractal.mind.emf.diagram.custom.tools;
 
-import java.util.Collections;
-import java.util.List;
-
-import org.eclipse.gef.Tool;
-import org.eclipse.gef.palette.ToolEntry;
-import org.eclipse.gmf.runtime.emf.type.core.IElementType;
-
-import adl.diagram.part.Messages;
 import adl.diagram.part.MindPaletteFactory;
-import adl.diagram.providers.MindElementTypes;
 
 /**
  * @deprecated
+ * Use plugin.xml to add or override a tool
  * @author maroto
  *
  */

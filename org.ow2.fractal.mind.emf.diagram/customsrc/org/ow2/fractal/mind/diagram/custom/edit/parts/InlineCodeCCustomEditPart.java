@@ -19,7 +19,5 @@ public class InlineCodeCCustomEditPart extends InlineCodeCEditPart {
 		super(view);
 	}
 	
-	protected MindEditPart genericEditPart = MindGenericEditPartFactory.INSTANCE.createGenericEditPart (this, VISUAL_ID);
-	
 	
 }

@@ -3,12 +3,8 @@ package org.ow2.fractal.mind.diagram.custom.edit.parts;
 import org.eclipse.draw2d.StackLayout;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EAttribute;
-import org.eclipse.gef.DragTracker;
-import org.eclipse.gef.Request;
 import org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure;
 import org.eclipse.gmf.runtime.notation.View;
-import org.ow2.fractal.mind.diagram.custom.edit.parts.generic.MindEditPart;
-import org.ow2.fractal.mind.diagram.custom.edit.parts.generic.MindGenericEditPartFactory;
 import org.ow2.fractal.mind.diagram.custom.figures.InterfaceDefinitionShape;
 import adl.InterfaceDefinition;
 import adl.Role;
@@ -35,23 +31,6 @@ public class InterfaceDefinitionCustomEditPart extends
 		super(view);
 	}
 	
-	
-	@Override
-	public DragTracker getDragTracker(Request request) {
-		return genericEditPart.getDragTracker(request);
-	}
-	
-	@Override
-	public void activate() {
-		super.activate();
-		genericEditPart.activate();
-	}
-	
-	protected void createDefaultEditPolicies() {
-		super.createDefaultEditPolicies();
-		genericEditPart.createDefaultEditPolicies();	
-	}
-
 	private InterfaceDefinitionShape interfaceDefinitionShape; 
 	
 	/**

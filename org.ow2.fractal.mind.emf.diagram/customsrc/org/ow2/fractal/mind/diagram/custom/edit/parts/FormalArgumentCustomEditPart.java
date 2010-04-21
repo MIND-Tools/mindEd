@@ -1,11 +1,7 @@
 package org.ow2.fractal.mind.diagram.custom.edit.parts;
 
-import org.eclipse.draw2d.IFigure;
 import org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure;
 import org.eclipse.gmf.runtime.notation.View;
-import org.ow2.fractal.mind.diagram.custom.edit.parts.generic.MindEditPart;
-import org.ow2.fractal.mind.diagram.custom.edit.parts.generic.MindGenericEditPartFactory;
-
 import adl.diagram.edit.parts.FormalArgumentEditPart;
 
 /**
@@ -19,19 +15,6 @@ public class FormalArgumentCustomEditPart extends FormalArgumentEditPart {
 		super(view);
 	}
 	
-	protected MindEditPart genericEditPart = MindGenericEditPartFactory.INSTANCE.createGenericEditPart (this, VISUAL_ID);
-	
-	@Override
-	protected void createDefaultEditPolicies() {
-		super.createDefaultEditPolicies();
-		genericEditPart.createDefaultEditPolicies();
-	}
-	
-	public void refresh() {
-		super.refresh();
-		genericEditPart.refresh();
-	}
-	
 	
 	@Override
 	protected NodeFigure createNodePlate() {
@@ -41,13 +24,6 @@ public class FormalArgumentCustomEditPart extends FormalArgumentEditPart {
 		return result;
 	}
 	
-	@Override
-	protected IFigure setupContentPane(IFigure nodeShape) {
-		IFigure result = genericEditPart.setupContentPane(nodeShape);
-		if (result == null)
-			result = super.setupContentPane(nodeShape);
-		return result;
-	}
 	
 	
 

@@ -28,36 +28,6 @@ public class CompositeSubComponentCustomEditPart extends
 		super(view);
 	}
 	
-	@Override
-	protected void createDefaultEditPolicies() {
-		super.createDefaultEditPolicies();
-		genericEditPart.createDefaultEditPolicies();
-	}
-	
-		
-	@Override
-	protected IFigure setupContentPane(IFigure nodeShape) {
-		IFigure shape = genericEditPart.setupContentPane(nodeShape);
-		if (shape == null)
-			shape = super.setupContentPane(nodeShape);
-		return shape;
-	}
-	
-	
-	@Override
-	public DragTracker getDragTracker(Request request) {
-		DragTracker tracker = genericEditPart.getDragTracker(request);
-		if (tracker == null)
-			tracker = super.getDragTracker(request);
-		return tracker;
-	}
-	
-	@Override
-	public void activate() {
-		super.activate();
-		genericEditPart.activate();
-	}
-
 
 	@Override
 	protected void addChild(EditPart child, int index) {

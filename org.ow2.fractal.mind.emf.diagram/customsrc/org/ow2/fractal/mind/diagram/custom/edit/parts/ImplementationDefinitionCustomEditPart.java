@@ -19,18 +19,5 @@ public class ImplementationDefinitionCustomEditPart extends
 		super(view);
 	}
 	
-	protected MindEditPart genericEditPart = MindGenericEditPartFactory.INSTANCE.createGenericEditPart (this, VISUAL_ID);
-	
-	@Override
-	protected void createDefaultEditPolicies() {
-		super.createDefaultEditPolicies();
-		genericEditPart.createDefaultEditPolicies();
-	}
-	
-	@Override
-	public void activate() {
-		super.activate();
-		genericEditPart.activate();
-	}
 
 }

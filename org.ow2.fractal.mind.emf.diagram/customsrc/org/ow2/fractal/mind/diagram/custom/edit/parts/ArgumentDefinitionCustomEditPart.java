@@ -1,8 +1,8 @@
 package org.ow2.fractal.mind.diagram.custom.edit.parts;
 
-import org.eclipse.draw2d.IFigure;
 import org.eclipse.gef.editpolicies.LayoutEditPolicy;
 import org.eclipse.gmf.runtime.notation.View;
+
 import adl.diagram.edit.parts.ArgumentDefinitionEditPart;
 
 /**
@@ -18,32 +18,7 @@ public class ArgumentDefinitionCustomEditPart extends
 		super(view);
 	}
 	
-//	/**
-//	 * Height of 15 means one line. Generated size was 40,40
-//	 */
-//	@Override
-//	protected NodeFigure createNodePlate() {
-//		//set default size
-//		DefaultSizeNodeFigure result = new DefaultSizeNodeFigure(100, 15);
-//		return result;
-//	}
 	
-	
-
-	/**
-	 * Implements custom policies
-	 */
-	@Override
-	protected void createDefaultEditPolicies() {
-		super.createDefaultEditPolicies();
-		genericEditPart.createDefaultEditPolicies();
-	}
-	
-	@Override
-	protected IFigure setupContentPane(IFigure nodeShape) {
-		return genericEditPart.setupContentPane(nodeShape);
-	}
-
 	@Override
 	protected LayoutEditPolicy createLayoutEditPolicy() {
 		LayoutEditPolicy glep = genericEditPart.createLayoutEditPolicy();
@@ -52,10 +27,5 @@ public class ArgumentDefinitionCustomEditPart extends
 		return glep;
 	}
 	
-	@Override
-	public void activate() {
-		super.activate();
-		genericEditPart.activate();
-	}
 
 }

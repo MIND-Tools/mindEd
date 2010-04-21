@@ -17,17 +17,5 @@ public class DataDefinitionCustomEditPart extends DataDefinitionEditPart {
 	public DataDefinitionCustomEditPart(View view) {
 		super(view);
 	}
-	
-	@Override
-	protected void createDefaultEditPolicies() {
-		super.createDefaultEditPolicies();
-		genericEditPart.createDefaultEditPolicies();
-	}
-	
-	@Override
-	public void activate() {
-		super.activate();
-		genericEditPart.activate();
-	}
 
 }

@@ -7,6 +7,7 @@ import org.eclipse.draw2d.geometry.Rectangle;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
 import org.eclipse.emf.transaction.impl.TransactionImpl;
 import org.eclipse.gef.EditPart;
+import org.eclipse.gef.Request;
 import org.eclipse.gef.requests.TargetRequest;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.GraphicalEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.tools.UnspecifiedTypeConnectionTool;
@@ -20,7 +21,13 @@ import adl.custom.util.CreationUtil;
 import adl.diagram.edit.parts.InterfaceDefinitionEditPart;
 import adl.diagram.part.MindDiagramEditorPlugin;
 
+@SuppressWarnings("rawtypes")
 public class BindingCreationTool extends UnspecifiedTypeConnectionTool {
+
+	@Override
+	protected Request createTargetRequest() {
+		return super.createTargetRequest();
+	}
 
 	protected List bindingConnectionTypes;
 	protected EditPart customTargetEditPart;

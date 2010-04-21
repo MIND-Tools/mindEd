@@ -73,7 +73,6 @@ public class MindReferenceEditPart extends MindEditPart {
 	public IFigure setupContentPane(IFigure nodeShape) {
 		if (nodeShape.getLayoutManager() == null) {
 			ConstrainedToolbarLayout layout = new ConstrainedToolbarLayout();
-			layout.setSpacing(2);
 			nodeShape.setLayoutManager(layout);
 		}
 		return nodeShape; // use nodeShape itself as contentPane
@@ -83,30 +82,30 @@ public class MindReferenceEditPart extends MindEditPart {
 	@Override
 	public Boolean refreshBounds() {
 		// The height depends on the children inside the area of this ReferencesList
-		int width = -1;
-		
-		List<EditPart> children = realEditPart.getChildren();
-		int nbChildren = children.size();
-		
-		int height = IFractalSize.TITLE_HEIGHT + 20 * nbChildren;
-		
-		// Now set the constraint
-		Dimension size = new Dimension(width, height);
-		
-		int x = ((Integer) realEditPart.getStructuralFeatureValue(NotationPackage.eINSTANCE.getLocation_X())).intValue();
-		int y = ((Integer) realEditPart.getStructuralFeatureValue(NotationPackage.eINSTANCE.getLocation_Y())).intValue();
-		Point loc = new Point(x, y);
-		
-		((GraphicalEditPart)realEditPart.getParent()).setLayoutConstraint(
-			realEditPart,
-			realEditPart.getFigure(),
-			new Rectangle(loc, size));
-		
-		realEditPart.getParent().refresh();
-		
-		return true;
+//		int width = -1;
+//		
+//		List<EditPart> children = realEditPart.getChildren();
+//		int nbChildren = children.size();
+//		
+//		int height = IFractalSize.TITLE_HEIGHT + 20 * nbChildren;
+//		
+//		// Now set the constraint
+//		Dimension size = new Dimension(width, height);
+//		
+//		int x = ((Integer) realEditPart.getStructuralFeatureValue(NotationPackage.eINSTANCE.getLocation_X())).intValue();
+//		int y = ((Integer) realEditPart.getStructuralFeatureValue(NotationPackage.eINSTANCE.getLocation_Y())).intValue();
+//		Point loc = new Point(x, y);
+//		
+//		((GraphicalEditPart)realEditPart.getParent()).setLayoutConstraint(
+//			realEditPart,
+//			realEditPart.getFigure(),
+//			new Rectangle(loc, size));
+//		
+//		realEditPart.getParent().refresh();
+//		
+//		return true;
 
-//		return false;
+		return false;
 	}
 	
 	@Override
