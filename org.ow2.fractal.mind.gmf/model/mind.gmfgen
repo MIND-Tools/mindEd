@@ -318,6 +318,7 @@
           href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <elementType
           xsi:type="gmfgen:MetamodelType"
+          uniqueIdentifier="org.ow2.fractal.mind.emf.diagram.TemplateSpecifierReference_3098"
           displayName="TemplateSpecifierReference"
           editHelperClassName="TemplateSpecifierReferenceEditHelper"/>
       <viewmap
@@ -2231,6 +2232,7 @@
         canonicalEditPolicyClassName="TemplateSpecifiersListCompartmentCanonicalEditPolicy"
         childNodes="//@diagram/@childNodes.1"
         title="CompartmentTemplateSpecifierList"
+        canCollapse="false"
         needsTitle="false"
         node="//@diagram/@childNodes.0"
         listLayout="false">
