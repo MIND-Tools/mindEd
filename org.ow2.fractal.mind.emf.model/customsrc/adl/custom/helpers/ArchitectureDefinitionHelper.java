@@ -176,8 +176,10 @@ public class ArchitectureDefinitionHelper extends HelperAdapter<ArchitectureDefi
 		switch(getObject().getBody().eClass().getClassifierID())
 		{
 		case AdlPackage.COMPOSITE_BODY:
+		case AdlPackage.SUB_COMPONENT_COMPOSITE_BODY:
 			return ComponentKind.COMPOSITE;
 		case AdlPackage.PRIMITIVE_BODY:
+		case AdlPackage.SUB_COMPONENT_PRIMITIVE_BODY:
 			return ComponentKind.PRIMITIVE;
 		case AdlPackage.TYPE_BODY:
 			return ComponentKind.TYPE;
