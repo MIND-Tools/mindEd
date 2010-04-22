@@ -683,26 +683,6 @@
               name="backgroundColor"
               value="BACKGROUND_COLOR"/>
         </children>
-        <children
-            xsi:type="gmfgraph:CustomFigure"
-            name="ReferencesListFigure"
-            qualifiedClassName="org.ow2.fractal.mind.diagram.custom.figures.ReferencesListCustomFigure">
-          <children
-              xsi:type="gmfgraph:CustomFigure"
-              name="LabelTitleReferencesList"
-              qualifiedClassName="org.ow2.fractal.mind.diagram.custom.figures.LabelTitleReferencesListCustomFigure"/>
-          <children
-              xsi:type="gmfgraph:CustomFigure"
-              name="ReferencesArea"
-              qualifiedClassName="org.ow2.fractal.mind.diagram.custom.figures.ContainerShape">
-            <attributes
-                name="backgroundColor"
-                value="BACKGROUND_COLOR"/>
-          </children>
-          <attributes
-              name="maximumSize"
-              value="MAXIMUM_SIZE"/>
-        </children>
         <attributes
             name="maximumSize"
             value="MAXIMUM_SIZE"/>

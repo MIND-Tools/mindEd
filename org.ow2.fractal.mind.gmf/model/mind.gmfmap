@@ -27,6 +27,8 @@
               <value
                   body="false"/>
             </initializers>
+            <elementClass
+                href="../../org.ow2.fractal.mind.emf/model/mind.ecore#//CompositeBody"/>
           </newElementInitializers>
         </initializers>
       </domainInitializer>
@@ -919,6 +921,27 @@
     <ownedChild>
       <domainMetaElement
           href="../../org.ow2.fractal.mind.emf/model/mind.ecore#//PrimitiveComponentDefinition"/>
+      <domainInitializer
+          xsi:type="gmfmap:FeatureSeqInitializer">
+        <initializers
+            xsi:type="gmfmap:ReferenceNewElementSpec">
+          <feature
+              xsi:type="ecore:EReference"
+              href="../../org.ow2.fractal.mind.emf/model/mind.ecore#//ArchitectureDefinition/body"/>
+          <newElementInitializers>
+            <initializers
+                xsi:type="gmfmap:FeatureValueSpec">
+              <feature
+                  xsi:type="ecore:EAttribute"
+                  href="../../org.ow2.fractal.mind.emf/model/mind.ecore#//MergedObject/merged"/>
+              <value
+                  body="false"/>
+            </initializers>
+            <elementClass
+                href="../../org.ow2.fractal.mind.emf/model/mind.ecore#//PrimitiveBody"/>
+          </newElementInitializers>
+        </initializers>
+      </domainInitializer>
       <labelMappings
           xsi:type="gmfmap:FeatureLabelMapping">
         <diagramLabel
@@ -1051,6 +1074,27 @@
     <ownedChild>
       <domainMetaElement
           href="../../org.ow2.fractal.mind.emf/model/mind.ecore#//ComponentTypeDefinition"/>
+      <domainInitializer
+          xsi:type="gmfmap:FeatureSeqInitializer">
+        <initializers
+            xsi:type="gmfmap:ReferenceNewElementSpec">
+          <feature
+              xsi:type="ecore:EReference"
+              href="../../org.ow2.fractal.mind.emf/model/mind.ecore#//ArchitectureDefinition/body"/>
+          <newElementInitializers>
+            <initializers
+                xsi:type="gmfmap:FeatureValueSpec">
+              <feature
+                  xsi:type="ecore:EAttribute"
+                  href="../../org.ow2.fractal.mind.emf/model/mind.ecore#//MergedObject/merged"/>
+              <value
+                  body="false"/>
+            </initializers>
+            <elementClass
+                href="../../org.ow2.fractal.mind.emf/model/mind.ecore#//TypeBody"/>
+          </newElementInitializers>
+        </initializers>
+      </domainInitializer>
       <labelMappings
           xsi:type="gmfmap:FeatureLabelMapping">
         <diagramLabel
