@@ -31,6 +31,11 @@ public class InterfaceDefinitionCustomEditPart extends
 		super(view);
 	}
 	
+	protected void createDefaultEditPolicies() {
+		super.createDefaultEditPolicies();
+		getGenericEditPart().createDefaultEditPolicies();
+	}
+	
 	private InterfaceDefinitionShape interfaceDefinitionShape; 
 	
 	/**

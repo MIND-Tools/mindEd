@@ -70,7 +70,7 @@ public class MindListEditPart extends MindEditPart {
 	}
 	
 	@Override
-	public Boolean refreshBounds() {
+	public boolean refreshBounds() {
 		// The height depends on the children inside the area of this ReferencesList
 //		int width = ((Integer) realEditPart.getStructuralFeatureValue(NotationPackage.eINSTANCE.getSize_Width())).intValue();
 		int width = -1;

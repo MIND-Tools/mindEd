@@ -27,6 +27,11 @@ import adl.diagram.part.MindPaletteFactory;
 public class CustomMindDiagramEditor extends MindDiagramEditor {
 
 	@Override
+	protected PaletteRoot createPaletteRoot(PaletteRoot existingPaletteRoot) {
+		return super.createPaletteRoot(existingPaletteRoot);
+	}
+
+	@Override
 	protected void configureGraphicalViewer() {
 		super.configureGraphicalViewer();
 		// Get a custom connection layer to install a custom connection router

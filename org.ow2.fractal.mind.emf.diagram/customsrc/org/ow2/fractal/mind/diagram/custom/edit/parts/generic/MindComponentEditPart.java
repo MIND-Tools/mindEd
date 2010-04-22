@@ -4,6 +4,8 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.geometry.Dimension;
+import org.eclipse.draw2d.geometry.Point;
+import org.eclipse.draw2d.geometry.Rectangle;
 import org.eclipse.gef.DragTracker;
 import org.eclipse.gef.EditPart;
 import org.eclipse.gef.EditPolicy;
@@ -12,6 +14,7 @@ import org.eclipse.gmf.runtime.diagram.ui.editparts.AbstractBorderedShapeEditPar
 import org.eclipse.gmf.runtime.diagram.ui.editparts.GraphicalEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.ConstrainedToolbarLayout;
+import org.eclipse.gmf.runtime.notation.NotationPackage;
 import org.eclipse.swt.graphics.Color;
 import org.ow2.fractal.mind.diagram.custom.edit.policies.*;
 import org.ow2.fractal.mind.diagram.custom.figures.AbstractComponentShape;
@@ -80,15 +83,6 @@ public class MindComponentEditPart extends MindEditPart {
 	
 	@Override
 	public boolean addFixedChild(EditPart childEditPart) {
-//		if (getMindEditPartFor(childEditPart) instanceof MindCompartmentEditPart) {
-//			IFigure compartment = getCompartmentFigure();
-//			if (compartment == null) return false;
-//			// Set the layout
-//			setupCompartment(compartment);
-//			compartment.add(((GraphicalEditPart) childEditPart)
-//							.getFigure());
-//			return true;
-//		}
 		return false;
 	}
 	
@@ -196,7 +190,5 @@ public class MindComponentEditPart extends MindEditPart {
 		super.activate();
 		realEditPart.refresh();
 	}
-	
-	
 	
 }

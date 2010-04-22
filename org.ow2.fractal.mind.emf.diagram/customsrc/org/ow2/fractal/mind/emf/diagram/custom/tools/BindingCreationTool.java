@@ -4,19 +4,25 @@ import java.util.List;
 
 import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.geometry.Rectangle;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
 import org.eclipse.emf.transaction.impl.TransactionImpl;
 import org.eclipse.gef.EditPart;
 import org.eclipse.gef.Request;
+import org.eclipse.gef.requests.CreateConnectionRequest;
 import org.eclipse.gef.requests.TargetRequest;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.GraphicalEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.tools.UnspecifiedTypeConnectionTool;
 import org.eclipse.gmf.runtime.notation.View;
+import org.ow2.fractal.mind.diagram.custom.edit.commands.BindingDefinitionCustomCreateCommand;
 import org.ow2.fractal.mind.diagram.custom.edit.parts.generic.MindBodyEditPart;
 import org.ow2.fractal.mind.diagram.custom.edit.parts.generic.MindBodyCompartmentEditPart;
 import org.ow2.fractal.mind.diagram.custom.edit.parts.generic.MindGenericEditPartFactory;
+
+import adl.ArchitectureDefinition;
 import adl.Body;
 import adl.InterfaceDefinition;
+import adl.Role;
 import adl.custom.util.CreationUtil;
 import adl.diagram.edit.parts.InterfaceDefinitionEditPart;
 import adl.diagram.part.MindDiagramEditorPlugin;
@@ -24,10 +30,23 @@ import adl.diagram.part.MindDiagramEditorPlugin;
 @SuppressWarnings("rawtypes")
 public class BindingCreationTool extends UnspecifiedTypeConnectionTool {
 
-	@Override
-	protected Request createTargetRequest() {
-		return super.createTargetRequest();
-	}
+//	
+//	@Override
+//	protected boolean handleCreateConnection() {
+//		// TODO Auto-generated method stub
+//		return super.handleCreateConnection();
+//	}
+
+
+	protected void updateTargetRequest()
+    {
+		CreateConnectionRequest request = (CreateConnectionRequest)getTargetRequest();
+		request.setType(getCommandName());
+		request.setLocation(getLocation());
+		handleGeneratedItfsRoles(request);
+    }
+
+	
 
 	protected List bindingConnectionTypes;
 	protected EditPart customTargetEditPart;
@@ -56,24 +75,124 @@ public class BindingCreationTool extends UnspecifiedTypeConnectionTool {
 		    if (this.customTargetEditPart != null)
 		    	 handleExitingEditPart();
 		    
-		    editpart = handleGenerateItfs(editpart);
+		    editpart = generateItfs(editpart);
 		    
 		    this.customTargetEditPart = editpart;
 		    
-		    if (getTargetRequest() instanceof TargetRequest)
+		    if (getTargetRequest() instanceof TargetRequest) {
 		    	 ((TargetRequest)getTargetRequest()).setTargetEditPart(this.customTargetEditPart);
+		    }
 		    handleEnteredEditPart();
 	    }
 	}
 	
-	protected EditPart handleGenerateItfs(EditPart editpart) {
+	/**
+	 * Tries to set roles of generated interfaces in order to have a valid request
+	 * @param request
+	 */
+	protected void handleGeneratedItfsRoles(CreateConnectionRequest request) {
+
+		EditPart sourceEditPart = request.getSourceEditPart();
+		EditPart targetEditPart = request.getTargetEditPart();
+		// If souce or target is not set, we don't know which role to assign
+		// Do nothing
+		if (targetEditPart == null || sourceEditPart == null) 
+			return;
+		if (!(sourceEditPart instanceof InterfaceDefinitionEditPart) || !(targetEditPart instanceof InterfaceDefinitionEditPart))
+			return;
+		
+		InterfaceDefinition source = null;
+		InterfaceDefinition target = null;
+		
+		ArchitectureDefinition sourceParent;
+		ArchitectureDefinition targetParent;
+		
+		boolean sourceIsGenerated = false;
+		boolean targetIsGenerated = false;
+		
+		if (generatedSource != null && generatedTarget != null){
+			// Two generated interfaces
+			source = generatedSource;
+			target = generatedTarget;
+			sourceIsGenerated = true;
+			targetIsGenerated = true;
+		}
+		else if (generatedSource != null && generatedTarget == null) {
+			// Only source is generated, target is existing itf
+			source = generatedSource;
+			sourceIsGenerated = true;
+			target = (InterfaceDefinition)((View)(targetEditPart.getModel())).getElement();
+		}
+		else if (generatedSource == null && generatedTarget != null) {
+			// Only target is generated, source is existing itf
+			source = (InterfaceDefinition)((View)(sourceEditPart.getModel())).getElement();
+			target = generatedTarget;
+			targetIsGenerated = true;
+		}
+		else {
+			// None of the interfaces are generated, do nothing
+			return;
+		}
+		
+		// Here either source or target, or both are generated
+		
+		sourceParent = source.getParentBody().getParentComponent();
+		targetParent = target.getParentBody().getParentComponent();
+		
+		if (sourceParent == targetParent) {
+			// Two interfaces of the same component
+			// It is not allowed whatever the roles so do nothing
+			return;
+		}
+		if (sourceParent.eContainer() == targetParent.eContainer()) {
+			// Two subcomponents of the same composite
+			// REQUIRES to PROVIDES
+			if (source.getRole() == target.getRole()) {
+				if (targetIsGenerated) {
+					// target is generated, set its role depending on source
+					if (source.getRole() == Role.REQUIRES)
+						setRole(target,Role.PROVIDES);
+					else
+						setRole(target,Role.REQUIRES);
+				}
+				else {
+					// source is generated and target is not
+					// set its role depending on target
+					if (target.getRole() == Role.REQUIRES)
+						setRole(source,Role.PROVIDES);
+					else
+						setRole(source,Role.REQUIRES);
+				}
+			}
+		}
+		if (sourceParent.eContainer().eContainer() == targetParent
+				|| sourceParent == targetParent.eContainer().eContainer()) {
+			// Two components on different levels
+			// Roles must be PROVIDES
+			if (sourceIsGenerated && targetIsGenerated) {
+				// target is generated, set its role depending on source
+				setRole(source,Role.PROVIDES);
+				setRole(target,Role.PROVIDES);
+			}
+			else if (sourceIsGenerated) {
+				// source is generated and target is not
+				// set its role depending on target
+				setRole(source,Role.PROVIDES);
+			}
+			else {
+				setRole(target,Role.PROVIDES);
+			}
+		}
+	}
+	
+	protected EditPart generateItfs(EditPart editpart) {
 
 		if ((MindGenericEditPartFactory.INSTANCE.getMindEditPartFor(editpart)
 				instanceof MindBodyCompartmentEditPart)) {
 			// Delegate to body
 			editpart = editpart.getParent();
 		}
-		
+		// Creation
 		if (isDragging()) {
 			// Button is down, generate target if there is none
 			if ((generatedTarget == null) &&
@@ -91,6 +210,7 @@ public class BindingCreationTool extends UnspecifiedTypeConnectionTool {
 				editpart = createSource(editpart);
 			}
 		}
+		
 		return editpart;
 	}
 	
@@ -171,6 +291,20 @@ public class BindingCreationTool extends UnspecifiedTypeConnectionTool {
 			
 		return newInterface;
 	}
+	
+	
+	protected void setRole(InterfaceDefinition inter, Role newRole) {
+		try {
+			TransactionImpl transaction = new TransactionImpl(getEditingDomain(), false);
+			transaction.start();
+			inter.setRole(newRole);
+			transaction.commit();
+		}
+		catch(Exception e) {
+			MindDiagramEditorPlugin.getInstance().logError("Error modifying generated interface's role", e);
+		}
+	}
+	
 	
 	/**
 	 * delete the generated source

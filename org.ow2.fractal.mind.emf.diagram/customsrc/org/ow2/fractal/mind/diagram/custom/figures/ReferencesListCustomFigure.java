@@ -13,8 +13,7 @@ import org.eclipse.swt.graphics.Color;
  */
 public class ReferencesListCustomFigure extends Shape implements IFractalShape {
 
-	public static Dimension MAXIMUM_SIZE = new Dimension(50000,100);
-	public static Dimension PREFERRED_SIZE = new Dimension(5000,100);
+	public static Dimension MAXIMUM_SIZE = new Dimension(5000,100);
 	
 	public ReferencesListCustomFigure() {
 		super();

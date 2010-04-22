@@ -120,7 +120,7 @@ public class MindEditPart extends AbstractMindEditPart {
 		return null;
 	}
 
-	public Boolean refreshBounds() {
+	public boolean refreshBounds() {
 		return false;
 	}
 	

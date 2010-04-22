@@ -92,7 +92,7 @@ public class MindItemEditPart extends MindEditPart {
 		return result;
 	}
 
-	public Boolean refreshBounds() {
+	public boolean refreshBounds() {
 //		
 //		int width = -1;
 //		int height = IFractalSize.TITLE_HEIGHT;

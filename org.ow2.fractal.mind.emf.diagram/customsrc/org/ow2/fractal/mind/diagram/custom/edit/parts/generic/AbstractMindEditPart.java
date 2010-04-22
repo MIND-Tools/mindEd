@@ -131,7 +131,7 @@ public abstract class AbstractMindEditPart implements MindTypes {
 	public abstract boolean addChildVisual(EditPart childEditPart, int index);
 	public abstract boolean addFixedChild(EditPart childEditPart);
 	public abstract DragTracker getDragTracker(Request request);
-	public abstract Boolean refreshBounds();
+	public abstract boolean refreshBounds();
 	public abstract void setLayoutManager(IFigure figure);
 	public abstract void refresh();
 	public abstract LayoutEditPolicy createLayoutEditPolicy();

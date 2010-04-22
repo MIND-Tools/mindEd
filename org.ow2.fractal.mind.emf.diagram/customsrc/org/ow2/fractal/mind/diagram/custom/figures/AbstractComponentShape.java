@@ -15,12 +15,14 @@ import org.eclipse.swt.graphics.Color;
  */
 public class AbstractComponentShape extends Shape implements IFractalShape {
 
-	public AbstractComponentShape(){
-		setForegroundColor(LIGHT_GRAY);
-		setBackgroundColor(WHITE);
-		new RectangularDropShadowLineBorder(5);
-	}
 	
+
+//	public AbstractComponentShape(){
+//		setForegroundColor(LIGHT_GRAY);
+//		setBackgroundColor(WHITE);
+//		new RectangularDropShadowLineBorder(5);
+//	}
+//	
 	protected void fillShape(Graphics graphics) {
 		graphics.setXORMode(true);
 		
@@ -28,11 +30,11 @@ public class AbstractComponentShape extends Shape implements IFractalShape {
 		graphics.fillRectangle(r);
 	}
 
-	public Rectangle getBounds() {
-		Rectangle r = super.getBounds();
-		Rectangle result = new Rectangle(r.x, r.y , r.width, r.height);
-		return result;
-	}
+//	public Rectangle getBounds() {
+//		Rectangle r = super.getBounds();
+//		Rectangle result = new Rectangle(r.x, r.y , r.width, r.height);
+//		return result;
+//	}
 
 	/**
 	 * @see Shape#outlineShape(Graphics)
@@ -43,34 +45,34 @@ public class AbstractComponentShape extends Shape implements IFractalShape {
 		graphics.drawRectangle(r);
 	}
 
-	public void setBackgroundColor(Color bg) {
-		super.setBackgroundColor(bg);
-	}
-
-	public void setForegroundColor(Color fg) {
-		super.setForegroundColor(fg);
-	}
-	
-	public ContainerShape getArea() {
-		return null;
-	}
-	
-	public void setMerged(Boolean merged) {
-		if (merged) {
-			setBackgroundColor(LIGHT_GRAY);
-			setForegroundColor(LIGHT_GRAY);
-			setBorder(createMergedBorder());
-		}
-		else {
-			// TODO
-		}
-	}
-	
-	private Border createMergedBorder() {
-		ComponentBorder result = new ComponentBorder();
-		result.setColor(GRAY);
-		return result;
-	}
+//	public void setBackgroundColor(Color bg) {
+//		super.setBackgroundColor(bg);
+//	}
+//
+//	public void setForegroundColor(Color fg) {
+//		super.setForegroundColor(fg);
+//	}
+//	
+//	public ContainerShape getArea() {
+//		return null;
+//	}
+//	
+//	public void setMerged(Boolean merged) {
+//		if (merged) {
+//			setBackgroundColor(LIGHT_GRAY);
+//			setForegroundColor(LIGHT_GRAY);
+//			setBorder(createMergedBorder());
+//		}
+//		else {
+//			// TODO
+//		}
+//	}
+//	
+//	private Border createMergedBorder() {
+//		ComponentBorder result = new ComponentBorder();
+//		result.setColor(GRAY);
+//		return result;
+//	}
 	/**
 	 *  Subclasses should override this method
 	 * Generated figures will do this if the accessor is called

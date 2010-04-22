@@ -24,17 +24,12 @@ public class CompositeReferencesListCompartmentCustomEditPart extends
 	protected MindEditPart genericEditPart = MindGenericEditPartFactory.INSTANCE.createGenericEditPart (this, VISUAL_ID);
 	
 	@Override
-	public void refresh() {
-		super.refresh();
-		genericEditPart.refresh();
-	}
-
-	@Override
-	public void createDefaultEditPolicies() {
+	protected void createDefaultEditPolicies() {
 		super.createDefaultEditPolicies();
 		genericEditPart.createDefaultEditPolicies();
 	}
 	
+	@Override
 	public DragTracker getDragTracker(Request request) {
 		DragTracker tracker = genericEditPart.getDragTracker(request);
 		if (tracker == null)
@@ -47,6 +42,7 @@ public class CompositeReferencesListCompartmentCustomEditPart extends
 		super.activate();
 		genericEditPart.activate();
 	}
+
 	
 	@Override
 	protected LayoutManager getLayoutManager() {
@@ -55,6 +51,11 @@ public class CompositeReferencesListCompartmentCustomEditPart extends
 			layoutManager = super.getLayoutManager();
 		}
 		return layoutManager;
+	}
+	
+	public void refresh() {
+		super.refresh();
+		genericEditPart.refresh();
 	}
 	
 	

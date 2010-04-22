@@ -80,7 +80,7 @@ public class MindReferenceEditPart extends MindEditPart {
 	
 	
 	@Override
-	public Boolean refreshBounds() {
+	public boolean refreshBounds() {
 		// The height depends on the children inside the area of this ReferencesList
 //		int width = -1;
 //		

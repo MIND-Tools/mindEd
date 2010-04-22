@@ -52,20 +52,5 @@ public class TemplateSpecifiersListCompartmentCustomEditPart extends
 		super.refresh();
 		genericEditPart.refresh();
 	}
-	
-//	
-//	
-//	@Override
-//	protected void addChild(EditPart childEditPart, int index) {
-//		super.addChild(childEditPart, index);
-//		getParent().refresh();
-//	}
-//	
-//	@Override
-//	protected void removeChild(EditPart childEditPart) {
-//		super.removeChild(childEditPart);
-//		getParent().refresh();
-//	}
-	
 
 }
