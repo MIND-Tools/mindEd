@@ -1,0 +1,6 @@
+«IMPORT 'http://www.eclipse.org/gmf/2009/GenModel'»
+«EXTENSION xpt::diagram::editparts::Utils»
+
+«AROUND additions FOR gmfgen::GenNodeLabel-»
+
+«ENDAROUND»

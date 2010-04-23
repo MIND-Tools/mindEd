@@ -21,6 +21,7 @@ import org.ow2.fractal.mind.diagram.custom.edit.policies.MindSubCreationEditPoli
 import org.ow2.fractal.mind.diagram.custom.edit.policies.NoDragDropEditPolicy;
 import org.ow2.fractal.mind.diagram.custom.helpers.ComponentHelper;
 import org.ow2.fractal.mind.diagram.custom.layouts.IFractalSize;
+import org.ow2.fractal.mind.emf.diagram.custom.listeners.MindLayoutListener;
 
 public class MindItemEditPart extends MindEditPart {
 
@@ -63,6 +64,7 @@ public class MindItemEditPart extends MindEditPart {
 			//no spacing anymore
 			ConstrainedToolbarLayout layout = new ConstrainedToolbarLayout();
 			nodeShape.setLayoutManager(layout);
+			nodeShape.addLayoutListener(new MindLayoutListener(realEditPart));
 		}
 		return nodeShape; // use nodeShape itself as contentPane
 	}
@@ -82,35 +84,14 @@ public class MindItemEditPart extends MindEditPart {
 		return null;
 	}
 	
-	public void refresh() {
-		super.refresh();
-		refreshBounds();
-	}
+	
 	
 	public NodeFigure createNodePlate() {
 		DefaultSizeNodeFigure result = new DefaultSizeNodeFigure(15,15);
 		return result;
 	}
 
-	public boolean refreshBounds() {
-//		
-//		int width = -1;
-//		int height = IFractalSize.TITLE_HEIGHT;
-//		Dimension size = new Dimension(width, height);
-//		int x = ((Integer) realEditPart.getStructuralFeatureValue(NotationPackage.eINSTANCE.getLocation_X())).intValue();
-//		int y = ((Integer) realEditPart.getStructuralFeatureValue(NotationPackage.eINSTANCE.getLocation_Y())).intValue();
-//		Point loc = new Point(x, y);
-//		
-//		realEditPart.getFigure().setBounds(new Rectangle(loc,size));
-//		((GraphicalEditPart) realEditPart.getParent()).setLayoutConstraint(
-//				realEditPart,
-//				realEditPart.getFigure(),
-//				new Rectangle(loc,size)
-//				);
-//		return true;
-		
-		return false;
-	}
+	
 	
 	public void setLayoutManager(IFigure figure) {}
 

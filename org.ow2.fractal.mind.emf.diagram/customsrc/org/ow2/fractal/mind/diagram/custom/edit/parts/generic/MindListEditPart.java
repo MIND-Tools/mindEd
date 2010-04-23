@@ -59,10 +59,10 @@ public class MindListEditPart extends MindEditPart {
 		}
 		return nodeShape;
 	}
-	
-	public void refresh() {
-		refreshBounds();
-	}
+//	
+//	public void refresh() {
+//		refreshBounds();
+//	}
 	
 	public DragTracker getDragTracker(Request request) {
 		// Do not allow drag and drop
@@ -84,7 +84,6 @@ public class MindListEditPart extends MindEditPart {
 		if (areaLayout != null && areaLayout instanceof ConstrainedFlowLayout) {
 			// The manager should be a ConstrainedFlowLayout
 			// It keeps the total height used so we can use it here
-			layoutAllChildren(realEditPart.getContentPane());
 			areaLayout.layout(pane.getFigure());
 			height = ((ConstrainedFlowLayout)areaLayout).getTotalHeight() +
 					IFractalSize.TITLE_HEIGHT;

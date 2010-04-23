@@ -9,8 +9,7 @@ import org.ow2.fractal.mind.diagram.custom.edit.parts.generic.MindGenericEditPar
 import adl.diagram.edit.parts.CompositeReferencesListCompartmentEditPart;
 
 /**
- * This is the area for a ReferencesList (in a CompositeComponentDefinition or a
- * PrimitiveComponentDefinition).
+ * This is the area for a {@link CompositeReferencesListCustomEditPart}
  * @author maroto
  *
  */
@@ -21,17 +20,21 @@ public class CompositeReferencesListCompartmentCustomEditPart extends
 		super(view);
 	}
 	
-	protected MindEditPart genericEditPart = MindGenericEditPartFactory.INSTANCE.createGenericEditPart (this, VISUAL_ID);
+	protected MindEditPart genericEditPart = MindGenericEditPartFactory.INSTANCE.createGenericEditPart(this, VISUAL_ID);
+	
+	protected MindEditPart getGenericEditPart() {
+		return genericEditPart;
+	}
 	
 	@Override
 	protected void createDefaultEditPolicies() {
 		super.createDefaultEditPolicies();
-		genericEditPart.createDefaultEditPolicies();
+		getGenericEditPart().createDefaultEditPolicies();
 	}
 	
 	@Override
 	public DragTracker getDragTracker(Request request) {
-		DragTracker tracker = genericEditPart.getDragTracker(request);
+		DragTracker tracker = getGenericEditPart().getDragTracker(request);
 		if (tracker == null)
 			tracker = super.getDragTracker(request);
 		return tracker;
@@ -40,24 +43,15 @@ public class CompositeReferencesListCompartmentCustomEditPart extends
 	@Override
 	public void activate() {
 		super.activate();
-		genericEditPart.activate();
+		getGenericEditPart().activate();
 	}
-
 	
 	@Override
 	protected LayoutManager getLayoutManager() {
-		LayoutManager layoutManager = genericEditPart.getLayoutManager();
+		LayoutManager layoutManager = getGenericEditPart().getLayoutManager();
 		if (layoutManager == null) {
 			layoutManager = super.getLayoutManager();
 		}
 		return layoutManager;
 	}
-	
-	public void refresh() {
-		super.refresh();
-		genericEditPart.refresh();
-	}
-	
-	
-
 }

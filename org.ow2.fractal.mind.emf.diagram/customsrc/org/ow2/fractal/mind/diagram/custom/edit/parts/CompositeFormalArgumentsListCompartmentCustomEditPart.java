@@ -10,8 +10,7 @@ import org.ow2.fractal.mind.diagram.custom.edit.parts.generic.MindGenericEditPar
 import adl.diagram.edit.parts.CompositeFormalArgumentsListCompartmentEditPart;
 
 /**
- * Area of a {@link PrimitiveFormalArgumentsListCustomEditPart}<p>
- * Implemented for future use
+ * Area of a {@link CompositeFormalArgumentsListCustomEditPart}<p>
  * @children FormalArgumentEditPart
  * @author maroto
  *

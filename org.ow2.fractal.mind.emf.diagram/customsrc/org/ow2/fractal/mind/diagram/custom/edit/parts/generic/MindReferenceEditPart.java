@@ -26,6 +26,7 @@ import org.ow2.fractal.mind.diagram.custom.helpers.ComponentHelper;
 import org.ow2.fractal.mind.diagram.custom.layouts.ConstrainedFlowLayout;
 import org.ow2.fractal.mind.diagram.custom.layouts.IFractalSize;
 import org.ow2.fractal.mind.diagram.custom.providers.NoDragTracker;
+import org.ow2.fractal.mind.emf.diagram.custom.listeners.MindLayoutListener;
 
 public class MindReferenceEditPart extends MindEditPart {
 	
@@ -74,6 +75,7 @@ public class MindReferenceEditPart extends MindEditPart {
 		if (nodeShape.getLayoutManager() == null) {
 			ConstrainedToolbarLayout layout = new ConstrainedToolbarLayout();
 			nodeShape.setLayoutManager(layout);
+			nodeShape.addLayoutListener(new MindLayoutListener(realEditPart));
 		}
 		return nodeShape; // use nodeShape itself as contentPane
 	}

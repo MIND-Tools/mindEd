@@ -22,12 +22,12 @@ public class MindGenericEditPartFactory implements MindTypes {
 	public static MindGenericEditPartFactory INSTANCE = new MindGenericEditPartFactory();
 
 	/**
-	 * This hashmap remembers created MindEditParts and their associated EditParts
+	 * This Hashmap remembers created MindEditParts and their associated EditParts
 	 */
 	private HashMap<EditPart,MindEditPart> editPartsMap = new HashMap<EditPart,MindEditPart>();
 	
 	/**
-	 * This hashmap remembers created MindBindingEditParts and their associated EditParts
+	 * This Hashmap remembers created MindBindingEditParts and their associated EditParts
 	 */
 	private HashMap<ConnectionEditPart,MindBindingEditPart> bindingsMap = new HashMap<ConnectionEditPart,MindBindingEditPart>();
 	

@@ -63,7 +63,9 @@ public class ContainerShape extends Shape implements IFractalShape{
 	}
 
 	public Rectangle getClientArea(Rectangle rect) {
-		// TODO Auto-generated method stub
-		return super.getClientArea(rect);
+		rect.setBounds(getBounds());
+		if(useLocalCoordinates())
+		rect.setLocation(0, 0);
+		return rect;
 	}
 }

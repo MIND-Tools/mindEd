@@ -5,8 +5,13 @@ import java.lang.reflect.InvocationTargetException;
 
 import org.eclipse.gef.EditPart;
 import org.eclipse.gef.EditPolicy;
+import org.eclipse.gmf.runtime.diagram.ui.editparts.ConnectionEditPart;
+import org.eclipse.gmf.runtime.diagram.ui.editparts.GraphicalEditPart;
 import org.eclipse.gmf.runtime.notation.View;
 import org.ow2.fractal.mind.diagram.custom.edit.parts.*;
+import org.ow2.fractal.mind.diagram.custom.edit.parts.generic.MindEditPart;
+import org.ow2.fractal.mind.diagram.custom.edit.parts.generic.MindGenericEditPartFactory;
+
 import adl.diagram.edit.parts.*;
 import adl.diagram.edit.policies.MindBaseItemSemanticEditPolicy;
 import adl.diagram.part.MindDiagramEditorPlugin;
@@ -307,12 +312,17 @@ public class MindEditPartCustomFactory extends MindEditPartFactory {
 				generatedEditPart.getClass().getSimpleName().replace("EditPart", "CustomEditPart");
 			String customPartName = CUSTOMEDITPARTS_PACKAGE.concat(simpleName);
 			EditPart customPart = getCustomEditPart(customPartName,view);
+			EditPart part;
 			
-			if (customPart != null)
-				return customPart;
-			else
-				return generatedEditPart;
+			if (customPart != null) {
+				
+				part = customPart;
+			}
+			else {
+				part =  generatedEditPart;
+			}
 			
+			return part;
 		}
 		// Not an instance of view, return default implementation
 		return super.createEditPart(context, model);
