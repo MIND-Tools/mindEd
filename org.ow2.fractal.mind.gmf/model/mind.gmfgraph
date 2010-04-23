@@ -679,6 +679,10 @@
             xsi:type="gmfgraph:CustomFigure"
             name="ReferencesArea"
             qualifiedClassName="org.ow2.fractal.mind.diagram.custom.figures.ContainerShape">
+          <layout
+              xsi:type="gmfgraph:FlowLayout"
+              majorSpacing="0"
+              minorSpacing="0"/>
           <attributes
               name="backgroundColor"
               value="BACKGROUND_COLOR"/>
@@ -825,6 +829,10 @@
           accessor="getFigureTemplateReferenceArea"
           figure="//@figures.0/@descriptors.28/@actualFigure/@children.1"/>
     </descriptors>
+    <layouts
+        xsi:type="gmfgraph:FlowLayout"
+        majorSpacing="0"
+        minorSpacing="0"/>
   </figures>
   <nodes
       name="ArgumentDefinition"
@@ -930,7 +938,8 @@
       figure="SubComponentFigure"/>
   <nodes
       name="CompositeReferenceDefinition"
-      figure="ReferenceFigure"/>
+      figure="ReferenceFigure"
+      contentPane="//@figures.0/@descriptors.22/@accessors.1"/>
   <nodes
       name="TemplateReference"
       figure="TemplateReferenceFigure"
@@ -987,7 +996,6 @@
   <compartments
       name="CompartmentReferenceDefinitionArea"
       figure="ReferenceFigure"
-      collapsible="true"
       accessor="//@figures.0/@descriptors.22/@accessors.1"/>
   <compartments
       name="CompartmentReferencesListArea"

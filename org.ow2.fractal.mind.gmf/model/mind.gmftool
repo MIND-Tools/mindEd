@@ -43,7 +43,12 @@
       <tools
           xsi:type="gmftool:CreationTool"
           title="Body"
-          description="Create new Body"/>
+          description="Create new Body">
+        <smallIcon
+            xsi:type="gmftool:BundleImage"
+            path="icons/full/obj16/Body.gif"
+            bundle="org.ow2.fractal.mind.emf.model.edit"/>
+      </tools>
     </tools>
     <tools
         xsi:type="gmftool:ToolGroup"

@@ -384,7 +384,7 @@
               <compartments
                   children="//@nodes.0/@ownedChild/@children.2/@ownedChild/@children.0/@ownedChild/@children.0 //@nodes.0/@ownedChild/@children.2/@ownedChild/@children.0/@ownedChild/@children.1">
                 <compartment
-                    href="mind.gmfgraph#CompartmentComponentReferenceDefinitionArea"/>
+                    href="mind.gmfgraph#CompartmentReferenceDefinitionArea"/>
               </compartments>
             </ownedChild>
           </children>
