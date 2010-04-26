@@ -62,9 +62,7 @@ public class ComponentTypeDefinitionCustomImpl extends ComponentTypeDefinitionIm
 	 */
 	@Override
 	public void setName(String newName) {
-		String oldName = name;
-		name = newName;
-		if (newName != null && !newName.equals(oldName)) {
+		if (newName != null && !newName.equals(name)) {
 			nameFQN = getHelper().getNameFQN();
 		}
 		super.setName(newName);

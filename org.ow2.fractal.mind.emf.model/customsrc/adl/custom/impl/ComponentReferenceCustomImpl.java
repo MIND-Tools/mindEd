@@ -24,9 +24,7 @@ public class ComponentReferenceCustomImpl extends ComponentReferenceImpl {
 	 */
 	@Override
 	public void setReferenceName(String newReferenceName) {
-		String oldName = referenceName;
-		referenceName = newReferenceName;
-		if (newReferenceName != null && !newReferenceName.equals(oldName)) {
+		if (newReferenceName != null && !newReferenceName.equals(referenceName)) {
 			nameFQN = getHelper().getNameFQN();
 		}
 		super.setReferenceName(newReferenceName);
