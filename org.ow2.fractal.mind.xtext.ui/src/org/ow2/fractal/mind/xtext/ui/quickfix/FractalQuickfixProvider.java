@@ -13,6 +13,7 @@ import org.eclipse.xtext.ui.editor.quickfix.DefaultQuickfixProvider;
 import org.eclipse.xtext.ui.editor.quickfix.Fix;
 import org.eclipse.xtext.ui.editor.quickfix.IssueResolutionAcceptor;
 import org.eclipse.xtext.validation.Issue;
+import org.ow2.fractal.mind.ide.MindcErrorCodes;
 import org.ow2.fractal.mind.xtext.validation.FractalJavaValidator;
 
 import adl.ArgumentDefinition;
@@ -170,7 +171,7 @@ public class FractalQuickfixProvider extends DefaultQuickfixProvider {
 */
 	
 	
-	@Fix("ADL-3")
+	@Fix(MindcErrorCodes.CODE_KEY_ADL_3)
 	public void removeTemplateParameter(final Issue issue, IssueResolutionAcceptor acceptor) {
 		
 			final int offset = issue.getOffset();
