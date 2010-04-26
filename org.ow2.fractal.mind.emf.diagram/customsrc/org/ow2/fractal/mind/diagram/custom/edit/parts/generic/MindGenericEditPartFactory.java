@@ -212,6 +212,7 @@ public class MindGenericEditPartFactory implements MindTypes {
 			// -- Label
 		case ArgumentDefinitionNameEditPart.VISUAL_ID:
 		case TemplateSpecifierNameEditPart.VISUAL_ID:
+		case CompositeReferenceNameEditPart.VISUAL_ID:
 			return TYPE_LABEL;
 			
 			// -- Interface

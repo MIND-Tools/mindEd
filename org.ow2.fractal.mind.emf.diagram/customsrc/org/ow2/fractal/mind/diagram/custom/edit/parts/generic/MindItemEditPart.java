@@ -3,10 +3,6 @@ package org.ow2.fractal.mind.diagram.custom.edit.parts.generic;
 import java.util.List;
 
 import org.eclipse.draw2d.IFigure;
-import org.eclipse.draw2d.LayoutManager;
-import org.eclipse.draw2d.geometry.Dimension;
-import org.eclipse.draw2d.geometry.Point;
-import org.eclipse.draw2d.geometry.Rectangle;
 import org.eclipse.gef.DragTracker;
 import org.eclipse.gef.EditPart;
 import org.eclipse.gef.EditPolicy;
@@ -16,12 +12,9 @@ import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.ConstrainedToolbarLayout;
 import org.eclipse.gmf.runtime.gef.ui.figures.DefaultSizeNodeFigure;
 import org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure;
-import org.eclipse.gmf.runtime.notation.NotationPackage;
 import org.ow2.fractal.mind.diagram.custom.edit.policies.MindSubCreationEditPolicy;
 import org.ow2.fractal.mind.diagram.custom.edit.policies.NoDragDropEditPolicy;
-import org.ow2.fractal.mind.diagram.custom.helpers.ComponentHelper;
-import org.ow2.fractal.mind.diagram.custom.layouts.IFractalSize;
-import org.ow2.fractal.mind.emf.diagram.custom.listeners.MindLayoutListener;
+import org.ow2.fractal.mind.emf.diagram.custom.listeners.MindListLayoutListener;
 
 public class MindItemEditPart extends MindEditPart {
 
@@ -64,7 +57,7 @@ public class MindItemEditPart extends MindEditPart {
 			//no spacing anymore
 			ConstrainedToolbarLayout layout = new ConstrainedToolbarLayout();
 			nodeShape.setLayoutManager(layout);
-			nodeShape.addLayoutListener(new MindLayoutListener(realEditPart));
+			nodeShape.addLayoutListener(new MindListLayoutListener(realEditPart));
 		}
 		return nodeShape; // use nodeShape itself as contentPane
 	}
