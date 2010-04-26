@@ -8,6 +8,7 @@ import java.util.Map;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.xtext.validation.Check;
+import org.eclipse.xtext.validation.ComposedChecks;
 import org.ow2.fractal.mind.ide.MindModelManager;
 import org.ow2.fractal.mind.ide.ModelToProjectUtil;
 import org.ow2.fractal.mind.ide.emf.mindide.MindAdl;
@@ -45,7 +46,7 @@ import com.google.common.collect.TreeMultiset;
  * @contributor Rémi Mélisson
  * 
  */
-
+@ComposedChecks(validators= {EValidatorAdapter.class})
 public class FractalJavaValidator extends AbstractFractalJavaValidator {
 
 	// Reference on the project model
