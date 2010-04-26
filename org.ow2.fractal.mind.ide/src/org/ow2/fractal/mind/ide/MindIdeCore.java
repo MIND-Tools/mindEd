@@ -41,6 +41,7 @@ import org.ow2.fractal.mind.ide.emf.mindide.MindRootSrc;
 import org.ow2.fractal.mind.ide.emf.mindide.MindideFactory;
 import org.ow2.fractal.mind.ide.emf.mindide.MindidePackage;
 import org.ow2.fractal.mind.ide.impl.CDTUtil;
+import org.ow2.fractal.mind.ide.template.TemplateITFADL;
 import org.ow2.fractal.mind.ide.template.TemplatePrimitiveC;
 
 /**
@@ -434,8 +435,45 @@ public class MindIdeCore {
 		}
 	}
 	
+	static public void createITFTemplate(MindPackage adl, String qn, String componentName,
+			IProgressMonitor monitor)
+			throws CoreException {		
+		createITFTemplate(MindIdeCore.getResource(adl), componentName, qn, monitor);
+	}
+	
+	/**
+	 * Create a file .itf with a template.
+	 * 
+	 * @param container where put the file itf
+	 * @param componentName the componant of the adl or the name of file itf
+	 * @param qn reference to qualified name of the component
+	 * @param monitor
+	 * @throws CoreException
+	 */
+	static public void createITFTemplate(IContainer container, String componentName, String qn,
+			IProgressMonitor monitor)
+			throws CoreException {
+		String cfileName = componentName.substring(0, 1).toLowerCase()
+				+ componentName.substring(1);
+		final IFile cfile = container.getFile(new Path(cfileName + ".itf")); //$NON-NLS-1$
+		try {
+			InputStream stream = openITFContentStream(qn);
+			if (cfile.exists()) {
+				//file.setContents(stream, true, true, monitor);
+			} else {
+				cfile.create(stream, true, monitor);
+			}
+			stream.close();
+		} catch (IOException e) {
+		}
+	}
+	
 	static private InputStream openCContentStream(String qn) {
 		return new ByteArrayInputStream(new TemplatePrimitiveC().generate(qn).getBytes());
+	}
+	
+	static private InputStream openITFContentStream(String qn) {
+		return new ByteArrayInputStream(new TemplateITFADL().generate(qn).getBytes());
 	}
 
 	public static void rebuidAll() {
