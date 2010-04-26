@@ -39,6 +39,8 @@ import org.eclipse.emf.validation.service.ModelValidationService;
 /**
  * An adapter that plugs the EMF Model Validation Service API into the
  * {@link org.eclipse.emf.ecore.EValidator} API.
+ * 
+ * @deprecated use the adaptor in xtext
  */
 public class EValidatorAdapter
 	extends EObjectValidator {

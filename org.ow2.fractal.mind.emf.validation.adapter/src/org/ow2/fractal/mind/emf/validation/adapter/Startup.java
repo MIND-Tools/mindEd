@@ -39,11 +39,8 @@ public class Startup
 	}
 
 	/**
-	 * Install the validator.
+	 *Constraint provider must be activated, force activation
 	 */
 	public void earlyStartup() {
-		EValidator.Registry.INSTANCE.put(
-			AdlPackage.eINSTANCE,
-			new EValidatorAdapter());
 	}
 }
