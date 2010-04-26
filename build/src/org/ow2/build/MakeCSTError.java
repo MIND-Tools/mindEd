@@ -57,6 +57,8 @@ public class MakeCSTError {
 		for (ErrorTemplate et : cstEnums) {
 			cst.put(et.getGroupId()+"_"+((Enum)et).name(), et.getErrorId());
 			cst.put("GROUP_ID_"+et.getGroupId(), et.getGroupId());
+			cst.put("CODE_KEY_"+et.getGroupId()+"_"+et.getErrorId(), et.getGroupId()+"-"+et.getErrorId());
+			
 		}
 	}
 
