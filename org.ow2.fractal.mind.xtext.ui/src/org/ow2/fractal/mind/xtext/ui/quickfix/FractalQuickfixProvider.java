@@ -2,6 +2,10 @@ package org.ow2.fractal.mind.xtext.ui.quickfix;
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.eclipse.xtext.parsetree.AbstractNode;
+import org.eclipse.xtext.parsetree.CompositeNode;
+import org.eclipse.xtext.parsetree.NodeUtil;
+import org.eclipse.xtext.ui.editor.model.IXtextDocument;
 import org.eclipse.xtext.ui.editor.model.edit.IModification;
 import org.eclipse.xtext.ui.editor.model.edit.IModificationContext;
 import org.eclipse.xtext.ui.editor.model.edit.ISemanticModification;
@@ -12,6 +16,7 @@ import org.eclipse.xtext.validation.Issue;
 import org.ow2.fractal.mind.xtext.validation.FractalJavaValidator;
 
 import adl.ArgumentDefinition;
+import adl.ComponentReference;
 import adl.FormalArgument;
 import adl.ImportDefinition;
 import adl.InterfaceDefinition;
@@ -163,4 +168,47 @@ public class FractalQuickfixProvider extends DefaultQuickfixProvider {
 				});
 	}
 */
+	
+	
+	@Fix("ADL-3")
+	public void removeTemplateParameter(final Issue issue, IssueResolutionAcceptor acceptor) {
+		
+			final int offset = issue.getOffset();
+			final int length = issue.getLength();
+			
+			acceptor.accept(issue, "Mon quick fix xtext pour erreur mindc Invalid Template Parameter",
+				"corriger erreur mindc en enlevant le parametre de template",null,
+				new ISemanticModification() {
+					@Override
+					public void apply(EObject adlDefinition,
+							IModificationContext context) throws Exception {
+					
+					CompositeNode astRoot = NodeUtil.getRootNode(adlDefinition);
+					
+					AbstractNode astNode = NodeUtil.findLeafNodeAtOffset(astRoot, offset);
+					EObject eObject = NodeUtil.getNearestSemanticObject(astNode);
+					
+					if (eObject != null && eObject instanceof ComponentReference) {
+						ComponentReference reference = (ComponentReference) eObject;
+						reference.unsetTemplatesList();
+						//reference.setReferenceName("fixed");
+					}
+
+				}
+			});
+			
+
+			acceptor.accept(issue, "Replace text",
+					"replace text",null,
+					new IModification() {
+				
+					@Override
+					public void apply(IModificationContext context) throws Exception {
+						
+						IXtextDocument document = context.getXtextDocument();
+						document.replace(offset, length, "fixed text");					}
+				});
+
+	}
+
 }
