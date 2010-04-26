@@ -27,6 +27,15 @@ import org.eclipse.core.resources.IncrementalProjectBuilder;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.Status;
+import org.eclipse.emf.common.util.URI;
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.eclipse.ui.IEditorInput;
+import org.eclipse.ui.IEditorPart;
+import org.eclipse.ui.IWorkbenchPage;
+import org.eclipse.ui.PartInitException;
+import org.eclipse.ui.PlatformUI;
+import org.eclipse.ui.part.FileEditorInput;
 import org.objectweb.fractal.adl.ADLException;
 import org.objectweb.fractal.adl.CompilerError;
 import org.objectweb.fractal.adl.StaticJavaGenerator.InvalidCommandLineException;
@@ -40,6 +49,14 @@ import org.ow2.fractal.mind.ide.emf.mindide.MindPathKind;
 import org.ow2.fractal.mind.ide.emf.mindide.MindProject;
 import org.ow2.fractal.mind.ide.emf.mindide.MindRootSrc;
 import org.ow2.fractal.mind.ide.emf.mindide.MindidePackage;
+
+import org.eclipse.xtext.ui.editor.XtextEditor;
+import org.eclipse.xtext.util.concurrent.IUnitOfWork;
+import org.eclipse.xtext.parsetree.AbstractNode;
+import org.eclipse.xtext.parsetree.CompositeNode;
+import org.eclipse.xtext.parsetree.NodeUtil;
+import org.eclipse.xtext.resource.XtextResource;
+import org.eclipse.gmf.runtime.diagram.ui.parts.DiagramEditor;
 
 /**
  * Mind builder. Do noting in lot 1. Keeping for next lot.
@@ -159,8 +176,17 @@ public class MindIdeBuilder extends IncrementalProjectBuilder {
 		marker.setAttribute(IMarker.CHAR_END, charsIndex[1]);
 		if (locator != null)
 			marker.setAttribute(IMarker.LINE_NUMBER, locator.getBeginLine());
+		
+		// To test XTEXT integration
+		addXtextAttributes(marker, e);
 		MindCMarker.setDescription(marker, error.getMessage());
 		e.printStackTrace();
+	}
+	
+	private void addXtextAttributes(final IMarker marker, ADLException e) throws CoreException {
+		
+		marker.setAttribute("CODE_KEY",e.getError().getTemplate().getGroupId()+"-"+e.getError().getTemplate().getErrorId());
+		marker.setAttribute("URI_KEY", URI.createPlatformResourceURI(marker.getResource().getFullPath().toString(),false).appendFragment("/").toString());
 	}
 	
 	public int[] computeCharStartAndEnd(MindFile mf, ErrorLocator locator) {

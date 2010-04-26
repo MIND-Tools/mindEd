@@ -40,6 +40,9 @@
       </persistent>      
        <attribute name="description"/>
        <attribute name="parameters"/>
+       <super
+             type="org.eclipse.xtext.ui.check">
+       </super>
    </extension>
       <extension
             point="org.eclipse.emf.ecore.factory_override">
