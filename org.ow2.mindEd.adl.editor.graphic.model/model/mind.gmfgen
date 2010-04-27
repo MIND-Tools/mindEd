@@ -2709,26 +2709,26 @@
     </palette>
     <preferencePages
         xsi:type="gmfgen:GenStandardPreferencePage"
-        iD="org.ow2.fractal.mind.emf.diagram.general"
+        iD="org.ow2.mindEd.adl.editor.graphic.ui.general"
         name="Mind Diagram">
       <children
           xsi:type="gmfgen:GenStandardPreferencePage"
-          iD="org.ow2.fractal.mind.emf.diagram.appearance"
+          iD="org.ow2.mindEd.adl.editor.graphic.ui.appearance"
           name="Appearance"
           kind="Appearance"/>
       <children
           xsi:type="gmfgen:GenStandardPreferencePage"
-          iD="org.ow2.fractal.mind.emf.diagram.connections"
+          iD="org.ow2.mindEd.adl.editor.graphic.ui.connections"
           name="Connections"
           kind="Connections"/>
       <children
           xsi:type="gmfgen:GenStandardPreferencePage"
-          iD="org.ow2.fractal.mind.emf.diagram.printing"
+          iD="org.ow2.mindEd.adl.editor.graphic.ui.printing"
           name="Printing"
           kind="Printing"/>
       <children
           xsi:type="gmfgen:GenStandardPreferencePage"
-          iD="org.ow2.fractal.mind.emf.diagram.rulersAndGrid"
+          iD="org.ow2.mindEd.adl.editor.graphic.ui.rulersAndGrid"
           name="Rulers And Grid"
           kind="RulersAndGrid"/>
     </preferencePages>
