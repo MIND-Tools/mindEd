@@ -1,11 +1,11 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: org.ow2.mindEd.idt.model.generator
+Bundle-Name: org.ow2.mindEd.idt.editor.textual.model.generator
 Bundle-Vendor: My Company
 Bundle-Version: 0.2.0.qualifier
-Bundle-SymbolicName: org.ow2.mindEd.idt.model.generator; singleton:=true
+Bundle-SymbolicName: org.ow2.mindEd.idt.editor.textual.model.generator; singleton:=true
 Bundle-ActivationPolicy: lazy
-Require-Bundle:  org.ow2.mindEd.idt.model;visibility:=reexport,
+Require-Bundle:  org.ow2.mindEd.idt.editor.textual.model;visibility:=reexport,
  org.eclipse.xpand;visibility:=reexport,
  org.eclipse.xtend;visibility:=reexport,
  org.eclipse.xtext;visibility:=reexport,

@@ -1,9 +1,9 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: org.ow2.mindEd.itf.model
+Bundle-Name: org.ow2.mindEd.itf.editor.textual.model
 Bundle-Vendor: My Company
 Bundle-Version: 0.2.0.qualifier
-Bundle-SymbolicName: org.ow2.mindEd.itf.model; singleton:=true
+Bundle-SymbolicName: org.ow2.mindEd.itf.editor.textual.model; singleton:=true
 Bundle-ActivationPolicy: lazy
 Require-Bundle: org.eclipse.xtext,
  org.eclipse.xtext.generator;resolution:=optional,
