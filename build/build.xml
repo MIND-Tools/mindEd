@@ -12,24 +12,35 @@
             build generated files emf, gmf, xtext ...
     </description>
 
+	<target name="init">
+		<property name="adl.shema.id" value="org.ow2.mindEd.adl.schema/model"/>
+		<property name="adl.model.id" value="org.ow2.mindEd.adl.model" />
+		<property name="adl.edit.id" value="org.ow2.mindEd.adl.edit" />
+		<property name="adl.editor.tree.id" value="org.ow2.mindEd.adl.editor.tree" />
+		<property name="adl.editor.graphic.model.id" value ="org.ow2.mindEd.adl.editor.graphic.model"/>
+		<property name="adl.editor.graphic.ui.id" value ="org.ow2.mindEd.adl.editor.graphic.ui"/>
+				
+		
+		<property name="adl.shema" value="${basedir}/../org.ow2.mindEd.adl.schema/model"/>
+		<property name="adl.model" value="${basedir}/../org.ow2.mindEd.adl.model" />
+		<property name="adl.edit" value="${basedir}/../org.ow2.mindEd.adl.edit" />
+		<property name="adl.editor.tree" value="${basedir}/../org.ow2.mindEd.adl.editor.tree" />
+		<property name="adl.editor.graphic.model" value ="${basedir}/../org.ow2.mindEd.adl.editor.graphic.model"/>
+		<property name="adl.editor.graphic.ui" value ="${basedir}/../org.ow2.mindEd.adl.editor.graphic.ui"/>
+				
+	</target>
 	<!-- ================================= 
           target: generate              
 	  install this support  http://www.eclipticalsoftware.com/updates/site.xml
 	  run this ant script in running eclipse
          ================================= -->
-	<target name="generate" depends="" description="build generated files emf, gmf, xtext ...">
-		<property name="model-dir" value="${basedir}/../org.ow2.fractal.mind.emf/model">
-		</property>
-		<property name="emf-project" value="${basedir}/../org.ow2.fractal.mind.emf.model" />
-		<property name="emf-edit-project" value="${basedir}/../org.ow2.fractal.mind.emf.model.edit" />
-		<property name="emf-editor-project" value="${basedir}/../org.ow2.fractal.mind.emf.model.editor" />
-		<property name="gmf-project" value ="${basedir}/../org.ow2.fractal.mind.gmf"/>
+	<target name="generate" depends="init" description="build generated files emf, gmf, xtext ...">
+				
+		<eclipse.refreshLocal resource="org.ow2.mindEd.adl.model" depth="infinite"/>
+		<eclipse.refreshLocal resource="org.ow2.mindEd.adl.edit" depth="infinite"/>
+		<eclipse.refreshLocal resource="org.ow2.mindEd.adl.editor" depth="infinite"/>
 		
-		<eclipse.refreshLocal resource="org.ow2.fractal.mind.emf.model" depth="infinite"/>
-		<eclipse.refreshLocal resource="org.ow2.fractal.mind.emf.model.edit" depth="infinite"/>
-		<eclipse.refreshLocal resource="org.ow2.fractal.mind.emf.model.editor" depth="infinite"/>
-		
-		<emf.Ecore2Java genModel="${model-dir}/mind.genmodel" model="${model-dir}/mind.ecore" 
+		<emf.Ecore2Java genModel="${adl.shema}/mind.genmodel" model="${adl.shema}/mind.ecore" 
 			generatejavacode="true" 
 			generateeditorproject="false" 
 			generateeditproject="false"
@@ -37,8 +48,8 @@
 			reconcilegenmodel="reload"
 			>
 		</emf.Ecore2Java>
-		<eclipse.refreshLocal resource="org.ow2.fractal.mind.emf.model" depth="infinite"/>
-		<emf.Ecore2Java genModel="${model-dir}/mind.genmodel" model="${model-dir}/mind.ecore" 
+		<eclipse.refreshLocal resource="${adl.model.id}" depth="infinite"/>
+		<emf.Ecore2Java genModel="${adl.shema}/mind.genmodel" model="${adl.shema}/mind.ecore" 
 					generatejavacode="true" 
 					generateeditorproject="true" 
 					generateeditproject="true"
@@ -46,17 +57,17 @@
 					reconcilegenmodel="keep"
 					>
 				</emf.Ecore2Java>
-		<eclipse.refreshLocal resource="org.ow2.fractal.mind.emf.model.edit" depth="infinite"/>
-		<eclipse.refreshLocal resource="org.ow2.fractal.mind.emf.model.editor" depth="infinite"/>
-		<eclipse.refreshLocal resource="org.ow2.fractal.mind.emf.diagram" depth="infinite"/>
-		<eclipse.incrementalBuild project="org.ow2.fractal.mind.emf.model" kind="incremental"/>
-		<eclipse.incrementalBuild project="org.ow2.fractal.mind.emf.model.edit" kind="incremental"/>
-		<eclipse.incrementalBuild project="org.ow2.fractal.mind.emf.model.editor" kind="incremental"/>
+		<eclipse.refreshLocal resource="${adl.edit.id}" depth="infinite"/>
+		<eclipse.refreshLocal resource="${adl.editor.tree.id}" depth="infinite"/>
+		<eclipse.refreshLocal resource="${adl.editor.graphic.ui}" depth="infinite"/>
+		<eclipse.incrementalBuild project="${adl.model.id}" kind="incremental"/>
+		<eclipse.incrementalBuild project="${adl.edit.id}" kind="incremental"/>
+		<eclipse.incrementalBuild project="${adl.editor.tree.id}" kind="incremental"/>
 
 					
-		<gmf:GenerateDiagramCode gmfgenPath="org.ow2.fractal.mind.gmf/model/mind.gmfgen" />
+		<gmf:GenerateDiagramCode gmfgenPath="${adl.editor.graphic.model.id}/model/mind.gmfgen" />
 		
-		<eclipse.refreshLocal resource="org.ow2.fractal.mind.emf.diagram" depth="infinite"/>
+		<eclipse.refreshLocal resource="${adl.editor.graphic.ui.id}" depth="infinite"/>
 				
 		
 		<!-- 
@@ -76,22 +87,14 @@
 		
 	</target>
 
-	<target name="clean">
-		<property name="model-dir" value="${basedir}/../org.ow2.fractal.mind.emf/model">
-		</property>
-		<property name="emf-project" value="${basedir}/../org.ow2.fractal.mind.emf.model" />
-		<property name="emf-edit-project" value="${basedir}/../org.ow2.fractal.mind.emf.model.edit" />
-		<property name="emf-editor-project" value="${basedir}/../org.ow2.fractal.mind.emf.model.editor" />
-		<property name="org.ow2.fractal.mind.emf.diagram" value="${basedir}/../org.ow2.fractal.mind.emf.diagram" />
-				
-		<delete dir="${emf-project}/src"/>
-		<mkdir dir="${emf-project}/src" />
-		<delete dir="${emf-edit-project}/src"/>
-		<mkdir dir="${emf-edit-project}/src" />
-		<delete dir="${emf-editor-project}/src"/>
-		<mkdir dir="${emf-editor-project}/src" />
-		<mkdir dir="${org.ow2.fractal.mind.emf.diagram}/src" />
-
+	<target name="clean" depends="init">		
+		<delete dir="${adl.model}/src"/>
+		<mkdir dir="${adl.model}/src" />
+		<delete dir="${adl.edit}/src"/>
+		<mkdir dir="${adl.edit}/src" />
+		<delete dir="${adl.editor.tree}/src"/>
+		<mkdir dir="${adl.editor.tree}/src" />
+		<mkdir dir="${adl.editor.graphic.ui}/src" />
 	</target>
 
 </project>

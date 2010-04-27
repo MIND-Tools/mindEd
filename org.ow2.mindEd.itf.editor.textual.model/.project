@@ -31,6 +31,11 @@
 			</arguments>
 		</buildCommand>
 		<buildCommand>
+			<name>org.eclipse.xtend.typesystem.xsd.ui.xsdBuilder</name>
+			<arguments>
+			</arguments>
+		</buildCommand>
+		<buildCommand>
 			<name>org.eclipse.xtend.shared.ui.xtendBuilder</name>
 			<arguments>
 			</arguments>
