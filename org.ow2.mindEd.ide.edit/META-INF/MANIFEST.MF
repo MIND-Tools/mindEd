@@ -4,7 +4,7 @@ Bundle-Name: %pluginName
 Bundle-SymbolicName: org.ow2.mindEd.ide.emf.model.edit;singleton:=true
 Bundle-Version: 0.2.0.qualifier
 Bundle-ClassPath: .
-Bundle-Activator: org.ow2.fractal.mind.ide.emf.provider.MindIDEEditPlugin$Implementation
+Bundle-Activator: org.ow2.mindEd.ide.edit.provider.MindIDEEditPlugin$Implementation
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
