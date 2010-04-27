@@ -9,7 +9,6 @@ import org.ow2.fractal.mind.diagram.custom.edit.policies.FixedChildrenLayoutEdit
 import org.ow2.fractal.mind.diagram.custom.edit.policies.MindSuperCreationEditPolicy;
 import org.ow2.fractal.mind.diagram.custom.layouts.ConstrainedFlowLayout;
 import org.ow2.fractal.mind.diagram.custom.layouts.CustomFreeFormLayoutEx;
-import org.ow2.fractal.mind.emf.diagram.custom.listeners.MindLayoutListener;
 
 public class MindListCompartmentEditPart extends MindCompartmentEditPart {
 
