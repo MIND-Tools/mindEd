@@ -4,7 +4,7 @@
  *
  * $Id$
  */
-package org.ow2.fractal.mind.ide.emf.mindide.presentation;
+package org.ow2.mindEd.ide.editor.presentation;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -42,8 +42,6 @@ import org.eclipse.jface.viewers.Viewer;
 
 import org.eclipse.ui.IEditorPart;
 import org.eclipse.ui.PartInitException;
-
-import org.ow2.fractal.mind.ide.emf.presentation.MindIDEEditorPlugin;
 
 /**
  * This is the action bar contributor for the Mindide model editor.
@@ -184,7 +182,7 @@ public class MindideActionBarContributor
 	public void contributeToMenu(IMenuManager menuManager) {
 		super.contributeToMenu(menuManager);
 
-		IMenuManager submenuManager = new MenuManager(MindIDEEditorPlugin.INSTANCE.getString("_UI_MindideEditor_menu"), "org.ow2.fractal.mind.ide.emf.mindideMenuID");
+		IMenuManager submenuManager = new MenuManager(MindIDEEditorPlugin.INSTANCE.getString("_UI_MindideEditor_menu"), "org.ow2.mindEd.ide.modelMenuID");
 		menuManager.insertAfter("additions", submenuManager);
 		submenuManager.add(new Separator("settings"));
 		submenuManager.add(new Separator("actions"));

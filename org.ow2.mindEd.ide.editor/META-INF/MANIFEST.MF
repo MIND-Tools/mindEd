@@ -8,8 +8,6 @@ Bundle-Activator: org.ow2.fractal.mind.ide.emf.presentation.MindIDEEditorPlugin$
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
-Export-Package: org.ow2.fractal.mind.ide.emf.mindide.presentation,
- org.ow2.fractal.mind.ide.emf.presentation
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.core.resources;visibility:=reexport,
  org.ow2.mindEd.ide.emf.model.edit;visibility:=reexport,
@@ -17,3 +15,4 @@ Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.emf.edit.ui;visibility:=reexport,
  org.eclipse.ui.ide;visibility:=reexport
 Bundle-ActivationPolicy: lazy
+Export-Package: org.ow2.mindEd.ide.editor.presentation;version="0.2.0"

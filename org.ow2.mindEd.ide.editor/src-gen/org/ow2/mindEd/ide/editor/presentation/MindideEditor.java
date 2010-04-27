@@ -4,7 +4,7 @@
  *
  * $Id$
  */
-package org.ow2.fractal.mind.ide.emf.mindide.presentation;
+package org.ow2.mindEd.ide.editor.presentation;
 
 
 import java.io.IOException;
@@ -157,11 +157,9 @@ import org.eclipse.emf.edit.ui.util.EditUIUtil;
 
 import org.eclipse.emf.edit.ui.view.ExtendedPropertySheetPage;
 
+import org.ow2.mindEd.ide.edit.provider.MindideItemProviderAdapterFactory;
 
 import org.eclipse.ui.actions.WorkspaceModifyOperation;
-
-import org.ow2.fractal.mind.ide.emf.mindide.provider.MindideItemProviderAdapterFactory;
-import org.ow2.fractal.mind.ide.emf.presentation.MindIDEEditorPlugin;
 
 
 /**

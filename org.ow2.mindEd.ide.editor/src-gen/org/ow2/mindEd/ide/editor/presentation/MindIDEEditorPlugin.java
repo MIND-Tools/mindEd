@@ -4,7 +4,7 @@
  *
  * $Id$
  */
-package org.ow2.fractal.mind.ide.emf.presentation;
+package org.ow2.mindEd.ide.editor.presentation;
 
 import org.eclipse.emf.common.EMFPlugin;
 
