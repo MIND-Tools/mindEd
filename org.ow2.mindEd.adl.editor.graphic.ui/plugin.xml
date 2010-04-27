@@ -21,12 +21,12 @@
       <?gmfgen generated="false"?>
       <editor
             class="org.ow2.mindEd.adl.editor.graphic.ui.custom.part.CustomMindDiagramEditor"
-            contributorClass="org.ow2.mindEd.adl.editor.graphic.ui.MindDiagramActionBarContributor"
+            contributorClass="org.ow2.mindEd.adl.editor.graphic.ui.part.MindDiagramActionBarContributor"
             default="true"
             extensions="adl_diagram"
             icon="icons/obj16/AdlDiagramFile.gif"
             id="org.ow2.mindEd.adl.editor.graphic.ui.MindDiagramEditorID"
-            matchingStrategy="org.ow2.mindEd.adl.editor.graphic.ui.MindMatchingStrategy"
+            matchingStrategy="org.ow2.mindEd.adl.editor.graphic.ui.part.MindMatchingStrategy"
             name="%editorName">
       </editor>
    </extension>
@@ -117,32 +117,32 @@
    <extension point="org.eclipse.ui.preferencePages" id="prefpages">
       <?gmfgen generated="false"?>
       <page
-            id="org.ow2.fractal.mind.emf.diagram.general"
-            name="%prefpage.org.ow2.fractal.mind.emf.diagram.general"
+            id="org.ow2.mindEd.adl.editor.graphic.ui.general"
+            name="%prefpage.org.ow2.mindEd.adl.editor.graphic.ui.general"
             class="org.ow2.mindEd.adl.editor.graphic.ui.custom.preferences.CustomGeneralPreferencePage">
       </page>
       <page
-            id="org.ow2.fractal.mind.emf.diagram.appearance"
-            name="%prefpage.org.ow2.fractal.mind.emf.diagram.appearance"
-            category="org.ow2.fractal.mind.emf.diagram.general"
+            id="org.ow2.mindEd.adl.editor.graphic.ui.appearance"
+            name="%prefpage.org.ow2.mindEd.adl.editor.graphic.ui.appearance"
+            category="org.ow2.mindEd.adl.editor.graphic.ui.general"
             class="adl.diagram.preferences.DiagramAppearancePreferencePage">
       </page>
       <page
-            id="org.ow2.fractal.mind.emf.diagram.connections"
-            name="%prefpage.org.ow2.fractal.mind.emf.diagram.connections"
-            category="org.ow2.fractal.mind.emf.diagram.general"
+            id="org.ow2.mindEd.adl.editor.graphic.ui.connections"
+            name="%prefpage.org.ow2.mindEd.adl.editor.graphic.ui.connections"
+            category="org.ow2.mindEd.adl.editor.graphic.ui.general"
             class="adl.diagram.preferences.DiagramConnectionsPreferencePage">
       </page>
       <page
-            id="org.ow2.fractal.mind.emf.diagram.printing"
-            name="%prefpage.org.ow2.fractal.mind.emf.diagram.printing"
-            category="org.ow2.fractal.mind.emf.diagram.general"
+            id="org.ow2.mindEd.adl.editor.graphic.ui.printing"
+            name="%prefpage.org.ow2.mindEd.adl.editor.graphic.ui.printing"
+            category="org.ow2.mindEd.adl.editor.graphic.ui.general"
             class="adl.diagram.preferences.DiagramPrintingPreferencePage">
       </page>
       <page
-            id="org.ow2.fractal.mind.emf.diagram.rulersAndGrid"
-            name="%prefpage.org.ow2.fractal.mind.emf.diagram.rulersAndGrid"
-            category="org.ow2.fractal.mind.emf.diagram.general"
+            id="org.ow2.mindEd.adl.editor.graphic.ui.rulersAndGrid"
+            name="%prefpage.org.ow2.mindEd.adl.editor.graphic.ui.rulersAndGrid"
+            category="org.ow2.mindEd.adl.editor.graphic.ui.general"
             class="adl.diagram.preferences.DiagramRulersAndGridPreferencePage">
       </page>
    </extension>
@@ -222,7 +222,7 @@
 
    <extension point="org.eclipse.gmf.runtime.diagram.ui.editpartProviders" id="ep-provider">
       <?gmfgen generated="false"?>
-      <editpartProvider class="org.ow2.fractal.mind.diagram.custom.providers.MindEditPartCustomProvider">
+      <editpartProvider class="org.ow2.mindEd.adl.editor.graphic.ui.custom.providers.MindEditPartCustomProvider">
          <Priority name="Lowest"/>
          <object class="org.eclipse.gmf.runtime.notation.Diagram" id="generated-diagram">
             <method name="getType()" value="Mind"/>
@@ -879,7 +879,7 @@
          categoryId="org.eclipse.ui.category.edit"
          defaultHandler="org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.commands.MindDiagramUpdateAllCommand"
          description="%update.diagram.description"
-         id="adl.diagram.updateDiagram"
+         id="org.ow2.mindEd.adl.editor.graphic.ui.updateDiagram"
          name="%update.diagram.name"/>
    </extension>
    
