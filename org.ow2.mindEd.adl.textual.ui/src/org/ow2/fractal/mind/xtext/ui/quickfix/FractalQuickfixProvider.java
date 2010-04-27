@@ -13,8 +13,8 @@ import org.eclipse.xtext.ui.editor.quickfix.DefaultQuickfixProvider;
 import org.eclipse.xtext.ui.editor.quickfix.Fix;
 import org.eclipse.xtext.ui.editor.quickfix.IssueResolutionAcceptor;
 import org.eclipse.xtext.validation.Issue;
-import org.ow2.fractal.mind.ide.MindcErrorCodes;
 import org.ow2.fractal.mind.xtext.validation.FractalJavaValidator;
+import org.ow2.mindEd.ide.core.MindcErrorCodes;
 
 import adl.ArgumentDefinition;
 import adl.ComponentReference;

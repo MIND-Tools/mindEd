@@ -24,6 +24,6 @@ Export-Package: org.ow2.fractal.mind.xtext.ui,
 Bundle-Activator: org.ow2.fractal.mind.xtext.ui.internal.FractalActivator
 Import-Package: org.apache.log4j,
  org.eclipse.gmf.runtime.common.ui.util,
- org.ow2.fractal.mind.diagram.custom.figures;resolution:=optional,
- org.ow2.fractal.mind.ide,
- org.ow2.fractal.mind.ide.emf.mindide
+ org.ow2.mindEd.adl.editor.graphic.ui.custom.figures;resolution:=optional,
+ org.ow2.mindEd.ide.core;version="0.2.0",
+ org.ow2.mindEd.ide.model;version="0.2.0"

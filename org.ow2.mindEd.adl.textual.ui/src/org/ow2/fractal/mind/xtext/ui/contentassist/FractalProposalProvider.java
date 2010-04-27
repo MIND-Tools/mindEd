@@ -12,12 +12,12 @@ import org.eclipse.xtext.Assignment;
 import org.eclipse.xtext.RuleCall;
 import org.eclipse.xtext.ui.editor.contentassist.ContentAssistContext;
 import org.eclipse.xtext.ui.editor.contentassist.ICompletionProposalAcceptor;
-import org.ow2.fractal.mind.ide.MindModelManager;
-import org.ow2.fractal.mind.ide.ModelToProjectUtil;
-import org.ow2.fractal.mind.ide.emf.mindide.MindAdl;
-import org.ow2.fractal.mind.ide.emf.mindide.MindPackage;
 import org.ow2.fractal.mind.xtext.ui.contentassist.AbstractFractalProposalProvider;
 import org.ow2.fractal.mind.xtext.util.FractalUtil;
+import org.ow2.mindEd.ide.core.MindModelManager;
+import org.ow2.mindEd.ide.core.ModelToProjectUtil;
+import org.ow2.mindEd.ide.model.MindAdl;
+import org.ow2.mindEd.ide.model.MindPackage;
 
 import adl.AdlDefinition;
 import adl.ArchitectureDefinition;

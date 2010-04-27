@@ -6,7 +6,7 @@ import org.eclipse.xtext.ui.editor.syntaxcoloring.IHighlightingConfigurationAcce
 import org.eclipse.xtext.ui.editor.syntaxcoloring.IHighlightingConfiguration;
 import org.eclipse.xtext.ui.editor.utils.TextStyle;
 //import org.ow2.fractal.mind.diagram.custom.figures.IFractalShape;
-import org.ow2.fractal.mind.diagram.custom.figures.IFractalShape;
+import org.ow2.mindEd.adl.editor.graphic.ui.custom.figures.IFractalShape;
 
 /**
  * class which Attribute styles to IDs
