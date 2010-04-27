@@ -1,8 +1,8 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: %pluginName
-Bundle-SymbolicName: org.ow2.fractal.mind.emf.model;singleton:=true
-Bundle-Version: 0.2.0
+Bundle-SymbolicName: org.ow2.mindEd.adl.model;singleton:=true
+Bundle-Version: 0.2.0.qualifier
 Bundle-ClassPath: .
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
@@ -20,7 +20,7 @@ Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.emf.ecore;visibility:=reexport,
  org.eclipse.emf.edit;bundle-version="2.5.0",
  org.eclipse.ui;bundle-version="3.5.0",
- org.ow2.fractal.mind.ide
+ org.ow2.mindEd.ide
 Bundle-ActivationPolicy: lazy
 Import-Package: org.eclipse.emf.ecore.xmi.impl,
  org.ow2.fractal.mind.ide

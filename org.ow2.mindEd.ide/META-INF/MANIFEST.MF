@@ -1,8 +1,8 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Mind IDE MODEL
-Bundle-SymbolicName: org.ow2.fractal.mind.ide;singleton:=true
-Bundle-Version: 0.2.0
+Bundle-SymbolicName: org.ow2.mindEd.ide;singleton:=true
+Bundle-Version: 0.2.0.qualifier
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Import-Package: org.eclipse.cdt.core,
  org.eclipse.cdt.core.envvar,

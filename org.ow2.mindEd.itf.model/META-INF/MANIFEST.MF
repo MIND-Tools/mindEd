@@ -1,9 +1,9 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: org.ow2.fractal.mind.idl.itf
+Bundle-Name: org.ow2.mindEd.itf.model
 Bundle-Vendor: My Company
-Bundle-Version: 1.0.0
-Bundle-SymbolicName: org.ow2.fractal.mind.idl.itf; singleton:=true
+Bundle-Version: 0.2.0.qualifier
+Bundle-SymbolicName: org.ow2.mindEd.itf.model; singleton:=true
 Bundle-ActivationPolicy: lazy
 Require-Bundle: org.eclipse.xtext,
  org.eclipse.xtext.generator;resolution:=optional,

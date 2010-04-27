@@ -1,19 +1,19 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: org.ow2.fractal.mind.xtext.ui
+Bundle-Name: org.ow2.mindEd.adl.textual.ui
 Bundle-Vendor: Partenaire Minalogic
-Bundle-Version: 0.2.0
-Bundle-SymbolicName: org.ow2.fractal.mind.xtext.ui; singleton:=true
+Bundle-Version: 0.2.0.qualifier
+Bundle-SymbolicName: org.ow2.mindEd.adl.textual.ui; singleton:=true
 Eclipse-RegisterBuddy: org.eclipse.xtext.log4j
 Bundle-ActivationPolicy: lazy
-Require-Bundle: org.ow2.fractal.mind.xtext;visibility:=reexport,
+Require-Bundle: org.ow2.mindEd.adl.textual.model;visibility:=reexport,
  org.eclipse.xtend,
- org.ow2.fractal.mind.emf.model.editor,
- org.ow2.fractal.mind.emf.model,
+ org.ow2.mindEd.adl.editor.tree,
+ org.ow2.mindEd.adl.model,
  org.eclipse.ui.editors,
  org.eclipse.ui,
  org.antlr.runtime,
- org.ow2.fractal.mind.emf.diagram;resolution:=optional,
+ org.ow2.mindEd.adl.schema.diagram;resolution:=optional,
  org.eclipse.xtext.ui,
  org.eclipse.xtext.ui.shared,
  org.eclipse.xtext.builder
