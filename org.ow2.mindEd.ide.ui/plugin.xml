@@ -13,7 +13,7 @@
             class="org.ow2.mindEd.ide.ui.wizards.MindProjectWizard"
             icon="icons/MindProject.gif"
             id="org.ow2.mindEd.ide.ui.wizards.MindProjectWizard"
-            name="Fractal MIND Project"
+            name="MindEd Project"
             project="true">
       </wizard>
       <wizard
@@ -37,13 +37,13 @@
             adaptable="true"
             objectClass="org.eclipse.core.resources.IProject"
             nameFilter="*"
-            id="org.ow2.fractal.mind.build.ui.contribution1">
+            id="org.ow2.mindEd.ide.core.build.ui.contribution1">
          <action
                label="Add/Remove Mind Nature"
                class="org.ow2.mindEd.ide.ui.AddMINDNatureAction"
                menubarPath="additions"
                enablesFor="+"
-               id="org.ow2.fractal.mind.build.ui.addRemoveNatureAction">
+               id="org.ow2.mindEd.ide.core.build.ui.addRemoveNatureAction">
          </action>
          <action
                class="org.ow2.mindEd.ide.ui.BuildAction"
@@ -86,14 +86,14 @@
          </enabledWhen>
          <filter
                name="nature"
-               value="org.ow2.fractal.mind.nature">
+               value="org.ow2.mindEd.ide.core.nature">
          </filter>
       </page>
    </extension>
    <extension
          point="org.eclipse.help.contexts">
       <contexts
-            file="org.ow2.fractal.mind.build.ui.contexts1">
+            file="org.ow2.mindEd.ide.core.build.ui.contexts1">
       </contexts>
    </extension>
    <extension
@@ -175,7 +175,7 @@
          <possibleChildren>
             <or>
                <instanceof
-                     value="org.ow2.fractal.mind.ide.emf.mindide.MindObject">
+                     value="org.ow2.mindEd.model.MindObject">
                </instanceof>
                <instanceof
                      value="org.eclipse.core.resources.IWorkspaceRoot">
@@ -192,7 +192,7 @@
                wizardId="org.ow2.mindEd.ide.ui.wizards.ComponentNewWizard">
             <enablement>
                <instanceof
-                     value="org.ow2.fractal.mind.ide.emf.mindide.MindObject">
+                     value="org.ow2.mindEd.model.MindObject">
                </instanceof></enablement>
          </commonWizard>
          <commonWizard
@@ -203,19 +203,19 @@
                   <instanceof
                   value="org.eclipse.core.resources.IWorkspaceRoot"/>
                   <instanceof
-                        value="org.ow2.fractal.mind.ide.MindModel">
+                        value="org.ow2.mindEd.ide.core.ide.MindModel">
                   </instanceof>
                   <instanceof
-                        value="org.ow2.fractal.mind.ide.emf.mindide.MindRepo">
+                        value="org.ow2.mindEd.model.MindRepo">
                   </instanceof>
                   <instanceof
-                        value="org.ow2.fractal.mind.ide.emf.mindide.MindRootSrc">
+                        value="org.ow2.mindEd.model.MindRootSrc">
                   </instanceof>
                   <instanceof
-                        value="org.ow2.fractal.mind.ide.emf.mindide.MindProject">
+                        value="org.ow2.mindEd.model.MindProject">
                   </instanceof>
                   <instanceof
-                        value="org.ow2.fractal.mind.ide.emf.mindide.MindPackage">
+                        value="org.ow2.mindEd.model.MindPackage">
                   </instanceof>
                   <adapt type="java.util.Collection"> 
 							<count value="0" />
@@ -230,13 +230,13 @@
                wizardId="org.ow2.mindEd.ide.ui.wizards.MindPackageWizard">
             <enablement>
                <instanceof
-                     value="org.ow2.fractal.mind.ide.emf.mindide.MindObject">
+                     value="org.ow2.mindEd.model.MindObject">
                </instanceof>
             </enablement>
          </commonWizard>
          <enablement>
             <instanceof
-                  value="org.ow2.fractal.mind.ide.emf.mindide.MindObject">
+                  value="org.ow2.mindEd.model.MindObject">
             </instanceof>
             <instanceof
                   value="org.eclipse.core.resources.IWorkspaceRoot">
@@ -245,7 +245,7 @@
          <triggerPoints>
             <or>
                <instanceof
-                     value="org.ow2.fractal.mind.ide.emf.mindide.MindObject">
+                     value="org.ow2.mindEd.model.MindObject">
                </instanceof>
                <instanceof
                      value="org.eclipse.core.resources.IWorkspaceRoot">
@@ -255,7 +255,7 @@
                         value="org.eclipse.core.resources.IProject">
                   </instanceof>
                   <adapt
-                        type="org.ow2.fractal.mind.ide.emf.mindide.MindProject">
+                        type="org.ow2.mindEd.model.MindProject">
                   </adapt>
                </and>
                <instanceof
@@ -274,22 +274,22 @@
          <enablement>
             <or>
                <instanceof
-                     value="org.ow2.fractal.mind.ide.emf.edit.custom.MindPathItemProvider">
+                     value="org.ow2.mindEd.ide.core.ide.emf.edit.custom.MindPathItemProvider">
                </instanceof>
                <instanceof
-                     value="org.ow2.fractal.mind.ide.emf.edit.custom.MindPathEntryItemProviderCustom">
+                     value="org.ow2.mindEd.ide.core.ide.emf.edit.custom.MindPathEntryItemProviderCustom">
                </instanceof>
                <instanceof
-                     value="org.ow2.fractal.mind.ide.emf.mindide.MindPathEntry">
+                     value="org.ow2.mindEd.model.MindPathEntry">
                </instanceof>
                <instanceof
-                     value="org.ow2.fractal.mind.ide.emf.mindide.MindProject">
+                     value="org.ow2.mindEd.model.MindProject">
                </instanceof>
                <adapt
                      type="org.eclipse.core.resources.IProject">
                   <test
                         property="org.eclipse.core.resources.projectNature"
-                        value="org.ow2.fractal.mind.nature">
+                        value="org.ow2.mindEd.ide.core.nature">
                   </test>
                </adapt>
             </or>
@@ -306,10 +306,10 @@
          <triggerPoints>
 				<or>
 					<adapt type="org.eclipse.core.resources.IProject" >
-						<test property="org.eclipse.core.resources.projectNature" value="org.ow2.fractal.mind.nature"/>
+						<test property="org.eclipse.core.resources.projectNature" value="org.ow2.mindEd.ide.core.nature"/>
 					</adapt>
 					<instanceof	value="org.eclipse.core.resources.IResource" />
-					<instanceof value="org.ow2.fractal.mind.ide.emf.mindide.MindObject" />
+					<instanceof value="org.ow2.mindEd.model.MindObject" />
  				</or>
 			</triggerPoints>
         
@@ -322,16 +322,16 @@
                         value="org.eclipse.core.resources.IWorkspaceRoot">
                   </instanceof>
                   <instanceof
-                        value="org.ow2.fractal.mind.ide.MindModel">
+                        value="org.ow2.mindEd.ide.core.ide.MindModel">
                   </instanceof>
                   <instanceof
-                        value="org.ow2.fractal.mind.ide.emf.mindide.MindRootSrc">
+                        value="org.ow2.mindEd.model.MindRootSrc">
                   </instanceof>
                   <instanceof
-                        value="org.ow2.fractal.mind.ide.emf.mindide.MindProject">
+                        value="org.ow2.mindEd.model.MindProject">
                   </instanceof>
                   <instanceof
-                        value="org.ow2.fractal.mind.ide.emf.mindide.MindPackage">
+                        value="org.ow2.mindEd.model.MindPackage">
                   </instanceof>
                   <adapt
                         type="java.util.Collection">
@@ -340,7 +340,7 @@
                      </count>
                   </adapt>
                   <instanceof
-                        value="org.ow2.fractal.mind.ide.emf.mindide.MindAllRepo">
+                        value="org.ow2.mindEd.model.MindAllRepo">
                   </instanceof>
                </or>
             </enablement>
@@ -351,7 +351,7 @@
             <enablement>
                <or>
                   <instanceof
-                        value="org.ow2.fractal.mind.ide.emf.mindide.MindObject">
+                        value="org.ow2.mindEd.model.MindObject">
                   </instanceof>
                   <instanceof
                         value="org.eclipse.core.resources.IResource">
@@ -368,7 +368,7 @@
             <enablement>
                <or>
                   <instanceof
-                        value="org.ow2.fractal.mind.ide.emf.mindide.MindObject">
+                        value="org.ow2.mindEd.model.MindObject">
                   </instanceof>
                   <instanceof
                         value="org.eclipse.core.resources.IResource">
@@ -384,10 +384,10 @@
                      value="org.eclipse.core.resources.IResource">
                </instanceof>
                <instanceof
-                     value="org.ow2.fractal.mind.ide.emf.mindide.MindObject">
+                     value="org.ow2.mindEd.model.MindObject">
                </instanceof>
                <instanceof
-                     value="org.ow2.fractal.mind.ide.emf.edit.custom.MindPathItemProvider">
+                     value="org.ow2.mindEd.ide.core.ide.emf.edit.custom.MindPathItemProvider">
                </instanceof>
             <instanceof
            value="org.eclipse.jdt.internal.ui.packageview.PackageFragmentRootContainer">
@@ -410,13 +410,13 @@
          <enablement>
             <or>
                <instanceof
-                     value="org.ow2.fractal.mind.ide.emf.mindide.MindObject">
+                     value="org.ow2.mindEd.model.MindObject">
                </instanceof>
                <adapt
                      type="org.eclipse.core.resources.IProject">
                   <test
                         property="org.eclipse.core.resources.projectNature"
-                        value="org.ow2.fractal.mind.nature">
+                        value="org.ow2.mindEd.ide.core.nature">
                   </test>
                </adapt>
                <instanceof
@@ -433,7 +433,7 @@
             priority="high">
          <enablement>
             <instanceof
-                  value="org.ow2.fractal.mind.ide.emf.mindide.MindObject">
+                  value="org.ow2.mindEd.model.MindObject">
             </instanceof></enablement>
       </actionProvider>
    </extension>
