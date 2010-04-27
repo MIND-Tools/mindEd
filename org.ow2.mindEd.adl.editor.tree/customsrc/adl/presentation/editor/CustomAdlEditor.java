@@ -1,7 +1,7 @@
 package adl.presentation.editor;
 
 import org.eclipse.ui.IEditorInput;
-import org.ow2.fractal.mind.ide.ModelToProjectUtil;
+import org.ow2.mindEd.ide.core.ModelToProjectUtil;
 
 import adl.presentation.AdlEditor;
 
