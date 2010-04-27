@@ -4,6 +4,5 @@
 	<classpathentry excluding="fractalIDL/|fractalIDL/impl/|fractalIDL/util/" kind="src" path="src-gen"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="con" path="org.eclipse.pde.core.requiredPlugins"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/org.ow2.fractal.mind.idl.itf"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
