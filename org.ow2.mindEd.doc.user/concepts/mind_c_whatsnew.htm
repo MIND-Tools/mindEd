@@ -23,6 +23,27 @@
 
 <h1 id="top">Mind 0.2 - New and Noteworthy</h1>
 
+<li>Graphical Editor
+	<ul>
+		<li>Tools
+		<ul>
+			<li><span class="def">Interface generation for bindings :</span>
+			<p>- the selection a component with the Binding tool generates a temporary interface<br />
+			- Generated interface will be the source or target of the binding if the component is selected<br />
+			- Generated interface will switch role provides / requires depending on constraints<br />
+			- If binding creation fails, generated interfaces are not deleted</p>
+			</li>
+		</ul>
+		</li>
+		<li>UI
+		<ul>
+			<li><span class="def"> better behaviour for lists</span></li>
+			<li><span class="def">Merged item's position is not reset anymore on refresh</span></li>
+			<li><span class="def">Minor bugs fixed</span></li>
+	</ul>
+
+	</li>
+
 <h1 id="top">Mind 0.1 - New and Noteworthy</h1>
 
 
@@ -77,7 +98,7 @@
 			<li><span class="def">Gestion des sous composants génériques</span> : Gestion des
 			sous composants non déclarés 'contains [reference] as X'</li>
 			<li><span class="def">Chargement de l'héritage au démarrage d'Eclipse</span>: Le
-			workbench n'étant pas chargé… <span class="failed">(FAILED)</li>
+			workbench n'étant pas chargé… <span class="failed">(FAILED)</span></li>
 			<li><span class="def">Chargement de l'héritage à l'ouverture d'un fichier</span></li>
 			<li><span class="def">Héritage dynamique</span> : Héritage recalculé lors de la
 			modification d'un référence ou objet associé.</li>
@@ -211,9 +232,9 @@
 			<li><span class="def">Blocs entre accolades</span></li>
 			<li><span class="def">Indentation</span></li>
 			<li><span class="def">Suppression des espaces superflus</span></li>
-			<li><span class="def">Espaces perdus à la sérialisation</span> <span class="failed">(FAILED)</li>
+			<li><span class="def">Espaces perdus à la sérialisation</span> <span class="failed">(FAILED)</span></li>
 			<li><span class="def">Les annotations complexes exigent l'écriture sur
-			plusieurs lignes.</span> <span class="failed">(FAILED)</li>
+			plusieurs lignes.</span> <span class="failed">(FAILED)</span></li>
 		</ul>
 		</li>
 	</ul>
@@ -223,8 +244,6 @@
 	<ul>
 		<li>IDE
 		<ul>
-			<li><span class="def">Ouvre avec le dernier éditeur utilisé en cas de
-			double clic ou clic droit &gt; open</span></li>
 			<li><span class="def">Ouvre avec le dernier éditeur utilisé en cas de
 			double clic ou clic droit &gt; open</span></li>
 		</ul>
@@ -244,27 +263,17 @@
 			</li>
 			<li><span class="def">La création / réorientation des bindings respecte les
 			contraintes</span> : Cf. Specs SP1</li>
-			<li><span class="def">La modification d'une interface respecte les
-			contraintes des bindings</span> <span class="failed">(FAILED)</span></li>
 			<li><span class="def">F5 refresh la sémantique (modèle), le visuel et le
 			merge</span></li>
-			<li><span class="def">Annotations</span> <span class="failed">(FAILED)</span></li>
 			<li><span class="def">Création avec un clic (taille par défaut)</span></li>
 			<li><span class="def">Création en dessinant un rectangle</span></li>
 			<li><span class="def">Ouverture d'un file c ou d'une référence en double
 			clic</span></li>
-			<li><span class="def">Ouverture d'un itf en double clic</span> <span class="failed">(FAILED)</span></li>
 			<li><span class="def">Création en cliquant sur un fils non-composant</span> : e.g.
 			créer une référence dans une liste en cliquant sur le titre de la
 			liste</li>
 			<li><span class="def">Validation de la cible en cas de drag &amp; drop</span></li>
-			<li><span class="def">Initialisation des composants avec une taille et un
-			positionnement agréables</span> <span class="failed">(FAILED)</span></li>
 			<li><span class="def">Composants mergés non éditables et gris</span></li>
-
-			<li><span class="def">Routeur des bindings qui ne fait pas n'importe quoi</span> <span class="failed">(FAILED)</span></li>
-
-			<li><span class="def">Label Multiline pour le inline code</span> <span class="failed">(FAILED)</span></li>
 
 			<li><span class="def">Editable sur plusieurs lignes mais s'affiche sur une
 			seule</span></li>
