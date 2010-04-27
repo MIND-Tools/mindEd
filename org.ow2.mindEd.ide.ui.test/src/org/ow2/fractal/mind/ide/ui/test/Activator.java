@@ -1,4 +1,4 @@
-package org.ow2.fractal.mind.ide.ui.test;
+package org.ow2.mindEd.ide.ui.test;
 
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.osgi.framework.BundleContext;

@@ -1,21 +1,12 @@
-package org.ow2.fractal.mind.ide.ui.test;
+package org.ow2.mindEd.ide.ui.test;
 
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IFolder;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.ResourcesPlugin;
-import org.eclipse.swtbot.swt.finder.SWTBot;
-import org.eclipse.swtbot.swt.finder.waits.DefaultCondition;
-import org.eclipse.swtbot.swt.finder.widgets.SWTBotMenu;
 import org.junit.Test;
-import org.ow2.fractal.mind.ide.MindIdeCore;
 import org.ow2.fractal.mind.ide.test.TestMindProject;
-
-import fr.imag.adele.cadse.test.GTCadseTestCase;
-import fr.imag.adele.cadse.test.gtmenu.GTMenu;
-import fr.imag.adele.cadse.test.gttree.GTTreeNode;
-import fr.imag.adele.cadse.test.gtworkbench_part.GTShell;
-import fr.imag.adele.cadse.test.gtworkbench_part.GTView;
+import org.ow2.mindEd.ide.core.MindIdeCore;
 
 /**
  * Test Fractal Mind Wizard
