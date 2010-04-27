@@ -6,8 +6,8 @@
   <extension point="org.eclipse.emf.ecore.generated_package">
     <package 
        uri = "http://www.ow2.org/fractal/mind/idl/FractalItf" 
-       class = "org.ow2.fractal.mind.idl.fractalIDL.FractalIDLPackage"
-       genModel = "org/ow2/fractal/mind/idl/FractalItf.genmodel" /> 
+       class = "org.ow2.mindEd.itf.editor.textual.fractalIDL.FractalIDLPackage"
+       genModel = "org/ow2/mindEd/itf/editor/textual/FractalItf.genmodel" /> 
 	
   </extension>
 

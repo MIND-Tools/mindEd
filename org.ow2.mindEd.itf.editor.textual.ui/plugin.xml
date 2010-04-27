@@ -6,43 +6,43 @@
     <extension
             point="org.eclipse.ui.editors">
         <editor
-              class="org.ow2.fractal.mind.idl.ui.FractalItfExecutableExtensionFactory:org.eclipse.xtext.ui.editor.XtextEditor"
+              class="org.ow2.mindEd.itf.editor.textual.ui.FractalItfExecutableExtensionFactory:org.eclipse.xtext.ui.editor.XtextEditor"
               contributorClass="org.eclipse.ui.editors.text.TextEditorActionContributor"
               default="true"
               extensions="itf"
               icon="icons/MindItf.gif"
-              id="org.ow2.fractal.mind.idl.FractalItf"
+              id="org.ow2.mindEd.itf.editor.textual.FractalItf"
               name="MindEd Itf Editor">
         </editor>
     </extension>
     <extension
         point="org.eclipse.ui.handlers">
         <handler
-            class="org.ow2.fractal.mind.idl.ui.FractalItfExecutableExtensionFactory:org.eclipse.xtext.ui.editor.hyperlinking.OpenDeclarationHandler"
+            class="org.ow2.mindEd.itf.editor.textual.ui.FractalItfExecutableExtensionFactory:org.eclipse.xtext.ui.editor.hyperlinking.OpenDeclarationHandler"
             commandId="org.eclipse.xtext.ui.editor.hyperlinking.OpenDeclaration">
             <activeWhen>
                 <reference
-                    definitionId="org.ow2.fractal.mind.idl.FractalItf.Editor.opened">
+                    definitionId="org.ow2.mindEd.itf.editor.textual.FractalItf.Editor.opened">
                 </reference>
             </activeWhen>
         </handler>
         <handler
-            class="org.ow2.fractal.mind.idl.ui.FractalItfExecutableExtensionFactory:org.eclipse.xtext.ui.editor.handler.ValidateActionHandler"
-            commandId="org.ow2.fractal.mind.idl.FractalItf.validate">
+            class="org.ow2.mindEd.itf.editor.textual.ui.FractalItfExecutableExtensionFactory:org.eclipse.xtext.ui.editor.handler.ValidateActionHandler"
+            commandId="org.ow2.mindEd.itf.editor.textual.FractalItf.validate">
          <activeWhen>
             <reference
-                    definitionId="org.ow2.fractal.mind.idl.FractalItf.Editor.opened">
+                    definitionId="org.ow2.mindEd.itf.editor.textual.FractalItf.Editor.opened">
             </reference>
          </activeWhen>
       </handler>
     </extension>
     <extension point="org.eclipse.core.expressions.definitions">
-        <definition id="org.ow2.fractal.mind.idl.FractalItf.Editor.opened">
+        <definition id="org.ow2.mindEd.itf.editor.textual.FractalItf.Editor.opened">
             <and>
                 <reference definitionId="isActiveEditorAnInstanceOfXtextEditor"/>
                 <with variable="activeEditor">
                     <test property="org.eclipse.xtext.ui.editor.XtextEditor.languageName" 
-                        value="org.ow2.fractal.mind.idl.FractalItf" 
+                        value="org.ow2.mindEd.itf.editor.textual.FractalItf" 
                         forcePluginActivation="true"/>
                 </with>        
             </and>
@@ -51,37 +51,37 @@
     <extension
             point="org.eclipse.ui.preferencePages">
         <page
-            class="org.ow2.fractal.mind.idl.ui.FractalItfExecutableExtensionFactory:org.eclipse.xtext.ui.editor.preferences.LanguageRootPreferencePage"
-            id="org.ow2.fractal.mind.idl.FractalItf"
+            class="org.ow2.mindEd.itf.editor.textual.ui.FractalItfExecutableExtensionFactory:org.eclipse.xtext.ui.editor.preferences.LanguageRootPreferencePage"
+            id="org.ow2.mindEd.itf.editor.textual.FractalItf"
             name="FractalItf">
-            <keywordReference id="org.ow2.fractal.mind.idl.ui.keyword_FractalItf"/>
+            <keywordReference id="org.ow2.mindEd.itf.editor.textual.ui.keyword_FractalItf"/>
         </page>
         <page
-            category="org.ow2.fractal.mind.idl.FractalItf"
-            class="org.ow2.fractal.mind.idl.ui.FractalItfExecutableExtensionFactory:org.eclipse.xtext.ui.editor.syntaxcoloring.SyntaxColoringPreferencePage"
-            id="org.ow2.fractal.mind.idl.FractalItf.coloring"
+            category="org.ow2.mindEd.itf.editor.textual.FractalItf"
+            class="org.ow2.mindEd.itf.editor.textual.ui.FractalItfExecutableExtensionFactory:org.eclipse.xtext.ui.editor.syntaxcoloring.SyntaxColoringPreferencePage"
+            id="org.ow2.mindEd.itf.editor.textual.FractalItf.coloring"
             name="Syntax Coloring">
-            <keywordReference id="org.ow2.fractal.mind.idl.ui.keyword_FractalItf"/>
+            <keywordReference id="org.ow2.mindEd.itf.editor.textual.ui.keyword_FractalItf"/>
         </page>
         <page
-            category="org.ow2.fractal.mind.idl.FractalItf"
-            class="org.ow2.fractal.mind.idl.ui.FractalItfExecutableExtensionFactory:org.eclipse.xtext.ui.editor.templates.XtextTemplatePreferencePage"
-            id="org.ow2.fractal.mind.idl.FractalItf.templates"
+            category="org.ow2.mindEd.itf.editor.textual.FractalItf"
+            class="org.ow2.mindEd.itf.editor.textual.ui.FractalItfExecutableExtensionFactory:org.eclipse.xtext.ui.editor.templates.XtextTemplatePreferencePage"
+            id="org.ow2.mindEd.itf.editor.textual.FractalItf.templates"
             name="Templates">
-            <keywordReference id="org.ow2.fractal.mind.idl.ui.keyword_FractalItf"/>
+            <keywordReference id="org.ow2.mindEd.itf.editor.textual.ui.keyword_FractalItf"/>
         </page>
     </extension>
     <extension
         point="org.eclipse.ui.keywords">
         <keyword
-            id="org.ow2.fractal.mind.idl.ui.keyword_FractalItf"
+            id="org.ow2.mindEd.itf.editor.textual.ui.keyword_FractalItf"
             label="FractalItf"/>
     </extension>
     <extension
          point="org.eclipse.ui.commands">
       <command
             description="Trigger expensive validation"
-            id="org.ow2.fractal.mind.idl.FractalItf.validate"
+            id="org.ow2.mindEd.itf.editor.textual.FractalItf.validate"
             name="Validate">
       </command>
     </extension>
@@ -89,12 +89,12 @@
         <menuContribution
             locationURI="popup:#TextEditorContext?after=group.edit">
              <command
-                 commandId="org.ow2.fractal.mind.idl.FractalItf.validate"
+                 commandId="org.ow2.mindEd.itf.editor.textual.FractalItf.validate"
                  style="push"
                  tooltip="Trigger expensive validation">
             <visibleWhen checkEnabled="false">
                 <reference
-                    definitionId="org.ow2.fractal.mind.idl.FractalItf.Editor.opened">
+                    definitionId="org.ow2.mindEd.itf.editor.textual.FractalItf.Editor.opened">
                 </reference>
             </visibleWhen>
          </command>  
@@ -104,7 +104,7 @@
 		<menuContribution locationURI="popup:#TextEditorContext?endof=group.find">
 			<command commandId="org.eclipse.xtext.ui.editor.FindReferences">
 				<visibleWhen checkEnabled="false">
-                	<reference definitionId="org.ow2.fractal.mind.idl.FractalItf.Editor.opened">
+                	<reference definitionId="org.ow2.mindEd.itf.editor.textual.FractalItf.Editor.opened">
                 	</reference>
             	</visibleWhen>
 			</command>
@@ -112,11 +112,11 @@
 	</extension>
 	<extension point="org.eclipse.ui.handlers">
 	    <handler
-            class="org.ow2.fractal.mind.idl.ui.FractalItfExecutableExtensionFactory:org.eclipse.xtext.ui.editor.findrefs.FindReferencesHandler"
+            class="org.ow2.mindEd.itf.editor.textual.ui.FractalItfExecutableExtensionFactory:org.eclipse.xtext.ui.editor.findrefs.FindReferencesHandler"
             commandId="org.eclipse.xtext.ui.editor.FindReferences">
             <activeWhen>
                 <reference
-                    definitionId="org.ow2.fractal.mind.idl.FractalItf.Editor.opened">
+                    definitionId="org.ow2.mindEd.itf.editor.textual.FractalItf.Editor.opened">
                 </reference>
             </activeWhen>
         </handler>
@@ -127,13 +127,13 @@
 	<extension
 		point="org.eclipse.emf.ecore.extension_parser">
 		<parser
-			class="org.ow2.fractal.mind.idl.ui.FractalItfExecutableExtensionFactory:org.eclipse.xtext.resource.IResourceFactory"
+			class="org.ow2.mindEd.itf.editor.textual.ui.FractalItfExecutableExtensionFactory:org.eclipse.xtext.resource.IResourceFactory"
 			type="itf">
 		</parser>
 	</extension>
 	<extension point="org.eclipse.xtext.extension_resourceServiceProvider">
         <resourceServiceProvider
-            class="org.ow2.fractal.mind.idl.ui.FractalItfExecutableExtensionFactory:org.eclipse.xtext.ui.resource.IResourceUIServiceProvider"
+            class="org.ow2.mindEd.itf.editor.textual.ui.FractalItfExecutableExtensionFactory:org.eclipse.xtext.ui.resource.IResourceUIServiceProvider"
             uriExtension="itf">
         </resourceServiceProvider>
     </extension>
