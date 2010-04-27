@@ -5,7 +5,7 @@ import java.util.HashMap;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
-import org.ow2.fractal.mind.ide.ModelToProjectUtil;
+import org.ow2.mindEd.ide.core.ModelToProjectUtil;
 
 import adl.AdlPackage;
 import adl.ArchitectureDefinition;

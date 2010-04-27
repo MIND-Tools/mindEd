@@ -1,7 +1,7 @@
 package adl.custom.helpers;
 
 import org.eclipse.emf.common.util.URI;
-import org.ow2.fractal.mind.ide.ModelToProjectUtil;
+import org.ow2.mindEd.ide.core.ModelToProjectUtil;
 
 import adl.ArchitectureDefinition;
 import adl.ComponentReference;

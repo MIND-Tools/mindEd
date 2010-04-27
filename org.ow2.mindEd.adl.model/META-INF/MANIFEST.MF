@@ -23,4 +23,4 @@ Require-Bundle: org.eclipse.core.runtime,
  org.ow2.mindEd.ide
 Bundle-ActivationPolicy: lazy
 Import-Package: org.eclipse.emf.ecore.xmi.impl,
- org.ow2.fractal.mind.ide
+ org.ow2.mindEd.ide.core
