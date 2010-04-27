@@ -6,28 +6,28 @@
          point="org.eclipse.ui.newWizards">
       <category
             name="Mind"
-            id="org.ow2.fractal.mind.ide.ui">
+            id="org.ow2.mindEd.ide.ui">
       </category>
       <wizard
-            category="org.ow2.fractal.mind.ide.ui"
-            class="org.ow2.fractal.mind.ide.ui.wizards.MindProjectWizard"
+            category="org.ow2.mindEd.ide.ui"
+            class="org.ow2.mindEd.ide.ui.wizards.MindProjectWizard"
             icon="icons/MindProject.gif"
-            id="org.ow2.fractal.mind.ide.ui.wizards.MindProjectWizard"
+            id="org.ow2.mindEd.ide.ui.wizards.MindProjectWizard"
             name="Fractal MIND Project"
             project="true">
       </wizard>
       <wizard
-            category="org.ow2.fractal.mind.ide.ui"
-            class="org.ow2.fractal.mind.ide.ui.wizards.ComponentNewWizard"
+            category="org.ow2.mindEd.ide.ui"
+            class="org.ow2.mindEd.ide.ui.wizards.ComponentNewWizard"
             icon="icons/primitive.png"
-            id="org.ow2.fractal.mind.ide.ui.wizards.ComponentNewWizard"
+            id="org.ow2.mindEd.ide.ui.wizards.ComponentNewWizard"
             name="Mind ADL Component">
       </wizard>
       <wizard
-            category="org.ow2.fractal.mind.ide.ui"
-            class="org.ow2.fractal.mind.ide.ui.wizards.MindPackageWizard"
+            category="org.ow2.mindEd.ide.ui"
+            class="org.ow2.mindEd.ide.ui.wizards.MindPackageWizard"
             icon="icons/package.gif"
-            id="org.ow2.fractal.mind.ide.ui.wizards.MindPackageWizard"
+            id="org.ow2.mindEd.ide.ui.wizards.MindPackageWizard"
             name="Mind package">
       </wizard>
    </extension>
@@ -40,14 +40,14 @@
             id="org.ow2.fractal.mind.build.ui.contribution1">
          <action
                label="Add/Remove Mind Nature"
-               class="org.ow2.fractal.mind.ide.ui.AddMINDNatureAction"
+               class="org.ow2.mindEd.ide.ui.AddMINDNatureAction"
                menubarPath="additions"
                enablesFor="+"
                id="org.ow2.fractal.mind.build.ui.addRemoveNatureAction">
          </action>
          <action
-               class="org.ow2.fractal.mind.ide.ui.BuildAction"
-               id="org.ow2.fractal.mind.ide.ui.action1"
+               class="org.ow2.mindEd.ide.ui.BuildAction"
+               id="org.ow2.mindEd.ide.ui.action1"
                label="Build">
          </action>
       </objectContribution>
@@ -55,14 +55,14 @@
    <extension
          point="org.eclipse.ui.views">
       <category
-            id="org.ow2.fractal.mind.ide.ui.views.mind"
+            id="org.ow2.mindEd.ide.ui.views.mind"
             name="Mind Category">
       </category>
       <view
-            category="org.ow2.fractal.mind.ide.ui.views.mind"
+            category="org.ow2.mindEd.ide.ui.views.mind"
             class="org.eclipse.ui.navigator.CommonNavigator"
             icon="icons/sample.gif"
-            id="org.ow2.fractal.mind.ide.ui.view"
+            id="org.ow2.mindEd.ide.ui.view"
             name="Mind Navigator">
       </view>
    </extension>
@@ -75,8 +75,8 @@
    <extension
          point="org.eclipse.ui.propertyPages">
       <page
-            class="org.ow2.fractal.mind.ide.ui.properties.MindProjectPropertyPage"
-            id="org.ow2.fractal.mind.ide.ui.properties.MindProjectPropertyPage"
+            class="org.ow2.mindEd.ide.ui.properties.MindProjectPropertyPage"
+            id="org.ow2.mindEd.ide.ui.properties.MindProjectPropertyPage"
             name="Mind Project Page"
             nameFilter="*">
          <enabledWhen>
@@ -99,7 +99,7 @@
    <extension
          point="org.eclipse.ui.navigator.viewer">
       <viewerActionBinding
-            viewerId="org.ow2.fractal.mind.ide.ui.view">
+            viewerId="org.ow2.mindEd.ide.ui.view">
          <includes>
             <actionExtension
                   pattern="org.eclipse.ui.navigator.resources.*">
@@ -108,16 +108,16 @@
                   pattern="org.eclipse.ui.navigator.resources.NewActions">
             </actionExtension>
             <actionExtension
-                  pattern="org.ow2.fractal.mind.ide.ui.*">
+                  pattern="org.ow2.mindEd.ide.ui.*">
             </actionExtension>
          </includes>
       </viewerActionBinding>
       <viewerContentBinding
-            viewerId="org.ow2.fractal.mind.ide.ui.view">
+            viewerId="org.ow2.mindEd.ide.ui.view">
          <includes>
             <contentExtension
                   isRoot="true"
-                  pattern="org.ow2.fractal.mind.ide.ui.navigatorContent">
+                  pattern="org.ow2.mindEd.ide.ui.navigatorContent">
             </contentExtension>
             <contentExtension
                   pattern="org.eclipse.ui.navigator.resourceContent">
@@ -138,7 +138,7 @@
          <includes>
             <contentExtension
                   isRoot="false"
-                  pattern="org.ow2.fractal.mind.ide.ui.navigatorContentEclipse">
+                  pattern="org.ow2.mindEd.ide.ui.navigatorContentEclipse">
             </contentExtension>
          </includes>
       </viewerContentBinding>
@@ -146,7 +146,7 @@
             viewerId="org.eclipse.ui.navigator.ProjectExplorer">
          <includes>
             <actionExtension
-                  pattern="org.ow2.fractal.mind.ide.ui.*">
+                  pattern="org.ow2.mindEd.ide.ui.*">
             </actionExtension>
          </includes>
       </viewerActionBinding>
@@ -156,7 +156,7 @@
       <perspectiveExtension
             targetID="org.eclipse.ui.resourcePerspective">
          <view
-               id="org.ow2.fractal.mind.ide.ui.view"
+               id="org.ow2.mindEd.ide.ui.view"
                ratio="0.5"
                relationship="stack"
                relative="org.eclipse.ui.navigator.ProjectExplorer">
@@ -167,9 +167,9 @@
          point="org.eclipse.ui.navigator.navigatorContent">
       <navigatorContent
             activeByDefault="true"
-            contentProvider="org.ow2.fractal.mind.ide.ui.navigator.MindContentProvider"
-            id="org.ow2.fractal.mind.ide.ui.navigatorContent"
-            labelProvider="org.ow2.fractal.mind.ide.ui.navigator.MindLabelProvider"
+            contentProvider="org.ow2.mindEd.ide.ui.navigator.MindContentProvider"
+            id="org.ow2.mindEd.ide.ui.navigatorContent"
+            labelProvider="org.ow2.mindEd.ide.ui.navigator.MindLabelProvider"
             name="Mind Content"
             priority="highest">
          <possibleChildren>
@@ -189,7 +189,7 @@
             </or></possibleChildren>
          <commonWizard
                type="new"
-               wizardId="org.ow2.fractal.mind.ide.ui.wizards.ComponentNewWizard">
+               wizardId="org.ow2.mindEd.ide.ui.wizards.ComponentNewWizard">
             <enablement>
                <instanceof
                      value="org.ow2.fractal.mind.ide.emf.mindide.MindObject">
@@ -197,7 +197,7 @@
          </commonWizard>
          <commonWizard
                type="new"
-               wizardId="org.ow2.fractal.mind.ide.ui.wizards.MindProjectWizard">
+               wizardId="org.ow2.mindEd.ide.ui.wizards.MindProjectWizard">
             <enablement>
                <or>
                   <instanceof
@@ -227,7 +227,7 @@
          </commonWizard>
          <commonWizard
                type="new"
-               wizardId="org.ow2.fractal.mind.ide.ui.wizards.MindPackageWizard">
+               wizardId="org.ow2.mindEd.ide.ui.wizards.MindPackageWizard">
             <enablement>
                <instanceof
                      value="org.ow2.fractal.mind.ide.emf.mindide.MindObject">
@@ -268,8 +268,8 @@
          </triggerPoints>
       </navigatorContent>
       <actionProvider
-            class="org.ow2.fractal.mind.ide.ui.navigator.MindPathActionProvider"
-            id="org.ow2.fractal.mind.ide.ui.navigator.MindPathActionProvider"
+            class="org.ow2.mindEd.ide.ui.navigator.MindPathActionProvider"
+            id="org.ow2.mindEd.ide.ui.navigator.MindPathActionProvider"
             priority="high">
          <enablement>
             <or>
@@ -297,10 +297,10 @@
       </actionProvider>
       <navigatorContent
             activeByDefault="true"
-            contentProvider="org.ow2.fractal.mind.ide.ui.navigator.MindContentResources"
+            contentProvider="org.ow2.mindEd.ide.ui.navigator.MindContentResources"
             icon="icons/MindProject.gif"
-            id="org.ow2.fractal.mind.ide.ui.navigatorContentEclipse"
-            labelProvider="org.ow2.fractal.mind.ide.ui.navigator.MindLabelProvider"
+            id="org.ow2.mindEd.ide.ui.navigatorContentEclipse"
+            labelProvider="org.ow2.mindEd.ide.ui.navigator.MindLabelProvider"
             name="Mind Content"
             priority="high">
          <triggerPoints>
@@ -315,7 +315,7 @@
         
          <commonWizard
                type="new"
-               wizardId="org.ow2.fractal.mind.ide.ui.wizards.MindProjectWizard">
+               wizardId="org.ow2.mindEd.ide.ui.wizards.MindProjectWizard">
             <enablement>
                <or>
                   <instanceof
@@ -347,7 +347,7 @@
          </commonWizard>
          <commonWizard
                type="new"
-               wizardId="org.ow2.fractal.mind.ide.ui.wizards.MindPackageWizard">
+               wizardId="org.ow2.mindEd.ide.ui.wizards.MindPackageWizard">
             <enablement>
                <or>
                   <instanceof
@@ -364,7 +364,7 @@
          </commonWizard>
          <commonWizard
                type="new"
-               wizardId="org.ow2.fractal.mind.ide.ui.wizards.ComponentNewWizard">
+               wizardId="org.ow2.mindEd.ide.ui.wizards.ComponentNewWizard">
             <enablement>
                <or>
                   <instanceof
@@ -404,8 +404,8 @@
          </enablement>
       </navigatorContent>
       <actionProvider
-            class="org.ow2.fractal.mind.ide.ui.navigator.MindEditActionProvider"
-            id="org.ow2.fractal.mind.ide.ui.navigator.MindEditActionProvider"
+            class="org.ow2.mindEd.ide.ui.navigator.MindEditActionProvider"
+            id="org.ow2.mindEd.ide.ui.navigator.MindEditActionProvider"
             priority="high">
          <enablement>
             <or>
@@ -427,8 +427,8 @@
       </actionProvider>
       <actionProvider
             appearsBefore="org.eclipse.ui.navigator.resources.OpenActions"
-            class="org.ow2.fractal.mind.ide.ui.navigator.MindOpenActionProvider"
-            id="org.ow2.fractal.mind.ide.ui.navigator.MindOpenActions"
+            class="org.ow2.mindEd.ide.ui.navigator.MindOpenActionProvider"
+            id="org.ow2.mindEd.ide.ui.navigator.MindOpenActions"
             overrides="org.eclipse.ui.navigator.resources.OpenActions"
             priority="high">
          <enablement>
@@ -440,8 +440,8 @@
    <extension
          point="org.eclipse.ui.preferencePages">
       <page
-            class="org.ow2.fractal.mind.ide.ui.preferences.MindcPreferencePage"
-            id="org.ow2.fractal.mind.ide.ui.preferences.MindcPreferencePage"
+            class="org.ow2.mindEd.ide.ui.preferences.MindcPreferencePage"
+            id="org.ow2.mindEd.ide.ui.preferences.MindcPreferencePage"
             name="Mindc Location">
       </page>
    </extension>
@@ -450,16 +450,16 @@
       <perspectiveExtension
             targetID="org.eclipse.jdt.ui.JavaPerspective">
          <newWizardShortcut
-               id="org.ow2.fractal.mind.ide.ui.wizards.MindProjectWizard">
+               id="org.ow2.mindEd.ide.ui.wizards.MindProjectWizard">
          </newWizardShortcut>
          <newWizardShortcut
-               id="org.ow2.fractal.mind.ide.ui.wizards.MindPackageWizard">
+               id="org.ow2.mindEd.ide.ui.wizards.MindPackageWizard">
          </newWizardShortcut>
          <newWizardShortcut
-               id="org.ow2.fractal.mind.ide.ui.wizards.ComponentNewWizard">
+               id="org.ow2.mindEd.ide.ui.wizards.ComponentNewWizard">
          </newWizardShortcut>
          <view
-               id="org.ow2.fractal.mind.ide.ui.view"
+               id="org.ow2.mindEd.ide.ui.view"
                minimized="false"
                relationship="stack"
                relative="org.eclipse.jdt.ui.PackageExplorer">
@@ -468,16 +468,16 @@
       <perspectiveExtension
             targetID="org.eclipse.ui.resourcePerspective">
          <newWizardShortcut
-               id="org.ow2.fractal.mind.ide.ui.wizards.MindProjectWizard">
+               id="org.ow2.mindEd.ide.ui.wizards.MindProjectWizard">
          </newWizardShortcut>
          <newWizardShortcut
-               id="org.ow2.fractal.mind.ide.ui.wizards.MindPackageWizard">
+               id="org.ow2.mindEd.ide.ui.wizards.MindPackageWizard">
          </newWizardShortcut>
          <newWizardShortcut
-               id="org.ow2.fractal.mind.ide.ui.wizards.ComponentNewWizard">
+               id="org.ow2.mindEd.ide.ui.wizards.ComponentNewWizard">
          </newWizardShortcut>
          <view
-               id="org.ow2.fractal.mind.ide.ui.view"
+               id="org.ow2.mindEd.ide.ui.view"
                minimized="false"
                relationship="stack"
                relative="org.eclipse.ui.views.ResourceNavigator">
@@ -486,16 +486,16 @@
       <perspectiveExtension
             targetID="org.eclipse.cdt.ui.CPerspective">
          <newWizardShortcut
-               id="org.ow2.fractal.mind.ide.ui.wizards.MindProjectWizard">
+               id="org.ow2.mindEd.ide.ui.wizards.MindProjectWizard">
          </newWizardShortcut>
          <newWizardShortcut
-               id="org.ow2.fractal.mind.ide.ui.wizards.MindPackageWizard">
+               id="org.ow2.mindEd.ide.ui.wizards.MindPackageWizard">
          </newWizardShortcut>
          <newWizardShortcut
-               id="org.ow2.fractal.mind.ide.ui.wizards.ComponentNewWizard">
+               id="org.ow2.mindEd.ide.ui.wizards.ComponentNewWizard">
          </newWizardShortcut>
          <view
-               id="org.ow2.fractal.mind.ide.ui.view"
+               id="org.ow2.mindEd.ide.ui.view"
                minimized="false"
                relationship="stack"
                relative="org.eclipse.ui.navigator.ProjectExplorer">
