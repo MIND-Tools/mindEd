@@ -27,4 +27,4 @@ Import-Package: com.google.inject,
  org.eclipse.ui.part,
  org.eclipse.ui.views.properties,
  org.eclipse.xtext.ui.editor,
- org.ow2.fractal.mind.ide
+ org.ow2.mindEd.ide.core

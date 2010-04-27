@@ -32,8 +32,8 @@ import org.eclipse.ui.IWorkbenchPage;
 import org.eclipse.ui.PartInitException;
 import org.eclipse.ui.part.FileEditorInput;
 import org.eclipse.ui.part.MultiPageEditorPart;
-import org.ow2.fractal.mind.ide.ModelToProjectUtil;
 import org.ow2.fractal.mind.xtext.ui.CustomXtextEditor;
+import org.ow2.mindEd.ide.core.ModelToProjectUtil;
 
 import adl.provider.AdlItemProviderAdapterFactory;
 
