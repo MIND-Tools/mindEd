@@ -7,9 +7,9 @@ import java.util.List;
 
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
-import org.ow2.fractal.mind.ide.MindModelManager;
-import org.ow2.fractal.mind.ide.ModelToProjectUtil;
-import org.ow2.fractal.mind.ide.emf.mindide.MindAdl;
+import org.ow2.mindEd.ide.core.MindModelManager;
+import org.ow2.mindEd.ide.core.ModelToProjectUtil;
+import org.ow2.mindEd.ide.model.MindAdl;
 
 import adl.AdlDefinition;
 import adl.ArchitectureDefinition;

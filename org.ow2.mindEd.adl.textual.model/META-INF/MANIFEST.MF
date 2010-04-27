@@ -34,5 +34,5 @@ Import-Package: org.apache.log4j,
  org.eclipse.core.runtime,
  org.eclipse.emf.validation.model,
  org.eclipse.emf.validation.service,
- org.ow2.fractal.mind.ide,
- org.ow2.fractal.mind.ide.emf.mindide
+ org.ow2.mindEd.ide.core;version="0.2.0",
+ org.ow2.mindEd.ide.model;version="0.2.0"

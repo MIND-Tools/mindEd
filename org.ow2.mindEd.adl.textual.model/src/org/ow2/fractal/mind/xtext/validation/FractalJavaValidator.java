@@ -9,11 +9,11 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.xtext.validation.Check;
 import org.eclipse.xtext.validation.ComposedChecks;
-import org.ow2.fractal.mind.ide.MindModelManager;
-import org.ow2.fractal.mind.ide.ModelToProjectUtil;
-import org.ow2.fractal.mind.ide.emf.mindide.MindAdl;
-import org.ow2.fractal.mind.ide.emf.mindide.MindPackage;
 import org.ow2.fractal.mind.xtext.util.FractalUtil;
+import org.ow2.mindEd.ide.core.MindModelManager;
+import org.ow2.mindEd.ide.core.ModelToProjectUtil;
+import org.ow2.mindEd.ide.model.MindAdl;
+import org.ow2.mindEd.ide.model.MindPackage;
 
 import adl.AdlPackage;
 import adl.ArchitectureDefinition;
