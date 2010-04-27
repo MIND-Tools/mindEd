@@ -3,7 +3,7 @@
 <templates>
 
 <!-- Template proposal for structural typedef -->
-<template autoinsert="true" context="org.ow2.fractal.mind.idl.FractalItf.TypedefSpecification" deleted="false" description="struct type definition" enabled="true" name="typedef struct" id="struct_typedef">
+<template autoinsert="true" context="org.ow2.mindEd.idt.editor.textual.FractalItf.TypedefSpecification" deleted="false" description="struct type definition" enabled="true" name="typedef struct" id="struct_typedef">
 typedef struct ${type_name} {
 	${type} ${name};
 };

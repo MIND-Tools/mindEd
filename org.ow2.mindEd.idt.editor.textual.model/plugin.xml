@@ -6,7 +6,7 @@
   <extension point="org.eclipse.emf.ecore.generated_package">
     <package 
        uri = "http://www.ow2.org/fractal/mind/idl/FractalIdt" 
-       class = "org.ow2.fractal.mind.idl.fractalIdt.FractalIdtPackage"
+       class = "org.ow2.mindEd.idt.editor.textual.fractalIdt.FractalIdtPackage"
        genModel = "org/ow2/fractal/mind/idl/FractalIdt.genmodel" /> 
 	
   </extension>

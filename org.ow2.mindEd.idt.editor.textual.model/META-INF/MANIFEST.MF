@@ -21,12 +21,20 @@ Require-Bundle: org.eclipse.xtext,
  org.ow2.mindEd.itf.editor.textual.model;bundle-version="0.2.0"
 Import-Package: org.apache.log4j
 Bundle-RequiredExecutionEnvironment: J2SE-1.5
-Export-Package: org.ow2.fractal.mind.idl,
- org.ow2.fractal.mind.idl.fractalIdt,
- org.ow2.fractal.mind.idl.fractalIdt.impl,
- org.ow2.fractal.mind.idl.fractalIdt.util,
- org.ow2.fractal.mind.idl.parseTreeConstruction,
- org.ow2.fractal.mind.idl.parser.antlr,
- org.ow2.fractal.mind.idl.parser.antlr.internal,
- org.ow2.fractal.mind.idl.services,
- org.ow2.fractal.mind.idl.validation
+Export-Package: org.ow2.mindEd.idt.editor.textual.fractalIdt,
+ org.ow2.mindEd.idt.editor.textual.fractalIdt.impl, 
+ org.ow2.mindEd.idt.editor.textual.fractalIdt.util,
+ org.ow2.mindEd.idt.editor.textual.parseTreeConstruction,
+ org.ow2.mindEd.idt.editor.textual.parser.antlr,
+ org.ow2.mindEd.idt.editor.textual.parser.antlr.internal,
+ org.ow2.mindEd.idt.editor.textual.services,
+ org.ow2.mindEd.idt.editor.textual,
+ org.ow2.mindEd.idt.editor.textual.validation,
+ org.ow2.mindEd.idt.editor.textual.services,
+ org.ow2.mindEd.idt.editor.textual.fractalIdt,
+ org.ow2.mindEd.idt.editor.textual.fractalIdt.impl,
+ org.ow2.mindEd.idt.editor.textual.fractalIdt.util,
+ org.ow2.mindEd.idt.editor.textual.parseTreeConstruction,
+ org.ow2.mindEd.idt.editor.textual.parser.antlr,
+ org.ow2.mindEd.idt.editor.textual.parser.antlr.internal
+
