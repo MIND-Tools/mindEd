@@ -10,11 +10,11 @@
       <actualFigure
           xsi:type="gmfgraph:CustomFigure"
           name="AnnotationElementFigure"
-          qualifiedClassName="org.ow2.fractal.mind.diagram.custom.figures.AnnotationElementCustomFigure">
+          qualifiedClassName="org.ow2.mindEd.adl.editor.graphic.ui.custom.figures.AnnotationElementCustomFigure">
         <children
             xsi:type="gmfgraph:CustomFigure"
             name="LabelAnnotationElementName"
-            qualifiedClassName="org.ow2.fractal.mind.diagram.custom.figures.LabelAnnotationElementCustomFigure">
+            qualifiedClassName="org.ow2.mindEd.adl.editor.graphic.ui.custom.figures.LabelAnnotationElementCustomFigure">
           <attributes
               name="backgroundColor"
               value="BACKGROUND_COLOR"/>
@@ -29,11 +29,11 @@
       <actualFigure
           xsi:type="gmfgraph:CustomFigure"
           name="AnnotationElementValueFigure"
-          qualifiedClassName="org.ow2.fractal.mind.diagram.custom.figures.AnnotationElementValueCustomFigure">
+          qualifiedClassName="org.ow2.mindEd.adl.editor.graphic.ui.custom.figures.AnnotationElementValueCustomFigure">
         <children
             xsi:type="gmfgraph:CustomFigure"
             name="LabelAnnotationElementName"
-            qualifiedClassName="org.ow2.fractal.mind.diagram.custom.figures.LabelAnnotationElementCustomFigure">
+            qualifiedClassName="org.ow2.mindEd.adl.editor.graphic.ui.custom.figures.LabelAnnotationElementCustomFigure">
           <attributes
               name="backgroundColor"
               value="BACKGROUND_COLOR"/>
@@ -48,10 +48,10 @@
       <actualFigure
           xsi:type="gmfgraph:CustomFigure"
           name="AnnotationFigure"
-          qualifiedClassName="org.ow2.fractal.mind.diagram.custom.figures.AnnotationCustomFigure">
+          qualifiedClassName="org.ow2.mindEd.adl.editor.graphic.ui.custom.figures.AnnotationCustomFigure">
         <border
             xsi:type="gmfgraph:CustomBorder"
-            qualifiedClassName="org.ow2.fractal.mind.diagram.custom.figures.ComponentBorder">
+            qualifiedClassName="org.ow2.mindEd.adl.editor.graphic.ui.custom.figures.ComponentBorder">
           <attributes
               name="color"
               value="BORDER_COLOR"/>
@@ -59,11 +59,11 @@
         <children
             xsi:type="gmfgraph:CustomFigure"
             name="LabelTitleAnnotation"
-            qualifiedClassName="org.ow2.fractal.mind.diagram.custom.figures.LabelTitleAnnotationCustomFigure"/>
+            qualifiedClassName="org.ow2.mindEd.adl.editor.graphic.ui.custom.figures.LabelTitleAnnotationCustomFigure"/>
         <children
             xsi:type="gmfgraph:CustomFigure"
             name="AnnotationArea"
-            qualifiedClassName="org.ow2.fractal.mind.diagram.custom.figures.ContainerShape">
+            qualifiedClassName="org.ow2.mindEd.adl.editor.graphic.ui.custom.figures.ContainerShape">
           <attributes
               name="backgroundColor"
               value="BACKGROUND_COLOR"/>
@@ -84,15 +84,15 @@
       <actualFigure
           xsi:type="gmfgraph:CustomFigure"
           name="AnnotationsListFigure"
-          qualifiedClassName="org.ow2.fractal.mind.diagram.custom.figures.AnnotationsListCustomFigure">
+          qualifiedClassName="org.ow2.mindEd.adl.editor.graphic.ui.custom.figures.AnnotationsListCustomFigure">
         <children
             xsi:type="gmfgraph:CustomFigure"
             name="LabelTitleAnnotationsList"
-            qualifiedClassName="org.ow2.fractal.mind.diagram.custom.figures.LabelTitleAnnotationsListCustomFigure"/>
+            qualifiedClassName="org.ow2.mindEd.adl.editor.graphic.ui.custom.figures.LabelTitleAnnotationsListCustomFigure"/>
         <children
             xsi:type="gmfgraph:CustomFigure"
             name="AnnotationsArea"
-            qualifiedClassName="org.ow2.fractal.mind.diagram.custom.figures.ContainerShape">
+            qualifiedClassName="org.ow2.mindEd.adl.editor.graphic.ui.custom.figures.ContainerShape">
           <attributes
               name="backgroundColor"
               value="BACKGROUND_COLOR"/>
@@ -110,11 +110,11 @@
       <actualFigure
           xsi:type="gmfgraph:CustomFigure"
           name="ArgumentDefinitionFigure"
-          qualifiedClassName="org.ow2.fractal.mind.diagram.custom.figures.ArgumentDefinitionCustomFigure">
+          qualifiedClassName="org.ow2.mindEd.adl.editor.graphic.ui.custom.figures.ArgumentDefinitionCustomFigure">
         <children
             xsi:type="gmfgraph:CustomFigure"
             name="LabelArgumentDefinitionName"
-            qualifiedClassName="org.ow2.fractal.mind.diagram.custom.figures.LabelArgumentDefinitionNameCustomFigure"/>
+            qualifiedClassName="org.ow2.mindEd.adl.editor.graphic.ui.custom.figures.LabelArgumentDefinitionNameCustomFigure"/>
       </actualFigure>
       <accessors
           accessor="getFigureLabelArgumentDefinitionName"
@@ -125,11 +125,11 @@
       <actualFigure
           xsi:type="gmfgraph:CustomFigure"
           name="AttributeDefinitionFigure"
-          qualifiedClassName="org.ow2.fractal.mind.diagram.custom.figures.AttributeDefinitionCustomFigure">
+          qualifiedClassName="org.ow2.mindEd.adl.editor.graphic.ui.custom.figures.AttributeDefinitionCustomFigure">
         <children
             xsi:type="gmfgraph:CustomFigure"
             name="LabelAttributeDefinitionContent"
-            qualifiedClassName="org.ow2.fractal.mind.diagram.custom.figures.LabelAttributeDefinitionContentCustomFigure">
+            qualifiedClassName="org.ow2.mindEd.adl.editor.graphic.ui.custom.figures.LabelAttributeDefinitionContentCustomFigure">
           <attributes
               name="backgroundColor"
               value="BACKGROUND_COLOR"/>
@@ -147,17 +147,17 @@
       <actualFigure
           xsi:type="gmfgraph:CustomFigure"
           name="BindingCustomFigure"
-          qualifiedClassName="org.ow2.fractal.mind.diagram.custom.figures.BindingCustomFigure"/>
+          qualifiedClassName="org.ow2.mindEd.adl.editor.graphic.ui.custom.figures.BindingCustomFigure"/>
     </descriptors>
     <descriptors
         name="BodyFigure">
       <actualFigure
           xsi:type="gmfgraph:CustomFigure"
           name="BodyFigure"
-          qualifiedClassName="org.ow2.fractal.mind.diagram.custom.figures.BodyCustomFigure">
+          qualifiedClassName="org.ow2.mindEd.adl.editor.graphic.ui.custom.figures.BodyCustomFigure">
         <border
             xsi:type="gmfgraph:CustomBorder"
-            qualifiedClassName="org.ow2.fractal.mind.diagram.custom.figures.ComponentBorder">
+            qualifiedClassName="org.ow2.mindEd.adl.editor.graphic.ui.custom.figures.ComponentBorder">
           <attributes
               name="color"
               value="getMindBorderColor()"/>
@@ -165,7 +165,7 @@
         <children
             xsi:type="gmfgraph:CustomFigure"
             name="BodyCompartmentFigure"
-            qualifiedClassName="org.ow2.fractal.mind.diagram.custom.figures.BodyCompartmentCustomFigure">
+            qualifiedClassName="org.ow2.mindEd.adl.editor.graphic.ui.custom.figures.BodyCompartmentCustomFigure">
           <attributes
               name="backgroundColor"
               value="getMindBackgroundColor()"/>
@@ -183,10 +183,10 @@
       <actualFigure
           xsi:type="gmfgraph:CustomFigure"
           name="ComponentTypeDefinitionFigure"
-          qualifiedClassName="org.ow2.fractal.mind.diagram.custom.figures.ComponentTypeDefinitionCustomFigure">
+          qualifiedClassName="org.ow2.mindEd.adl.editor.graphic.ui.custom.figures.ComponentTypeDefinitionCustomFigure">
         <border
             xsi:type="gmfgraph:CustomBorder"
-            qualifiedClassName="org.ow2.fractal.mind.diagram.custom.figures.ComponentBorder">
+            qualifiedClassName="org.ow2.mindEd.adl.editor.graphic.ui.custom.figures.ComponentBorder">
           <attributes
               name="color"
               value="borderColor"/>
@@ -194,7 +194,7 @@
         <children
             xsi:type="gmfgraph:CustomFigure"
             name="LabelComponentTypeDefinitionName"
-            qualifiedClassName="org.ow2.fractal.mind.diagram.custom.figures.AbstractComponentNameWrappingLabel">
+            qualifiedClassName="org.ow2.mindEd.adl.editor.graphic.ui.custom.figures.AbstractComponentNameWrappingLabel">
           <attributes
               name="maximumSize"
               value="nameLabelMaxSize"/>
@@ -202,7 +202,7 @@
         <children
             xsi:type="gmfgraph:CustomFigure"
             name="ComponentTypeBody"
-            qualifiedClassName="org.ow2.fractal.mind.diagram.custom.figures.ContainerShape">
+            qualifiedClassName="org.ow2.mindEd.adl.editor.graphic.ui.custom.figures.ContainerShape">
           <attributes
               name="backgroundColor"
               value="bodyAreaColor"/>
@@ -226,10 +226,10 @@
       <actualFigure
           xsi:type="gmfgraph:CustomFigure"
           name="CompositeAnonymousSubComponentFigure"
-          qualifiedClassName="org.ow2.fractal.mind.diagram.custom.figures.CompositeAnonymousSubComponentCustomFigure">
+          qualifiedClassName="org.ow2.mindEd.adl.editor.graphic.ui.custom.figures.CompositeAnonymousSubComponentCustomFigure">
         <border
             xsi:type="gmfgraph:CustomBorder"
-            qualifiedClassName="org.ow2.fractal.mind.diagram.custom.figures.ComponentBorder">
+            qualifiedClassName="org.ow2.mindEd.adl.editor.graphic.ui.custom.figures.ComponentBorder">
           <attributes
               name="color"
               value="borderColor"/>
@@ -237,7 +237,7 @@
         <children
             xsi:type="gmfgraph:CustomFigure"
             name="LabelCompositeAnonymousSubComponentName"
-            qualifiedClassName="org.ow2.fractal.mind.diagram.custom.figures.AbstractComponentNameWrappingLabel">
+            qualifiedClassName="org.ow2.mindEd.adl.editor.graphic.ui.custom.figures.AbstractComponentNameWrappingLabel">
           <attributes
               name="maximumSize"
               value="TITLE_MAX_SIZE"/>
@@ -245,7 +245,7 @@
         <children
             xsi:type="gmfgraph:CustomFigure"
             name="CompositeAnonymousSubBodyArea"
-            qualifiedClassName="org.ow2.fractal.mind.diagram.custom.figures.ContainerShape">
+            qualifiedClassName="org.ow2.mindEd.adl.editor.graphic.ui.custom.figures.ContainerShape">
           <attributes
               name="backgroundColor"
               value="bodyAreaColor"/>
@@ -269,10 +269,10 @@
       <actualFigure
           xsi:type="gmfgraph:CustomFigure"
           name="ComponentFigure"
-          qualifiedClassName="org.ow2.fractal.mind.diagram.custom.figures.ComponentFigure">
+          qualifiedClassName="org.ow2.mindEd.adl.editor.graphic.ui.custom.figures.ComponentFigure">
         <border
             xsi:type="gmfgraph:CustomBorder"
-            qualifiedClassName="org.ow2.fractal.mind.diagram.custom.figures.ComponentBorder">
+            qualifiedClassName="org.ow2.mindEd.adl.editor.graphic.ui.custom.figures.ComponentBorder">
           <attributes
               name="color"
               value="getMindBorderColor()"/>
@@ -280,7 +280,7 @@
         <children
             xsi:type="gmfgraph:CustomFigure"
             name="LabelComponentName"
-            qualifiedClassName="org.ow2.fractal.mind.diagram.custom.figures.AbstractComponentNameWrappingLabel"/>
+            qualifiedClassName="org.ow2.mindEd.adl.editor.graphic.ui.custom.figures.AbstractComponentNameWrappingLabel"/>
         <attributes
             name="preferredSize"
             value="getMindPreferredSize()"/>
@@ -297,10 +297,10 @@
       <actualFigure
           xsi:type="gmfgraph:CustomFigure"
           name="CompositeSubComponentFigure"
-          qualifiedClassName="org.ow2.fractal.mind.diagram.custom.figures.CompositeSubComponentCustomFigure">
+          qualifiedClassName="org.ow2.mindEd.adl.editor.graphic.ui.custom.figures.CompositeSubComponentCustomFigure">
         <border
             xsi:type="gmfgraph:CustomBorder"
-            qualifiedClassName="org.ow2.fractal.mind.diagram.custom.figures.ComponentBorder">
+            qualifiedClassName="org.ow2.mindEd.adl.editor.graphic.ui.custom.figures.ComponentBorder">
           <attributes
               name="color"
               value="borderColor"/>
@@ -308,7 +308,7 @@
         <children
             xsi:type="gmfgraph:CustomFigure"
             name="LabelCompositeSubComponentName"
-            qualifiedClassName="org.ow2.fractal.mind.diagram.custom.figures.AbstractComponentNameWrappingLabel">
+            qualifiedClassName="org.ow2.mindEd.adl.editor.graphic.ui.custom.figures.AbstractComponentNameWrappingLabel">
           <attributes
               name="maximumSize"
               value="TITLE_MAX_SIZE"/>
@@ -316,7 +316,7 @@
         <children
             xsi:type="gmfgraph:CustomFigure"
             name="CompositeSubBodyArea"
-            qualifiedClassName="org.ow2.fractal.mind.diagram.custom.figures.ContainerShape">
+            qualifiedClassName="org.ow2.mindEd.adl.editor.graphic.ui.custom.figures.ContainerShape">
           <attributes
               name="backgroundColor"
               value="bodyAreaColor"/>
@@ -340,10 +340,10 @@
       <actualFigure
           xsi:type="gmfgraph:CustomFigure"
           name="DataDefinitionFigure"
-          qualifiedClassName="org.ow2.fractal.mind.diagram.custom.figures.DataDefinitionCustomFigure">
+          qualifiedClassName="org.ow2.mindEd.adl.editor.graphic.ui.custom.figures.DataDefinitionCustomFigure">
         <border
             xsi:type="gmfgraph:CustomBorder"
-            qualifiedClassName="org.ow2.fractal.mind.diagram.custom.figures.ComponentBorder">
+            qualifiedClassName="org.ow2.mindEd.adl.editor.graphic.ui.custom.figures.ComponentBorder">
           <attributes
               name="color"
               value="BORDER_COLOR"/>
@@ -351,7 +351,7 @@
         <children
             xsi:type="gmfgraph:CustomFigure"
             name="LabelDataDefinitionTitle"
-            qualifiedClassName="org.ow2.fractal.mind.diagram.custom.figures.LabelDataDefinitionTitle">
+            qualifiedClassName="org.ow2.mindEd.adl.editor.graphic.ui.custom.figures.LabelDataDefinitionTitle">
           <attributes
               name="maximumSize"
               value="nameLabelMaxSize"/>
@@ -359,7 +359,7 @@
         <children
             xsi:type="gmfgraph:CustomFigure"
             name="DataDefinitionBody"
-            qualifiedClassName="org.ow2.fractal.mind.diagram.custom.figures.ContainerShape">
+            qualifiedClassName="org.ow2.mindEd.adl.editor.graphic.ui.custom.figures.ContainerShape">
           <attributes
               name="backgroundColor"
               value="bodyAreaBackgroundColor"/>
@@ -380,11 +380,11 @@
       <actualFigure
           xsi:type="gmfgraph:CustomFigure"
           name="FileCFigure"
-          qualifiedClassName="org.ow2.fractal.mind.diagram.custom.figures.FileCFigure">
+          qualifiedClassName="org.ow2.mindEd.adl.editor.graphic.ui.custom.figures.FileCFigure">
         <children
             xsi:type="gmfgraph:CustomFigure"
             name="LabelFileC"
-            qualifiedClassName="org.ow2.fractal.mind.diagram.custom.figures.MultiLineWrappingLabel"/>
+            qualifiedClassName="org.ow2.mindEd.adl.editor.graphic.ui.custom.figures.MultiLineWrappingLabel"/>
         <attributes
             name="preferredSize"
             value="PREFERRED_SIZE"/>
@@ -398,11 +398,11 @@
       <actualFigure
           xsi:type="gmfgraph:CustomFigure"
           name="FormalArgumentFigure"
-          qualifiedClassName="org.ow2.fractal.mind.diagram.custom.figures.FormalArgumentCustomFigure">
+          qualifiedClassName="org.ow2.mindEd.adl.editor.graphic.ui.custom.figures.FormalArgumentCustomFigure">
         <children
             xsi:type="gmfgraph:CustomFigure"
             name="LabelFormalArgumentName"
-            qualifiedClassName="org.ow2.fractal.mind.diagram.custom.figures.AbstractComponentNameWrappingLabel">
+            qualifiedClassName="org.ow2.mindEd.adl.editor.graphic.ui.custom.figures.AbstractComponentNameWrappingLabel">
           <attributes
               name="backgroundColor"
               value="BACKGROUND_COLOR"/>
@@ -417,15 +417,15 @@
       <actualFigure
           xsi:type="gmfgraph:CustomFigure"
           name="FormalArgumentsListFigure"
-          qualifiedClassName="org.ow2.fractal.mind.diagram.custom.figures.FormalArgumentsListCustomFigure">
+          qualifiedClassName="org.ow2.mindEd.adl.editor.graphic.ui.custom.figures.FormalArgumentsListCustomFigure">
         <children
             xsi:type="gmfgraph:CustomFigure"
             name="LabelTitleFormalArgumentsList"
-            qualifiedClassName="org.ow2.fractal.mind.diagram.custom.figures.LabelTitleFormalArgumentsListCustomFigure"/>
+            qualifiedClassName="org.ow2.mindEd.adl.editor.graphic.ui.custom.figures.LabelTitleFormalArgumentsListCustomFigure"/>
         <children
             xsi:type="gmfgraph:CustomFigure"
             name="FormalArgumentsArea"
-            qualifiedClassName="org.ow2.fractal.mind.diagram.custom.figures.ContainerShape">
+            qualifiedClassName="org.ow2.mindEd.adl.editor.graphic.ui.custom.figures.ContainerShape">
           <attributes
               name="backgroundColor"
               value="BACKGROUND_COLOR"/>
@@ -440,10 +440,10 @@
       <actualFigure
           xsi:type="gmfgraph:CustomFigure"
           name="ImplementationFigure"
-          qualifiedClassName="org.ow2.fractal.mind.diagram.custom.figures.ImplementationCustomFigure">
+          qualifiedClassName="org.ow2.mindEd.adl.editor.graphic.ui.custom.figures.ImplementationCustomFigure">
         <border
             xsi:type="gmfgraph:CustomBorder"
-            qualifiedClassName="org.ow2.fractal.mind.diagram.custom.figures.ComponentBorder">
+            qualifiedClassName="org.ow2.mindEd.adl.editor.graphic.ui.custom.figures.ComponentBorder">
           <attributes
               name="color"
               value="BORDER_COLOR"/>
@@ -451,7 +451,7 @@
         <children
             xsi:type="gmfgraph:CustomFigure"
             name="LabelImplementationTitle"
-            qualifiedClassName="org.ow2.fractal.mind.diagram.custom.figures.LabelImplementationTitle">
+            qualifiedClassName="org.ow2.mindEd.adl.editor.graphic.ui.custom.figures.LabelImplementationTitle">
           <attributes
               name="maximumSize"
               value="nameLabelMaxSize"/>
@@ -459,7 +459,7 @@
         <children
             xsi:type="gmfgraph:CustomFigure"
             name="ImplementationBody"
-            qualifiedClassName="org.ow2.fractal.mind.diagram.custom.figures.ContainerShape">
+            qualifiedClassName="org.ow2.mindEd.adl.editor.graphic.ui.custom.figures.ContainerShape">
           <attributes
               name="backgroundColor"
               value="bodyAreaBackgroundColor"/>
@@ -480,11 +480,11 @@
       <actualFigure
           xsi:type="gmfgraph:CustomFigure"
           name="InlineCFigure"
-          qualifiedClassName="org.ow2.fractal.mind.diagram.custom.figures.InlineCFigure">
+          qualifiedClassName="org.ow2.mindEd.adl.editor.graphic.ui.custom.figures.InlineCFigure">
         <children
             xsi:type="gmfgraph:CustomFigure"
             name="InlineCLabel"
-            qualifiedClassName="org.ow2.fractal.mind.diagram.custom.figures.MultiLineWrappingLabel">
+            qualifiedClassName="org.ow2.mindEd.adl.editor.graphic.ui.custom.figures.MultiLineWrappingLabel">
           <attributes
               name="text"
               value="&quot;&lt;Code>&quot;"/>
@@ -502,11 +502,11 @@
       <actualFigure
           xsi:type="gmfgraph:CustomFigure"
           name="InterfaceDefinitionFigure"
-          qualifiedClassName="org.ow2.fractal.mind.diagram.custom.figures.InterfaceDefinitionShape">
+          qualifiedClassName="org.ow2.mindEd.adl.editor.graphic.ui.custom.figures.InterfaceDefinitionShape">
         <children
             xsi:type="gmfgraph:CustomFigure"
             name="LabelInterfaceDefinitionName"
-            qualifiedClassName="org.ow2.fractal.mind.diagram.custom.figures.LabelInterfaceDefinitionNameCustomFigure">
+            qualifiedClassName="org.ow2.mindEd.adl.editor.graphic.ui.custom.figures.LabelInterfaceDefinitionNameCustomFigure">
           <insets
               top="15"/>
         </children>
@@ -523,10 +523,10 @@
       <actualFigure
           xsi:type="gmfgraph:CustomFigure"
           name="PrimitiveAnonymousSubComponentFigure"
-          qualifiedClassName="org.ow2.fractal.mind.diagram.custom.figures.PrimitiveAnonymousSubComponentCustomFigure">
+          qualifiedClassName="org.ow2.mindEd.adl.editor.graphic.ui.custom.figures.PrimitiveAnonymousSubComponentCustomFigure">
         <border
             xsi:type="gmfgraph:CustomBorder"
-            qualifiedClassName="org.ow2.fractal.mind.diagram.custom.figures.ComponentBorder">
+            qualifiedClassName="org.ow2.mindEd.adl.editor.graphic.ui.custom.figures.ComponentBorder">
           <attributes
               name="color"
               value="borderColor"/>
@@ -534,7 +534,7 @@
         <children
             xsi:type="gmfgraph:CustomFigure"
             name="LabelPrimitiveAnonymousSubComponentName"
-            qualifiedClassName="org.ow2.fractal.mind.diagram.custom.figures.AbstractComponentNameWrappingLabel">
+            qualifiedClassName="org.ow2.mindEd.adl.editor.graphic.ui.custom.figures.AbstractComponentNameWrappingLabel">
           <attributes
               name="maximumSize"
               value="nameLabelMaxSize"/>
@@ -542,7 +542,7 @@
         <children
             xsi:type="gmfgraph:CustomFigure"
             name="PrimitiveAnonymousSubBodyArea"
-            qualifiedClassName="org.ow2.fractal.mind.diagram.custom.figures.ContainerShape">
+            qualifiedClassName="org.ow2.mindEd.adl.editor.graphic.ui.custom.figures.ContainerShape">
           <attributes
               name="backgroundColor"
               value="bodyAreaColor"/>
@@ -566,10 +566,10 @@
       <actualFigure
           xsi:type="gmfgraph:CustomFigure"
           name="PrimitiveComponentDefinitionFigure"
-          qualifiedClassName="org.ow2.fractal.mind.diagram.custom.figures.PrimitiveComponentDefinitionCustomFigure">
+          qualifiedClassName="org.ow2.mindEd.adl.editor.graphic.ui.custom.figures.PrimitiveComponentDefinitionCustomFigure">
         <border
             xsi:type="gmfgraph:CustomBorder"
-            qualifiedClassName="org.ow2.fractal.mind.diagram.custom.figures.ComponentBorder">
+            qualifiedClassName="org.ow2.mindEd.adl.editor.graphic.ui.custom.figures.ComponentBorder">
           <attributes
               name="color"
               value="borderColor"/>
@@ -577,7 +577,7 @@
         <children
             xsi:type="gmfgraph:CustomFigure"
             name="LabelPrimitiveComponentDefinitionName"
-            qualifiedClassName="org.ow2.fractal.mind.diagram.custom.figures.AbstractComponentNameWrappingLabel">
+            qualifiedClassName="org.ow2.mindEd.adl.editor.graphic.ui.custom.figures.AbstractComponentNameWrappingLabel">
           <attributes
               name="maximumSize"
               value="nameLabelMaxSize"/>
@@ -598,10 +598,10 @@
       <actualFigure
           xsi:type="gmfgraph:CustomFigure"
           name="PrimitiveSubComponentFigure"
-          qualifiedClassName="org.ow2.fractal.mind.diagram.custom.figures.PrimitiveSubComponentCustomFigure">
+          qualifiedClassName="org.ow2.mindEd.adl.editor.graphic.ui.custom.figures.PrimitiveSubComponentCustomFigure">
         <border
             xsi:type="gmfgraph:CustomBorder"
-            qualifiedClassName="org.ow2.fractal.mind.diagram.custom.figures.ComponentBorder">
+            qualifiedClassName="org.ow2.mindEd.adl.editor.graphic.ui.custom.figures.ComponentBorder">
           <attributes
               name="color"
               value="borderColor"/>
@@ -609,7 +609,7 @@
         <children
             xsi:type="gmfgraph:CustomFigure"
             name="LabelPrimitiveSubComponentName"
-            qualifiedClassName="org.ow2.fractal.mind.diagram.custom.figures.AbstractComponentNameWrappingLabel">
+            qualifiedClassName="org.ow2.mindEd.adl.editor.graphic.ui.custom.figures.AbstractComponentNameWrappingLabel">
           <attributes
               name="maximumSize"
               value="nameLabelMaxSize"/>
@@ -617,7 +617,7 @@
         <children
             xsi:type="gmfgraph:CustomFigure"
             name="PrimitiveSubBodyArea"
-            qualifiedClassName="org.ow2.fractal.mind.diagram.custom.figures.ContainerShape">
+            qualifiedClassName="org.ow2.mindEd.adl.editor.graphic.ui.custom.figures.ContainerShape">
           <attributes
               name="backgroundColor"
               value="bodyAreaColor"/>
@@ -641,10 +641,10 @@
       <actualFigure
           xsi:type="gmfgraph:CustomFigure"
           name="ReferenceFigure"
-          qualifiedClassName="org.ow2.fractal.mind.diagram.custom.figures.ReferenceFigure">
+          qualifiedClassName="org.ow2.mindEd.adl.editor.graphic.ui.custom.figures.ReferenceFigure">
         <border
             xsi:type="gmfgraph:CustomBorder"
-            qualifiedClassName="org.ow2.fractal.mind.diagram.custom.figures.ComponentBorder">
+            qualifiedClassName="org.ow2.mindEd.adl.editor.graphic.ui.custom.figures.ComponentBorder">
           <attributes
               name="color"
               value="borderColor"/>
@@ -652,11 +652,11 @@
         <children
             xsi:type="gmfgraph:CustomFigure"
             name="LabelReferenceName"
-            qualifiedClassName="org.ow2.fractal.mind.diagram.custom.figures.LabelReferenceNameFigure"/>
+            qualifiedClassName="org.ow2.mindEd.adl.editor.graphic.ui.custom.figures.LabelReferenceNameFigure"/>
         <children
             xsi:type="gmfgraph:CustomFigure"
             name="ReferenceArea"
-            qualifiedClassName="org.ow2.fractal.mind.diagram.custom.figures.ContainerShape"/>
+            qualifiedClassName="org.ow2.mindEd.adl.editor.graphic.ui.custom.figures.ContainerShape"/>
       </actualFigure>
       <accessors
           accessor="getLabelReference"
@@ -670,15 +670,15 @@
       <actualFigure
           xsi:type="gmfgraph:CustomFigure"
           name="ReferencesListFigure"
-          qualifiedClassName="org.ow2.fractal.mind.diagram.custom.figures.ReferencesListCustomFigure">
+          qualifiedClassName="org.ow2.mindEd.adl.editor.graphic.ui.custom.figures.ReferencesListCustomFigure">
         <children
             xsi:type="gmfgraph:CustomFigure"
             name="LabelTitleReferencesList"
-            qualifiedClassName="org.ow2.fractal.mind.diagram.custom.figures.LabelTitleReferencesListCustomFigure"/>
+            qualifiedClassName="org.ow2.mindEd.adl.editor.graphic.ui.custom.figures.LabelTitleReferencesListCustomFigure"/>
         <children
             xsi:type="gmfgraph:CustomFigure"
             name="ReferencesArea"
-            qualifiedClassName="org.ow2.fractal.mind.diagram.custom.figures.ContainerShape">
+            qualifiedClassName="org.ow2.mindEd.adl.editor.graphic.ui.custom.figures.ContainerShape">
           <layout
               xsi:type="gmfgraph:FlowLayout"
               majorSpacing="0"
@@ -703,11 +703,11 @@
       <actualFigure
           xsi:type="gmfgraph:CustomFigure"
           name="TemplateSpecifierFigure"
-          qualifiedClassName="org.ow2.fractal.mind.diagram.custom.figures.TemplateSpecifierCustomFigure">
+          qualifiedClassName="org.ow2.mindEd.adl.editor.graphic.ui.custom.figures.TemplateSpecifierCustomFigure">
         <children
             xsi:type="gmfgraph:CustomFigure"
             name="LabelTemplateSpecifierFigureName"
-            qualifiedClassName="org.ow2.fractal.mind.diagram.custom.figures.AbstractComponentNameWrappingLabel">
+            qualifiedClassName="org.ow2.mindEd.adl.editor.graphic.ui.custom.figures.AbstractComponentNameWrappingLabel">
           <attributes
               name="backgroundColor"
               value="BACKGROUND_COLOR"/>
@@ -722,15 +722,15 @@
       <actualFigure
           xsi:type="gmfgraph:CustomFigure"
           name="TemplateSpecifiersListFigure"
-          qualifiedClassName="org.ow2.fractal.mind.diagram.custom.figures.TemplateSpecifiersListCustomFigure">
+          qualifiedClassName="org.ow2.mindEd.adl.editor.graphic.ui.custom.figures.TemplateSpecifiersListCustomFigure">
         <children
             xsi:type="gmfgraph:CustomFigure"
             name="LabelTitleTemplateSpecifiersList"
-            qualifiedClassName="org.ow2.fractal.mind.diagram.custom.figures.LabelTitleTemplateSpecifiersListCustomFigure"/>
+            qualifiedClassName="org.ow2.mindEd.adl.editor.graphic.ui.custom.figures.LabelTitleTemplateSpecifiersListCustomFigure"/>
         <children
             xsi:type="gmfgraph:CustomFigure"
             name="TemplateSpecifiersArea"
-            qualifiedClassName="org.ow2.fractal.mind.diagram.custom.figures.ContainerShape">
+            qualifiedClassName="org.ow2.mindEd.adl.editor.graphic.ui.custom.figures.ContainerShape">
           <attributes
               name="backgroundColor"
               value="BACKGROUND_COLOR"/>
@@ -751,10 +751,10 @@
       <actualFigure
           xsi:type="gmfgraph:CustomFigure"
           name="SubComponentFigure"
-          qualifiedClassName="org.ow2.fractal.mind.diagram.custom.figures.SubComponentCustomFigure">
+          qualifiedClassName="org.ow2.mindEd.adl.editor.graphic.ui.custom.figures.SubComponentCustomFigure">
         <border
             xsi:type="gmfgraph:CustomBorder"
-            qualifiedClassName="org.ow2.fractal.mind.diagram.custom.figures.ComponentBorder">
+            qualifiedClassName="org.ow2.mindEd.adl.editor.graphic.ui.custom.figures.ComponentBorder">
           <attributes
               name="color"
               value="borderColor"/>
@@ -762,7 +762,7 @@
         <children
             xsi:type="gmfgraph:CustomFigure"
             name="LabelSubComponentName"
-            qualifiedClassName="org.ow2.fractal.mind.diagram.custom.figures.AbstractComponentNameWrappingLabel">
+            qualifiedClassName="org.ow2.mindEd.adl.editor.graphic.ui.custom.figures.AbstractComponentNameWrappingLabel">
           <attributes
               name="maximumSize"
               value="nameLabelMaxSize"/>
@@ -783,10 +783,10 @@
       <actualFigure
           xsi:type="gmfgraph:CustomFigure"
           name="TemplateDefinitionFigure"
-          qualifiedClassName="org.ow2.fractal.mind.diagram.custom.figures.TemplateDefinitionCustomFigure">
+          qualifiedClassName="org.ow2.mindEd.adl.editor.graphic.ui.custom.figures.TemplateDefinitionCustomFigure">
         <border
             xsi:type="gmfgraph:CustomBorder"
-            qualifiedClassName="org.ow2.fractal.mind.diagram.custom.figures.ComponentBorder">
+            qualifiedClassName="org.ow2.mindEd.adl.editor.graphic.ui.custom.figures.ComponentBorder">
           <attributes
               name="color"
               value="BORDER_COLOR"/>
@@ -794,11 +794,11 @@
         <children
             xsi:type="gmfgraph:CustomFigure"
             name="LabelTemplateDefinitionName"
-            qualifiedClassName="org.ow2.fractal.mind.diagram.custom.figures.LabelTemplateDefinitionNameCustomFigure"/>
+            qualifiedClassName="org.ow2.mindEd.adl.editor.graphic.ui.custom.figures.LabelTemplateDefinitionNameCustomFigure"/>
         <children
             xsi:type="gmfgraph:CustomFigure"
             name="TemplateDefinitionArea"
-            qualifiedClassName="org.ow2.fractal.mind.diagram.custom.figures.ContainerShape"/>
+            qualifiedClassName="org.ow2.mindEd.adl.editor.graphic.ui.custom.figures.ContainerShape"/>
       </actualFigure>
       <accessors
           accessor="getFigureLabelTemplateDefinitionName"
@@ -812,15 +812,15 @@
       <actualFigure
           xsi:type="gmfgraph:CustomFigure"
           name="TemplateReferenceFigure"
-          qualifiedClassName="org.ow2.fractal.mind.diagram.custom.figures.TemplateReferenceCustomFigure">
+          qualifiedClassName="org.ow2.mindEd.adl.editor.graphic.ui.custom.figures.TemplateReferenceCustomFigure">
         <children
             xsi:type="gmfgraph:CustomFigure"
             name="LabelTemplateReferenceName"
-            qualifiedClassName="org.ow2.fractal.mind.diagram.custom.figures.LabelTemplateReferenceNameCustomFigure"/>
+            qualifiedClassName="org.ow2.mindEd.adl.editor.graphic.ui.custom.figures.LabelTemplateReferenceNameCustomFigure"/>
         <children
             xsi:type="gmfgraph:CustomFigure"
             name="TemplateReferenceArea"
-            qualifiedClassName="org.ow2.fractal.mind.diagram.custom.figures.ContainerShape"/>
+            qualifiedClassName="org.ow2.mindEd.adl.editor.graphic.ui.custom.figures.ContainerShape"/>
       </actualFigure>
       <accessors
           accessor="getFigureLabelTemplateReference"
