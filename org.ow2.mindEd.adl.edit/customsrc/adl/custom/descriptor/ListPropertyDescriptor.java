@@ -15,7 +15,7 @@ import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.impl.EAttributeImpl;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
-import org.ow2.fractal.mind.ide.ModelToProjectUtil;
+import org.ow2.mindEd.ide.core.ModelToProjectUtil;
 
 import adl.AdlDefinition;
 import adl.AdlPackage;
