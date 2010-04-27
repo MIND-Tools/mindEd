@@ -1,7 +1,7 @@
-# Tracing options for the org.ow2.fractal.mind.emf.diagram plug-in
+# Tracing options for the org.ow2.mindEd.adl.editor.graphic.ui plug-in
 
 # Common issues
-org.ow2.fractal.mind.emf.diagram/debug=false
+org.ow2.mindEd.adl.editor.graphic.ui/debug=false
 
 # Visual IDs
-org.ow2.fractal.mind.emf.diagram/debug/visualID=false
+org.ow2.mindEd.adl.editor.graphic.ui/debug/visualID=false

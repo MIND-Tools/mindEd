@@ -2,16 +2,15 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: %pluginName
 Bundle-SymbolicName: org.ow2.mindEd.adl.editor.graphic.ui; singleton:=true
-Bundle-Version: 0.2.0.qualifier
+Bundle-Version: 0.1.0
 Bundle-ClassPath: .
-Bundle-Activator: adl.diagram.part.MindDiagramEditorPlugin
+Bundle-Activator: org.ow2.mindEd.adl.editor.graphic.ui.part.MindDiagramEditorPlugin
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
-Export-Package: adl.diagram.edit.parts,
- adl.diagram.part,
- adl.diagram.providers,
- org.ow2.fractal.mind.emf.diagram.custom.util,
- org.ow2.fractal.mind.diagram.custom.figures
+Export-Package: org.ow2.mindEd.adl.editor.graphic.ui.custom.figures,
+ org.ow2.mindEd.adl.editor.graphic.ui.edit.parts,
+ org.ow2.mindEd.adl.editor.graphic.ui.part,
+ org.ow2.mindEd.adl.editor.graphic.ui.providers
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.core.resources,
  org.eclipse.core.expressions,

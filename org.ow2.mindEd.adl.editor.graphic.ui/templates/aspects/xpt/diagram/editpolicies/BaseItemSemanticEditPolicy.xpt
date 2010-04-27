@@ -1,6 +1,6 @@
 «AROUND getCreateCommand FOR gmfgen::GenDiagram-»
 «EXPAND xpt::Common::generatedMemberComment»
 protected org.eclipse.gef.commands.Command getCreateCommand(org.eclipse.gmf.runtime.emf.type.core.requests.CreateElementRequest req) {
-	return org.ow2.fractal.mind.diagram.custom.helpers.ItemSemanticEditPolicyHelper.getParentsCreateCommand(req, getHost());
+	return org.ow2.mindEd.adl.editor.graphic.ui.custom.helpers.ItemSemanticEditPolicyHelper.getParentsCreateCommand(req, getHost());
 }
 «ENDAROUND»
