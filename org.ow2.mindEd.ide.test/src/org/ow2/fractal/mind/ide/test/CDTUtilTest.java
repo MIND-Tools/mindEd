@@ -1,20 +1,23 @@
 package org.ow2.fractal.mind.ide.test;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNull;
+import static org.junit.Assert.fail;
 
 import java.io.IOException;
 
+import org.eclipse.cdt.make.core.makefile.ITargetRule;
+import org.eclipse.cdt.make.core.makefile.gnu.IVariableDefinition;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.core.runtime.jobs.Job;
 import org.junit.Test;
-import org.ow2.fractal.mind.ide.FamilyJobCST;
-import org.ow2.fractal.mind.ide.MindIdeCore;
-import org.ow2.fractal.mind.ide.emf.mindide.MindProject;
-import org.ow2.fractal.mind.ide.impl.CDTUtil;
-import org.ow2.fractal.mind.ide.impl.MindMakefile;
-import org.eclipse.cdt.make.core.makefile.ITargetRule;
-import org.eclipse.cdt.make.core.makefile.gnu.IVariableDefinition;
+import org.ow2.mindEd.ide.core.FamilyJobCST;
+import org.ow2.mindEd.ide.core.MindIdeCore;
+import org.ow2.mindEd.ide.core.impl.CDTUtil;
+import org.ow2.mindEd.ide.core.impl.MindMakefile;
+import org.ow2.mindEd.ide.model.MindProject;
 
 public class CDTUtilTest {
 	
