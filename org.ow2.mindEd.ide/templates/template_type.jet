@@ -1,4 +1,4 @@
-<%@ jet package="org.ow2.fractal.mind.ide.template" class="TemplateTypeADL" skeleton="mindadl2.skeleton" %>
+<%@ jet package="org.ow2.mindEd.ide.core.template" class="TemplateTypeADL" skeleton="mindadl2.skeleton" %>
 <%
  String qualifiedName = adl.getQualifiedName();
  

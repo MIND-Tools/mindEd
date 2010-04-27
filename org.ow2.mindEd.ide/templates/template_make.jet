@@ -1,4 +1,4 @@
-<%@ jet package="org.ow2.fractal.mind.ide.template" class="TemplateMake" %>
+<%@ jet package="org.ow2.mindEd.ide.core.template" class="TemplateMake" %>
 # If the MIND_ROOT variable is defined, look for 'mindc' in this directory
 # otherwise, expect that 'mindc' is in the PATH.
 ifdef MIND_ROOT

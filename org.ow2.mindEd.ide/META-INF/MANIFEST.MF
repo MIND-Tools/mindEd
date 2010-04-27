@@ -48,14 +48,15 @@ Import-Package: org.eclipse.cdt.core,
  org.eclipse.xtext.util.concurrent,
  org.osgi.framework,
  org.osgi.service.prefs,
- org.ow2.fractal.mind.ide.emf.mindide,
- org.ow2.fractal.mind.ide.emf.mindide.impl
-Export-Package: org.ow2.fractal.mind.ide,
- org.ow2.fractal.mind.ide.impl,
- org.ow2.fractal.mind.ide.preferences,
- org.ow2.fractal.mind.ide.template
+ org.ow2.mindEd.ide.model;version="0.2.0",
+ org.ow2.mindEd.ide.model.impl;version="0.2.0"
+Export-Package: org.ow2.mindEd.ide.core;version="0.2.0",
+ org.ow2.mindEd.ide.core.impl;version="0.2.0",
+ org.ow2.mindEd.ide.core.preferences;version="0.2.0",
+ org.ow2.mindEd.ide.core.property;version="0.2.0",
+ org.ow2.mindEd.ide.core.template;version="0.2.0"
 Bundle-ActivationPolicy: lazy
-Bundle-Activator: org.ow2.fractal.mind.ide.MindActivator
+Bundle-Activator: org.ow2.mindEd.ide.core.MindActivator
 Bundle-Vendor: Partenaire Minalogic
 Require-Bundle: org.ow2.mind.fractal-adl-bundle;bundle-version="0.2.0",
  org.eclipse.xtext

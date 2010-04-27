@@ -1,4 +1,4 @@
-import org.ow2.fractal.mind.ide.emf.mindide.*;
+import org.ow2.mindEd.ide.model.*;
 
 
 public class CLASS

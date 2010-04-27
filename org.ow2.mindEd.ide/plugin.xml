@@ -3,34 +3,34 @@
 <plugin>
 
    <extension
-         id="org.ow2.fractal.mind.cadse.builder"
+         id="org.ow2.mindEd.ide.core.builder"
          name="Mind cadse Project Builder"
          point="org.eclipse.core.resources.builders">
       <builder
             hasNature="true">
          <run
-               class="org.ow2.fractal.mind.ide.MindIdeBuilder">
+               class="org.ow2.mindEd.ide.core.MindIdeBuilder">
          </run>
       </builder>
    </extension>
    <extension
-         id="org.ow2.fractal.mind.nature"
+         id="org.ow2.mindEd.ide.core.nature"
          name="Mind Project Nature"
          point="org.eclipse.core.resources.natures">
       <runtime>
          <run
-               class="org.ow2.fractal.mind.ide.MindNature">
+               class="org.ow2.mindEd.ide.core.MindNature">
          </run>
       </runtime>
       <builder
-            id="org.ow2.fractal.mind.cadse.builder">
+            id="org.ow2.mindEd.ide.core.builder">
       </builder>
       <requires-nature
             id="org.eclipse.cdt.core.cnature">
       </requires-nature>
    </extension>
       <extension
-         id="org.ow2.fractal.mind.ide.mindcProblem"
+         id="org.ow2.mindEd.ide.core.ide.mindcProblem"
          name="Mindc Problem"
          point="org.eclipse.core.resources.markers">
       <super type="org.eclipse.core.resources.problemmarker"/>
@@ -47,22 +47,22 @@
       <extension
             point="org.eclipse.emf.ecore.factory_override">
          <factory
-               class="org.ow2.fractal.mind.ide.impl.MindideFactoryImplCustom"
+               class="org.ow2.mindEd.ide.core.impl.MindideFactoryImplCustom"
                uri="http://org.ow2.fractal/mindide/mind.ide.ecore/1.0.0">
          </factory>
       </extension>
       <extension
             point="org.eclipse.core.expressions.propertyTesters">
          <propertyTester
-               class="org.ow2.fractal.mind.ide.property.MindPropertyTester"
-               id="org.ow2.fractal.mind.ide.mindproject-open"
+               class="org.ow2.mindEd.ide.core.property.MindPropertyTester"
+               id="org.ow2.mindEd.ide.core.ide.mindproject-open"
                namespace="org.eclipse.core.resources"
                properties="open"
-               type="org.ow2.fractal.mind.ide.impl.MindProjectImpl">
+               type="org.ow2.mindEd.ide.core.impl.MindProjectImpl">
          </propertyTester>
          <propertyTester
-               class="org.ow2.fractal.mind.ide.property.MindPropertyTester"
-               id="org.ow2.fractal.mind.ide.propertyTester1"
+               class="org.ow2.mindEd.ide.core.property.MindPropertyTester"
+               id="org.ow2.mindEd.ide.core.ide.propertyTester1"
                namespace="org.eclipse.core.resources"
                properties="open"
                type="org.ow2.fratal.mind.ide.emf.mindide.MindRepo">
@@ -76,7 +76,7 @@
 		name="Mind CPL project settings"
 		point="org.eclipse.cdt.core.externalSettingsProvider">
 		<provider
-				class="org.ow2.fractal.mind.ide.impl.CPLMacroSettings">
+				class="org.ow2.mindEd.ide.core.impl.CPLMacroSettings">
 		</provider>
 	  </extension>
 
