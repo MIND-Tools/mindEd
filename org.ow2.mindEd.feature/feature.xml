@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <feature
-      id="org.ow2.fractal.mind.feature"
+      id="org.ow2.mindEd.feature"
       label="%featureName"
       version="0.2.0.qualifier"
       provider-name="%providerName">
@@ -59,98 +59,85 @@ Ce faisant, et avec l’appui des financements publics pour supporter le surcoû
    </requires>
 
    <plugin
-         id="org.ow2.fractal.mind.doc.user"
+         id="org.ow2.mindEd.doc.user"
          download-size="0"
          install-size="0"
          version="0.0.0"
          unpack="false"/>
 
    <plugin
-         id="org.ow2.fractal.mind.emf.diagram"
+         id="org.ow2.mindEd.adl.editor.graphic.ui"
          download-size="0"
          install-size="0"
          version="0.0.0"
          unpack="false"/>
 
    <plugin
-         id="org.ow2.fractal.mind.emf.model"
+         id="org.ow2.mindEd.adl.model"
          download-size="0"
          install-size="0"
          version="0.0.0"
          unpack="false"/>
 
    <plugin
-         id="org.ow2.fractal.mind.emf.model.edit"
+         id="org.ow2.mindEd.adl.edit"
          download-size="0"
          install-size="0"
          version="0.0.0"
          unpack="false"/>
 
    <plugin
-         id="org.ow2.fractal.mind.emf.model.editor"
+         id="org.ow2.mindEd.adl.editor.tree"
          download-size="0"
          install-size="0"
          version="0.0.0"
          unpack="false"/>
 
    <plugin
-         id="org.ow2.fractal.mind.ide"
+         id="org.ow2.mindEd.ide"
          download-size="0"
          install-size="0"
          version="0.0.0"
          unpack="false"/>
 
    <plugin
-         id="org.ow2.fractal.mind.ide.emf"
+         id="org.ow2.mindEd.ide.schema"
          download-size="0"
          install-size="0"
          version="0.0.0"
          unpack="false"/>
 
    <plugin
-         id="org.ow2.fractal.mind.ide.emf.model"
+         id="org.ow2.mindEd.ide.model"
          download-size="0"
          install-size="0"
          version="0.0.0"
          unpack="false"/>
 
    <plugin
-         id="org.ow2.fractal.mind.ide.emf.model.edit"
+         id="org.ow2.mindEd.ide.edit"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+
+   <plugin
+         id="org.ow2.mindEd.ide.ui"
          download-size="0"
          install-size="0"
          version="0.0.0"
          unpack="false"/>
 
    <plugin
-         id="org.ow2.fractal.mind.ide.emf.model.editor"
+         id="org.ow2.mindEd.adl.textual.model"
          download-size="0"
          install-size="0"
          version="0.0.0"
          unpack="false"/>
 
    <plugin
-         id="org.ow2.fractal.mind.ide.ui"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
-   <plugin
-         id="org.ow2.fractal.mind.xtext"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
-   <plugin
-         id="org.ow2.fractal.mind.xtext.generator"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
-   <plugin
-         id="org.ow2.fractal.mind.xtext.ui"
+         id="org.ow2.mindEd.idt.editor.textual.ui"
          download-size="0"
          install-size="0"
          version="0.0.0"
