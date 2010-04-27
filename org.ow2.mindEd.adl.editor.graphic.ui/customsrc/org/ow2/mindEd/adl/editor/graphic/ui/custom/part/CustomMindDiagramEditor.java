@@ -16,13 +16,13 @@ import org.eclipse.gmf.runtime.diagram.ui.resources.editor.document.IDocumentPro
 import org.eclipse.ui.IEditorInput;
 import org.eclipse.ui.IFileEditorInput;
 import org.eclipse.ui.views.contentoutline.IContentOutlinePage;
-import org.ow2.fractal.mind.ide.ModelToProjectUtil;
 
 import org.ow2.mindEd.adl.editor.graphic.ui.custom.layouts.CustomConnectionLayerEx;
 import org.ow2.mindEd.adl.editor.graphic.ui.custom.providers.MindCustomDocumentProvider;
 import org.ow2.mindEd.adl.editor.graphic.ui.custom.tools.MindCustomPaletteFactory;
 import org.ow2.mindEd.adl.editor.graphic.ui.part.MindDiagramEditor;
 import org.ow2.mindEd.adl.editor.graphic.ui.part.MindPaletteFactory;
+import org.ow2.mindEd.ide.core.ModelToProjectUtil;
 
 public class CustomMindDiagramEditor extends MindDiagramEditor {
 

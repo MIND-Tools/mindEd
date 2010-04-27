@@ -19,9 +19,6 @@ import org.eclipse.ui.IWorkbenchWindow;
 import org.eclipse.ui.PartInitException;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.part.FileEditorInput;
-import org.ow2.fractal.mind.ide.ModelToProjectUtil;
-import org.ow2.fractal.mind.ide.emf.mindide.MindPackage;
-import org.ow2.fractal.mind.ide.emf.mindide.MindProject;
 
 import adl.AdlDefinition;
 import adl.ComponentReference;
@@ -31,6 +28,9 @@ import adl.custom.util.DefinitionLoaderUtil;
 
 import org.ow2.mindEd.adl.editor.graphic.ui.custom.part.CustomMindDiagramEditorUtil;
 import org.ow2.mindEd.adl.editor.graphic.ui.part.MindDiagramEditorPlugin;
+import org.ow2.mindEd.ide.core.ModelToProjectUtil;
+import org.ow2.mindEd.ide.model.MindPackage;
+import org.ow2.mindEd.ide.model.MindProject;
 
 /**
  * Install this edit policy on a ComponentReference or a FileC to make it
