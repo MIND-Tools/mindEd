@@ -48,7 +48,7 @@
             point="org.eclipse.emf.ecore.factory_override">
          <factory
                class="org.ow2.mindEd.ide.core.impl.MindideFactoryImplCustom"
-               uri="http://org.ow2.fractal/mindide/mind.ide.ecore/1.0.0">
+               uri="http://org.ow2.mindEd/ide.ecore/0.2.0">
          </factory>
       </extension>
       <extension
@@ -65,7 +65,7 @@
                id="org.ow2.mindEd.ide.core.ide.propertyTester1"
                namespace="org.eclipse.core.resources"
                properties="open"
-               type="org.ow2.mindEd.ide.model.MindRepondRepo">
+               type="org.ow2.mindEd.ide.model.MindRepo">
          </propertyTester>
       </extension>
       <extension
