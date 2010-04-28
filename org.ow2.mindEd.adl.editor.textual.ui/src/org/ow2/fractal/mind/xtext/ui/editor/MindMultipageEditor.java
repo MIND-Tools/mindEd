@@ -32,10 +32,10 @@ import org.eclipse.ui.IWorkbenchPage;
 import org.eclipse.ui.PartInitException;
 import org.eclipse.ui.part.FileEditorInput;
 import org.eclipse.ui.part.MultiPageEditorPart;
-import org.ow2.fractal.mind.xtext.ui.CustomXtextEditor;
+import org.ow2.mindEd.adl.provider.AdlItemProviderAdapterFactory;
+import org.ow2.mindEd.adl.textual.ui.CustomXtextEditor;
+import org.ow2.mindEd.adl.textual.ui.internal.FractalActivator;
 import org.ow2.mindEd.ide.core.ModelToProjectUtil;
-
-import adl.provider.AdlItemProviderAdapterFactory;
 
 import com.google.inject.Injector;
 
@@ -72,9 +72,9 @@ public class MindMultipageEditor extends MultiPageEditorPart implements
 				new HashMap<Resource, Boolean>());
 
 		// Create Guice injector for xtext services
-		Injector injector = org.ow2.fractal.mind.xtext.ui.internal.FractalActivator
+		Injector injector = FractalActivator
 				.getInstance()
-				.getInjector("org.ow2.fractal.mind.xtext.Fractal");
+				.getInjector("org.ow2.mindEd.adl.textual.Fractal");
 		xtextEditor = injector.getInstance(CustomXtextEditor.class);
 
 	}
