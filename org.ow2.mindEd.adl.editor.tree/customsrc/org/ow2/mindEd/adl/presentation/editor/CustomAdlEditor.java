@@ -1,9 +1,9 @@
-package adl.presentation.editor;
+package org.ow2.mindEd.adl.presentation.editor;
 
 import org.eclipse.ui.IEditorInput;
 import org.ow2.mindEd.ide.core.ModelToProjectUtil;
 
-import adl.presentation.AdlEditor;
+import org.ow2.mindEd.adl.presentation.AdlEditor;
 
 public class CustomAdlEditor extends AdlEditor {
 	

@@ -31,7 +31,7 @@
             name="%_UI_AdlEditor_label"
             icon="icons/full/obj16/AdlModelFile.gif"
             extensions="adl"
-            class="adl.presentation.editor.CustomAdlEditor"
+            class="org.ow2.mindEd.adl.presentation.editor.CustomAdlEditor"
             contributorClass="adl.presentation.AdlActionBarContributor">
       </editor>
    </extension>

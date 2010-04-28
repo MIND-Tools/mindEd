@@ -4,10 +4,10 @@
  *
  * $Id$
  */
-package adl.presentation.adapters;
+package org.ow2.mindEd.adl.presentation.adapters;
 
-import adl.presentation.AdlEditor;
-import adl.util.AdlAdapterFactory;
+import org.ow2.mindEd.adl.presentation.AdlEditor;
+import org.ow2.mindEd.adl.util.AdlAdapterFactory;
 
 import java.util.ArrayList;
 import java.util.Collection;

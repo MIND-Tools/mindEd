@@ -8,7 +8,7 @@ Bundle-Activator: adl.presentation.MindEditorPlugin$Implementation
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
-Export-Package: adl.presentation
+Export-Package: org.ow2.mindEd.adl.presentation
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.core.resources;visibility:=reexport,
  org.ow2.mindEd.adl.edit;visibility:=reexport,
