@@ -9,7 +9,7 @@ import org.osgi.framework.BundleContext;
 public class Activator extends AbstractUIPlugin {
 
 	// The plug-in ID
-	public static final String PLUGIN_ID = "org.ow2.fractal.mind.build.test";
+	public static final String PLUGIN_ID = "org.ow2.mindEd.ide.ui.test";
 
 	// The shared instance
 	private static Activator plugin;
