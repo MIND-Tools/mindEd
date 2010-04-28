@@ -2738,7 +2738,8 @@
       version="0.1.0">
     <requiredPlugins>org.eclipse.draw2d</requiredPlugins>
   </plugin>
-  <editor/>
+  <editor
+      iD="org.ow2.mindEd.adl.editor.graphic.ui.MindDiagramEditorID"/>
   <navigator>
     <childReferences
         child="//@diagram"/>

@@ -75,7 +75,7 @@
          class="org.eclipse.gmf.runtime.diagram.ui.providers.DiagramGlobalActionHandlerProvider"
          id="MindPresentation">
          <Priority name="Lowest"/>
-         <ViewId id="org.ow2.mindEd.adl.editor.graphic.ui.part.MindDiagramEditorID">
+         <ViewId id="org.ow2.mindEd.adl.editor.graphic.ui.MindDiagramEditorID">
             <ElementType class="org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart">
                <GlobalActionId actionId="delete"/>
             </ElementType>
@@ -88,7 +88,7 @@
          class="org.eclipse.gmf.runtime.diagram.ui.providers.ide.providers.DiagramIDEGlobalActionHandlerProvider"
          id="MindPresentationIDE">
          <Priority name="Lowest"/>
-         <ViewId id="org.ow2.mindEd.adl.editor.graphic.ui.part.MindDiagramEditorID">
+         <ViewId id="org.ow2.mindEd.adl.editor.graphic.ui.MindDiagramEditorID">
             <ElementType class="org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart">
                <GlobalActionId actionId="bookmark"/>
             </ElementType>
@@ -98,7 +98,7 @@
             class="org.eclipse.gmf.runtime.diagram.ui.render.providers.DiagramUIRenderGlobalActionHandlerProvider"
             id="MindRender">
          <Priority name="Lowest"/>
-         <ViewId id="org.ow2.mindEd.adl.editor.graphic.ui.part.MindDiagramEditorID">
+         <ViewId id="org.ow2.mindEd.adl.editor.graphic.ui.MindDiagramEditorID">
             <ElementType class="org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart">
                <GlobalActionId actionId="cut"/>
                <GlobalActionId actionId="copy"/>
@@ -902,7 +902,7 @@
          <command commandId="org.ow2.mindEd.adl.editor.graphic.ui.LoadResourceAction">
             <visibleWhen>
                <and>
-                  <with variable="activePartId"><equals value="org.ow2.mindEd.adl.editor.graphic.ui.part.MindDiagramEditorID"/></with>
+                  <with variable="activePartId"><equals value="org.ow2.mindEd.adl.editor.graphic.ui.MindDiagramEditorID"/></with>
                   <with variable="selection"><iterate ifEmpty="false"> 
                      <instanceof value="org.ow2.mindEd.adl.editor.graphic.ui.edit.parts.AdlDefinitionEditPart"/>
                   </iterate></with>
@@ -914,10 +914,10 @@
 
    <extension point="org.eclipse.ui.commands" id="menu-commands">
       <?gmfgen generated="true"?>
-      <category id="org.ow2.mindEd.adl.editor.graphic.ui.part.MindDiagramEditorID" name="%cmdcategory.name" description="%cmdcategory.desc"/>
+      <category id="org.ow2.mindEd.adl.editor.graphic.ui.MindDiagramEditorID" name="%cmdcategory.name" description="%cmdcategory.desc"/>
       <command id="org.ow2.mindEd.adl.editor.graphic.ui.LoadResourceAction"
          name="Load Resource"
-         categoryId="org.ow2.mindEd.adl.editor.graphic.ui.part.MindDiagramEditorID"
+         categoryId="org.ow2.mindEd.adl.editor.graphic.ui.MindDiagramEditorID"
          defaultHandler="org.ow2.mindEd.adl.editor.graphic.ui.part.LoadResourceAction"/>
    </extension>
    
