@@ -18,13 +18,11 @@
 package org.ow2.fractal.mind.emf.validation.adapter.constraints;
 
 import org.eclipse.core.runtime.IStatus;
-
 import org.eclipse.emf.validation.AbstractModelConstraint;
 import org.eclipse.emf.validation.IValidationContext;
-import org.eclipse.emf.validation.service.IValidator;
+import org.ow2.mindEd.adl.AdlPackage;
+import org.ow2.mindEd.adl.SubComponentDefinition;
 
-import adl.AdlPackage;
-import adl.SubComponentDefinition;
 
 
 /**

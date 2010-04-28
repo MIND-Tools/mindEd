@@ -17,9 +17,7 @@
 
 package org.ow2.fractal.mind.emf.validation.adapter;
 
-import org.eclipse.emf.ecore.EValidator;
 import org.eclipse.ui.IStartup;
-import adl.AdlPackage;
 
 
 
