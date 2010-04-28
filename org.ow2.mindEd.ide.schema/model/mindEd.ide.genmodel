@@ -5,7 +5,7 @@
     editDirectory="/org.ow2.mindEd.ide.edit/src-gen" editorDirectory="/org.ow2.mindEd.ide.editor/src-gen"
     modelPluginID="org.ow2.mindEd.ide.model" modelName="MindIDE" editPluginClass="org.ow2.mindEd.ide.edit.provider.MindIDEEditPlugin"
     editorPluginClass="org.ow2.mindEd.ide.editor.presentation.MindIDEEditorPlugin"
-    rootImplementsInterface="" testSuiteClass="org.ow2.fractal.mindEd.ide.emf.tests.MindIDEAllTests"
+    rootImplementsInterface="" testSuiteClass="org.ow2.mindEd.ide.tests.MindIDEAllTests"
     importerID="org.eclipse.emf.importer.ecore" complianceLevel="6.0" copyrightFields="false"
     editPluginID="org.ow2.mindEd.ide.edit" editorPluginID="org.ow2.mindEd.ide.editor"
     language="org.ow2.mindEd.ide.schema" interfaceNamePattern="">
