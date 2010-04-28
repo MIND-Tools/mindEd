@@ -5,7 +5,7 @@
          point="org.eclipse.help.contexts">
       <contexts
             file="contexts_MIND_UI.xml"
-            plugin="org.ow2.fractal.mind.build.ui">
+            plugin="org.ow2.mindEd.ide.ui">
       </contexts>
    </extension>
    <extension
