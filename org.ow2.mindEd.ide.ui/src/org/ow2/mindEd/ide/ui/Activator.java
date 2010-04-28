@@ -129,8 +129,6 @@ public class Activator extends AbstractUIPlugin {
 			
 			Class cl = bundle
 			.loadClass("org.ow2.mindEd.adl.editor.graphic.ui.custom.part.CustomMindDiagramEditorUtil");
-			//
-			 //org.ow2.fractal.mind.emf.diagram.custom.util,
 			cl.getMethod("initDiagram",URI.class, URI.class,  IProgressMonitor.class).invoke(null, diagramURI, modelURI, monitor);
 		} catch (Throwable e) {
 			getDefault().getLog().log(new Status(Status.ERROR, PLUGIN_ID, "Cannot init gmf digram", e));
