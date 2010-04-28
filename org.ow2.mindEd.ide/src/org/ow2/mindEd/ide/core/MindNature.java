@@ -14,7 +14,7 @@ public class MindNature implements IProjectNature {
 	/**
 	 * ID of this mind project nature
 	 */
-	public static final String NATURE_ID = "org.ow2.mindEd.ide.core.nature";
+	public static final String NATURE_ID = MindActivator.ID+".core.nature";
 
 	private IProject project;
 
