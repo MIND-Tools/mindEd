@@ -5,8 +5,8 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.gmf.runtime.common.core.command.CommandResult;
 import org.eclipse.gmf.runtime.emf.type.core.requests.ReorientRelationshipRequest;
 
-import adl.Body;
-import adl.InterfaceDefinition;
+import org.ow2.mindEd.adl.Body;
+import org.ow2.mindEd.adl.InterfaceDefinition;
 
 import org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.commands.BindingDefinitionCustomCreateCommand;
 import org.ow2.mindEd.adl.editor.graphic.ui.edit.commands.BindingDefinitionReorientCommand;

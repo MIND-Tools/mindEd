@@ -4,26 +4,23 @@ import java.util.List;
 
 import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.geometry.Rectangle;
-import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
 import org.eclipse.emf.transaction.impl.TransactionImpl;
 import org.eclipse.gef.EditPart;
-import org.eclipse.gef.Request;
 import org.eclipse.gef.requests.CreateConnectionRequest;
 import org.eclipse.gef.requests.TargetRequest;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.GraphicalEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.tools.UnspecifiedTypeConnectionTool;
 import org.eclipse.gmf.runtime.notation.View;
-import org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.commands.BindingDefinitionCustomCreateCommand;
+import org.ow2.mindEd.adl.custom.util.CreationUtil;
 import org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.parts.generic.MindBodyCompartmentEditPart;
 import org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.parts.generic.MindBodyEditPart;
 import org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.parts.generic.MindGenericEditPartFactory;
 
-import adl.ArchitectureDefinition;
-import adl.Body;
-import adl.InterfaceDefinition;
-import adl.Role;
-import adl.custom.util.CreationUtil;
+import org.ow2.mindEd.adl.ArchitectureDefinition;
+import org.ow2.mindEd.adl.Body;
+import org.ow2.mindEd.adl.InterfaceDefinition;
+import org.ow2.mindEd.adl.Role;
 import org.ow2.mindEd.adl.editor.graphic.ui.edit.parts.InterfaceDefinitionEditPart;
 import org.ow2.mindEd.adl.editor.graphic.ui.part.MindDiagramEditorPlugin;
 

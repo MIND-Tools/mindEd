@@ -20,12 +20,12 @@ import org.eclipse.ui.PartInitException;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.part.FileEditorInput;
 
-import adl.AdlDefinition;
-import adl.ComponentReference;
-import adl.FileC;
-import adl.ImportDefinition;
-import adl.custom.util.DefinitionLoaderUtil;
+import org.ow2.mindEd.adl.AdlDefinition;
+import org.ow2.mindEd.adl.ComponentReference;
+import org.ow2.mindEd.adl.FileC;
+import org.ow2.mindEd.adl.ImportDefinition;
 
+import org.ow2.mindEd.adl.custom.util.DefinitionLoaderUtil;
 import org.ow2.mindEd.adl.editor.graphic.ui.custom.part.CustomMindDiagramEditorUtil;
 import org.ow2.mindEd.adl.editor.graphic.ui.part.MindDiagramEditorPlugin;
 import org.ow2.mindEd.ide.core.ModelToProjectUtil;

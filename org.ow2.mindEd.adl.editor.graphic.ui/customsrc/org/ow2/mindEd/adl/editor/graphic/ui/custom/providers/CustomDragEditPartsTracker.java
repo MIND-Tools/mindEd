@@ -14,8 +14,8 @@ import org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.parts.BindingDefinitionC
 
 import org.ow2.mindEd.adl.editor.graphic.ui.edit.parts.AdlDefinitionEditPart;
 import org.ow2.mindEd.adl.editor.graphic.ui.edit.parts.InterfaceDefinitionEditPart;
-import adl.impl.BindingDefinitionImpl;
-import adl.impl.InterfaceDefinitionImpl;
+import org.ow2.mindEd.adl.impl.BindingDefinitionImpl;
+import org.ow2.mindEd.adl.impl.InterfaceDefinitionImpl;
 
 /**
  * Custom drag tracker to implement extended drag and drop features :<p>

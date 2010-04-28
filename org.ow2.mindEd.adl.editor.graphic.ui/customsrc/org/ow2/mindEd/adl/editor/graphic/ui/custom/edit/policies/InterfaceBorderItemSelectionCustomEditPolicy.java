@@ -16,7 +16,7 @@ import org.eclipse.gmf.runtime.diagram.ui.l10n.DiagramUIMessages;
 import org.eclipse.gmf.runtime.emf.core.util.EObjectAdapter;
 import org.eclipse.gmf.runtime.notation.View;
 
-import adl.InterfaceDefinition;
+import org.ow2.mindEd.adl.InterfaceDefinition;
 
 /**
  * 

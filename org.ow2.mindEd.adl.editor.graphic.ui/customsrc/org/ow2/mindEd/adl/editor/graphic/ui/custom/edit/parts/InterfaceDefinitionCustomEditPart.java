@@ -5,8 +5,8 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure;
 import org.eclipse.gmf.runtime.notation.View;
-import adl.InterfaceDefinition;
-import adl.Role;
+import org.ow2.mindEd.adl.InterfaceDefinition;
+import org.ow2.mindEd.adl.Role;
 
 import org.ow2.mindEd.adl.editor.graphic.ui.custom.figures.InterfaceDefinitionShape;
 import org.ow2.mindEd.adl.editor.graphic.ui.edit.parts.InterfaceDefinitionEditPart;

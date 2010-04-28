@@ -19,8 +19,8 @@ import org.eclipse.gef.ConnectionEditPart;
 import org.eclipse.gef.GraphicalEditPart;
 import org.eclipse.gmf.runtime.notation.View;
 
-import adl.InterfaceDefinition;
-import adl.Role;
+import org.ow2.mindEd.adl.InterfaceDefinition;
+import org.ow2.mindEd.adl.Role;
 
 /**
  * @author Yann Davin

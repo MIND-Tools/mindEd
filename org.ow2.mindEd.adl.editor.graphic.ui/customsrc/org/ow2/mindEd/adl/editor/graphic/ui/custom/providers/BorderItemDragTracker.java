@@ -6,8 +6,8 @@ import org.eclipse.gef.EditPart;
 import org.eclipse.gmf.runtime.diagram.ui.tools.DragEditPartsTrackerEx;
 import org.eclipse.gmf.runtime.notation.View;
 
-import adl.InterfaceDefinition;
-import adl.Role;
+import org.ow2.mindEd.adl.InterfaceDefinition;
+import org.ow2.mindEd.adl.Role;
 
 import org.ow2.mindEd.adl.editor.graphic.ui.custom.layouts.InterfaceBorderItemLocator;
 import org.ow2.mindEd.adl.editor.graphic.ui.edit.parts.InterfaceDefinitionEditPart;

@@ -271,7 +271,7 @@
 
    <extension point="org.eclipse.gmf.runtime.emf.type.core.elementTypes" id="element-types">
       <?gmfgen generated="true"?>
-      <metamodel nsURI="http://org.ow2.fractal/mind/mind.ecore/0.2.0">
+      <metamodel nsURI="http://org.ow2.mindEd/adl.ecore/0.2.0">
          <metamodelType
                id="org.ow2.mindEd.adl.editor.graphic.ui.AdlDefinition_1000"
                name="%metatype.name.AdlDefinition_1000"
@@ -281,7 +281,7 @@
             <param name="semanticHint" value="1000"/>
          </metamodelType>
       </metamodel>
-      <metamodel nsURI="http://org.ow2.fractal/mind/mind.ecore/0.2.0">
+      <metamodel nsURI="http://org.ow2.mindEd/adl.ecore/0.2.0">
          <metamodelType
                id="org.ow2.mindEd.adl.editor.graphic.ui.CompositeComponentDefinition_2007"
                name="%metatype.name.CompositeComponentDefinition_2007"
@@ -291,7 +291,7 @@
             <param name="semanticHint" value="2007"/>
          </metamodelType>
       </metamodel>
-      <metamodel nsURI="http://org.ow2.fractal/mind/mind.ecore/0.2.0">
+      <metamodel nsURI="http://org.ow2.mindEd/adl.ecore/0.2.0">
          <metamodelType
                id="org.ow2.mindEd.adl.editor.graphic.ui.PrimitiveComponentDefinition_2008"
                name="%metatype.name.PrimitiveComponentDefinition_2008"
@@ -301,7 +301,7 @@
             <param name="semanticHint" value="2008"/>
          </metamodelType>
       </metamodel>
-      <metamodel nsURI="http://org.ow2.fractal/mind/mind.ecore/0.2.0">
+      <metamodel nsURI="http://org.ow2.mindEd/adl.ecore/0.2.0">
          <metamodelType
                id="org.ow2.mindEd.adl.editor.graphic.ui.ComponentTypeDefinition_2009"
                name="%metatype.name.ComponentTypeDefinition_2009"
@@ -311,7 +311,7 @@
             <param name="semanticHint" value="2009"/>
          </metamodelType>
       </metamodel>
-      <metamodel nsURI="http://org.ow2.fractal/mind/mind.ecore/0.2.0">
+      <metamodel nsURI="http://org.ow2.mindEd/adl.ecore/0.2.0">
          <metamodelType
                id="org.ow2.mindEd.adl.editor.graphic.ui.TemplateSpecifiersList_3096"
                name="%metatype.name.TemplateSpecifiersList_3096"
@@ -321,7 +321,7 @@
             <param name="semanticHint" value="3096"/>
          </metamodelType>
       </metamodel>
-      <metamodel nsURI="http://org.ow2.fractal/mind/mind.ecore/0.2.0">
+      <metamodel nsURI="http://org.ow2.mindEd/adl.ecore/0.2.0">
          <metamodelType
                id="org.ow2.mindEd.adl.editor.graphic.ui.TemplateSpecifier_3097"
                name="%metatype.name.TemplateSpecifier_3097"
@@ -331,7 +331,7 @@
             <param name="semanticHint" value="3097"/>
          </metamodelType>
       </metamodel>
-      <metamodel nsURI="http://org.ow2.fractal/mind/mind.ecore/0.2.0">
+      <metamodel nsURI="http://org.ow2.mindEd/adl.ecore/0.2.0">
          <metamodelType
                id="org.ow2.mindEd.adl.editor.graphic.ui.TypeReferenceDefinition_3098"
                name="%metatype.name.TypeReferenceDefinition_3098"
@@ -341,7 +341,7 @@
             <param name="semanticHint" value="3098"/>
          </metamodelType>
       </metamodel>
-      <metamodel nsURI="http://org.ow2.fractal/mind/mind.ecore/0.2.0">
+      <metamodel nsURI="http://org.ow2.mindEd/adl.ecore/0.2.0">
          <metamodelType
                id="org.ow2.mindEd.adl.editor.graphic.ui.FormalArgumentsList_3099"
                name="%metatype.name.FormalArgumentsList_3099"
@@ -351,7 +351,7 @@
             <param name="semanticHint" value="3099"/>
          </metamodelType>
       </metamodel>
-      <metamodel nsURI="http://org.ow2.fractal/mind/mind.ecore/0.2.0">
+      <metamodel nsURI="http://org.ow2.mindEd/adl.ecore/0.2.0">
          <metamodelType
                id="org.ow2.mindEd.adl.editor.graphic.ui.FormalArgument_3100"
                name="%metatype.name.FormalArgument_3100"
@@ -361,7 +361,7 @@
             <param name="semanticHint" value="3100"/>
          </metamodelType>
       </metamodel>
-      <metamodel nsURI="http://org.ow2.fractal/mind/mind.ecore/0.2.0">
+      <metamodel nsURI="http://org.ow2.mindEd/adl.ecore/0.2.0">
          <metamodelType
                id="org.ow2.mindEd.adl.editor.graphic.ui.CompositeReferencesList_3101"
                name="%metatype.name.CompositeReferencesList_3101"
@@ -371,7 +371,7 @@
             <param name="semanticHint" value="3101"/>
          </metamodelType>
       </metamodel>
-      <metamodel nsURI="http://org.ow2.fractal/mind/mind.ecore/0.2.0">
+      <metamodel nsURI="http://org.ow2.mindEd/adl.ecore/0.2.0">
          <metamodelType
                id="org.ow2.mindEd.adl.editor.graphic.ui.CompositeReferenceDefinition_3102"
                name="%metatype.name.CompositeReferenceDefinition_3102"
@@ -381,7 +381,7 @@
             <param name="semanticHint" value="3102"/>
          </metamodelType>
       </metamodel>
-      <metamodel nsURI="http://org.ow2.fractal/mind/mind.ecore/0.2.0">
+      <metamodel nsURI="http://org.ow2.mindEd/adl.ecore/0.2.0">
          <metamodelType
                id="org.ow2.mindEd.adl.editor.graphic.ui.ArgumentDefinition_3103"
                name="%metatype.name.ArgumentDefinition_3103"
@@ -391,7 +391,7 @@
             <param name="semanticHint" value="3103"/>
          </metamodelType>
       </metamodel>
-      <metamodel nsURI="http://org.ow2.fractal/mind/mind.ecore/0.2.0">
+      <metamodel nsURI="http://org.ow2.mindEd/adl.ecore/0.2.0">
          <metamodelType
                id="org.ow2.mindEd.adl.editor.graphic.ui.TemplateDefinition_3104"
                name="%metatype.name.TemplateDefinition_3104"
@@ -401,7 +401,7 @@
             <param name="semanticHint" value="3104"/>
          </metamodelType>
       </metamodel>
-      <metamodel nsURI="http://org.ow2.fractal/mind/mind.ecore/0.2.0">
+      <metamodel nsURI="http://org.ow2.mindEd/adl.ecore/0.2.0">
          <specializationType
                id="org.ow2.mindEd.adl.editor.graphic.ui.CompositeReferenceDefinition_3105"
                name="%metatype.name.CompositeReferenceDefinition_3105"
@@ -410,7 +410,7 @@
             <param name="semanticHint" value="3105"/>
          </specializationType>
       </metamodel>
-      <metamodel nsURI="http://org.ow2.fractal/mind/mind.ecore/0.2.0">
+      <metamodel nsURI="http://org.ow2.mindEd/adl.ecore/0.2.0">
          <metamodelType
                id="org.ow2.mindEd.adl.editor.graphic.ui.CompositeBody_3129"
                name="%metatype.name.CompositeBody_3129"
@@ -420,7 +420,7 @@
             <param name="semanticHint" value="3129"/>
          </metamodelType>
       </metamodel>
-      <metamodel nsURI="http://org.ow2.fractal/mind/mind.ecore/0.2.0">
+      <metamodel nsURI="http://org.ow2.mindEd/adl.ecore/0.2.0">
          <metamodelType
                id="org.ow2.mindEd.adl.editor.graphic.ui.InterfaceDefinition_3130"
                name="%metatype.name.InterfaceDefinition_3130"
@@ -430,7 +430,7 @@
             <param name="semanticHint" value="3130"/>
          </metamodelType>
       </metamodel>
-      <metamodel nsURI="http://org.ow2.fractal/mind/mind.ecore/0.2.0">
+      <metamodel nsURI="http://org.ow2.mindEd/adl.ecore/0.2.0">
          <metamodelType
                id="org.ow2.mindEd.adl.editor.graphic.ui.SubComponentDefinition_3131"
                name="%metatype.name.SubComponentDefinition_3131"
@@ -440,7 +440,7 @@
             <param name="semanticHint" value="3131"/>
          </metamodelType>
       </metamodel>
-      <metamodel nsURI="http://org.ow2.fractal/mind/mind.ecore/0.2.0">
+      <metamodel nsURI="http://org.ow2.mindEd/adl.ecore/0.2.0">
          <specializationType
                id="org.ow2.mindEd.adl.editor.graphic.ui.CompositeReferenceDefinition_3132"
                name="%metatype.name.CompositeReferenceDefinition_3132"
@@ -449,7 +449,7 @@
             <param name="semanticHint" value="3132"/>
          </specializationType>
       </metamodel>
-      <metamodel nsURI="http://org.ow2.fractal/mind/mind.ecore/0.2.0">
+      <metamodel nsURI="http://org.ow2.mindEd/adl.ecore/0.2.0">
          <metamodelType
                id="org.ow2.mindEd.adl.editor.graphic.ui.Body_3143"
                name="%metatype.name.Body_3143"
@@ -459,7 +459,7 @@
             <param name="semanticHint" value="3143"/>
          </metamodelType>
       </metamodel>
-      <metamodel nsURI="http://org.ow2.fractal/mind/mind.ecore/0.2.0">
+      <metamodel nsURI="http://org.ow2.mindEd/adl.ecore/0.2.0">
          <metamodelType
                id="org.ow2.mindEd.adl.editor.graphic.ui.AnnotationsList_3150"
                name="%metatype.name.AnnotationsList_3150"
@@ -469,7 +469,7 @@
             <param name="semanticHint" value="3150"/>
          </metamodelType>
       </metamodel>
-      <metamodel nsURI="http://org.ow2.fractal/mind/mind.ecore/0.2.0">
+      <metamodel nsURI="http://org.ow2.mindEd/adl.ecore/0.2.0">
          <metamodelType
                id="org.ow2.mindEd.adl.editor.graphic.ui.Annotation_3145"
                name="%metatype.name.Annotation_3145"
@@ -479,7 +479,7 @@
             <param name="semanticHint" value="3145"/>
          </metamodelType>
       </metamodel>
-      <metamodel nsURI="http://org.ow2.fractal/mind/mind.ecore/0.2.0">
+      <metamodel nsURI="http://org.ow2.mindEd/adl.ecore/0.2.0">
          <metamodelType
                id="org.ow2.mindEd.adl.editor.graphic.ui.AnnotationElement_3146"
                name="%metatype.name.AnnotationElement_3146"
@@ -489,7 +489,7 @@
             <param name="semanticHint" value="3146"/>
          </metamodelType>
       </metamodel>
-      <metamodel nsURI="http://org.ow2.fractal/mind/mind.ecore/0.2.0">
+      <metamodel nsURI="http://org.ow2.mindEd/adl.ecore/0.2.0">
          <metamodelType
                id="org.ow2.mindEd.adl.editor.graphic.ui.ConstantValue_3148"
                name="%metatype.name.ConstantValue_3148"
@@ -499,7 +499,7 @@
             <param name="semanticHint" value="3148"/>
          </metamodelType>
       </metamodel>
-      <metamodel nsURI="http://org.ow2.fractal/mind/mind.ecore/0.2.0">
+      <metamodel nsURI="http://org.ow2.mindEd/adl.ecore/0.2.0">
          <specializationType
                id="org.ow2.mindEd.adl.editor.graphic.ui.Annotation_3149"
                name="%metatype.name.Annotation_3149"
@@ -508,7 +508,7 @@
             <param name="semanticHint" value="3149"/>
          </specializationType>
       </metamodel>
-      <metamodel nsURI="http://org.ow2.fractal/mind/mind.ecore/0.2.0">
+      <metamodel nsURI="http://org.ow2.mindEd/adl.ecore/0.2.0">
          <specializationType
                id="org.ow2.mindEd.adl.editor.graphic.ui.SubComponentDefinition_3135"
                name="%metatype.name.SubComponentDefinition_3135"
@@ -517,7 +517,7 @@
             <param name="semanticHint" value="3135"/>
          </specializationType>
       </metamodel>
-      <metamodel nsURI="http://org.ow2.fractal/mind/mind.ecore/0.2.0">
+      <metamodel nsURI="http://org.ow2.mindEd/adl.ecore/0.2.0">
          <metamodelType
                id="org.ow2.mindEd.adl.editor.graphic.ui.PrimitiveReferenceDefinition_3136"
                name="%metatype.name.PrimitiveReferenceDefinition_3136"
@@ -527,7 +527,7 @@
             <param name="semanticHint" value="3136"/>
          </metamodelType>
       </metamodel>
-      <metamodel nsURI="http://org.ow2.fractal/mind/mind.ecore/0.2.0">
+      <metamodel nsURI="http://org.ow2.mindEd/adl.ecore/0.2.0">
          <metamodelType
                id="org.ow2.mindEd.adl.editor.graphic.ui.PrimitiveBody_3137"
                name="%metatype.name.PrimitiveBody_3137"
@@ -537,7 +537,7 @@
             <param name="semanticHint" value="3137"/>
          </metamodelType>
       </metamodel>
-      <metamodel nsURI="http://org.ow2.fractal/mind/mind.ecore/0.2.0">
+      <metamodel nsURI="http://org.ow2.mindEd/adl.ecore/0.2.0">
          <metamodelType
                id="org.ow2.mindEd.adl.editor.graphic.ui.ImplementationDefinition_3140"
                name="%metatype.name.ImplementationDefinition_3140"
@@ -547,7 +547,7 @@
             <param name="semanticHint" value="3140"/>
          </metamodelType>
       </metamodel>
-      <metamodel nsURI="http://org.ow2.fractal/mind/mind.ecore/0.2.0">
+      <metamodel nsURI="http://org.ow2.mindEd/adl.ecore/0.2.0">
          <metamodelType
                id="org.ow2.mindEd.adl.editor.graphic.ui.FileC_3115"
                name="%metatype.name.FileC_3115"
@@ -557,7 +557,7 @@
             <param name="semanticHint" value="3115"/>
          </metamodelType>
       </metamodel>
-      <metamodel nsURI="http://org.ow2.fractal/mind/mind.ecore/0.2.0">
+      <metamodel nsURI="http://org.ow2.mindEd/adl.ecore/0.2.0">
          <metamodelType
                id="org.ow2.mindEd.adl.editor.graphic.ui.InlineCodeC_3116"
                name="%metatype.name.InlineCodeC_3116"
@@ -567,7 +567,7 @@
             <param name="semanticHint" value="3116"/>
          </metamodelType>
       </metamodel>
-      <metamodel nsURI="http://org.ow2.fractal/mind/mind.ecore/0.2.0">
+      <metamodel nsURI="http://org.ow2.mindEd/adl.ecore/0.2.0">
          <metamodelType
                id="org.ow2.mindEd.adl.editor.graphic.ui.DataDefinition_3139"
                name="%metatype.name.DataDefinition_3139"
@@ -577,7 +577,7 @@
             <param name="semanticHint" value="3139"/>
          </metamodelType>
       </metamodel>
-      <metamodel nsURI="http://org.ow2.fractal/mind/mind.ecore/0.2.0">
+      <metamodel nsURI="http://org.ow2.mindEd/adl.ecore/0.2.0">
          <specializationType
                id="org.ow2.mindEd.adl.editor.graphic.ui.FileC_3118"
                name="%metatype.name.FileC_3118"
@@ -586,7 +586,7 @@
             <param name="semanticHint" value="3118"/>
          </specializationType>
       </metamodel>
-      <metamodel nsURI="http://org.ow2.fractal/mind/mind.ecore/0.2.0">
+      <metamodel nsURI="http://org.ow2.mindEd/adl.ecore/0.2.0">
          <specializationType
                id="org.ow2.mindEd.adl.editor.graphic.ui.InlineCodeC_3119"
                name="%metatype.name.InlineCodeC_3119"
@@ -595,7 +595,7 @@
             <param name="semanticHint" value="3119"/>
          </specializationType>
       </metamodel>
-      <metamodel nsURI="http://org.ow2.fractal/mind/mind.ecore/0.2.0">
+      <metamodel nsURI="http://org.ow2.mindEd/adl.ecore/0.2.0">
          <metamodelType
                id="org.ow2.mindEd.adl.editor.graphic.ui.AttributeDefinition_3138"
                name="%metatype.name.AttributeDefinition_3138"
@@ -605,7 +605,7 @@
             <param name="semanticHint" value="3138"/>
          </metamodelType>
       </metamodel>
-      <metamodel nsURI="http://org.ow2.fractal/mind/mind.ecore/0.2.0">
+      <metamodel nsURI="http://org.ow2.mindEd/adl.ecore/0.2.0">
          <specializationType
                id="org.ow2.mindEd.adl.editor.graphic.ui.AnnotationsList_3147"
                name="%metatype.name.AnnotationsList_3147"
@@ -614,7 +614,7 @@
             <param name="semanticHint" value="3147"/>
          </specializationType>
       </metamodel>
-      <metamodel nsURI="http://org.ow2.fractal/mind/mind.ecore/0.2.0">
+      <metamodel nsURI="http://org.ow2.mindEd/adl.ecore/0.2.0">
          <specializationType
                id="org.ow2.mindEd.adl.editor.graphic.ui.FormalArgumentsList_3123"
                name="%metatype.name.FormalArgumentsList_3123"
@@ -623,7 +623,7 @@
             <param name="semanticHint" value="3123"/>
          </specializationType>
       </metamodel>
-      <metamodel nsURI="http://org.ow2.fractal/mind/mind.ecore/0.2.0">
+      <metamodel nsURI="http://org.ow2.mindEd/adl.ecore/0.2.0">
          <metamodelType
                id="org.ow2.mindEd.adl.editor.graphic.ui.PrimitiveReferencesList_3124"
                name="%metatype.name.PrimitiveReferencesList_3124"
@@ -633,7 +633,7 @@
             <param name="semanticHint" value="3124"/>
          </metamodelType>
       </metamodel>
-      <metamodel nsURI="http://org.ow2.fractal/mind/mind.ecore/0.2.0">
+      <metamodel nsURI="http://org.ow2.mindEd/adl.ecore/0.2.0">
          <specializationType
                id="org.ow2.mindEd.adl.editor.graphic.ui.PrimitiveReferenceDefinition_3125"
                name="%metatype.name.PrimitiveReferenceDefinition_3125"
@@ -643,7 +643,7 @@
             <param name="semanticHint" value="3125"/>
          </specializationType>
       </metamodel>
-      <metamodel nsURI="http://org.ow2.fractal/mind/mind.ecore/0.2.0">
+      <metamodel nsURI="http://org.ow2.mindEd/adl.ecore/0.2.0">
          <specializationType
                id="org.ow2.mindEd.adl.editor.graphic.ui.AnnotationsList_3151"
                name="%metatype.name.AnnotationsList_3151"
@@ -652,7 +652,7 @@
             <param name="semanticHint" value="3151"/>
          </specializationType>
       </metamodel>
-      <metamodel nsURI="http://org.ow2.fractal/mind/mind.ecore/0.2.0">
+      <metamodel nsURI="http://org.ow2.mindEd/adl.ecore/0.2.0">
          <metamodelType
                id="org.ow2.mindEd.adl.editor.graphic.ui.TypeReferencesList_3127"
                name="%metatype.name.TypeReferencesList_3127"
@@ -662,7 +662,7 @@
             <param name="semanticHint" value="3127"/>
          </metamodelType>
       </metamodel>
-      <metamodel nsURI="http://org.ow2.fractal/mind/mind.ecore/0.2.0">
+      <metamodel nsURI="http://org.ow2.mindEd/adl.ecore/0.2.0">
          <specializationType
                id="org.ow2.mindEd.adl.editor.graphic.ui.TypeReferenceDefinition_3128"
                name="%metatype.name.TypeReferenceDefinition_3128"
@@ -672,7 +672,7 @@
             <param name="semanticHint" value="3128"/>
          </specializationType>
       </metamodel>
-      <metamodel nsURI="http://org.ow2.fractal/mind/mind.ecore/0.2.0">
+      <metamodel nsURI="http://org.ow2.mindEd/adl.ecore/0.2.0">
          <metamodelType
                id="org.ow2.mindEd.adl.editor.graphic.ui.TypeBody_3142"
                name="%metatype.name.TypeBody_3142"
@@ -682,7 +682,7 @@
             <param name="semanticHint" value="3142"/>
          </metamodelType>
       </metamodel>
-      <metamodel nsURI="http://org.ow2.fractal/mind/mind.ecore/0.2.0">
+      <metamodel nsURI="http://org.ow2.mindEd/adl.ecore/0.2.0">
          <specializationType
                id="org.ow2.mindEd.adl.editor.graphic.ui.AnnotationsList_3152"
                name="%metatype.name.AnnotationsList_3152"
@@ -691,7 +691,7 @@
             <param name="semanticHint" value="3152"/>
          </specializationType>
       </metamodel>
-      <metamodel nsURI="http://org.ow2.fractal/mind/mind.ecore/0.2.0">
+      <metamodel nsURI="http://org.ow2.mindEd/adl.ecore/0.2.0">
          <metamodelType
                id="org.ow2.mindEd.adl.editor.graphic.ui.BindingDefinition_4003"
                name="%metatype.name.BindingDefinition_4003"
@@ -957,7 +957,7 @@
          <![CDATA[Miscellaneous]]>
       </category>
       <constraintProvider cache="true">
-         <package namespaceUri="http://org.ow2.fractal/mind/mind.ecore/0.2.0"/>
+         <package namespaceUri="http://org.ow2.mindEd/adl.ecore/0.2.0"/>
                <constraints categories="mindaudits">
                   </constraints>
          <constraints categories="mindaudits/References">

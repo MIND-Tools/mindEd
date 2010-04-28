@@ -17,7 +17,7 @@ import org.eclipse.gmf.runtime.emf.type.core.IElementType;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.gmf.runtime.notation.impl.ShapeImpl;
 
-import adl.MergedObject;
+import org.ow2.mindEd.adl.MergedObject;
 
 import org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.policies.MergedComponentEditPolicy;
 import org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.policies.MergedInterfaceSemanticEditPolicy;

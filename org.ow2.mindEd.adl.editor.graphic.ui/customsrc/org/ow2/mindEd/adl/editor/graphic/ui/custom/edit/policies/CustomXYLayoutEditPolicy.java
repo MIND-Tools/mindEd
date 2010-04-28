@@ -10,8 +10,8 @@ import org.eclipse.gmf.runtime.diagram.ui.requests.CreateViewRequest.ViewDescrip
 import org.eclipse.gmf.runtime.emf.core.util.EObjectAdapter;
 import org.ow2.mindEd.adl.editor.graphic.ui.custom.layouts.CustomFreeFormLayoutEx;
 
-import adl.DataDefinition;
-import adl.ImplementationDefinition;
+import org.ow2.mindEd.adl.DataDefinition;
+import org.ow2.mindEd.adl.ImplementationDefinition;
 
 public class CustomXYLayoutEditPolicy extends XYLayoutEditPolicy {
 

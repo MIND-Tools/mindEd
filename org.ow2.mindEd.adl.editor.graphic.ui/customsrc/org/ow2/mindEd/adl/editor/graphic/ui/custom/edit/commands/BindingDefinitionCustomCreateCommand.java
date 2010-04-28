@@ -17,12 +17,12 @@ import org.eclipse.gmf.runtime.emf.type.core.IElementType;
 import org.eclipse.gmf.runtime.emf.type.core.requests.CreateElementRequest;
 import org.eclipse.gmf.runtime.emf.type.core.requests.CreateRelationshipRequest;
 
-import adl.AdlFactory;
-import adl.BindingDefinition;
-import adl.Body;
-import adl.Element;
-import adl.InterfaceDefinition;
-import adl.Role;
+import org.ow2.mindEd.adl.AdlFactory;
+import org.ow2.mindEd.adl.BindingDefinition;
+import org.ow2.mindEd.adl.Body;
+import org.ow2.mindEd.adl.Element;
+import org.ow2.mindEd.adl.InterfaceDefinition;
+import org.ow2.mindEd.adl.Role;
 import org.ow2.mindEd.adl.editor.graphic.ui.edit.commands.BindingDefinitionCreateCommand;
 import org.ow2.mindEd.adl.editor.graphic.ui.edit.commands.InterfaceDefinitionCreateCommand;
 import org.ow2.mindEd.adl.editor.graphic.ui.edit.parts.InterfaceDefinitionEditPart;
@@ -105,8 +105,8 @@ public class BindingDefinitionCustomCreateCommand extends
 		
 		EObject sourceComponent = null;
 		EObject targetComponent = null;
-		adl.Role sourceRole = null;
-		adl.Role targetRole = null;
+		Role sourceRole = null;
+		Role targetRole = null;
 		
 		if (customSource != null) {
 			if (customSource instanceof InterfaceDefinition){

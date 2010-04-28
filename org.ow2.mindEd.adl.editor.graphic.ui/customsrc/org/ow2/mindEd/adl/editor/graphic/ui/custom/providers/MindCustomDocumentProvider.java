@@ -36,11 +36,11 @@ import org.eclipse.ui.IWorkbenchPage;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.internal.views.markers.ProblemsView;
 import org.eclipse.ui.part.FileEditorInput;
+import org.ow2.mindEd.adl.custom.helpers.AdlDefinitionHelper;
+import org.ow2.mindEd.adl.custom.impl.AdlDefinitionCustomImpl;
 import org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.commands.MindDiagramUpdateAllCommand;
 import org.ow2.mindEd.adl.editor.graphic.ui.custom.part.CustomValidateAction;
 
-import adl.custom.helpers.AdlDefinitionHelper;
-import adl.custom.impl.AdlDefinitionCustomImpl;
 import org.ow2.mindEd.adl.editor.graphic.ui.part.Messages;
 import org.ow2.mindEd.adl.editor.graphic.ui.part.MindDiagramEditorPlugin;
 import org.ow2.mindEd.adl.editor.graphic.ui.part.MindDiagramEditorUtil;
