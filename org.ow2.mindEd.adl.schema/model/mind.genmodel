@@ -4,16 +4,16 @@
     xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/org.ow2.mindEd.adl.model/src"
     editDirectory="/org.ow2.mindEd.adl.edit/src" editorDirectory="/org.ow2.mindEd.adl.editor.tree/src"
     modelPluginID="org.ow2.mindEd.adl.model" templateDirectory="" redirection="" modelName="Mind"
-    modelPluginClass="" rootExtendsInterface="adl.custom.MindObject" rootExtendsClass="adl.custom.impl.MindObjectImpl"
-    rootImplementsInterface="" featureMapWrapperInterface="" featureMapWrapperInternalInterface=""
-    featureMapWrapperClass="adl.MindObject" booleanFlagsField="" importerID="org.eclipse.emf.importer.ecore"
-    complianceLevel="6.0" copyrightFields="false" editPluginID="org.ow2.mindEd.adl.edit"
-    editorPluginID="org.ow2.mindEd.adl.editor.tree" language="adl" interfaceNamePattern=""
-    classNamePattern="">
+    modelPluginClass="" rootExtendsInterface="org.ow2.mindEd.adl.custom.MindObject"
+    rootExtendsClass="org.ow2.mindEd.adl.custom.impl.MindObjectImpl" rootImplementsInterface=""
+    featureMapWrapperInterface="" featureMapWrapperInternalInterface="" featureMapWrapperClass="adl.MindObject"
+    booleanFlagsField="" importerID="org.eclipse.emf.importer.ecore" complianceLevel="6.0"
+    copyrightFields="false" editPluginID="org.ow2.mindEd.adl.edit" editorPluginID="org.ow2.mindEd.adl.editor.tree"
+    language="adl" interfaceNamePattern="" classNamePattern="">
   <foreignModel>mind.ecore</foreignModel>
-  <genPackages prefix="Adl" disposableProviderFactory="true" loadInitialization="true"
-      generateExampleClass="false" multipleEditorPages="false" generateModelWizard="false"
-      ecorePackage="mind.ecore#/">
+  <genPackages prefix="Adl" basePackage="org.ow2.mindEd" disposableProviderFactory="true"
+      loadInitialization="true" generateExampleClass="false" multipleEditorPages="false"
+      generateModelWizard="false" ecorePackage="mind.ecore#/">
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="mind.ecore#//Contingency">
       <genEnumLiterals ecoreEnumLiteral="mind.ecore#//Contingency/optional"/>
       <genEnumLiterals ecoreEnumLiteral="mind.ecore#//Contingency/mandatory"/>
