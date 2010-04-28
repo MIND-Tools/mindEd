@@ -5,8 +5,8 @@ import org.eclipse.core.resources.IFolder;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.ResourcesPlugin;
 import org.junit.Test;
-import org.ow2.fractal.mind.ide.test.TestMindProject;
 import org.ow2.mindEd.ide.core.MindIdeCore;
+import org.ow2.mindEd.ide.test.TestMindProject;
 
 /**
  * Test Fractal Mind Wizard
