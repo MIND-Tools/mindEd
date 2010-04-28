@@ -7,15 +7,15 @@ Bundle-ClassPath: .
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
-Export-Package: adl,
- adl.custom.adapters,
- adl.custom.adapters.factory,
- adl.custom.helpers,
- adl.custom.impl,
- adl.custom.impl.factory,
- adl.custom.util,
- adl.impl,
- adl.util
+Export-Package: org.ow2.mindEd.adl,
+ org.ow2.mindEd.adl.custom.adapters,
+ org.ow2.mindEd.adl.custom.adapters.factory,
+ org.ow2.mindEd.adl.custom.helpers,
+ org.ow2.mindEd.adl.custom.impl,
+ org.ow2.mindEd.adl.custom.impl.factory,
+ org.ow2.mindEd.adl.custom.util,
+ org.ow2.mindEd.adl.impl,
+ org.ow2.mindEd.adl.util
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.emf.ecore;visibility:=reexport,
  org.eclipse.emf.edit;bundle-version="2.5.0",
