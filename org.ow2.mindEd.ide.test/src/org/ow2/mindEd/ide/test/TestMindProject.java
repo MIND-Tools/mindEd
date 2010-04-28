@@ -202,7 +202,7 @@ public class TestMindProject {
 		ICommand[] commands = desc.getBuildSpec();
 		assertEquals(3, commands.length);
 		// 1 : org.eclipse.cdt.managedbuilder.core.genmakebuilder
-		// 2 : org.ow2.fractal.mind.cadse.builder
+		// 2 : org.ow2.mindEd.ide.core.cadse.builder
 		// 3 : org.eclipse.cdt.managedbuilder.core.ScannerConfigBuilder
 		assertEquals("org.eclipse.cdt.managedbuilder.core.genmakebuilder", commands[0].getBuilderName());
 		assertEquals(MindIdeBuilder.BUILDER_ID, commands[1].getBuilderName());
@@ -216,7 +216,7 @@ public class TestMindProject {
 		IConfiguration configuration = info.getDefaultConfiguration();
 		assertEquals("Default", configuration.getName());
 		
-		assertTrue(configuration.getId().startsWith("org.ow2.fractal.mind.build"));
+		assertTrue(configuration.getId().startsWith("org.ow2.mindEd.ide.core.build"));
 		assertEquals("make", configuration.getBuildCommand());
 		
 		CBuildData buildData = configuration.getBuildData();
