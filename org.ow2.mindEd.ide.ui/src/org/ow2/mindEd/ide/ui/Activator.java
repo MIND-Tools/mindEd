@@ -5,6 +5,7 @@ import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.core.runtime.Path;
 import org.eclipse.core.runtime.Platform;
+import org.eclipse.core.runtime.Status;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.ui.IEditorDescriptor;
@@ -120,15 +121,19 @@ public class Activator extends AbstractUIPlugin {
 	public static void initGmfDiagram(URI diagramURI, URI modelURI,
 			IProgressMonitor monitor) {
 		try {
-			Bundle bundle = Platform.getBundle("org.ow2.fractal.mind.emf.diagram");
-			if (bundle == null) return;
+			Bundle bundle = Platform.getBundle("org.ow2.mindEd.adl.editor.graphic.ui");
+			if (bundle == null) {
+				getDefault().getLog().log(new Status(Status.WARNING, PLUGIN_ID, "Cannot find gmf plugin digram"));
+				return;
+			}
 			
 			Class cl = bundle
-			.loadClass("org.ow2.fractal.mind.emf.diagram.custom.util.CustomMindDiagramEditorUtil");
+			.loadClass("org.ow2.mindEd.adl.editor.graphic.ui.custom.part.CustomMindDiagramEditorUtil");
 			//
 			 //org.ow2.fractal.mind.emf.diagram.custom.util,
 			cl.getMethod("initDiagram",URI.class, URI.class,  IProgressMonitor.class).invoke(null, diagramURI, modelURI, monitor);
 		} catch (Throwable e) {
+			getDefault().getLog().log(new Status(Status.ERROR, PLUGIN_ID, "Cannot init gmf digram", e));
 		}
 	}
 
