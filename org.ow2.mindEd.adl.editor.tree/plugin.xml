@@ -15,9 +15,9 @@
             id="org.eclipse.emf.ecore.Wizard.category.ID"
             name="%_UI_Wizard_category"/>
       <wizard
-            id="adl.presentation.AdlModelWizardID"
+            id="org.ow2.mindEd.adl.presentation.AdlModelWizardID"
             name="%_UI_AdlModelWizard_label"
-            class="adl.presentation.AdlModelWizard"
+            class="org.ow2.mindEd.adl.presentation.AdlModelWizard"
             category="org.eclipse.emf.ecore.Wizard.category.ID"
             icon="icons/full/obj16/AdlModelFile.gif">
          <description>%_UI_AdlModelWizard_description</description>
@@ -27,12 +27,12 @@
 
    <extension point="org.eclipse.ui.editors">
       <editor
-            id="adl.presentation.AdlEditorID"
+            id="org.ow2.mindEd.adl.presentation.AdlEditorID"
             name="%_UI_AdlEditor_label"
             icon="icons/full/obj16/AdlModelFile.gif"
             extensions="adl"
             class="org.ow2.mindEd.adl.presentation.editor.CustomAdlEditor"
-            contributorClass="adl.presentation.AdlActionBarContributor">
+            contributorClass="org.ow2.mindEd.adl.presentation.AdlActionBarContributor">
       </editor>
    </extension>
 
