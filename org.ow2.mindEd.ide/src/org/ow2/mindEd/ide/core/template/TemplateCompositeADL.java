@@ -1,6 +1,6 @@
 package org.ow2.mindEd.ide.core.template;
 
-import org.ow2.mindEd.ide.model.MindAdl;
+import org.ow2.mindEd.ide.model.*;
 
 
 public class TemplateCompositeADL
