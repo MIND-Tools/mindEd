@@ -1,4 +1,4 @@
-package org.ow2.fractal.mind.ide.test;
+package org.ow2.mindEd.ide.test;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;

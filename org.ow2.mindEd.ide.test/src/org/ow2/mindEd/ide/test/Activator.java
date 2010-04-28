@@ -1,4 +1,4 @@
-package org.ow2.fractal.mind.ide.test;
+package org.ow2.mindEd.ide.test;
 
 import org.eclipse.core.runtime.Plugin;
 import org.osgi.framework.BundleContext;
