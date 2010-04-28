@@ -37,7 +37,7 @@ public class MindideFactoryImpl extends EFactoryImpl implements MindideFactory {
 	 */
 	public static MindideFactory init() {
 		try {
-			MindideFactory theMindideFactory = (MindideFactory)EPackage.Registry.INSTANCE.getEFactory("http://org.ow2.fractal/minded/ide.ecore/1.0.0"); 
+			MindideFactory theMindideFactory = (MindideFactory)EPackage.Registry.INSTANCE.getEFactory("http://org.ow2.mindEd/ide.ecore/0.2.0"); 
 			if (theMindideFactory != null) {
 				return theMindideFactory;
 			}

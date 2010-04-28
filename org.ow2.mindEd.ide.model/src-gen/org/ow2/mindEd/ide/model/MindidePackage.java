@@ -43,7 +43,7 @@ public interface MindidePackage extends EPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	String eNS_URI = "http://org.ow2.fractal/minded/ide.ecore/1.0.0";
+	String eNS_URI = "http://org.ow2.mindEd/ide.ecore/0.2.0";
 
 	/**
 	 * The package namespace name.
