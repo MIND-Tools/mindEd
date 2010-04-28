@@ -9,7 +9,7 @@ import org.osgi.framework.BundleContext;
 public class Activator extends Plugin {
 
 	// The plug-in ID
-	public static final String PLUGIN_ID = "org.ow2.fractal.mind.path.test";
+	public static final String PLUGIN_ID = "org.ow2.mindEd.ide.test";
 
 	// The shared instance
 	private static Activator plugin;
