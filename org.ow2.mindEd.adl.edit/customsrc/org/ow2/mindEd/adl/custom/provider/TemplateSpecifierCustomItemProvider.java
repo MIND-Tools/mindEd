@@ -1,4 +1,4 @@
-package adl.custom.provider;
+package org.ow2.mindEd.adl.custom.provider;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -7,7 +7,7 @@ import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.ecore.impl.EStructuralFeatureImpl;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 
-import adl.provider.TemplateSpecifierItemProvider;
+import org.ow2.mindEd.adl.provider.TemplateSpecifierItemProvider;
 
 public class TemplateSpecifierCustomItemProvider extends
 		TemplateSpecifierItemProvider {

@@ -1,4 +1,4 @@
-package adl.custom.descriptor;
+package org.ow2.mindEd.adl.custom.descriptor;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -11,8 +11,8 @@ import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.ow2.mindEd.ide.core.ModelToProjectUtil;
 
-import adl.AdlPackage;
-import adl.ImportDefinition;
+import org.ow2.mindEd.adl.AdlPackage;
+import org.ow2.mindEd.adl.ImportDefinition;
 
 public class ImportsPropertyDescriptor extends ItemPropertyDescriptor {
 

@@ -1,8 +1,8 @@
-package adl.custom.provider;
+package org.ow2.mindEd.adl.custom.provider;
 
 import org.eclipse.emf.common.notify.Adapter;
 
-import adl.provider.AdlItemProviderAdapterFactory;
+import org.ow2.mindEd.adl.provider.AdlItemProviderAdapterFactory;
 
 public class AdlItemProviderAdapterCustomFactory extends
 		AdlItemProviderAdapterFactory {

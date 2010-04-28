@@ -1,4 +1,4 @@
-package adl.custom.provider;
+package org.ow2.mindEd.adl.custom.provider;
 
 import java.util.List;
 
@@ -8,10 +8,10 @@ import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
+import org.ow2.mindEd.adl.custom.descriptor.ListPropertyDescriptor;
 
-import adl.AdlPackage;
-import adl.custom.descriptor.ListPropertyDescriptor;
-import adl.provider.InterfaceDefinitionItemProvider;
+import org.ow2.mindEd.adl.AdlPackage;
+import org.ow2.mindEd.adl.provider.InterfaceDefinitionItemProvider;
 
 public class InterfaceDefinitionCustomItemProvider extends
 		InterfaceDefinitionItemProvider {

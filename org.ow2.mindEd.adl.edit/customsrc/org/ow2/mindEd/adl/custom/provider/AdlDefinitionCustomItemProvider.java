@@ -1,16 +1,10 @@
-package adl.custom.provider;
-import java.util.List;
-
+package org.ow2.mindEd.adl.custom.provider;
 import org.eclipse.emf.common.notify.AdapterFactory;
-import org.eclipse.emf.common.util.ResourceLocator;
-import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
-import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
+import org.ow2.mindEd.adl.custom.descriptor.ListPropertyDescriptor;
 
-import adl.AdlPackage;
-import adl.custom.descriptor.ListPropertyDescriptor;
-import adl.provider.AdlDefinitionItemProvider;
+import org.ow2.mindEd.adl.AdlPackage;
+import org.ow2.mindEd.adl.provider.AdlDefinitionItemProvider;
 
 
 public class AdlDefinitionCustomItemProvider extends AdlDefinitionItemProvider {

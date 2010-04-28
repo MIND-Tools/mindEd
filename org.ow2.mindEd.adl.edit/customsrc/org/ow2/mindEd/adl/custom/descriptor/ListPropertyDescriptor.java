@@ -1,4 +1,4 @@
-package adl.custom.descriptor;
+package org.ow2.mindEd.adl.custom.descriptor;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -17,10 +17,10 @@ import org.eclipse.emf.ecore.impl.EAttributeImpl;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.ow2.mindEd.ide.core.ModelToProjectUtil;
 
-import adl.AdlDefinition;
-import adl.AdlPackage;
-import adl.ImportDefinition;
-import adl.InterfaceDefinition;
+import org.ow2.mindEd.adl.AdlDefinition;
+import org.ow2.mindEd.adl.AdlPackage;
+import org.ow2.mindEd.adl.ImportDefinition;
+import org.ow2.mindEd.adl.InterfaceDefinition;
 
 public class ListPropertyDescriptor extends ItemPropertyDescriptor {
 
