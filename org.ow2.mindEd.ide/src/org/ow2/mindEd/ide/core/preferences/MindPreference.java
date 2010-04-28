@@ -20,6 +20,14 @@ public class MindPreference implements IPreferenceChangeListener {
 	public String getMindCMainClass() {
 		return getPreferences().get(PreferenceConstants.P_MINDC_MAIN_CLASS, null);
 	}
+	
+	public void setMindCLocation(String location) {
+		getPreferences().put(PreferenceConstants.P_MINDC_LOCATION, location);
+	}
+	
+	public void setMindCMainClass(String classMain) {
+		getPreferences().put(PreferenceConstants.P_MINDC_MAIN_CLASS, classMain);
+	}
 
 	public IEclipsePreferences getPreferences() {
 		if (_preference == null) {

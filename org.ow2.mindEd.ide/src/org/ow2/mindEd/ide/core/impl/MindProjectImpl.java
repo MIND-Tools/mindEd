@@ -20,6 +20,7 @@ import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IResource;
 import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
+import org.eclipse.core.runtime.IPath;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Status;
@@ -115,7 +116,10 @@ public class MindProjectImpl extends org.ow2.mindEd.ide.model.impl.MindProjectIm
 		private String toFile(MindRootSrc rs) {
 			IFolder f = MindIdeCore.getResource(rs);
 			// for windows double \\
-			return f.getLocation().toOSString().replaceAll("\\\\", "\\\\\\\\");
+			IPath location = f.getLocation();
+			if (location == null)
+				return null;
+			return location.toOSString().replaceAll("\\\\", "\\\\\\\\");
 		}
 	}
 	

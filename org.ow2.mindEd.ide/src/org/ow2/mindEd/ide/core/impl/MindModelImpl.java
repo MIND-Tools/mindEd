@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -360,6 +361,9 @@ public class MindModelImpl implements MindModel {
 
 	@Override
 	public List<MindProject> getAllProject() {
+		if (_projects == null) {
+			return Collections.emptyList();
+		}
 		return new ArrayList<MindProject>(_projects.values());
 	}
 

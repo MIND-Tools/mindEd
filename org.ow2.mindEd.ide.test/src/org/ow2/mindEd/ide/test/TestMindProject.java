@@ -8,6 +8,7 @@ import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
 
 import java.io.ByteArrayInputStream;
+import java.io.File;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.util.Arrays;
@@ -155,6 +156,7 @@ public class TestMindProject {
 			if (mindCLocation == null)
 				mindCLocation = System.getProperty("MINDC_HOME");
 			assertNotNull("You must configure the test passing the mindc location with -DMINDC_ROOT=", mindCLocation);
+			assertTrue(new File(mindCLocation).exists());
 			MindActivator.getPref().setMindCLocation(mindCLocation );
 		}
 	}
