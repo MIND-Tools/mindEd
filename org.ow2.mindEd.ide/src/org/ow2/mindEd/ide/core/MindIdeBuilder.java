@@ -53,7 +53,7 @@ public class MindIdeBuilder extends IncrementalProjectBuilder {
 	/**
  * ID of mind ide builder.
  */
-	public static final String BUILDER_ID = "org.ow2.mindEd.ide.core.cadse.builder";
+	public static final String BUILDER_ID = MindActivator.ID+".core.builder";
 	
 
 	@Override

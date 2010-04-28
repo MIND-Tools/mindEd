@@ -41,7 +41,8 @@ import org.ow2.mindEd.ide.model.impl.MindRootSrcImpl;
  *
  */
 public class MindActivator extends Plugin {
-	public static final String ID = "org.ow2.mindEd.ide.core.path";
+	public static final String ID = "org.ow2.mindEd.ide";
+	
 	MindProjectAdapterFactory _mindProjectAdapterFactory;
 	ResourceProjectAdapterFactory _resourceProjectAdapterFactory;
 	static private MindActivator SINGLETON;
