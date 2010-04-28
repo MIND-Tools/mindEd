@@ -46,6 +46,7 @@ import org.junit.After;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.ow2.mindEd.ide.core.FamilyJobCST;
+import org.ow2.mindEd.ide.core.MindActivator;
 import org.ow2.mindEd.ide.core.MindIdeBuilder;
 import org.ow2.mindEd.ide.core.MindIdeCore;
 import org.ow2.mindEd.ide.core.MindModelManager;
@@ -146,7 +147,17 @@ public class TestMindProject {
 				+ actualString + ">");
 	}
 	
-	
+	@Test
+	public void testMindcLocation() throws Exception {
+		assertNotNull(MindActivator.getPref());
+		if (MindActivator.getPref().getMindCLocation() == null) {
+			String mindCLocation = System.getProperty("MINDC_ROOT");
+			if (mindCLocation == null)
+				mindCLocation = System.getProperty("MINDC_HOME");
+			assertNotNull("You must configure the test passing the mindc location with -DMINDC_ROOT=", mindCLocation);
+			MindActivator.getPref().setMindCLocation(mindCLocation );
+		}
+	}
 
 	@Test
 	public void testAPI() throws UnsupportedEncodingException, CoreException {
@@ -1229,7 +1240,7 @@ public class TestMindProject {
 				FamilyJobCST.FAMILY_REMOVE_CSOURCE_FOLDER);
 		assertNotCSource(src2);
 		assertTrue(!mp1.getMindpathentries().contains(p1_src2));
-		assertTrue(!src2.exists());
+		assertTrue(src2.exists());
 		
 		// 4 delete src source ==> delete csourc folder, not delete mpe
 		src3.delete(true, new NullProgressMonitor());
