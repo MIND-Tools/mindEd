@@ -22,13 +22,13 @@ Require-Bundle: org.eclipse.xtext,
  org.eclipse.emf.common,
  org.antlr.runtime
 Bundle-RequiredExecutionEnvironment: J2SE-1.5
-Export-Package: org.ow2.fractal.mind.xtext,
- org.ow2.fractal.mind.xtext.parseTreeConstruction,
- org.ow2.fractal.mind.xtext.parser.antlr,
- org.ow2.fractal.mind.xtext.parser.antlr.internal,
- org.ow2.fractal.mind.xtext.services,
- org.ow2.fractal.mind.xtext.util,
- org.ow2.fractal.mind.xtext.validation
+Export-Package: org.ow2.mindEd.adl.textual,
+ org.ow2.mindEd.adl.textual.parseTreeConstruction,
+ org.ow2.mindEd.adl.textual.parser.antlr,
+ org.ow2.mindEd.adl.textual.parser.antlr.internal,
+ org.ow2.mindEd.adl.textual.services,
+ org.ow2.mindEd.adl.textual.util,
+ org.ow2.mindEd.adl.textual.validation
 Import-Package: org.apache.log4j,
  org.eclipse.core.resources,
  org.eclipse.core.runtime,
