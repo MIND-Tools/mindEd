@@ -1,9 +1,11 @@
 package org.ow2.mindEd.adl.textual.ui;
 
 import org.eclipse.ui.plugin.AbstractUIPlugin;
+import org.eclipse.xtext.ui.editor.hyperlinking.IHyperlinkHelper;
 import org.eclipse.xtext.ui.editor.syntaxcoloring.IHighlightingConfiguration;
 import org.eclipse.xtext.ui.editor.syntaxcoloring.ISemanticHighlightingCalculator;
 import org.eclipse.xtext.ui.editor.syntaxcoloring.antlr.AbstractAntlrTokenToAttributeIdMapper;
+import org.ow2.mindEd.adl.textual.ui.navigation.FractalHyperlink;
 
 /**
  * Use this class to register components to be used within the IDE.
@@ -38,6 +40,15 @@ public class FractalUiModule extends org.ow2.mindEd.adl.textual.ui.AbstractFract
 	public Class<? extends ISemanticHighlightingCalculator> bindSemanticHighlightingCalculator() {
 		    return SemanticHighlightingCalculator.class;
 		}
+	
+	/**
+	 * Hyperlinks
+	 * @return
+	 */
+// TODO Used for hyperlinks
+//	public Class<? extends IHyperlinkHelper> bindIHyperlinkHelper() {
+//        return FractalHyperlink.class;
+//    }
 
 	
 	/**
