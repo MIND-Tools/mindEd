@@ -467,7 +467,7 @@ public class FractalProposalProvider extends AbstractFractalProposalProvider {
 		}
 
 		AdlDefinition definition = (AdlDefinition) eobject;
-		importDefinition = getDeclaredImports(definition);
+		importDefinition = FractalUtil.getDeclaredImports(definition);
 
 		// Only works if project is a Mind project
 		if (mindModel != null) {
@@ -700,26 +700,6 @@ public class FractalProposalProvider extends AbstractFractalProposalProvider {
 
 	}
 
-	/**
-	 * Get list of imports declared for an Adl definition
-	 * 
-	 * @param definition
-	 *            - Adl definition with declared imports
-	 * @return imports list for this definition
-	 */
-
-	public static Collection<String> getDeclaredImports(AdlDefinition definition) {
-
-		ArrayList<String> list = new ArrayList<String>();
-		// Add imports name to the returned list
-
-		for (ImportDefinition importDefinition : definition.getImports()) {
-			list.add(FractalUtil.getImportPackageName(importDefinition));
-		}
-
-		return list;
-
-	}
 
 	/**
 	 * 
