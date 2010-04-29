@@ -21,11 +21,11 @@
         <smallIcon
             xsi:type="gmftool:BundleImage"
             path="icons/full/obj16/PrimitiveComponentDefinition.gif"
-            bundle="org.ow2.fractal.mind.emf.model.edit"/>
+            bundle="org.ow2.mindEd.adl.edit"/>
         <largeIcon
             xsi:type="gmftool:BundleImage"
             path="icons/full/obj16/PrimitiveComponentDefinition.gif"
-            bundle="org.ow2.fractal.mind.emf.model.edit"/>
+            bundle="org.ow2.mindEd.adl.edit"/>
       </tools>
       <tools
           xsi:type="gmftool:CreationTool"
@@ -47,7 +47,7 @@
         <smallIcon
             xsi:type="gmftool:BundleImage"
             path="icons/full/obj16/Body.gif"
-            bundle="org.ow2.fractal.mind.emf.model.edit"/>
+            bundle="org.ow2.mindEd.adl.edit"/>
       </tools>
     </tools>
     <tools
