@@ -1,5 +1,6 @@
 package org.ow2.mindEd.adl.textual.ui.contentassist;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -15,8 +16,10 @@ import org.eclipse.xtext.ui.editor.contentassist.ICompletionProposalAcceptor;
 import org.ow2.mindEd.adl.AdlDefinition;
 import org.ow2.mindEd.adl.ArchitectureDefinition;
 import org.ow2.mindEd.adl.BindingDefinition;
+import org.ow2.mindEd.adl.CompositeBody;
 import org.ow2.mindEd.adl.CompositeComponentDefinition;
 import org.ow2.mindEd.adl.Element;
+import org.ow2.mindEd.adl.ImportDefinition;
 import org.ow2.mindEd.adl.InterfaceDefinition;
 import org.ow2.mindEd.adl.Role;
 import org.ow2.mindEd.adl.SubComponentDefinition;
@@ -59,7 +62,7 @@ public class FractalProposalProvider extends AbstractFractalProposalProvider {
 	 *      org.eclipse.xtext.ui.core.editor.contentassist.ContentAssistContext,
 	 *      org.eclipse.xtext.ui.core.editor.contentassist.ICompletionProposalAcceptor)
 	 */
-	
+
 	@Override
 	public void completeInterfaceDefinition_Signature(EObject model,
 			Assignment assignment, ContentAssistContext context,
@@ -138,18 +141,18 @@ public class FractalProposalProvider extends AbstractFractalProposalProvider {
 
 				acceptor.accept(completionProposal);
 			}
-			
-			
+
 			// Interface proposals
-			
-			List<String> itfList = ModelToProjectUtil.INSTANCE.getInterfacesInProject();
+
+			List<String> itfList = ModelToProjectUtil.INSTANCE
+					.getInterfacesInProject();
 			for (String itf : itfList) {
-				completionProposal = createCompletionProposal(itf + ";",
-						itf + " - interface", null, context);
+				completionProposal = createCompletionProposal(itf + ";", itf
+						+ " - interface", null, context);
 
 				acceptor.accept(completionProposal);
 			}
-			
+
 		}
 	}
 
@@ -167,16 +170,10 @@ public class FractalProposalProvider extends AbstractFractalProposalProvider {
 			EObject model, Assignment assignment, ContentAssistContext context,
 			ICompletionProposalAcceptor acceptor) {
 
-		// We try to know if it's a sub component definition
-		/*
-		 * EObject eObject = model; if( eObject instanceof
-		 * TemplateSubComponentCustomImpl ){
-		 * this.completeTemplateSubComponent_ReferenceDefinition(model,
-		 * assignment, context, acceptor); } // case of an extend
-		 * compositeReferenceDefinition else {
-		 */
+		if (model.eContainer() instanceof CompositeBody)
+			return;
+
 		completeExtends(model, assignment, context, acceptor);
-		// }
 
 	}
 
@@ -193,6 +190,9 @@ public class FractalProposalProvider extends AbstractFractalProposalProvider {
 	public void completePrimitiveReferenceDefinition_ReferenceName(
 			EObject model, Assignment assignment, ContentAssistContext context,
 			ICompletionProposalAcceptor acceptor) {
+
+		if (model.eContainer() instanceof CompositeBody)
+			return;
 
 		completeExtends(model, assignment, context, acceptor);
 
@@ -211,6 +211,9 @@ public class FractalProposalProvider extends AbstractFractalProposalProvider {
 	public void completeTypeReferenceDefinition_ReferenceName(EObject model,
 			Assignment assignment, ContentAssistContext context,
 			ICompletionProposalAcceptor acceptor) {
+
+		if (model.eContainer() instanceof CompositeBody)
+			return;
 
 		completeExtends(model, assignment, context, acceptor);
 
@@ -300,7 +303,8 @@ public class FractalProposalProvider extends AbstractFractalProposalProvider {
 			// content assist using corresponding sub component
 			if (definition.getInterfaceTargetParentName() != null) {
 
-				Map<String, ArchitectureDefinition> map = getSubComponents(definition.getParentBody().getParentComponent());
+				Map<String, ArchitectureDefinition> map = getSubComponents(definition
+						.getParentBody().getParentComponent());
 
 				// retrieve sub component
 				elt = map.get(definition.getInterfaceTargetParentName());
@@ -437,6 +441,69 @@ public class FractalProposalProvider extends AbstractFractalProposalProvider {
 				.eContainer(), context, acceptor);
 	}
 
+	/**
+	 * Content Assist for Component Reference (used in ADL definition after 'contains' keyword)
+	 * 
+	 * @see org.ow2.mindEd.adl.textual.ui.contentassist.AbstractFractalProposalProvider#complete_ComponentReference(org.eclipse.emf.ecore.EObject,
+	 *      org.eclipse.xtext.RuleCall,
+	 *      org.eclipse.xtext.ui.editor.contentassist.ContentAssistContext,
+	 *      org.eclipse.xtext.ui.editor.contentassist.ICompletionProposalAcceptor)
+	 */
+	@Override
+	public void complete_ComponentReference(EObject model, RuleCall ruleCall,
+			ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
+
+		// Proposal to add for content assist
+		String proposal = null;
+		ICompletionProposal completionProposal = null;
+
+		// List of declared imports
+		Collection<String> importDefinition = new ArrayList<String>();
+
+		// Retrieved declared imports for this Adl definition
+		EObject eobject = model;
+		while (!(eobject instanceof AdlDefinition)) {
+			eobject = eobject.eContainer();
+		}
+
+		AdlDefinition definition = (AdlDefinition) eobject;
+		importDefinition = getDeclaredImports(definition);
+
+		// Only works if project is a Mind project
+		if (mindModel != null) {
+
+			// Retrieve all components declared for this mind project
+			Collection<? extends MindAdl> c = mindModel.getMindModel()
+					.getAllComponents();
+
+			// Add components name to proposals
+			for (MindAdl mindAdl : c) {
+
+				// if package for this component has been declared using import
+				// only add component name to the proposals
+				if (importDefinition.contains(mindAdl.getPackage().getName())
+						| importDefinition.contains(mindAdl.getQualifiedName())) {
+					proposal = mindAdl.getName();
+					// else add component full qualified name
+				} else {
+					proposal = mindAdl.getQualifiedName();
+				}
+
+				// Creates proposal
+				proposal = getValueConverter().toString(proposal, "ID");
+				// Set display text
+				String displayText = proposal + " - component reference";
+
+				completionProposal = createCompletionProposal(proposal,
+						displayText, getImage(definition), context);
+
+				acceptor.accept(completionProposal);
+
+			}
+		}
+
+	}
+
 	// -------------------------------------------------------------------------------//
 	// Custom methods
 	// -------------------------------------------------------------------------------//
@@ -504,8 +571,10 @@ public class FractalProposalProvider extends AbstractFractalProposalProvider {
 
 		ArchitectureDefinition architectureDefinition = FractalUtil
 				.getArchitecureDefinitionFromChild(model);
-		if (architectureDefinition == null)
+		if (architectureDefinition == null) {
+			System.out.println("NULL Returned !");
 			return;
+		}
 
 		// name of the package where this component is located
 		String packageName = FractalUtil
@@ -628,6 +697,27 @@ public class FractalProposalProvider extends AbstractFractalProposalProvider {
 		}
 
 		return map;
+
+	}
+
+	/**
+	 * Get list of imports declared for an Adl definition
+	 * 
+	 * @param definition
+	 *            - Adl definition with declared imports
+	 * @return imports list for this definition
+	 */
+
+	public static Collection<String> getDeclaredImports(AdlDefinition definition) {
+
+		ArrayList<String> list = new ArrayList<String>();
+		// Add imports name to the returned list
+
+		for (ImportDefinition importDefinition : definition.getImports()) {
+			list.add(FractalUtil.getImportPackageName(importDefinition));
+		}
+
+		return list;
 
 	}
 
