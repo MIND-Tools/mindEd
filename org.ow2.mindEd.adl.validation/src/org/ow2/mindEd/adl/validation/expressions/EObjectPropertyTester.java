@@ -15,7 +15,7 @@
  * $Id$
  */
 
-package org.ow2.fractal.mind.emf.validation.adapter.expressions;
+package org.ow2.mindEd.adl.validation.expressions;
 
 import org.eclipse.core.expressions.PropertyTester;
 import org.eclipse.emf.ecore.EObject;

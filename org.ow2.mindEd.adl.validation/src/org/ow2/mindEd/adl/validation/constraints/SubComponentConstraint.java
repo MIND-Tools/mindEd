@@ -15,7 +15,7 @@
  * $Id$
  */
 
-package org.ow2.fractal.mind.emf.validation.adapter.constraints;
+package org.ow2.mindEd.adl.validation.constraints;
 
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.emf.validation.AbstractModelConstraint;

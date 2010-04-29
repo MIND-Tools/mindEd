@@ -3,12 +3,12 @@ Bundle-ManifestVersion: 2
 Bundle-Name: %Plugin.name
 Bundle-SymbolicName: org.ow2.mindEd.adl.schema.validation.adapter;singleton:=true
 Bundle-Version: 0.2.0.qualifier
-Bundle-Activator: org.ow2.fractal.mind.emf.validation.adapter.ValidationPlugin
+Bundle-Activator: org.ow2.mindEd.adl.validation.ValidationPlugin
 Bundle-Vendor: %Plugin.providerName
 Bundle-Localization: plugin
-Export-Package: org.ow2.fractal.mind.emf.validation.adapter,
- org.ow2.fractal.mind.emf.validation.adapter.constraints,
- org.ow2.fractal.mind.emf.validation.adapter.expressions
+Export-Package: org.ow2.mindEd.adl.validation,
+ org.ow2.mindEd.adl.validation.constraints,
+ org.ow2.mindEd.adl.validation.expressions
 Require-Bundle: org.eclipse.core.runtime;bundle-version="[3.2.0,4.0.0)",
  org.eclipse.core.expressions;bundle-version="[3.2.0,4.0.0)",
  org.eclipse.ui;bundle-version="[3.2.0,4.0.0)",

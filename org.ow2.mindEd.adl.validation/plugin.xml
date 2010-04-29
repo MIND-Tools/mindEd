@@ -21,7 +21,7 @@
 <plugin>
 
      <extension point="org.eclipse.ui.startup">
-      <startup class="org.ow2.fractal.mind.emf.validation.adapter.Startup"/>
+      <startup class="org.ow2.mindEd.adl.validation.Startup"/>
    </extension>
    
    <extension point="org.eclipse.core.expressions.propertyTesters">
@@ -30,7 +30,7 @@
          type="org.eclipse.emf.ecore.EObject"
          namespace="org.eclipse.emf.validation.examples.adapter"
          properties="ePackage"
-         class="org.ow2.fractal.mind.emf.validation.adapter.expressions.EObjectPropertyTester">
+         class="org.ow2.mindEd.adl.validation.expressions.EObjectPropertyTester">
       </propertyTester>
    </extension>
    
@@ -60,7 +60,7 @@
          <package namespaceUri="http://org.ow2.fractal/mind/mind.ecore/0.2.0"/>
          <constraints categories="emf-validation-example/adapter">
             <constraint lang="Java" severity="ERROR" mode="Batch" name="noSubComponentBody" id="noSubComponentBody" statusCode="100"
-            	class="org.ow2.fractal.mind.emf.validation.adapter.constraints.SubComponentConstraint">
+            	class="org.ow2.mindEd.adl.validation.constraints.SubComponentConstraint">
                <description>"SubComponentError"</description>
                <message>"SubComponent {0} must have at least a body or reference"</message>
                <!-- This constraint applies to any library element. -->

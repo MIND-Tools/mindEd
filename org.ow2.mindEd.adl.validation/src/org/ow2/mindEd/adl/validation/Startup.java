@@ -15,7 +15,7 @@
  * $Id$
  */
 
-package org.ow2.fractal.mind.emf.validation.adapter;
+package org.ow2.mindEd.adl.validation;
 
 import org.eclipse.ui.IStartup;
 
