@@ -94,7 +94,7 @@ public class Activator extends AbstractUIPlugin {
 					editor = PlatformUI.getWorkbench().getEditorRegistry()
 							.findEditor(EditorsUI.DEFAULT_TEXT_EDITOR_ID);
 				}
-				if (editor.getId().equals("org.ow2.mindEd.adl.editor.graphic.ui.part.MindDiagramEditorID")) {
+				if (editor.getId().equals("org.ow2.mindEd.adl.editor.graphic.ui.MindDiagramEditorID")) {
 					// Save model URI, needed if diagram must be created
 		        	URI modelURI = URI.createFileURI(jf.getFullPath().toPortableString());
 		        	// This is the diagram URI
