@@ -43,8 +43,12 @@ public class MindPreference implements IPreferenceChangeListener {
 
 	@Override
 	public void preferenceChange(PreferenceChangeEvent event) {
-		if (event.getKey().equals(PreferenceConstants.P_MINDC_LOCATION))
-			CDTUtil.changeMINDCLocation((String) event.getNewValue());
+		if (event.getKey().equals(PreferenceConstants.P_MINDC_LOCATION)) {
+			Object newValue = event.getNewValue();
+			if (newValue == null)
+				newValue = ""; // fix null pointeur in cdt env
+			CDTUtil.changeMINDCLocation((String) newValue);
+		}
 	}
 
 	public void dispose() {
