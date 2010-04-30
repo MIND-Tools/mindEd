@@ -11,7 +11,7 @@
             default="true"
             extensions="adl"
             id="org.ow2.mindEd.adl.textual.Fractal"
-            name="Fractal Editor">
+            name="MindEd ADL Editor">
         </editor>
     </extension>
     <extension
