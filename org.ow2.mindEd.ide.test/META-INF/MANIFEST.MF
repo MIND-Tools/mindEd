@@ -6,9 +6,9 @@ Bundle-Version: 0.2.0.qualifier
 Bundle-Activator: org.ow2.mindEd.ide.test.Activator
 Require-Bundle: org.eclipse.core.runtime,
  org.ow2.mindEd.ide;bundle-version="0.2.0",
- org.ow2.mindEd.ide.emf.model;bundle-version="0.2.0",
- org.ow2.mindEd.ide.emf.model.edit;bundle-version="0.2.0",
- org.ow2.mindEd.ide.emf.model.editor;bundle-version="0.2.0",
+ org.ow2.mindEd.ide.model;bundle-version="0.2.0",
+ org.ow2.mindEd.ide.edit;bundle-version="0.2.0",
+ org.ow2.mindEd.ide.editor;bundle-version="0.2.0",
  org.junit4,
  org.eclipse.cdt.make.core,
  org.eclipse.cdt.core
