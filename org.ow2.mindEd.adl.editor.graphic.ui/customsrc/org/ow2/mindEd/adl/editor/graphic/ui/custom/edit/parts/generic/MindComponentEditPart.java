@@ -54,9 +54,9 @@ public class MindComponentEditPart extends MindEditPart {
 	public void createDefaultEditPolicies(){
 		super.createDefaultEditPolicies();
 		
-//		realEditPart.installEditPolicy(EditPolicyRoles.CREATION_ROLE,
-//				new MindSubCreationEditPolicy());
-//		setCreationMode(CREATION_MODE_PARENT);
+		realEditPart.installEditPolicy(EditPolicyRoles.CREATION_ROLE,
+				new MindSubCreationEditPolicy());
+		setCreationMode(CREATION_MODE_PARENT);
 		
 		realEditPart.installEditPolicy(EditPolicyRoles.DRAG_DROP_ROLE,
 				new CustomDragDropEditPolicy());

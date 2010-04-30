@@ -74,6 +74,11 @@ public class MindGenericEditPartFactory implements MindTypes {
 			editPartsMap.put(editPart, mindPart);
 			return mindPart;
 			
+		case TYPE_SUB_REFERENCE:
+			mindPart = new MindSubReferenceEditPart(editPart, visualID);
+			editPartsMap.put(editPart, mindPart);
+			return mindPart;
+			
 		case TYPE_ITEM:
 			mindPart = new MindItemEditPart(editPart, visualID);
 			editPartsMap.put(editPart, mindPart);
@@ -196,9 +201,7 @@ public class MindGenericEditPartFactory implements MindTypes {
 			
 			// -- References
 		case CompositeReferenceEditPart.VISUAL_ID:
-		case CompositeSubReferenceEditPart.VISUAL_ID:
 		case PrimitiveReferenceEditPart.VISUAL_ID:
-		case PrimitiveSubReferenceEditPart.VISUAL_ID:
 		case TemplateDefinitionReferenceEditPart.VISUAL_ID:
 		case TemplateSpecifierReferenceEditPart.VISUAL_ID:
 		case TypeReferenceEditPart.VISUAL_ID:
@@ -208,6 +211,11 @@ public class MindGenericEditPartFactory implements MindTypes {
 		case DataInlineCodeCEditPart.VISUAL_ID:
 		case TemplateDefinitionEditPart.VISUAL_ID:
 			return TYPE_REFERENCE;
+			
+			// -- Sub Component References
+		case PrimitiveSubReferenceEditPart.VISUAL_ID:
+		case CompositeSubReferenceEditPart.VISUAL_ID:
+			return TYPE_SUB_REFERENCE;
 			
 			// -- Label
 		case ArgumentDefinitionNameEditPart.VISUAL_ID:
