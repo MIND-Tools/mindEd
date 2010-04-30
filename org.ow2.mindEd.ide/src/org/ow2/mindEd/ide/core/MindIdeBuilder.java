@@ -68,11 +68,20 @@ public class MindIdeBuilder extends IncrementalProjectBuilder {
 	protected IProject[] build(int kind, Map args, IProgressMonitor monitor)
 			throws CoreException {
 		IProject currentProject = getProject();
-		if (currentProject == null || !currentProject.isAccessible()) return new IProject[0];
+		if (currentProject == null || !currentProject.isAccessible()) {
+			return new IProject[0];
+		}
 
 		MindProject mp = MindIdeCore.get(currentProject);
-		if (mp == null) return new IProject[0];
+		if (mp == null) {
+			return new IProject[0];
+		}
 		
+		String mindLocation = MindActivator.getPref().getMindCLocation();
+		if (mindLocation == null) {
+			MindActivator.log(new Status(Status.ERROR, MindActivator.ID, "Cannot find mindc, set mindc location in preference"));
+			return new IProject[0];
+		}
 		
 		IResourceDelta delta = getDelta(currentProject);
 		if (delta == null) {
