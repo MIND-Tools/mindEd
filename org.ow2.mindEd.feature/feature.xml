@@ -87,21 +87,7 @@ Ce faisant, et avec l’appui des financements publics pour supporter le surcoû
          unpack="false"/>
 
    <plugin
-         id="org.ow2.mindEd.adl.editor.tree"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
-   <plugin
          id="org.ow2.mindEd.ide"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
-   <plugin
-         id="org.ow2.mindEd.ide.schema"
          download-size="0"
          install-size="0"
          version="0.0.0"
@@ -113,14 +99,6 @@ Ce faisant, et avec l’appui des financements publics pour supporter le surcoû
          install-size="0"
          version="0.0.0"
          unpack="false"/>
-
-   <plugin
-         id="org.ow2.mindEd.ide.edit"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
 
    <plugin
          id="org.ow2.mindEd.ide.ui"
@@ -137,14 +115,63 @@ Ce faisant, et avec l’appui des financements publics pour supporter le surcoû
          unpack="false"/>
 
    <plugin
-         id="org.ow2.mindEd.idt.editor.textual.ui"
+         id="org.ow2.mind.fractal-adl-bundle"
          download-size="0"
          install-size="0"
          version="0.0.0"
          unpack="false"/>
 
    <plugin
-         id="org.ow2.mind.fractal-adl-bundle"
+         id="org.ow2.mindEd.ide.edit"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.ow2.mindEd.adl.editor.textual.ui"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.ow2.mindEd.adl.textual.ui"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.ow2.mindEd.idt.editor.textual.model"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.ow2.mindEd.idt.editor.textual.model.ui"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.ow2.mindEd.itf.editor.textual.model"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.ow2.mindEd.itf.editor.textual.model.ui"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.ow2.mindEd.adl.validation"
          download-size="0"
          install-size="0"
          version="0.0.0"
