@@ -1,7 +1,7 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: org.ow2.mindEd.idt.editor.textual.model.ui
-Bundle-Vendor: My Company
+Bundle-Vendor: Partenaire Minalogic
 Bundle-Version: 0.2.0.qualifier
 Bundle-SymbolicName: org.ow2.mindEd.idt.editor.textual.model.ui; singleton:=true
 Bundle-ActivationPolicy: lazy

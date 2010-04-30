@@ -3,16 +3,16 @@
 <templates>
 
 <!-- Template proposal for structural typedef -->
-<template autoinsert="true" context="org.ow2.mindEd.itf.editor.textual.FractalItf.TypedefSpecification" deleted="false" description="struct type definition" enabled="true" name="typedef struct" id="struct_typedef">
-typedef struct ${type_name} {
-	${type} ${name};
-};
+<template autoinsert="true" context="org.ow2.mindEd.itf.editor.textual.FractalItf.TypedefSpecification" deleted="false" description="struct type definition" enabled="true" name="structure typedef" id="struct_typedef">
+typedef struct ${struct_name} {
+} ${type_name};
 </template>
 
 
-<!-- Template proposal for structural enum -->
-<template autoinsert="true" context="org.ow2.mindEd.itf.editor.textual.FractalItf.EnumSpecification" deleted="false" description="enum definition" enabled="true" name="enum" id="enum">
-enum ${name} { ${element} };
+<!-- Template proposal for enum -->
+<template autoinsert="true" context="org.ow2.mindEd.itf.editor.textual.FractalItf.TypedefSpecification" deleted="false" description="enum definition" enabled="true" name="enum typedef" id="enum">
+typedef enum { 
+} type_name;
 </template>
 
 <!-- Template proposal for interface definition-->

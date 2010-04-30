@@ -1,8 +1,8 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: org.ow2.mindEd.itf.editor.textual.model.ui
-Bundle-Vendor: My Company
-Bundle-Version: 0.2.0
+Bundle-Vendor: Partenaire Minalogic
+Bundle-Version: 0.2.0.qualifier
 Bundle-SymbolicName: org.ow2.mindEd.itf.editor.textual.model.ui; singleton:=true
 Bundle-ActivationPolicy: lazy
 Require-Bundle: org.eclipse.ui.editors;bundle-version="3.5.0",
