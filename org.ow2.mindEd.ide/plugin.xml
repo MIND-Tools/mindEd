@@ -28,6 +28,9 @@
       <requires-nature
             id="org.eclipse.cdt.core.cnature">
       </requires-nature>
+      <requires-nature
+            id="org.eclipse.xtext.ui.shared.xtextNature">
+      </requires-nature>
    </extension>
       <extension
          id="org.ow2.mindEd.ide.core.ide.mindcProblem"

@@ -255,6 +255,9 @@ public class CDTUtil {
 		// add nature
 		CProjectNature.addNature(newProject, CProjectNature.C_NATURE_ID,
 				monitor);
+		CProjectNature.addNature(newProject, "org.eclipse.xtext.ui.shared.xtextNature",
+				monitor);
+		
 		CProjectNature.addNature(newProject, MindNature.NATURE_ID, monitor);
 
 		
