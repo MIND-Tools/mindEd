@@ -24,4 +24,8 @@ public interface MindTypes {
 	public static final int COMPONENT_SUB_PRIMITIVE = 121;
 	public static final int COMPONENT_TYPE = 130;
 	
+	
+	public static final int CREATION_MODE_NORMAL = 0;
+	public static final int CREATION_MODE_PARENT = 1;
+	public static final int CREATION_MODE_CHILD = 2;
 }

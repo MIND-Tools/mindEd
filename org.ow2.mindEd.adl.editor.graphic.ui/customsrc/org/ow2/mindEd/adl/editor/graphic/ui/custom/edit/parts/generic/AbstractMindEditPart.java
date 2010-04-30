@@ -19,6 +19,8 @@ public abstract class AbstractMindEditPart implements MindTypes {
 	
 	public static String EDIT_POLICY_PACKAGE = "org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.policies.";
 	
+	protected int creationMode = CREATION_MODE_NORMAL;
+	
 	protected GraphicalEditPart realEditPart;
 	protected int visualID;
 	public int MIND_TYPE = TYPE_UNDEFINED;
@@ -123,6 +125,13 @@ public abstract class AbstractMindEditPart implements MindTypes {
 		return null;
 	}
 	
+	public int getCreationMode() {
+		return creationMode;
+	}
+	
+	public void setCreationMode(int mode) {
+		creationMode = mode;
+	}
 	
 	public abstract void activate();
 	public abstract GraphicalEditPart getCompartment();

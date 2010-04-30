@@ -956,6 +956,9 @@
       <category id="mindaudits/Miscellaneous" mandatory="false" name="Miscellaneous">
          <![CDATA[Miscellaneous]]>
       </category>
+      <category id="mindaudits/body" mandatory="false" name="Body">
+         <![CDATA[Constraints for Body]]>
+      </category>
       <constraintProvider cache="true">
          <package namespaceUri="http://org.ow2.mindEd/adl.ecore/0.2.0"/>
                <constraints categories="mindaudits">
@@ -1053,6 +1056,18 @@ and
             <target class="adl.AdlDefinition"/>
          </constraint>
                   </constraints>
+         <constraints categories="mindaudits/body">
+                  <constraint id="body_not_empty"
+            lang="OCL"
+            name="body_not_empty"
+            mode="Batch"
+            severity="ERROR" statusCode="200">
+            <![CDATA[self.elements->size() > 0]]>
+            <description><![CDATA[This will check that a body is not empty]]></description>
+            <message><![CDATA[There must be at least one element in a body]]></message>
+            <target class="adl.Body"/>
+         </constraint>
+                  </constraints>
       </constraintProvider>
    </extension>
 
@@ -1070,6 +1085,7 @@ and
                   <constraint ref="org.ow2.mindEd.adl.editor.graphic.ui.source_not_empty"/>
                   <constraint ref="org.ow2.mindEd.adl.editor.graphic.ui.source_content"/>
                   <constraint ref="org.ow2.mindEd.adl.editor.graphic.ui.adl_not_empty"/>
+                  <constraint ref="org.ow2.mindEd.adl.editor.graphic.ui.body_not_empty"/>
                </binding>
 
    </extension>

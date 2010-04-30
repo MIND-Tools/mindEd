@@ -316,7 +316,7 @@
                   </labelMappings>
                   <tool
                       xsi:type="gmftool:CreationTool"
-                      href="mind.gmftool#//@palette/@tools.0/@tools.4"/>
+                      href="mind.gmftool#//@palette/@tools.0/@tools.3"/>
                   <diagramNode
                       href="mind.gmfgraph#ArgumentDefinition"/>
                 </ownedChild>
@@ -1367,6 +1367,24 @@
             xsi:type="gmfmap:DomainElementTarget">
           <element
               href="../../org.ow2.mindEd.adl.schema/model/mind.ecore#//AdlDefinition"/>
+        </target>
+      </audits>
+    </childContainers>
+    <childContainers
+        id="body"
+        name="Body"
+        description="Constraints for Body">
+      <audits
+          name="body_not_empty"
+          description="This will check that a body is not empty"
+          id="body_not_empty"
+          message="There must be at least one element in a body">
+        <rule
+            body="self.elements->size() > 0"/>
+        <target
+            xsi:type="gmfmap:DomainElementTarget">
+          <element
+              href="../../org.ow2.mindEd.adl.schema/model/mind.ecore#//Body"/>
         </target>
       </audits>
     </childContainers>

@@ -49,6 +49,7 @@ public class MindBodyEditPart extends MindEditPart {
 		realEditPart.installEditPolicy(
 				EditPolicyRoles.CREATION_ROLE,
 				new MindSubCreationEditPolicy());
+		setCreationMode(CREATION_MODE_PARENT);
 		realEditPart.removeEditPolicy(EditPolicyRoles.DRAG_DROP_ROLE);
 		realEditPart.installEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE,
 				new NoDragDropEditPolicy());

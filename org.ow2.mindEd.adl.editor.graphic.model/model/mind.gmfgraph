@@ -51,7 +51,7 @@
           qualifiedClassName="org.ow2.mindEd.adl.editor.graphic.ui.custom.figures.AnnotationCustomFigure">
         <border
             xsi:type="gmfgraph:CustomBorder"
-            qualifiedClassName="org.ow2.mindEd.adl.editor.graphic.ui.custom.figures.ComponentBorder">
+            qualifiedClassName="org.ow2.mindEd.adl.editor.graphic.ui.custom.figures.ItemBorder">
           <attributes
               name="color"
               value="BORDER_COLOR"/>
@@ -155,13 +155,6 @@
           xsi:type="gmfgraph:CustomFigure"
           name="BodyFigure"
           qualifiedClassName="org.ow2.mindEd.adl.editor.graphic.ui.custom.figures.BodyCustomFigure">
-        <border
-            xsi:type="gmfgraph:CustomBorder"
-            qualifiedClassName="org.ow2.mindEd.adl.editor.graphic.ui.custom.figures.ComponentBorder">
-          <attributes
-              name="color"
-              value="getMindBorderColor()"/>
-        </border>
         <children
             xsi:type="gmfgraph:CustomFigure"
             name="BodyCompartmentFigure"
@@ -644,7 +637,7 @@
           qualifiedClassName="org.ow2.mindEd.adl.editor.graphic.ui.custom.figures.ReferenceFigure">
         <border
             xsi:type="gmfgraph:CustomBorder"
-            qualifiedClassName="org.ow2.mindEd.adl.editor.graphic.ui.custom.figures.ComponentBorder">
+            qualifiedClassName="org.ow2.mindEd.adl.editor.graphic.ui.custom.figures.ItemBorder">
           <attributes
               name="color"
               value="borderColor"/>
@@ -679,10 +672,6 @@
             xsi:type="gmfgraph:CustomFigure"
             name="ReferencesArea"
             qualifiedClassName="org.ow2.mindEd.adl.editor.graphic.ui.custom.figures.ContainerShape">
-          <layout
-              xsi:type="gmfgraph:FlowLayout"
-              majorSpacing="0"
-              minorSpacing="0"/>
           <attributes
               name="backgroundColor"
               value="BACKGROUND_COLOR"/>
@@ -786,11 +775,7 @@
           qualifiedClassName="org.ow2.mindEd.adl.editor.graphic.ui.custom.figures.TemplateDefinitionCustomFigure">
         <border
             xsi:type="gmfgraph:CustomBorder"
-            qualifiedClassName="org.ow2.mindEd.adl.editor.graphic.ui.custom.figures.ComponentBorder">
-          <attributes
-              name="color"
-              value="BORDER_COLOR"/>
-        </border>
+            qualifiedClassName="org.ow2.mindEd.adl.editor.graphic.ui.custom.figures.ItemBorder"/>
         <children
             xsi:type="gmfgraph:CustomFigure"
             name="LabelTemplateDefinitionName"
@@ -799,6 +784,9 @@
             xsi:type="gmfgraph:CustomFigure"
             name="TemplateDefinitionArea"
             qualifiedClassName="org.ow2.mindEd.adl.editor.graphic.ui.custom.figures.ContainerShape"/>
+        <attributes
+            name="backgroundColor"
+            value="BACKGROUND_COLOR"/>
       </actualFigure>
       <accessors
           accessor="getFigureLabelTemplateDefinitionName"

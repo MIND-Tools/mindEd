@@ -1,17 +1,13 @@
 package org.ow2.mindEd.adl.editor.graphic.ui.custom.listeners;
 
-import java.util.List;
-
 import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.LayoutListener;
-import org.eclipse.draw2d.Shape;
 import org.eclipse.gef.EditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.GraphicalEditPart;
 
 import org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.parts.generic.MindGenericEditPartFactory;
 import org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.parts.generic.MindListEditPart;
 import org.ow2.mindEd.adl.editor.graphic.ui.edit.parts.AdlDefinitionEditPart;
-import org.ow2.mindEd.adl.editor.graphic.ui.edit.parts.MindEditPartFactory;
 
 public class MindListLayoutListener implements LayoutListener {
 	
@@ -34,6 +30,7 @@ public class MindListLayoutListener implements LayoutListener {
 	
 	@Override
 	public void postLayout(IFigure container) {
+		owner.getContentPane().getLayoutManager().layout(owner.getContentPane());
 		owner.refresh();
 		if (getParentList() != null)
 			getParentList().refresh();

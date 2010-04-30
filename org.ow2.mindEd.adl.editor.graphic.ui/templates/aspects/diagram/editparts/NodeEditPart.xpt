@@ -11,6 +11,7 @@
 	public void refresh() {
 		super.refresh();
 		getGenericEditPart().refresh();
+		refreshBounds();
 	}
 	
 	@Override

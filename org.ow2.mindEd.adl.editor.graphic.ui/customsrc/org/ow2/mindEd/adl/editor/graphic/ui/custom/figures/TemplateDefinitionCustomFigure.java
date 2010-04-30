@@ -14,10 +14,10 @@ public class TemplateDefinitionCustomFigure extends
 		AbstractComponentShape {
 	
 	public static Dimension preferredSize = new Dimension(500,20);
-	public static Color BORDER_COLOR = YELLOW;
+	public static Color BACKGROUND_COLOR = YELLOW;
 	
 	public TemplateDefinitionCustomFigure() {
-		setPreferredSize(preferredSize);
+//		setPreferredSize(preferredSize);
 	}
 
 }

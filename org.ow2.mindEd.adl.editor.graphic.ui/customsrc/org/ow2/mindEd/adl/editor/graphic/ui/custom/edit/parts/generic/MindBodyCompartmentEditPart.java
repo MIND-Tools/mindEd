@@ -30,6 +30,7 @@ public class MindBodyCompartmentEditPart extends MindCompartmentEditPart {
 		realEditPart.installEditPolicy(
 				EditPolicyRoles.CREATION_ROLE,
 				new MindSubCreationEditPolicy());
+		setCreationMode(CREATION_MODE_PARENT);
 		// Customized drag and drop features
 		realEditPart.installEditPolicy(
 				EditPolicyRoles.DRAG_DROP_ROLE,

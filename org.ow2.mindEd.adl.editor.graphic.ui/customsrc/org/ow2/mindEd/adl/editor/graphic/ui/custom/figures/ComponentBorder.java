@@ -21,6 +21,11 @@ public class ComponentBorder extends LineBorder implements IFractalShape {
 		super(new Color (null,200,200,200), 3);
 	}
 	
+	public ComponentBorder(Color color, int width) {
+		super(color, width);
+	}
+	
+	
 	public void paint(IFigure figure, Graphics graphics, Insets insets) {
 		tempRect.setBounds(getPaintRectangle(figure, insets));
 		if (getWidth() % 2 == 1) {
