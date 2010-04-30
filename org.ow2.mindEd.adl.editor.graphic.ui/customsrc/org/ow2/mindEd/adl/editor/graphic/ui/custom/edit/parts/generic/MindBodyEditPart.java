@@ -7,6 +7,7 @@ import org.eclipse.draw2d.IFigure;
 import org.eclipse.gef.DragTracker;
 import org.eclipse.gef.EditPart;
 import org.eclipse.gef.EditPolicy;
+import org.eclipse.gef.Request;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.AbstractBorderedShapeEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.GraphicalEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
@@ -55,8 +56,9 @@ public class MindBodyEditPart extends MindEditPart {
 				new NoDragDropEditPolicy());
 	}
 	
-	public DragTracker getDragTracker(EditPart ep) {
-		return new NoDragTracker(ep);
+	@Override
+	public DragTracker getDragTracker(Request request) {
+		return new NoDragTracker(realEditPart);
 	}
 	
 	@Override
