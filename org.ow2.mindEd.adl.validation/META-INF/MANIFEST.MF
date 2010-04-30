@@ -1,7 +1,7 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: %Plugin.name
-Bundle-SymbolicName: org.ow2.mindEd.adl.schema.validation.adapter;singleton:=true
+Bundle-SymbolicName: org.ow2.mindEd.adl.validation;singleton:=true
 Bundle-Version: 0.2.0.qualifier
 Bundle-Activator: org.ow2.mindEd.adl.validation.ValidationPlugin
 Bundle-Vendor: %Plugin.providerName
