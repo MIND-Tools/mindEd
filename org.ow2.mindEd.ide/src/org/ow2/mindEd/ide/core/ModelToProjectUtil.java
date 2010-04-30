@@ -70,6 +70,8 @@ public class ModelToProjectUtil {
 			String defaultPackage = getPackage(project).getName();
 			// Resolve and return the URI
 			MindAdl adl = project.resolveAdl(componentName, defaultPackage, imports);
+			if (adl == null) return null;
+			
 			return URI.createURI(adl.getFullpath());
 		} catch (NullPointerException e) {
 			return null;
@@ -124,6 +126,8 @@ public class ModelToProjectUtil {
 	private void refreshEditorInput () {
 		try {
 			IWorkbenchWindow window = PlatformUI.getWorkbench().getActiveWorkbenchWindow();
+			if (window == null)
+				return;
 			editorInput = window.getActivePage().getActiveEditor().getEditorInput();
 		} catch (NullPointerException e) {
 			// The editor is probably being initialized
