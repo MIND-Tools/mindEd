@@ -37,55 +37,54 @@ protected class ThisRootNode extends RootToken {
 		switch(index) {
 			case 0: return new IdtFile_Group(this, this, 0, inst);
 			case 1: return new ConstantDefinitionBegin_Group(this, this, 1, inst);
-			case 2: return new ConstantDefinitionEnd_Group(this, this, 2, inst);
-			case 3: return new ItfFile_Group(this, this, 3, inst);
-			case 4: return new TypeDefinition_Group(this, this, 4, inst);
-			case 5: return new TypedefSpecification_Group(this, this, 5, inst);
-			case 6: return new QualifiedTypeSpecification_Group(this, this, 6, inst);
-			case 7: return new TypeSpecification_Alternatives(this, this, 7, inst);
-			case 8: return new StructOrUnionSpecification_Alternatives(this, this, 8, inst);
-			case 9: return new StructOrUnionDefinition_Group(this, this, 9, inst);
-			case 10: return new StructorUnionReference_Group(this, this, 10, inst);
-			case 11: return new StructMember_Group(this, this, 11, inst);
-			case 12: return new EnumSpecification_Alternatives(this, this, 12, inst);
-			case 13: return new EnumDefinition_Group(this, this, 13, inst);
-			case 14: return new EnumReference_Group(this, this, 14, inst);
-			case 15: return new EnumMemberList_Group(this, this, 15, inst);
-			case 16: return new EnumMember_Group(this, this, 16, inst);
-			case 17: return new Declarators_Group(this, this, 17, inst);
-			case 18: return new Declarator_Group(this, this, 18, inst);
-			case 19: return new AbstractDeclarator_Group(this, this, 19, inst);
-			case 20: return new PointerSpecification_Group(this, this, 20, inst);
-			case 21: return new Qualified_PointerSpecification_Group(this, this, 21, inst);
-			case 22: return new DirectDeclarator_Group(this, this, 22, inst);
-			case 23: return new AbstractDirectDeclarator_Alternatives(this, this, 23, inst);
-			case 24: return new ArraySpecification_Group(this, this, 24, inst);
-			case 25: return new ConstantDefinition_Group(this, this, 25, inst);
-			case 26: return new InterfaceDefinition_Group(this, this, 26, inst);
-			case 27: return new MethodDefinition_Group(this, this, 27, inst);
-			case 28: return new ParameterList_Group(this, this, 28, inst);
-			case 29: return new Parameter_Group(this, this, 29, inst);
-			case 30: return new IncludeDirective_Group(this, this, 30, inst);
-			case 31: return new Annotations_Group(this, this, 31, inst);
-			case 32: return new Annotation_Group(this, this, 32, inst);
-			case 33: return new AnnotationParameters_Group(this, this, 33, inst);
-			case 34: return new AnnotationValuePairs_Group(this, this, 34, inst);
-			case 35: return new AnnotationValuePair_Group(this, this, 35, inst);
-			case 36: return new AnnotationValue_Alternatives(this, this, 36, inst);
-			case 37: return new ArrayAnnotationValue_Group(this, this, 37, inst);
-			case 38: return new ConstantExpression_LogicalOrExpressionParserRuleCall(this, this, 38, inst);
-			case 39: return new LogicalOrExpression_Group(this, this, 39, inst);
-			case 40: return new LogicalAndExpression_Group(this, this, 40, inst);
-			case 41: return new OrExpression_Group(this, this, 41, inst);
-			case 42: return new XorExpression_Group(this, this, 42, inst);
-			case 43: return new AndExpression_Group(this, this, 43, inst);
-			case 44: return new ShiftExpression_Group(this, this, 44, inst);
-			case 45: return new AdditiveExpression_Group(this, this, 45, inst);
-			case 46: return new MulExpression_Group(this, this, 46, inst);
-			case 47: return new CastExpression_Alternatives(this, this, 47, inst);
-			case 48: return new UnaryExpression_Group(this, this, 48, inst);
-			case 49: return new PrimaryExpression_Alternatives(this, this, 49, inst);
-			case 50: return new Literal_Alternatives(this, this, 50, inst);
+			case 2: return new ItfFile_Group(this, this, 2, inst);
+			case 3: return new TypeDefinition_Group(this, this, 3, inst);
+			case 4: return new TypedefSpecification_Group(this, this, 4, inst);
+			case 5: return new QualifiedTypeSpecification_Group(this, this, 5, inst);
+			case 6: return new TypeSpecification_Alternatives(this, this, 6, inst);
+			case 7: return new StructOrUnionSpecification_Alternatives(this, this, 7, inst);
+			case 8: return new StructOrUnionDefinition_Group(this, this, 8, inst);
+			case 9: return new StructorUnionReference_Group(this, this, 9, inst);
+			case 10: return new StructMember_Group(this, this, 10, inst);
+			case 11: return new EnumSpecification_Alternatives(this, this, 11, inst);
+			case 12: return new EnumDefinition_Group(this, this, 12, inst);
+			case 13: return new EnumReference_Group(this, this, 13, inst);
+			case 14: return new EnumMemberList_Group(this, this, 14, inst);
+			case 15: return new EnumMember_Group(this, this, 15, inst);
+			case 16: return new Declarators_Group(this, this, 16, inst);
+			case 17: return new Declarator_Group(this, this, 17, inst);
+			case 18: return new AbstractDeclarator_Group(this, this, 18, inst);
+			case 19: return new PointerSpecification_Group(this, this, 19, inst);
+			case 20: return new Qualified_PointerSpecification_Group(this, this, 20, inst);
+			case 21: return new DirectDeclarator_Group(this, this, 21, inst);
+			case 22: return new AbstractDirectDeclarator_Alternatives(this, this, 22, inst);
+			case 23: return new ArraySpecification_Group(this, this, 23, inst);
+			case 24: return new ConstantDefinition_Group(this, this, 24, inst);
+			case 25: return new InterfaceDefinition_Group(this, this, 25, inst);
+			case 26: return new MethodDefinition_Group(this, this, 26, inst);
+			case 27: return new ParameterList_Group(this, this, 27, inst);
+			case 28: return new Parameter_Group(this, this, 28, inst);
+			case 29: return new IncludeDirective_Group(this, this, 29, inst);
+			case 30: return new Annotations_Group(this, this, 30, inst);
+			case 31: return new Annotation_Group(this, this, 31, inst);
+			case 32: return new AnnotationParameters_Group(this, this, 32, inst);
+			case 33: return new AnnotationValuePairs_Group(this, this, 33, inst);
+			case 34: return new AnnotationValuePair_Group(this, this, 34, inst);
+			case 35: return new AnnotationValue_Alternatives(this, this, 35, inst);
+			case 36: return new ArrayAnnotationValue_Group(this, this, 36, inst);
+			case 37: return new ConstantExpression_LogicalOrExpressionParserRuleCall(this, this, 37, inst);
+			case 38: return new LogicalOrExpression_Group(this, this, 38, inst);
+			case 39: return new LogicalAndExpression_Group(this, this, 39, inst);
+			case 40: return new OrExpression_Group(this, this, 40, inst);
+			case 41: return new XorExpression_Group(this, this, 41, inst);
+			case 42: return new AndExpression_Group(this, this, 42, inst);
+			case 43: return new ShiftExpression_Group(this, this, 43, inst);
+			case 44: return new AdditiveExpression_Group(this, this, 44, inst);
+			case 45: return new MulExpression_Group(this, this, 45, inst);
+			case 46: return new CastExpression_Alternatives(this, this, 46, inst);
+			case 47: return new UnaryExpression_Group(this, this, 47, inst);
+			case 48: return new PrimaryExpression_Alternatives(this, this, 48, inst);
+			case 49: return new Literal_Alternatives(this, this, 49, inst);
 			default: return null;
 		}	
 	}	
@@ -96,14 +95,12 @@ protected class ThisRootNode extends RootToken {
  *
  * IdtFile:
  *   begindef=ConstantDefinitionBegin def=ConstantDefinition includes+=IncludeDirective
- *   * (constant+=ConstantDefinition|type+=TypeDefinition)* enddef=
- *   ConstantDefinitionEnd;
+ *   * (constant+=ConstantDefinition|type+=TypeDefinition)* "#endif";
  *
  **/
 
 // begindef=ConstantDefinitionBegin def=ConstantDefinition includes+=IncludeDirective
-// * (constant+=ConstantDefinition|type+=TypeDefinition)* enddef=
-// ConstantDefinitionEnd
+// * (constant+=ConstantDefinition|type+=TypeDefinition)* "#endif"
 protected class IdtFile_Group extends GroupToken {
 	
 	public IdtFile_Group(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
@@ -118,7 +115,7 @@ protected class IdtFile_Group extends GroupToken {
     @Override
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new IdtFile_EnddefAssignment_4(parent, this, 0, inst);
+			case 0: return new IdtFile_EndifKeyword_4(parent, this, 0, inst);
 			default: return null;
 		}	
 	}	
@@ -388,52 +385,28 @@ protected class IdtFile_TypeAssignment_3_1 extends AssignmentToken  {
 }
 
 
-// enddef=ConstantDefinitionEnd
-protected class IdtFile_EnddefAssignment_4 extends AssignmentToken  {
+// "#endif"
+protected class IdtFile_EndifKeyword_4 extends KeywordToken  {
 	
-	public IdtFile_EnddefAssignment_4(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	public IdtFile_EndifKeyword_4(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	@Override
-	public Assignment getGrammarElement() {
-		return grammarAccess.getIdtFileAccess().getEnddefAssignment_4();
+	public Keyword getGrammarElement() {
+		return grammarAccess.getIdtFileAccess().getEndifKeyword_4();
 	}
 
     @Override
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new ConstantDefinitionEnd_Group(this, this, 0, inst);
+			case 0: return new IdtFile_Alternatives_3(parent, this, 0, inst);
+			case 1: return new IdtFile_IncludesAssignment_2(parent, this, 1, inst);
+			case 2: return new IdtFile_DefAssignment_1(parent, this, 2, inst);
 			default: return null;
 		}	
 	}	
 		
-    @Override	
-	protected IInstanceDescription tryConsumeVal() {
-		if((value = current.getConsumable("enddef",true)) == null) return null;
-		IInstanceDescription obj = current.cloneAndConsume("enddef");
-		if(value instanceof EObject) { // org::eclipse::xtext::impl::RuleCallImpl
-			IInstanceDescription param = getDescr((EObject)value);
-			if(param.isInstanceOf(grammarAccess.getConstantDefinitionEndRule().getType().getClassifier())) {
-				type = AssignmentType.PRC;
-				element = grammarAccess.getIdtFileAccess().getEnddefConstantDefinitionEndParserRuleCall_4_0(); 
-				consumed = obj;
-				return param;
-			}
-		}
-		return null;
-	}
-
-    @Override
-	public AbstractToken createParentFollower(AbstractToken next,	int actIndex, int index, IInstanceDescription inst) {
-		if(value == inst.getDelegate() && !inst.isConsumed()) return null;
-		switch(index) {
-			case 0: return new IdtFile_Alternatives_3(parent, next, actIndex, consumed);
-			case 1: return new IdtFile_IncludesAssignment_2(parent, next, actIndex, consumed);
-			case 2: return new IdtFile_DefAssignment_1(parent, next, actIndex, consumed);
-			default: return null;
-		}	
-	}	
 }
 
 
@@ -531,99 +504,6 @@ protected class ConstantDefinitionBegin_IdAssignment_1 extends AssignmentToken  
 
 
 /************ end Rule ConstantDefinitionBegin ****************/
-
-
-/************ begin Rule ConstantDefinitionEnd ****************
- *
- * ConstantDefinitionEnd:
- *   "#endif" id=ID;
- *
- **/
-
-// "#endif" id=ID
-protected class ConstantDefinitionEnd_Group extends GroupToken {
-	
-	public ConstantDefinitionEnd_Group(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
-		super(parent, next, no, current);
-	}
-	
-	@Override
-	public Group getGrammarElement() {
-		return grammarAccess.getConstantDefinitionEndAccess().getGroup();
-	}
-
-    @Override
-	public AbstractToken createFollower(int index, IInstanceDescription inst) {
-		switch(index) {
-			case 0: return new ConstantDefinitionEnd_IdAssignment_1(parent, this, 0, inst);
-			default: return null;
-		}	
-	}	
-		
-    @Override
-	public IInstanceDescription tryConsume() {
-		if(!current.isInstanceOf(grammarAccess.getConstantDefinitionEndRule().getType().getClassifier())) return null;
-		return tryConsumeVal();
-	}
-}
-
-// "#endif"
-protected class ConstantDefinitionEnd_EndifKeyword_0 extends KeywordToken  {
-	
-	public ConstantDefinitionEnd_EndifKeyword_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
-		super(parent, next, no, current);
-	}
-	
-	@Override
-	public Keyword getGrammarElement() {
-		return grammarAccess.getConstantDefinitionEndAccess().getEndifKeyword_0();
-	}
-
-    @Override
-	public AbstractToken createFollower(int index, IInstanceDescription inst) {
-		switch(index) {
-			default: return parent.createParentFollower(this, index, index, inst);
-		}	
-	}	
-		
-}
-
-// id=ID
-protected class ConstantDefinitionEnd_IdAssignment_1 extends AssignmentToken  {
-	
-	public ConstantDefinitionEnd_IdAssignment_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
-		super(parent, next, no, current);
-	}
-	
-	@Override
-	public Assignment getGrammarElement() {
-		return grammarAccess.getConstantDefinitionEndAccess().getIdAssignment_1();
-	}
-
-    @Override
-	public AbstractToken createFollower(int index, IInstanceDescription inst) {
-		switch(index) {
-			case 0: return new ConstantDefinitionEnd_EndifKeyword_0(parent, this, 0, inst);
-			default: return null;
-		}	
-	}	
-		
-    @Override	
-	protected IInstanceDescription tryConsumeVal() {
-		if((value = current.getConsumable("id",true)) == null) return null;
-		IInstanceDescription obj = current.cloneAndConsume("id");
-		if(Boolean.TRUE.booleanValue()) { 
-			type = AssignmentType.LRC;
-			element = grammarAccess.getConstantDefinitionEndAccess().getIdIDTerminalRuleCall_1_0();
-			return obj;
-		}
-		return null;
-	}
-
-}
-
-
-/************ end Rule ConstantDefinitionEnd ****************/
 
 
 /************ begin Rule ItfFile ****************

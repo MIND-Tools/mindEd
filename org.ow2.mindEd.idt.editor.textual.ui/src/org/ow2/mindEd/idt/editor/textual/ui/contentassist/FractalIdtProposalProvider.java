@@ -18,7 +18,7 @@ public class FractalIdtProposalProvider extends AbstractFractalIdtProposalProvid
 	 * 
 	 * @see org.ow2.fractal.mind.idl.contentassist.AbstractFractalIdtProposalProvider#completeConstantDefinitionEnd_Id(org.eclipse.emf.ecore.EObject, org.eclipse.xtext.Assignment, org.eclipse.xtext.ui.core.editor.contentassist.ContentAssistContext, org.eclipse.xtext.ui.core.editor.contentassist.ICompletionProposalAcceptor)
 	 */
-	
+	/*
 	@Override
 	public void completeConstantDefinitionEnd_Id(EObject model,
 			Assignment assignment, ContentAssistContext context,
@@ -34,7 +34,7 @@ public class FractalIdtProposalProvider extends AbstractFractalIdtProposalProvid
 				+ " - end definition", getImage(idtFile.getBegindef()), context);
 
 		acceptor.accept(completionProposal);
-	}
+	}*/
 
 	@Override
 	public void completeConstantDefinition_Id(EObject model,

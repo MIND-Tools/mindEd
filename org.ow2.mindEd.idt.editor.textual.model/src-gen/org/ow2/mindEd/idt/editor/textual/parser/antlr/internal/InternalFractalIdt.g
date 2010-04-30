@@ -217,31 +217,11 @@ ruleIdtFile returns [EObject current=null]
 	    }
 
 )
-))*(
-(
-		{ 
-	        currentNode=createCompositeNode(grammarAccess.getIdtFileAccess().getEnddefConstantDefinitionEndParserRuleCall_4_0(), currentNode); 
-	    }
-		lv_enddef_5_0=ruleConstantDefinitionEnd		{
-	        if ($current==null) {
-	            $current = factory.create(grammarAccess.getIdtFileRule().getType().getClassifier());
-	            associateNodeWithAstElement(currentNode.getParent(), $current);
-	        }
-	        try {
-	       		set(
-	       			$current, 
-	       			"enddef",
-	        		lv_enddef_5_0, 
-	        		"ConstantDefinitionEnd", 
-	        		currentNode);
-	        } catch (ValueConverterException vce) {
-				handleValueConverterException(vce);
-	        }
-	        currentNode = currentNode.getParent();
-	    }
-
+))*	'#endif' 
+    {
+        createLeafNode(grammarAccess.getIdtFileAccess().getEndifKeyword_4(), null); 
+    }
 )
-))
 ;
 
 
@@ -277,57 +257,6 @@ ruleConstantDefinitionBegin returns [EObject current=null]
 		{
 	        if ($current==null) {
 	            $current = factory.create(grammarAccess.getConstantDefinitionBeginRule().getType().getClassifier());
-	            associateNodeWithAstElement(currentNode, $current);
-	        }
-	        try {
-	       		set(
-	       			$current, 
-	       			"id",
-	        		lv_id_1_0, 
-	        		"ID", 
-	        		lastConsumedNode);
-	        } catch (ValueConverterException vce) {
-				handleValueConverterException(vce);
-	        }
-	    }
-
-)
-))
-;
-
-
-
-
-
-// Entry rule entryRuleConstantDefinitionEnd
-entryRuleConstantDefinitionEnd returns [EObject current=null] 
-	:
-	{ currentNode = createCompositeNode(grammarAccess.getConstantDefinitionEndRule(), currentNode); }
-	 iv_ruleConstantDefinitionEnd=ruleConstantDefinitionEnd 
-	 { $current=$iv_ruleConstantDefinitionEnd.current; } 
-	 EOF 
-;
-
-// Rule ConstantDefinitionEnd
-ruleConstantDefinitionEnd returns [EObject current=null] 
-    @init { @SuppressWarnings("unused") EObject temp=null; setCurrentLookahead(); resetLookahead(); 
-    }
-    @after { resetLookahead(); 
-    	lastConsumedNode = currentNode;
-    }:
-(	'#endif' 
-    {
-        createLeafNode(grammarAccess.getConstantDefinitionEndAccess().getEndifKeyword_0(), null); 
-    }
-(
-(
-		lv_id_1_0=RULE_ID
-		{
-			createLeafNode(grammarAccess.getConstantDefinitionEndAccess().getIdIDTerminalRuleCall_1_0(), "id"); 
-		}
-		{
-	        if ($current==null) {
-	            $current = factory.create(grammarAccess.getConstantDefinitionEndRule().getType().getClassifier());
 	            associateNodeWithAstElement(currentNode, $current);
 	        }
 	        try {

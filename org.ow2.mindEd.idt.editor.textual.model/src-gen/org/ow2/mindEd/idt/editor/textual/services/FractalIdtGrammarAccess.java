@@ -31,18 +31,15 @@ public class FractalIdtGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cConstantConstantDefinitionParserRuleCall_3_0_0 = (RuleCall)cConstantAssignment_3_0.eContents().get(0);
 		private final Assignment cTypeAssignment_3_1 = (Assignment)cAlternatives_3.eContents().get(1);
 		private final RuleCall cTypeTypeDefinitionParserRuleCall_3_1_0 = (RuleCall)cTypeAssignment_3_1.eContents().get(0);
-		private final Assignment cEnddefAssignment_4 = (Assignment)cGroup.eContents().get(4);
-		private final RuleCall cEnddefConstantDefinitionEndParserRuleCall_4_0 = (RuleCall)cEnddefAssignment_4.eContents().get(0);
+		private final Keyword cEndifKeyword_4 = (Keyword)cGroup.eContents().get(4);
 		
 		//IdtFile:
 		//  begindef=ConstantDefinitionBegin def=ConstantDefinition includes+=IncludeDirective
-		//  * (constant+=ConstantDefinition|type+=TypeDefinition)* enddef=
-		//  ConstantDefinitionEnd;
+		//  * (constant+=ConstantDefinition|type+=TypeDefinition)* "#endif";
 		public ParserRule getRule() { return rule; }
 
 		//begindef=ConstantDefinitionBegin def=ConstantDefinition includes+=IncludeDirective
-		// * (constant+=ConstantDefinition|type+=TypeDefinition)* enddef=
-		//ConstantDefinitionEnd
+		// * (constant+=ConstantDefinition|type+=TypeDefinition)* "#endif"
 		public Group getGroup() { return cGroup; }
 
 		//begindef=ConstantDefinitionBegin
@@ -78,11 +75,8 @@ public class FractalIdtGrammarAccess extends AbstractGrammarElementFinder {
 		//TypeDefinition
 		public RuleCall getTypeTypeDefinitionParserRuleCall_3_1_0() { return cTypeTypeDefinitionParserRuleCall_3_1_0; }
 
-		//enddef=ConstantDefinitionEnd
-		public Assignment getEnddefAssignment_4() { return cEnddefAssignment_4; }
-
-		//ConstantDefinitionEnd
-		public RuleCall getEnddefConstantDefinitionEndParserRuleCall_4_0() { return cEnddefConstantDefinitionEndParserRuleCall_4_0; }
+		//"#endif"
+		public Keyword getEndifKeyword_4() { return cEndifKeyword_4; }
 	}
 
 	public class ConstantDefinitionBeginElements extends AbstractParserRuleElementFinder {
@@ -108,35 +102,10 @@ public class FractalIdtGrammarAccess extends AbstractGrammarElementFinder {
 		//ID
 		public RuleCall getIdIDTerminalRuleCall_1_0() { return cIdIDTerminalRuleCall_1_0; }
 	}
-
-	public class ConstantDefinitionEndElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "ConstantDefinitionEnd");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cEndifKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Assignment cIdAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cIdIDTerminalRuleCall_1_0 = (RuleCall)cIdAssignment_1.eContents().get(0);
-		
-		//ConstantDefinitionEnd:
-		//  "#endif" id=ID;
-		public ParserRule getRule() { return rule; }
-
-		//"#endif" id=ID
-		public Group getGroup() { return cGroup; }
-
-		//"#endif"
-		public Keyword getEndifKeyword_0() { return cEndifKeyword_0; }
-
-		//id=ID
-		public Assignment getIdAssignment_1() { return cIdAssignment_1; }
-
-		//ID
-		public RuleCall getIdIDTerminalRuleCall_1_0() { return cIdIDTerminalRuleCall_1_0; }
-	}
 	
 	
 	private IdtFileElements pIdtFile;
 	private ConstantDefinitionBeginElements pConstantDefinitionBegin;
-	private ConstantDefinitionEndElements pConstantDefinitionEnd;
 	
 	private final GrammarProvider grammarProvider;
 
@@ -161,8 +130,7 @@ public class FractalIdtGrammarAccess extends AbstractGrammarElementFinder {
 	
 	//IdtFile:
 	//  begindef=ConstantDefinitionBegin def=ConstantDefinition includes+=IncludeDirective
-	//  * (constant+=ConstantDefinition|type+=TypeDefinition)* enddef=
-	//  ConstantDefinitionEnd;
+	//  * (constant+=ConstantDefinition|type+=TypeDefinition)* "#endif";
 	public IdtFileElements getIdtFileAccess() {
 		return (pIdtFile != null) ? pIdtFile : (pIdtFile = new IdtFileElements());
 	}
@@ -179,16 +147,6 @@ public class FractalIdtGrammarAccess extends AbstractGrammarElementFinder {
 	
 	public ParserRule getConstantDefinitionBeginRule() {
 		return getConstantDefinitionBeginAccess().getRule();
-	}
-
-	//ConstantDefinitionEnd:
-	//  "#endif" id=ID;
-	public ConstantDefinitionEndElements getConstantDefinitionEndAccess() {
-		return (pConstantDefinitionEnd != null) ? pConstantDefinitionEnd : (pConstantDefinitionEnd = new ConstantDefinitionEndElements());
-	}
-	
-	public ParserRule getConstantDefinitionEndRule() {
-		return getConstantDefinitionEndAccess().getRule();
 	}
 
 	//ItfFile:

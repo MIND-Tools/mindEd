@@ -61,7 +61,6 @@ public class FractalIdtParser extends AbstractContentAssistParser {
 					put(grammarAccess.getParameterQualifierAccess().getAlternatives(), "rule__ParameterQualifier__Alternatives");
 					put(grammarAccess.getIdtFileAccess().getGroup(), "rule__IdtFile__Group__0");
 					put(grammarAccess.getConstantDefinitionBeginAccess().getGroup(), "rule__ConstantDefinitionBegin__Group__0");
-					put(grammarAccess.getConstantDefinitionEndAccess().getGroup(), "rule__ConstantDefinitionEnd__Group__0");
 					put(grammarAccess.getItfFileAccess().getGroup(), "rule__ItfFile__Group__0");
 					put(grammarAccess.getTypeDefinitionAccess().getGroup(), "rule__TypeDefinition__Group__0");
 					put(grammarAccess.getTypedefSpecificationAccess().getGroup(), "rule__TypedefSpecification__Group__0");
@@ -138,9 +137,7 @@ public class FractalIdtParser extends AbstractContentAssistParser {
 					put(grammarAccess.getIdtFileAccess().getIncludesAssignment_2(), "rule__IdtFile__IncludesAssignment_2");
 					put(grammarAccess.getIdtFileAccess().getConstantAssignment_3_0(), "rule__IdtFile__ConstantAssignment_3_0");
 					put(grammarAccess.getIdtFileAccess().getTypeAssignment_3_1(), "rule__IdtFile__TypeAssignment_3_1");
-					put(grammarAccess.getIdtFileAccess().getEnddefAssignment_4(), "rule__IdtFile__EnddefAssignment_4");
 					put(grammarAccess.getConstantDefinitionBeginAccess().getIdAssignment_1(), "rule__ConstantDefinitionBegin__IdAssignment_1");
-					put(grammarAccess.getConstantDefinitionEndAccess().getIdAssignment_1(), "rule__ConstantDefinitionEnd__IdAssignment_1");
 					put(grammarAccess.getItfFileAccess().getIncludesAssignment_0(), "rule__ItfFile__IncludesAssignment_0");
 					put(grammarAccess.getItfFileAccess().getConstantAssignment_1_0(), "rule__ItfFile__ConstantAssignment_1_0");
 					put(grammarAccess.getItfFileAccess().getTypeAssignment_1_1(), "rule__ItfFile__TypeAssignment_1_1");
