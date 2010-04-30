@@ -801,12 +801,12 @@ public class MindModelImpl implements MindModel {
 			}
 			break;
 		case Notification.REMOVE:
-			remove((MindPackage) notification.getOldValue(), true);
+			remove((MindRootSrc) notification.getNotifier(), (MindPackage) notification.getOldValue(), true);
 			break;
 		case Notification.REMOVE_MANY:
 			for (MindPackage p : ((Collection<MindPackage>) notification
 					.getOldValue())) {
-				remove(p, true);
+				remove((MindRootSrc) notification.getNotifier(), p, true);
 			}
 			break;
 
@@ -817,7 +817,7 @@ public class MindModelImpl implements MindModel {
 		mf.getPackage().getFiles().remove(mf);
 	}
 
-	public void remove(MindPackage mindPackage, boolean removeSubPackage) {
+	public void remove(MindRootSrc rs, MindPackage mindPackage, boolean removeSubPackage) {
 		List<MindPackage> list = _packages.get(mindPackage.getName());
 		if (list != null)
 			list.remove(mindPackage);
@@ -825,7 +825,7 @@ public class MindModelImpl implements MindModel {
 		mindPackage.getResolvedMindPathEntries().clear();
 
 		IFolder mapping_package = MindIdeCore.getResource(mindPackage);
-		if (mapping_package.exists())
+		if (mapping_package.exists() && !isDefaultPackage(rs, mindPackage))
 			try {
 				mapping_package.delete(true, null);
 			} catch (CoreException e) {
@@ -841,17 +841,22 @@ public class MindModelImpl implements MindModel {
 			IFolder f = MindIdeCore.getResource(mindPackage);
 			String fullpath = f.getFullPath().toPortableString();
 			if (!MindIdeCore.exists(f)) {
-				MindRootSrc rs = mindPackage.getRootsrc();
 				for (MindPackage subPackage : new ArrayList<MindPackage>(rs
 						.getPackages())) {
 					if (subPackage.getFullpath().startsWith(fullpath))
-						remove(subPackage, false);
+						remove(rs, subPackage, false);
 				}
 			}
 		}
 		if (mindPackage.getRootsrc() == null)
 			return;
 		mindPackage.getRootsrc().getPackages().remove(mindPackage);
+	}
+
+	private boolean isDefaultPackage(MindRootSrc rs, MindPackage mindPackage) {
+		if (rs == null)
+			return false;
+		return rs.getFullpath().equals(mindPackage.getFullpath());
 	}
 
 	public void remove(MindProject mp) {

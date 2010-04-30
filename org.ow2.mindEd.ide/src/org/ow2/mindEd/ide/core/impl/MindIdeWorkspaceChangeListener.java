@@ -114,7 +114,7 @@ public class MindIdeWorkspaceChangeListener implements IResourceVisitor, IResour
 			if (kind == IResourceDelta.REMOVED) {
 				MindPackage packageFound = findOrCreateMindPackage(resource, false);
 				if (packageFound!= null)
-					_model.remove(packageFound, true);
+					_model.remove(packageFound.getRootsrc(), packageFound, true);
 				return false;
 			}
 			if (hasFile((IFolder) resource)) {
@@ -142,7 +142,7 @@ public class MindIdeWorkspaceChangeListener implements IResourceVisitor, IResour
 						if (!MindIdeWorkspaceChangeListener.hasFile((IFolder) resource.getParent())) {
 							MindPackage mPackage = findOrCreateMindPackage(resource.getParent(), false);
 							if (mPackage != null)
-								_model.remove(mPackage, true);
+								_model.remove(mPackage.getRootsrc(), mPackage, true);
 						}
 					}
 					return false;

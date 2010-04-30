@@ -126,7 +126,7 @@ public class ModelToProjectUtil {
 	private void refreshEditorInput () {
 		try {
 			IWorkbenchWindow window = PlatformUI.getWorkbench().getActiveWorkbenchWindow();
-			if (window == null)
+			if (window == null || window.getActivePage() == null )
 				return;
 			editorInput = window.getActivePage().getActiveEditor().getEditorInput();
 		} catch (NullPointerException e) {
