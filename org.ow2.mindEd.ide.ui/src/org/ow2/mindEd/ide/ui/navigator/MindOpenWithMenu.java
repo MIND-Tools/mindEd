@@ -323,7 +323,7 @@ public class MindOpenWithMenu extends OpenWithMenu {
         if (file == null) {
             return;
         }
-        if (editorDescriptor != null && editorDescriptor.getId().equals("adl.diagram.part.MindDiagramEditorID")) {
+        if (editorDescriptor != null && editorDescriptor.getId().equals("org.ow2.mindEd.adl.editor.graphic.ui.MindDiagramEditorID")) {
         	// Save model URI, needed if diagram must be created
         	URI modelURI = URI.createFileURI(file.getFullPath().toPortableString());
         	IDE.setDefaultEditor(file, editorDescriptor.getId());
