@@ -8,7 +8,6 @@ Eclipse-RegisterBuddy: org.eclipse.xtext.log4j
 Bundle-ActivationPolicy: lazy
 Require-Bundle: org.ow2.mindEd.adl.textual.model;visibility:=reexport,
  org.eclipse.xtend,
- org.ow2.mindEd.adl.editor.tree,
  org.ow2.mindEd.adl.model,
  org.eclipse.ui.editors,
  org.eclipse.ui,
