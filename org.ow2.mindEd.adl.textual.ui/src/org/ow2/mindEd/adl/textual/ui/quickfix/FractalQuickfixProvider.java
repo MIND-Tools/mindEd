@@ -54,7 +54,6 @@ public class FractalQuickfixProvider extends DefaultQuickfixProvider {
 				"Rename this duplicate argument.", null,
 				new ISemanticModification() {
 
-					@Override
 					public void apply(EObject element,
 							IModificationContext context) throws Exception {
 						
@@ -75,7 +74,6 @@ public class FractalQuickfixProvider extends DefaultQuickfixProvider {
 				"Rename duplicate template specifier name.", null,
 				new ISemanticModification() {
 
-					@Override
 					public void apply(EObject element,
 							IModificationContext context) throws Exception {
 						
@@ -123,7 +121,6 @@ public class FractalQuickfixProvider extends DefaultQuickfixProvider {
 				"Remove this unavailable package.", null,
 				new ISemanticModification() {
 
-					@Override
 					public void apply(EObject element,
 							IModificationContext context) throws Exception {
 						if (element instanceof ImportDefinition)
@@ -138,7 +135,6 @@ public class FractalQuickfixProvider extends DefaultQuickfixProvider {
 				"Remove unknown template specifier type", null,
 				new ISemanticModification() {
 
-					@Override
 					public void apply(EObject element,
 							IModificationContext context) throws Exception {
 						if (element instanceof TemplateSpecifier)
@@ -178,7 +174,7 @@ public class FractalQuickfixProvider extends DefaultQuickfixProvider {
 			acceptor.accept(issue, "Mon quick fix xtext pour erreur mindc Invalid Template Parameter",
 				"corriger erreur mindc en enlevant le parametre de template",null,
 				new ISemanticModification() {
-					@Override
+
 					public void apply(EObject adlDefinition,
 							IModificationContext context) throws Exception {
 					
@@ -201,7 +197,6 @@ public class FractalQuickfixProvider extends DefaultQuickfixProvider {
 					"replace text",null,
 					new IModification() {
 				
-					@Override
 					public void apply(IModificationContext context) throws Exception {
 						
 						IXtextDocument document = context.getXtextDocument();
