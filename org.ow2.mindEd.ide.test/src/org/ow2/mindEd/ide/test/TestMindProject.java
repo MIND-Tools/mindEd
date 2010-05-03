@@ -213,13 +213,15 @@ public class TestMindProject {
 		assertTrue(	Arrays.asList(natures).contains(MindNature.NATURE_ID));
 		
 		ICommand[] commands = desc.getBuildSpec();
-		assertEquals(3, commands.length);
+		assertEquals(4, commands.length);
 		// 1 : org.eclipse.cdt.managedbuilder.core.genmakebuilder
-		// 2 : org.ow2.mindEd.ide.core.cadse.builder
-		// 3 : org.eclipse.cdt.managedbuilder.core.ScannerConfigBuilder
+		// 2 : org.eclipse.xtext.ui.shared.xtextBuilder
+		// 3 : org.ow2.mindEd.ide.core.builder
+		// 4 : org.eclipse.cdt.managedbuilder.core.ScannerConfigBuilder
 		assertEquals("org.eclipse.cdt.managedbuilder.core.genmakebuilder", commands[0].getBuilderName());
-		assertEquals(MindIdeBuilder.BUILDER_ID, commands[1].getBuilderName());
-		assertEquals("org.eclipse.cdt.managedbuilder.core.ScannerConfigBuilder", commands[2].getBuilderName());
+		assertEquals("org.eclipse.xtext.ui.shared.xtextBuilder", commands[1].getBuilderName());
+		assertEquals(MindIdeBuilder.BUILDER_ID, commands[2].getBuilderName());
+		assertEquals("org.eclipse.cdt.managedbuilder.core.ScannerConfigBuilder", commands[3].getBuilderName());
 		
 		
 		IManagedBuildInfo info = ManagedBuildManager.getBuildInfo(p);
