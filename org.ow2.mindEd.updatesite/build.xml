@@ -27,6 +27,9 @@
 				<include name="artifacts.jar" />
 				<include name="content.jar" />
 				<include name="logs.zip" />
+				<include name="site.xml" />
+				<include name="COPYING" />
+				<include name="COPYING.LESSER" />
 			</fileset>
 		</zip>
 	</target>
