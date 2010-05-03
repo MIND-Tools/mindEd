@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: %pluginName
 Bundle-SymbolicName: org.ow2.mindEd.adl.editor.graphic.ui; singleton:=true
-Bundle-Version: 0.1.0
+Bundle-Version: 0.2.0.qualifier
 Bundle-ClassPath: .
 Bundle-Activator: org.ow2.mindEd.adl.editor.graphic.ui.part.MindDiagramEditorPlugin
 Bundle-Vendor: %providerName
