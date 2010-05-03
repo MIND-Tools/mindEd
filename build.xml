@@ -1,0 +1,34 @@
+<project default="create-zip">
+
+	<!-- ================================= 
+          target: clean              
+         ================================= -->
+	<target name="clean" depends="" description="description">
+		<delete>
+			<fileset dir="${basedir}">
+				<include name="features/" />
+				<include name="plugins/" />
+				<include name="artifacts.jar" />
+				<include name="content.jar" />
+				<include name="logs.zip" />
+			</fileset>
+		</delete>
+	</target>
+
+	<!-- ================================= 
+          target: create              
+         ================================= -->
+	<target name="create-zip" depends="" description="create update site">
+		<property name="version" value="0.2" />
+		<zip destfile="mindEd-${version}.zip">
+			<fileset  dir="${basedir}">
+				<include name="features/" />
+				<include name="plugins/" />
+				<include name="artifacts.jar" />
+				<include name="content.jar" />
+				<include name="logs.zip" />
+			</fileset>
+		</zip>
+	</target>
+
+</project>
