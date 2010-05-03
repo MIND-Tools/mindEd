@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <feature
-      id="org.ow2.fractal.mind.sdk.feature"
+      id="org.ow2.mindEd.feature.sdk"
       label="%featureName"
       version="0.2.0.qualifier"
       provider-name="%providerName">
@@ -92,11 +92,11 @@ accrue de la formation
    </license>
 
    <includes
-         id="org.ow2.fractal.mind.feature"
+         id="org.ow2.mindEd.feature"
          version="0.0.0"/>
 
    <includes
-         id="org.ow2.fractal.mind.source.feature"
+         id="org.ow2.mindEd.feature.source"
          version="0.0.0"/>
 
 </feature>
