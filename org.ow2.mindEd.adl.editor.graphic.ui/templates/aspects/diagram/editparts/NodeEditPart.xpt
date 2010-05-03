@@ -1,12 +1,21 @@
 
 «AROUND additions FOR gmfgen::GenNode-»
 	«EXPAND xpt::Common::generatedMemberComment»
+	protected org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.parts.generic.MindEditPart genericEditPart = org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.parts.generic.MindGenericEditPartFactory.INSTANCE.createGenericEditPart (this, VISUAL_ID);
+	
+	«EXPAND xpt::Common::generatedMemberComment»
+	public org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.parts.generic.MindEditPart getGenericEditPart() {
+		return genericEditPart;
+	}
+	
+	«EXPAND xpt::Common::generatedMemberComment»
 	@Override
 	protected void refreshBounds() {
 		if (!getGenericEditPart().refreshBounds())
 			super.refreshBounds();
 	}
 	
+	«EXPAND xpt::Common::generatedMemberComment»
 	@Override
 	public void refresh() {
 		super.refresh();
@@ -14,12 +23,14 @@
 		refreshBounds();
 	}
 	
+	«EXPAND xpt::Common::generatedMemberComment»
 	@Override
 	public void activate() {
 		super.activate();
 		getGenericEditPart().activate();
 	}
 	
+	«EXPAND xpt::Common::generatedMemberComment»
 	@Override
 	public org.eclipse.gef.DragTracker getDragTracker(org.eclipse.gef.Request request) {
 		org.eclipse.gef.DragTracker tracker = getGenericEditPart().getDragTracker(request);
