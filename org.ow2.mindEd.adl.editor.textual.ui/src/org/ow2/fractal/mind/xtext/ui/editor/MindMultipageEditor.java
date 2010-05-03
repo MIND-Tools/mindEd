@@ -186,7 +186,7 @@ public class MindMultipageEditor extends MultiPageEditorPart implements
 		return true;
 	}
 
-	@Override
+
 	public void resourceChanged(final IResourceChangeEvent event) {
 		if (event.getType() == IResourceChangeEvent.PRE_CLOSE) {
 			Display.getDefault().asyncExec(new Runnable() {
@@ -207,7 +207,7 @@ public class MindMultipageEditor extends MultiPageEditorPart implements
 		}
 	}
 
-	@Override
+	
 	public EditingDomain getEditingDomain() {
 		return editingDomain;
 	}
