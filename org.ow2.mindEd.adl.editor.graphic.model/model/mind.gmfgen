@@ -2755,7 +2755,7 @@
   </diagram>
   <plugin
       iD="org.ow2.mindEd.adl.editor.graphic.ui"
-      version="0.1.0">
+      version="0.2.0.qualifier">
     <requiredPlugins>org.eclipse.draw2d</requiredPlugins>
   </plugin>
   <editor

@@ -10,24 +10,11 @@
 		result.setDefaultSize(0, 0);
 «ENDAROUND»
 
-«AROUND createDefaultEditPolicies FOR gmfgen::GenNode-»
-	«EXPAND xpt::Common::generatedMemberComment»
-	protected void createDefaultEditPolicies() {
-		«EXPAND impl::diagram::editparts::NodeEditPart::createDefaultEditPoliciesBody-»
-		getGenericEditPart().createDefaultEditPolicies();
-	}
+«AROUND createDefaultEditPoliciesBody FOR gmfgen::GenNode-»
+	«targetDef.proceed()»
+	getGenericEditPart().createDefaultEditPolicies();
 «ENDAROUND»
 
-«DEFINE getMindEditpart FOR gmfgen::InnerClassViewmap»
-
-	«EXPAND xpt::Common::generatedMemberComment»
-	protected org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.parts.generic.MindEditPart genericEditPart = org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.parts.generic.MindGenericEditPartFactory.INSTANCE.createGenericEditPart (this, VISUAL_ID);
-	
-	«EXPAND xpt::Common::generatedMemberComment»
-	public org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.parts.generic.MindEditPart getGenericEditPart() {
-		return genericEditPart;
-	}
-«ENDDEFINE»
 
 «AROUND addFixedChild FOR gmfgen::GenNode-»
 	
@@ -61,9 +48,7 @@
 
 
 «AROUND innerClassDeclaration FOR gmfgen::InnerClassViewmap»
-	
-	«EXPAND getMindEditpart»
-	
+		
 	«EXPAND xpt::Common::generatedMemberComment»
 	protected org.eclipse.swt.graphics.Color getMindBorderColor() {
 		return genericEditPart.getMindBorderColor();
