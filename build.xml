@@ -21,6 +21,14 @@
 		<eclipse.refreshLocal resource="${resourcePath}" depth="infinite"/>
 	</target>
 
+	<target name="generate">
+		<mkdir dir="target"/>
+	 <eclipse.buildScript elements="feature@org.ow2.mindEd.feature"
+	 	builddirectory="target" pluginpath="${basedir}/.."
+	 	baselocation="${eclipse.home}" children="false"
+	 	flattendependencies="false" generatefeatureversionsuffix="true"
+	 	></eclipse.buildScript>
+	</target>
 	<!-- ================================= 
           target: create              
          ================================= -->
@@ -38,6 +46,7 @@
 				<include name="COPYING.LESSER" />
 			</fileset>
 		</zip>
+		<antcall target="refresh-project"/>
 	</target>
 
 </project>
