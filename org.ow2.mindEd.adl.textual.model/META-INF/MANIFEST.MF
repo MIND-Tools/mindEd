@@ -4,14 +4,12 @@ Bundle-Name: org.ow2.mindEd.adl.textual.model
 Bundle-Vendor: Partenaire Minalogic
 Bundle-Version: 0.2.0.qualifier
 Bundle-SymbolicName: org.ow2.mindEd.adl.textual.model; singleton:=true
-Eclipse-RegisterBuddy: org.eclipse.xtext.log4j
 Bundle-ActivationPolicy: lazy
 Require-Bundle: org.eclipse.xtext,
  org.eclipse.xtext.generator;resolution:=optional,
  de.itemis.xtext.antlr;resolution:=optional,
  org.apache.commons.logging;resolution:=optional,
  org.eclipse.emf.codegen.ecore;resolution:=optional,
- org.eclipse.xtext.log4j;resolution:=optional,
  org.eclipse.emf.mwe.utils;resolution:=optional,
  org.eclipse.emf.mwe.core;resolution:=optional,
  com.ibm.icu;resolution:=optional,
