@@ -1,4 +1,4 @@
-<project default="create-zip">
+<project default="create-zip" basedir=".">
 
 	<!-- ================================= 
           target: clean              
@@ -13,6 +13,12 @@
 				<include name="logs.zip" />
 			</fileset>
 		</delete>
+		<antcall target="refresh-project"/>
+	</target>
+	
+	<target name="refresh-project" if="eclipse.running">
+		<eclipse.convertPath fileSystemPath="${basedir}" property="resourcePath"/>
+		<eclipse.refreshLocal resource="${resourcePath}" depth="infinite"/>
 	</target>
 
 	<!-- ================================= 
