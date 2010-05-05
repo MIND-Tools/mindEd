@@ -8,10 +8,16 @@ import org.junit.Test;
 import org.ow2.mindEd.ide.core.MindIdeCore;
 import org.ow2.mindEd.ide.test.TestMindProject;
 
+import fr.imag.adele.graphictests.gtmenu.*;
+import fr.imag.adele.graphictests.gtmenu.GTMenu;
+import fr.imag.adele.graphictests.gttree.GTTreePath;
+import fr.imag.adele.graphictests.gtworkbench_part.*;
+import fr.imag.adele.graphictests.test.*;
+
 /**
  * Test Fractal Mind Wizard
  */
-public class TestCreateMindproject extends GTCadseTestCase {
+public class TestCreateMindproject extends GTTestCase {
 	
 	
 	private static final String MIND_ADL_COMPONENT_MENU = "Mind ADL Component";
@@ -28,7 +34,7 @@ public class TestCreateMindproject extends GTCadseTestCase {
 	 */
 	@Test
 	public void test_closewelomeview() throws Exception {
-		welcomeView.close();
+		//welcomeView.close();
 	}
 	
 	/**
@@ -60,10 +66,9 @@ public class TestCreateMindproject extends GTCadseTestCase {
 	public void testSelectMindNavigatorAndCreateProject() throws Exception {
 		GTView mindView = new GTView(MIND_NAVIGATOR);
 		mindView.show();
-		GTTreeNode rootNode = mindView.findTree().selectNode(MIND_REPO_WS);
 		
 		projectName = "Test2_"+System.currentTimeMillis() ; //call a generator which compute a new name
-		rootNode.contextMenu(FRACTAL_MIND_PROJECT).click();
+		mindView.contextMenu(new GTTreePath(MIND_REPO_WS), FRACTAL_MIND_PROJECT).click();
 		GTShell shell = new GTShell("New "+FRACTAL_MIND_PROJECT);
 		shell.findTextWithLabel("Project name:").typeText(projectName);
 		shell.close();
@@ -77,9 +82,9 @@ public class TestCreateMindproject extends GTCadseTestCase {
 		IFolder srcFolder = p.getFolder("src");
 		assertTrue(srcFolder.exists());
 		
-		// create a package 
-		mindView.findTree().selectNode(MIND_REPO_WS, MIND_PROJECT_NODE+projectName, "/"+projectName+"/src")
-			.contextMenu("Mind package").click();
+		// create a package
+		GTTreePath node = new GTTreePath(MIND_REPO_WS, MIND_PROJECT_NODE+projectName, "/"+projectName+"/src");
+		mindView.contextMenu(node, "Mind package").click();
 		shell = new GTShell("New "+"MIND Package");
 		final String packageName = "toto";
 		shell.findTextWithLabel("Package:").typeText(packageName);
@@ -88,12 +93,13 @@ public class TestCreateMindproject extends GTCadseTestCase {
 		IFolder totoPackageFolder = srcFolder.getFolder(packageName);
 		assertTrue(totoPackageFolder.exists());
 		
-		GTTreeNode selectNode = mindView.findTree().selectNode(MIND_REPO_WS, MIND_PROJECT_NODE+projectName, "/"+projectName+"/src", packageName);
-		selectNode.contextMenu(MIND_ADL_COMPONENT_MENU).click();
+		node = node.concat(packageName);
+		mindView.contextMenu(node, MIND_ADL_COMPONENT_MENU).click();
 		
 		
 		// create a component
 		shell = new GTShell("New "+"Fractal MIND Component");
+	//	shell.findComboBoxWithLabel("Component kind:").setText("COMPOSITE");
 		shell.bot().ccomboBoxWithLabel("Component kind:").setSelection("COMPOSITE");
 		shell.findTextWithLabel("Component name:").typeText("CompA");
 		shell.close();
@@ -117,10 +123,10 @@ public class TestCreateMindproject extends GTCadseTestCase {
 		GTView mindView = new GTView(MIND_NAVIGATOR);
 		mindView.show();
 		
-		GTTreeNode rootNode = mindView.findTree().selectNode(MIND_REPO_WS);
+		GTTreePath rootNode = new GTTreePath(MIND_REPO_WS);
 		
 		projectName = "Test2_"+System.currentTimeMillis() ; //call a generator which compute a new name
-		rootNode.contextMenu(FRACTAL_MIND_PROJECT).click();
+		mindView.contextMenu(rootNode, FRACTAL_MIND_PROJECT).click();
 		GTShell shell = new GTShell("New "+FRACTAL_MIND_PROJECT);
 		shell.findTextWithLabel("Project name:").typeText(projectName);
 		shell.close();
@@ -135,8 +141,8 @@ public class TestCreateMindproject extends GTCadseTestCase {
 		assertTrue(srcFolder.exists());
 		
 		// create a package 
-		mindView.findTree().selectNode(MIND_REPO_WS, MIND_PROJECT_NODE+projectName, "/"+projectName+"/src")
-			.contextMenu("Mind package").click();
+		GTTreePath rootSrcNode = rootNode.concat(MIND_PROJECT_NODE+projectName, "/"+projectName+"/src");
+		mindView.contextMenu(rootSrcNode, "Mind package").click();
 		shell = new GTShell("New "+"MIND Package");
 		final String packageName = "toto";
 		shell.findTextWithLabel("Package:").typeText(packageName);
@@ -145,8 +151,8 @@ public class TestCreateMindproject extends GTCadseTestCase {
 		IFolder totoPackageFolder = srcFolder.getFolder(packageName);
 		assertTrue(totoPackageFolder.exists());
 		
-		GTTreeNode selectNode = mindView.findTree().selectNode(MIND_REPO_WS, MIND_PROJECT_NODE+projectName, "/"+projectName+"/src", packageName);
-		selectNode.contextMenu(MIND_ADL_COMPONENT_MENU).click();
+		GTTreePath packageNode = rootSrcNode.concat(packageName);
+		mindView.contextMenu(packageNode, MIND_ADL_COMPONENT_MENU).click();
 		
 		
 		// create a component
