@@ -7,12 +7,13 @@ import org.eclipse.core.resources.ResourcesPlugin;
 import org.junit.Test;
 import org.ow2.mindEd.ide.core.MindIdeCore;
 import org.ow2.mindEd.ide.test.TestMindProject;
+import org.ow2.mindEd.ide.ui.wizards.Messages;
 
-import fr.imag.adele.graphictests.gtmenu.*;
 import fr.imag.adele.graphictests.gtmenu.GTMenu;
 import fr.imag.adele.graphictests.gttree.GTTreePath;
-import fr.imag.adele.graphictests.gtworkbench_part.*;
-import fr.imag.adele.graphictests.test.*;
+import fr.imag.adele.graphictests.gtworkbench_part.GTShell;
+import fr.imag.adele.graphictests.gtworkbench_part.GTView;
+import fr.imag.adele.graphictests.test.GTTestCase;
 
 /**
  * Test Fractal Mind Wizard
@@ -22,7 +23,7 @@ public class TestCreateMindproject extends GTTestCase {
 	
 	private static final String MIND_ADL_COMPONENT_MENU = "Mind ADL Component";
 	public static final String MIND_PROJECT_NODE = "Mind Project ";
-	public static final String FRACTAL_MIND_PROJECT = "Fractal MIND Project";
+	public static final String FRACTAL_MIND_PROJECT = "MindEd Project";
 	public static final String MIND_NAVIGATOR = "Mind Navigator";
 	public static final String MIND_REPO_WS = "Mind Repo ws";
 	static private String projectName;
@@ -45,10 +46,10 @@ public class TestCreateMindproject extends GTTestCase {
 	@Test
 	public void testCreateMindProject() throws Exception {
 		String name = "Test" ; //call a generator which compute a new name
-		GTMenu.clickItem("File", "New", "Other...");
-		GTShell shell = new GTShell("New");
-		shell.findTree().selectNode("Mind",FRACTAL_MIND_PROJECT);
-		shell.findButton("Next >").click();
+		GTMenu.clickItem("File", "New", FRACTAL_MIND_PROJECT);
+		GTShell shell = new GTShell(Messages.MindProjectWizard_window_title);
+		//shell.findTree().selectNode("Mind",FRACTAL_MIND_PROJECT);
+		//shell.findButton("Next >").click();
 		shell.findTextWithLabel("Project name:").typeText(name);
 		shell.close();
 		
@@ -69,7 +70,7 @@ public class TestCreateMindproject extends GTTestCase {
 		
 		projectName = "Test2_"+System.currentTimeMillis() ; //call a generator which compute a new name
 		mindView.contextMenu(new GTTreePath(MIND_REPO_WS), FRACTAL_MIND_PROJECT).click();
-		GTShell shell = new GTShell("New "+FRACTAL_MIND_PROJECT);
+		GTShell shell = new GTShell(Messages.MindProjectWizard_window_title);
 		shell.findTextWithLabel("Project name:").typeText(projectName);
 		shell.close();
 		
@@ -85,7 +86,7 @@ public class TestCreateMindproject extends GTTestCase {
 		// create a package
 		GTTreePath node = new GTTreePath(MIND_REPO_WS, MIND_PROJECT_NODE+projectName, "/"+projectName+"/src");
 		mindView.contextMenu(node, "Mind package").click();
-		shell = new GTShell("New "+"MIND Package");
+		shell = new GTShell(Messages.MindPackageWizard_window_title);
 		final String packageName = "toto";
 		shell.findTextWithLabel("Package:").typeText(packageName);
 		shell.close();
@@ -98,7 +99,7 @@ public class TestCreateMindproject extends GTTestCase {
 		
 		
 		// create a component
-		shell = new GTShell("New "+"Fractal MIND Component");
+		shell = new GTShell(Messages.ComponentNewWizard_window_title);
 	//	shell.findComboBoxWithLabel("Component kind:").setText("COMPOSITE");
 		shell.bot().ccomboBoxWithLabel("Component kind:").setSelection("COMPOSITE");
 		shell.findTextWithLabel("Component name:").typeText("CompA");
@@ -127,7 +128,7 @@ public class TestCreateMindproject extends GTTestCase {
 		
 		projectName = "Test2_"+System.currentTimeMillis() ; //call a generator which compute a new name
 		mindView.contextMenu(rootNode, FRACTAL_MIND_PROJECT).click();
-		GTShell shell = new GTShell("New "+FRACTAL_MIND_PROJECT);
+		GTShell shell = new GTShell(Messages.MindProjectWizard_window_title);
 		shell.findTextWithLabel("Project name:").typeText(projectName);
 		shell.close();
 		
@@ -143,7 +144,7 @@ public class TestCreateMindproject extends GTTestCase {
 		// create a package 
 		GTTreePath rootSrcNode = rootNode.concat(MIND_PROJECT_NODE+projectName, "/"+projectName+"/src");
 		mindView.contextMenu(rootSrcNode, "Mind package").click();
-		shell = new GTShell("New "+"MIND Package");
+		shell = new GTShell(Messages.MindPackageWizard_window_title);
 		final String packageName = "toto";
 		shell.findTextWithLabel("Package:").typeText(packageName);
 		shell.close();
@@ -156,8 +157,8 @@ public class TestCreateMindproject extends GTTestCase {
 		
 		
 		// create a component
-		shell = new GTShell("New "+"Fractal MIND Component");
-		shell.bot().ccomboBoxWithLabel("Component kind:").setSelection("PRIMITIF");
+		shell = new GTShell(Messages.ComponentNewWizard_window_title);
+		shell.bot().ccomboBoxWithLabel("Component kind:").setSelection("PRIMITIVE");
 		shell.findTextWithLabel("Component name:").typeText("CompA");
 		shell.close();
 		
