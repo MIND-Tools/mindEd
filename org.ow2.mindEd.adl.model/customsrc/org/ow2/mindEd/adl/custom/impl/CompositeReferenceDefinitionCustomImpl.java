@@ -5,6 +5,7 @@ import org.eclipse.emf.common.notify.Adapter;
 
 import org.ow2.mindEd.adl.custom.adapters.factory.AdlAdapterHelperFactory;
 import org.ow2.mindEd.adl.custom.helpers.ComponentReferenceHelper;
+import org.ow2.mindEd.adl.custom.util.AdlMergeUtil;
 import org.ow2.mindEd.adl.impl.CompositeReferenceDefinitionImpl;
 
 /**
@@ -47,10 +48,14 @@ public class CompositeReferenceDefinitionCustomImpl extends CompositeReferenceDe
 	 */
 	@Override
 	public void setReferenceName(String newReferenceName) {
+		boolean changed = false;
 		if (newReferenceName != null && !newReferenceName.equals(referenceName)) {
-			nameFQN = getHelper().getNameFQN();
+			changed = true;
 		}
 		super.setReferenceName(newReferenceName);
+		if (changed) {
+			nameFQN = getHelper().getNameFQN();
+		}
 	}
 
 	/**

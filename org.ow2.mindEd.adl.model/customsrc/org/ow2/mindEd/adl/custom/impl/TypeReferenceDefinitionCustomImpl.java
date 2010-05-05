@@ -42,10 +42,14 @@ public class TypeReferenceDefinitionCustomImpl extends TypeReferenceDefinitionIm
 	 */
 	@Override
 	public void setReferenceName(String newReferenceName) {
+		boolean changed = false;
 		if (newReferenceName != null && !newReferenceName.equals(referenceName)) {
-			nameFQN = getHelper().getNameFQN();
+			changed = true;
 		}
 		super.setReferenceName(newReferenceName);
+		if (changed) {
+			nameFQN = getHelper().getNameFQN();
+		}
 	}
 
 
