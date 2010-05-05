@@ -30,5 +30,7 @@ public class CompositeBodyCustomEditPart extends CompositeBodyEditPart {
 			return;
 		super.addChildVisual(childEditPart, index);
 	}
+	
+	
 
 }

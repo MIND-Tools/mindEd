@@ -12,6 +12,7 @@ import org.eclipse.gmf.runtime.diagram.ui.editparts.AbstractBorderedShapeEditPar
 import org.eclipse.gmf.runtime.diagram.ui.editparts.GraphicalEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.ConstrainedToolbarLayout;
+import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.swt.graphics.Color;
 
 import org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.policies.MindSubCreationEditPolicy;
@@ -83,7 +84,6 @@ public class MindBodyEditPart extends MindEditPart {
 					parentBorderedEditPart.getMainFigure()); 
 			parentBorderedEditPart.getBorderedFigure().getBorderItemContainer().add(
 					((InterfaceDefinitionEditPart) childEditPart).getFigure(), locator);
-			
 			return true;
 		}
 		return false;

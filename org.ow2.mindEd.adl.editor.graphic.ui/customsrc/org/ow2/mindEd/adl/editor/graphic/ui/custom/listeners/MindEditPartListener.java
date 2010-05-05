@@ -31,8 +31,7 @@ public class MindEditPartListener implements EditPartListener {
 
 	@Override
 	public void removingChild(EditPart editpart, int i) {
-		// TODO Auto-generated method stub
-
+		editpart.refresh();
 	}
 
 	@Override

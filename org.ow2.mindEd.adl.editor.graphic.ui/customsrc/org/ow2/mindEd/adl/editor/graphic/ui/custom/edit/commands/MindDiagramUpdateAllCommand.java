@@ -308,7 +308,8 @@ public class MindDiagramUpdateAllCommand extends MindDiagramUpdateCommand {
 		if (editPart instanceof GraphicalEditPart) {
 			EObject element = ((View)editPart.getModel()).getElement();
 			Rectangle bounds = boundsMemory.get(element);
-			((GraphicalEditPart)editPart).getFigure().setBounds(bounds);
+			if (bounds != null)
+				((GraphicalEditPart)editPart).getFigure().setBounds(bounds);
 		}
 		
 		List<EditPart> editPartList = editPart.getChildren();

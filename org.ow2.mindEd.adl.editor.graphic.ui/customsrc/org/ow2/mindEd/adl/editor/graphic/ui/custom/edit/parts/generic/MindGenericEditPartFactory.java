@@ -59,6 +59,11 @@ public class MindGenericEditPartFactory implements MindTypes {
 			editPartsMap.put(editPart, mindPart);
 			return mindPart;
 			
+		case TYPE_REFERENCES_LIST:
+			mindPart = new MindListEditPart(editPart, visualID, TYPE_REFERENCES_LIST);
+			editPartsMap.put(editPart, mindPart);
+			return mindPart;
+			
 		case TYPE_BODY:
 			mindPart = new MindBodyEditPart(editPart, visualID);
 			editPartsMap.put(editPart, mindPart);
@@ -164,12 +169,14 @@ public class MindGenericEditPartFactory implements MindTypes {
 		case TypeAnnotationsListEditPart.VISUAL_ID:
 		case SubAnnotationsListEditPart.VISUAL_ID:
 		case CompositeFormalArgumentsListEditPart.VISUAL_ID:
-		case CompositeReferencesListEditPart.VISUAL_ID:
 		case PrimitiveFormalArgumentsListEditPart.VISUAL_ID:
-		case PrimitiveReferencesListEditPart.VISUAL_ID:
 		case TemplateSpecifiersListEditPart.VISUAL_ID:
-		case TypeReferencesListEditPart.VISUAL_ID:
 			return TYPE_LIST;
+
+		case CompositeReferencesListEditPart.VISUAL_ID:
+		case PrimitiveReferencesListEditPart.VISUAL_ID:
+		case TypeReferencesListEditPart.VISUAL_ID:
+			return TYPE_REFERENCES_LIST;
 			
 			// -- Body Compartments
 		case CompositeBodyCompartmentEditPart.VISUAL_ID:

@@ -5,6 +5,7 @@ public interface MindTypes {
 	public static final int TYPE_UNDEFINED = 0;
 	public static final int TYPE_COMPONENT = 1;
 	public static final int TYPE_LIST = 2;
+	public static final int TYPE_REFERENCES_LIST = 21;
 	public static final int TYPE_BODY = 3;
 	public static final int TYPE_INTERFACE = 4;
 	public static final int TYPE_REFERENCE = 5;

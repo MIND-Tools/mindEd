@@ -20,6 +20,7 @@ public abstract class AbstractMindEditPart implements MindTypes {
 	public static String EDIT_POLICY_PACKAGE = "org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.policies.";
 	
 	protected int creationMode = CREATION_MODE_NORMAL;
+	protected boolean isMerged = false;
 	
 	protected GraphicalEditPart realEditPart;
 	protected int visualID;
@@ -131,6 +132,14 @@ public abstract class AbstractMindEditPart implements MindTypes {
 	
 	public void setCreationMode(int mode) {
 		creationMode = mode;
+	}
+	
+	public boolean isMerged() {
+		return isMerged;
+	}
+	
+	public void setMerged(boolean merged) {
+		isMerged = merged;
 	}
 	
 	public abstract void activate();
