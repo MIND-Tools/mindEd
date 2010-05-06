@@ -19,5 +19,11 @@ public class PrimitiveBodyCustomEditPart extends PrimitiveBodyEditPart {
 		super.addChildVisual(childEditPart, index);
 	}
 	
+	
+	protected boolean removeFixedChild(EditPart childEditPart) {
+		if (genericEditPart.removeFixedChild(childEditPart)) return true;
+		return super.removeFixedChild(childEditPart);
+	}
+	
 
 }

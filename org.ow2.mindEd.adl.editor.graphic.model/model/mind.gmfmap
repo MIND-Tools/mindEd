@@ -633,8 +633,7 @@
                       href="mind.gmftool#//@palette/@tools.0/@tools.4"/>
                   <diagramNode
                       href="mind.gmfgraph#Body"/>
-                  <children
-                      compartment="//@nodes.0/@ownedChild/@children.3/@ownedChild/@children.2/@ownedChild/@children.1/@ownedChild/@compartments.0">
+                  <children>
                     <containmentFeature
                         href="../../org.ow2.mindEd.adl.schema/model/mind.ecore#//Body/elements"/>
                     <childrenFeature
@@ -675,8 +674,7 @@
                       </compartments>
                     </ownedChild>
                   </children>
-                  <children
-                      compartment="//@nodes.0/@ownedChild/@children.3/@ownedChild/@children.2/@ownedChild/@children.1/@ownedChild/@compartments.0">
+                  <children>
                     <containmentFeature
                         href="../../org.ow2.mindEd.adl.schema/model/mind.ecore#//Body/elements"/>
                     <childrenFeature
@@ -706,8 +704,8 @@
                           <labelMappings
                               xsi:type="gmfmap:FeatureLabelMapping"
                               viewPattern="{0}{1}"
-                              editorPattern="{0} {1}"
-                              editPattern="{0} {1}">
+                              editorPattern="{1}"
+                              editPattern="{1}">
                             <diagramLabel
                                 href="mind.gmfgraph#LabelFileC"/>
                             <features
@@ -789,8 +787,7 @@
                     <childrenFeature
                         href="../../org.ow2.mindEd.adl.schema/model/mind.ecore#//Body/elements"/>
                   </children>
-                  <compartments
-                      children="//@nodes.0/@ownedChild/@children.3/@ownedChild/@children.2/@ownedChild/@children.1/@ownedChild/@children.1 //@nodes.0/@ownedChild/@children.3/@ownedChild/@children.2/@ownedChild/@children.1/@ownedChild/@children.0">
+                  <compartments>
                     <compartment
                         href="mind.gmfgraph#BodyCompartment"/>
                   </compartments>

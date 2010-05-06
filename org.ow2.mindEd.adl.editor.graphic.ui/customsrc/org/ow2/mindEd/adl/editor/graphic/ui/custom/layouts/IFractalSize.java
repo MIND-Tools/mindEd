@@ -20,6 +20,7 @@ public interface IFractalSize {
 	
 	public static int TEMPLATE_HEIGHT = DEFAULT_LABEL_HEIGHT;
 	public static int ARGUMENT_HEIGHT = DEFAULT_LABEL_HEIGHT;
+	public static int ATTRIBUTE_HEIGHT = TITLE_HEIGHT;
 	
 	// Component titles maximumSize
 	public static Dimension TITLE_MAX_SIZE = new Dimension(5000, TITLE_HEIGHT);

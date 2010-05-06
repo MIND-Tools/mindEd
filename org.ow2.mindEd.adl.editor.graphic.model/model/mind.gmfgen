@@ -1319,7 +1319,7 @@
         itemSemanticEditPolicyClassName="PrimitiveBodyItemSemanticEditPolicy"
         notationViewFactoryClassName="PrimitiveBodyViewFactory"
         canonicalEditPolicyClassName="PrimitiveBodyCanonicalEditPolicy"
-        childNodes="//@diagram/@childNodes.29 //@diagram/@childNodes.11"
+        childNodes="//@diagram/@childNodes.23 //@diagram/@childNodes.26 //@diagram/@childNodes.29 //@diagram/@childNodes.11"
         compartments="//@diagram/@compartments.8"
         graphicalNodeEditPolicyClassName="PrimitiveBodyGraphicalNodeEditPolicy"
         createCommandClassName="PrimitiveBodyCreateCommand"
@@ -1352,7 +1352,7 @@
         compartments="//@diagram/@compartments.9"
         graphicalNodeEditPolicyClassName="ImplementationDefinitionGraphicalNodeEditPolicy"
         createCommandClassName="ImplementationDefinitionCreateCommand"
-        containers="//@diagram/@compartments.8">
+        containers="//@diagram/@childNodes.22">
       <diagramRunTimeClass
           href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <elementType
@@ -1494,7 +1494,7 @@
         compartments="//@diagram/@compartments.10"
         graphicalNodeEditPolicyClassName="DataDefinitionGraphicalNodeEditPolicy"
         createCommandClassName="DataDefinitionCreateCommand"
-        containers="//@diagram/@compartments.8">
+        containers="//@diagram/@childNodes.22">
       <diagramRunTimeClass
           href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <elementType
@@ -2439,7 +2439,6 @@
         itemSemanticEditPolicyClassName="PrimitiveBodyCompartmentItemSemanticEditPolicy"
         notationViewFactoryClassName="PrimitiveBodyBodyCompartmentViewFactory"
         canonicalEditPolicyClassName="PrimitiveBodyCompartmentCanonicalEditPolicy"
-        childNodes="//@diagram/@childNodes.23 //@diagram/@childNodes.26"
         title="BodyCompartment"
         needsTitle="false"
         node="//@diagram/@childNodes.22"
@@ -2452,16 +2451,14 @@
           figureQualifiedClassName="org.ow2.mindEd.adl.editor.graphic.ui.custom.figures.BodyCompartmentCustomFigure"/>
     </compartments>
     <compartments
-        visualID="7092"
+        visualID="7103"
         editPartClassName="ImplementationDefinitionCompartmentEditPart"
         itemSemanticEditPolicyClassName="ImplementationDefinitionCompartmentItemSemanticEditPolicy"
-        notationViewFactoryClassName="ImplementationDefinitionCompartmentImplementationBodyAreaViewFactory"
-        canonicalEditPolicyClassName="ImplementationDefinitionCompartmentCanonicalEditPolicy"
+        canonicalEditPolicyClassName="ImplementationDefinitionCompartmenCanonicalEditPolicy"
         childNodes="//@diagram/@childNodes.24 //@diagram/@childNodes.25"
         title="CompartmentImplementationBodyArea"
         needsTitle="false"
-        node="//@diagram/@childNodes.23"
-        listLayout="false">
+        node="//@diagram/@childNodes.23">
       <diagramRunTimeClass
           href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <viewmap
@@ -2470,16 +2467,14 @@
           figureQualifiedClassName="org.ow2.mindEd.adl.editor.graphic.ui.custom.figures.ContainerShape"/>
     </compartments>
     <compartments
-        visualID="7091"
+        visualID="7104"
         editPartClassName="DataDefinitionCompartmentEditPart"
         itemSemanticEditPolicyClassName="DataDefinitionCompartmentItemSemanticEditPolicy"
-        notationViewFactoryClassName="DataDefinitionCompartmentDataDefinitionBodyAreaViewFactory"
         canonicalEditPolicyClassName="DataDefinitionCompartmentCanonicalEditPolicy"
         childNodes="//@diagram/@childNodes.27 //@diagram/@childNodes.28"
         title="CompartmentDataDefinitionBodyArea"
         needsTitle="false"
-        node="//@diagram/@childNodes.26"
-        listLayout="false">
+        node="//@diagram/@childNodes.26">
       <diagramRunTimeClass
           href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <viewmap

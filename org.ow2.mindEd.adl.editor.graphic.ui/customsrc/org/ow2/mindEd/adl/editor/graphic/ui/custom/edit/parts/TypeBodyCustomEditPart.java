@@ -17,4 +17,9 @@ public class TypeBodyCustomEditPart extends TypeBodyEditPart {
 		super.addChildVisual(childEditPart, index);
 	}
 	
+	protected boolean removeFixedChild(EditPart childEditPart) {
+		if (genericEditPart.removeFixedChild(childEditPart)) return true;
+		return super.removeFixedChild(childEditPart);
+	}
+	
 }

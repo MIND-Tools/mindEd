@@ -9,6 +9,8 @@ import org.eclipse.gmf.runtime.draw2d.ui.figures.ConstrainedToolbarLayout;
 import org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.policies.FixedChildrenLayoutEditPolicy;
 import org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.policies.MindSubCreationEditPolicy;
 import org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.policies.MindSuperCreationEditPolicy;
+import org.ow2.mindEd.adl.editor.graphic.ui.custom.layouts.ComponentLayout;
+import org.ow2.mindEd.adl.editor.graphic.ui.edit.parts.PrimitiveBodyCompartmentEditPart;
 
 public class MindCompartmentEditPart extends MindEditPart {
 

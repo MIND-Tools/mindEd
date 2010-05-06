@@ -19,10 +19,12 @@ import org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.policies.MindSubCreation
 import org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.policies.NoDragDropEditPolicy;
 import org.ow2.mindEd.adl.editor.graphic.ui.custom.figures.AbstractComponentShape;
 import org.ow2.mindEd.adl.editor.graphic.ui.custom.figures.IFractalShape;
+import org.ow2.mindEd.adl.editor.graphic.ui.custom.layouts.ComponentLayout;
 import org.ow2.mindEd.adl.editor.graphic.ui.custom.layouts.InterfaceBorderItemLocator;
 import org.ow2.mindEd.adl.editor.graphic.ui.custom.providers.NoDragTracker;
 import org.ow2.mindEd.adl.editor.graphic.ui.edit.parts.CompositeBodyCompartmentEditPart;
 import org.ow2.mindEd.adl.editor.graphic.ui.edit.parts.InterfaceDefinitionEditPart;
+import org.ow2.mindEd.adl.editor.graphic.ui.edit.parts.PrimitiveBodyEditPart;
 
 public class MindBodyEditPart extends MindEditPart {
 	
@@ -68,7 +70,7 @@ public class MindBodyEditPart extends MindEditPart {
 			IFigure compartment = getCompartmentFigure();
 			if (compartment == null) return false;
 			// Set the layout
-			setupCompartment(compartment);
+			setupContentPane(compartment);
 			compartment.add(((GraphicalEditPart) childEditPart)
 							.getFigure());
 			return true;
@@ -103,11 +105,11 @@ public class MindBodyEditPart extends MindEditPart {
 	}
 	
 	
-	public boolean setLayoutConstraint(EditPart child, IFigure childFigure,
-			Object constraint) {
-		parentComponent.setLayoutConstraint(child, childFigure, constraint);
-		return true;
-	}
+//	public boolean setLayoutConstraint(EditPart child, IFigure childFigure,
+//			Object constraint) {
+//		parentComponent.setLayoutConstraint(child, childFigure, constraint);
+//		return true;
+//	}
 	
 	
 	public IFigure getCompartmentFigure() {
@@ -141,7 +143,7 @@ public class MindBodyEditPart extends MindEditPart {
 	 * @param body
 	 * @return
 	 */
-	public IFigure setupCompartment(IFigure compartment) {
+	public IFigure setupContentPane(IFigure compartment) {
 		if (compartment.getLayoutManager() == null) {
 			ConstrainedToolbarLayout layout = new ConstrainedToolbarLayout() ;
 			compartment.setLayoutManager(layout);

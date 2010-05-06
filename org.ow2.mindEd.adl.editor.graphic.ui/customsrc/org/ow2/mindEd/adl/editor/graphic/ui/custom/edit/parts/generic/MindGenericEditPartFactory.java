@@ -151,8 +151,6 @@ public class MindGenericEditPartFactory implements MindTypes {
 		case CompositeComponentDefinitionEditPart.VISUAL_ID:
 		case ComponentTypeDefinitionEditPart.VISUAL_ID:
 		case CompositeSubComponentEditPart.VISUAL_ID:
-		case DataDefinitionEditPart.VISUAL_ID:
-		case ImplementationDefinitionEditPart.VISUAL_ID:
 		case PrimitiveComponentDefinitionEditPart.VISUAL_ID:
 		case PrimitiveSubComponentEditPart.VISUAL_ID:
 			return TYPE_COMPONENT;
@@ -202,9 +200,9 @@ public class MindGenericEditPartFactory implements MindTypes {
 			return TYPE_COMPARTMENT_LIST;
 			
 			// -- Miscellaneous Compartments
-		case DataDefinitionCompartmentEditPart.VISUAL_ID:
-		case ImplementationDefinitionCompartmentEditPart.VISUAL_ID:
-			return TYPE_COMPARTMENT;
+//		case DataDefinitionCompartmentEditPart.VISUAL_ID:
+//		case ImplementationDefinitionCompartmentEditPart.VISUAL_ID:
+//			return TYPE_COMPARTMENT;
 			
 			// -- References
 		case CompositeReferenceEditPart.VISUAL_ID:
@@ -248,6 +246,8 @@ public class MindGenericEditPartFactory implements MindTypes {
 		case AttributeDefinitionEditPart.VISUAL_ID:
 		case FormalArgumentEditPart.VISUAL_ID:
 		case TemplateSpecifierEditPart.VISUAL_ID:
+		case DataDefinitionEditPart.VISUAL_ID:
+		case ImplementationDefinitionEditPart.VISUAL_ID:
 			return TYPE_ITEM;
 			
 		}
