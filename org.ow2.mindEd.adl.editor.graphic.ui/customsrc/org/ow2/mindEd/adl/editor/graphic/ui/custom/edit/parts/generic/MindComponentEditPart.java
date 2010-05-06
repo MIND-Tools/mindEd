@@ -162,6 +162,8 @@ public class MindComponentEditPart extends MindEditPart {
 			return COMPONENT_PRIMITIVE;
 		if (realEditPart instanceof PrimitiveSubComponentEditPart)
 			return COMPONENT_SUB_PRIMITIVE;
+		if (realEditPart instanceof SubComponentDefinitionEditPart)
+			return COMPONENT_SUB_UNDEFINED;
 		if (realEditPart instanceof ComponentTypeDefinitionEditPart)
 			return COMPONENT_TYPE;
 		return COMPONENT_UNDEFINED;
@@ -208,6 +210,7 @@ public class MindComponentEditPart extends MindEditPart {
 			return new Dimension(500,500);
 		case COMPONENT_SUB_COMPOSITE:
 		case COMPONENT_SUB_PRIMITIVE:
+		case COMPONENT_SUB_UNDEFINED:
 			return new Dimension(200,200);
 		default :
 			return super.getMindPreferredSize();	

@@ -131,5 +131,11 @@
   <childNodeTraces visualID="3152" queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http://org.ow2.mindEd/adl.ecore/0.2.0' and _eClass_.name = 'AnnotationsList') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http://org.ow2.mindEd/adl.ecore/0.2.0' and _eClass_.name = 'ComponentTypeDefinition') and _containmentMF_.name = 'annotationsList')">
     <compartmentTraces visualID="7102" queryText="true"/>
   </childNodeTraces>
+  <childNodeTraces visualID="3153" queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http://org.ow2.mindEd/adl.ecore/0.2.0' and _eClass_.name = 'SubComponentDefinition') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http://org.ow2.mindEd/adl.ecore/0.2.0' and _eClass_.name = 'Body') and _containmentMF_.name = 'elements')">
+    <nodeLabelTraces visualID="5134" queryText="true"/>
+  </childNodeTraces>
+  <childNodeTraces visualID="3154" queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http://org.ow2.mindEd/adl.ecore/0.2.0' and _eClass_.name = 'ComponentReference') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http://org.ow2.mindEd/adl.ecore/0.2.0' and _eClass_.name = 'SubComponentDefinition') and _containmentMF_.name = 'referenceDefinition')">
+    <nodeLabelTraces visualID="5133" queryText="true"/>
+  </childNodeTraces>
   <linkTraces visualID="4003" queryText="modelFacet.oclIsKindOf(gmfgen::TypeLinkModelFacet) and (let _eClass_:ecore::EClass = modelFacet.oclAsType(gmfgen::TypeLinkModelFacet).metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http://org.ow2.mindEd/adl.ecore/0.2.0' and _eClass_.name = 'BindingDefinition')"/>
 </trace:TraceModel>

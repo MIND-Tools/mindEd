@@ -82,6 +82,7 @@ public class MindDiagramUpdateAllCommand extends MindDiagramUpdateCommand {
 				// Transaction to refresh the merge
 				TransactionalEditingDomain domain = ((AdlDefinitionEditPart)rootEditPart).getEditingDomain();
 				TransactionImpl transaction = new TransactionImpl(domain, false);
+				
 				try {
 					transaction.start();
 					EObject root = ((View)rootEditPart.getModel()).getElement();

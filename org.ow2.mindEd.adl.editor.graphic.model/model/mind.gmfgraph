@@ -943,6 +943,12 @@
   <nodes
       name="PrimitiveReferenceDefinition"
       figure="ReferenceFigure"/>
+  <nodes
+      name="UndefinedReferenceDefinition"
+      figure="ReferenceFigure"/>
+  <nodes
+      name="UndefinedSubComponent"
+      figure="ComponentFigure"/>
   <connections
       name="Binding"
       figure="BindingFigure"/>

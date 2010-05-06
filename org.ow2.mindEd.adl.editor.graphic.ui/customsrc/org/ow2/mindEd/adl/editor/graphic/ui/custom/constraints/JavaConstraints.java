@@ -12,4 +12,8 @@ public class JavaConstraints {
 	public static boolean isPrimitiveSubComponent(SubComponentDefinition domainElement) {
 		return domainElement.getComponentKind().getValue() == ComponentKind.PRIMITIVE_VALUE;
 	}
+	
+	public static boolean isUndefinedSubComponent(SubComponentDefinition domainElement) {
+		return (!isPrimitiveSubComponent(domainElement) && ! isCompositeSubComponent(domainElement));
+	}
 }

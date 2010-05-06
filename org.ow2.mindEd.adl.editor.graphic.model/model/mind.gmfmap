@@ -484,8 +484,6 @@
                 <ownedChild>
                   <domainMetaElement
                       href="../../org.ow2.mindEd.adl.schema/model/mind.ecore#//CompositeReferenceDefinition"/>
-                  <domainSpecialization
-                      body="self.oclIsKindOf(CompositeReferenceDefinition)"/>
                   <labelMappings
                       xsi:type="gmfmap:FeatureLabelMapping"
                       viewPattern="inherits from {0}"
@@ -594,8 +592,6 @@
                 <ownedChild>
                   <domainMetaElement
                       href="../../org.ow2.mindEd.adl.schema/model/mind.ecore#//PrimitiveReferenceDefinition"/>
-                  <domainSpecialization
-                      body="self.oclIsKindOf(PrimitiveReferenceDefinition)"/>
                   <labelMappings
                       xsi:type="gmfmap:FeatureLabelMapping"
                       viewPattern="inherits from {0}"
@@ -809,8 +805,57 @@
               </children>
             </ownedChild>
           </children>
+          <children
+              compartment="//@nodes.0/@ownedChild/@children.3/@ownedChild/@compartments.0">
+            <containmentFeature
+                href="../../org.ow2.mindEd.adl.schema/model/mind.ecore#//Body/elements"/>
+            <childrenFeature
+                href="../../org.ow2.mindEd.adl.schema/model/mind.ecore#//Body/elements"/>
+            <ownedChild>
+              <domainMetaElement
+                  href="../../org.ow2.mindEd.adl.schema/model/mind.ecore#//SubComponentDefinition"/>
+              <domainSpecialization
+                  body="return org.ow2.mindEd.adl.editor.graphic.ui.custom.constraints.JavaConstraints.isUndefinedSubComponent(domainElement);"
+                  language="java"/>
+              <labelMappings
+                  xsi:type="gmfmap:FeatureLabelMapping"
+                  editorPattern="">
+                <diagramLabel
+                    href="mind.gmfgraph#LabelComponentName"/>
+                <features
+                    href="../../org.ow2.mindEd.adl.schema/model/mind.ecore#//ArchitectureDefinition/name"/>
+              </labelMappings>
+              <diagramNode
+                  href="mind.gmfgraph#UndefinedSubComponent"/>
+              <children>
+                <containmentFeature
+                    href="../../org.ow2.mindEd.adl.schema/model/mind.ecore#//SubComponentDefinition/referenceDefinition"/>
+                <childrenFeature
+                    href="../../org.ow2.mindEd.adl.schema/model/mind.ecore#//SubComponentDefinition/referenceDefinition"/>
+                <ownedChild>
+                  <domainMetaElement
+                      href="../../org.ow2.mindEd.adl.schema/model/mind.ecore#//ComponentReference"/>
+                  <labelMappings
+                      xsi:type="gmfmap:FeatureLabelMapping"
+                      viewPattern="inherits from {0}"
+                      editorPattern="{0}"
+                      editPattern="{0}">
+                    <diagramLabel
+                        href="mind.gmfgraph#LabelReferenceName"/>
+                    <features
+                        href="../../org.ow2.mindEd.adl.schema/model/mind.ecore#//ComponentReference/referenceName"/>
+                  </labelMappings>
+                  <tool
+                      xsi:type="gmftool:CreationTool"
+                      href="mind.gmftool#//@palette/@tools.3/@tools.2"/>
+                  <diagramNode
+                      href="mind.gmfgraph#UndefinedReferenceDefinition"/>
+                </ownedChild>
+              </children>
+            </ownedChild>
+          </children>
           <compartments
-              children="//@nodes.0/@ownedChild/@children.3/@ownedChild/@children.1 //@nodes.0/@ownedChild/@children.3/@ownedChild/@children.2">
+              children="//@nodes.0/@ownedChild/@children.3/@ownedChild/@children.1 //@nodes.0/@ownedChild/@children.3/@ownedChild/@children.2 //@nodes.0/@ownedChild/@children.3/@ownedChild/@children.3">
             <compartment
                 href="mind.gmfgraph#BodyCompartment"/>
           </compartments>

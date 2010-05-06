@@ -215,7 +215,7 @@
       <viewProvider class="org.ow2.mindEd.adl.editor.graphic.ui.providers.MindViewProvider">
          <Priority name="Lowest"/>
          <context viewClass="org.eclipse.gmf.runtime.notation.Diagram" semanticHints="Mind"/>
-         <context viewClass="org.eclipse.gmf.runtime.notation.Node" semanticHints="2007,2008,2009,3096,3097,3098,3099,3100,3101,3102,3103,3104,3105,3129,3130,3131,3132,3143,3150,3145,3146,3148,3149,3135,3136,3137,3140,3115,3116,3139,3118,3119,3138,3147,3123,3124,3125,3151,3127,3128,3142,3152"/>
+         <context viewClass="org.eclipse.gmf.runtime.notation.Node" semanticHints="2007,2008,2009,3096,3097,3098,3099,3100,3101,3102,3103,3104,3105,3129,3130,3131,3132,3143,3150,3145,3146,3148,3149,3135,3136,3137,3140,3115,3116,3139,3118,3119,3138,3153,3154,3147,3123,3124,3125,3151,3127,3128,3142,3152"/>
          <context viewClass="org.eclipse.gmf.runtime.notation.Edge" semanticHints="4003"/>
       </viewProvider>
    </extension>
@@ -607,6 +607,25 @@
       </metamodel>
       <metamodel nsURI="http://org.ow2.mindEd/adl.ecore/0.2.0">
          <specializationType
+               id="org.ow2.mindEd.adl.editor.graphic.ui.SubComponentDefinition_3153"
+               name="%metatype.name.SubComponentDefinition_3153"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
+            <specializes id="org.ow2.mindEd.adl.editor.graphic.ui.SubComponentDefinition_3131"/>
+            <param name="semanticHint" value="3153"/>
+         </specializationType>
+      </metamodel>
+      <metamodel nsURI="http://org.ow2.mindEd/adl.ecore/0.2.0">
+         <metamodelType
+               id="org.ow2.mindEd.adl.editor.graphic.ui.ComponentReference_3154"
+               name="%metatype.name.ComponentReference_3154"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="ComponentReference"
+               edithelper="org.ow2.mindEd.adl.editor.graphic.ui.edit.helpers.ComponentReferenceEditHelper">
+            <param name="semanticHint" value="3154"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://org.ow2.mindEd/adl.ecore/0.2.0">
+         <specializationType
                id="org.ow2.mindEd.adl.editor.graphic.ui.AnnotationsList_3147"
                name="%metatype.name.AnnotationsList_3147"
                kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
@@ -747,6 +766,8 @@
          <elementType ref="org.ow2.mindEd.adl.editor.graphic.ui.FileC_3118"/>
          <elementType ref="org.ow2.mindEd.adl.editor.graphic.ui.InlineCodeC_3119"/>
          <elementType ref="org.ow2.mindEd.adl.editor.graphic.ui.AttributeDefinition_3138"/>
+         <elementType ref="org.ow2.mindEd.adl.editor.graphic.ui.SubComponentDefinition_3153"/>
+         <elementType ref="org.ow2.mindEd.adl.editor.graphic.ui.ComponentReference_3154"/>
          <elementType ref="org.ow2.mindEd.adl.editor.graphic.ui.AnnotationsList_3147"/>
          <elementType ref="org.ow2.mindEd.adl.editor.graphic.ui.FormalArgumentsList_3123"/>
          <elementType ref="org.ow2.mindEd.adl.editor.graphic.ui.PrimitiveReferencesList_3124"/>

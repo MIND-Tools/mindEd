@@ -77,9 +77,9 @@ public class ComponentLayout extends ConstrainedToolbarLayout implements IFracta
 				if (rect.width < 0) {
 					rect.width = clientArea.width;
 				}
-					rect.x = clientArea.x;
+				rect.x = clientArea.x;
 				
-					rect.y = clientArea.y + clientArea.height - rect.height - totalListsHeight;
+				rect.y = clientArea.y + clientArea.height - rect.height - totalListsHeight;
 				
 				
 				child.setBounds(rect);

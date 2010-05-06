@@ -153,6 +153,7 @@ public class MindGenericEditPartFactory implements MindTypes {
 		case CompositeSubComponentEditPart.VISUAL_ID:
 		case PrimitiveComponentDefinitionEditPart.VISUAL_ID:
 		case PrimitiveSubComponentEditPart.VISUAL_ID:
+		case SubComponentDefinitionEditPart.VISUAL_ID:
 			return TYPE_COMPONENT;
 			
 			// -- Body
