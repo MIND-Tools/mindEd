@@ -47,9 +47,9 @@ public class MindListCompartmentEditPart extends MindCompartmentEditPart {
 	@Override
 	public LayoutManager getLayoutManager() {
 		if (layoutManager == null) {
-			layoutManager = new ConstrainedFlowLayout(false);
-			((ConstrainedFlowLayout)layoutManager).setMinorSpacing(0);
-			((ConstrainedFlowLayout)layoutManager).setMajorSpacing(0);
+			layoutManager = new ConstrainedFlowLayout(false);	
+			((ConstrainedFlowLayout)layoutManager).setMinorSpacing(3);
+			((ConstrainedFlowLayout)layoutManager).setMajorSpacing(3);
 		}
 		return layoutManager;
 	}

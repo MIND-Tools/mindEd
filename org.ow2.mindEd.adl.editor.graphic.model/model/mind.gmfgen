@@ -2757,7 +2757,7 @@
             title="Body"
             description="Create new Body"
             smallIconPath="/org.ow2.mindEd.adl.edit/icons/full/obj16/Body.gif"
-            genNodes="//@diagram/@childNodes.10 //@diagram/@childNodes.22"/>
+            genNodes="//@diagram/@childNodes.10 //@diagram/@childNodes.22 //@diagram/@childNodes.39"/>
       </groups>
       <groups
           title="Composite"

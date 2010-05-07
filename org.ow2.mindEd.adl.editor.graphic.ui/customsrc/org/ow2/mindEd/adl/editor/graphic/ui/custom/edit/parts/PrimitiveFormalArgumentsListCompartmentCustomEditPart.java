@@ -54,4 +54,16 @@ public class PrimitiveFormalArgumentsListCompartmentCustomEditPart extends
 		return layoutManager;
 	}
 	
+	@Override
+	protected void addChild(EditPart childEditPart, int index) {
+		super.addChild(childEditPart, index);
+		getParent().refresh();
+	}
+	
+	@Override
+	protected void removeChild(EditPart childEditPart) {
+		super.removeChild(childEditPart);
+		getParent().refresh();
+	}
+	
 }

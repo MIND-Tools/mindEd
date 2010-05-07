@@ -151,7 +151,7 @@
                       href="../../org.ow2.mindEd.adl.schema/model/mind.ecore#//TypeReferenceDefinition"/>
                   <labelMappings
                       xsi:type="gmfmap:FeatureLabelMapping"
-                      viewPattern="">
+                      viewPattern="conforms to {0}">
                     <diagramLabel
                         href="mind.gmfgraph#LabelReferenceName"/>
                     <features
@@ -486,7 +486,7 @@
                       href="../../org.ow2.mindEd.adl.schema/model/mind.ecore#//CompositeReferenceDefinition"/>
                   <labelMappings
                       xsi:type="gmfmap:FeatureLabelMapping"
-                      viewPattern="inherits from {0}"
+                      viewPattern="extends {0}"
                       editorPattern="{0}"
                       editPattern="{0}">
                     <diagramLabel
@@ -594,7 +594,7 @@
                       href="../../org.ow2.mindEd.adl.schema/model/mind.ecore#//PrimitiveReferenceDefinition"/>
                   <labelMappings
                       xsi:type="gmfmap:FeatureLabelMapping"
-                      viewPattern="inherits from {0}"
+                      viewPattern="extends {0}"
                       editorPattern="{0}"
                       editPattern="{0}">
                     <diagramLabel
@@ -837,7 +837,7 @@
                       href="../../org.ow2.mindEd.adl.schema/model/mind.ecore#//ComponentReference"/>
                   <labelMappings
                       xsi:type="gmfmap:FeatureLabelMapping"
-                      viewPattern="inherits from {0}"
+                      viewPattern="extends {0}"
                       editorPattern="{0}"
                       editPattern="{0}">
                     <diagramLabel
@@ -1025,7 +1025,7 @@
                       xsi:type="ecore:EAttribute"
                       href="../../org.ow2.mindEd.adl.schema/model/mind.ecore#//ComponentReference/referenceName"/>
                   <value
-                      body="'?'"/>
+                      body="'reference_name'"/>
                 </initializers>
                 <elementClass
                     href="../../org.ow2.mindEd.adl.schema/model/mind.ecore#//PrimitiveReferenceDefinition"/>
@@ -1052,7 +1052,7 @@
                   href="../../org.ow2.mindEd.adl.schema/model/mind.ecore#//PrimitiveReferenceDefinition"/>
               <labelMappings
                   xsi:type="gmfmap:FeatureLabelMapping"
-                  viewPattern="extends {0}"
+                  viewPattern="{0}"
                   editorPattern="{0}"
                   editPattern="{0}">
                 <diagramLabel
@@ -1076,7 +1076,7 @@
               <compartments
                   children="//@nodes.1/@ownedChild/@children.1/@ownedChild/@children.0/@ownedChild/@children.0">
                 <compartment
-                    href="mind.gmfgraph#CompartmentComponentReferenceDefinitionArea"/>
+                    href="mind.gmfgraph#CompartmentReferenceDefinitionArea"/>
               </compartments>
             </ownedChild>
           </children>
@@ -1194,7 +1194,7 @@
                   href="../../org.ow2.mindEd.adl.schema/model/mind.ecore#//TypeReferenceDefinition"/>
               <labelMappings
                   xsi:type="gmfmap:FeatureLabelMapping"
-                  viewPattern="extends {0}"
+                  viewPattern="{0}"
                   editorPattern="{0}"
                   editPattern="{0}">
                 <diagramLabel
@@ -1224,6 +1224,9 @@
         <ownedChild>
           <domainMetaElement
               href="../../org.ow2.mindEd.adl.schema/model/mind.ecore#//TypeBody"/>
+          <tool
+              xsi:type="gmftool:CreationTool"
+              href="mind.gmftool#//@palette/@tools.0/@tools.4"/>
           <diagramNode
               href="mind.gmfgraph#Body"/>
           <children
