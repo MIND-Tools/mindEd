@@ -10,6 +10,7 @@ import java.util.Hashtable;
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IResource;
 import org.eclipse.core.runtime.IAdaptable;
+import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.core.runtime.Path;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.jface.resource.ImageDescriptor;
@@ -36,6 +37,7 @@ import org.eclipse.ui.internal.ide.IDEWorkbenchMessages;
 import org.eclipse.ui.internal.ide.IDEWorkbenchPlugin;
 import org.eclipse.ui.part.FileEditorInput;
 import org.ow2.mindEd.ide.core.MindIdeCore;
+import org.ow2.mindEd.ide.model.MindAdl;
 import org.ow2.mindEd.ide.ui.Activator;
 
 @SuppressWarnings("restriction")
@@ -328,11 +330,16 @@ public class MindOpenWithMenu extends OpenWithMenu {
         	URI modelURI = URI.createFileURI(file.getFullPath().toPortableString());
         	IDE.setDefaultEditor(file, editorDescriptor.getId());
         	// This is the diagram URI
-        	file = file.getParent().getFile(new Path(file.getName()+MindIdeCore.DIAGRAM_EXT));
-        	URI diagramURI = URI.createFileURI(file.getFullPath().toPortableString());
+        	IFile fileDiagram = file.getParent().getFile(new Path(file.getName()+MindIdeCore.DIAGRAM_EXT));
+        	URI diagramURI = URI.createFileURI(fileDiagram.getFullPath().toPortableString());
         	// If diagram file doesn't exist, create it from the model
-        	if (!(file.exists())) {
-				Activator.initGmfDiagram(diagramURI, modelURI);
+        	if (!(fileDiagram.exists())) {
+        		//TODO : 
+        		//MindAdl adl = TODO create diagramm : depency cycle...
+				//Activator.createDiagram(new NullProgressMonitor(), adl);
+        	}
+        	if (!(fileDiagram.exists())) {
+        		return;
         	}
         }
         try {
