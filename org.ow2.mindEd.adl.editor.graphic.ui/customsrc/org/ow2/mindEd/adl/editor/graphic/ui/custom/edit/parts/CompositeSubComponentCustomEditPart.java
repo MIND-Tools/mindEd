@@ -29,6 +29,13 @@ public class CompositeSubComponentCustomEditPart extends
 	}
 	
 
+	
+	protected boolean removeFixedChild(EditPart childEditPart) {
+		if (genericEditPart.removeFixedChild(childEditPart)) return true;
+		return super.removeFixedChild(childEditPart);
+	}
+	
+
 	@Override
 	protected void addChild(EditPart child, int index) {
 		super.addChild(child, index);

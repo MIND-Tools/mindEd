@@ -37,18 +37,18 @@ public class AttributeDefinitionCustomEditPart extends
 	}
 	
 	
-//	@Override
-//	public void refreshBounds() {
-//		int width = -1;
-//		int height = IFractalSize.ATTRIBUTE_HEIGHT;
-//		Dimension size = new Dimension(width, height);
-//		int x = ((Integer) getStructuralFeatureValue(NotationPackage.eINSTANCE.getLocation_X())).intValue();
-//		int y = ((Integer) getStructuralFeatureValue(NotationPackage.eINSTANCE.getLocation_Y())).intValue();
-//		Point loc = new Point(x, y);
-//		((GraphicalEditPart) getParent()).setLayoutConstraint(
-//			this,
-//			getFigure(),
-//			new Rectangle(loc, size));
-//	}
+	@Override
+	public void refreshBounds() {
+		int width = -1;
+		int height = IFractalSize.ATTRIBUTE_HEIGHT+6;
+		Dimension size = new Dimension(width, height);
+		int x = ((Integer) getStructuralFeatureValue(NotationPackage.eINSTANCE.getLocation_X())).intValue();
+		int y = ((Integer) getStructuralFeatureValue(NotationPackage.eINSTANCE.getLocation_Y())).intValue();
+		Point loc = new Point(x, y);
+		((GraphicalEditPart) getParent()).setLayoutConstraint(
+			this,
+			getFigure(),
+			new Rectangle(loc, size));
+	}
 	
 }

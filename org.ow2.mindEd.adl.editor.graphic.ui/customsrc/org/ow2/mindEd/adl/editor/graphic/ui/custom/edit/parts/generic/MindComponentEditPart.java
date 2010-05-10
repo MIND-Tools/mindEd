@@ -162,7 +162,7 @@ public class MindComponentEditPart extends MindEditPart {
 			return COMPONENT_PRIMITIVE;
 		if (realEditPart instanceof PrimitiveSubComponentEditPart)
 			return COMPONENT_SUB_PRIMITIVE;
-		if (realEditPart instanceof SubComponentDefinitionEditPart)
+		if (realEditPart instanceof UndefinedSubComponentEditPart)
 			return COMPONENT_SUB_UNDEFINED;
 		if (realEditPart instanceof ComponentTypeDefinitionEditPart)
 			return COMPONENT_TYPE;

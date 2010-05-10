@@ -21,8 +21,6 @@ public class AttributeDefinitionCustomFigure extends AbstractComponentShape {
 		
 	}
 	
-	
-	
 	protected static Color BACKGROUND_COLOR = LIGHT_GREEN;
 	
 	protected static Color BORDER_COLOR = GREEN;

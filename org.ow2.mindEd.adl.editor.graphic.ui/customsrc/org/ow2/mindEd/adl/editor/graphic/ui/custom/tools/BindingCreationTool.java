@@ -28,7 +28,6 @@ import org.ow2.mindEd.adl.editor.graphic.ui.part.MindDiagramEditorPlugin;
 public class BindingCreationTool extends UnspecifiedTypeConnectionTool {
 
 
-
 	protected void updateTargetRequest()
     {
 		CreateConnectionRequest request = (CreateConnectionRequest)getTargetRequest();

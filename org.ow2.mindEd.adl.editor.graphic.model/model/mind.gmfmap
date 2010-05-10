@@ -161,7 +161,7 @@
                       xsi:type="gmftool:CreationTool"
                       href="mind.gmftool#//@palette/@tools.3/@tools.2"/>
                   <diagramNode
-                      href="mind.gmfgraph#CompositeReferenceDefinition"/>
+                      href="mind.gmfgraph#ComponentReferenceDefinition"/>
                 </ownedChild>
               </children>
             </ownedChild>
@@ -292,7 +292,7 @@
                   xsi:type="gmftool:CreationTool"
                   href="mind.gmftool#//@palette/@tools.3/@tools.2"/>
               <diagramNode
-                  href="mind.gmfgraph#CompositeReferenceDefinition"/>
+                  href="mind.gmfgraph#ComponentReferenceDefinition"/>
               <children
                   compartment="//@nodes.0/@ownedChild/@children.2/@ownedChild/@children.0/@ownedChild/@compartments.0">
                 <containmentFeature
@@ -483,7 +483,7 @@
                     href="../../org.ow2.mindEd.adl.schema/model/mind.ecore#//SubComponentDefinition/referenceDefinition"/>
                 <ownedChild>
                   <domainMetaElement
-                      href="../../org.ow2.mindEd.adl.schema/model/mind.ecore#//CompositeReferenceDefinition"/>
+                      href="../../org.ow2.mindEd.adl.schema/model/mind.ecore#//ComponentReference"/>
                   <labelMappings
                       xsi:type="gmfmap:FeatureLabelMapping"
                       viewPattern="extends {0}"
@@ -498,7 +498,7 @@
                       xsi:type="gmftool:CreationTool"
                       href="mind.gmftool#//@palette/@tools.3/@tools.2"/>
                   <diagramNode
-                      href="mind.gmfgraph#CompositeReferenceDefinition"/>
+                      href="mind.gmfgraph#ComponentReferenceDefinition"/>
                   <children
                       referencedChild="//@nodes.0/@ownedChild/@children.2/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild">
                     <containmentFeature
@@ -591,7 +591,7 @@
                     href="../../org.ow2.mindEd.adl.schema/model/mind.ecore#//SubComponentDefinition/referenceDefinition"/>
                 <ownedChild>
                   <domainMetaElement
-                      href="../../org.ow2.mindEd.adl.schema/model/mind.ecore#//PrimitiveReferenceDefinition"/>
+                      href="../../org.ow2.mindEd.adl.schema/model/mind.ecore#//CompositeReferenceDefinition"/>
                   <labelMappings
                       xsi:type="gmfmap:FeatureLabelMapping"
                       viewPattern="extends {0}"
@@ -886,6 +886,10 @@
                     <childrenFeature
                         href="../../org.ow2.mindEd.adl.schema/model/mind.ecore#//Body/elements"/>
                   </children>
+                  <compartments>
+                    <compartment
+                        href="mind.gmfgraph#BodyCompartment"/>
+                  </compartments>
                 </ownedChild>
               </children>
               <children
@@ -894,6 +898,13 @@
                     href="../../org.ow2.mindEd.adl.schema/model/mind.ecore#//ArchitectureDefinition/body"/>
                 <childrenFeature
                     href="../../org.ow2.mindEd.adl.schema/model/mind.ecore#//ArchitectureDefinition/body"/>
+              </children>
+              <children
+                  referencedChild="//@nodes.0/@ownedChild/@children.5/@ownedChild">
+                <containmentFeature
+                    href="../../org.ow2.mindEd.adl.schema/model/mind.ecore#//Element/annotationsList"/>
+                <childrenFeature
+                    href="../../org.ow2.mindEd.adl.schema/model/mind.ecore#//Element/annotationsList"/>
               </children>
             </ownedChild>
           </children>
@@ -1107,7 +1118,7 @@
                   xsi:type="gmftool:CreationTool"
                   href="mind.gmftool#//@palette/@tools.3/@tools.2"/>
               <diagramNode
-                  href="mind.gmfgraph#CompositeReferenceDefinition"/>
+                  href="mind.gmfgraph#ComponentReferenceDefinition"/>
               <children
                   compartment="//@nodes.1/@ownedChild/@children.1/@ownedChild/@children.0/@ownedChild/@compartments.0"
                   referencedChild="//@nodes.0/@ownedChild/@children.2/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild">
@@ -1249,7 +1260,7 @@
                   xsi:type="gmftool:CreationTool"
                   href="mind.gmftool#//@palette/@tools.3/@tools.2"/>
               <diagramNode
-                  href="mind.gmfgraph#CompositeReferenceDefinition"/>
+                  href="mind.gmfgraph#ComponentReferenceDefinition"/>
             </ownedChild>
           </children>
           <compartments
