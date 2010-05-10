@@ -20,6 +20,8 @@ Import-Package: org.eclipse.cdt.core,
  org.eclipse.cdt.make.core.makefile.gnu,
  org.eclipse.cdt.managedbuilder.core,
  org.eclipse.cdt.newmake.core,
- org.eclipse.jdt.internal.junit4.runner
+ org.eclipse.jdt.internal.junit4.runner,
+ org.objectweb.fractal.adl,
+ org.objectweb.fractal.adl.error
 Export-Package: org.ow2.mindEd.ide.test
 Bundle-Vendor: Partenaire Minalogic
