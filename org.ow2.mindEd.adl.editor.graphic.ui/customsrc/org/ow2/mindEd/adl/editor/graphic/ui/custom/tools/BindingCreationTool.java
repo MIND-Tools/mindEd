@@ -27,12 +27,6 @@ import org.ow2.mindEd.adl.editor.graphic.ui.part.MindDiagramEditorPlugin;
 @SuppressWarnings("rawtypes")
 public class BindingCreationTool extends UnspecifiedTypeConnectionTool {
 
-//	
-//	@Override
-//	protected boolean handleCreateConnection() {
-//		// TODO Auto-generated method stub
-//		return super.handleCreateConnection();
-//	}
 
 
 	protected void updateTargetRequest()
