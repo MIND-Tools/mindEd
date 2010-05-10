@@ -337,10 +337,12 @@ public class MindOpenWithMenu extends OpenWithMenu {
         		//TODO : 
         		//MindAdl adl = TODO create diagramm : depency cycle...
 				//Activator.createDiagram(new NullProgressMonitor(), adl);
+        		Activator.initGmfDiagram(diagramURI, modelURI);
         	}
         	if (!(fileDiagram.exists())) {
         		return;
         	}
+    		file = fileDiagram;
         }
         try {
         	if (openUsingDescriptor) {

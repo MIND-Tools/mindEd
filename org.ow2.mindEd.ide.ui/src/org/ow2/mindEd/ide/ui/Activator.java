@@ -115,7 +115,7 @@ public class Activator extends AbstractUIPlugin {
 		}
 	}
 
-	public static void initGmfDiagram(URI modelURI, URI diagramURI) {
+	public static void initGmfDiagram(URI diagramURI, URI modelURI) {
 		initGmfDiagram(diagramURI, modelURI, new NullProgressMonitor());
 	}
 	
