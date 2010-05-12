@@ -283,6 +283,21 @@ public class TestCreateMindproject extends GTTestCase {
 		
 		assertTrue(diagFile.exists());
 		
+		GTTreePath compAPahtInPackage= new GTTreePath(projectName, "src", packageName, compA+".adl" );
+		GTView.packageExplorerView.selectNode(compAPahtInPackage);
+		GTView.packageExplorerView.findTree().doubleClick(compAPahtInPackage);
+		
+		gef = new GTGefEditor(compA+".adl_diagram");
+		checkError(gef);
+		gef.close();
+		
+		mindView.click(compANode, "Open With","MindEd ADL Editor");
+		text = new GTTextEditor(compA+".adl");
+		text.close();
+		
+		GTView.packageExplorerView.findTree().doubleClick(compAPahtInPackage);
+		text = new GTTextEditor(compA+".adl");
+		text.close();
 	}
 	
 	private void checkError(final GTGefEditor gef) {
