@@ -6,6 +6,7 @@ import org.eclipse.draw2d.DelegatingLayout;
 import org.eclipse.draw2d.FreeformLayer;
 import org.eclipse.draw2d.Layer;
 import org.eclipse.draw2d.LayeredPane;
+import org.eclipse.draw2d.graph.Path;
 import org.eclipse.emf.common.ui.URIEditorInput;
 import org.eclipse.gef.EditPart;
 import org.eclipse.gef.LayerConstants;
@@ -15,6 +16,7 @@ import org.eclipse.gmf.runtime.diagram.ui.editparts.DiagramRootEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.resources.editor.document.IDocumentProvider;
 import org.eclipse.ui.IEditorInput;
 import org.eclipse.ui.IFileEditorInput;
+import org.eclipse.ui.part.FileEditorInput;
 import org.eclipse.ui.views.contentoutline.IContentOutlinePage;
 
 import org.ow2.mindEd.adl.editor.graphic.ui.custom.layouts.CustomConnectionLayerEx;
@@ -79,6 +81,12 @@ public class CustomMindDiagramEditor extends MindDiagramEditor {
 	
 	@Override
 	public void setInput(IEditorInput input) {
+		if (input instanceof FileEditorInput) {
+			FileEditorInput fei = (FileEditorInput) input;
+			if (fei.getFile().getFileExtension().equals("adl")) {
+				input = new FileEditorInput(fei.getFile().getParent().getFile(new org.eclipse.core.runtime.Path(fei.getName()+"_diagram")));
+			}
+		}
 		ModelToProjectUtil.INSTANCE.setEditorInput(input);
 		super.setInput(input);
 	}
@@ -142,7 +150,6 @@ public class CustomMindDiagramEditor extends MindDiagramEditor {
 				LayerConstants.SCALED_FEEDBACK_LAYER,
 				DiagramRootEditPart.DECORATION_UNPRINTABLE_LAYER);
 	}
-	
 	
 	
 }
