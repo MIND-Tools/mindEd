@@ -169,9 +169,9 @@ public class MindOpenWithMenu extends OpenWithMenu {
             public void handleEvent(Event event) {
                 switch (event.type) {
                 case SWT.Selection:
-                    if (menuItem.getSelection()) {
+                    //if (menuItem.getSelection()) {
 						openEditor(descriptor, false);
-					}
+					//}
                     break;
                 }
             }
