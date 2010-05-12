@@ -12,7 +12,6 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
 import org.eclipse.emf.transaction.impl.TransactionImpl;
 import org.eclipse.gef.EditPart;
-import org.eclipse.gmf.runtime.diagram.ui.editparts.AbstractBorderedShapeEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.GraphicalEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.CanonicalEditPolicy;
 import org.eclipse.gmf.runtime.notation.View;
@@ -30,6 +29,8 @@ import org.ow2.mindEd.adl.editor.graphic.ui.edit.parts.CompositeComponentDefinit
 import org.ow2.mindEd.adl.editor.graphic.ui.edit.parts.CompositeSubComponentEditPart;
 import org.ow2.mindEd.adl.editor.graphic.ui.part.MindDiagramEditorPlugin;
 import org.ow2.mindEd.adl.editor.graphic.ui.part.MindDiagramUpdateCommand;
+import org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.parts.generic.MindGenericEditPartFactory;
+import org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.parts.generic.MindComponentEditPart;
 
 /**
  * Extends generated UpdateCommand to update every elements in the diagram
@@ -151,7 +152,7 @@ public class MindDiagramUpdateAllCommand extends MindDiagramUpdateCommand {
 	 */
 	@SuppressWarnings("unchecked")
 	public void updateAll (EditPart rootEditPart, int rank){
-		if (rootEditPart instanceof AbstractBorderedShapeEditPart)
+		if (MindGenericEditPartFactory.INSTANCE.getMindEditPartFor(rootEditPart) instanceof MindComponentEditPart)
 			// Increase rank if a component is encountered
 			rank++;
 		if (rank > maxRank) {
