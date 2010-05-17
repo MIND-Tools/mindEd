@@ -35,7 +35,7 @@ public class DragEditPartsCustomTracker extends DragEditPartsTrackerEx implement
 	@SuppressWarnings("unchecked")
 	@Override
 	public void performDrag() {
-		// Prevent from dropping in canvas
+		// Prevent from dropping on canvas
 		if (getTargetEditPart() instanceof AdlDefinitionEditPart
 				&& !(getSourceEditPart().getParent() instanceof AdlDefinitionEditPart)) return;
 		

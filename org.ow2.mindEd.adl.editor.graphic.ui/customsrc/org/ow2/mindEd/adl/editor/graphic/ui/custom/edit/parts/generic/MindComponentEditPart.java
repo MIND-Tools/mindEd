@@ -74,8 +74,8 @@ public class MindComponentEditPart extends MindEditPart {
 	};
 	
 	
-	public DragTracker getDragTracker(EditPart ep) {
-		return new DragEditPartsCustomTracker(ep);
+	public DragTracker getDragTracker(Request request) {
+		return new DragEditPartsCustomTracker(realEditPart);
 	}
 	
 	

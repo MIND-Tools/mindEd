@@ -177,6 +177,12 @@ public class ComponentLayout extends ConstrainedToolbarLayout implements IFracta
 		return new Dimension(preferredWidth,preferredHeight);
 	}
 
+	/**
+	 * Workaround for a bug where subcomponents with reference could not be resized down
+	 */
+	public Dimension getMinimumSize(IFigure container, int w, int h) {
+		return new Dimension (0,0);
+	}
 
 	
 }
