@@ -127,11 +127,6 @@ public class BindingCreationTool extends UnspecifiedTypeConnectionTool {
 		
 		// Here either source or target, or both are generated
 		
-//		if (target == null || source == null) {
-//			// Workaround for bug where target had no element
-//			return;
-//		}
-		
 		sourceParent = source.getParentBody().getParentComponent();
 		targetParent = target.getParentBody().getParentComponent();
 		

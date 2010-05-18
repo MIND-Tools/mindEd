@@ -24,6 +24,7 @@ import org.ow2.mindEd.adl.AdlDefinition;
 import org.ow2.mindEd.adl.ComponentReference;
 import org.ow2.mindEd.adl.FileC;
 import org.ow2.mindEd.adl.ImportDefinition;
+import org.ow2.mindEd.adl.InterfaceDefinition;
 
 import org.ow2.mindEd.adl.custom.util.DefinitionLoaderUtil;
 import org.ow2.mindEd.adl.editor.graphic.ui.custom.part.CustomMindDiagramEditorUtil;
@@ -157,14 +158,58 @@ public class OpenDefinitionEditPolicy extends OpenEditPolicy {
 				page.openEditor(cdtEditorInput, "org.eclipse.cdt.ui.editor.CEditor");
 				
 			} catch (PartInitException e) {
-				MindDiagramEditorPlugin.getInstance().logError("Failed to open the editor");
+				MindDiagramEditorPlugin.getInstance().logError("Failed to open the editor", e);
 			} catch (NullPointerException e) {
-				MindDiagramEditorPlugin.getInstance().logError("Failed to open the editor");
+				MindDiagramEditorPlugin.getInstance().logError("Failed to open the editor", e);
 			} catch (Exception e) {
-				e.printStackTrace();
-				MindDiagramEditorPlugin.getInstance().logError("Failed to open the editor");
+				MindDiagramEditorPlugin.getInstance().logError("Failed to open the editor", e);
 			}
 		}
+		
+		if (model instanceof InterfaceDefinition) {
+			InterfaceDefinition itf = (InterfaceDefinition) model;
+			String signature = itf.getSignature();
+			
+			try {
+
+				MindProject project = ModelToProjectUtil.INSTANCE.getMindProject();
+				
+				if (!signature.contains(".")) {
+					// Add current package to path
+					MindPackage pack = ModelToProjectUtil.INSTANCE.getPackage(project);
+					signature = pack.getFullpath().concat("/").concat(signature);
+				}
+				else {
+					signature = "/".concat(project.getName()).concat("/src/").concat(signature);	
+				}
+				
+				signature = signature.replace(".", "/");
+				signature = signature.concat(".itf");
+				
+				// Get the file URI
+				URI fileURI = URI.createFileURI(signature);
+				
+				// Create the editor input
+				IFile file = ModelToProjectUtil.INSTANCE.getIFile(fileURI);
+				
+				if (file == null || !(file.exists())) {
+					MindDiagramEditorPlugin.getInstance().logError("File not found : "+signature);
+					return null;
+				}
+				
+				IEditorInput itfEditorInput = new FileEditorInput(file);
+				
+								
+				// Now try to open the editors
+				IWorkbenchWindow window=PlatformUI.getWorkbench().getActiveWorkbenchWindow();
+				IWorkbenchPage page = window.getActivePage();
+				page.openEditor(itfEditorInput, "org.ow2.mindEd.itf.editor.textual.FractalItf");
+			}
+			catch (Exception e) {
+				MindDiagramEditorPlugin.getInstance().logError("Failed to open the editor", e);
+			}
+		}
+		
 		
 		return null;
 	}

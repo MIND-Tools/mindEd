@@ -58,7 +58,6 @@ import org.ow2.mindEd.adl.editor.graphic.ui.part.MindDocumentProvider;
 @SuppressWarnings("restriction")
 public class MindCustomDocumentProvider extends MindDocumentProvider {
 	
-	@SuppressWarnings("unchecked")
 	@Override
 	protected void doSaveDocument(IProgressMonitor monitor, Object element,
 			IDocument document, boolean overwrite) throws CoreException {
@@ -243,7 +242,6 @@ public class MindCustomDocumentProvider extends MindDocumentProvider {
 		}
 	}
 	
-	@SuppressWarnings("unchecked")
 	private long computeModificationStamp(ResourceSetInfo info) {
 		int result = 0;
 		for (Iterator/*<org.eclipse.emf.ecore.resource.Resource>*/it = info
