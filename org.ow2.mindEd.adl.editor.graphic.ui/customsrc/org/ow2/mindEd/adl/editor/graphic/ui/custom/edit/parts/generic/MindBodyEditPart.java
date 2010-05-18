@@ -10,6 +10,8 @@ import org.eclipse.gef.EditPolicy;
 import org.eclipse.gef.Request;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.AbstractBorderedShapeEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.GraphicalEditPart;
+import org.eclipse.gmf.runtime.diagram.ui.editparts.IBorderItemEditPart;
+import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.ConstrainedToolbarLayout;
 import org.eclipse.gmf.runtime.notation.View;
@@ -105,11 +107,13 @@ public class MindBodyEditPart extends MindEditPart {
 	}
 	
 	
-//	public boolean setLayoutConstraint(EditPart child, IFigure childFigure,
-//			Object constraint) {
-//		parentComponent.setLayoutConstraint(child, childFigure, constraint);
-//		return true;
-//	}
+	public IFigure getContentPaneFor(IGraphicalEditPart editPart) {
+		if (editPart instanceof InterfaceDefinitionEditPart) {
+			return parentComponent.borderedEditPart.getBorderedFigure().getBorderItemContainer();
+		} else {
+			return null;
+		}
+	}
 	
 	
 	public IFigure getCompartmentFigure() {
