@@ -110,7 +110,7 @@ public class OpenDefinitionEditPolicy extends OpenEditPolicy {
 					page.openEditor(diagramEditorInput, editorID);
 				}
 				else {
-					page.openEditor(adlEditorInput, "org.ow2.fractal.mind.xtext.Fractal");
+					page.openEditor(adlEditorInput, "org.ow2.mindEd.adl.textual.Fractal");
 				}
 				
 			} catch (PartInitException e) {
