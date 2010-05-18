@@ -65,8 +65,10 @@ public class BindingCreationTool extends UnspecifiedTypeConnectionTool {
 		    if (this.customTargetEditPart != null)
 		    	 handleExitingEditPart();
 		    
-		    editpart = generateItfs(editpart);
-		    
+		    EditPart genEditPart = generateItfs(editpart);
+		    if (genEditPart != null)
+		    	editpart = genEditPart;
+		    	
 		    this.customTargetEditPart = editpart;
 		    
 		    if (getTargetRequest() instanceof TargetRequest) {
@@ -94,12 +96,11 @@ public class BindingCreationTool extends UnspecifiedTypeConnectionTool {
 		InterfaceDefinition source = null;
 		InterfaceDefinition target = null;
 		
-		ArchitectureDefinition sourceParent;
-		ArchitectureDefinition targetParent;
+		ArchitectureDefinition sourceParent = null;
+		ArchitectureDefinition targetParent = null;
 		
 		boolean sourceIsGenerated = false;
 		boolean targetIsGenerated = false;
-		
 		if (generatedSource != null && generatedTarget != null){
 			// Two generated interfaces
 			source = generatedSource;
@@ -125,6 +126,11 @@ public class BindingCreationTool extends UnspecifiedTypeConnectionTool {
 		}
 		
 		// Here either source or target, or both are generated
+		
+//		if (target == null || source == null) {
+//			// Workaround for bug where target had no element
+//			return;
+//		}
 		
 		sourceParent = source.getParentBody().getParentComponent();
 		targetParent = target.getParentBody().getParentComponent();
@@ -267,7 +273,11 @@ public class BindingCreationTool extends UnspecifiedTypeConnectionTool {
 	 * @return
 	 */
 	protected InterfaceDefinition createInterfaceDefinition(Body body, String name) {
-				
+		
+		if (body.isMerged()) {
+			return null;
+		}
+		
 		InterfaceDefinition newInterface = null;
 		try {
 			TransactionImpl transaction = new TransactionImpl(getEditingDomain(), false);
