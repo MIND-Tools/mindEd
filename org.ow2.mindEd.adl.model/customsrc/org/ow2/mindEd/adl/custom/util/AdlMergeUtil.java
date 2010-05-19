@@ -204,6 +204,7 @@ public class AdlMergeUtil extends AbstractMergeTreatment {
 			mergeBody(definitionToMerge, mergedComponent, currentReferenceTreatment);
 			updateSubComponentReferences(mergedComponent, currentReferenceTreatment);
 			resolveTemplate(mergedComponent, definitionToMerge, currentReferenceTreatment);
+
 		}
 		else if (mergedComponent != null) {
 			updateSubComponentReferences(mergedComponent, currentReferenceTreatment);
@@ -462,7 +463,7 @@ public class AdlMergeUtil extends AbstractMergeTreatment {
 			if(mergedObject.getBody()==null)
 			{
 				mergedObject.setBody((Body) adlFactory.create(objectToMerge.getBody().eClass()));
-				mergedObject.getBody().setMerged(true);
+				mergedObject.getBody().setMerged(false);
 			}
 			checkReference(objectToMerge.getBody(), mergedObject.getBody(), currentReferenceTreatment);
 		}
