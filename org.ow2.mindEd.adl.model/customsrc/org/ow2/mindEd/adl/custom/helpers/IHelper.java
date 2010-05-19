@@ -70,4 +70,11 @@ public interface IHelper<T extends EObject> extends IHelperComments{
 	ArchitectureDefinitionHelper getParentComponentHelper();
 	
 	ArchitectureDefinition getParentComponent();
+	
+	String getAttributeName();
+	
+	Object getAttributeContainingName(String featureName);
+	
+	String calculateID();
+	
 }

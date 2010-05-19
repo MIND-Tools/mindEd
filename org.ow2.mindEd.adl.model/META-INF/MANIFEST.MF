@@ -8,6 +8,7 @@ Bundle-Vendor: %providerName
 Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Export-Package: org.ow2.mindEd.adl,
+ org.ow2.mindEd.adl.custom,
  org.ow2.mindEd.adl.custom.adapters,
  org.ow2.mindEd.adl.custom.adapters.factory,
  org.ow2.mindEd.adl.custom.helpers,

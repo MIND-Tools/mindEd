@@ -49,4 +49,6 @@ public interface MindObject extends EObject {
 	 * @generated
 	 */
 	void setLinkedAnnotationsList(AnnotationsList value);
+	
+	String getID();
 }

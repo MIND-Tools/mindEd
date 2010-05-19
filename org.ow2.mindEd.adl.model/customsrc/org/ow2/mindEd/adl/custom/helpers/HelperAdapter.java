@@ -26,7 +26,10 @@ package org.ow2.mindEd.adl.custom.helpers;
 import java.util.HashMap;
 import java.util.List;
 import org.eclipse.emf.common.notify.impl.AdapterImpl;
+import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 
 import org.ow2.mindEd.adl.AdlDefinition;
@@ -34,6 +37,8 @@ import org.ow2.mindEd.adl.AdlPackage;
 import org.ow2.mindEd.adl.ArchitectureDefinition;
 import org.ow2.mindEd.adl.ComponentKind;
 import org.ow2.mindEd.adl.InterfaceDefinition;
+import org.ow2.mindEd.adl.MergedObject;
+import org.ow2.mindEd.adl.custom.MindObject;
 import org.ow2.mindEd.adl.custom.impl.AdlDefinitionCustomImpl;
 
 /**
@@ -170,4 +175,79 @@ implements IHelper<T>{
 		if(tmpObject==null || tmpObject.eClass().getClassifierID()!=AdlPackage.ADL_DEFINITION)return null;
 		else return (AdlDefinitionCustomImpl) tmpObject;
 	}
+	
+	public String getAttributeName() {
+		for (EAttribute attribute : getObject().eClass().getEAllAttributes()) {
+			if (attribute.getName().toLowerCase().contains("name")) {
+				return (String) getObject().eGet(attribute);
+			}
+		}
+		return null;
+	}
+	
+	public Object getAttributeContainingName(String featureName) {
+		for (EStructuralFeature feature : getObject().eClass()
+				.getEAllAttributes()) {
+			if (feature.getName().toLowerCase().contains(featureName.toLowerCase())) {
+				return getObject().eGet(feature);
+			}
+		}
+		return null;
+
+	}
+	
+	public String calculateID() {
+		EObject root = EcoreUtil.getRootContainer(getObject());
+		String result = getObject().eClass().getName() + getIndex() + '.' + getAttributeName();
+		MindObject current = (MindObject) getObject().eContainer();
+		while(current!=root && current!=null)
+		{
+			if(current.getHelper()!=null)
+			{
+				String tmpName = current.getHelper().getAttributeName();
+				if(tmpName!=null)
+				{
+					result= current.eClass().getName() + tmpName + '.' + result;
+				}
+				else
+				{
+					result= current.eClass().getName() + getIndex() + "." + result;
+				}
+			}
+			current=(MindObject) current.eContainer();
+		}
+		return result;
+	}
+
+	@SuppressWarnings("unchecked")
+	private String getIndex() {
+		EObject current = getObject();
+		EObject parent = current.eContainer();
+		if (parent != null)
+		{	
+			EStructuralFeature feature = current.eContainingFeature();
+			if (feature != null)
+			{			
+				Object content = parent.eGet(feature);
+				if(current instanceof MergedObject)
+					if(content instanceof EList<?>)
+				{
+					EList<EObject> list = (EList<EObject>) current.eContainer().eGet(current.eContainingFeature());
+					int counter=0;
+					for(EObject object : list)
+					{
+						if(object.eClass()==current.eClass() && object!=current)
+						{
+							counter++;
+						}
+						else					
+							return "[" + counter + "]";
+					}
+				}
+			}
+		}
+		return "";
+	}
+	
+	
 }
