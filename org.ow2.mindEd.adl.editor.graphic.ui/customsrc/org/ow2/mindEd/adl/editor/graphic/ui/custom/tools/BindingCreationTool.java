@@ -269,9 +269,14 @@ public class BindingCreationTool extends UnspecifiedTypeConnectionTool {
 	 */
 	protected InterfaceDefinition createInterfaceDefinition(Body body, String name) {
 		
+		// Do not generate an interface in merged body
 		if (body.isMerged()) {
 			return null;
 		}
+		
+		// If editor is in an instable state
+		if (getEditingDomain() == null)
+			return null;
 		
 		InterfaceDefinition newInterface = null;
 		try {
