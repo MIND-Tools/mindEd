@@ -1287,7 +1287,7 @@
           xsi:type="gmfgen:SpecializationType"
           displayName="PrimitiveSubReference"
           metamodelType="//@diagram/@childNodes.6/@elementType"
-          editHelperAdviceClassName=""/>
+          editHelperAdviceClassName="PrimitiveSubReferenceEditHelper"/>
       <viewmap
           xsi:type="gmfgen:InnerClassViewmap"
           className="ReferenceFigure"
