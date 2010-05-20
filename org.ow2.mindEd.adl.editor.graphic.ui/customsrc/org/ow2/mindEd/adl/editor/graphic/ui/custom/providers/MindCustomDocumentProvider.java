@@ -2,6 +2,7 @@ package org.ow2.mindEd.adl.editor.graphic.ui.custom.providers;
 
 import java.io.IOException;
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 
@@ -14,6 +15,7 @@ import org.eclipse.core.runtime.IAdaptable;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Status;
+import org.eclipse.draw2d.geometry.Rectangle;
 import org.eclipse.emf.common.ui.URIEditorInput;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
@@ -39,12 +41,17 @@ import org.eclipse.ui.part.FileEditorInput;
 import org.ow2.mindEd.adl.custom.helpers.AdlDefinitionHelper;
 import org.ow2.mindEd.adl.custom.impl.AdlDefinitionCustomImpl;
 import org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.commands.MindDiagramUpdateAllCommand;
+import org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.parts.generic.MindEditPart;
+import org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.parts.generic.MindGenericEditPartFactory;
 import org.ow2.mindEd.adl.editor.graphic.ui.custom.part.CustomValidateAction;
+import org.ow2.mindEd.adl.editor.graphic.ui.custom.part.SaveUtil;
 
 import org.ow2.mindEd.adl.editor.graphic.ui.part.Messages;
+import org.ow2.mindEd.adl.editor.graphic.ui.part.MindDiagramEditor;
 import org.ow2.mindEd.adl.editor.graphic.ui.part.MindDiagramEditorPlugin;
 import org.ow2.mindEd.adl.editor.graphic.ui.part.MindDiagramEditorUtil;
 import org.ow2.mindEd.adl.editor.graphic.ui.part.MindDiagramUpdateCommand;
+import org.ow2.mindEd.adl.editor.graphic.ui.part.MindDiagramUpdater;
 import org.ow2.mindEd.adl.editor.graphic.ui.part.MindDocumentProvider;
 
 /**
@@ -81,6 +88,11 @@ public class MindCustomDocumentProvider extends MindDocumentProvider {
 			return;
 		}
 		
+		MindEditPart mindRoot = MindGenericEditPartFactory.INSTANCE.getRootEditPart();
+		HashMap<String,Rectangle> boundsMemory = new HashMap<String,Rectangle>();
+		if (mindRoot != null) {
+			SaveUtil.saveBounds(mindRoot.getRealEditPart(), boundsMemory);
+		}
 		
 		// Prepare the transaction that will prepare the main definition
 		// All merged items are deleted because they must not be serialized
@@ -121,7 +133,7 @@ public class MindCustomDocumentProvider extends MindDocumentProvider {
 					finally{}
 				}
 				
-				for (Iterator/*<org.eclipse.emf.ecore.resource.Resource>*/it = info
+				for (Iterator/*<org.eclipse.emf.ecore.resource.Resource>*/<?>it = info
 						.getLoadedResourcesIterator(); it.hasNext();) {
 					Resource nextResource = (Resource) it.next();
 					monitor.setTaskName(NLS.bind(
@@ -166,6 +178,13 @@ public class MindCustomDocumentProvider extends MindDocumentProvider {
 				}catch (ExecutionException e) {
 					MindDiagramEditorPlugin.getInstance().logError("Update failed", e);
 				}finally{}
+				
+				// Now that editParts have been recreated by the update,
+				// we are able to restore the saved bounds
+				if (mindRoot != null) {
+					SaveUtil.restoreBounds(mindRoot.getRealEditPart(), boundsMemory);
+					boundsMemory.clear();
+				}
 					
 				monitor.done();
 				info.setModificationStamp(computeModificationStamp(info));
@@ -177,7 +196,7 @@ public class MindCustomDocumentProvider extends MindDocumentProvider {
 			}
 		} else {
 			URI newResoruceURI;
-			List affectedFiles = null;
+			List<IFile> affectedFiles = null;
 			if (element instanceof FileEditorInput) {
 				IFile newFile = ((FileEditorInput) element).getFile();
 				affectedFiles = Collections.singletonList(newFile);
@@ -244,7 +263,7 @@ public class MindCustomDocumentProvider extends MindDocumentProvider {
 	
 	private long computeModificationStamp(ResourceSetInfo info) {
 		int result = 0;
-		for (Iterator/*<org.eclipse.emf.ecore.resource.Resource>*/it = info
+		for (Iterator/*<org.eclipse.emf.ecore.resource.Resource>*/<?>it = info
 				.getLoadedResourcesIterator(); it.hasNext();) {
 			Resource nextResource = (Resource) it.next();
 			IFile file = WorkspaceSynchronizer.getFile(nextResource);

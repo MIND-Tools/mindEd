@@ -23,6 +23,7 @@ import org.eclipse.ui.PlatformUI;
 
 import org.ow2.mindEd.adl.custom.helpers.AdlDefinitionHelper;
 import org.ow2.mindEd.adl.custom.impl.AdlDefinitionCustomImpl;
+import org.ow2.mindEd.adl.editor.graphic.ui.custom.part.SaveUtil;
 import org.ow2.mindEd.adl.editor.graphic.ui.custom.preferences.CustomGeneralPreferencePage;
 import org.ow2.mindEd.adl.editor.graphic.ui.edit.parts.AdlDefinitionEditPart;
 import org.ow2.mindEd.adl.editor.graphic.ui.edit.parts.CompositeComponentDefinitionEditPart;
@@ -47,12 +48,6 @@ public class MindDiagramUpdateAllCommand extends MindDiagramUpdateCommand {
 	 */
 	private int maxRank;
 	
-	/**
-	 * Used to store the position of all elements before refreshing the merge,
-	 * in order for them to keep their bounds if the user changed it. Otherwise,
-	 * they are re-initialized as if they were just created.
-	 */
-	protected HashMap<EObject,Rectangle> boundsMemory = new HashMap<EObject,Rectangle>();
 	
 	
 	public Object execute(ExecutionEvent event) throws ExecutionException {
@@ -78,7 +73,8 @@ public class MindDiagramUpdateAllCommand extends MindDiagramUpdateCommand {
 				}
 				
 				// Save the bounds, save the world
-				saveBounds(rootEditPart);				
+				HashMap<String,Rectangle> boundsMemory = new HashMap<String,Rectangle>();
+				SaveUtil.saveBounds(rootEditPart, boundsMemory);			
 				
 				// Transaction to refresh the merge
 				TransactionalEditingDomain domain = ((AdlDefinitionEditPart)rootEditPart).getEditingDomain();
@@ -99,7 +95,10 @@ public class MindDiagramUpdateAllCommand extends MindDiagramUpdateCommand {
 				finally{}
 				
 				// Restore the bounds
-				restoreBounds(rootEditPart);
+				// (refreshing the merge deletes and recreates elements
+				// so we need to restore positions)
+				SaveUtil.restoreBounds(rootEditPart, boundsMemory);
+				boundsMemory.clear();
 				
 				try {
 					// Just refresh and then keep the same value for this update
@@ -294,30 +293,6 @@ public class MindDiagramUpdateAllCommand extends MindDiagramUpdateCommand {
 	}
 	
 	
-	@SuppressWarnings("unchecked")
-	public void saveBounds(EditPart editPart) {
-		if (editPart instanceof GraphicalEditPart)
-			boundsMemory.put(((View)editPart.getModel()).getElement(), ((GraphicalEditPart)editPart).getFigure().getBounds());
-			
-		List<EditPart> editPartList = editPart.getChildren();
-		for (EditPart child : editPartList) {
-			saveBounds(child);
-		}
-	}
 	
-	@SuppressWarnings("unchecked")
-	public void restoreBounds(EditPart editPart) {
-		if (editPart instanceof GraphicalEditPart) {
-			EObject element = ((View)editPart.getModel()).getElement();
-			Rectangle bounds = boundsMemory.get(element);
-			if (bounds != null)
-				((GraphicalEditPart)editPart).getFigure().setBounds(bounds);
-		}
-		
-		List<EditPart> editPartList = editPart.getChildren();
-		for (EditPart child : editPartList) {
-			restoreBounds(child);
-		}
-	}
 	
 }

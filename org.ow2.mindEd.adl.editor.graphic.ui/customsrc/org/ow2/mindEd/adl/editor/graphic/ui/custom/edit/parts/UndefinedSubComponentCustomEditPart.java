@@ -17,5 +17,4 @@ public class UndefinedSubComponentCustomEditPart extends
 		if (genericEditPart.removeFixedChild(childEditPart)) return true;
 		return super.removeFixedChild(childEditPart);
 	}
-
 }

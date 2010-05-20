@@ -24,7 +24,7 @@ public abstract class AbstractMindEditPart implements MindTypes {
 	
 	protected GraphicalEditPart realEditPart;
 	protected int visualID;
-	public int MIND_TYPE = TYPE_UNDEFINED;
+	public int mindType = TYPE_UNDEFINED;
 	
 	
 	public static int getMindType(int visualID) {
@@ -35,12 +35,27 @@ public abstract class AbstractMindEditPart implements MindTypes {
 	public static int getMindType(EditPart editPart) {
 		MindEditPart mindEP = getMindEditPartFor(editPart);
 		if (mindEP == null) return TYPE_UNDEFINED;
-		return mindEP.MIND_TYPE;
+		return mindEP.mindType;
 	}
 	
 	
 	public static MindEditPart getMindEditPartFor(EditPart editPart) {
 		return MindGenericEditPartFactory.INSTANCE.getMindEditPartFor(editPart);
+	}
+	
+	
+	public int getMindType() {
+		return mindType;
+	}
+	
+	
+	public GraphicalEditPart getRealEditPart() {
+		return realEditPart;
+	}
+	
+	
+	public int getVisualID() {
+		return visualID;
 	}
 	
 	

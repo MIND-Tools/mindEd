@@ -11,7 +11,7 @@ public interface MindTypes {
 	public static final int TYPE_REFERENCE = 5;
 	public static final int TYPE_SUB_REFERENCE = 51;
 	public static final int TYPE_ITEM = 6;
-	public static final int TYPE_MISC = 7;
+	public static final int TYPE_ROOT = 7;
 	public static final int TYPE_COMPARTMENT = 8;
 	public static final int TYPE_COMPARTMENT_LIST = 81;
 	public static final int TYPE_COMPARTMENT_BODY = 82;

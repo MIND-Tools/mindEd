@@ -13,5 +13,10 @@ import org.ow2.mindEd.adl.editor.graphic.ui.custom.figures.AbstractComponentShap
 public class ComponentFigure extends
 							AbstractComponentShape {
 	
+	
+	public void validate() {
+		super.validate();
+	}
+	
 
 }

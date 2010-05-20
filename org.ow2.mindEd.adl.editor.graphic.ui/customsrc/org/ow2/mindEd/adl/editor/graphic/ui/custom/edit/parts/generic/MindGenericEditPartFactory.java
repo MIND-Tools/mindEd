@@ -89,9 +89,10 @@ public class MindGenericEditPartFactory implements MindTypes {
 			editPartsMap.put(editPart, mindPart);
 			return mindPart;
 			
-		case TYPE_MISC:
-			mindPart = new MindEditPart(editPart, visualID, TYPE_MISC);
+		case TYPE_ROOT:
+			mindPart = new MindEditPart(editPart, visualID, TYPE_ROOT);
 			editPartsMap.put(editPart, mindPart);
+			setRootEditPart(mindPart);
 			return mindPart;
 			
 		case TYPE_COMPARTMENT_BODY:
@@ -242,7 +243,7 @@ public class MindGenericEditPartFactory implements MindTypes {
 					
 			// - Miscellaneous
 		case AdlDefinitionEditPart.VISUAL_ID:
-			return TYPE_MISC;
+			return TYPE_ROOT;
 			
 			// -- Items
 		case AnnotationEditPart.VISUAL_ID:
@@ -257,6 +258,21 @@ public class MindGenericEditPartFactory implements MindTypes {
 		}
 		
 		return TYPE_UNDEFINED;
+	}
+	
+	
+	public int getMindType(EditPart part) {
+		return getMindEditPartFor(part).mindType;
+	}
+	
+	protected MindEditPart rootEditPart = null;
+	
+	public void setRootEditPart(MindEditPart rootPart) {
+		rootEditPart = rootPart;
+	}
+	
+	public MindEditPart getRootEditPart() {
+		return rootEditPart;
 	}
 	
 }
