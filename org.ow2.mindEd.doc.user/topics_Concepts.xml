@@ -13,11 +13,11 @@
 		<topic label="Templates" href="concepts/cdt_c_templates.htm"/> 
 	</topic>
 	<topic label="Editing ADL files" href="concepts/mind_o_edit.htm"> 
-		<topic label="Adl text editor" href="concepts/mind_text_editor.htm"/>
+		<topic label="Adl text editor" href="concepts/mind_adl_text_editor.htm"/>
 		<topic label="Mind diagram editor" href="concepts/mind_diagram_editor.htm"/>
 	</topic>
  <topic label="Editing IDL">
-    <topic label="IDL text editor">
+    <topic href="concepts/mind_idl_text_editor.htm" label="IDL text editor">
     </topic>
  </topic>
 	<topic label="Navigation aids" href="concepts/cdt_o_nav.htm"> 
