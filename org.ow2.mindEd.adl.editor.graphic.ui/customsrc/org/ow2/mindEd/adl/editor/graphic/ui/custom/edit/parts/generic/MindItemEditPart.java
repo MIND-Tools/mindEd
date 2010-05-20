@@ -16,7 +16,7 @@ import org.eclipse.gmf.runtime.draw2d.ui.figures.ConstrainedToolbarLayout;
 import org.eclipse.gmf.runtime.gef.ui.figures.DefaultSizeNodeFigure;
 import org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure;
 import org.eclipse.gmf.runtime.notation.NotationPackage;
-import org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.policies.MindSubCreationEditPolicy;
+import org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.policies.ParentCreationEditPolicy;
 import org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.policies.NoDragDropEditPolicy;
 import org.ow2.mindEd.adl.editor.graphic.ui.custom.layouts.IFractalSize;
 import org.ow2.mindEd.adl.editor.graphic.ui.custom.listeners.MindListLayoutListener;
@@ -40,7 +40,8 @@ public class MindItemEditPart extends MindEditPart {
 				new NoDragDropEditPolicy());
 		// Extended creation features
 		realEditPart.installEditPolicy(EditPolicyRoles.CREATION_ROLE,
-				new MindSubCreationEditPolicy());
+				new ParentCreationEditPolicy());
+		setCreationMode(CREATION_MODE_PARENT);
 		
 	}
 	

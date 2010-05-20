@@ -11,7 +11,7 @@ import org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.policies.ComponentLayout
 import org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.policies.CustomDragDropEditPolicy;
 import org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.policies.CustomXYLayoutEditPolicy;
 import org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.policies.MindBodyContainerNodeEditPolicy;
-import org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.policies.MindSubCreationEditPolicy;
+import org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.policies.ParentCreationEditPolicy;
 import org.ow2.mindEd.adl.editor.graphic.ui.custom.layouts.ComponentLayout;
 import org.ow2.mindEd.adl.editor.graphic.ui.custom.layouts.CustomFreeFormLayoutEx;
 import org.ow2.mindEd.adl.editor.graphic.ui.custom.providers.CustomDragEditPartsTracker;
@@ -30,11 +30,6 @@ public class MindBodyCompartmentEditPart extends MindCompartmentEditPart {
 	
 	public void createDefaultEditPolicies() {
 		super.createDefaultEditPolicies();
-		// Extended creation features
-		realEditPart.installEditPolicy(
-				EditPolicyRoles.CREATION_ROLE,
-				new MindSubCreationEditPolicy());
-		setCreationMode(CREATION_MODE_PARENT);
 		// Customized drag and drop features
 		realEditPart.installEditPolicy(
 				EditPolicyRoles.DRAG_DROP_ROLE,

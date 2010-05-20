@@ -35,20 +35,17 @@ import org.eclipse.gmf.runtime.notation.View;
 
 import org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.parts.generic.MindComponentEditPart;
 import org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.parts.generic.MindGenericEditPartFactory;
+import org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.parts.generic.MindListEditPart;
 import org.ow2.mindEd.adl.editor.graphic.ui.edit.parts.AdlDefinitionEditPart;
 import org.ow2.mindEd.adl.editor.graphic.ui.part.MindVisualIDRegistry;
 
 /**
- * Implements extended creation features :<p>
- * - user can create an element by clicking on a sub edit part
- * (such as the body of a component or the label of a list).<p>
- * To use this feature you will also need a custom item semantic
- * edit policy with the getCreateCommand provided in the
+ * Allow creation of elements contained in host's parent
  * {@linkplain org.ow2.mindEd.adl.editor.graphic.ui.custom.helpers.ItemSemanticEditPolicyHelper}
  * @author maroto
  *
  */
-public class MindSubCreationEditPolicy extends
+public class ParentCreationEditPolicy extends
 		CreationEditPolicy {	
 	
 	protected Command getCreateElementAndViewCommand(CreateViewAndElementRequest request) {
@@ -165,16 +162,20 @@ public class MindSubCreationEditPolicy extends
 		EditPart virtualHost = getHost();
 		
 		if (semanticHint != null) {
-			while (
+//			while (
+			if(
 					!(MindVisualIDRegistry.canCreateNode(
 							(View)virtualHost.getModel(), 
 							MindVisualIDRegistry.getVisualID(semanticHint))
 					)
-					&& 
-					!(MindGenericEditPartFactory.INSTANCE.getMindEditPartFor(virtualHost)
-							instanceof MindComponentEditPart)
-					&&
-					!(virtualHost instanceof AdlDefinitionEditPart)
+//					&& 
+//					!(MindGenericEditPartFactory.INSTANCE.getMindEditPartFor(virtualHost)
+//							instanceof MindComponentEditPart)
+//					&&
+//					!(virtualHost instanceof AdlDefinitionEditPart)
+//					&&
+//					!(MindGenericEditPartFactory.INSTANCE.getMindEditPartFor(virtualHost)
+//							instanceof MindListEditPart)
 					) 
 			{
 				virtualHost = virtualHost.getParent();

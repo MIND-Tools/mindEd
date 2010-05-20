@@ -15,7 +15,8 @@ import org.eclipse.gmf.runtime.diagram.ui.editparts.GraphicalEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.ConstrainedToolbarLayout;
 import org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.policies.FixedChildrenLayoutEditPolicy;
-import org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.policies.MindSubCreationEditPolicy;
+import org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.policies.ParentCreationEditPolicy;
+import org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.policies.ChildrenCreationEditPolicy;
 import org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.policies.NoDragDropEditPolicy;
 import org.ow2.mindEd.adl.editor.graphic.ui.custom.layouts.ConstrainedFlowLayout;
 import org.ow2.mindEd.adl.editor.graphic.ui.custom.layouts.IFractalSize;
@@ -39,9 +40,6 @@ public class MindListEditPart extends MindEditPart {
 	
 	public void createDefaultEditPolicies() {
 		super.createDefaultEditPolicies();
-		// Extended creation features
-		realEditPart.installEditPolicy(EditPolicyRoles.CREATION_ROLE,
-				new MindSubCreationEditPolicy());
 		// No drag and drop allowed
 		realEditPart.installEditPolicy(EditPolicyRoles.DRAG_DROP_ROLE,
 				new NoDragDropEditPolicy());
@@ -59,10 +57,6 @@ public class MindListEditPart extends MindEditPart {
 		}
 		return nodeShape;
 	}
-//	
-//	public void refresh() {
-//		refreshBounds();
-//	}
 	
 	public DragTracker getDragTracker(Request request) {
 		// Do not allow drag and drop

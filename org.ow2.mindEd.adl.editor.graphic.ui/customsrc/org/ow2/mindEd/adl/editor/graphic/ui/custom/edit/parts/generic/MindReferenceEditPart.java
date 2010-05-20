@@ -18,8 +18,8 @@ import org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure;
 import org.eclipse.gmf.runtime.notation.NotationPackage;
 import org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.policies.CustomDragDropEditPolicy;
 import org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.policies.FixedChildrenLayoutEditPolicy;
-import org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.policies.MindSubCreationEditPolicy;
-import org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.policies.MindSuperCreationEditPolicy;
+import org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.policies.ParentCreationEditPolicy;
+import org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.policies.ChildrenCreationEditPolicy;
 import org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.policies.OpenDefinitionEditPolicy;
 import org.ow2.mindEd.adl.editor.graphic.ui.custom.layouts.ConstrainedFlowLayout;
 import org.ow2.mindEd.adl.editor.graphic.ui.custom.layouts.IFractalSize;
@@ -51,7 +51,8 @@ public class MindReferenceEditPart extends MindEditPart {
 				new FixedChildrenLayoutEditPolicy());
 		// Extended creation features
 		realEditPart.installEditPolicy(EditPolicyRoles.CREATION_ROLE,
-				new MindSuperCreationEditPolicy());
+				new ChildrenCreationEditPolicy());
+		setCreationMode(CREATION_MODE_CHILD);
 		// Extended drag and drop features
 		realEditPart.installEditPolicy(EditPolicyRoles.DRAG_DROP_ROLE,
 				new CustomDragDropEditPolicy());

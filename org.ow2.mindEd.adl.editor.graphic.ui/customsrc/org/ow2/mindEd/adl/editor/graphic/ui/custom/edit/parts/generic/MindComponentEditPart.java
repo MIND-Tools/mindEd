@@ -23,7 +23,7 @@ import org.eclipse.swt.graphics.Color;
 import org.ow2.mindEd.adl.Body;
 import org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.policies.ComponentLayoutEditPolicy;
 import org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.policies.CustomDragDropEditPolicy;
-import org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.policies.MindSubCreationEditPolicy;
+import org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.policies.ParentCreationEditPolicy;
 
 import org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.policies.*;
 import org.ow2.mindEd.adl.editor.graphic.ui.custom.figures.AbstractComponentShape;
@@ -60,10 +60,6 @@ public class MindComponentEditPart extends MindEditPart {
 	@Override
 	public void createDefaultEditPolicies(){
 		super.createDefaultEditPolicies();
-		
-		realEditPart.installEditPolicy(EditPolicyRoles.CREATION_ROLE,
-				new MindSubCreationEditPolicy());
-		setCreationMode(CREATION_MODE_PARENT);
 		
 		realEditPart.installEditPolicy(EditPolicyRoles.DRAG_DROP_ROLE,
 				new CustomDragDropEditPolicy());

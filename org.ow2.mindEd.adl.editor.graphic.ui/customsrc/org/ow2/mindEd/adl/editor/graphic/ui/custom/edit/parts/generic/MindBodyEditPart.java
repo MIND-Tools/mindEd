@@ -17,7 +17,7 @@ import org.eclipse.gmf.runtime.draw2d.ui.figures.ConstrainedToolbarLayout;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.swt.graphics.Color;
 
-import org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.policies.MindSubCreationEditPolicy;
+import org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.policies.ParentCreationEditPolicy;
 import org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.policies.NoDragDropEditPolicy;
 import org.ow2.mindEd.adl.editor.graphic.ui.custom.figures.AbstractComponentShape;
 import org.ow2.mindEd.adl.editor.graphic.ui.custom.figures.IFractalShape;
@@ -54,7 +54,7 @@ public class MindBodyEditPart extends MindEditPart {
 		// Extended creation features
 		realEditPart.installEditPolicy(
 				EditPolicyRoles.CREATION_ROLE,
-				new MindSubCreationEditPolicy());
+				new ParentCreationEditPolicy());
 		setCreationMode(CREATION_MODE_PARENT);
 		realEditPart.removeEditPolicy(EditPolicyRoles.DRAG_DROP_ROLE);
 		realEditPart.installEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE,

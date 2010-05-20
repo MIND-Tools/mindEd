@@ -522,7 +522,7 @@
                id="org.ow2.mindEd.adl.editor.graphic.ui.CompositeReferenceDefinition_3157"
                name="%metatype.name.CompositeReferenceDefinition_3157"
                kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
-               edithelperadvice="org.ow2.mindEd.adl.editor.graphic.ui.edit.helpers.">
+               edithelperadvice="org.ow2.mindEd.adl.editor.graphic.ui.edit.helpers.PrimitiveSubReferenceEditHelper">
             <specializes id="org.ow2.mindEd.adl.editor.graphic.ui.CompositeReferenceDefinition_3102"/>
             <param name="semanticHint" value="3157"/>
          </specializationType>

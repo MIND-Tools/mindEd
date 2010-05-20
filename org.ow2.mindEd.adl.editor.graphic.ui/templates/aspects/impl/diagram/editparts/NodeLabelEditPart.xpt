@@ -3,3 +3,8 @@
 	«targetDef.proceed()»
 	refresh();
 «ENDAROUND»
+
+«AROUND createDefaultEditPoliciesBody FOR gmfgen::GenNode-»
+	«targetDef.proceed()»
+	getGenericEditPart().createDefaultEditPolicies();
+«ENDAROUND»
