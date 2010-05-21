@@ -162,20 +162,19 @@ public class ParentCreationEditPolicy extends
 		EditPart virtualHost = getHost();
 		
 		if (semanticHint != null) {
-//			while (
-			if(
+			while (
 					!(MindVisualIDRegistry.canCreateNode(
 							(View)virtualHost.getModel(), 
 							MindVisualIDRegistry.getVisualID(semanticHint))
 					)
-//					&& 
-//					!(MindGenericEditPartFactory.INSTANCE.getMindEditPartFor(virtualHost)
-//							instanceof MindComponentEditPart)
-//					&&
-//					!(virtualHost instanceof AdlDefinitionEditPart)
-//					&&
-//					!(MindGenericEditPartFactory.INSTANCE.getMindEditPartFor(virtualHost)
-//							instanceof MindListEditPart)
+					&& 
+					!(MindGenericEditPartFactory.INSTANCE.getMindEditPartFor(virtualHost)
+							instanceof MindComponentEditPart)
+					&&
+					!(virtualHost instanceof AdlDefinitionEditPart)
+					&&
+					!(MindGenericEditPartFactory.INSTANCE.getMindEditPartFor(virtualHost)
+							instanceof MindListEditPart)
 					) 
 			{
 				virtualHost = virtualHost.getParent();
