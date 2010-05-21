@@ -355,13 +355,13 @@ public class FractalGrammarAccess extends AbstractGrammarElementFinder {
 		//CompositeComponentDefinition:
 		//  annotationsList=AnnotationsList? "composite" name=FQN templateSpecifiersList=
 		//  TemplateSpecifiersList? compositeFormalArgumentsList=FormalArgumentsList?
-		//  referencesList=CompositeReferencesList? ("{" body=CompositeBody? "}"|body=
+		//  referencesList=CompositeReferencesList? ("{" body=CompositeBody "}"|body=
 		//  CompositeBody)?;
 		public ParserRule getRule() { return rule; }
 
 		//annotationsList=AnnotationsList? "composite" name=FQN templateSpecifiersList=
 		//TemplateSpecifiersList? compositeFormalArgumentsList=FormalArgumentsList?
-		//referencesList=CompositeReferencesList? ("{" body=CompositeBody? "}"|body=
+		//referencesList=CompositeReferencesList? ("{" body=CompositeBody "}"|body=
 		//CompositeBody)?
 		public Group getGroup() { return cGroup; }
 
@@ -398,16 +398,16 @@ public class FractalGrammarAccess extends AbstractGrammarElementFinder {
 		//CompositeReferencesList
 		public RuleCall getReferencesListCompositeReferencesListParserRuleCall_5_0() { return cReferencesListCompositeReferencesListParserRuleCall_5_0; }
 
-		//("{" body=CompositeBody? "}"|body=CompositeBody)?
+		//("{" body=CompositeBody "}"|body=CompositeBody)?
 		public Alternatives getAlternatives_6() { return cAlternatives_6; }
 
-		//"{" body=CompositeBody? "}"
+		//"{" body=CompositeBody "}"
 		public Group getGroup_6_0() { return cGroup_6_0; }
 
 		//"{"
 		public Keyword getLeftCurlyBracketKeyword_6_0_0() { return cLeftCurlyBracketKeyword_6_0_0; }
 
-		//body=CompositeBody?
+		//body=CompositeBody
 		public Assignment getBodyAssignment_6_0_1() { return cBodyAssignment_6_0_1; }
 
 		//CompositeBody
@@ -2375,7 +2375,7 @@ public class FractalGrammarAccess extends AbstractGrammarElementFinder {
 	//CompositeComponentDefinition:
 	//  annotationsList=AnnotationsList? "composite" name=FQN templateSpecifiersList=
 	//  TemplateSpecifiersList? compositeFormalArgumentsList=FormalArgumentsList?
-	//  referencesList=CompositeReferencesList? ("{" body=CompositeBody? "}"|body=
+	//  referencesList=CompositeReferencesList? ("{" body=CompositeBody "}"|body=
 	//  CompositeBody)?;
 	public CompositeComponentDefinitionElements getCompositeComponentDefinitionAccess() {
 		return (pCompositeComponentDefinition != null) ? pCompositeComponentDefinition : (pCompositeComponentDefinition = new CompositeComponentDefinitionElements());

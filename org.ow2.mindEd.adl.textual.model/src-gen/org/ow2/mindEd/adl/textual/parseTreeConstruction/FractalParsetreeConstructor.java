@@ -1600,14 +1600,14 @@ protected class TypeDefinitionElement_InterfaceDefinitionParserRuleCall extends 
  * CompositeComponentDefinition:
  *   annotationsList=AnnotationsList? "composite" name=FQN templateSpecifiersList=
  *   TemplateSpecifiersList? compositeFormalArgumentsList=FormalArgumentsList?
- *   referencesList=CompositeReferencesList? ("{" body=CompositeBody? "}"|body=
+ *   referencesList=CompositeReferencesList? ("{" body=CompositeBody "}"|body=
  *   CompositeBody)?;
  *
  **/
 
 // annotationsList=AnnotationsList? "composite" name=FQN templateSpecifiersList=
 // TemplateSpecifiersList? compositeFormalArgumentsList=FormalArgumentsList?
-// referencesList=CompositeReferencesList? ("{" body=CompositeBody? "}"|body=
+// referencesList=CompositeReferencesList? ("{" body=CompositeBody "}"|body=
 // CompositeBody)?
 protected class CompositeComponentDefinition_Group extends GroupToken {
 	
@@ -1881,7 +1881,7 @@ protected class CompositeComponentDefinition_ReferencesListAssignment_5 extends 
 	}	
 }
 
-// ("{" body=CompositeBody? "}"|body=CompositeBody)?
+// ("{" body=CompositeBody "}"|body=CompositeBody)?
 protected class CompositeComponentDefinition_Alternatives_6 extends AlternativesToken {
 
 	public CompositeComponentDefinition_Alternatives_6(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
@@ -1904,7 +1904,7 @@ protected class CompositeComponentDefinition_Alternatives_6 extends Alternatives
 		
 }
 
-// "{" body=CompositeBody? "}"
+// "{" body=CompositeBody "}"
 protected class CompositeComponentDefinition_Group_6_0 extends GroupToken {
 	
 	public CompositeComponentDefinition_Group_6_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
@@ -1951,7 +1951,7 @@ protected class CompositeComponentDefinition_LeftCurlyBracketKeyword_6_0_0 exten
 		
 }
 
-// body=CompositeBody?
+// body=CompositeBody
 protected class CompositeComponentDefinition_BodyAssignment_6_0_1 extends AssignmentToken  {
 	
 	public CompositeComponentDefinition_BodyAssignment_6_0_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
@@ -1973,7 +1973,7 @@ protected class CompositeComponentDefinition_BodyAssignment_6_0_1 extends Assign
 		
     @Override	
 	protected IInstanceDescription tryConsumeVal() {
-		if((value = current.getConsumable("body",false)) == null) return null;
+		if((value = current.getConsumable("body",true)) == null) return null;
 		IInstanceDescription obj = current.cloneAndConsume("body");
 		if(value instanceof EObject) { // org::eclipse::xtext::impl::RuleCallImpl
 			IInstanceDescription param = getDescr((EObject)value);

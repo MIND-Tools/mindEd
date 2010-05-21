@@ -2784,7 +2784,7 @@ rule__CompositeComponentDefinition__Group_6_0__1
 :
 (
 { before(grammarAccess.getCompositeComponentDefinitionAccess().getBodyAssignment_6_0_1()); }
-(rule__CompositeComponentDefinition__BodyAssignment_6_0_1)?
+(rule__CompositeComponentDefinition__BodyAssignment_6_0_1)
 { after(grammarAccess.getCompositeComponentDefinitionAccess().getBodyAssignment_6_0_1()); }
 )
 

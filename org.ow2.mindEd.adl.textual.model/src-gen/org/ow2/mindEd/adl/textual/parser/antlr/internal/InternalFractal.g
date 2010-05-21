@@ -972,7 +972,7 @@ ruleCompositeComponentDefinition returns [EObject current=null]
 	    }
 
 )
-)?	'}' 
+)	'}' 
     {
         createLeafNode(grammarAccess.getCompositeComponentDefinitionAccess().getRightCurlyBracketKeyword_6_0_2(), null); 
     }

@@ -59,7 +59,7 @@ CompositeComponentDefinition :
 (templateSpecifiersList=TemplateSpecifiersList)?
 (compositeFormalArgumentsList=FormalArgumentsList)?
 (referencesList=CompositeReferencesList)?
-(('{'(body=CompositeBody)?'}')
+(('{'(body=CompositeBody)'}')
 |
 (body=CompositeBody))?
 ;
