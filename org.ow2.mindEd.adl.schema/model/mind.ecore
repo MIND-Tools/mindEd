@@ -50,14 +50,14 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="argumentName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         defaultValueLiteral="argument_Name"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="AttributeDefinition" eSuperTypes="#//PrimitiveDefinitionElement #//MergedObject">
+  <eClassifiers xsi:type="ecore:EClass" name="AttributeDefinition" eSuperTypes="#//PrimitiveDefinitionElement">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="attributeName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         defaultValueLiteral="attribute_Name"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         defaultValueLiteral=""/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="BindingDefinition" eSuperTypes="#//CompositeDefinitionElement #//MergedObject">
+  <eClassifiers xsi:type="ecore:EClass" name="BindingDefinition" eSuperTypes="#//CompositeDefinitionElement">
     <eStructuralFeatures xsi:type="ecore:EReference" name="interfaceSource" unique="false"
         eType="#//InterfaceDefinition" transient="true" eKeys="#//InterfaceDefinition/name"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="interfaceSourceIndex" unique="false"
@@ -115,13 +115,13 @@
   <eClassifiers xsi:type="ecore:EClass" name="ConstantValue" eSuperTypes="#//ElementValue">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="DataDefinition" eSuperTypes="#//PrimitiveDefinitionElement #//MergedObject">
+  <eClassifiers xsi:type="ecore:EClass" name="DataDefinition" eSuperTypes="#//PrimitiveDefinitionElement">
     <eStructuralFeatures xsi:type="ecore:EReference" name="fileC" eType="#//FileC"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="inlineCcode" eType="#//InlineCodeC"
         containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Element" abstract="true">
+  <eClassifiers xsi:type="ecore:EClass" name="Element" abstract="true" eSuperTypes="#//MergedObject">
     <eStructuralFeatures xsi:type="ecore:EReference" name="parentBody" eType="#//Body"
         transient="true" eOpposite="#//Body/elements"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="annotationsList" eType="#//AnnotationsList"
@@ -150,7 +150,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="formalArguments" upperBound="-1"
         eType="#//FormalArgument" containment="true" eOpposite="#//FormalArgument/parentFormalArgumentsList"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ImplementationDefinition" eSuperTypes="#//PrimitiveDefinitionElement #//MergedObject">
+  <eClassifiers xsi:type="ecore:EClass" name="ImplementationDefinition" eSuperTypes="#//PrimitiveDefinitionElement">
     <eStructuralFeatures xsi:type="ecore:EReference" name="fileC" eType="#//FileC"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="inlineCcode" eType="#//InlineCodeC"
@@ -164,7 +164,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="codeC" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         defaultValueLiteral="{{ }}"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="InterfaceDefinition" eSuperTypes="#//MergedObject #//CompositeDefinitionElement #//PrimitiveDefinitionElement #//TypeDefinitionElement">
+  <eClassifiers xsi:type="ecore:EClass" name="InterfaceDefinition" eSuperTypes="#//CompositeDefinitionElement #//PrimitiveDefinitionElement #//TypeDefinitionElement">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="role" eType="#//Role"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="signature" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         defaultValueLiteral="signature"/>
