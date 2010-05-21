@@ -1,5 +1,6 @@
 package org.ow2.mindEd.adl.custom.impl;
 
+import org.ow2.mindEd.adl.Element;
 import org.ow2.mindEd.adl.impl.SubComponentCompositeBodyImpl;
 
 public class SubComponentCompositeBodyCustomImpl extends
@@ -17,5 +18,27 @@ public class SubComponentCompositeBodyCustomImpl extends
 			anonymous = false;
 		}
 		return anonymous;
+	}
+	
+	@Override
+	public boolean isMerged() {
+		if(hasUnMergedElements())
+		{
+			setMerged(false);
+		}
+		else
+		{
+			setMerged(true);
+		}
+		return super.isMerged();
+	}
+
+	private boolean hasUnMergedElements() {
+		for(Element element : this.getElements())
+		{
+			if(!element.isMerged())
+				return true;
+		}
+		return false;
 	}
 }

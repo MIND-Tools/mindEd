@@ -1,8 +1,6 @@
 package org.ow2.mindEd.adl.custom.impl;
 
-import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
-import org.eclipse.emf.ecore.util.EcoreUtil;
 
 import org.ow2.mindEd.adl.AnnotationsList;
 import org.ow2.mindEd.adl.custom.MindObject;
