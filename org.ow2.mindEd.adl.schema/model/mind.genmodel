@@ -8,8 +8,9 @@
     rootExtendsClass="org.ow2.mindEd.adl.custom.impl.MindObjectImpl" rootImplementsInterface=""
     featureMapWrapperInterface="" featureMapWrapperInternalInterface="" featureMapWrapperClass="adl.MindObject"
     booleanFlagsField="" importerID="org.eclipse.emf.importer.ecore" complianceLevel="6.0"
-    copyrightFields="false" editPluginID="org.ow2.mindEd.adl.edit" editorPluginID="org.ow2.mindEd.adl.editor.tree"
-    language="adl" interfaceNamePattern="" classNamePattern="">
+    copyrightFields="false" publicConstructors="true" editPluginID="org.ow2.mindEd.adl.edit"
+    editorPluginID="org.ow2.mindEd.adl.editor.tree" language="adl" interfaceNamePattern=""
+    classNamePattern="">
   <foreignModel>mind.ecore</foreignModel>
   <genPackages prefix="Adl" basePackage="org.ow2.mindEd" disposableProviderFactory="true"
       loadInitialization="true" generateExampleClass="false" multipleEditorPages="false"
@@ -85,6 +86,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference mind.ecore#//ComponentReference/templatesList"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference mind.ecore#//ComponentReference/argumentsList"/>
       <genFeatures property="None" createChild="false" ecoreFeature="ecore:EAttribute mind.ecore#//ComponentReference/nameFQN"/>
+      <genFeatures property="None" createChild="false" ecoreFeature="ecore:EAttribute mind.ecore#//ComponentReference/resolved"/>
     </genClasses>
     <genClasses ecoreClass="mind.ecore#//ComponentTypeDefinition">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference mind.ecore#//ComponentTypeDefinition/annotationsList"/>
@@ -145,8 +147,8 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mind.ecore#//InterfaceDefinition/collection"/>
     </genClasses>
     <genClasses image="false" ecoreClass="mind.ecore#//MergedObject">
-      <genFeatures property="None" createChild="false" ecoreFeature="ecore:EAttribute mind.ecore#//MergedObject/merged"/>
-      <genFeatures property="None" createChild="false" ecoreFeature="ecore:EAttribute mind.ecore#//MergedObject/override"/>
+      <genFeatures property="Readonly" createChild="false" propertyCategory="" ecoreFeature="ecore:EAttribute mind.ecore#//MergedObject/merged"/>
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute mind.ecore#//MergedObject/override"/>
       <genFeatures property="None" createChild="false" ecoreFeature="ecore:EAttribute mind.ecore#//MergedObject/canOverride"/>
     </genClasses>
     <genClasses ecoreClass="mind.ecore#//PrimitiveBody"/>
