@@ -19,16 +19,16 @@ public class SubComponentCompositeBodyCustomImpl extends
 		}
 		return anonymous;
 	}
-	
+
 	@Override
 	public boolean isMerged() {
-		if(hasUnMergedElements())
+		if(hasUnMergedElements() || this.getElements().isEmpty())
 		{
-			setMerged(false);
+			merged = false;
 		}
 		else
 		{
-			setMerged(true);
+			merged = true;
 		}
 		return super.isMerged();
 	}

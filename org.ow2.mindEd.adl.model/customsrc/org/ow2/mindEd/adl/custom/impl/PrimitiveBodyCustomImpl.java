@@ -4,15 +4,16 @@ import org.ow2.mindEd.adl.Element;
 import org.ow2.mindEd.adl.impl.PrimitiveBodyImpl;
 
 public class PrimitiveBodyCustomImpl extends PrimitiveBodyImpl {
+
 	@Override
 	public boolean isMerged() {
-		if(hasUnMergedElements())
+		if(hasUnMergedElements() || this.getElements().isEmpty())
 		{
-			setMerged(false);
+			merged = false;
 		}
 		else
 		{
-			setMerged(true);
+			merged = true;
 		}
 		return super.isMerged();
 	}
