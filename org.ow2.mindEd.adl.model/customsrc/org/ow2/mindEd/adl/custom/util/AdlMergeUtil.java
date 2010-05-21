@@ -122,6 +122,7 @@ public class AdlMergeUtil extends AbstractMergeTreatment {
 				checkIfCircleReferences(mergedDefinitionCall, definition);
 				mergedDefinition = prepareDefinitionForMerge(definitionToMerge, mergedDefinitionCall, importsList);
 				executeMerge(definitionToMerge, mergedDefinition, currentReferenceTreatment);
+				currentReference.setResolved(true);
 				definitionLoader.unloadDefinition(definitionCall);
 				definitionCall = mergedDefinitionCall;
 				definitionToMerge = mergedDefinition;
