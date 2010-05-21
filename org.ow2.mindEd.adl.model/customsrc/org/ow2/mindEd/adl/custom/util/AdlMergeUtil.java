@@ -463,7 +463,7 @@ public class AdlMergeUtil extends AbstractMergeTreatment {
 			if(mergedObject.getBody()==null)
 			{
 				mergedObject.setBody((Body) adlFactory.create(objectToMerge.getBody().eClass()));
-				mergedObject.getBody().setMerged(false);
+				mergedObject.getBody().setMerged(true);
 			}
 			checkReference(objectToMerge.getBody(), mergedObject.getBody(), currentReferenceTreatment);
 		}
