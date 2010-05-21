@@ -24,12 +24,8 @@ public class AdlDefinitionAdapter extends AbstractReferencesTreatment {
 	
 	@Override
 	public void notifyChanged(Notification notification) {
-		if(notification.getNotifier() instanceof AdlDefinition || notification.getNotifier() instanceof ComponentReference)
-		{
-			EObject root = EcoreUtil.getRootContainer((EObject) notification.getNotifier());
-			if(root!=null)calculateReferencesToResolve((AdlDefinition) root);
-		} 
-		super.notifyChanged(notification);
+		EObject root = EcoreUtil.getRootContainer((EObject) notification.getNotifier());
+		if(root!=null && root instanceof AdlDefinition)calculateReferencesToResolve((AdlDefinition) root);
 	}
 
 	private void calculateReferencesToResolve(AdlDefinition definition)
