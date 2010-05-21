@@ -21,6 +21,7 @@ import org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.policies.ParentCreationE
 import org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.policies.NoDragDropEditPolicy;
 import org.ow2.mindEd.adl.editor.graphic.ui.custom.figures.AbstractComponentShape;
 import org.ow2.mindEd.adl.editor.graphic.ui.custom.figures.IFractalShape;
+import org.ow2.mindEd.adl.editor.graphic.ui.custom.helpers.ComponentHelper;
 import org.ow2.mindEd.adl.editor.graphic.ui.custom.layouts.ComponentLayout;
 import org.ow2.mindEd.adl.editor.graphic.ui.custom.layouts.InterfaceBorderItemLocator;
 import org.ow2.mindEd.adl.editor.graphic.ui.custom.providers.NoDragTracker;
@@ -113,6 +114,10 @@ public class MindBodyEditPart extends MindEditPart {
 		} else {
 			return null;
 		}
+	}
+	
+	public void activate() {
+		// Don't use merge features for body
 	}
 	
 	

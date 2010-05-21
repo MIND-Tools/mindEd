@@ -139,12 +139,12 @@ public class ComponentHelper implements IFractalShape {
 		}
 		
 		// Do it for children too
-		List<GraphicalEditPart> children = element.getChildren();
-		for (GraphicalEditPart child : children) {
-			if (isMerged(child)) {
-				handleMergedElement(child);
-			}
-		}
+//		List<GraphicalEditPart> children = element.getChildren();
+//		for (GraphicalEditPart child : children) {
+//			if (isMerged(child)) {
+//				handleMergedElement(child);
+//			}
+//		}
 	}
 	
 	@SuppressWarnings("unchecked")
