@@ -1,16 +1,12 @@
 package org.ow2.mindEd.adl.editor.graphic.ui.custom.part;
 
-import java.util.List;
-
 import org.eclipse.draw2d.DelegatingLayout;
 import org.eclipse.draw2d.FreeformLayer;
 import org.eclipse.draw2d.Layer;
 import org.eclipse.draw2d.LayeredPane;
-import org.eclipse.draw2d.graph.Path;
 import org.eclipse.emf.common.ui.URIEditorInput;
 import org.eclipse.gef.EditPart;
 import org.eclipse.gef.LayerConstants;
-import org.eclipse.gef.palette.PaletteEntry;
 import org.eclipse.gef.palette.PaletteRoot;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.DiagramRootEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.resources.editor.document.IDocumentProvider;
@@ -21,9 +17,7 @@ import org.eclipse.ui.views.contentoutline.IContentOutlinePage;
 
 import org.ow2.mindEd.adl.editor.graphic.ui.custom.layouts.CustomConnectionLayerEx;
 import org.ow2.mindEd.adl.editor.graphic.ui.custom.providers.MindCustomDocumentProvider;
-import org.ow2.mindEd.adl.editor.graphic.ui.custom.tools.MindCustomPaletteFactory;
 import org.ow2.mindEd.adl.editor.graphic.ui.part.MindDiagramEditor;
-import org.ow2.mindEd.adl.editor.graphic.ui.part.MindPaletteFactory;
 import org.ow2.mindEd.ide.core.ModelToProjectUtil;
 
 public class CustomMindDiagramEditor extends MindDiagramEditor {

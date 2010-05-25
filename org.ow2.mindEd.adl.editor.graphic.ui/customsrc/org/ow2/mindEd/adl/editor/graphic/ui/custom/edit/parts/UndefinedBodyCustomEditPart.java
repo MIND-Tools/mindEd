@@ -13,7 +13,12 @@ public class UndefinedBodyCustomEditPart extends UndefinedBodyEditPart {
 		super(view);
 	}
 	
-
+	@Override
+	public void setLayoutConstraint(EditPart child, IFigure childFigure,
+			Object constraint) {
+		if ((genericEditPart.setLayoutConstraint(child,childFigure,constraint)) == false)
+		super.setLayoutConstraint(child, childFigure, constraint);
+	}
 	
 	protected boolean removeFixedChild(EditPart childEditPart) {
 		if (genericEditPart.removeFixedChild(childEditPart)) return true;

@@ -30,6 +30,7 @@ import org.eclipse.gmf.runtime.diagram.ui.resources.editor.document.IDiagramDocu
 import org.eclipse.gmf.runtime.diagram.ui.resources.editor.document.IDocument;
 import org.eclipse.gmf.runtime.diagram.ui.resources.editor.internal.EditorStatusCodes;
 import org.eclipse.gmf.runtime.emf.commands.core.command.AbstractTransactionalCommand;
+import org.eclipse.gmf.runtime.emf.core.resources.GMFResource;
 import org.eclipse.gmf.runtime.notation.Diagram;
 import org.eclipse.gmf.runtime.notation.impl.DiagramImpl;
 import org.eclipse.osgi.util.NLS;
@@ -45,13 +46,12 @@ import org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.parts.generic.MindEditPa
 import org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.parts.generic.MindGenericEditPartFactory;
 import org.ow2.mindEd.adl.editor.graphic.ui.custom.part.CustomValidateAction;
 import org.ow2.mindEd.adl.editor.graphic.ui.custom.part.SaveUtil;
+import org.eclipse.xtext.linking.lazy.LazyLinkingResource;
 
 import org.ow2.mindEd.adl.editor.graphic.ui.part.Messages;
-import org.ow2.mindEd.adl.editor.graphic.ui.part.MindDiagramEditor;
 import org.ow2.mindEd.adl.editor.graphic.ui.part.MindDiagramEditorPlugin;
 import org.ow2.mindEd.adl.editor.graphic.ui.part.MindDiagramEditorUtil;
 import org.ow2.mindEd.adl.editor.graphic.ui.part.MindDiagramUpdateCommand;
-import org.ow2.mindEd.adl.editor.graphic.ui.part.MindDiagramUpdater;
 import org.ow2.mindEd.adl.editor.graphic.ui.part.MindDocumentProvider;
 
 /**
@@ -118,6 +118,42 @@ public class MindCustomDocumentProvider extends MindDocumentProvider {
 						Messages.MindDocumentProvider_SaveDiagramTask, info
 								.getResourceSet().getResources().size() + 1); //"Saving diagram"
 				
+				
+				LazyLinkingResource xtextResource = null;
+				GMFResource gmfResource = null;
+				
+				for (Iterator/*<org.eclipse.emf.ecore.resource.Resource>*/<?>it = info
+						.getLoadedResourcesIterator(); it.hasNext();) {
+					Resource nextResource = (Resource) it.next();
+					monitor.setTaskName(NLS.bind(
+							Messages.MindDocumentProvider_SaveNextResourceTask,
+							nextResource.getURI()));
+					if (nextResource.isLoaded()
+							&& !info.getEditingDomain()
+									.isReadOnly(nextResource)) {
+						if (nextResource instanceof LazyLinkingResource) {
+							// Serialize later
+							xtextResource = (LazyLinkingResource) nextResource;
+						}
+						else {
+							// Save GMF
+							try {
+								if (nextResource instanceof GMFResource)
+									gmfResource = (GMFResource) nextResource;
+ 								nextResource.save(MindDiagramEditorUtil
+										.getSaveOptions());
+							} catch (IOException e) {
+								fireElementStateChangeFailed(element);
+								throw new CoreException(new Status(IStatus.ERROR,
+										MindDiagramEditorPlugin.ID,
+										EditorStatusCodes.RESOURCE_FAILURE, e
+												.getLocalizedMessage(), null));
+							}
+						}
+					}
+					monitor.worked(1);
+				}
+				
 				// Delete merged elements from the model before saving
 				if (root instanceof AdlDefinitionCustomImpl) {
 					try {
@@ -133,27 +169,17 @@ public class MindCustomDocumentProvider extends MindDocumentProvider {
 					finally{}
 				}
 				
-				for (Iterator/*<org.eclipse.emf.ecore.resource.Resource>*/<?>it = info
-						.getLoadedResourcesIterator(); it.hasNext();) {
-					Resource nextResource = (Resource) it.next();
-					monitor.setTaskName(NLS.bind(
-							Messages.MindDocumentProvider_SaveNextResourceTask,
-							nextResource.getURI()));
-					if (nextResource.isLoaded()
-							&& !info.getEditingDomain()
-									.isReadOnly(nextResource)) {
-						try {
-							nextResource.save(MindDiagramEditorUtil
-									.getSaveOptions());
-						} catch (IOException e) {
-							fireElementStateChangeFailed(element);
-							throw new CoreException(new Status(IStatus.ERROR,
-									MindDiagramEditorPlugin.ID,
-									EditorStatusCodes.RESOURCE_FAILURE, e
-											.getLocalizedMessage(), null));
-						}
-					}
-					monitor.worked(1);
+				// Merged items are deleted, they will not to be serialized
+				// We can save xtext resource
+				try {
+						xtextResource.save(MindDiagramEditorUtil
+							.getSaveOptions());
+				} catch (IOException e) {
+					fireElementStateChangeFailed(element);
+					throw new CoreException(new Status(IStatus.ERROR,
+							MindDiagramEditorPlugin.ID,
+							EditorStatusCodes.RESOURCE_FAILURE, e
+									.getLocalizedMessage(), null));
 				}
 				
 				// Restore merged elements
@@ -185,6 +211,10 @@ public class MindCustomDocumentProvider extends MindDocumentProvider {
 					SaveUtil.restoreBounds(mindRoot.getRealEditPart(), boundsMemory);
 					boundsMemory.clear();
 				}
+				
+				// DocumentProvider thinks resource is modified because of restoreMainDefinition
+				// Set value to false
+				gmfResource.setModified(false);
 					
 				monitor.done();
 				info.setModificationStamp(computeModificationStamp(info));
@@ -263,9 +293,9 @@ public class MindCustomDocumentProvider extends MindDocumentProvider {
 	
 	private long computeModificationStamp(ResourceSetInfo info) {
 		int result = 0;
-		for (Iterator/*<org.eclipse.emf.ecore.resource.Resource>*/<?>it = info
-				.getLoadedResourcesIterator(); it.hasNext();) {
-			Resource nextResource = (Resource) it.next();
+		for (Iterator<Resource> it = info.getLoadedResourcesIterator(); it
+				.hasNext();) {
+			Resource nextResource = it.next();
 			IFile file = WorkspaceSynchronizer.getFile(nextResource);
 			if (file != null) {
 				if (file.getLocation() != null) {
@@ -284,8 +314,9 @@ public class MindCustomDocumentProvider extends MindDocumentProvider {
 	}
 
 	protected void prepareMainDefinitionBeforeSave(AdlDefinitionCustomImpl root) {
-		if (root != null)
-			((AdlDefinitionHelper)root.getHelper()).cleanMainDefinition();
+		if (root == null)
+			return;
+		((AdlDefinitionHelper)root.getHelper()).cleanMainDefinition();
 	}
 	
 }

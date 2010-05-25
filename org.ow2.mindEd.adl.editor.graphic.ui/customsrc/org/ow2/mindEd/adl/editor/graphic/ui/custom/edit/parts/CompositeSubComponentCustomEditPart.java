@@ -35,13 +35,6 @@ public class CompositeSubComponentCustomEditPart extends
 		return super.removeFixedChild(childEditPart);
 	}
 	
-
-	@Override
-	protected void addChild(EditPart child, int index) {
-		super.addChild(child, index);
-		refresh();
-	}
-	
 	
 	
 }

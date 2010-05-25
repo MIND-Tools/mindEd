@@ -43,6 +43,23 @@ public class SaveUtil {
 			{
 				EObject model = ((View)rootEditPart.getModel()).getElement();
 				boundsMemory.put(((MindObject)model).getID(), ((GraphicalEditPart)rootEditPart).getFigure().getBounds());
+				
+				// Indexes may change because of refreshMerge
+				// Store ID without indexes
+				String ID = ((MindObject) model).getID();
+				boolean loop = true;
+				while (loop){
+					int start = ID.indexOf("[");
+					int end = ID.indexOf("]") + 1;
+					if (start > 0) {
+						ID = ID.replace(ID.subSequence(start, end), "");
+					}
+					else {
+						loop = false;
+					}
+				}
+				boundsMemory.put(ID, ((GraphicalEditPart)rootEditPart).getFigure().getBounds());
+				
 			}
 			else if (mep instanceof MindInterfaceEditPart)
 			{
@@ -85,6 +102,24 @@ public class SaveUtil {
 			{
 				EObject model = ((View)rootEditPart.getModel()).getElement();
 				Rectangle bounds = boundsMemory.get(((MindObject) model).getID());
+				
+				if (bounds == null) {
+					// Indexes have changed because of refreshMerge
+					// Try to find old ID
+					String ID = ((MindObject) model).getID();
+					boolean loop = true;
+					while (loop){
+						int start = ID.indexOf("[");
+						int end = ID.indexOf("]") + 1;
+						if (start > 0) {
+							ID = ID.replace(ID.subSequence(start, end), "");
+						}
+						else {
+							loop = false;
+						}
+					}
+					bounds = boundsMemory.get(ID);
+				}
 				
 				if (bounds != null)
 				{

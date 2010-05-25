@@ -1,12 +1,8 @@
 package org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.parts;
 
-import org.eclipse.draw2d.IFigure;
-import org.eclipse.draw2d.LayoutAnimator;
 import org.eclipse.draw2d.LayoutManager;
 import org.eclipse.gef.DragTracker;
 import org.eclipse.gef.Request;
-import org.eclipse.gmf.runtime.diagram.ui.figures.ResizableCompartmentFigure;
-import org.eclipse.gmf.runtime.diagram.ui.figures.ShapeCompartmentFigure;
 import org.eclipse.gmf.runtime.notation.View;
 
 import org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.parts.generic.MindEditPart;

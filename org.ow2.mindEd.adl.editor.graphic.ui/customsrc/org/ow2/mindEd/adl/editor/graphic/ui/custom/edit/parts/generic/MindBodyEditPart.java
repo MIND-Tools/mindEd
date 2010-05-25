@@ -87,6 +87,7 @@ public class MindBodyEditPart extends MindEditPart {
 			if (parentBorderedEditPart == null) return false;
 			InterfaceBorderItemLocator locator = new InterfaceBorderItemLocator(
 					parentBorderedEditPart.getMainFigure()); 
+//			IFigure container = parentBorderedEditPart.getBorderedFigure().getBorderItemContainer();
 			parentBorderedEditPart.getBorderedFigure().getBorderItemContainer().add(
 					((InterfaceDefinitionEditPart) childEditPart).getFigure(), locator);
 			return true;
