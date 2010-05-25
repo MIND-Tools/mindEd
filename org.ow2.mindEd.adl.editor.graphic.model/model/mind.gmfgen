@@ -1276,6 +1276,7 @@
         visualID="3157"
         editPartClassName="PrimitiveSubReferenceEditPart"
         itemSemanticEditPolicyClassName="PrimitiveSubReferenceItemSemanticEditPolicy"
+        notationViewFactoryClassName="CompositeReferenceDefinitionViewFactory"
         canonicalEditPolicyClassName="PrimitiveSubReferenceCanonicalEditPolicy"
         childNodes="//@diagram/@childNodes.7"
         graphicalNodeEditPolicyClassName="PrimitiveSubReferenceGraphicalNodeEditPolicy"
@@ -1304,6 +1305,7 @@
           visualID="5136"
           editPartClassName="PrimitiveSubReferenceNameEditPart"
           itemSemanticEditPolicyClassName="PrimitiveSubReferenceNameItemSemanticEditPolicy"
+          notationViewFactoryClassName="CompositeReferenceDefinitionReferenceNameViewFactory"
           elementIcon="true">
         <diagramRunTimeClass
             href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
