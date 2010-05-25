@@ -33,12 +33,9 @@ public class BorderItemDragTracker extends DragEditPartsTrackerEx {
 				try {
 					InterfaceBorderItemLocator locator = (InterfaceBorderItemLocator) editPart.getBorderItemLocator();
 					int newSide = locator.getSide(getLocation(), editPart.getPrimaryShape());
-					int currentSide = locator.getCurrentSideOfParent();
-					if (newSide != currentSide) {
-						setInterfaceRole(editPart, newSide);
-						locator.setCurrentSideOfParent(newSide);
-						locator.setPreferredSideOfParent(newSide);
-					}
+					setInterfaceRole(editPart, newSide);
+					locator.setCurrentSideOfParent(newSide);
+					locator.setPreferredSideOfParent(newSide);
 				} catch (Exception e) {
 					MindDiagramEditorPlugin.getInstance().logError("Unable to change interface's role", e);
 				}
