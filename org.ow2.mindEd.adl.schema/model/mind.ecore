@@ -96,6 +96,10 @@
         transient="true" defaultValueLiteral="" derived="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="resolved" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
         transient="true" defaultValueLiteral="false"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="parentReferencesList" eType="#//ReferencesList"
+        transient="true" eOpposite="#//ReferencesList/references"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="parentSubComponent" eType="#//SubComponentDefinition"
+        transient="true" eOpposite="#//SubComponentDefinition/referenceDefinition"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ComponentTypeDefinition" eSuperTypes="#//ArchitectureDefinition">
     <eStructuralFeatures xsi:type="ecore:EReference" name="annotationsList" eType="#//AnnotationsList"
@@ -199,14 +203,14 @@
   <eClassifiers xsi:type="ecore:EClass" name="PrimitiveReferencesList" eSuperTypes="#//ReferencesList"/>
   <eClassifiers xsi:type="ecore:EClass" name="ReferencesList">
     <eStructuralFeatures xsi:type="ecore:EReference" name="references" upperBound="-1"
-        eType="#//ComponentReference" containment="true"/>
+        eType="#//ComponentReference" containment="true" eOpposite="#//ComponentReference/parentReferencesList"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="parentComponentDefinition"
         eType="#//ArchitectureDefinition" transient="true" eOpposite="#//ArchitectureDefinition/referencesList"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="SubComponentCompositeBody" eSuperTypes="#//CompositeBody"/>
   <eClassifiers xsi:type="ecore:EClass" name="SubComponentDefinition" eSuperTypes="#//CompositeDefinitionElement #//ArchitectureDefinition">
     <eStructuralFeatures xsi:type="ecore:EReference" name="referenceDefinition" eType="#//ComponentReference"
-        unsettable="true" containment="true"/>
+        unsettable="true" containment="true" eOpposite="#//ComponentReference/parentSubComponent"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="SubComponentPrimitiveBody" eSuperTypes="#//PrimitiveBody"/>
   <eClassifiers xsi:type="ecore:EClass" name="TemplateDefinition" eSuperTypes="#//TemplateSpecifier #//MergedObject">

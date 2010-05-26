@@ -70,12 +70,12 @@ public class AdlMergeUtil extends AbstractMergeTreatment {
 	 * @author proustr
 	 */
 	public void merge(ArchitectureDefinition definition, EList<ComponentReference> refList, boolean useBuffer) {
-		//merging=false;
 		if (!merging) {
 			try {
-				mergedDefinitionsHistory.clear();
 				merging = true;
+				mergedDefinitionsHistory.clear();
 				buffer.createBuffer(definition);
+				cleanMerge(buffer.getDefinition());
 				fullMerge(buffer.getDefinition(), refList);
 				resolveReferences();
 				buffer.updateDefinitionFromBuffer(definition);

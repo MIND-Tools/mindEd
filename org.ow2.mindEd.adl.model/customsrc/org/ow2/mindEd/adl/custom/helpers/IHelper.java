@@ -77,4 +77,5 @@ public interface IHelper<T extends EObject> extends IHelperComments{
 	
 	String calculateID();
 	
+	String getIndex();
 }

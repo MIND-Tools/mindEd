@@ -37,7 +37,6 @@ import org.ow2.mindEd.adl.AdlPackage;
 import org.ow2.mindEd.adl.ArchitectureDefinition;
 import org.ow2.mindEd.adl.ComponentKind;
 import org.ow2.mindEd.adl.InterfaceDefinition;
-import org.ow2.mindEd.adl.MergedObject;
 import org.ow2.mindEd.adl.custom.MindObject;
 import org.ow2.mindEd.adl.custom.impl.AdlDefinitionCustomImpl;
 
@@ -198,20 +197,21 @@ implements IHelper<T>{
 	
 	public String calculateID() {
 		EObject root = EcoreUtil.getRootContainer(getObject());
-		String result = getObject().eClass().getName() + getIndex() + '.' + getAttributeName();
+		String result = '(' + getObject().eClass().getName() + ')' + getIndex() + '.' + getAttributeName();
 		MindObject current = (MindObject) getObject().eContainer();
 		while(current!=root && current!=null)
 		{
 			if(current.getHelper()!=null)
 			{
-				String tmpName = current.getHelper().getAttributeName();
+				IHelper<?> helper = current.getHelper();
+				String tmpName = helper.getAttributeName();
 				if(tmpName!=null)
 				{
-					result= current.eClass().getName() + tmpName + '.' + result;
+					result= '(' + current.eClass().getName() + ')' + helper.getIndex() + tmpName  + '.' + result;
 				}
 				else
 				{
-					result= current.eClass().getName() + getIndex() + "." + result;
+					result= '(' + current.eClass().getName() + ')' + helper.getIndex() + "." + result;
 				}
 			}
 			current=(MindObject) current.eContainer();
@@ -220,7 +220,7 @@ implements IHelper<T>{
 	}
 
 	@SuppressWarnings("unchecked")
-	private String getIndex() {
+	public String getIndex() {
 		EObject current = getObject();
 		EObject parent = current.eContainer();
 		if (parent != null)
@@ -229,20 +229,10 @@ implements IHelper<T>{
 			if (feature != null)
 			{			
 				Object content = parent.eGet(feature);
-				if(current instanceof MergedObject)
-					if(content instanceof EList<?>)
+				if(content instanceof EList<?>)
 				{
 					EList<EObject> list = (EList<EObject>) current.eContainer().eGet(current.eContainingFeature());
-					int counter=0;
-					for(EObject object : list)
-					{
-						if(object.eClass()==current.eClass() && object!=current)
-						{
-							counter++;
-						}
-						else					
-							return "[" + counter + "]";
-					}
+						return "[" + list.indexOf(getObject()) + "]";
 				}
 			}
 		}

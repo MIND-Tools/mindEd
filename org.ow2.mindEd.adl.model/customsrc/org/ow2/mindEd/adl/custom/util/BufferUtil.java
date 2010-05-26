@@ -1,12 +1,12 @@
 package org.ow2.mindEd.adl.custom.util;
 
-import java.util.HashMap;
 import java.util.Iterator;
 
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EReference;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 
 import org.ow2.mindEd.adl.AdlDefinition;
 import org.ow2.mindEd.adl.AdlFactory;
@@ -37,10 +37,7 @@ public class BufferUtil extends AbstractMergeTreatment {
 	 * 
 	 */
 	
-	private HashMap<EObject, EObject> eBufferHistoryMapping = new HashMap<EObject, EObject>();
-
 	private BufferUtil() {
-		eBufferHistoryMapping.clear();
 		referencesToResolve.clear();
 		eObjectsMergeHistoryMapping.clear();
 	}
@@ -57,12 +54,10 @@ public class BufferUtil extends AbstractMergeTreatment {
 	 */
 	public void createBuffer(ArchitectureDefinition definition) {
 		if (buffer != null) buffer = null;
-		eBufferHistoryMapping.clear();
 		referencesToResolve.clear();
 		AdlDefinition adlDefinition = (AdlDefinition) copyObject(definition.eContainer());
 		buffer = adlDefinition.getArchitecturedefinition();
 		resolveReferences();
-		cleanMerge(buffer);
 	}
 	
 
@@ -188,7 +183,21 @@ public class BufferUtil extends AbstractMergeTreatment {
 		updateImports(buffer, definition);
 		resolveReferences();
 	}
-
+	
+	/**
+	 * <b>Method</b> <i>restoreDefinitionFromBuffer</i>
+	 * <p>
+	 * This method copy current buffer definition to target definition
+	 * 
+	 * @param definition
+	 *            : target definition that will be replaced with buffer one.
+	 * 
+	 * @author proustr
+	 */
+	public void restoreDefinitionFromBuffer(ArchitectureDefinition definition) {
+		EcoreUtil.replace(definition, buffer);
+	}
+	
 	/**
 	 * <b>Method</b> <i>updateReference</i>
 	 * <p>

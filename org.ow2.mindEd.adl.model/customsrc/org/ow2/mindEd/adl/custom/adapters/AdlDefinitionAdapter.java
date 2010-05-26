@@ -25,7 +25,10 @@ public class AdlDefinitionAdapter extends AbstractReferencesTreatment {
 	@Override
 	public void notifyChanged(Notification notification) {
 		EObject root = EcoreUtil.getRootContainer((EObject) notification.getNotifier());
-		if(root!=null && root instanceof AdlDefinition)calculateReferencesToResolve((AdlDefinition) root);
+		if(root!=null && root instanceof AdlDefinition && notification.getEventType()!=Notification.REMOVING_ADAPTER)
+		{
+			calculateReferencesToResolve((AdlDefinition) root);
+		}
 	}
 
 	private void calculateReferencesToResolve(AdlDefinition definition)
@@ -50,7 +53,7 @@ public class AdlDefinitionAdapter extends AbstractReferencesTreatment {
 		if(notResolved || !currentReferences.containsAll(mergedReferenceList) || !mergedReferenceList.containsAll(currentReferences))
 		{
 			AdlDefinitionHelper helper = (AdlDefinitionHelper) definition.getHelper();
-			helper.restoreMainDefinition();
+			helper.getMainDefinitionHelper().refreshMerge();
 		}
 	}
 	
