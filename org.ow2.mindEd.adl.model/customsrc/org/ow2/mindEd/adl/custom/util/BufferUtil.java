@@ -296,17 +296,17 @@ public class BufferUtil extends AbstractMergeTreatment {
 		}
 
 		for (EReference reference : sourceObject.eClass().getEAllContainments()) {
-			if (targetObject.eGet(reference) == null || !targetObject.eIsSet(reference)) {
+			if(sourceObject.eGet(reference) == null)
+			{
+				targetObject.eSet(reference, null);
+			}
+			else if (targetObject.eGet(reference) == null || !targetObject.eIsSet(reference) || !isSameEClass(sourceObject.eGet(reference),targetObject.eGet(reference))) {
 				if (sourceObject.eIsSet(reference)) {
 					if (!(sourceObject.eGet(reference) instanceof EList<?>) && sourceObject.eGet(reference)!=null) {
 						EObject newObject = createEObject(((EObject) sourceObject.eGet(reference)).eClass());
 						targetObject.eSet(reference, newObject);
 					}
 				}
-			}
-			else if(sourceObject.eGet(reference) == null)
-			{
-				targetObject.eSet(reference, null);
 			}
 			updateReference(sourceObject.eGet(reference), targetObject.eGet(reference));
 		}
