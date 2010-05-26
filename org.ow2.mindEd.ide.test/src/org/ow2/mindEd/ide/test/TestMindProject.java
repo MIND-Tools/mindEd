@@ -689,6 +689,38 @@ public class TestMindProject {
 		p2 = UtilMindIde.find(mindRootSrc.getPackages(), "p2");
 		assertNull(p2);
 
+		
+		// delete default package 
+		
+		mp2.getProject().getFile("src/z.adl").create(
+				new ByteArrayInputStream("primitive z".getBytes()), true,
+				new NullProgressMonitor());
+		mp2.getProject().getFile("src/u.adl").create(
+				new ByteArrayInputStream("primitive u".getBytes()), true,
+				new NullProgressMonitor());
+		mp2.getProject().getFolder("src/p2").create(false, true,
+				new NullProgressMonitor());
+		mp2.getProject().getFile("src/p2/t.adl").create(
+				new ByteArrayInputStream("primitive p2.t".getBytes()), true,
+				new NullProgressMonitor());
+		mp2.getProject().getFile("src/p2/z.adl").create(
+				new ByteArrayInputStream("primitive p2.z".getBytes()), true,
+				new NullProgressMonitor());
+		assertEquals(3, mindRootSrc.getPackages().size());
+		
+		MindAdl adlZ = mp2.resolveAdl("z", "", null);
+		assertNotNull(adlZ);
+		
+		MindPackage defaultPackage = adlZ.getPackage();
+		defaultPackage.getRootsrc().getPackages().remove(defaultPackage);
+		waitJob(DEFAULT_TIME_OUT_WAIT_JOB, 10, "failremove",
+				FamilyJobCST.FAMILY_ALL);
+		
+		assertTrue(!mp2.getProject().getFile("src/z.adl").exists());
+		assertTrue(!mp2.getProject().getFile("src/u.adl").exists());
+		
+		assertEquals(2, mindRootSrc.getPackages().size());
+		
 	}
 
 	@Test
@@ -1252,6 +1284,7 @@ public class TestMindProject {
 		mp1.getMindpathentries().remove(p1_src2);
 		waitJob(DEFAULT_TIME_OUT_WAIT_JOB, 10, "fail createCSource",
 				FamilyJobCST.FAMILY_REMOVE_CSOURCE_FOLDER);
+		sleep(60);
 		assertNotCSource(src2);
 		assertTrue(!mp1.getMindpathentries().contains(p1_src2));
 		assertTrue(src2.exists());

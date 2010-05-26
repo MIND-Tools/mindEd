@@ -821,17 +821,29 @@ public class MindModelImpl implements MindModel {
 		List<MindPackage> list = _packages.get(mindPackage.getName());
 		if (list != null)
 			list.remove(mindPackage);
+		if (isDefaultPackage(rs, mindPackage)) {
+			for (MindFile f : mindPackage.getFiles()) {
+				deleteAdlObject(f);
+			}
+		} 
+		
 		mindPackage.getFiles().clear();
 		mindPackage.getResolvedMindPathEntries().clear();
 
 		IFolder mapping_package = MindIdeCore.getResource(mindPackage);
-		if (mapping_package.exists() && !isDefaultPackage(rs, mindPackage))
-			try {
-				mapping_package.delete(true, null);
-			} catch (CoreException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+		if (mapping_package.exists()) {
+			if (isDefaultPackage(rs, mindPackage)) {
+				// nothing
+			} else {
+				try {
+					mapping_package.delete(true, null);
+				} catch (CoreException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 			}
+		}
+			
 			
 		// allready removed
 		if (mindPackage.getRootsrc() == null)

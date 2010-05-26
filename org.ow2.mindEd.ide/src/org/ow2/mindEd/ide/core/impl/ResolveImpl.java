@@ -161,15 +161,16 @@ public class ResolveImpl {
 		ArrayList<String> importsEtoile = new ArrayList<String>();
 		Map<String, EList<MindPackage>> map = findPackagesInMindPath(mindProject);
 		
-		for (String i : imports) {
-			String pn = getPackageName(i);
-			String n = getlastclassName(i);
-			if (!"*".equals(n)) {
-				typeToPackage.put(n, pn);
-			} else {
-				importsEtoile.add(pn);
+		if (imports != null)
+			for (String i : imports) {
+				String pn = getPackageName(i);
+				String n = getlastclassName(i);
+				if (!"*".equals(n)) {
+					typeToPackage.put(n, pn);
+				} else {
+					importsEtoile.add(pn);
+				}
 			}
-		}
 		
 			
 		String resolvedPackage = null;
