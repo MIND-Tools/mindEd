@@ -2,20 +2,14 @@ package org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.parts;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.gmf.runtime.notation.View;
-import org.ow2.mindEd.adl.editor.graphic.ui.edit.parts.CompositeReferenceEditPart;
+import org.ow2.mindEd.adl.editor.graphic.ui.edit.parts.UndefinedSubReferenceEditPart;
 
-/**
- * This is a reference contained in a CompositeReferencesList
- * @author maroto
- *
- */
-public class CompositeReferenceCustomEditPart extends
-		CompositeReferenceEditPart {
+public class UndefinedSubReferenceCustomEditPart extends
+		UndefinedSubReferenceEditPart {
 
-	public CompositeReferenceCustomEditPart(View view) {
+	public UndefinedSubReferenceCustomEditPart(View view) {
 		super(view);
 	}
-	
 	
 	@Override
 	protected void handleNotificationEvent(Notification notification) {
