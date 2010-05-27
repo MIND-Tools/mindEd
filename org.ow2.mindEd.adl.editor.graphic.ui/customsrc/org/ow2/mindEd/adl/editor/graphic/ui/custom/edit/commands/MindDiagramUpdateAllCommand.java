@@ -21,7 +21,9 @@ import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.ui.PlatformUI;
 
 
+import org.ow2.mindEd.adl.AdlDefinition;
 import org.ow2.mindEd.adl.custom.helpers.AdlDefinitionHelper;
+import org.ow2.mindEd.adl.custom.helpers.ArchitectureDefinitionHelper;
 import org.ow2.mindEd.adl.custom.impl.AdlDefinitionCustomImpl;
 import org.ow2.mindEd.adl.editor.graphic.ui.custom.part.SaveUtil;
 import org.ow2.mindEd.adl.editor.graphic.ui.custom.preferences.CustomGeneralPreferencePage;
@@ -72,10 +74,6 @@ public class MindDiagramUpdateAllCommand extends MindDiagramUpdateCommand {
 					if (rootEditPart == null) return null;
 				}
 				
-				// Save the bounds, save the world
-				HashMap<String,Rectangle> boundsMemory = new HashMap<String,Rectangle>();
-				SaveUtil.saveBounds(rootEditPart, boundsMemory);			
-				
 				// Transaction to refresh the merge
 				TransactionalEditingDomain domain = ((AdlDefinitionEditPart)rootEditPart).getEditingDomain();
 				TransactionImpl transaction = new TransactionImpl(domain, false);
@@ -93,12 +91,6 @@ public class MindDiagramUpdateAllCommand extends MindDiagramUpdateCommand {
 					transaction.rollback();
 				}
 				finally{}
-				
-				// Restore the bounds
-				// (refreshing the merge deletes and recreates elements
-				// so we need to restore positions)
-				SaveUtil.restoreBounds(rootEditPart, boundsMemory);
-				boundsMemory.clear();
 				
 				try {
 					// Just refresh and then keep the same value for this update
@@ -198,10 +190,12 @@ public class MindDiagramUpdateAllCommand extends MindDiagramUpdateCommand {
 	public void refreshMerge(AdlDefinitionCustomImpl root) {
 		if (root != null)
 		{
-			// Delete all merged elements
-			((AdlDefinitionHelper)root.getHelper()).cleanMainDefinition();
-			// Redo the merge
-			((AdlDefinitionHelper)root.getHelper()).restoreMainDefinition();
+			// Refresh all merged elements
+			if ((AdlDefinitionHelper)root.getHelper() == null)
+				return;
+			ArchitectureDefinitionHelper helper = ((AdlDefinitionHelper)root.getHelper()).getMainDefinitionHelper();
+			if (helper != null)
+				helper.refreshMerge();
 		}
 	}
 	/**

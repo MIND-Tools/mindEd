@@ -35,46 +35,26 @@ public class SaveUtil {
 	 */
 	@SuppressWarnings("unchecked")
 	public static void saveBounds(EditPart rootEditPart, HashMap<String,Rectangle> boundsMemory) {
-		// Only save merged elements, it is not needed for other elements
-		if (ComponentHelper.isMerged((GraphicalEditPart) rootEditPart))
+		
+		MindEditPart mep = MindGenericEditPartFactory.INSTANCE.getMindEditPartFor(rootEditPart);
+		if (mep	instanceof MindComponentEditPart)
 		{
-			MindEditPart mep = MindGenericEditPartFactory.INSTANCE.getMindEditPartFor(rootEditPart);
-			if (mep	instanceof MindComponentEditPart)
-			{
-				EObject model = ((View)rootEditPart.getModel()).getElement();
-				boundsMemory.put(((MindObject)model).getID(), ((GraphicalEditPart)rootEditPart).getFigure().getBounds());
-				
-				// Indexes may change because of refreshMerge
-				// Store ID without indexes
-				String ID = ((MindObject) model).getID();
-				boolean loop = true;
-				while (loop){
-					int start = ID.indexOf("[");
-					int end = ID.indexOf("]") + 1;
-					if (start > 0) {
-						ID = ID.replace(ID.subSequence(start, end), "");
-					}
-					else {
-						loop = false;
-					}
-				}
-				boundsMemory.put(ID, ((GraphicalEditPart)rootEditPart).getFigure().getBounds());
-				
-			}
-			else if (mep instanceof MindInterfaceEditPart)
-			{
-				GraphicalEditPart gep = (GraphicalEditPart)rootEditPart;
-				int x = ((Integer) gep.getStructuralFeatureValue(attr_x)).intValue();
-				int y = ((Integer) gep.getStructuralFeatureValue(attr_y)).intValue();
-				int width = ((Integer) gep.getStructuralFeatureValue(attr_width)).intValue();
-				int height = ((Integer)  gep.getStructuralFeatureValue(attr_height)).intValue();
-				
-				EObject model = ((View)rootEditPart.getModel()).getElement();
-				Rectangle bounds = new Rectangle(x,y,width,height);
-				
-				boundsMemory.put(((MindObject)model).getID(), bounds);
-			}
-					
+			EObject model = ((View)rootEditPart.getModel()).getElement();
+			boundsMemory.put(((MindObject)model).getID(), ((GraphicalEditPart)rootEditPart).getFigure().getBounds());
+		}
+		else if (mep instanceof MindInterfaceEditPart &&
+				ComponentHelper.isMerged((GraphicalEditPart) rootEditPart))
+		{
+			GraphicalEditPart gep = (GraphicalEditPart)rootEditPart;
+			int x = ((Integer) gep.getStructuralFeatureValue(attr_x)).intValue();
+			int y = ((Integer) gep.getStructuralFeatureValue(attr_y)).intValue();
+			int width = ((Integer) gep.getStructuralFeatureValue(attr_width)).intValue();
+			int height = ((Integer)  gep.getStructuralFeatureValue(attr_height)).intValue();
+			
+			EObject model = ((View)rootEditPart.getModel()).getElement();
+			Rectangle bounds = new Rectangle(x,y,width,height);
+			
+			boundsMemory.put(((MindObject)model).getID(), bounds);
 		}
 		
 		List<EditPart> editPartList = rootEditPart.getChildren();
@@ -94,48 +74,27 @@ public class SaveUtil {
 	@SuppressWarnings("unchecked")
 	public static void restoreBounds(EditPart rootEditPart, HashMap<String,Rectangle> boundsMemory) {
 		
-		if (ComponentHelper.isMerged((GraphicalEditPart) rootEditPart))
+		MindEditPart mep = MindGenericEditPartFactory.INSTANCE.getMindEditPartFor(rootEditPart);
+		if (mep	instanceof MindComponentEditPart ||
+				mep instanceof MindInterfaceEditPart)
 		{
-			MindEditPart mep = MindGenericEditPartFactory.INSTANCE.getMindEditPartFor(rootEditPart);
-			if (mep	instanceof MindComponentEditPart ||
-					mep instanceof MindInterfaceEditPart)
+			EObject model = ((View)rootEditPart.getModel()).getElement();
+			Rectangle bounds = boundsMemory.get(((MindObject) model).getID());
+			
+			if (bounds != null)
 			{
-				EObject model = ((View)rootEditPart.getModel()).getElement();
-				Rectangle bounds = boundsMemory.get(((MindObject) model).getID());
-				
-				if (bounds == null) {
-					// Indexes have changed because of refreshMerge
-					// Try to find old ID
-					String ID = ((MindObject) model).getID();
-					boolean loop = true;
-					while (loop){
-						int start = ID.indexOf("[");
-						int end = ID.indexOf("]") + 1;
-						if (start > 0) {
-							ID = ID.replace(ID.subSequence(start, end), "");
-						}
-						else {
-							loop = false;
-						}
-					}
-					bounds = boundsMemory.get(ID);
+				GraphicalEditPart gep = (GraphicalEditPart)rootEditPart;
+				TransactionImpl trans = new TransactionImpl(gep.getEditingDomain(),false);
+				try {
+					trans.start();
+					gep.setStructuralFeatureValue(attr_x, bounds.x);
+					gep.setStructuralFeatureValue(attr_y, bounds.y);
+					gep.setStructuralFeatureValue(attr_width, bounds.width);
+					gep.setStructuralFeatureValue(attr_height, bounds.height);
+					trans.commit();
 				}
-				
-				if (bounds != null)
-				{
-					GraphicalEditPart gep = (GraphicalEditPart)rootEditPart;
-					TransactionImpl trans = new TransactionImpl(gep.getEditingDomain(),false);
-					try {
-						trans.start();
-						gep.setStructuralFeatureValue(attr_x, bounds.x);
-						gep.setStructuralFeatureValue(attr_y, bounds.y);
-						gep.setStructuralFeatureValue(attr_width, bounds.width);
-						gep.setStructuralFeatureValue(attr_height, bounds.height);
-						trans.commit();
-					}
-					catch(Exception e) {
-						MindDiagramEditorPlugin.getInstance().logError("Failed to restore bounds of merged element", e);
-					}
+				catch(Exception e) {
+					MindDiagramEditorPlugin.getInstance().logError("Failed to restore bounds of merged element", e);
 				}
 			}
 		}

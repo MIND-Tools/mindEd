@@ -4,10 +4,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.eclipse.core.runtime.IAdaptable;
+import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.gmf.runtime.diagram.core.util.ViewType;
+import org.eclipse.gmf.runtime.notation.CanonicalStyle;
 import org.eclipse.gmf.runtime.notation.Node;
+import org.eclipse.gmf.runtime.notation.NotationPackage;
 import org.eclipse.gmf.runtime.notation.View;
 
 import org.ow2.mindEd.adl.editor.graphic.ui.custom.helpers.CanonicalEditPolicyHelper;
@@ -16,6 +19,9 @@ import org.ow2.mindEd.adl.editor.graphic.ui.part.MindVisualIDRegistry;
 
 public class AdlDefinitionCustomCanonicalEditPolicy extends
 		AdlDefinitionCanonicalEditPolicy {
+
+	private boolean isRefreshing = false;
+
 
 	@Override
 	protected String getDefaultFactoryHint() {
@@ -58,5 +64,36 @@ public class AdlDefinitionCustomCanonicalEditPolicy extends
         }
         return list;
     }
+	
+	
+	/**
+	 * Handles <code>NotificationEvent</code> and resynchronizes the canonical
+	 * container if the event should be handled.
+	 * 
+	 * @param event <code>NotificationEvent</code> to handle.
+	 */
+	protected void handleNotificationEvent(Notification event) {
+		
+		boolean shouldRefresh = false;
+		if ( shouldHandleNotificationEvent(event) ) {
+			if ( NotationPackage.eINSTANCE.getCanonicalStyle_Canonical() == event.getFeature() ) {
+				CanonicalStyle style = (CanonicalStyle) ((View)host().getModel()).getStyle(NotationPackage.eINSTANCE.getCanonicalStyle());
+				if (style != null) {
+					setEnable(style.isCanonical());
+				}
+			}
+			shouldRefresh = true;
+		}
+		
+		if (shouldRefresh && !isRefreshing)
+			refresh();
+	}
+	
+	
+	protected void refreshSemantic() {
+		isRefreshing  = true;
+		super.refreshSemantic();
+		isRefreshing = false;
+	}
 
 }
