@@ -1,5 +1,6 @@
 package org.ow2.mindEd.adl.custom.helpers;
 
+import java.nio.Buffer;
 import java.util.HashMap;
 
 import org.eclipse.emf.common.util.TreeIterator;
@@ -157,12 +158,12 @@ public class AdlDefinitionHelper extends HelperAdapter<AdlDefinition> {
 		ArchitectureDefinitionHelper helper =getMainDefinitionHelper();
 		if (helper != null) {
 			helper.setMerging(true);
-			BufferUtil.getInstance().createBuffer(getObject().getArchitecturedefinition());
-			adlDefinitionStamp = BufferUtil.getInstance().getDefinition().getParentAdlDefinition();
-			helper.cleanMerge();
-			helper.setMerging(false);
+			BufferUtil.getInstance().storeBuffer(getObject().getArchitecturedefinition());
+		 	helper.cleanMerge();
+		 	helper.setMerging(false);
 		}
 	}
+
 
 	/**
 	 * <b>Method</b> <i>getMainDefinitionHelper</i>
@@ -193,8 +194,10 @@ public class AdlDefinitionHelper extends HelperAdapter<AdlDefinition> {
 		ArchitectureDefinitionHelper helper =getMainDefinitionHelper();
 		if (helper != null) {
 			helper.setMerging(true);
-			getObject().setArchitecturedefinition(adlDefinitionStamp.getArchitecturedefinition());
-			helper.setMerging(false);
-		}
-	}
+			ArchitectureDefinition oldDef = BufferUtil.getInstance().restoreFromBuffer();
+			if (oldDef != null)
+				getObject().setArchitecturedefinition(oldDef);
+		 	helper.setMerging(false);
+		}	
+	}	
 }

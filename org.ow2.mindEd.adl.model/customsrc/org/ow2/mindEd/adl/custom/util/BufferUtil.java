@@ -32,6 +32,7 @@ public class BufferUtil extends AbstractMergeTreatment {
 	 * 
 	 */
 	private static ArchitectureDefinition buffer = null;
+	private static ArchitectureDefinition bufferHistory = null;
 	/**
 	 * HashMap<EObject,EObject> eBufferHistoryMapping : Maps the items of definition to put in buffer with those created in the buffer.
 	 * 
@@ -60,7 +61,35 @@ public class BufferUtil extends AbstractMergeTreatment {
 		resolveReferences();
 	}
 	
-
+	/**
+	 * <b>Method</b> <i>historiseBuffer</i>
+	 * <p>
+	 * Method to create a stored buffer of the given definition. create the root object and copy the elements of given definition into the buffer.
+	 * 
+	 * @param definition
+	 *            : Definition to put into buffer
+	 * 
+	 * @author charrep
+	 */
+	public void storeBuffer(ArchitectureDefinition definition) {
+		if (bufferHistory != null) bufferHistory = null;
+		AdlDefinition adlDefinition = (AdlDefinition) copyObject(definition.eContainer());
+		bufferHistory= adlDefinition.getArchitecturedefinition();
+	}
+	
+	/**
+	 * <b>Method</b> <i>restoreFromBuffer</i>
+	 * <p>
+	 * 
+	 * 
+	 * @param definition
+	 *            : Return the stored buffer
+	 * 
+	 * @author charrep
+	 */
+	public ArchitectureDefinition restoreFromBuffer() {
+		return bufferHistory;
+	}
 	/**
 	 * <b>Method</b> <i>updateImports</i>
 	 * <p>
