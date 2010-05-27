@@ -149,8 +149,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mind.ecore#//InterfaceDefinition/collection"/>
     </genClasses>
     <genClasses image="false" ecoreClass="mind.ecore#//MergedObject">
-      <genFeatures property="None" createChild="false" propertyCategory="" propertyMultiLine="true"
-          ecoreFeature="ecore:EAttribute mind.ecore#//MergedObject/merged"/>
+      <genFeatures property="None" createChild="false" propertyCategory="" ecoreFeature="ecore:EAttribute mind.ecore#//MergedObject/merged"/>
       <genFeatures property="None" createChild="false" ecoreFeature="ecore:EAttribute mind.ecore#//MergedObject/override"/>
       <genFeatures property="None" createChild="false" ecoreFeature="ecore:EAttribute mind.ecore#//MergedObject/canOverride"/>
     </genClasses>
