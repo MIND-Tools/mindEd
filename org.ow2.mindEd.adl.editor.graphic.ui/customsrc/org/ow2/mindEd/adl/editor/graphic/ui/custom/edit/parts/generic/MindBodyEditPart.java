@@ -117,12 +117,6 @@ public class MindBodyEditPart extends MindEditPart {
 		}
 	}
 	
-//	public void activate() {
-//		// Don't use merge features for body
-//		// User need to be able to add elements
-//		// even in a merged body
-//	}
-	
 	
 	public IFigure getCompartmentFigure() {
 		try {
