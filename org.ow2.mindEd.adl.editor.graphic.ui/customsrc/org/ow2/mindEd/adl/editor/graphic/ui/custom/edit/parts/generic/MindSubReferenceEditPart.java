@@ -34,30 +34,8 @@ public class MindSubReferenceEditPart extends MindReferenceEditPart {
 		if (nodeShape.getLayoutManager() == null) {
 			ConstrainedToolbarLayout layout = new ConstrainedToolbarLayout();
 			nodeShape.setLayoutManager(layout);
-//			nodeShape.addLayoutListener(new MindListLayoutListener(realEditPart));
 		}
 		return nodeShape; // use nodeShape itself as contentPane
-	}
-	
-	@Override
-	public void refresh() {
-		super.refresh();
-		
-		// Refresh the sub component because its KIND may have changed
-		try {
-			ComponentReference model = resolveSemanticElement();
-			Body parentBody = model.getParentSubComponent().getParentBody();
-			List<CanonicalEditPolicy> editPolicies =
-				CanonicalEditPolicy.getRegisteredEditPolicies(parentBody);
-			for (Iterator it = editPolicies.iterator(); it.hasNext();) {
-				CanonicalEditPolicy nextEditPolicy = (CanonicalEditPolicy) it
-						.next();
-				nextEditPolicy.refresh();
-			}
-		}
-		catch (Exception e) {
-			MindDiagramEditorPlugin.getInstance().logError("Refresh failed on reference", e);
-		}
 	}
 	
 	

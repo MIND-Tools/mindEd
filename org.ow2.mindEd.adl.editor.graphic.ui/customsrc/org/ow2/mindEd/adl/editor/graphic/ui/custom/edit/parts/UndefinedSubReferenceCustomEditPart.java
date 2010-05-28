@@ -10,13 +10,5 @@ public class UndefinedSubReferenceCustomEditPart extends
 	public UndefinedSubReferenceCustomEditPart(View view) {
 		super(view);
 	}
-	
-	@Override
-	protected void handleNotificationEvent(Notification notification) {
-		super.handleNotificationEvent(notification);
-		if (notification.getEventType() == Notification.SET) {
-			refresh();
-		}
-	}
 
 }

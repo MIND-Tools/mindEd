@@ -150,6 +150,15 @@ public class PrimitiveSubComponentCustomCanonicalEditPolicy extends
 			postProcessRefreshSemantic(createdViews);
 		}
 		
+		// Remove views that have been deleted by postProcessRefreshSemantic
+		// This happens if the subcomponent has been given another kind
+		// by a change of its reference
+		Iterator it = createdViews.iterator();
+		while ( it.hasNext()) {
+			View createdView = (View)((IAdaptable)it.next()).getAdapter(View.class);
+			if (createdView.getElement() == null)
+				it.remove();
+		}
 
 		return createdViews;
 	}

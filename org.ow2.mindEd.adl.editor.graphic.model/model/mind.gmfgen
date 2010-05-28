@@ -757,7 +757,7 @@
         compartments="//@diagram/@compartments.6"
         graphicalNodeEditPolicyClassName="CompositeBodyGraphicalNodeEditPolicy"
         createCommandClassName="CompositeBodyCreateCommand"
-        containers="//@diagram/@childNodes.12 //@diagram/@topLevelNodes.0">
+        containers="//@diagram/@childNodes.12 //@diagram/@childNodes.30 //@diagram/@topLevelNodes.0">
       <diagramRunTimeClass
           href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <elementType
@@ -979,7 +979,8 @@
             width="15"
             height="15"/>
       </viewmap>
-      <modelFacet>
+      <modelFacet
+          modelElementSelector="//@expressionProviders/@providers.1/@expressions.1">
         <metaClass
             href="../../org.ow2.mindEd.adl.schema/model/mind.genmodel#//adl/Body"/>
         <containmentMetaFeature
@@ -1225,7 +1226,7 @@
           className="ComponentFigure"
           classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class ComponentFigure extends org.ow2.mindEd.adl.editor.graphic.ui.custom.figures.ComponentFigure {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.ow2.mindEd.adl.editor.graphic.ui.custom.figures.AbstractComponentNameWrappingLabel fLabel; &#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.ow2.mindEd.adl.editor.graphic.ui.custom.figures.ComponentFigure fFigure; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public ComponentFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;&#xA;&#xA;&#xA;&#xA;this.setPreferredSize(&#xA;getMindPreferredSize());&#xA;&#xA;&#xA;this.setBorder(createBorder0());&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fLabel = new org.ow2.mindEd.adl.editor.graphic.ui.custom.figures.AbstractComponentNameWrappingLabel();&#xA;&#xA;&#xA;&#xA;this.add(fLabel);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.draw2d.Border createBorder0() {&#xA;&#x9;&#x9;org.ow2.mindEd.adl.editor.graphic.ui.custom.figures.ComponentBorder result = new org.ow2.mindEd.adl.editor.graphic.ui.custom.figures.ComponentBorder();&#xA;&#x9;&#x9;&#xA;&#xA;&#xA;&#xA;result.setColor(&#xA;getMindBorderColor());&#xA;&#xA;&#xA;&#xA;&#x9;&#x9;return result;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private boolean myUseLocalCoordinates = false;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;protected boolean useLocalCoordinates() {&#xA;&#x9;&#x9;return myUseLocalCoordinates;&#xA;&#x9;}&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;protected void setUseLocalCoordinates(boolean useLocalCoordinates) {&#xA;&#x9;&#x9;myUseLocalCoordinates = useLocalCoordinates;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.ow2.mindEd.adl.editor.graphic.ui.custom.figures.AbstractComponentNameWrappingLabel getLabel() {&#xA;&#x9;&#x9;return fLabel;&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.ow2.mindEd.adl.editor.graphic.ui.custom.figures.ComponentFigure getFigure() {&#xA;&#x9;&#x9;return fFigure;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;"/>
       <modelFacet
-          modelElementSelector="//@expressionProviders/@providers.1/@expressions.1">
+          modelElementSelector="//@expressionProviders/@providers.1/@expressions.2">
         <metaClass
             href="../../org.ow2.mindEd.adl.schema/model/mind.genmodel#//adl/SubComponentDefinition"/>
         <containmentMetaFeature
@@ -1334,7 +1335,7 @@
         compartments="//@diagram/@compartments.8"
         graphicalNodeEditPolicyClassName="PrimitiveBodyGraphicalNodeEditPolicy"
         createCommandClassName="PrimitiveBodyCreateCommand"
-        containers="//@diagram/@childNodes.20 //@diagram/@topLevelNodes.1">
+        containers="//@diagram/@childNodes.20 //@diagram/@childNodes.30 //@diagram/@topLevelNodes.1">
       <diagramRunTimeClass
           href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <elementType
@@ -1697,7 +1698,7 @@
         itemSemanticEditPolicyClassName="UndefinedSubComponentItemSemanticEditPolicy"
         notationViewFactoryClassName="SubComponentDefinitionViewFactory"
         canonicalEditPolicyClassName="UndefinedSubComponentCanonicalEditPolicy"
-        childNodes="//@diagram/@childNodes.31 //@diagram/@childNodes.32 //@diagram/@childNodes.14 //@diagram/@childNodes.15"
+        childNodes="//@diagram/@childNodes.31 //@diagram/@childNodes.10 //@diagram/@childNodes.14 //@diagram/@childNodes.15 //@diagram/@childNodes.22 //@diagram/@childNodes.32"
         graphicalNodeEditPolicyClassName="UndefinedSubComponentGraphicalNodeEditPolicy"
         createCommandClassName="UndefinedSubComponentCreateCommand"
         containers="//@diagram/@compartments.6">
@@ -1711,7 +1712,7 @@
           className="ComponentFigure"
           classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class ComponentFigure extends org.ow2.mindEd.adl.editor.graphic.ui.custom.figures.ComponentFigure {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.ow2.mindEd.adl.editor.graphic.ui.custom.figures.AbstractComponentNameWrappingLabel fLabel; &#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.ow2.mindEd.adl.editor.graphic.ui.custom.figures.ComponentFigure fFigure; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public ComponentFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;&#xA;&#xA;&#xA;&#xA;this.setPreferredSize(&#xA;getMindPreferredSize());&#xA;&#xA;&#xA;this.setBorder(createBorder0());&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fLabel = new org.ow2.mindEd.adl.editor.graphic.ui.custom.figures.AbstractComponentNameWrappingLabel();&#xA;&#xA;&#xA;&#xA;this.add(fLabel);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.draw2d.Border createBorder0() {&#xA;&#x9;&#x9;org.ow2.mindEd.adl.editor.graphic.ui.custom.figures.ComponentBorder result = new org.ow2.mindEd.adl.editor.graphic.ui.custom.figures.ComponentBorder();&#xA;&#x9;&#x9;&#xA;&#xA;&#xA;&#xA;result.setColor(&#xA;getMindBorderColor());&#xA;&#xA;&#xA;&#xA;&#x9;&#x9;return result;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private boolean myUseLocalCoordinates = false;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;protected boolean useLocalCoordinates() {&#xA;&#x9;&#x9;return myUseLocalCoordinates;&#xA;&#x9;}&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;protected void setUseLocalCoordinates(boolean useLocalCoordinates) {&#xA;&#x9;&#x9;myUseLocalCoordinates = useLocalCoordinates;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.ow2.mindEd.adl.editor.graphic.ui.custom.figures.AbstractComponentNameWrappingLabel getLabel() {&#xA;&#x9;&#x9;return fLabel;&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.ow2.mindEd.adl.editor.graphic.ui.custom.figures.ComponentFigure getFigure() {&#xA;&#x9;&#x9;return fFigure;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;"/>
       <modelFacet
-          modelElementSelector="//@expressionProviders/@providers.1/@expressions.2">
+          modelElementSelector="//@expressionProviders/@providers.1/@expressions.3">
         <metaClass
             href="../../org.ow2.mindEd.adl.schema/model/mind.genmodel#//adl/SubComponentDefinition"/>
         <containmentMetaFeature
@@ -1741,10 +1742,10 @@
       </labels>
     </childNodes>
     <childNodes
-        visualID="3154"
+        visualID="3160"
         editPartClassName="UndefinedSubReferenceEditPart"
         itemSemanticEditPolicyClassName="UndefinedSubReferenceItemSemanticEditPolicy"
-        notationViewFactoryClassName="ComponentReferenceViewFactory"
+        notationViewFactoryClassName="CompositeReferenceDefinitionViewFactory"
         canonicalEditPolicyClassName="UndefinedSubReferenceCanonicalEditPolicy"
         childNodes="//@diagram/@childNodes.7 //@diagram/@childNodes.8"
         graphicalNodeEditPolicyClassName="UndefinedSubReferenceGraphicalNodeEditPolicy"
@@ -1753,29 +1754,25 @@
       <diagramRunTimeClass
           href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <elementType
-          xsi:type="gmfgen:MetamodelType"
-          displayName="UndefinedSub"
-          editHelperClassName="ComponentReferenceEditHelper"/>
+          xsi:type="gmfgen:SpecializationType"
+          metamodelType="//@diagram/@childNodes.6/@elementType"/>
       <viewmap
           xsi:type="gmfgen:InnerClassViewmap"
           className="ReferenceFigure"
-          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class ReferenceFigure extends org.ow2.mindEd.adl.editor.graphic.ui.custom.figures.ReferenceFigure {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.ow2.mindEd.adl.editor.graphic.ui.custom.figures.LabelReferenceNameFigure fLabelReference; &#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.ow2.mindEd.adl.editor.graphic.ui.custom.figures.ContainerShape fReferenceArea; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public ReferenceFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;&#xA;&#xA;this.setBorder(createBorder0());&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fLabelReference = new org.ow2.mindEd.adl.editor.graphic.ui.custom.figures.LabelReferenceNameFigure();&#xA;&#xA;&#xA;&#xA;this.add(fLabelReference);&#xA;&#xA;&#xA;&#xA;fReferenceArea = new org.ow2.mindEd.adl.editor.graphic.ui.custom.figures.ContainerShape();&#xA;&#xA;&#xA;&#xA;this.add(fReferenceArea);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.draw2d.Border createBorder0() {&#xA;&#x9;&#x9;org.ow2.mindEd.adl.editor.graphic.ui.custom.figures.ItemBorder result = new org.ow2.mindEd.adl.editor.graphic.ui.custom.figures.ItemBorder();&#xA;&#x9;&#x9;&#xA;&#xA;&#xA;&#xA;result.setColor(&#xA;borderColor);&#xA;&#xA;&#xA;&#xA;&#x9;&#x9;return result;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private boolean myUseLocalCoordinates = false;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;protected boolean useLocalCoordinates() {&#xA;&#x9;&#x9;return myUseLocalCoordinates;&#xA;&#x9;}&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;protected void setUseLocalCoordinates(boolean useLocalCoordinates) {&#xA;&#x9;&#x9;myUseLocalCoordinates = useLocalCoordinates;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.ow2.mindEd.adl.editor.graphic.ui.custom.figures.LabelReferenceNameFigure getLabelReference() {&#xA;&#x9;&#x9;return fLabelReference;&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.ow2.mindEd.adl.editor.graphic.ui.custom.figures.ContainerShape getReferenceArea() {&#xA;&#x9;&#x9;return fReferenceArea;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;">
-        <attributes
-            xsi:type="gmfgen:ResizeConstraints"/>
-      </viewmap>
+          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class ReferenceFigure extends org.ow2.mindEd.adl.editor.graphic.ui.custom.figures.ReferenceFigure {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.ow2.mindEd.adl.editor.graphic.ui.custom.figures.LabelReferenceNameFigure fLabelReference; &#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.ow2.mindEd.adl.editor.graphic.ui.custom.figures.ContainerShape fReferenceArea; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public ReferenceFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;&#xA;&#xA;this.setBorder(createBorder0());&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fLabelReference = new org.ow2.mindEd.adl.editor.graphic.ui.custom.figures.LabelReferenceNameFigure();&#xA;&#xA;&#xA;&#xA;this.add(fLabelReference);&#xA;&#xA;&#xA;&#xA;fReferenceArea = new org.ow2.mindEd.adl.editor.graphic.ui.custom.figures.ContainerShape();&#xA;&#xA;&#xA;&#xA;this.add(fReferenceArea);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.draw2d.Border createBorder0() {&#xA;&#x9;&#x9;org.ow2.mindEd.adl.editor.graphic.ui.custom.figures.ItemBorder result = new org.ow2.mindEd.adl.editor.graphic.ui.custom.figures.ItemBorder();&#xA;&#x9;&#x9;&#xA;&#xA;&#xA;&#xA;result.setColor(&#xA;borderColor);&#xA;&#xA;&#xA;&#xA;&#x9;&#x9;return result;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private boolean myUseLocalCoordinates = false;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;protected boolean useLocalCoordinates() {&#xA;&#x9;&#x9;return myUseLocalCoordinates;&#xA;&#x9;}&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;protected void setUseLocalCoordinates(boolean useLocalCoordinates) {&#xA;&#x9;&#x9;myUseLocalCoordinates = useLocalCoordinates;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.ow2.mindEd.adl.editor.graphic.ui.custom.figures.LabelReferenceNameFigure getLabelReference() {&#xA;&#x9;&#x9;return fLabelReference;&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.ow2.mindEd.adl.editor.graphic.ui.custom.figures.ContainerShape getReferenceArea() {&#xA;&#x9;&#x9;return fReferenceArea;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;"/>
       <modelFacet>
         <metaClass
-            href="../../org.ow2.mindEd.adl.schema/model/mind.genmodel#//adl/ComponentReference"/>
+            href="../../org.ow2.mindEd.adl.schema/model/mind.genmodel#//adl/CompositeReferenceDefinition"/>
         <containmentMetaFeature
             href="../../org.ow2.mindEd.adl.schema/model/mind.genmodel#//adl/SubComponentDefinition/referenceDefinition"/>
         <childMetaFeature
             href="../../org.ow2.mindEd.adl.schema/model/mind.genmodel#//adl/SubComponentDefinition/referenceDefinition"/>
       </modelFacet>
       <labels
-          visualID="5133"
-          editPartClassName="UndefinedSubNameEditPart"
-          itemSemanticEditPolicyClassName="UndefinedSubNameItemSemanticEditPolicy"
-          notationViewFactoryClassName="ComponentReferenceReferenceNameViewFactory"
+          visualID="5138"
+          editPartClassName="UndefinedSubReferenceNameEditPart"
+          itemSemanticEditPolicyClassName="UndefinedSubReferenceNameItemSemanticEditPolicy"
+          notationViewFactoryClassName="CompositeReferenceDefinitionReferenceNameViewFactory"
           elementIcon="true">
         <diagramRunTimeClass
             href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
@@ -1795,28 +1792,28 @@
       </labels>
     </childNodes>
     <childNodes
-        visualID="3155"
-        editPartClassName="UndefinedBodyEditPart"
-        itemSemanticEditPolicyClassName="UndefinedBodyItemSemanticEditPolicy"
-        notationViewFactoryClassName="BodyViewFactory"
-        canonicalEditPolicyClassName="Body2CanonicalEditPolicy"
+        visualID="3142"
+        editPartClassName="TypeBodyEditPart"
+        itemSemanticEditPolicyClassName="TypeBodyItemSemanticEditPolicy"
+        notationViewFactoryClassName="TypeBodyViewFactory"
+        canonicalEditPolicyClassName="TypeBodyCanonicalEditPolicy"
         childNodes="//@diagram/@childNodes.11"
         compartments="//@diagram/@compartments.11"
-        graphicalNodeEditPolicyClassName="UndefinedBodyGraphicalNodeEditPolicy"
-        createCommandClassName="Body2CreateCommand"
+        graphicalNodeEditPolicyClassName="TypeBodyGraphicalNodeEditPolicy"
+        createCommandClassName="TypeBodyCreateCommand"
         containers="//@diagram/@childNodes.30">
       <diagramRunTimeClass
           href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <elementType
-          xsi:type="gmfgen:SpecializationType"
-          metamodelType="//@diagram/@childNodes.14/@elementType"/>
+          xsi:type="gmfgen:MetamodelType"
+          editHelperClassName="TypeBodyEditHelper"/>
       <viewmap
           xsi:type="gmfgen:InnerClassViewmap"
           className="BodyFigure"
           classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class BodyFigure extends org.ow2.mindEd.adl.editor.graphic.ui.custom.figures.BodyCustomFigure {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.ow2.mindEd.adl.editor.graphic.ui.custom.figures.BodyCustomFigure fFigure; &#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.ow2.mindEd.adl.editor.graphic.ui.custom.figures.BodyCompartmentCustomFigure fCompartment; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public BodyFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;&#xA;&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fCompartment = new org.ow2.mindEd.adl.editor.graphic.ui.custom.figures.BodyCompartmentCustomFigure();&#xA;&#xA;&#xA;&#xA;&#xA;fCompartment.setBackgroundColor(&#xA;getMindBackgroundColor());&#xA;&#xA;&#xA;&#xA;this.add(fCompartment);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private boolean myUseLocalCoordinates = false;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;protected boolean useLocalCoordinates() {&#xA;&#x9;&#x9;return myUseLocalCoordinates;&#xA;&#x9;}&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;protected void setUseLocalCoordinates(boolean useLocalCoordinates) {&#xA;&#x9;&#x9;myUseLocalCoordinates = useLocalCoordinates;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.ow2.mindEd.adl.editor.graphic.ui.custom.figures.BodyCustomFigure getFigure() {&#xA;&#x9;&#x9;return fFigure;&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.ow2.mindEd.adl.editor.graphic.ui.custom.figures.BodyCompartmentCustomFigure getCompartment() {&#xA;&#x9;&#x9;return fCompartment;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;"/>
       <modelFacet>
         <metaClass
-            href="../../org.ow2.mindEd.adl.schema/model/mind.genmodel#//adl/Body"/>
+            href="../../org.ow2.mindEd.adl.schema/model/mind.genmodel#//adl/TypeBody"/>
         <containmentMetaFeature
             href="../../org.ow2.mindEd.adl.schema/model/mind.genmodel#//adl/ArchitectureDefinition/body"/>
         <childMetaFeature
@@ -2150,21 +2147,21 @@
       </labels>
     </childNodes>
     <childNodes
-        visualID="3142"
-        editPartClassName="TypeBodyEditPart"
-        itemSemanticEditPolicyClassName="TypeBodyItemSemanticEditPolicy"
+        visualID="3159"
+        editPartClassName="UndefinedBodyEditPart"
+        itemSemanticEditPolicyClassName="UndefinedBodyItemSemanticEditPolicy"
         notationViewFactoryClassName="TypeBodyViewFactory"
-        canonicalEditPolicyClassName="TypeBodyCanonicalEditPolicy"
+        canonicalEditPolicyClassName="UndefinedBodyCanonicalEditPolicy"
         childNodes="//@diagram/@childNodes.11"
         compartments="//@diagram/@compartments.18"
-        graphicalNodeEditPolicyClassName="TypeBodyGraphicalNodeEditPolicy"
-        createCommandClassName="TypeBodyCreateCommand"
+        graphicalNodeEditPolicyClassName="UndefinedBodyGraphicalNodeEditPolicy"
+        createCommandClassName="UndefinedBodyCreateCommand"
         containers="//@diagram/@topLevelNodes.2">
       <diagramRunTimeClass
           href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <elementType
-          xsi:type="gmfgen:MetamodelType"
-          editHelperClassName="TypeBodyEditHelper"/>
+          xsi:type="gmfgen:SpecializationType"
+          metamodelType="//@diagram/@childNodes.32/@elementType"/>
       <viewmap
           xsi:type="gmfgen:InnerClassViewmap"
           className="BodyFigure"
@@ -2632,11 +2629,11 @@
           figureQualifiedClassName="org.ow2.mindEd.adl.editor.graphic.ui.custom.figures.ContainerShape"/>
     </compartments>
     <compartments
-        visualID="7105"
-        editPartClassName="UndefinedBodyCompartmentEditPart"
-        itemSemanticEditPolicyClassName="UndefinedBodyCompartmentItemSemanticEditPolicy"
-        notationViewFactoryClassName="BodyBodyCompartmentViewFactory"
-        canonicalEditPolicyClassName="UndefinedBodyCompartmentCanonicalEditPolicy"
+        visualID="7095"
+        editPartClassName="TypeBodyCompartmentEditPart"
+        itemSemanticEditPolicyClassName="TypeBodyCompartmentItemSemanticEditPolicy"
+        notationViewFactoryClassName="TypeBodyBodyCompartmentViewFactory"
+        canonicalEditPolicyClassName="TypeBodyCompartmentCanonicalEditPolicy"
         title="BodyCompartment"
         needsTitle="false"
         node="//@diagram/@childNodes.32"
@@ -2760,15 +2757,14 @@
           figureQualifiedClassName="org.ow2.mindEd.adl.editor.graphic.ui.custom.figures.ContainerShape"/>
     </compartments>
     <compartments
-        visualID="7095"
-        editPartClassName="TypeBodyCompartmentEditPart"
-        itemSemanticEditPolicyClassName="TypeBodyCompartmentItemSemanticEditPolicy"
+        visualID="7105"
+        editPartClassName="UndefinedBodyCompartmentEditPart"
+        itemSemanticEditPolicyClassName="UndefinedBodyCompartmentItemSemanticEditPolicy"
         notationViewFactoryClassName="TypeBodyBodyCompartmentViewFactory"
-        canonicalEditPolicyClassName="TypeBodyCompartmentCanonicalEditPolicy"
+        canonicalEditPolicyClassName="UndefinedBodyCompartmentCanonicalEditPolicy"
         title="BodyCompartment"
         needsTitle="false"
-        node="//@diagram/@childNodes.40"
-        listLayout="false">
+        node="//@diagram/@childNodes.40">
       <diagramRunTimeClass
           href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <viewmap
@@ -2827,7 +2823,7 @@
             title="Body"
             description="Create new Body"
             smallIconPath="/org.ow2.mindEd.adl.edit/icons/full/obj16/Body.gif"
-            genNodes="//@diagram/@childNodes.10 //@diagram/@childNodes.22 //@diagram/@childNodes.32 //@diagram/@childNodes.40"/>
+            genNodes="//@diagram/@childNodes.10 //@diagram/@childNodes.22 //@diagram/@childNodes.40"/>
       </groups>
       <groups
           title="Composite"
@@ -3053,17 +3049,23 @@
         parent="//@diagram/@childNodes.30"
         child="//@diagram/@childNodes.31"/>
     <childReferences
-        parent="//@diagram/@childNodes.32"
-        child="//@diagram/@childNodes.11"/>
-    <childReferences
         parent="//@diagram/@childNodes.30"
-        child="//@diagram/@childNodes.32"/>
+        child="//@diagram/@childNodes.10"/>
     <childReferences
         parent="//@diagram/@childNodes.30"
         child="//@diagram/@childNodes.14"/>
     <childReferences
         parent="//@diagram/@childNodes.30"
         child="//@diagram/@childNodes.15"/>
+    <childReferences
+        parent="//@diagram/@childNodes.30"
+        child="//@diagram/@childNodes.22"/>
+    <childReferences
+        parent="//@diagram/@childNodes.32"
+        child="//@diagram/@childNodes.11"/>
+    <childReferences
+        parent="//@diagram/@childNodes.30"
+        child="//@diagram/@childNodes.32"/>
     <childReferences
         parent="//@diagram/@childNodes.10"
         child="//@diagram/@childNodes.30"/>
@@ -3251,6 +3253,9 @@
       <expressions
           xsi:type="gmfgen:GenConstraint"
           body="return org.ow2.mindEd.adl.editor.graphic.ui.custom.constraints.JavaConstraints.isCompositeSubComponent(domainElement);"/>
+      <expressions
+          xsi:type="gmfgen:GenConstraint"
+          body="return false;"/>
       <expressions
           xsi:type="gmfgen:GenConstraint"
           body="return org.ow2.mindEd.adl.editor.graphic.ui.custom.constraints.JavaConstraints.isPrimitiveSubComponent(domainElement);"/>
