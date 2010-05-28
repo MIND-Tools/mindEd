@@ -1,6 +1,5 @@
 package org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.parts;
 
-import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.geometry.Dimension;
 import org.eclipse.draw2d.geometry.Point;
 import org.eclipse.draw2d.geometry.Rectangle;
@@ -8,7 +7,6 @@ import org.eclipse.gef.editpolicies.LayoutEditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.GraphicalEditPart;
 import org.eclipse.gmf.runtime.notation.NotationPackage;
 import org.eclipse.gmf.runtime.notation.View;
-
 import org.ow2.mindEd.adl.editor.graphic.ui.custom.layouts.IFractalSize;
 import org.ow2.mindEd.adl.editor.graphic.ui.edit.parts.AttributeDefinitionEditPart;
 

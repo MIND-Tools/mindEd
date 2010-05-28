@@ -17,6 +17,7 @@ import org.eclipse.gmf.runtime.emf.type.core.IElementType;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.gmf.runtime.notation.impl.ShapeImpl;
 
+import org.ow2.mindEd.adl.Body;
 import org.ow2.mindEd.adl.MergedObject;
 
 import org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.parts.generic.MindEditPart;
@@ -132,10 +133,12 @@ public class ComponentHelper implements IFractalShape {
 			// This edit policy does not allow create commands
 			if (element instanceof InterfaceDefinitionEditPart) {
 				element.installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE, new MergedInterfaceSemanticEditPolicy());
-			} else {
+			} 
+			else if (!(element instanceof Body)) {
 				element.installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE, new MergedItemSemanticEditPolicy(type));
 			}
 			element.installEditPolicy(EditPolicy.COMPONENT_ROLE, new MergedComponentEditPolicy());
+			
 		}
 		
 		// Do it for children too
