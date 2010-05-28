@@ -151,12 +151,10 @@ public class ArchitectureDefinitionHelper extends HelperAdapter<ArchitectureDefi
 	 * @author proustr
 	 */
 	public String getNameFQN() {
-		URI tmpName = null;
-		tmpName = ModelToProjectUtil.INSTANCE.resolveAdl(getObject().getName(), mergeUtil.recoverImports(getObject()));
-		String tmpString = ModelToProjectUtil.INSTANCE.getFQNFromURI(tmpName);
+		String tmpName = ModelToProjectUtil.INSTANCE.getNameFQN(getObject().getName(), mergeUtil.recoverImports(getObject()));
 		if (tmpName == null) return getObject().getName();
 		else
-			return tmpString;
+			return tmpName;
 	}
 
 	@Override

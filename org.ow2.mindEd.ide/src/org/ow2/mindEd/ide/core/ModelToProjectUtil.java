@@ -74,6 +74,28 @@ public class ModelToProjectUtil {
 			
 			return URI.createURI(adl.getFullpath());
 		} catch (NullPointerException e) {
+			e.printStackTrace();
+			return null;
+		}
+	}
+	
+	public String getNameFQN(String componentName, ArrayList<String>  imports) {
+		try {
+			EList<String> importsEList = new BasicEList<String>();
+			importsEList.addAll(imports);
+			
+			// This is the current project
+			MindProject project = getMindProject();
+
+			// This is the current package
+			String defaultPackage = getPackage(project).getName();
+			// Resolve and return the URI
+			MindAdl adl = project.resolveAdl(componentName, defaultPackage, importsEList);
+			if (adl == null) return null;
+			
+			return adl.getQualifiedName();
+		} catch (NullPointerException e) {
+			e.printStackTrace();
 			return null;
 		}
 	}
