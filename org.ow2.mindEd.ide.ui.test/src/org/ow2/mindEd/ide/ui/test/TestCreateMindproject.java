@@ -4,6 +4,7 @@ import static org.eclipse.swtbot.swt.finder.matchers.WidgetMatcherFactory.allOf;
 import static org.eclipse.swtbot.swt.finder.matchers.WidgetMatcherFactory.withMnemonic;
 import static org.hamcrest.Matchers.instanceOf;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.eclipse.core.resources.IFile;
@@ -11,6 +12,7 @@ import org.eclipse.core.resources.IFolder;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.draw2d.FigureCanvas;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.Event;
 import org.eclipse.swt.widgets.Menu;
@@ -19,12 +21,15 @@ import org.eclipse.swt.widgets.Widget;
 import org.eclipse.swtbot.swt.finder.exceptions.WidgetNotFoundException;
 import org.eclipse.swtbot.swt.finder.finders.MenuFinder;
 import org.eclipse.swtbot.swt.finder.results.WidgetResult;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.swtbot.swt.finder.utils.SWTBotPreferences;
 import org.eclipse.swtbot.swt.finder.widgets.SWTBotMenu;
 import org.eclipse.swtbot.swt.finder.widgets.SWTBotTreeItem;
 import org.hamcrest.Matcher;
 import org.junit.Test;
 import org.ow2.mindEd.ide.core.MindIdeCore;
+import org.ow2.mindEd.ide.model.MindAdl;
+import org.ow2.mindEd.ide.model.MindProject;
 import org.ow2.mindEd.ide.test.TestMindProject;
 import org.ow2.mindEd.ide.ui.wizards.Messages;
 
@@ -365,5 +370,82 @@ public class TestCreateMindproject extends GTTestCase {
 		if (error[0] != null)
 			throw new WidgetNotFoundException(error[0]);
 		return menuItem[0];
+	}
+	
+	
+	/**
+	 * Select mind navigator.
+	 * @throws Exception
+	 */
+	
+	@Test
+	public void testBugFQN() throws Exception {
+		GTView mindView = new GTView(MIND_NAVIGATOR);
+		mindView.show();
+		
+		GTTreePath rootNode = new GTTreePath(MIND_REPO_WS);
+		
+		//Create project
+		
+		projectName = "Test2_"+System.currentTimeMillis() ; //call a generator which compute a new name
+		mindView.contextMenu(rootNode, FRACTAL_MIND_PROJECT).click();
+		GTShell shell = new GTShell(Messages.MindProjectWizard_window_title);
+		shell.findTextWithLabel("Project name:").typeText(projectName);
+		shell.close();
+		
+		mindView.findTree().selectNode(MIND_REPO_WS, MIND_PROJECT_NODE+projectName);
+		mindView.findTree().selectNode(MIND_REPO_WS, MIND_PROJECT_NODE+projectName, "/"+projectName+"/src");
+		mindView.findTree().selectNode(MIND_REPO_WS, MIND_PROJECT_NODE+projectName, "Mind path");
+		
+		IProject p = ResourcesPlugin.getWorkspace().getRoot().getProject(projectName);
+		assertTrue(p.exists());
+		IFolder srcFolder = p.getFolder("src");
+		assertTrue(srcFolder.exists());
+		
+		// create a package 
+		GTTreePath rootSrcNode = rootNode.concat(MIND_PROJECT_NODE+projectName, "/"+projectName+"/src");
+		mindView.contextMenu(rootSrcNode, "Mind package").click();
+		shell = new GTShell(Messages.MindPackageWizard_window_title);
+		final String packageName = "a.b";
+		shell.findTextWithLabel("Package:").typeText(packageName);
+		shell.close();
+		
+		IFolder totoPackageFolder = srcFolder.getFolder(packageName.replace('.', '/'));
+		assertTrue(totoPackageFolder.exists());
+		
+		GTTreePath packageNode = rootSrcNode.concat(packageName);
+		
+		
+		// create a component T1
+		mindView.contextMenu(packageNode, MIND_ADL_COMPONENT_MENU).click();
+		shell = new GTShell(Messages.ComponentNewWizard_window_title);
+		shell.bot().ccomboBoxWithLabel("Component kind:").setSelection("TYPE");
+		shell.findTextWithLabel("Component name:").typeText("T1");
+		shell.close();
+		
+		IFile compT1File = totoPackageFolder.getFile("T1.adl");
+		assertTrue(compT1File.exists());
+		
+		
+		// create a component T2
+		mindView.contextMenu(packageNode, MIND_ADL_COMPONENT_MENU).click();
+		shell = new GTShell(Messages.ComponentNewWizard_window_title);
+		shell.bot().ccomboBoxWithLabel("Component kind:").setSelection("TYPE");
+		shell.findTextWithLabel("Component name:").typeText("T2");
+		shell.close();
+		
+		IFile compT2File = totoPackageFolder.getFile("T2.adl");
+		assertTrue(compT2File.exists());
+		
+		
+		// This is the current project
+		MindProject mp = MindIdeCore.get(p);
+
+		// This is the current package
+		String defaultPackage = "a.b";
+		// Resolve and return the URI
+		MindAdl adl = mp.resolveAdl("T1", defaultPackage, null);
+		assertNotNull(adl);
+		assertEquals("a.b.T1", adl.getQualifiedName());
 	}
 }
