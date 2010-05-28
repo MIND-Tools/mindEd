@@ -42,8 +42,7 @@ public class SaveUtil {
 			EObject model = ((View)rootEditPart.getModel()).getElement();
 			boundsMemory.put(((MindObject)model).getID(), ((GraphicalEditPart)rootEditPart).getFigure().getBounds());
 		}
-		else if (mep instanceof MindInterfaceEditPart &&
-				ComponentHelper.isMerged((GraphicalEditPart) rootEditPart))
+		else if (mep instanceof MindInterfaceEditPart)
 		{
 			GraphicalEditPart gep = (GraphicalEditPart)rootEditPart;
 			int x = ((Integer) gep.getStructuralFeatureValue(attr_x)).intValue();
