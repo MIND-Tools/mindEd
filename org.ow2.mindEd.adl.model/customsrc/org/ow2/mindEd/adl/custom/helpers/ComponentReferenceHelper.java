@@ -1,6 +1,5 @@
 package org.ow2.mindEd.adl.custom.helpers;
 
-import org.eclipse.emf.common.util.URI;
 import org.ow2.mindEd.ide.core.ModelToProjectUtil;
 
 import org.ow2.mindEd.adl.ArchitectureDefinition;

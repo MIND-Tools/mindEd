@@ -11,7 +11,9 @@ import org.ow2.mindEd.adl.AdlDefinition;
 import org.ow2.mindEd.adl.AdlPackage;
 import org.ow2.mindEd.adl.ComponentReference;
 import org.ow2.mindEd.adl.custom.helpers.AdlDefinitionHelper;
+import org.ow2.mindEd.adl.custom.helpers.ArchitectureDefinitionHelper;
 import org.ow2.mindEd.adl.custom.util.AbstractReferencesTreatment;
+import org.ow2.mindEd.adl.custom.util.AdlMergeUtil;
 
 
 public class AdlDefinitionAdapter extends AbstractReferencesTreatment {
@@ -24,10 +26,13 @@ public class AdlDefinitionAdapter extends AbstractReferencesTreatment {
 	
 	@Override
 	public void notifyChanged(Notification notification) {
-		EObject root = EcoreUtil.getRootContainer((EObject) notification.getNotifier());
-		if(root!=null && root instanceof AdlDefinition && notification.getEventType()!=Notification.REMOVING_ADAPTER)
+		if(!AdlMergeUtil.isMerging())
 		{
-			calculateReferencesToResolve((AdlDefinition) root);
+			EObject root = EcoreUtil.getRootContainer((EObject) notification.getNotifier());
+			if(root!=null && root instanceof AdlDefinition && notification.getEventType()!=Notification.REMOVING_ADAPTER)
+			{
+				calculateReferencesToResolve((AdlDefinition) root);
+			}
 		}
 	}
 
@@ -53,7 +58,12 @@ public class AdlDefinitionAdapter extends AbstractReferencesTreatment {
 		if(notResolved || !currentReferences.containsAll(mergedReferenceList) || !mergedReferenceList.containsAll(currentReferences))
 		{
 			AdlDefinitionHelper helper = (AdlDefinitionHelper) definition.getHelper();
-			helper.getMainDefinitionHelper().refreshMerge();
+			ArchitectureDefinitionHelper defHelper = helper.getMainDefinitionHelper();
+			if(defHelper!=null)
+				{
+					defHelper.refreshMerge();
+					mergedReferenceList = currentReferences;
+				}
 		}
 	}
 	

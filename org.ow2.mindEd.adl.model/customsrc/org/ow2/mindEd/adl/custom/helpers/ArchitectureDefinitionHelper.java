@@ -3,7 +3,6 @@ package org.ow2.mindEd.adl.custom.helpers;
 import java.util.HashMap;
 
 import org.eclipse.emf.common.util.EList;
-import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 import org.ow2.mindEd.ide.core.ModelToProjectUtil;
 

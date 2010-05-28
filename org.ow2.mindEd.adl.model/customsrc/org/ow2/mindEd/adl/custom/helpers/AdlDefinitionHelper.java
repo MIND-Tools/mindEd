@@ -1,11 +1,9 @@
 package org.ow2.mindEd.adl.custom.helpers;
 
-import java.nio.Buffer;
 import java.util.HashMap;
 
 import org.eclipse.emf.common.util.TreeIterator;
 import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.ecore.util.EcoreUtil;
 
 import org.ow2.mindEd.adl.AdlDefinition;
 import org.ow2.mindEd.adl.ArchitectureDefinition;
@@ -24,8 +22,6 @@ import org.ow2.mindEd.adl.custom.util.BufferUtil;
  */
 public class AdlDefinitionHelper extends HelperAdapter<AdlDefinition> {
 
-	private AdlDefinition adlDefinitionStamp = null;
-	
 	public AdlDefinitionHelper(AdlDefinition t) {
 		super(t);
 	}

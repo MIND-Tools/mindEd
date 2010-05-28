@@ -52,6 +52,7 @@ public class CompositeReferenceDefinitionCustomImpl extends CompositeReferenceDe
 	public void setReferenceName(String newReferenceName) {
 		String oldReferenceName = referenceName;
 		referenceName = newReferenceName;
+		resolved = false;
 		if (newReferenceName != null && !referenceName.equals(oldReferenceName)) {
 			nameFQN = getHelper().getNameFQN();
 		}

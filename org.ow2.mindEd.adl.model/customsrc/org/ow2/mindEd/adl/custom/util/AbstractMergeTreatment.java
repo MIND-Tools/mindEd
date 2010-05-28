@@ -24,7 +24,6 @@ import org.ow2.mindEd.adl.Element;
 import org.ow2.mindEd.adl.ImportDefinition;
 import org.ow2.mindEd.adl.MergedObject;
 import org.ow2.mindEd.adl.SubComponentDefinition;
-import org.ow2.mindEd.adl.custom.MindObject;
 import org.ow2.mindEd.adl.custom.util.AdlMergeUtilTrace.MessageTypes;
 
 /**
@@ -429,7 +428,6 @@ public abstract class AbstractMergeTreatment extends
 						&& !AdlPackage.eINSTANCE.getMergedObject()
 								.getEAllStructuralFeatures()
 								.contains(reference)) {
-					Object tmp = sourceObject.eGet(reference);
 					EObject referenceToAdd = eObjectsMergeHistoryMapping
 							.get(sourceObject.eGet(reference));
 					targetObject.eSet(reference, referenceToAdd);
