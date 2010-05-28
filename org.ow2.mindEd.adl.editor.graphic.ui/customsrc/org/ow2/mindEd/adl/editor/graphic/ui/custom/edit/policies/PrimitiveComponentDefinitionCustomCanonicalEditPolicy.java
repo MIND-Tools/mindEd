@@ -19,8 +19,8 @@ import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.osgi.util.NLS;
 import org.ow2.mindEd.adl.Body;
 import org.ow2.mindEd.adl.editor.graphic.ui.edit.policies.PrimitiveComponentDefinitionCanonicalEditPolicy;
-import org.ow2.mindEd.adl.editor.graphic.ui.edit.policies.PrimitiveComponentDefinitionItemSemanticEditPolicy;
 
+@SuppressWarnings("restriction")
 public class PrimitiveComponentDefinitionCustomCanonicalEditPolicy extends
 		PrimitiveComponentDefinitionCanonicalEditPolicy {
 
@@ -43,6 +43,7 @@ public class PrimitiveComponentDefinitionCustomCanonicalEditPolicy extends
 			}
 			if (view.getElement() instanceof Body) {
 				Command cmd = new Command("Delete interfaces figures") {
+					@SuppressWarnings("unchecked")
 					@Override
 					public void execute() {
 				        	IFigure borderItemContainer = ((AbstractBorderedShapeEditPart)getHost()).getBorderedFigure().getBorderItemContainer();
@@ -101,6 +102,7 @@ public class PrimitiveComponentDefinitionCustomCanonicalEditPolicy extends
 	 * @return <code>List</code> of new <code>View</code> objects that were created as a result of 
 	 * the synchronization
 	 */
+	@SuppressWarnings("unchecked")
 	protected List<IAdaptable> customRefreshSemanticChildren() {
 		
 		// Don't try to refresh children if the semantic element

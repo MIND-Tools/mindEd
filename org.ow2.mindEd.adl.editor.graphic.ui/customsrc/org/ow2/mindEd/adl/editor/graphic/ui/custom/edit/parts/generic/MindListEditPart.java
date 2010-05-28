@@ -15,8 +15,6 @@ import org.eclipse.gmf.runtime.diagram.ui.editparts.GraphicalEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.ConstrainedToolbarLayout;
 import org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.policies.FixedChildrenLayoutEditPolicy;
-import org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.policies.ParentCreationEditPolicy;
-import org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.policies.ChildrenCreationEditPolicy;
 import org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.policies.NoDragDropEditPolicy;
 import org.ow2.mindEd.adl.editor.graphic.ui.custom.layouts.ConstrainedFlowLayout;
 import org.ow2.mindEd.adl.editor.graphic.ui.custom.layouts.IFractalSize;
@@ -63,6 +61,7 @@ public class MindListEditPart extends MindEditPart {
 		return new NoDragTracker(realEditPart);
 	}
 	
+	@SuppressWarnings("unchecked")
 	@Override
 	public boolean refreshBounds() {
 		// The height depends on the children inside the area of this ReferencesList

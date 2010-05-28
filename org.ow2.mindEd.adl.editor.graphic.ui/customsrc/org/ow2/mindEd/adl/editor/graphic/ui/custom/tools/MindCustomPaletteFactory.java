@@ -4,11 +4,8 @@ import java.util.Collections;
 import java.util.List;
 
 import org.eclipse.gef.Tool;
-import org.eclipse.gef.palette.PaletteRoot;
 import org.eclipse.gef.palette.ToolEntry;
-import org.eclipse.gmf.runtime.diagram.ui.services.palette.PaletteService;
 import org.eclipse.gmf.runtime.emf.type.core.IElementType;
-
 import org.ow2.mindEd.adl.editor.graphic.ui.part.Messages;
 import org.ow2.mindEd.adl.editor.graphic.ui.part.MindPaletteFactory;
 import org.ow2.mindEd.adl.editor.graphic.ui.providers.MindElementTypes;

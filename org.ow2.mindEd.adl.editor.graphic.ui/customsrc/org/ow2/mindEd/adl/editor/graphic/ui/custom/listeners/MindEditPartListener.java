@@ -2,7 +2,6 @@ package org.ow2.mindEd.adl.editor.graphic.ui.custom.listeners;
 
 import org.eclipse.gef.EditPart;
 import org.eclipse.gef.EditPartListener;
-import org.eclipse.gmf.runtime.diagram.ui.editparts.GraphicalEditPart;
 
 /**
  * not implemented yet

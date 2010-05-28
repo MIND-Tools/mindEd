@@ -1,18 +1,7 @@
 package org.ow2.mindEd.adl.editor.graphic.ui.custom.figures;
 
-import java.util.Iterator;
-
-import javax.xml.bind.Marshaller.Listener;
-
-import org.eclipse.draw2d.Border;
-import org.eclipse.draw2d.LineBorder;
 import org.eclipse.draw2d.geometry.Dimension;
-import org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel;
 import org.eclipse.swt.graphics.Color;
-import org.eclipse.swt.graphics.Image;
-import org.ow2.mindEd.adl.editor.graphic.ui.custom.figures.AbstractComponentNameWrappingLabel;
-import org.ow2.mindEd.adl.editor.graphic.ui.custom.figures.ComponentBorder;
-import org.ow2.mindEd.adl.editor.graphic.ui.custom.figures.IFractalShape;
 
 /**
  * Custom figure to define static attributes used in the generated figure

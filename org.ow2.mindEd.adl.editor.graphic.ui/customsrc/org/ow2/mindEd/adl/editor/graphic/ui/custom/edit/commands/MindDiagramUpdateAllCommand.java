@@ -1,13 +1,11 @@
 package org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.commands;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 
 import org.eclipse.core.commands.ExecutionEvent;
 import org.eclipse.core.commands.ExecutionException;
-import org.eclipse.draw2d.geometry.Rectangle;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
 import org.eclipse.emf.transaction.impl.TransactionImpl;
@@ -21,11 +19,9 @@ import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.ui.PlatformUI;
 
 
-import org.ow2.mindEd.adl.AdlDefinition;
 import org.ow2.mindEd.adl.custom.helpers.AdlDefinitionHelper;
 import org.ow2.mindEd.adl.custom.helpers.ArchitectureDefinitionHelper;
 import org.ow2.mindEd.adl.custom.impl.AdlDefinitionCustomImpl;
-import org.ow2.mindEd.adl.editor.graphic.ui.custom.part.SaveUtil;
 import org.ow2.mindEd.adl.editor.graphic.ui.custom.preferences.CustomGeneralPreferencePage;
 import org.ow2.mindEd.adl.editor.graphic.ui.edit.parts.AdlDefinitionEditPart;
 import org.ow2.mindEd.adl.editor.graphic.ui.edit.parts.CompositeComponentDefinitionEditPart;

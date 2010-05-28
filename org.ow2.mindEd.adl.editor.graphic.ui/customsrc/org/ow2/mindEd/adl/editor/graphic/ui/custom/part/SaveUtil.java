@@ -16,7 +16,6 @@ import org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.parts.generic.MindCompon
 import org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.parts.generic.MindEditPart;
 import org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.parts.generic.MindGenericEditPartFactory;
 import org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.parts.generic.MindInterfaceEditPart;
-import org.ow2.mindEd.adl.editor.graphic.ui.custom.helpers.ComponentHelper;
 import org.ow2.mindEd.adl.editor.graphic.ui.part.MindDiagramEditorPlugin;
 
 public class SaveUtil {

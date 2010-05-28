@@ -6,10 +6,8 @@ import java.util.List;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
 import org.eclipse.gef.EditPart;
-import org.eclipse.gef.Request;
 import org.eclipse.gef.commands.Command;
 import org.eclipse.gef.commands.UnexecutableCommand;
-import org.eclipse.gef.requests.ChangeBoundsRequest;
 import org.eclipse.gmf.runtime.common.core.command.CompositeCommand;
 import org.eclipse.gmf.runtime.diagram.core.edithelpers.CreateElementRequestAdapter;
 import org.eclipse.gmf.runtime.diagram.core.util.ViewUtil;
@@ -17,22 +15,16 @@ import org.eclipse.gmf.runtime.diagram.ui.commands.CommandProxy;
 import org.eclipse.gmf.runtime.diagram.ui.commands.CreateCommand;
 import org.eclipse.gmf.runtime.diagram.ui.commands.ICommandProxy;
 import org.eclipse.gmf.runtime.diagram.ui.commands.SemanticCreateCommand;
-import org.eclipse.gmf.runtime.diagram.ui.editparts.AbstractBorderedShapeEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.CreationEditPolicy;
-import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
 import org.eclipse.gmf.runtime.diagram.ui.l10n.DiagramUIMessages;
-import org.eclipse.gmf.runtime.diagram.ui.requests.CreateUnspecifiedTypeConnectionRequest;
-import org.eclipse.gmf.runtime.diagram.ui.requests.CreateUnspecifiedTypeRequest;
 import org.eclipse.gmf.runtime.diagram.ui.requests.CreateViewAndElementRequest;
 import org.eclipse.gmf.runtime.diagram.ui.requests.CreateViewRequest;
 import org.eclipse.gmf.runtime.diagram.ui.requests.EditCommandRequestWrapper;
 import org.eclipse.gmf.runtime.diagram.ui.requests.RefreshConnectionsRequest;
-import org.eclipse.gmf.runtime.diagram.ui.requests.RequestConstants;
 import org.eclipse.gmf.runtime.emf.commands.core.command.CompositeTransactionalCommand;
 import org.eclipse.gmf.runtime.emf.type.core.requests.CreateElementRequest;
 import org.eclipse.gmf.runtime.notation.View;
-
 import org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.parts.generic.MindComponentEditPart;
 import org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.parts.generic.MindGenericEditPartFactory;
 import org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.parts.generic.MindListEditPart;
@@ -104,7 +96,7 @@ public class ParentCreationEditPolicy extends
 
 		Command refreshConnectionCommand =
 			virtualHost.getCommand(
-				new RefreshConnectionsRequest(((List)request.getNewObject())));
+				new RefreshConnectionsRequest(((List<?>)request.getNewObject())));
 
 
 		// form the compound command and return
@@ -127,7 +119,7 @@ public class ParentCreationEditPolicy extends
         CompositeTransactionalCommand cc = new CompositeTransactionalCommand(
             editingDomain, DiagramUIMessages.AddCommand_Label);
         
-        Iterator descriptors = request.getViewDescriptors().iterator();
+        Iterator<?> descriptors = request.getViewDescriptors().iterator();
 
 		while (descriptors.hasNext()) {
 			CreateViewRequest.ViewDescriptor descriptor =

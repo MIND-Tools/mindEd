@@ -6,16 +6,10 @@ import org.eclipse.gef.EditPolicy;
 import org.eclipse.gef.Request;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.GraphicalEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
-import org.eclipse.gmf.runtime.draw2d.ui.figures.ConstrainedToolbarLayout;
-import org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.policies.ComponentLayoutEditPolicy;
 import org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.policies.CustomDragDropEditPolicy;
 import org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.policies.CustomXYLayoutEditPolicy;
-import org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.policies.MindBodyContainerNodeEditPolicy;
-import org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.policies.ParentCreationEditPolicy;
-import org.ow2.mindEd.adl.editor.graphic.ui.custom.layouts.ComponentLayout;
 import org.ow2.mindEd.adl.editor.graphic.ui.custom.layouts.CustomFreeFormLayoutEx;
 import org.ow2.mindEd.adl.editor.graphic.ui.custom.providers.CustomDragEditPartsTracker;
-import org.ow2.mindEd.adl.editor.graphic.ui.edit.parts.PrimitiveBodyCompartmentEditPart;
 
 public class MindBodyCompartmentEditPart extends MindCompartmentEditPart {
 

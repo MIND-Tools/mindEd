@@ -103,7 +103,6 @@ public class ComponentHelper implements IFractalShape {
 	 * Installs a semantic edit policy preventing from manual creation
 	 * @param element the element to edit
 	 */
-	@SuppressWarnings("unchecked")
 	public static void handleMergedElement(GraphicalEditPart element) {
 		
 		MindEditPart genericEditPart = MindGenericEditPartFactory.INSTANCE.getMindEditPartFor(element);

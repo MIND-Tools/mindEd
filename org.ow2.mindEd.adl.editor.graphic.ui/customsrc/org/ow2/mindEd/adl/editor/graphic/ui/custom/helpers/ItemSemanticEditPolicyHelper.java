@@ -4,12 +4,12 @@ import java.util.List;
 
 import org.eclipse.gef.EditPart;
 import org.eclipse.gef.commands.Command;
-import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
 import org.eclipse.gmf.runtime.diagram.ui.requests.EditCommandRequestWrapper;
 import org.eclipse.gmf.runtime.emf.type.core.requests.CreateElementRequest;
 import org.eclipse.gmf.runtime.notation.View;
-
-import org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.parts.generic.*;
+import org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.parts.generic.MindComponentEditPart;
+import org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.parts.generic.MindGenericEditPartFactory;
+import org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.parts.generic.MindTypes;
 import org.ow2.mindEd.adl.editor.graphic.ui.edit.parts.AdlDefinitionEditPart;
 
 /**

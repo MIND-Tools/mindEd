@@ -6,9 +6,7 @@ import org.eclipse.gef.EditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.GraphicalEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
 import org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.policies.FixedChildrenLayoutEditPolicy;
-import org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.policies.ChildrenCreationEditPolicy;
 import org.ow2.mindEd.adl.editor.graphic.ui.custom.layouts.ConstrainedFlowLayout;
-import org.ow2.mindEd.adl.editor.graphic.ui.custom.layouts.CustomFreeFormLayoutEx;
 
 public class MindListCompartmentEditPart extends MindCompartmentEditPart {
 

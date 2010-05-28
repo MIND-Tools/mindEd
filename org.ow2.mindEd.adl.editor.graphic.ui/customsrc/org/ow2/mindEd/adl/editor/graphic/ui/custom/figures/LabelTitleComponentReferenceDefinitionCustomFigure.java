@@ -2,8 +2,6 @@ package org.ow2.mindEd.adl.editor.graphic.ui.custom.figures;
 
 import org.eclipse.draw2d.geometry.Dimension;
 import org.eclipse.swt.graphics.Color;
-import org.ow2.mindEd.adl.editor.graphic.ui.custom.figures.AbstractComponentNameWrappingLabel;
-import org.ow2.mindEd.adl.editor.graphic.ui.custom.figures.ComponentBorder;
 
 /**
  * Custom figure to define static attributes used in the generated figure
@@ -32,12 +30,6 @@ public class LabelTitleComponentReferenceDefinitionCustomFigure extends
 		
 		setEditable(false);
 		
-	}
-
-	private void createBorder() {
-		ComponentBorder border = new ComponentBorder();
-		border.setColor(BORDER_COLOR);
-		setBorder(border);
 	}
 
 }

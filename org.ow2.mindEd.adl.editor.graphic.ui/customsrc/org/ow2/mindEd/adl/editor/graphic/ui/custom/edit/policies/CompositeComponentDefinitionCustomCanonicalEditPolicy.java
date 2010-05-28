@@ -1,35 +1,26 @@
 package org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.policies;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
-import java.util.ListIterator;
 
 import org.eclipse.core.runtime.IAdaptable;
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.draw2d.IFigure;
-import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.transaction.TransactionalEditingDomain;
 import org.eclipse.gef.commands.Command;
 import org.eclipse.gef.commands.CompoundCommand;
-import org.eclipse.gmf.runtime.common.core.command.CompositeCommand;
 import org.eclipse.gmf.runtime.common.core.util.Log;
-import org.eclipse.gmf.runtime.diagram.core.commands.DeleteCommand;
-import org.eclipse.gmf.runtime.diagram.core.util.ViewType;
-import org.eclipse.gmf.runtime.diagram.ui.commands.ICommandProxy;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.AbstractBorderedShapeEditPart;
-import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.internal.DiagramUIPlugin;
 import org.eclipse.gmf.runtime.diagram.ui.l10n.DiagramUIMessages;
-import org.eclipse.gmf.runtime.notation.Node;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.osgi.util.NLS;
 import org.ow2.mindEd.adl.Body;
 import org.ow2.mindEd.adl.editor.graphic.ui.edit.policies.CompositeComponentDefinitionCanonicalEditPolicy;
 
+@SuppressWarnings("restriction")
 public class CompositeComponentDefinitionCustomCanonicalEditPolicy extends
 		CompositeComponentDefinitionCanonicalEditPolicy {
 	
@@ -54,6 +45,7 @@ public class CompositeComponentDefinitionCustomCanonicalEditPolicy extends
 			}
 			if (view.getElement() instanceof Body) {
 				Command cmd = new Command("Delete interfaces figures") {
+					@SuppressWarnings("unchecked")
 					@Override
 					public void execute() {
 				        	IFigure borderItemContainer = ((AbstractBorderedShapeEditPart)getHost()).getBorderedFigure().getBorderItemContainer();
@@ -112,6 +104,7 @@ public class CompositeComponentDefinitionCustomCanonicalEditPolicy extends
 	 * @return <code>List</code> of new <code>View</code> objects that were created as a result of 
 	 * the synchronization
 	 */
+	@SuppressWarnings("unchecked")
 	protected List<IAdaptable> customRefreshSemanticChildren() {
 		
 		// Don't try to refresh children if the semantic element

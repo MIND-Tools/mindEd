@@ -20,6 +20,7 @@ import org.eclipse.osgi.util.NLS;
 import org.ow2.mindEd.adl.Body;
 import org.ow2.mindEd.adl.editor.graphic.ui.edit.policies.PrimitiveSubComponentCanonicalEditPolicy;
 
+@SuppressWarnings("restriction")
 public class PrimitiveSubComponentCustomCanonicalEditPolicy extends
 		PrimitiveSubComponentCanonicalEditPolicy {
 
@@ -42,6 +43,7 @@ public class PrimitiveSubComponentCustomCanonicalEditPolicy extends
 			}
 			if (view.getElement() instanceof Body) {
 				Command cmd = new Command("Delete interfaces figures") {
+					@SuppressWarnings("unchecked")
 					@Override
 					public void execute() {
 				        	IFigure borderItemContainer = ((AbstractBorderedShapeEditPart)getHost()).getBorderedFigure().getBorderItemContainer();
@@ -100,6 +102,7 @@ public class PrimitiveSubComponentCustomCanonicalEditPolicy extends
 	 * @return <code>List</code> of new <code>View</code> objects that were created as a result of 
 	 * the synchronization
 	 */
+	@SuppressWarnings("unchecked")
 	protected List<IAdaptable> customRefreshSemanticChildren() {
 		
 		// Don't try to refresh children if the semantic element
@@ -153,7 +156,7 @@ public class PrimitiveSubComponentCustomCanonicalEditPolicy extends
 		// Remove views that have been deleted by postProcessRefreshSemantic
 		// This happens if the subcomponent has been given another kind
 		// by a change of its reference
-		Iterator it = createdViews.iterator();
+		Iterator<IAdaptable> it = createdViews.iterator();
 		while ( it.hasNext()) {
 			View createdView = (View)((IAdaptable)it.next()).getAdapter(View.class);
 			if (createdView.getElement() == null)

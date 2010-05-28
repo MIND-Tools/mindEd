@@ -8,11 +8,7 @@ import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.transaction.Transaction;
-import org.eclipse.emf.transaction.impl.TransactionImpl;
-import org.eclipse.gef.commands.Command;
 import org.eclipse.gmf.runtime.common.core.command.CommandResult;
-import org.eclipse.gmf.runtime.diagram.ui.commands.ICommandProxy;
 import org.eclipse.gmf.runtime.emf.type.core.IElementType;
 import org.eclipse.gmf.runtime.emf.type.core.requests.CreateElementRequest;
 import org.eclipse.gmf.runtime.emf.type.core.requests.CreateRelationshipRequest;
@@ -73,7 +69,6 @@ public class BindingDefinitionCustomCreateCommand extends
 		IElementType type = MindElementTypes.getElementType(InterfaceDefinitionEditPart.VISUAL_ID);
 		CreateElementRequest createInterfaceRequest = new CreateElementRequest(body, type);
 		InterfaceDefinitionCreateCommand createInterface = new InterfaceDefinitionCreateCommand(createInterfaceRequest);
-		Command command = new ICommandProxy(createInterface);
 		
 		try {
 			createInterface.execute(new NullProgressMonitor(), null);

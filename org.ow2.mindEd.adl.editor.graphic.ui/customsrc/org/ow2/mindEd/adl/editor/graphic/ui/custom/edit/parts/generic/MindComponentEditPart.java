@@ -7,8 +7,6 @@ import java.util.List;
 
 import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.geometry.Dimension;
-import org.eclipse.draw2d.geometry.Point;
-import org.eclipse.draw2d.geometry.Rectangle;
 import org.eclipse.gef.DragTracker;
 import org.eclipse.gef.EditPart;
 import org.eclipse.gef.EditPolicy;
@@ -17,25 +15,14 @@ import org.eclipse.gmf.runtime.diagram.ui.editparts.AbstractBorderedShapeEditPar
 import org.eclipse.gmf.runtime.diagram.ui.editparts.GraphicalEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.ConstrainedToolbarLayout;
-import org.eclipse.gmf.runtime.notation.NotationPackage;
-import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.swt.graphics.Color;
-import org.ow2.mindEd.adl.Body;
 import org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.policies.ComponentLayoutEditPolicy;
 import org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.policies.CustomDragDropEditPolicy;
-import org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.policies.ParentCreationEditPolicy;
-
-import org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.policies.*;
 import org.ow2.mindEd.adl.editor.graphic.ui.custom.figures.AbstractComponentShape;
 import org.ow2.mindEd.adl.editor.graphic.ui.custom.figures.IFractalShape;
-import org.ow2.mindEd.adl.editor.graphic.ui.custom.helpers.ComponentHelper;
 import org.ow2.mindEd.adl.editor.graphic.ui.custom.layouts.ComponentLayout;
-import org.ow2.mindEd.adl.editor.graphic.ui.custom.listeners.MindEditPartListener;
-import org.ow2.mindEd.adl.editor.graphic.ui.custom.providers.CustomDragEditPartsTracker;
 import org.ow2.mindEd.adl.editor.graphic.ui.custom.providers.DragEditPartsCustomTracker;
-import org.ow2.mindEd.adl.editor.graphic.ui.custom.providers.NoDragTracker;
 import org.ow2.mindEd.adl.editor.graphic.ui.edit.parts.*;
-import org.ow2.mindEd.adl.editor.graphic.ui.part.MindVisualIDRegistry;
 
 public class MindComponentEditPart extends MindEditPart {
 
@@ -94,6 +81,7 @@ public class MindComponentEditPart extends MindEditPart {
 		return false;
 	}
 	
+	@SuppressWarnings("unchecked")
 	public boolean removeFixedChild(EditPart childEditPart) {
 		if (getMindType(childEditPart) == TYPE_BODY) {
 			if (!MindGenericEditPartFactory.INSTANCE.getMindEditPartFor(childEditPart).isMerged()) {
