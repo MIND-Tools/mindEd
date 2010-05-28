@@ -6,6 +6,7 @@ import static org.hamcrest.Matchers.instanceOf;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.zip.Adler32;
 
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IFolder;
@@ -25,8 +26,19 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.swtbot.swt.finder.utils.SWTBotPreferences;
 import org.eclipse.swtbot.swt.finder.widgets.SWTBotMenu;
 import org.eclipse.swtbot.swt.finder.widgets.SWTBotTreeItem;
+import org.eclipse.ui.IEditorPart;
+import org.eclipse.ui.IWorkbench;
+import org.eclipse.ui.IWorkbenchPage;
+import org.eclipse.ui.IWorkbenchWindow;
+import org.eclipse.ui.PlatformUI;
+import org.eclipse.ui.activities.WorkbenchActivityHelper;
+import org.eclipse.ui.internal.WorkbenchPlugin;
 import org.hamcrest.Matcher;
 import org.junit.Test;
+import org.ow2.mindEd.adl.AdlDefinition;
+import org.ow2.mindEd.adl.ArchitectureDefinition;
+import org.ow2.mindEd.adl.ComponentReference;
+import org.ow2.mindEd.adl.ReferencesList;
 import org.ow2.mindEd.ide.core.MindIdeCore;
 import org.ow2.mindEd.ide.model.MindAdl;
 import org.ow2.mindEd.ide.model.MindProject;
@@ -41,6 +53,14 @@ import fr.imag.adele.graphictests.gtworkbench_part.GTShell;
 import fr.imag.adele.graphictests.gtworkbench_part.GTTextEditor;
 import fr.imag.adele.graphictests.gtworkbench_part.GTView;
 import fr.imag.adele.graphictests.test.GTTestCase;
+
+import org.eclipse.xtext.resource.XtextResource;
+import org.eclipse.xtext.ui.editor.XtextEditor;
+import org.eclipse.xtext.ui.editor.model.IXtextDocument;
+import org.eclipse.xtext.ui.editor.model.XtextDocument;
+import org.eclipse.xtext.util.concurrent.IUnitOfWork;
+
+import org.eclipse.ui.editors.text.TextEditor;
 
 /**
  * Test Fractal Mind Wizard
@@ -444,8 +464,54 @@ public class TestCreateMindproject extends GTTestCase {
 		// This is the current package
 		String defaultPackage = "a.b";
 		// Resolve and return the URI
-		MindAdl adl = mp.resolveAdl("T1", defaultPackage, null);
-		assertNotNull(adl);
-		assertEquals("a.b.T1", adl.getQualifiedName());
+		MindAdl t1MindAdl = mp.resolveAdl("T1", defaultPackage, null);
+		assertNotNull(t1MindAdl);
+		assertEquals("a.b.T1", t1MindAdl.getQualifiedName());
+		
+		GTTextEditor t1Editor = new GTTextEditor("T1.adl");
+		GTTextEditor t2Editor = new GTTextEditor("T2.adl");
+		t2Editor.show();
+		t2Editor.typeText("type a.b.T2 extends T1 {}");
+		
+		System.out.println(t2Editor.getSWTBotTextEditor().getText());
+		final XtextEditor[] xtextEdiror_ = new XtextEditor[1];
+		
+		final IWorkbench workbench = PlatformUI.getWorkbench();
+		workbench.getDisplay().syncExec(new Runnable() {
+			
+			@Override
+			public void run() {
+				IWorkbenchWindow activeWorkbenchWindow = workbench.getActiveWorkbenchWindow();
+				IWorkbenchPage activePage = activeWorkbenchWindow.getActivePage();
+				IEditorPart currentEditor = activePage.getActiveEditor();
+				xtextEdiror_[0] = (XtextEditor) currentEditor;
+			}
+		});
+		
+		XtextEditor xtextEdiror = xtextEdiror_[0];
+		XtextDocument document = (XtextDocument) xtextEdiror.getDocument();
+		xtextEdiror.getEditorInput();
+		IUnitOfWork<String, XtextResource> work =  new IUnitOfWork<String, XtextResource>() {
+			
+			@Override
+			public String exec(XtextResource state) throws Exception {
+				
+				AdlDefinition adl = (AdlDefinition) state.getEObject("/");
+				if (adl == null) return null;
+				ArchitectureDefinition architecturedefinition = adl.getArchitecturedefinition();
+				if (architecturedefinition == null) return null;
+				ReferencesList referencesList = architecturedefinition.getReferencesList();
+				if (referencesList == null) return null;
+				EList<ComponentReference> references = referencesList.getReferences();
+				if (references == null) return null;
+				if (references.size() == 0)
+					return null;
+				ComponentReference ref = references.get(0);
+				if (ref == null) return null;
+				return ref.getNameFQN();
+			}
+		};
+		String extendsFQN = document.readOnly(work );
+		assertEquals(t1MindAdl.getQualifiedName(), extendsFQN);
 	}
 }
