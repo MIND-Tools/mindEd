@@ -91,7 +91,6 @@ public class ModelToProjectUtil {
 			if (project == null) {
 				return null;
 			}
-			
 			// This is the current package
 			MindPackage packageObj = getPackage(project);
 			if (packageObj == null) {
@@ -328,6 +327,8 @@ public class ModelToProjectUtil {
 				String relativePath = FileUtil.getRelativePath(((FileEditorInput)editorInput).getPath().toString(), Platform.getLocation().toString());
 				//Replace \ with #
 				String convertedRelativePath = '/' + convertToGenericPath(relativePath);
+				convertedRelativePath = convertedRelativePath.substring(0, convertedRelativePath.lastIndexOf("/"));
+				
 				URI relativeURI = URI.createURI(convertedRelativePath);
 				
 				if (relativeURI.segmentCount() > 1) {
@@ -338,7 +339,7 @@ public class ModelToProjectUtil {
 							EList<MindPackage> packages = rootSrc.getPackages();
 							for (MindPackage mindPackage : packages) {
 								String packagePath = mindPackage.getFullpath();
-								if (convertedRelativePath.contains(packagePath)) {
+								if (convertedRelativePath.equals(packagePath)) {
 									return mindPackage;
 								}
 							}
