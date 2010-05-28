@@ -1793,19 +1793,20 @@
     </childNodes>
     <childNodes
         visualID="3142"
-        editPartClassName="TypeBodyEditPart"
-        itemSemanticEditPolicyClassName="TypeBodyItemSemanticEditPolicy"
+        editPartClassName="UndefinedBodyEditPart"
+        itemSemanticEditPolicyClassName="UndefinedBodyItemSemanticEditPolicy"
         notationViewFactoryClassName="TypeBodyViewFactory"
-        canonicalEditPolicyClassName="TypeBodyCanonicalEditPolicy"
+        canonicalEditPolicyClassName="UndefinedBodyCanonicalEditPolicy"
         childNodes="//@diagram/@childNodes.11"
         compartments="//@diagram/@compartments.11"
-        graphicalNodeEditPolicyClassName="TypeBodyGraphicalNodeEditPolicy"
-        createCommandClassName="TypeBodyCreateCommand"
+        graphicalNodeEditPolicyClassName="UndefinedBodyGraphicalNodeEditPolicy"
+        createCommandClassName="UndefinedBodyCreateCommand"
         containers="//@diagram/@childNodes.30">
       <diagramRunTimeClass
           href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <elementType
           xsi:type="gmfgen:MetamodelType"
+          displayName="UndefinedBody"
           editHelperClassName="TypeBodyEditHelper"/>
       <viewmap
           xsi:type="gmfgen:InnerClassViewmap"
@@ -2148,14 +2149,14 @@
     </childNodes>
     <childNodes
         visualID="3159"
-        editPartClassName="UndefinedBodyEditPart"
-        itemSemanticEditPolicyClassName="UndefinedBodyItemSemanticEditPolicy"
+        editPartClassName="TypeBodyEditPart"
+        itemSemanticEditPolicyClassName="TypeBodyItemSemanticEditPolicy"
         notationViewFactoryClassName="TypeBodyViewFactory"
-        canonicalEditPolicyClassName="UndefinedBodyCanonicalEditPolicy"
+        canonicalEditPolicyClassName="TypeBodyCanonicalEditPolicy"
         childNodes="//@diagram/@childNodes.11"
         compartments="//@diagram/@compartments.18"
-        graphicalNodeEditPolicyClassName="UndefinedBodyGraphicalNodeEditPolicy"
-        createCommandClassName="UndefinedBodyCreateCommand"
+        graphicalNodeEditPolicyClassName="TypeBodyGraphicalNodeEditPolicy"
+        createCommandClassName="TypeBodyCreateCommand"
         containers="//@diagram/@topLevelNodes.2">
       <diagramRunTimeClass
           href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>

@@ -26,7 +26,7 @@ public class UndefinedSubComponentCustomEditPart extends
 	protected void addChild(EditPart child, int index) {
 		super.addChild(child, index);
 		CanonicalEditPolicy ep = (CanonicalEditPolicy) getParent().getEditPolicy(EditPolicyRoles.CANONICAL_ROLE);
-		if (ep != null);
+		if (ep != null)
 			ep.refresh();
 	}
 	
@@ -35,7 +35,7 @@ public class UndefinedSubComponentCustomEditPart extends
 	protected void removeChild(EditPart child) {
 		super.removeChild(child);
 		CanonicalEditPolicy ep = (CanonicalEditPolicy) getParent().getEditPolicy(EditPolicyRoles.CANONICAL_ROLE);
-		if (ep != null);
+		if (ep != null)
 			ep.refresh();
 	}
 	
