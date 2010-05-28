@@ -1,6 +1,7 @@
 package org.ow2.mindEd.ide.core;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import org.eclipse.core.resources.IFile;
@@ -10,6 +11,7 @@ import org.eclipse.core.runtime.Platform;
 import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.URI;
+import org.eclipse.emf.ecore.EClass;
 import org.eclipse.gmf.runtime.common.ui.util.FileUtil;
 import org.eclipse.ui.IEditorInput;
 import org.eclipse.ui.IWorkbenchWindow;
@@ -22,6 +24,7 @@ import org.ow2.mindEd.ide.model.MindObject;
 import org.ow2.mindEd.ide.model.MindPackage;
 import org.ow2.mindEd.ide.model.MindProject;
 import org.ow2.mindEd.ide.model.MindRootSrc;
+import org.ow2.mindEd.ide.model.MindidePackage;
 
 
 
@@ -63,52 +66,65 @@ public class ModelToProjectUtil {
 	 * @see {@link MindProject#resolveAdl(String, String, EList)}
 	 */
 	public URI resolveAdl(String componentName, EList<String> imports) {
-		try {
-			// This is the current project
-			MindProject project = getMindProject();
-			if (project == null) {
-				return null;
-			}
-			// This is the current package
-			String defaultPackage = getPackage(project).getName();
-			// Resolve and return the URI
-			MindAdl adl = project.resolveAdl(componentName, defaultPackage, imports);
-			if (adl == null) return null;
-			
-			return URI.createURI(adl.getFullpath());
-		} catch (NullPointerException e) {
-			e.printStackTrace();
-			return null;
-		}
+		// Resolve and return the URI
+		MindAdl adl = resolveMindAdl(componentName, imports);
+		if (adl == null) return null;
+		
+		return URI.createPlatformResourceURI(adl.getFullpath(), true);
 	}
 	
+	public IFile resolveItf(String itfName, EList<String> imports) {
+		// Resolve and return the URI
+		MindItf itf = getMindItf(itfName, imports);
+		if (itf == null) return null;
+		
+		return MindIdeCore.getResource(itf);
+	}	
+
 	public String getNameFQN(String componentName, ArrayList<String>  imports) {
-		try {
-			EList<String> importsEList = new BasicEList<String>();
-			importsEList.addAll(imports);
-			
-			// This is the current project
-			MindProject project = getMindProject();
-			if (project == null) {
-				return null;
-			}
-			
-			// This is the current package
-			MindPackage packageObj = getPackage(project);
-			if (packageObj == null) {
-				return null;
-			}
-			
-			String defaultPackage = packageObj.getName();
-			// Resolve and return the URI
-			MindAdl adl = project.resolveAdl(componentName, defaultPackage, importsEList);
-			if (adl == null) return null;
-			
-			return adl.getQualifiedName();
-		} catch (NullPointerException e) {
-			e.printStackTrace();
+		EList<String> importsEList = new BasicEList<String>();
+		importsEList.addAll(imports);
+		
+		MindAdl adl = resolveMindAdl(componentName, importsEList);
+		if (adl == null) return null;
+		
+		return adl.getQualifiedName();
+	}
+
+	public MindAdl resolveMindAdl(String componentName, EList<String> importsEList) {
+		// This is the current project
+		MindProject project = getMindProject();
+		if (project == null) {
 			return null;
 		}
+		
+		// This is the current package
+		MindPackage defaultPackageObj = getCurrentPackage();
+		if (defaultPackageObj == null) {
+			return null;
+		}
+		
+		// Resolve and return the URI
+		MindAdl adl = project.resolveAdl(componentName, defaultPackageObj.getName(), importsEList);
+		return adl;
+	}
+	
+	private MindItf getMindItf(String itfName, EList<String> imports) {
+		// This is the current project
+		MindProject project = getMindProject();
+		if (project == null) {
+			return null;
+		}
+		
+		// This is the current package
+		MindPackage defaultPackageObj = getCurrentPackage();
+		if (defaultPackageObj == null) {
+			return null;
+		}
+		
+		// Resolve and return the URI
+		MindItf itf = project.resolveIdl(itfName, defaultPackageObj.getName(), imports);
+		return itf;
 	}
 	
 	/**
@@ -116,19 +132,21 @@ public class ModelToProjectUtil {
 	 * @return a list of string containing all the definitions in the project, or an empty list
 	 */
 	public List<String> getDefinitionsInProject() {
-		try {
-			EList<MindFile> files = getMindProject().getAllFiles();
-			List<String> definitions = new ArrayList<String>();
-			for (MindFile file : files) {
-				if (file instanceof MindAdl) {
-					definitions.add(file.getQualifiedName());
-				}
+		return getAllFQNInProject(MindidePackage.Literals.MIND_ADL);
+	}
+	
+	public List<String> getAllFQNInProject(EClass type) {
+		MindProject mindProject = getMindProject();
+		if (mindProject == null) return Collections.emptyList();
+		
+		EList<MindFile> files = mindProject.getAllFiles();
+		List<String> definitions = new ArrayList<String>();
+		for (MindFile file : files) {
+			if (type.isInstance(file)) {
+				definitions.add(file.getQualifiedName());
 			}
-			return definitions;
-		}catch (NullPointerException e) {
-			// Project is null
-			return new ArrayList<String>();
 		}
+		return definitions;
 	}
 	
 	/**
@@ -136,19 +154,7 @@ public class ModelToProjectUtil {
 	 * @return a list of string containing all the .itf in the project, or an empty list
 	 */
 	public List<String> getInterfacesInProject() {
-		try {
-			EList<MindFile> files = getMindProject().getAllFiles();
-			List<String> definitions = new ArrayList<String>();
-			for (MindFile file : files) {
-				if (file instanceof MindItf) {
-					definitions.add(file.getQualifiedName());
-				}
-			}
-			return definitions;
-		}catch (NullPointerException e) {
-			// Project is null
-			return new ArrayList<String>();
-		}
+		return getAllFQNInProject(MindidePackage.Literals.MIND_ITF);
 	}
 	
 	
@@ -192,7 +198,7 @@ public class ModelToProjectUtil {
 				String relativePath = FileUtil.getRelativePath(((FileEditorInput)editorInput).getPath().toString(), Platform.getLocation().toString());
 				// Convert to mind format
 				String mindPath = convertToMindPath(relativePath);
-				String pack = getPackage(getMindProject()).getName();
+				String pack = getCurrentPackage().getName();
 				int start = mindPath.lastIndexOf(pack);
 				int end = mindPath.lastIndexOf(".");
 				String finalPath = mindPath.substring(start, end);
@@ -247,22 +253,11 @@ public class ModelToProjectUtil {
 		refreshEditorInput();
 
 		if(editorInput instanceof FileEditorInput){
-			// URI of the file associated with the editor
-			@SuppressWarnings("unused")
-			URI resourceURI = URI.createPlatformResourceURI(((FileEditorInput)editorInput).getURI().toString(),true);
-			try{
-				String relativePath = FileUtil.getRelativePath(((FileEditorInput)editorInput).getPath().toString(), Platform.getLocation().toString());
-				//Replace \\ with /
-				String convertedRelativePath = convertToGenericPath(relativePath);
-				URI relativeURI = URI.createURI(convertedRelativePath);
-				
-				if (relativeURI.segmentCount() > 1) {
-					IWorkspace workspace = org.eclipse.core.resources.ResourcesPlugin.getWorkspace();
-					project = workspace.getRoot().getProject(relativeURI.segment(0));
-				}
-			}catch(Exception e){
-				e.printStackTrace();
-			}
+			FileEditorInput fileEditorInput = (FileEditorInput)editorInput;
+			IFile file = fileEditorInput.getFile();
+			if (file == null)
+				return null;
+			return file.getProject();
 		}
 		return project;
 	}
@@ -319,7 +314,16 @@ public class ModelToProjectUtil {
 	/**
 	 * @return the IProject associated with the editorInput
 	 */
-	public MindPackage getPackage(MindProject project) {
+	public MindPackage getCurrentPackage() {
+		MindFile mo = getCurrentMindFile();
+		return mo == null ? null : mo.getPackage();
+	}
+	
+	
+	/**
+	 * @return the IProject associated with the editorInput
+	 */
+	public MindFile getCurrentMindFile() {
 		refreshEditorInput();
 		
 		if(editorInput instanceof FileEditorInput){
@@ -327,7 +331,7 @@ public class ModelToProjectUtil {
 			IFile file = fileEditorInput.getFile();
 			MindObject mo = MindIdeCore.get(file);
 			if (mo instanceof MindFile) {
-				return ((MindFile)mo).getPackage();
+				return (MindFile) mo;
 			}
 			
 			throw new IllegalArgumentException(mo == null ? "not find":"bad type "+mo.eClass().getName());
@@ -345,6 +349,8 @@ public class ModelToProjectUtil {
 		String convertedPath = oldPath.replace('\\', '/');
 		return convertedPath;
 	}
+
+	
 	
 	
 }

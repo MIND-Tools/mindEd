@@ -4,7 +4,6 @@ Bundle-Name: org.ow2.mindEd.adl.textual.ui
 Bundle-Vendor: Partenaire Minalogic
 Bundle-Version: 0.2.0.qualifier
 Bundle-SymbolicName: org.ow2.mindEd.adl.textual.ui; singleton:=true
-Eclipse-RegisterBuddy: org.eclipse.xtext.log4j
 Bundle-ActivationPolicy: lazy
 Require-Bundle: org.ow2.mindEd.adl.textual.model;visibility:=reexport,
  org.eclipse.xtend,

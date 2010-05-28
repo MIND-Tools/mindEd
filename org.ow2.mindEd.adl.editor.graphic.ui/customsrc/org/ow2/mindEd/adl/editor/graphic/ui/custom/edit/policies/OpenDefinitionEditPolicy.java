@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.core.runtime.QualifiedName;
+import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
@@ -129,8 +130,7 @@ public class OpenDefinitionEditPolicy extends OpenEditPolicy {
 		if (model instanceof FileC) {
 			String directory = ((FileC) model).getDirectory();
 			if (directory == null || directory == "") {
-				MindProject project = ModelToProjectUtil.INSTANCE.getMindProject();
-				MindPackage pack = ModelToProjectUtil.INSTANCE.getPackage(project);
+				MindPackage pack = ModelToProjectUtil.INSTANCE.getCurrentPackage();
 				directory = pack.getFullpath();
 			}
 			if (!directory.endsWith("/"))
@@ -172,25 +172,10 @@ public class OpenDefinitionEditPolicy extends OpenEditPolicy {
 			
 			try {
 
-				MindProject project = ModelToProjectUtil.INSTANCE.getMindProject();
-				
-				if (!signature.contains(".")) {
-					// Add current package to path
-					MindPackage pack = ModelToProjectUtil.INSTANCE.getPackage(project);
-					signature = pack.getFullpath().concat("/").concat(signature);
-				}
-				else {
-					signature = "/".concat(project.getName()).concat("/src/").concat(signature);	
-				}
-				
-				signature = signature.replace(".", "/");
-				signature = signature.concat(".itf");
-				
-				// Get the file URI
-				URI fileURI = URI.createFileURI(signature);
-				
+				EList<String> imports = new BasicEList<String>();
+				//TODO complete imports object : add the list of imports
 				// Create the editor input
-				IFile file = ModelToProjectUtil.INSTANCE.getIFile(fileURI);
+				IFile file = ModelToProjectUtil.INSTANCE.resolveItf(itf.getSignature(), imports);
 				
 				if (file == null || !(file.exists())) {
 					MindDiagramEditorPlugin.getInstance().logError("File not found : "+signature);
