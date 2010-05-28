@@ -18,6 +18,7 @@ import org.eclipse.ui.part.FileEditorInput;
 import org.ow2.mindEd.ide.model.MindAdl;
 import org.ow2.mindEd.ide.model.MindFile;
 import org.ow2.mindEd.ide.model.MindItf;
+import org.ow2.mindEd.ide.model.MindObject;
 import org.ow2.mindEd.ide.model.MindPackage;
 import org.ow2.mindEd.ide.model.MindProject;
 import org.ow2.mindEd.ide.model.MindRootSrc;
@@ -91,6 +92,7 @@ public class ModelToProjectUtil {
 			if (project == null) {
 				return null;
 			}
+			
 			// This is the current package
 			MindPackage packageObj = getPackage(project);
 			if (packageObj == null) {
@@ -321,35 +323,14 @@ public class ModelToProjectUtil {
 		refreshEditorInput();
 		
 		if(editorInput instanceof FileEditorInput){
-			@SuppressWarnings("unused")
-			URI resourceURI = URI.createPlatformResourceURI(((FileEditorInput)editorInput).getURI().toString(),true);
-			try{
-				String relativePath = FileUtil.getRelativePath(((FileEditorInput)editorInput).getPath().toString(), Platform.getLocation().toString());
-				//Replace \ with #
-				String convertedRelativePath = '/' + convertToGenericPath(relativePath);
-				convertedRelativePath = convertedRelativePath.substring(0, convertedRelativePath.lastIndexOf("/"));
-				
-				URI relativeURI = URI.createURI(convertedRelativePath);
-				
-				if (relativeURI.segmentCount() > 1) {
-					EList<MindRootSrc> roots = project.getRootsrcs();
-					for (MindRootSrc rootSrc : roots) {
-						String rootPath = rootSrc.getFullpath();
-						if (convertedRelativePath.contains(rootPath)) {
-							EList<MindPackage> packages = rootSrc.getPackages();
-							for (MindPackage mindPackage : packages) {
-								String packagePath = mindPackage.getFullpath();
-								if (convertedRelativePath.equals(packagePath)) {
-									return mindPackage;
-								}
-							}
-						}
-						
-					}
-				}
-			}catch(Exception e){
-				e.printStackTrace();
+			FileEditorInput fileEditorInput = (FileEditorInput)editorInput;
+			IFile file = fileEditorInput.getFile();
+			MindObject mo = MindIdeCore.get(file);
+			if (mo instanceof MindFile) {
+				return ((MindFile)mo).getPackage();
 			}
+			
+			throw new IllegalArgumentException(mo == null ? "not find":"bad type "+mo.eClass().getName());
 		}
 		return null;
 	}
