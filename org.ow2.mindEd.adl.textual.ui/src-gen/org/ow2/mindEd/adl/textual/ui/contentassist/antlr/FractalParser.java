@@ -49,6 +49,7 @@ public class FractalParser extends AbstractContentAssistParser {
 					put(grammarAccess.getElementAccess().getAlternatives(), "rule__Element__Alternatives");
 					put(grammarAccess.getComponentReferenceAccess().getAlternatives(), "rule__ComponentReference__Alternatives");
 					put(grammarAccess.getArgumentDefinitionAccess().getAlternatives(), "rule__ArgumentDefinition__Alternatives");
+					put(grammarAccess.getInterfaceDefinitionAccess().getAlternatives_5(), "rule__InterfaceDefinition__Alternatives_5");
 					put(grammarAccess.getBindingDefinitionAccess().getAlternatives_1_1(), "rule__BindingDefinition__Alternatives_1_1");
 					put(grammarAccess.getBindingDefinitionAccess().getAlternatives_1_6(), "rule__BindingDefinition__Alternatives_1_6");
 					put(grammarAccess.getDataDefinitionAccess().getAlternatives_1(), "rule__DataDefinition__Alternatives_1");
@@ -105,7 +106,7 @@ public class FractalParser extends AbstractContentAssistParser {
 					put(grammarAccess.getAttributeDefinitionAccess().getGroup_4(), "rule__AttributeDefinition__Group_4__0");
 					put(grammarAccess.getArgumentDefinitionAccess().getGroup_0(), "rule__ArgumentDefinition__Group_0__0");
 					put(grammarAccess.getInterfaceDefinitionAccess().getGroup(), "rule__InterfaceDefinition__Group__0");
-					put(grammarAccess.getInterfaceDefinitionAccess().getGroup_5(), "rule__InterfaceDefinition__Group_5__0");
+					put(grammarAccess.getInterfaceDefinitionAccess().getGroup_5_0(), "rule__InterfaceDefinition__Group_5_0__0");
 					put(grammarAccess.getBindingDefinitionAccess().getGroup(), "rule__BindingDefinition__Group__0");
 					put(grammarAccess.getBindingDefinitionAccess().getGroup_1(), "rule__BindingDefinition__Group_1__0");
 					put(grammarAccess.getBindingDefinitionAccess().getGroup_1_4(), "rule__BindingDefinition__Group_1_4__0");
@@ -197,9 +198,9 @@ public class FractalParser extends AbstractContentAssistParser {
 					put(grammarAccess.getInterfaceDefinitionAccess().getRoleAssignment_1(), "rule__InterfaceDefinition__RoleAssignment_1");
 					put(grammarAccess.getInterfaceDefinitionAccess().getSignatureAssignment_2(), "rule__InterfaceDefinition__SignatureAssignment_2");
 					put(grammarAccess.getInterfaceDefinitionAccess().getNameAssignment_4(), "rule__InterfaceDefinition__NameAssignment_4");
-					put(grammarAccess.getInterfaceDefinitionAccess().getCollectionAssignment_5_0(), "rule__InterfaceDefinition__CollectionAssignment_5_0");
-					put(grammarAccess.getInterfaceDefinitionAccess().getCollectionsizeAssignment_5_1(), "rule__InterfaceDefinition__CollectionsizeAssignment_5_1");
-					put(grammarAccess.getInterfaceDefinitionAccess().getCollectionAssignment_5_2(), "rule__InterfaceDefinition__CollectionAssignment_5_2");
+					put(grammarAccess.getInterfaceDefinitionAccess().getCollectionAssignment_5_0_0(), "rule__InterfaceDefinition__CollectionAssignment_5_0_0");
+					put(grammarAccess.getInterfaceDefinitionAccess().getCollectionsizeAssignment_5_0_1(), "rule__InterfaceDefinition__CollectionsizeAssignment_5_0_1");
+					put(grammarAccess.getInterfaceDefinitionAccess().getCollectionAssignment_5_1(), "rule__InterfaceDefinition__CollectionAssignment_5_1");
 					put(grammarAccess.getInterfaceDefinitionAccess().getContingencyAssignment_6(), "rule__InterfaceDefinition__ContingencyAssignment_6");
 					put(grammarAccess.getBindingDefinitionAccess().getAnnotationsListAssignment_0(), "rule__BindingDefinition__AnnotationsListAssignment_0");
 					put(grammarAccess.getBindingDefinitionAccess().getInterfaceSourceParentNameAssignment_1_1_1(), "rule__BindingDefinition__InterfaceSourceParentNameAssignment_1_1_1");

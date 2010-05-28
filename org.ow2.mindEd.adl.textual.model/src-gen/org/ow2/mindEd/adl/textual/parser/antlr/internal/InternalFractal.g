@@ -2788,11 +2788,11 @@ ruleInterfaceDefinition returns [EObject current=null]
 	    }
 
 )
-)((
+)(((
 (
 		lv_collection_5_0=	'[' 
     {
-        createLeafNode(grammarAccess.getInterfaceDefinitionAccess().getCollectionLeftSquareBracketKeyword_5_0_0(), "collection"); 
+        createLeafNode(grammarAccess.getInterfaceDefinitionAccess().getCollectionLeftSquareBracketKeyword_5_0_0_0(), "collection"); 
     }
  
 	    {
@@ -2813,7 +2813,7 @@ ruleInterfaceDefinition returns [EObject current=null]
 (
 		lv_collectionsize_6_0=RULE_INT
 		{
-			createLeafNode(grammarAccess.getInterfaceDefinitionAccess().getCollectionsizeINTTerminalRuleCall_5_1_0(), "collectionsize"); 
+			createLeafNode(grammarAccess.getInterfaceDefinitionAccess().getCollectionsizeINTTerminalRuleCall_5_0_1_0(), "collectionsize"); 
 		}
 		{
 	        if ($current==null) {
@@ -2833,11 +2833,16 @@ ruleInterfaceDefinition returns [EObject current=null]
 	    }
 
 )
-)?(
-(
-		lv_collection_7_0=	']' 
+)?	']' 
     {
-        createLeafNode(grammarAccess.getInterfaceDefinitionAccess().getCollectionRightSquareBracketKeyword_5_2_0(), "collection"); 
+        createLeafNode(grammarAccess.getInterfaceDefinitionAccess().getRightSquareBracketKeyword_5_0_2(), null); 
+    }
+)
+    |(
+(
+		lv_collection_8_0=	'[]' 
+    {
+        createLeafNode(grammarAccess.getInterfaceDefinitionAccess().getCollectionLeftSquareBracketRightSquareBracketKeyword_5_1_0(), "collection"); 
     }
  
 	    {
@@ -2847,7 +2852,7 @@ ruleInterfaceDefinition returns [EObject current=null]
 	        }
 	        
 	        try {
-	       		set($current, "collection", true, "]", lastConsumedNode);
+	       		set($current, "collection", true, "[]", lastConsumedNode);
 	        } catch (ValueConverterException vce) {
 				handleValueConverterException(vce);
 	        }
@@ -2859,7 +2864,7 @@ ruleInterfaceDefinition returns [EObject current=null]
 		{ 
 	        currentNode=createCompositeNode(grammarAccess.getInterfaceDefinitionAccess().getContingencyContingencyEnumRuleCall_6_0(), currentNode); 
 	    }
-		lv_contingency_8_0=ruleContingency		{
+		lv_contingency_9_0=ruleContingency		{
 	        if ($current==null) {
 	            $current = factory.create(grammarAccess.getInterfaceDefinitionRule().getType().getClassifier());
 	            associateNodeWithAstElement(currentNode.getParent(), $current);
@@ -2868,7 +2873,7 @@ ruleInterfaceDefinition returns [EObject current=null]
 	       		set(
 	       			$current, 
 	       			"contingency",
-	        		lv_contingency_8_0, 
+	        		lv_contingency_9_0, 
 	        		"Contingency", 
 	        		currentNode);
 	        } catch (ValueConverterException vce) {

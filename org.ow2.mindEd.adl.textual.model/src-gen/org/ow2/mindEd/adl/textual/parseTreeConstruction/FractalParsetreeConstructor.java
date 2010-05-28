@@ -6158,12 +6158,12 @@ protected class ArgumentDefinition_ArgumentValueAssignment_1 extends AssignmentT
  *
  * InterfaceDefinition:
  *   annotationsList=AnnotationsList? role=Role signature=FQN? "as" name=ID (collection?=
- *   "[" collectionsize=INT? collection?="]")? contingency=Contingency?;
+ *   "[" collectionsize=INT? "]"|collection?="[]")? contingency=Contingency?;
  *
  **/
 
 // annotationsList=AnnotationsList? role=Role signature=FQN? "as" name=ID (collection?=
-// "[" collectionsize=INT? collection?="]")? contingency=Contingency?
+// "[" collectionsize=INT? "]"|collection?="[]")? contingency=Contingency?
 protected class InterfaceDefinition_Group extends GroupToken {
 	
 	public InterfaceDefinition_Group(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
@@ -6179,7 +6179,7 @@ protected class InterfaceDefinition_Group extends GroupToken {
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
 			case 0: return new InterfaceDefinition_ContingencyAssignment_6(parent, this, 0, inst);
-			case 1: return new InterfaceDefinition_Group_5(parent, this, 1, inst);
+			case 1: return new InterfaceDefinition_Alternatives_5(parent, this, 1, inst);
 			case 2: return new InterfaceDefinition_NameAssignment_4(parent, this, 2, inst);
 			default: return null;
 		}	
@@ -6362,22 +6362,45 @@ protected class InterfaceDefinition_NameAssignment_4 extends AssignmentToken  {
 
 }
 
-// (collection?="[" collectionsize=INT? collection?="]")?
-protected class InterfaceDefinition_Group_5 extends GroupToken {
-	
-	public InterfaceDefinition_Group_5(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+// (collection?="[" collectionsize=INT? "]"|collection?="[]")?
+protected class InterfaceDefinition_Alternatives_5 extends AlternativesToken {
+
+	public InterfaceDefinition_Alternatives_5(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	@Override
-	public Group getGrammarElement() {
-		return grammarAccess.getInterfaceDefinitionAccess().getGroup_5();
+	public Alternatives getGrammarElement() {
+		return grammarAccess.getInterfaceDefinitionAccess().getAlternatives_5();
 	}
 
     @Override
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new InterfaceDefinition_CollectionAssignment_5_2(parent, this, 0, inst);
+			case 0: return new InterfaceDefinition_Group_5_0(parent, this, 0, inst);
+			case 1: return new InterfaceDefinition_CollectionAssignment_5_1(parent, this, 1, inst);
+			default: return null;
+		}	
+	}	
+		
+}
+
+// collection?="[" collectionsize=INT? "]"
+protected class InterfaceDefinition_Group_5_0 extends GroupToken {
+	
+	public InterfaceDefinition_Group_5_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Group getGrammarElement() {
+		return grammarAccess.getInterfaceDefinitionAccess().getGroup_5_0();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new InterfaceDefinition_RightSquareBracketKeyword_5_0_2(parent, this, 0, inst);
 			default: return null;
 		}	
 	}	
@@ -6385,15 +6408,15 @@ protected class InterfaceDefinition_Group_5 extends GroupToken {
 }
 
 // collection?="["
-protected class InterfaceDefinition_CollectionAssignment_5_0 extends AssignmentToken  {
+protected class InterfaceDefinition_CollectionAssignment_5_0_0 extends AssignmentToken  {
 	
-	public InterfaceDefinition_CollectionAssignment_5_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	public InterfaceDefinition_CollectionAssignment_5_0_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	@Override
 	public Assignment getGrammarElement() {
-		return grammarAccess.getInterfaceDefinitionAccess().getCollectionAssignment_5_0();
+		return grammarAccess.getInterfaceDefinitionAccess().getCollectionAssignment_5_0_0();
 	}
 
     @Override
@@ -6410,7 +6433,7 @@ protected class InterfaceDefinition_CollectionAssignment_5_0 extends AssignmentT
 		IInstanceDescription obj = current.cloneAndConsume("collection");
 		if(Boolean.TRUE.equals(value)) { // org::eclipse::xtext::impl::KeywordImpl
 			type = AssignmentType.KW;
-			element = grammarAccess.getInterfaceDefinitionAccess().getCollectionLeftSquareBracketKeyword_5_0_0();
+			element = grammarAccess.getInterfaceDefinitionAccess().getCollectionLeftSquareBracketKeyword_5_0_0_0();
 			return obj;
 		}
 		return null;
@@ -6419,21 +6442,21 @@ protected class InterfaceDefinition_CollectionAssignment_5_0 extends AssignmentT
 }
 
 // collectionsize=INT?
-protected class InterfaceDefinition_CollectionsizeAssignment_5_1 extends AssignmentToken  {
+protected class InterfaceDefinition_CollectionsizeAssignment_5_0_1 extends AssignmentToken  {
 	
-	public InterfaceDefinition_CollectionsizeAssignment_5_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	public InterfaceDefinition_CollectionsizeAssignment_5_0_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	@Override
 	public Assignment getGrammarElement() {
-		return grammarAccess.getInterfaceDefinitionAccess().getCollectionsizeAssignment_5_1();
+		return grammarAccess.getInterfaceDefinitionAccess().getCollectionsizeAssignment_5_0_1();
 	}
 
     @Override
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new InterfaceDefinition_CollectionAssignment_5_0(parent, this, 0, inst);
+			case 0: return new InterfaceDefinition_CollectionAssignment_5_0_0(parent, this, 0, inst);
 			default: return null;
 		}	
 	}	
@@ -6444,7 +6467,7 @@ protected class InterfaceDefinition_CollectionsizeAssignment_5_1 extends Assignm
 		IInstanceDescription obj = current.cloneAndConsume("collectionsize");
 		if(Boolean.TRUE.booleanValue()) { 
 			type = AssignmentType.LRC;
-			element = grammarAccess.getInterfaceDefinitionAccess().getCollectionsizeINTTerminalRuleCall_5_1_0();
+			element = grammarAccess.getInterfaceDefinitionAccess().getCollectionsizeINTTerminalRuleCall_5_0_1_0();
 			return obj;
 		}
 		return null;
@@ -6452,23 +6475,46 @@ protected class InterfaceDefinition_CollectionsizeAssignment_5_1 extends Assignm
 
 }
 
-// collection?="]"
-protected class InterfaceDefinition_CollectionAssignment_5_2 extends AssignmentToken  {
+// "]"
+protected class InterfaceDefinition_RightSquareBracketKeyword_5_0_2 extends KeywordToken  {
 	
-	public InterfaceDefinition_CollectionAssignment_5_2(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	public InterfaceDefinition_RightSquareBracketKeyword_5_0_2(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	@Override
-	public Assignment getGrammarElement() {
-		return grammarAccess.getInterfaceDefinitionAccess().getCollectionAssignment_5_2();
+	public Keyword getGrammarElement() {
+		return grammarAccess.getInterfaceDefinitionAccess().getRightSquareBracketKeyword_5_0_2();
 	}
 
     @Override
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new InterfaceDefinition_CollectionsizeAssignment_5_1(parent, this, 0, inst);
-			case 1: return new InterfaceDefinition_CollectionAssignment_5_0(parent, this, 1, inst);
+			case 0: return new InterfaceDefinition_CollectionsizeAssignment_5_0_1(parent, this, 0, inst);
+			case 1: return new InterfaceDefinition_CollectionAssignment_5_0_0(parent, this, 1, inst);
+			default: return null;
+		}	
+	}	
+		
+}
+
+
+// collection?="[]"
+protected class InterfaceDefinition_CollectionAssignment_5_1 extends AssignmentToken  {
+	
+	public InterfaceDefinition_CollectionAssignment_5_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Assignment getGrammarElement() {
+		return grammarAccess.getInterfaceDefinitionAccess().getCollectionAssignment_5_1();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new InterfaceDefinition_NameAssignment_4(parent, this, 0, inst);
 			default: return null;
 		}	
 	}	
@@ -6479,7 +6525,7 @@ protected class InterfaceDefinition_CollectionAssignment_5_2 extends AssignmentT
 		IInstanceDescription obj = current.cloneAndConsume("collection");
 		if(Boolean.TRUE.equals(value)) { // org::eclipse::xtext::impl::KeywordImpl
 			type = AssignmentType.KW;
-			element = grammarAccess.getInterfaceDefinitionAccess().getCollectionRightSquareBracketKeyword_5_2_0();
+			element = grammarAccess.getInterfaceDefinitionAccess().getCollectionLeftSquareBracketRightSquareBracketKeyword_5_1_0();
 			return obj;
 		}
 		return null;
@@ -6503,7 +6549,7 @@ protected class InterfaceDefinition_ContingencyAssignment_6 extends AssignmentTo
     @Override
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new InterfaceDefinition_Group_5(parent, this, 0, inst);
+			case 0: return new InterfaceDefinition_Alternatives_5(parent, this, 0, inst);
 			case 1: return new InterfaceDefinition_NameAssignment_4(parent, this, 1, inst);
 			default: return null;
 		}	

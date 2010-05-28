@@ -147,7 +147,10 @@ ArgumentDefinition :
 InterfaceDefinition :
 (annotationsList=AnnotationsList)?
 role=Role (signature=FQN)?'as'name=ID
-(collection?='['(collectionsize=INT)?collection?=']')?
+(
+	(collection?='['(collectionsize=INT)?']') 
+	| collection?='[]'
+)?
 (contingency=Contingency)?
 ;
 

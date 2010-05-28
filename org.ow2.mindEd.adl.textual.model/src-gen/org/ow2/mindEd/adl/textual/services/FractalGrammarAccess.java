@@ -1310,23 +1310,25 @@ public class FractalGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cAsKeyword_3 = (Keyword)cGroup.eContents().get(3);
 		private final Assignment cNameAssignment_4 = (Assignment)cGroup.eContents().get(4);
 		private final RuleCall cNameIDTerminalRuleCall_4_0 = (RuleCall)cNameAssignment_4.eContents().get(0);
-		private final Group cGroup_5 = (Group)cGroup.eContents().get(5);
-		private final Assignment cCollectionAssignment_5_0 = (Assignment)cGroup_5.eContents().get(0);
-		private final Keyword cCollectionLeftSquareBracketKeyword_5_0_0 = (Keyword)cCollectionAssignment_5_0.eContents().get(0);
-		private final Assignment cCollectionsizeAssignment_5_1 = (Assignment)cGroup_5.eContents().get(1);
-		private final RuleCall cCollectionsizeINTTerminalRuleCall_5_1_0 = (RuleCall)cCollectionsizeAssignment_5_1.eContents().get(0);
-		private final Assignment cCollectionAssignment_5_2 = (Assignment)cGroup_5.eContents().get(2);
-		private final Keyword cCollectionRightSquareBracketKeyword_5_2_0 = (Keyword)cCollectionAssignment_5_2.eContents().get(0);
+		private final Alternatives cAlternatives_5 = (Alternatives)cGroup.eContents().get(5);
+		private final Group cGroup_5_0 = (Group)cAlternatives_5.eContents().get(0);
+		private final Assignment cCollectionAssignment_5_0_0 = (Assignment)cGroup_5_0.eContents().get(0);
+		private final Keyword cCollectionLeftSquareBracketKeyword_5_0_0_0 = (Keyword)cCollectionAssignment_5_0_0.eContents().get(0);
+		private final Assignment cCollectionsizeAssignment_5_0_1 = (Assignment)cGroup_5_0.eContents().get(1);
+		private final RuleCall cCollectionsizeINTTerminalRuleCall_5_0_1_0 = (RuleCall)cCollectionsizeAssignment_5_0_1.eContents().get(0);
+		private final Keyword cRightSquareBracketKeyword_5_0_2 = (Keyword)cGroup_5_0.eContents().get(2);
+		private final Assignment cCollectionAssignment_5_1 = (Assignment)cAlternatives_5.eContents().get(1);
+		private final Keyword cCollectionLeftSquareBracketRightSquareBracketKeyword_5_1_0 = (Keyword)cCollectionAssignment_5_1.eContents().get(0);
 		private final Assignment cContingencyAssignment_6 = (Assignment)cGroup.eContents().get(6);
 		private final RuleCall cContingencyContingencyEnumRuleCall_6_0 = (RuleCall)cContingencyAssignment_6.eContents().get(0);
 		
 		//InterfaceDefinition:
 		//  annotationsList=AnnotationsList? role=Role signature=FQN? "as" name=ID (collection?=
-		//  "[" collectionsize=INT? collection?="]")? contingency=Contingency?;
+		//  "[" collectionsize=INT? "]"|collection?="[]")? contingency=Contingency?;
 		public ParserRule getRule() { return rule; }
 
 		//annotationsList=AnnotationsList? role=Role signature=FQN? "as" name=ID (collection?=
-		//"[" collectionsize=INT? collection?="]")? contingency=Contingency?
+		//"[" collectionsize=INT? "]"|collection?="[]")? contingency=Contingency?
 		public Group getGroup() { return cGroup; }
 
 		//annotationsList=AnnotationsList?
@@ -1356,26 +1358,32 @@ public class FractalGrammarAccess extends AbstractGrammarElementFinder {
 		//ID
 		public RuleCall getNameIDTerminalRuleCall_4_0() { return cNameIDTerminalRuleCall_4_0; }
 
-		//(collection?="[" collectionsize=INT? collection?="]")?
-		public Group getGroup_5() { return cGroup_5; }
+		//(collection?="[" collectionsize=INT? "]"|collection?="[]")?
+		public Alternatives getAlternatives_5() { return cAlternatives_5; }
+
+		//collection?="[" collectionsize=INT? "]"
+		public Group getGroup_5_0() { return cGroup_5_0; }
 
 		//collection?="["
-		public Assignment getCollectionAssignment_5_0() { return cCollectionAssignment_5_0; }
+		public Assignment getCollectionAssignment_5_0_0() { return cCollectionAssignment_5_0_0; }
 
 		//"["
-		public Keyword getCollectionLeftSquareBracketKeyword_5_0_0() { return cCollectionLeftSquareBracketKeyword_5_0_0; }
+		public Keyword getCollectionLeftSquareBracketKeyword_5_0_0_0() { return cCollectionLeftSquareBracketKeyword_5_0_0_0; }
 
 		//collectionsize=INT?
-		public Assignment getCollectionsizeAssignment_5_1() { return cCollectionsizeAssignment_5_1; }
+		public Assignment getCollectionsizeAssignment_5_0_1() { return cCollectionsizeAssignment_5_0_1; }
 
 		//INT
-		public RuleCall getCollectionsizeINTTerminalRuleCall_5_1_0() { return cCollectionsizeINTTerminalRuleCall_5_1_0; }
-
-		//collection?="]"
-		public Assignment getCollectionAssignment_5_2() { return cCollectionAssignment_5_2; }
+		public RuleCall getCollectionsizeINTTerminalRuleCall_5_0_1_0() { return cCollectionsizeINTTerminalRuleCall_5_0_1_0; }
 
 		//"]"
-		public Keyword getCollectionRightSquareBracketKeyword_5_2_0() { return cCollectionRightSquareBracketKeyword_5_2_0; }
+		public Keyword getRightSquareBracketKeyword_5_0_2() { return cRightSquareBracketKeyword_5_0_2; }
+
+		//collection?="[]"
+		public Assignment getCollectionAssignment_5_1() { return cCollectionAssignment_5_1; }
+
+		//"[]"
+		public Keyword getCollectionLeftSquareBracketRightSquareBracketKeyword_5_1_0() { return cCollectionLeftSquareBracketRightSquareBracketKeyword_5_1_0; }
 
 		//contingency=Contingency?
 		public Assignment getContingencyAssignment_6() { return cContingencyAssignment_6; }
@@ -2609,7 +2617,7 @@ public class FractalGrammarAccess extends AbstractGrammarElementFinder {
 
 	//InterfaceDefinition:
 	//  annotationsList=AnnotationsList? role=Role signature=FQN? "as" name=ID (collection?=
-	//  "[" collectionsize=INT? collection?="]")? contingency=Contingency?;
+	//  "[" collectionsize=INT? "]"|collection?="[]")? contingency=Contingency?;
 	public InterfaceDefinitionElements getInterfaceDefinitionAccess() {
 		return (pInterfaceDefinition != null) ? pInterfaceDefinition : (pInterfaceDefinition = new InterfaceDefinitionElements());
 	}
