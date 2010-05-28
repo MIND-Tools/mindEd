@@ -65,7 +65,9 @@ public class ModelToProjectUtil {
 		try {
 			// This is the current project
 			MindProject project = getMindProject();
-
+			if (project == null) {
+				return null;
+			}
 			// This is the current package
 			String defaultPackage = getPackage(project).getName();
 			// Resolve and return the URI
@@ -86,9 +88,17 @@ public class ModelToProjectUtil {
 			
 			// This is the current project
 			MindProject project = getMindProject();
-
+			if (project == null) {
+				return null;
+			}
+			
 			// This is the current package
-			String defaultPackage = getPackage(project).getName();
+			MindPackage packageObj = getPackage(project);
+			if (packageObj == null) {
+				return null;
+			}
+			
+			String defaultPackage = packageObj.getName();
 			// Resolve and return the URI
 			MindAdl adl = project.resolveAdl(componentName, defaultPackage, importsEList);
 			if (adl == null) return null;
