@@ -20,6 +20,7 @@ public class SubComponentAdapter extends AbstractReferencesTreatment {
 				root.eNotify(new ENotificationImpl((InternalEObject) root, Notification.SET, AdlPackage.COMPONENT_REFERENCE, notification.getOldValue(), notification.getNewValue()));
 			}
 		}
+		super.notifyChanged(notification);
 	}
 
 	/**

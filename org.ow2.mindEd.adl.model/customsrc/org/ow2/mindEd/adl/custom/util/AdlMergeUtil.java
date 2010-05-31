@@ -5,10 +5,13 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map.Entry;
 
+import org.eclipse.core.resources.IFile;
 import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.TreeIterator;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.ui.IEditorInput;
+import org.eclipse.ui.part.FileEditorInput;
 
 import org.ow2.mindEd.adl.AdlPackage;
 import org.ow2.mindEd.adl.ArchitectureDefinition;
@@ -23,6 +26,7 @@ import org.ow2.mindEd.adl.SubComponentDefinition;
 import org.ow2.mindEd.adl.TemplateDefinition;
 import org.ow2.mindEd.adl.TemplateSpecifier;
 import org.ow2.mindEd.adl.custom.impl.CompositeComponentDefinitionCustomImpl;
+import org.ow2.mindEd.ide.core.ModelToProjectUtil;
 
 
 /**
@@ -71,6 +75,7 @@ public class AdlMergeUtil extends AbstractMergeTreatment {
 	 */
 	public void merge(ArchitectureDefinition definition, EList<ComponentReference> refList, boolean useBuffer) {
 		if (!merging) {
+			IEditorInput oldinput = ModelToProjectUtil.INSTANCE.getEditorInput();
 			try {
 				merging = true;
 				mergedDefinitionsHistory.clear();
@@ -86,6 +91,7 @@ public class AdlMergeUtil extends AbstractMergeTreatment {
 				cleanMerge(definition);
 			}
 			finally {
+				ModelToProjectUtil.INSTANCE.setEditorInput(oldinput);
 				merging = false;
 				mergedDefinitionsHistory.clear();
 			}
@@ -681,12 +687,16 @@ public class AdlMergeUtil extends AbstractMergeTreatment {
 
 		// Before calculating full merge, check if loaded definition is
 		// compatible
+		
 		if (definitionToMergeWith != null && !canMerge(mergedDefinition, definitionToMergeWith)) {
 			return null;
 		}
 		// If main definition has references, resolves merges.
 		EList<ComponentReference> referencesList = getReferencesList(mergedDefinition);
+		IEditorInput oldInput = ModelToProjectUtil.INSTANCE.getEditorInput();
+		definitionLoader.computeEditorInput(mergedDefinition.getName(), recoverImports(mergedDefinition));
 		fullMerge(mergedDefinition, referencesList);
+		ModelToProjectUtil.INSTANCE.setEditorInput(oldInput);
 		return mergedDefinition;
 	}
 

@@ -44,6 +44,7 @@ public class AdlFactoryCustomImpl extends AdlFactoryImpl  {
 	@Override
 	public SubComponentCompositeBody createSubComponentCompositeBody() {
 		SubComponentCompositeBodyImpl subComponentCompositeBody = new SubComponentCompositeBodyCustomImpl();
+		AdlAdapterCustomFactory.getInstance().createAdapter(subComponentCompositeBody);
 		return subComponentCompositeBody;
 	}
 	
@@ -53,6 +54,7 @@ public class AdlFactoryCustomImpl extends AdlFactoryImpl  {
 	@Override
 	public SubComponentPrimitiveBody createSubComponentPrimitiveBody() {
 		SubComponentPrimitiveBodyImpl subComponentPrimitiveBody = new SubComponentPrimitiveBodyCustomImpl();
+		AdlAdapterCustomFactory.getInstance().createAdapter(subComponentPrimitiveBody);
 		return subComponentPrimitiveBody;
 	}
 
@@ -77,18 +79,21 @@ public class AdlFactoryCustomImpl extends AdlFactoryImpl  {
 	@Override
 	public CompositeBody createCompositeBody() {
 		CompositeBodyImpl compositeBody = new CompositeBodyCustomImpl();
+		AdlAdapterCustomFactory.getInstance().createAdapter(compositeBody);
 		return compositeBody;
 	}
 	
 	@Override
 	public PrimitiveBody createPrimitiveBody() {
 		PrimitiveBodyImpl primitiveBody = new PrimitiveBodyCustomImpl();
+		AdlAdapterCustomFactory.getInstance().createAdapter(primitiveBody);
 		return primitiveBody;
 	}
 	
 	@Override
 	public TypeBody createTypeBody() {
 		TypeBodyImpl typeBody = new TypeBodyCustomImpl();
+		AdlAdapterCustomFactory.getInstance().createAdapter(typeBody);
 		return typeBody;
 	}
 	

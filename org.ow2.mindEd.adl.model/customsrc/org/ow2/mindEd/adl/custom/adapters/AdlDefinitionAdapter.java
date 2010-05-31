@@ -34,6 +34,7 @@ public class AdlDefinitionAdapter extends AbstractReferencesTreatment {
 				calculateReferencesToResolve((AdlDefinition) root);
 			}
 		}
+		super.notifyChanged(notification);
 	}
 
 	private void calculateReferencesToResolve(AdlDefinition definition)
@@ -51,7 +52,6 @@ public class AdlDefinitionAdapter extends AbstractReferencesTreatment {
 				if(!reference.isResolved() && !reference.getReferenceName().equals(AdlPackage.eINSTANCE.getComponentReference_ReferenceName().getDefaultValue()))
 				{	
 					notResolved=true;
-					break;
 				}
 			}
 		}
