@@ -14,8 +14,6 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.ui.IEditorInput;
-import org.eclipse.ui.IWorkbenchWindow;
-import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.part.FileEditorInput;
 import org.ow2.mindEd.ide.model.MindAdl;
 import org.ow2.mindEd.ide.model.MindFile;
@@ -41,7 +39,6 @@ public class ModelToProjectUtil {
 	private IEditorInput editorInput;
 	
 	private ModelToProjectUtil () {
-		refreshEditorInput();
 	}
 	
 	/**
@@ -168,20 +165,7 @@ public class ModelToProjectUtil {
 	public IEditorInput getEditorInput() {
 		return editorInput;
 	}	
-	
-	private void refreshEditorInput () {
-		try {
-			IWorkbenchWindow window = PlatformUI.getWorkbench().getActiveWorkbenchWindow();
-			if (window == null || window.getActivePage() == null )
-				return;
-			editorInput = window.getActivePage().getActiveEditor().getEditorInput();
-		} catch (NullPointerException e) {
-			// The editor is probably being initialized
-			return;
-		}
-		
-	}
-	
+
 	/**
 	 * @return the current MindProject or null if project is not of Mind nature
 	 */
@@ -235,7 +219,6 @@ public class ModelToProjectUtil {
 	 */
 	public IProject getIProject() {
 		IProject project = null;
-		refreshEditorInput();
 
 		if(editorInput instanceof FileEditorInput){
 			FileEditorInput fileEditorInput = (FileEditorInput)editorInput;
@@ -260,7 +243,6 @@ public class ModelToProjectUtil {
 	 * @return the IProject associated with the editorInput
 	 */
 	public MindFile getCurrentMindFile() {
-		refreshEditorInput();
 		
 		if(editorInput instanceof FileEditorInput){
 			FileEditorInput fileEditorInput = (FileEditorInput)editorInput;
