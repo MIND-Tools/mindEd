@@ -165,6 +165,10 @@ public class ModelToProjectUtil {
 		editorInput = input;
 	}
 	
+	public IEditorInput getEditorInput() {
+		return editorInput;
+	}	
+	
 	private void refreshEditorInput () {
 		try {
 			IWorkbenchWindow window = PlatformUI.getWorkbench().getActiveWorkbenchWindow();
