@@ -132,7 +132,7 @@ public class FractalJavaValidator extends AbstractFractalJavaValidator {
 
 		fullList.addAll(packages.keySet());
 		
-		List<String> list = ModelToProjectUtil.INSTANCE.getInterfacesInProject();
+		List<String> list = ModelToProjectUtil.INSTANCE.getAllFQNItfInProject();
 		for (String string : list) {
 			fullList.add(string);
 		}
@@ -261,7 +261,7 @@ public class FractalJavaValidator extends AbstractFractalJavaValidator {
 
 		// Get the idl files using mind path
 		List<String> interfaces = ModelToProjectUtil.INSTANCE
-				.getInterfacesInProject();
+				.getAllFQNItfInProject();
 
 		String signature = interfaceDefinition.getSignature();
 
