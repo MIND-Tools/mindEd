@@ -73,7 +73,7 @@ public class FractalProposalProvider extends AbstractFractalProposalProvider {
 
             // Interfaces proposals
 
-            List<String> itf = ModelToProjectUtil.INSTANCE.getInterfacesInProject();
+            List<String> itf = ModelToProjectUtil.INSTANCE.getAllFQNItfInProject();
 
             for (String key : itf) {
                 proposal = key;
@@ -137,7 +137,7 @@ public class FractalProposalProvider extends AbstractFractalProposalProvider {
 
             // Interface proposals
 
-            List<String> itfList = ModelToProjectUtil.INSTANCE.getInterfacesInProject();
+            List<String> itfList = ModelToProjectUtil.INSTANCE.getAllFQNItfInProject();
             for (String itf : itfList) {
                 completionProposal = createCompletionProposal(itf + ";", itf + " - interface",
                         null, context);
