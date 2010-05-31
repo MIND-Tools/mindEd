@@ -6157,13 +6157,13 @@ protected class ArgumentDefinition_ArgumentValueAssignment_1 extends AssignmentT
 /************ begin Rule InterfaceDefinition ****************
  *
  * InterfaceDefinition:
- *   annotationsList=AnnotationsList? role=Role signature=FQN? "as" name=ID (collection?=
- *   "[" collectionsize=INT? "]"|collection?="[]")? contingency=Contingency?;
+ *   annotationsList=AnnotationsList? role=Role contingency=Contingency? signature=FQN?
+ *   "as" name=ID (collection?="[" collectionsize=INT? "]"|collection?="[]")?;
  *
  **/
 
-// annotationsList=AnnotationsList? role=Role signature=FQN? "as" name=ID (collection?=
-// "[" collectionsize=INT? "]"|collection?="[]")? contingency=Contingency?
+// annotationsList=AnnotationsList? role=Role contingency=Contingency? signature=FQN?
+// "as" name=ID (collection?="[" collectionsize=INT? "]"|collection?="[]")?
 protected class InterfaceDefinition_Group extends GroupToken {
 	
 	public InterfaceDefinition_Group(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
@@ -6178,9 +6178,8 @@ protected class InterfaceDefinition_Group extends GroupToken {
     @Override
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new InterfaceDefinition_ContingencyAssignment_6(parent, this, 0, inst);
-			case 1: return new InterfaceDefinition_Alternatives_5(parent, this, 1, inst);
-			case 2: return new InterfaceDefinition_NameAssignment_4(parent, this, 2, inst);
+			case 0: return new InterfaceDefinition_Alternatives_6(parent, this, 0, inst);
+			case 1: return new InterfaceDefinition_NameAssignment_5(parent, this, 1, inst);
 			default: return null;
 		}	
 	}	
@@ -6271,16 +6270,16 @@ protected class InterfaceDefinition_RoleAssignment_1 extends AssignmentToken  {
 
 }
 
-// signature=FQN?
-protected class InterfaceDefinition_SignatureAssignment_2 extends AssignmentToken  {
+// contingency=Contingency?
+protected class InterfaceDefinition_ContingencyAssignment_2 extends AssignmentToken  {
 	
-	public InterfaceDefinition_SignatureAssignment_2(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	public InterfaceDefinition_ContingencyAssignment_2(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	@Override
 	public Assignment getGrammarElement() {
-		return grammarAccess.getInterfaceDefinitionAccess().getSignatureAssignment_2();
+		return grammarAccess.getInterfaceDefinitionAccess().getContingencyAssignment_2();
 	}
 
     @Override
@@ -6293,11 +6292,46 @@ protected class InterfaceDefinition_SignatureAssignment_2 extends AssignmentToke
 		
     @Override	
 	protected IInstanceDescription tryConsumeVal() {
+		if((value = current.getConsumable("contingency",false)) == null) return null;
+		IInstanceDescription obj = current.cloneAndConsume("contingency");
+		if(Boolean.TRUE.booleanValue()) {  
+			type = AssignmentType.ERC;
+			element = grammarAccess.getInterfaceDefinitionAccess().getContingencyContingencyEnumRuleCall_2_0();
+			return obj;
+		}
+		return null;
+	}
+
+}
+
+// signature=FQN?
+protected class InterfaceDefinition_SignatureAssignment_3 extends AssignmentToken  {
+	
+	public InterfaceDefinition_SignatureAssignment_3(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Assignment getGrammarElement() {
+		return grammarAccess.getInterfaceDefinitionAccess().getSignatureAssignment_3();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new InterfaceDefinition_ContingencyAssignment_2(parent, this, 0, inst);
+			case 1: return new InterfaceDefinition_RoleAssignment_1(parent, this, 1, inst);
+			default: return null;
+		}	
+	}	
+		
+    @Override	
+	protected IInstanceDescription tryConsumeVal() {
 		if((value = current.getConsumable("signature",false)) == null) return null;
 		IInstanceDescription obj = current.cloneAndConsume("signature");
 		if(Boolean.TRUE.booleanValue()) { 
 			type = AssignmentType.DRC;
-			element = grammarAccess.getInterfaceDefinitionAccess().getSignatureFQNParserRuleCall_2_0();
+			element = grammarAccess.getInterfaceDefinitionAccess().getSignatureFQNParserRuleCall_3_0();
 			return obj;
 		}
 		return null;
@@ -6306,22 +6340,23 @@ protected class InterfaceDefinition_SignatureAssignment_2 extends AssignmentToke
 }
 
 // "as"
-protected class InterfaceDefinition_AsKeyword_3 extends KeywordToken  {
+protected class InterfaceDefinition_AsKeyword_4 extends KeywordToken  {
 	
-	public InterfaceDefinition_AsKeyword_3(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	public InterfaceDefinition_AsKeyword_4(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	@Override
 	public Keyword getGrammarElement() {
-		return grammarAccess.getInterfaceDefinitionAccess().getAsKeyword_3();
+		return grammarAccess.getInterfaceDefinitionAccess().getAsKeyword_4();
 	}
 
     @Override
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new InterfaceDefinition_SignatureAssignment_2(parent, this, 0, inst);
-			case 1: return new InterfaceDefinition_RoleAssignment_1(parent, this, 1, inst);
+			case 0: return new InterfaceDefinition_SignatureAssignment_3(parent, this, 0, inst);
+			case 1: return new InterfaceDefinition_ContingencyAssignment_2(parent, this, 1, inst);
+			case 2: return new InterfaceDefinition_RoleAssignment_1(parent, this, 2, inst);
 			default: return null;
 		}	
 	}	
@@ -6329,21 +6364,21 @@ protected class InterfaceDefinition_AsKeyword_3 extends KeywordToken  {
 }
 
 // name=ID
-protected class InterfaceDefinition_NameAssignment_4 extends AssignmentToken  {
+protected class InterfaceDefinition_NameAssignment_5 extends AssignmentToken  {
 	
-	public InterfaceDefinition_NameAssignment_4(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	public InterfaceDefinition_NameAssignment_5(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	@Override
 	public Assignment getGrammarElement() {
-		return grammarAccess.getInterfaceDefinitionAccess().getNameAssignment_4();
+		return grammarAccess.getInterfaceDefinitionAccess().getNameAssignment_5();
 	}
 
     @Override
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new InterfaceDefinition_AsKeyword_3(parent, this, 0, inst);
+			case 0: return new InterfaceDefinition_AsKeyword_4(parent, this, 0, inst);
 			default: return null;
 		}	
 	}	
@@ -6354,7 +6389,7 @@ protected class InterfaceDefinition_NameAssignment_4 extends AssignmentToken  {
 		IInstanceDescription obj = current.cloneAndConsume("name");
 		if(Boolean.TRUE.booleanValue()) { 
 			type = AssignmentType.LRC;
-			element = grammarAccess.getInterfaceDefinitionAccess().getNameIDTerminalRuleCall_4_0();
+			element = grammarAccess.getInterfaceDefinitionAccess().getNameIDTerminalRuleCall_5_0();
 			return obj;
 		}
 		return null;
@@ -6363,22 +6398,22 @@ protected class InterfaceDefinition_NameAssignment_4 extends AssignmentToken  {
 }
 
 // (collection?="[" collectionsize=INT? "]"|collection?="[]")?
-protected class InterfaceDefinition_Alternatives_5 extends AlternativesToken {
+protected class InterfaceDefinition_Alternatives_6 extends AlternativesToken {
 
-	public InterfaceDefinition_Alternatives_5(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	public InterfaceDefinition_Alternatives_6(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	@Override
 	public Alternatives getGrammarElement() {
-		return grammarAccess.getInterfaceDefinitionAccess().getAlternatives_5();
+		return grammarAccess.getInterfaceDefinitionAccess().getAlternatives_6();
 	}
 
     @Override
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new InterfaceDefinition_Group_5_0(parent, this, 0, inst);
-			case 1: return new InterfaceDefinition_CollectionAssignment_5_1(parent, this, 1, inst);
+			case 0: return new InterfaceDefinition_Group_6_0(parent, this, 0, inst);
+			case 1: return new InterfaceDefinition_CollectionAssignment_6_1(parent, this, 1, inst);
 			default: return null;
 		}	
 	}	
@@ -6386,21 +6421,21 @@ protected class InterfaceDefinition_Alternatives_5 extends AlternativesToken {
 }
 
 // collection?="[" collectionsize=INT? "]"
-protected class InterfaceDefinition_Group_5_0 extends GroupToken {
+protected class InterfaceDefinition_Group_6_0 extends GroupToken {
 	
-	public InterfaceDefinition_Group_5_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	public InterfaceDefinition_Group_6_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	@Override
 	public Group getGrammarElement() {
-		return grammarAccess.getInterfaceDefinitionAccess().getGroup_5_0();
+		return grammarAccess.getInterfaceDefinitionAccess().getGroup_6_0();
 	}
 
     @Override
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new InterfaceDefinition_RightSquareBracketKeyword_5_0_2(parent, this, 0, inst);
+			case 0: return new InterfaceDefinition_RightSquareBracketKeyword_6_0_2(parent, this, 0, inst);
 			default: return null;
 		}	
 	}	
@@ -6408,21 +6443,21 @@ protected class InterfaceDefinition_Group_5_0 extends GroupToken {
 }
 
 // collection?="["
-protected class InterfaceDefinition_CollectionAssignment_5_0_0 extends AssignmentToken  {
+protected class InterfaceDefinition_CollectionAssignment_6_0_0 extends AssignmentToken  {
 	
-	public InterfaceDefinition_CollectionAssignment_5_0_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	public InterfaceDefinition_CollectionAssignment_6_0_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	@Override
 	public Assignment getGrammarElement() {
-		return grammarAccess.getInterfaceDefinitionAccess().getCollectionAssignment_5_0_0();
+		return grammarAccess.getInterfaceDefinitionAccess().getCollectionAssignment_6_0_0();
 	}
 
     @Override
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new InterfaceDefinition_NameAssignment_4(parent, this, 0, inst);
+			case 0: return new InterfaceDefinition_NameAssignment_5(parent, this, 0, inst);
 			default: return null;
 		}	
 	}	
@@ -6433,7 +6468,7 @@ protected class InterfaceDefinition_CollectionAssignment_5_0_0 extends Assignmen
 		IInstanceDescription obj = current.cloneAndConsume("collection");
 		if(Boolean.TRUE.equals(value)) { // org::eclipse::xtext::impl::KeywordImpl
 			type = AssignmentType.KW;
-			element = grammarAccess.getInterfaceDefinitionAccess().getCollectionLeftSquareBracketKeyword_5_0_0_0();
+			element = grammarAccess.getInterfaceDefinitionAccess().getCollectionLeftSquareBracketKeyword_6_0_0_0();
 			return obj;
 		}
 		return null;
@@ -6442,21 +6477,21 @@ protected class InterfaceDefinition_CollectionAssignment_5_0_0 extends Assignmen
 }
 
 // collectionsize=INT?
-protected class InterfaceDefinition_CollectionsizeAssignment_5_0_1 extends AssignmentToken  {
+protected class InterfaceDefinition_CollectionsizeAssignment_6_0_1 extends AssignmentToken  {
 	
-	public InterfaceDefinition_CollectionsizeAssignment_5_0_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	public InterfaceDefinition_CollectionsizeAssignment_6_0_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	@Override
 	public Assignment getGrammarElement() {
-		return grammarAccess.getInterfaceDefinitionAccess().getCollectionsizeAssignment_5_0_1();
+		return grammarAccess.getInterfaceDefinitionAccess().getCollectionsizeAssignment_6_0_1();
 	}
 
     @Override
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new InterfaceDefinition_CollectionAssignment_5_0_0(parent, this, 0, inst);
+			case 0: return new InterfaceDefinition_CollectionAssignment_6_0_0(parent, this, 0, inst);
 			default: return null;
 		}	
 	}	
@@ -6467,7 +6502,7 @@ protected class InterfaceDefinition_CollectionsizeAssignment_5_0_1 extends Assig
 		IInstanceDescription obj = current.cloneAndConsume("collectionsize");
 		if(Boolean.TRUE.booleanValue()) { 
 			type = AssignmentType.LRC;
-			element = grammarAccess.getInterfaceDefinitionAccess().getCollectionsizeINTTerminalRuleCall_5_0_1_0();
+			element = grammarAccess.getInterfaceDefinitionAccess().getCollectionsizeINTTerminalRuleCall_6_0_1_0();
 			return obj;
 		}
 		return null;
@@ -6476,22 +6511,22 @@ protected class InterfaceDefinition_CollectionsizeAssignment_5_0_1 extends Assig
 }
 
 // "]"
-protected class InterfaceDefinition_RightSquareBracketKeyword_5_0_2 extends KeywordToken  {
+protected class InterfaceDefinition_RightSquareBracketKeyword_6_0_2 extends KeywordToken  {
 	
-	public InterfaceDefinition_RightSquareBracketKeyword_5_0_2(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	public InterfaceDefinition_RightSquareBracketKeyword_6_0_2(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	@Override
 	public Keyword getGrammarElement() {
-		return grammarAccess.getInterfaceDefinitionAccess().getRightSquareBracketKeyword_5_0_2();
+		return grammarAccess.getInterfaceDefinitionAccess().getRightSquareBracketKeyword_6_0_2();
 	}
 
     @Override
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new InterfaceDefinition_CollectionsizeAssignment_5_0_1(parent, this, 0, inst);
-			case 1: return new InterfaceDefinition_CollectionAssignment_5_0_0(parent, this, 1, inst);
+			case 0: return new InterfaceDefinition_CollectionsizeAssignment_6_0_1(parent, this, 0, inst);
+			case 1: return new InterfaceDefinition_CollectionAssignment_6_0_0(parent, this, 1, inst);
 			default: return null;
 		}	
 	}	
@@ -6500,21 +6535,21 @@ protected class InterfaceDefinition_RightSquareBracketKeyword_5_0_2 extends Keyw
 
 
 // collection?="[]"
-protected class InterfaceDefinition_CollectionAssignment_5_1 extends AssignmentToken  {
+protected class InterfaceDefinition_CollectionAssignment_6_1 extends AssignmentToken  {
 	
-	public InterfaceDefinition_CollectionAssignment_5_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	public InterfaceDefinition_CollectionAssignment_6_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	@Override
 	public Assignment getGrammarElement() {
-		return grammarAccess.getInterfaceDefinitionAccess().getCollectionAssignment_5_1();
+		return grammarAccess.getInterfaceDefinitionAccess().getCollectionAssignment_6_1();
 	}
 
     @Override
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new InterfaceDefinition_NameAssignment_4(parent, this, 0, inst);
+			case 0: return new InterfaceDefinition_NameAssignment_5(parent, this, 0, inst);
 			default: return null;
 		}	
 	}	
@@ -6525,7 +6560,7 @@ protected class InterfaceDefinition_CollectionAssignment_5_1 extends AssignmentT
 		IInstanceDescription obj = current.cloneAndConsume("collection");
 		if(Boolean.TRUE.equals(value)) { // org::eclipse::xtext::impl::KeywordImpl
 			type = AssignmentType.KW;
-			element = grammarAccess.getInterfaceDefinitionAccess().getCollectionLeftSquareBracketRightSquareBracketKeyword_5_1_0();
+			element = grammarAccess.getInterfaceDefinitionAccess().getCollectionLeftSquareBracketRightSquareBracketKeyword_6_1_0();
 			return obj;
 		}
 		return null;
@@ -6533,41 +6568,6 @@ protected class InterfaceDefinition_CollectionAssignment_5_1 extends AssignmentT
 
 }
 
-
-// contingency=Contingency?
-protected class InterfaceDefinition_ContingencyAssignment_6 extends AssignmentToken  {
-	
-	public InterfaceDefinition_ContingencyAssignment_6(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
-		super(parent, next, no, current);
-	}
-	
-	@Override
-	public Assignment getGrammarElement() {
-		return grammarAccess.getInterfaceDefinitionAccess().getContingencyAssignment_6();
-	}
-
-    @Override
-	public AbstractToken createFollower(int index, IInstanceDescription inst) {
-		switch(index) {
-			case 0: return new InterfaceDefinition_Alternatives_5(parent, this, 0, inst);
-			case 1: return new InterfaceDefinition_NameAssignment_4(parent, this, 1, inst);
-			default: return null;
-		}	
-	}	
-		
-    @Override	
-	protected IInstanceDescription tryConsumeVal() {
-		if((value = current.getConsumable("contingency",false)) == null) return null;
-		IInstanceDescription obj = current.cloneAndConsume("contingency");
-		if(Boolean.TRUE.booleanValue()) {  
-			type = AssignmentType.ERC;
-			element = grammarAccess.getInterfaceDefinitionAccess().getContingencyContingencyEnumRuleCall_6_0();
-			return obj;
-		}
-		return null;
-	}
-
-}
 
 
 /************ end Rule InterfaceDefinition ****************/
@@ -7210,13 +7210,11 @@ protected class BindingDefinition_RightSquareBracketKeyword_1_9_2 extends Keywor
 /************ begin Rule DataDefinition ****************
  *
  * DataDefinition:
- *   annotationsList=AnnotationsList? ("data" (fileC=FileC|inlineCcode=InlineCodeC)|
- *   "nodata");
+ *   annotationsList=AnnotationsList? "data" (fileC=FileC|inlineCcode=InlineCodeC);
  *
  **/
 
-// annotationsList=AnnotationsList? ("data" (fileC=FileC|inlineCcode=InlineCodeC)|
-// "nodata")
+// annotationsList=AnnotationsList? "data" (fileC=FileC|inlineCcode=InlineCodeC)
 protected class DataDefinition_Group extends GroupToken {
 	
 	public DataDefinition_Group(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
@@ -7231,7 +7229,7 @@ protected class DataDefinition_Group extends GroupToken {
     @Override
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new DataDefinition_Alternatives_1(parent, this, 0, inst);
+			case 0: return new DataDefinition_Alternatives_2(parent, this, 0, inst);
 			default: return null;
 		}	
 	}	
@@ -7288,61 +7286,16 @@ protected class DataDefinition_AnnotationsListAssignment_0 extends AssignmentTok
 	}	
 }
 
-// "data" (fileC=FileC|inlineCcode=InlineCodeC)|"nodata"
-protected class DataDefinition_Alternatives_1 extends AlternativesToken {
-
-	public DataDefinition_Alternatives_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
-		super(parent, next, no, current);
-	}
-	
-	@Override
-	public Alternatives getGrammarElement() {
-		return grammarAccess.getDataDefinitionAccess().getAlternatives_1();
-	}
-
-    @Override
-	public AbstractToken createFollower(int index, IInstanceDescription inst) {
-		switch(index) {
-			case 0: return new DataDefinition_Group_1_0(parent, this, 0, inst);
-			case 1: return new DataDefinition_NodataKeyword_1_1(parent, this, 1, inst);
-			default: return null;
-		}	
-	}	
-		
-}
-
-// "data" (fileC=FileC|inlineCcode=InlineCodeC)
-protected class DataDefinition_Group_1_0 extends GroupToken {
-	
-	public DataDefinition_Group_1_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
-		super(parent, next, no, current);
-	}
-	
-	@Override
-	public Group getGrammarElement() {
-		return grammarAccess.getDataDefinitionAccess().getGroup_1_0();
-	}
-
-    @Override
-	public AbstractToken createFollower(int index, IInstanceDescription inst) {
-		switch(index) {
-			case 0: return new DataDefinition_Alternatives_1_0_1(parent, this, 0, inst);
-			default: return null;
-		}	
-	}	
-		
-}
-
 // "data"
-protected class DataDefinition_DataKeyword_1_0_0 extends KeywordToken  {
+protected class DataDefinition_DataKeyword_1 extends KeywordToken  {
 	
-	public DataDefinition_DataKeyword_1_0_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	public DataDefinition_DataKeyword_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	@Override
 	public Keyword getGrammarElement() {
-		return grammarAccess.getDataDefinitionAccess().getDataKeyword_1_0_0();
+		return grammarAccess.getDataDefinitionAccess().getDataKeyword_1();
 	}
 
     @Override
@@ -7356,22 +7309,22 @@ protected class DataDefinition_DataKeyword_1_0_0 extends KeywordToken  {
 }
 
 // fileC=FileC|inlineCcode=InlineCodeC
-protected class DataDefinition_Alternatives_1_0_1 extends AlternativesToken {
+protected class DataDefinition_Alternatives_2 extends AlternativesToken {
 
-	public DataDefinition_Alternatives_1_0_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	public DataDefinition_Alternatives_2(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	@Override
 	public Alternatives getGrammarElement() {
-		return grammarAccess.getDataDefinitionAccess().getAlternatives_1_0_1();
+		return grammarAccess.getDataDefinitionAccess().getAlternatives_2();
 	}
 
     @Override
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new DataDefinition_FileCAssignment_1_0_1_0(parent, this, 0, inst);
-			case 1: return new DataDefinition_InlineCcodeAssignment_1_0_1_1(parent, this, 1, inst);
+			case 0: return new DataDefinition_FileCAssignment_2_0(parent, this, 0, inst);
+			case 1: return new DataDefinition_InlineCcodeAssignment_2_1(parent, this, 1, inst);
 			default: return null;
 		}	
 	}	
@@ -7379,15 +7332,15 @@ protected class DataDefinition_Alternatives_1_0_1 extends AlternativesToken {
 }
 
 // fileC=FileC
-protected class DataDefinition_FileCAssignment_1_0_1_0 extends AssignmentToken  {
+protected class DataDefinition_FileCAssignment_2_0 extends AssignmentToken  {
 	
-	public DataDefinition_FileCAssignment_1_0_1_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	public DataDefinition_FileCAssignment_2_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	@Override
 	public Assignment getGrammarElement() {
-		return grammarAccess.getDataDefinitionAccess().getFileCAssignment_1_0_1_0();
+		return grammarAccess.getDataDefinitionAccess().getFileCAssignment_2_0();
 	}
 
     @Override
@@ -7406,7 +7359,7 @@ protected class DataDefinition_FileCAssignment_1_0_1_0 extends AssignmentToken  
 			IInstanceDescription param = getDescr((EObject)value);
 			if(param.isInstanceOf(grammarAccess.getFileCRule().getType().getClassifier())) {
 				type = AssignmentType.PRC;
-				element = grammarAccess.getDataDefinitionAccess().getFileCFileCParserRuleCall_1_0_1_0_0(); 
+				element = grammarAccess.getDataDefinitionAccess().getFileCFileCParserRuleCall_2_0_0(); 
 				consumed = obj;
 				return param;
 			}
@@ -7418,22 +7371,22 @@ protected class DataDefinition_FileCAssignment_1_0_1_0 extends AssignmentToken  
 	public AbstractToken createParentFollower(AbstractToken next,	int actIndex, int index, IInstanceDescription inst) {
 		if(value == inst.getDelegate() && !inst.isConsumed()) return null;
 		switch(index) {
-			case 0: return new DataDefinition_DataKeyword_1_0_0(parent, next, actIndex, consumed);
+			case 0: return new DataDefinition_DataKeyword_1(parent, next, actIndex, consumed);
 			default: return null;
 		}	
 	}	
 }
 
 // inlineCcode=InlineCodeC
-protected class DataDefinition_InlineCcodeAssignment_1_0_1_1 extends AssignmentToken  {
+protected class DataDefinition_InlineCcodeAssignment_2_1 extends AssignmentToken  {
 	
-	public DataDefinition_InlineCcodeAssignment_1_0_1_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	public DataDefinition_InlineCcodeAssignment_2_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	@Override
 	public Assignment getGrammarElement() {
-		return grammarAccess.getDataDefinitionAccess().getInlineCcodeAssignment_1_0_1_1();
+		return grammarAccess.getDataDefinitionAccess().getInlineCcodeAssignment_2_1();
 	}
 
     @Override
@@ -7452,7 +7405,7 @@ protected class DataDefinition_InlineCcodeAssignment_1_0_1_1 extends AssignmentT
 			IInstanceDescription param = getDescr((EObject)value);
 			if(param.isInstanceOf(grammarAccess.getInlineCodeCRule().getType().getClassifier())) {
 				type = AssignmentType.PRC;
-				element = grammarAccess.getDataDefinitionAccess().getInlineCcodeInlineCodeCParserRuleCall_1_0_1_1_0(); 
+				element = grammarAccess.getDataDefinitionAccess().getInlineCcodeInlineCodeCParserRuleCall_2_1_0(); 
 				consumed = obj;
 				return param;
 			}
@@ -7464,34 +7417,10 @@ protected class DataDefinition_InlineCcodeAssignment_1_0_1_1 extends AssignmentT
 	public AbstractToken createParentFollower(AbstractToken next,	int actIndex, int index, IInstanceDescription inst) {
 		if(value == inst.getDelegate() && !inst.isConsumed()) return null;
 		switch(index) {
-			case 0: return new DataDefinition_DataKeyword_1_0_0(parent, next, actIndex, consumed);
+			case 0: return new DataDefinition_DataKeyword_1(parent, next, actIndex, consumed);
 			default: return null;
 		}	
 	}	
-}
-
-
-
-// "nodata"
-protected class DataDefinition_NodataKeyword_1_1 extends KeywordToken  {
-	
-	public DataDefinition_NodataKeyword_1_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
-		super(parent, next, no, current);
-	}
-	
-	@Override
-	public Keyword getGrammarElement() {
-		return grammarAccess.getDataDefinitionAccess().getNodataKeyword_1_1();
-	}
-
-    @Override
-	public AbstractToken createFollower(int index, IInstanceDescription inst) {
-		switch(index) {
-			case 0: return new DataDefinition_AnnotationsListAssignment_0(parent, this, 0, inst);
-			default: return parent.createParentFollower(this, index, index - 1, inst);
-		}	
-	}	
-		
 }
 
 

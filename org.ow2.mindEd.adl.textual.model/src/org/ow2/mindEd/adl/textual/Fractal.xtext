@@ -146,12 +146,11 @@ ArgumentDefinition :
 
 InterfaceDefinition :
 (annotationsList=AnnotationsList)?
-role=Role (signature=FQN)?'as'name=ID
+role=Role (contingency=Contingency)? (signature=FQN)?'as'name=ID
 (
 	(collection?='['(collectionsize=INT)?']') 
 	| collection?='[]'
 )?
-(contingency=Contingency)?
 ;
 
 BindingDefinition :
@@ -163,8 +162,7 @@ BindingDefinition :
 
 DataDefinition :
 (annotationsList=AnnotationsList)?
-(('data'((fileC=FileC)|(inlineCcode=InlineCodeC)))
-|('nodata'));
+'data'((fileC=FileC)|(inlineCcode=InlineCodeC));
 
 ImplementationDefinition :
 (annotationsList=AnnotationsList)?
