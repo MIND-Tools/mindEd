@@ -217,7 +217,6 @@ public class ModelToProjectUtil {
 			}
 			
 			// file:/absolute-path
-			// Get the project associated with the first segment
 			if (uri.isFile() && !uri.isRelative()) {
 				String fullPath = uri.path();
 				return workspace.getRoot().getFileForLocation(new Path(fullPath));
