@@ -286,7 +286,7 @@ public class ModelToProjectUtil {
 	 * @param resourceURI : A file URI
 	 * @return Fully qualified name from a given URI
 	 */
-	public String getFQNFromURI(URI resourceURI)
+	private String getFQNFromURI(URI resourceURI)
 	{
 		if(resourceURI==null)return null;
 		String pack = getPackageFromURI(resourceURI).getName();
@@ -299,7 +299,7 @@ public class ModelToProjectUtil {
 	 * @param resourceURI : A file URI
 	 * @return package name from a resource URI
 	 */
-	public MindPackage getPackageFromURI(URI resourceURI) {
+	private MindPackage getPackageFromURI(URI resourceURI) {
 		refreshEditorInput();
 		if(editorInput instanceof FileEditorInput){
 			try{
