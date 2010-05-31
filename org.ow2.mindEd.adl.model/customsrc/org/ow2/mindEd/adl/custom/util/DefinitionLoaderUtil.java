@@ -129,7 +129,8 @@ public class DefinitionLoaderUtil {
 	 * @param importsList
 	 *            : Imports list
 	 * @return the URI of associated definition file
-	 * 
+	 * <pre>
+   *   platform:/resource/project-name/path</pre>
 	 * @author proustr
 	 */
 	public URI getResourcePath(String definitionCall, ArrayList<String> importsList) {
