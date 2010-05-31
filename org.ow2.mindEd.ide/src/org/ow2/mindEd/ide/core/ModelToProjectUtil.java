@@ -135,7 +135,7 @@ public class ModelToProjectUtil {
 		return getAllFQNInProject(MindidePackage.Literals.MIND_ADL);
 	}
 	
-	public List<String> getAllFQNInProject(EClass type) {
+	private List<String> getAllFQNInProject(EClass type) {
 		MindProject mindProject = getMindProject();
 		if (mindProject == null) return Collections.emptyList();
 		
@@ -247,6 +247,10 @@ public class ModelToProjectUtil {
 		if(editorInput instanceof FileEditorInput){
 			FileEditorInput fileEditorInput = (FileEditorInput)editorInput;
 			IFile file = fileEditorInput.getFile();
+			if (file.getName().endsWith(MindIdeCore.DIAGRAM_EXT)){
+				String n = file.getName();
+				file = file.getParent().getFile(new Path(n.substring(0, n.length()-MindIdeCore.DIAGRAM_EXT.length())));
+			}
 			MindObject mo = MindIdeCore.get(file);
 			if (mo instanceof MindFile) {
 				return (MindFile) mo;
