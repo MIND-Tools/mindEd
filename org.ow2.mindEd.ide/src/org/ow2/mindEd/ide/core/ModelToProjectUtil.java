@@ -6,7 +6,9 @@ import java.util.List;
 
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IProject;
+import org.eclipse.core.resources.IResource;
 import org.eclipse.core.resources.IWorkspace;
+import org.eclipse.core.runtime.Path;
 import org.eclipse.core.runtime.Platform;
 import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
@@ -50,6 +52,8 @@ public class ModelToProjectUtil {
 	 * @param componentName the name of the component to resolve
 	 * @param imports the list of imports name in the definition
 	 * @return the URI of the resolved component or null
+	 * <pre>
+   *   platform:/resource/project-name/path</pre>
 	 * @see {@link MindProject#resolveAdl(String, String, EList)}
 	 */
 	public URI resolveAdl(String componentName, ArrayList<String> imports) {
@@ -62,7 +66,9 @@ public class ModelToProjectUtil {
 	 * Seeks a component with the given name.
 	 * @param componentName the name of the component to resolve
 	 * @param imports the list of imports name in the definition
-	 * @return the URI of the resolved component or null
+	 * @return the URI of the resolved component or null 
+	 * <pre>
+   *   platform:/resource/project-name/path</pre>
 	 * @see {@link MindProject#resolveAdl(String, String, EList)}
 	 */
 	public URI resolveAdl(String componentName, EList<String> imports) {
@@ -195,10 +201,12 @@ public class ModelToProjectUtil {
 		
 		if(editorInput instanceof FileEditorInput){
 			try{
-				String relativePath = FileUtil.getRelativePath(((FileEditorInput)editorInput).getPath().toString(), Platform.getLocation().toString());
+				FileEditorInput fileEditorInput = (FileEditorInput)editorInput;
+				String relativePath = FileUtil.getRelativePath(fileEditorInput.getPath().toString(), Platform.getLocation().toString());
 				// Convert to mind format
 				String mindPath = convertToMindPath(relativePath);
-				String pack = getCurrentPackage().getName();
+				MindPackage currentPackage = getCurrentPackage();
+				String pack = currentPackage.getName();
 				int start = mindPath.lastIndexOf(pack);
 				int end = mindPath.lastIndexOf(".");
 				String finalPath = mindPath.substring(start, end);
@@ -226,21 +234,33 @@ public class ModelToProjectUtil {
 	/**
 	 * 
 	 * @param uri the URI of the wanted file
+	 * <pre>
+   *   platform:/resource/project-name/path
+   *   file:/absFile...
+   *   </pre>
 	 * @return the IFile or null
+	 * 
 	 */
 	public IFile getIFile(URI uri) {
 		if (uri != null) {
-			try {
-				IWorkspace workspace = org.eclipse.core.resources.ResourcesPlugin.getWorkspace();
-				// Get the project associated with the first segment
-				IProject project = workspace.getRoot().getProject(uri.segment(0));
-				String path = FileUtil.getRelativePath(uri.path(),project.getFullPath().toString());
-				return project.getFile(path);
-			} catch (NullPointerException e) {
-				// File could not be found
+			// platform:/resource/project-name/path
+			IWorkspace workspace = org.eclipse.core.resources.ResourcesPlugin.getWorkspace();
+			if (uri.isPlatformResource()) {
+				String wsRelatifPath = uri.toPlatformString(true);
+				IResource r = workspace.getRoot().findMember(wsRelatifPath);
+				if (r instanceof IFile) {
+					return ((IFile)r);
+				}
 				return null;
 			}
 			
+			// file:/absolute-path
+			// Get the project associated with the first segment
+			if (uri.isFile() && !uri.isRelative()) {
+				String fullPath = uri.path();
+				return workspace.getRoot().getFileForLocation(new Path(fullPath));
+			}
+			throw new UnsupportedOperationException("URI scheme not supported: "+uri);
 		}
 		return null;
 	}
