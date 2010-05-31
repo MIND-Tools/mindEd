@@ -45,10 +45,10 @@ public class ImportsPropertyDescriptor extends ItemPropertyDescriptor {
 		Collection<ImportDefinition> suggestedImports = new ArrayList <ImportDefinition> ();
 		
 		// Find the list of files in the project to suggest imports
-		List<String> definitions = ModelToProjectUtil.INSTANCE.getDefinitionsInProject();
+		List<String> definitions = ModelToProjectUtil.INSTANCE.getAllFQNAdlInProject();
 		
 		// Remove the current definition (TODO)
-		definitions.remove(ModelToProjectUtil.INSTANCE.getCurrentDefinition());
+		definitions.remove(ModelToProjectUtil.INSTANCE.getCurrentFQN());
 		// Remove definitions already added
 		definitions.removeAll(oldDefinitions);
 		

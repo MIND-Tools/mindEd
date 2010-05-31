@@ -62,7 +62,7 @@ public class ListPropertyDescriptor extends ItemPropertyDescriptor {
 		
 		// Remove the current definition
 		// TODO
-		definitions.remove(ModelToProjectUtil.INSTANCE.getCurrentDefinition());
+		definitions.remove(ModelToProjectUtil.INSTANCE.getCurrentFQN());
 		// Remove definitions already added
 		definitions.removeAll(oldDefinitions);
 		
@@ -115,11 +115,11 @@ public class ListPropertyDescriptor extends ItemPropertyDescriptor {
 	}
 	
 	protected List<String> getFilesInProject() {
-		return ModelToProjectUtil.INSTANCE.getDefinitionsInProject();
+		return ModelToProjectUtil.INSTANCE.getAllFQNAdlInProject();
 	}
 	
 	protected List<String> getInterfacesInProject() {
-		return ModelToProjectUtil.INSTANCE.getInterfacesInProject();
+		return ModelToProjectUtil.INSTANCE.getAllFQNItfInProject();
 	}
 	
 	public ListPropertyDescriptor(AdapterFactory adapterFactory,
