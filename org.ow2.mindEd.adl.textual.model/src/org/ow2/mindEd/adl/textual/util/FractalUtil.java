@@ -218,7 +218,7 @@ public class FractalUtil {
 		String FQN = null;
 		
 		// Retrieve all interfaces declared into mind project
-		List<String> interfaces = ModelToProjectUtil.INSTANCE.getInterfacesInProject();
+		List<String> interfaces = ModelToProjectUtil.INSTANCE.getAllFQNItfInProject();
 		
 		return getFQNFromSimpleName(architectureDefinition, interfaces, interfaceName);		
 	}
