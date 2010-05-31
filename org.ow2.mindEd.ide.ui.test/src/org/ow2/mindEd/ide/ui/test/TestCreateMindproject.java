@@ -21,12 +21,14 @@ import org.eclipse.swt.widgets.Event;
 import org.eclipse.swt.widgets.Menu;
 import org.eclipse.swt.widgets.MenuItem;
 import org.eclipse.swt.widgets.Widget;
+import org.eclipse.swtbot.eclipse.gef.finder.widgets.SWTBotGefFigureCanvas;
 import org.eclipse.swtbot.swt.finder.SWTBot;
 import org.eclipse.swtbot.swt.finder.exceptions.WidgetNotFoundException;
 import org.eclipse.swtbot.swt.finder.finders.MenuFinder;
 import org.eclipse.swtbot.swt.finder.results.WidgetResult;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.swtbot.swt.finder.utils.SWTBotPreferences;
 import org.eclipse.swtbot.swt.finder.widgets.SWTBotMenu;
 import org.eclipse.swtbot.swt.finder.widgets.SWTBotTreeItem;
@@ -44,6 +46,7 @@ import org.ow2.mindEd.adl.ArchitectureDefinition;
 import org.ow2.mindEd.adl.ComponentReference;
 import org.ow2.mindEd.adl.ReferencesList;
 import org.ow2.mindEd.ide.core.MindIdeCore;
+import org.ow2.mindEd.ide.core.ModelToProjectUtil;
 import org.ow2.mindEd.ide.model.MindAdl;
 import org.ow2.mindEd.ide.model.MindProject;
 import org.ow2.mindEd.ide.test.TestMindProject;
@@ -479,7 +482,21 @@ public class TestCreateMindproject extends GTTestCase {
 		assertEquals(t1MindAdl.getQualifiedName(), extendsFQN);
 		
 		gef.close();
+		
+		//TODO doit passer dans le lot 3
+//		ModelToProjectUtil.INSTANCE.setEditorInput(null);
+//		
+//		ResourceSetImpl rs = new ResourceSetImpl();
+//		URI uri = URI.createPlatformResourceURI(compT2File.getFullPath().toOSString(), true);
+//		r = (XtextResource) rs.getResource(uri, true);
+//		assertNotNull(r);
+//		adlDef = (AdlDefinition) r.getEObject("/");
+//		assertNotNull(adlDef);
+//		extendsFQN = getFQNFirstReference(adlDef);
+//		assertEquals(t1MindAdl.getQualifiedName(), extendsFQN);
 	}
+	
+	
 	protected XtextResource getXtextResource(DiagramDocumentEditor gmfEditor) {
 		TransactionalEditingDomain dd = gmfEditor.getEditingDomain();
 		EList<Resource> rsrcs = dd.getResourceSet().getResources();
@@ -603,9 +620,11 @@ public class TestCreateMindproject extends GTTestCase {
 		
 		FileCEditPart.FileCFigure cFig = findFigure(f,FileCEditPart.FileCFigure.class);
 		Rectangle r = cFig.getClientArea();
-		//new SWTBot(getFigureCanvas(gef)).
-		gef.close();
 		
+		SWTBotGefFigureCanvas c = new SWTBotGefFigureCanvas(getFigureCanvas(gef));
+		c.mouseMoveDoubleClick(r.x, r.y);
+		//gef.close();
+		GTTextEditor ceditor = new GTTextEditor(compA+".c");
 	}
 	
 	private void toString(String tab, IFigure f) {
