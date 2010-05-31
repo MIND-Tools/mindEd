@@ -9,12 +9,10 @@ import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IResource;
 import org.eclipse.core.resources.IWorkspace;
 import org.eclipse.core.runtime.Path;
-import org.eclipse.core.runtime.Platform;
 import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.gmf.runtime.common.ui.util.FileUtil;
 import org.eclipse.ui.IEditorInput;
 import org.eclipse.ui.IWorkbenchWindow;
 import org.eclipse.ui.PlatformUI;
@@ -25,7 +23,6 @@ import org.ow2.mindEd.ide.model.MindItf;
 import org.ow2.mindEd.ide.model.MindObject;
 import org.ow2.mindEd.ide.model.MindPackage;
 import org.ow2.mindEd.ide.model.MindProject;
-import org.ow2.mindEd.ide.model.MindRootSrc;
 import org.ow2.mindEd.ide.model.MindidePackage;
 
 
@@ -137,7 +134,7 @@ public class ModelToProjectUtil {
 	 * 
 	 * @return a list of string containing all the definitions in the project, or an empty list
 	 */
-	public List<String> getDefinitionsInProject() {
+	public List<String> getAllFQNAdlInProject() {
 		return getAllFQNInProject(MindidePackage.Literals.MIND_ADL);
 	}
 	
@@ -159,7 +156,7 @@ public class ModelToProjectUtil {
 	 * 
 	 * @return a list of string containing all the .itf in the project, or an empty list
 	 */
-	public List<String> getInterfacesInProject() {
+	public List<String> getAllFQNItfInProject() {
 		return getAllFQNInProject(MindidePackage.Literals.MIND_ITF);
 	}
 	
@@ -196,41 +193,6 @@ public class ModelToProjectUtil {
 		return MindIdeCore.get(project);
 	}
 	
-	public String getCurrentDefinition() {
-		refreshEditorInput();
-		
-		if(editorInput instanceof FileEditorInput){
-			try{
-				FileEditorInput fileEditorInput = (FileEditorInput)editorInput;
-				String relativePath = FileUtil.getRelativePath(fileEditorInput.getPath().toString(), Platform.getLocation().toString());
-				// Convert to mind format
-				String mindPath = convertToMindPath(relativePath);
-				MindPackage currentPackage = getCurrentPackage();
-				String pack = currentPackage.getName();
-				int start = mindPath.lastIndexOf(pack);
-				int end = mindPath.lastIndexOf(".");
-				String finalPath = mindPath.substring(start, end);
-				return finalPath;
-			} catch(Exception e) {
-				e.printStackTrace();
-			}
-		}
-			
-		return new String(" ");
-	}
-	
-	/**
-	 * Used to convert path  to a mind path<p>
-	 * Converts "\\" or "/" separators to "."
-	 * @param oldPath
-	 * @return the converted path
-	 */
-	static String convertToMindPath(String oldPath){	
-		String tempPath = oldPath.replace('\\', '.');
-		String convertedPath = tempPath.replace('/', '.');
-		return convertedPath;
-	}
-	
 	/**
 	 * 
 	 * @param uri the URI of the wanted file
@@ -260,7 +222,7 @@ public class ModelToProjectUtil {
 				String fullPath = uri.path();
 				return workspace.getRoot().getFileForLocation(new Path(fullPath));
 			}
-			throw new UnsupportedOperationException("URI scheme not supported: "+uri);
+			throw new UnsupportedOperationException("URI scheme is unsupported: "+uri);
 		}
 		return null;
 	}
@@ -280,55 +242,6 @@ public class ModelToProjectUtil {
 			return file.getProject();
 		}
 		return project;
-	}
-	
-	/**
-	 * @param resourceURI : A file URI
-	 * @return Fully qualified name from a given URI
-	 */
-	private String getFQNFromURI(URI resourceURI)
-	{
-		if(resourceURI==null)return null;
-		String pack = getPackageFromURI(resourceURI).getName();
-		if(pack==null)pack="";
-		String component = resourceURI.lastSegment().substring(0, resourceURI.lastSegment().lastIndexOf("."));
-		return pack+"."+component;
-	}
-	
-	/**
-	 * @param resourceURI : A file URI
-	 * @return package name from a resource URI
-	 */
-	private MindPackage getPackageFromURI(URI resourceURI) {
-		refreshEditorInput();
-		if(editorInput instanceof FileEditorInput){
-			try{
-				String relativePath = resourceURI.devicePath();
-				//Replace \ with #
-				String convertedRelativePath = '/' + convertToGenericPath(relativePath);
-				URI relativeURI = URI.createURI(convertedRelativePath);
-				
-				if (relativeURI.segmentCount() > 1) {
-					EList<MindRootSrc> roots = getMindProject().getRootsrcs();
-					for (MindRootSrc rootSrc : roots) {
-						String rootPath = rootSrc.getFullpath();
-						if (convertedRelativePath.contains(rootPath)) {
-							EList<MindPackage> packages = rootSrc.getPackages();
-							for (MindPackage mindPackage : packages) {
-								String packagePath = mindPackage.getFullpath();
-								if (convertedRelativePath.contains(packagePath)) {
-									return mindPackage;
-								}
-							}
-						}
-						
-					}
-				}
-			}catch(Exception e){
-				e.printStackTrace();
-			}
-		}
-		return null;	
 	}
 	
 	/**
@@ -359,18 +272,8 @@ public class ModelToProjectUtil {
 		return null;
 	}
 	
-		
-	/**
-	 * Used to convert a windows path ( \\ ) to a generic path ( / )
-	 * @param oldPath
-	 * @return the converted path
-	 */
-	static String convertToGenericPath(String oldPath){	
-		String convertedPath = oldPath.replace('\\', '/');
-		return convertedPath;
+	public String getCurrentFQN() {
+		MindFile f = getCurrentMindFile();
+		return f == null ? "" : f.getQualifiedName();
 	}
-
-	
-	
-	
 }
