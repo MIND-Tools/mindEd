@@ -8,76 +8,76 @@ import org.eclipse.xtext.ui.editor.contentassist.antlr.internal.Lexer;
 }
 
 T13 : 'this' ;
-T14 : 'nodata' ;
-T15 : 'null' ;
-T16 : 'Override' ;
-T17 : 'Singleton' ;
-T18 : 'LDFlags' ;
-T19 : 'CFlags' ;
-T20 : 'STRUCT' ;
-T21 : 'UNION' ;
-T22 : 'ENUM' ;
-T23 : '+' ;
-T24 : '-' ;
-T25 : 'optional' ;
-T26 : 'mandatory' ;
-T27 : 'provides' ;
-T28 : 'requires' ;
-T29 : 'import' ;
-T30 : ';' ;
-T31 : 'primitive' ;
-T32 : '{' ;
-T33 : '}' ;
-T34 : 'type' ;
-T35 : 'composite' ;
-T36 : '<' ;
-T37 : '>' ;
-T38 : ',' ;
-T39 : '(' ;
-T40 : ')' ;
-T41 : 'extends' ;
-T42 : 'contains' ;
-T43 : 'as' ;
-T44 : '=' ;
-T45 : 'attribute' ;
+T14 : 'null' ;
+T15 : 'Override' ;
+T16 : 'Singleton' ;
+T17 : 'LDFlags' ;
+T18 : 'CFlags' ;
+T19 : 'STRUCT' ;
+T20 : 'UNION' ;
+T21 : 'ENUM' ;
+T22 : '+' ;
+T23 : '-' ;
+T24 : 'optional' ;
+T25 : 'mandatory' ;
+T26 : 'provides' ;
+T27 : 'requires' ;
+T28 : 'import' ;
+T29 : ';' ;
+T30 : 'primitive' ;
+T31 : '{' ;
+T32 : '}' ;
+T33 : 'type' ;
+T34 : 'composite' ;
+T35 : '<' ;
+T36 : '>' ;
+T37 : ',' ;
+T38 : '(' ;
+T39 : ')' ;
+T40 : 'extends' ;
+T41 : 'contains' ;
+T42 : 'as' ;
+T43 : '=' ;
+T44 : 'attribute' ;
+T45 : ']' ;
 T46 : 'binds' ;
 T47 : '.' ;
 T48 : 'to' ;
 T49 : '[' ;
-T50 : ']' ;
-T51 : 'data' ;
-T52 : 'source' ;
-T53 : 'conformsto' ;
-T54 : '@' ;
-T55 : '0x' ;
-T56 : '.*' ;
-T57 : 'abstract' ;
+T50 : 'data' ;
+T51 : 'source' ;
+T52 : 'conformsto' ;
+T53 : '@' ;
+T54 : '0x' ;
+T55 : '.*' ;
+T56 : 'abstract' ;
+T57 : '[]' ;
 
-// $ANTLR src "../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g" 7764
+// $ANTLR src "../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g" 7745
 RULE_CODEC : '{{' ( options {greedy=false;} : . )*'}}';
 
-// $ANTLR src "../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g" 7766
+// $ANTLR src "../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g" 7747
 RULE_PATH : (RULE_ID ':'?|'.'*) (('\\'|'\\\\'|'/') RULE_ID)* ('\\'|'\\\\'|'/');
 
-// $ANTLR src "../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g" 7768
+// $ANTLR src "../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g" 7749
 RULE_ID : '^'? ('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'_'|'0'..'9')*;
 
-// $ANTLR src "../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g" 7770
+// $ANTLR src "../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g" 7751
 RULE_INT : ('0'..'9')+;
 
-// $ANTLR src "../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g" 7772
+// $ANTLR src "../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g" 7753
 RULE_STRING : ('"' ('\\' ('b'|'t'|'n'|'f'|'r'|'"'|'\''|'\\')|~(('\\'|'"')))* '"'|'\'' ('\\' ('b'|'t'|'n'|'f'|'r'|'"'|'\''|'\\')|~(('\\'|'\'')))* '\'');
 
-// $ANTLR src "../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g" 7774
+// $ANTLR src "../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g" 7755
 RULE_ML_COMMENT : '/*' ( options {greedy=false;} : . )*'*/';
 
-// $ANTLR src "../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g" 7776
+// $ANTLR src "../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g" 7757
 RULE_SL_COMMENT : '//' ~(('\n'|'\r'))* ('\r'? '\n')?;
 
-// $ANTLR src "../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g" 7778
+// $ANTLR src "../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g" 7759
 RULE_WS : (' '|'\t'|'\r'|'\n')+;
 
-// $ANTLR src "../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g" 7780
+// $ANTLR src "../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g" 7761
 RULE_ANY_OTHER : .;
 
 

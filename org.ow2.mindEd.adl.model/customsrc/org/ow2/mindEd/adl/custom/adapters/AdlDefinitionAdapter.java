@@ -1,21 +1,23 @@
 package org.ow2.mindEd.adl.custom.adapters;
 
 import java.util.ArrayList;
-import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.util.TreeIterator;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 
 import org.ow2.mindEd.adl.AdlDefinition;
+import org.ow2.mindEd.adl.AdlPackage;
 import org.ow2.mindEd.adl.ComponentReference;
+import org.ow2.mindEd.adl.custom.helpers.AdlDefinitionHelper;
 import org.ow2.mindEd.adl.custom.helpers.ArchitectureDefinitionHelper;
 import org.ow2.mindEd.adl.custom.util.AbstractReferencesTreatment;
+import org.ow2.mindEd.adl.custom.util.AdlMergeUtil;
 
 
 public class AdlDefinitionAdapter extends AbstractReferencesTreatment {
-	private static ArrayList<ComponentReference> queuedReferences = new ArrayList<ComponentReference>(); 
-	private static ArrayList<AdlDefinition> queuedDefinitions = new ArrayList<AdlDefinition>(); 
+	private ArrayList<String> mergedReferenceList = new ArrayList<String>();
 	/*
 	 * (non-Javadoc)
 	 * 
@@ -24,64 +26,48 @@ public class AdlDefinitionAdapter extends AbstractReferencesTreatment {
 	
 	@Override
 	public void notifyChanged(Notification notification) {
-		if((notification.getNotifier() instanceof ComponentReference || notification.getNotifier() instanceof AdlDefinition) && !queuedReferences.isEmpty())
+		if(!AdlMergeUtil.isMerging())
+		{
+			EObject root = EcoreUtil.getRootContainer((EObject) notification.getNotifier());
+			if(root!=null && root instanceof AdlDefinition && notification.getEventType()!=Notification.REMOVING_ADAPTER)
 			{
-				calculateAdlToResolve();
+				calculateReferencesToResolve((AdlDefinition) root);
 			}
+		}
 		super.notifyChanged(notification);
 	}
 
-	
-	private void calculateAdlToResolve() {
-		while(!queuedReferences.isEmpty())
+	private void calculateReferencesToResolve(AdlDefinition definition)
+	{
+		ArrayList<String> currentReferences = new ArrayList<String>();
+		TreeIterator<EObject> tree = definition.eAllContents();
+		boolean notResolved = false;
+		while(tree.hasNext())
 		{
-			ComponentReference currentReference = queuedReferences.get(0);
-			EObject object = EcoreUtil.getRootContainer(currentReference);
-			if(object instanceof AdlDefinition)
+			EObject current = tree.next();
+			if(current instanceof ComponentReference)
 			{
-				AdlDefinition adlDefinition = (AdlDefinition) object;
-				if(!queuedDefinitions.contains(adlDefinition))
-				{
-					queuedDefinitions.add(adlDefinition);
-					resolveQueuedMerges(adlDefinition);
-					queuedDefinitions.remove(adlDefinition);
+				ComponentReference reference = (ComponentReference) current;
+				currentReferences.add(reference.getID());
+				if(!reference.isResolved() && !reference.getReferenceName().equals(AdlPackage.eINSTANCE.getComponentReference_ReferenceName().getDefaultValue()))
+				{	
+					notResolved=true;
 				}
 			}
-			queuedReferences.remove(currentReference);
 		}
-		queuedReferences.clear();
-	}
-
-
-	public static void addQueuedMerge(ComponentReference reference) {
-		if(!queuedReferences.contains(reference))
+		if(notResolved || !currentReferences.containsAll(mergedReferenceList) || !mergedReferenceList.containsAll(currentReferences))
 		{
-			queuedReferences.add(reference);
+			AdlDefinitionHelper helper = (AdlDefinitionHelper) definition.getHelper();
+			ArchitectureDefinitionHelper defHelper = helper.getMainDefinitionHelper();
+			if(defHelper!=null)
+				{
+					defHelper.refreshMerge();
+					mergedReferenceList = currentReferences;
+				}
 		}
 	}
 	
-	public static void addManyQueuedMerge(Collection<ComponentReference> referenceList) {
-		for(ComponentReference reference : referenceList)
-		{
-			if(!queuedReferences.contains(reference))
-			{
-				queuedReferences.add(reference);
-			}
-		}
-	}
 	
-	private void resolveQueuedMerges(AdlDefinition currentDefinition) {
-		if(currentDefinition.getArchitecturedefinition()!=null)
-		{
-			ArchitectureDefinitionHelper helper = (ArchitectureDefinitionHelper) currentDefinition.getArchitecturedefinition().getHelper();
-			if(helper!=null)
-			{
-				helper.refreshMerge();
-			}
-		}
-	}
-
-
 	/**
 	 * <b>Class</b> <i>SingletonHolder</i>
 	 * <p>

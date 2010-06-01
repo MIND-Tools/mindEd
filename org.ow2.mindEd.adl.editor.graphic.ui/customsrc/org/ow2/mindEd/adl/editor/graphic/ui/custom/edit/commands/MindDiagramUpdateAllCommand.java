@@ -1,18 +1,15 @@
 package org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.commands;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 
 import org.eclipse.core.commands.ExecutionEvent;
 import org.eclipse.core.commands.ExecutionException;
-import org.eclipse.draw2d.geometry.Rectangle;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
 import org.eclipse.emf.transaction.impl.TransactionImpl;
 import org.eclipse.gef.EditPart;
-import org.eclipse.gmf.runtime.diagram.ui.editparts.AbstractBorderedShapeEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.GraphicalEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.CanonicalEditPolicy;
 import org.eclipse.gmf.runtime.notation.View;
@@ -23,6 +20,7 @@ import org.eclipse.ui.PlatformUI;
 
 
 import org.ow2.mindEd.adl.custom.helpers.AdlDefinitionHelper;
+import org.ow2.mindEd.adl.custom.helpers.ArchitectureDefinitionHelper;
 import org.ow2.mindEd.adl.custom.impl.AdlDefinitionCustomImpl;
 import org.ow2.mindEd.adl.editor.graphic.ui.custom.preferences.CustomGeneralPreferencePage;
 import org.ow2.mindEd.adl.editor.graphic.ui.edit.parts.AdlDefinitionEditPart;
@@ -30,6 +28,8 @@ import org.ow2.mindEd.adl.editor.graphic.ui.edit.parts.CompositeComponentDefinit
 import org.ow2.mindEd.adl.editor.graphic.ui.edit.parts.CompositeSubComponentEditPart;
 import org.ow2.mindEd.adl.editor.graphic.ui.part.MindDiagramEditorPlugin;
 import org.ow2.mindEd.adl.editor.graphic.ui.part.MindDiagramUpdateCommand;
+import org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.parts.generic.MindGenericEditPartFactory;
+import org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.parts.generic.MindComponentEditPart;
 
 /**
  * Extends generated UpdateCommand to update every elements in the diagram
@@ -46,12 +46,6 @@ public class MindDiagramUpdateAllCommand extends MindDiagramUpdateCommand {
 	 */
 	private int maxRank;
 	
-	/**
-	 * Used to store the position of all elements before refreshing the merge,
-	 * in order for them to keep their bounds if the user changed it. Otherwise,
-	 * they are re-initialized as if they were just created.
-	 */
-	protected HashMap<EObject,Rectangle> boundsMemory = new HashMap<EObject,Rectangle>();
 	
 	
 	public Object execute(ExecutionEvent event) throws ExecutionException {
@@ -76,12 +70,10 @@ public class MindDiagramUpdateAllCommand extends MindDiagramUpdateCommand {
 					if (rootEditPart == null) return null;
 				}
 				
-				// Save the bounds, save the world
-				saveBounds(rootEditPart);				
-				
 				// Transaction to refresh the merge
 				TransactionalEditingDomain domain = ((AdlDefinitionEditPart)rootEditPart).getEditingDomain();
 				TransactionImpl transaction = new TransactionImpl(domain, false);
+				
 				try {
 					transaction.start();
 					EObject root = ((View)rootEditPart.getModel()).getElement();
@@ -95,9 +87,6 @@ public class MindDiagramUpdateAllCommand extends MindDiagramUpdateCommand {
 					transaction.rollback();
 				}
 				finally{}
-				
-				// Restore the bounds
-				restoreBounds(rootEditPart);
 				
 				try {
 					// Just refresh and then keep the same value for this update
@@ -150,7 +139,7 @@ public class MindDiagramUpdateAllCommand extends MindDiagramUpdateCommand {
 	 */
 	@SuppressWarnings("unchecked")
 	public void updateAll (EditPart rootEditPart, int rank){
-		if (rootEditPart instanceof AbstractBorderedShapeEditPart)
+		if (MindGenericEditPartFactory.INSTANCE.getMindEditPartFor(rootEditPart) instanceof MindComponentEditPart)
 			// Increase rank if a component is encountered
 			rank++;
 		if (rank > maxRank) {
@@ -197,10 +186,12 @@ public class MindDiagramUpdateAllCommand extends MindDiagramUpdateCommand {
 	public void refreshMerge(AdlDefinitionCustomImpl root) {
 		if (root != null)
 		{
-			// Delete all merged elements
-			((AdlDefinitionHelper)root.getHelper()).cleanMainDefinition();
-			// Redo the merge
-			((AdlDefinitionHelper)root.getHelper()).restoreMainDefinition();
+			// Refresh all merged elements
+			if ((AdlDefinitionHelper)root.getHelper() == null)
+				return;
+			ArchitectureDefinitionHelper helper = ((AdlDefinitionHelper)root.getHelper()).getMainDefinitionHelper();
+			if (helper != null)
+				helper.refreshMerge();
 		}
 	}
 	/**
@@ -292,29 +283,6 @@ public class MindDiagramUpdateAllCommand extends MindDiagramUpdateCommand {
 	}
 	
 	
-	@SuppressWarnings("unchecked")
-	public void saveBounds(EditPart editPart) {
-		if (editPart instanceof GraphicalEditPart)
-			boundsMemory.put(((View)editPart.getModel()).getElement(), ((GraphicalEditPart)editPart).getFigure().getBounds());
-			
-		List<EditPart> editPartList = editPart.getChildren();
-		for (EditPart child : editPartList) {
-			saveBounds(child);
-		}
-	}
 	
-	@SuppressWarnings("unchecked")
-	public void restoreBounds(EditPart editPart) {
-		if (editPart instanceof GraphicalEditPart) {
-			EObject element = ((View)editPart.getModel()).getElement();
-			Rectangle bounds = boundsMemory.get(element);
-			((GraphicalEditPart)editPart).getFigure().setBounds(bounds);
-		}
-		
-		List<EditPart> editPartList = editPart.getChildren();
-		for (EditPart child : editPartList) {
-			restoreBounds(child);
-		}
-	}
 	
 }

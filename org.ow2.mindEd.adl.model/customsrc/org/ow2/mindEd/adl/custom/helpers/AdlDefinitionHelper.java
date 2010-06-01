@@ -8,6 +8,7 @@ import org.eclipse.emf.ecore.EObject;
 import org.ow2.mindEd.adl.AdlDefinition;
 import org.ow2.mindEd.adl.ArchitectureDefinition;
 import org.ow2.mindEd.adl.InterfaceDefinition;
+import org.ow2.mindEd.adl.custom.util.BufferUtil;
 
 /**
  * <b>Class</b> <i>AdlDefinitionHelper</i>
@@ -153,10 +154,12 @@ public class AdlDefinitionHelper extends HelperAdapter<AdlDefinition> {
 		ArchitectureDefinitionHelper helper =getMainDefinitionHelper();
 		if (helper != null) {
 			helper.setMerging(true);
-			helper.cleanMerge();
-			helper.setMerging(false);
+			BufferUtil.getInstance().storeBuffer(getObject().getArchitecturedefinition());
+		 	helper.cleanMerge();
+		 	helper.setMerging(false);
 		}
 	}
+
 
 	/**
 	 * <b>Method</b> <i>getMainDefinitionHelper</i>
@@ -184,7 +187,13 @@ public class AdlDefinitionHelper extends HelperAdapter<AdlDefinition> {
 	 * @author proustr
 	 */
 	public void restoreMainDefinition() {
-		ArchitectureDefinitionHelper helper = getMainDefinitionHelper();
-		if (helper != null) helper.refreshMerge();
-	}
+		ArchitectureDefinitionHelper helper =getMainDefinitionHelper();
+		if (helper != null) {
+			helper.setMerging(true);
+			ArchitectureDefinition oldDef = BufferUtil.getInstance().restoreFromBuffer();
+			if (oldDef != null)
+				getObject().setArchitecturedefinition(oldDef);
+		 	helper.setMerging(false);
+		}	
+	}	
 }

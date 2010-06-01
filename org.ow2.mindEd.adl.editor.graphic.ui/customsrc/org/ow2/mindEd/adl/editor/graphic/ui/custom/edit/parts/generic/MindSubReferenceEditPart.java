@@ -3,7 +3,8 @@ package org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.parts.generic;
 import org.eclipse.draw2d.IFigure;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.GraphicalEditPart;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.ConstrainedToolbarLayout;
-import org.ow2.mindEd.adl.editor.graphic.ui.custom.listeners.MindListLayoutListener;
+import org.eclipse.gmf.runtime.notation.View;
+import org.ow2.mindEd.adl.ComponentReference;
 
 public class MindSubReferenceEditPart extends MindReferenceEditPart {
 
@@ -22,9 +23,14 @@ public class MindSubReferenceEditPart extends MindReferenceEditPart {
 		if (nodeShape.getLayoutManager() == null) {
 			ConstrainedToolbarLayout layout = new ConstrainedToolbarLayout();
 			nodeShape.setLayoutManager(layout);
-			nodeShape.addLayoutListener(new MindListLayoutListener(realEditPart));
 		}
 		return nodeShape; // use nodeShape itself as contentPane
+	}
+	
+	
+	public ComponentReference resolveSemanticElement() {
+		View view = ((View)realEditPart.getModel());
+		return ((ComponentReference)view.getElement());
 	}
 
 }

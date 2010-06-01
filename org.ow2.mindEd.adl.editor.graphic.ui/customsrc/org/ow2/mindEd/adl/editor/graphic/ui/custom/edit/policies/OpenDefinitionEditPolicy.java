@@ -1,10 +1,15 @@
 package org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.policies;
 
+import java.io.File;
 import java.util.ArrayList;
 
 import org.eclipse.core.resources.IFile;
+import org.eclipse.core.resources.IFolder;
+import org.eclipse.core.resources.IWorkspace;
 import org.eclipse.core.runtime.NullProgressMonitor;
+import org.eclipse.core.runtime.Path;
 import org.eclipse.core.runtime.QualifiedName;
+import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
@@ -24,10 +29,12 @@ import org.ow2.mindEd.adl.AdlDefinition;
 import org.ow2.mindEd.adl.ComponentReference;
 import org.ow2.mindEd.adl.FileC;
 import org.ow2.mindEd.adl.ImportDefinition;
+import org.ow2.mindEd.adl.InterfaceDefinition;
 
 import org.ow2.mindEd.adl.custom.util.DefinitionLoaderUtil;
 import org.ow2.mindEd.adl.editor.graphic.ui.custom.part.CustomMindDiagramEditorUtil;
 import org.ow2.mindEd.adl.editor.graphic.ui.part.MindDiagramEditorPlugin;
+import org.ow2.mindEd.ide.core.MindIdeCore;
 import org.ow2.mindEd.ide.core.ModelToProjectUtil;
 import org.ow2.mindEd.ide.model.MindPackage;
 import org.ow2.mindEd.ide.model.MindProject;
@@ -83,22 +90,27 @@ public class OpenDefinitionEditPolicy extends OpenEditPolicy {
 			
 			try {
 				// Get the resource by resolving the reference
+				//platform:/resource/project-name/path
 				URI modelURI = DefinitionLoaderUtil.getInstance().getResourcePath(name,importsList);
 				if (modelURI == null) {
 					MindDiagramEditorPlugin.getInstance().logError("Reference not found, please check imports");
 					return null;
 				}
 				IFile definition = ModelToProjectUtil.INSTANCE.getIFile(modelURI);
+				if (definition == null || !definition.exists()) {
+					MindDiagramEditorPlugin.getInstance().logError("Reference not found, please check imports");
+					return null;
+				}
 				IEditorInput adlEditorInput = new FileEditorInput(definition);
 				
 				// Get the diagram resource
-				URI diagramURI = URI.createFileURI(modelURI.path()+"_diagram");
-				IFile diagram = ModelToProjectUtil.INSTANCE.getIFile(diagramURI);
+				IFile diagram = definition.getParent().getFile(new Path(definition.getName()+"_diagram"));
 				IEditorInput diagramEditorInput = new FileEditorInput(diagram);
 				
 				// Diagram file doesn't exist, but adl file exists (else modelURI would be null)
 				// So create the diagram
 				if (!diagramEditorInput.exists()) {
+					URI diagramURI = URI.createPlatformResourceURI(diagram.getFullPath().toPortableString(), true);
 					CustomMindDiagramEditorUtil.initDiagram(diagramURI, modelURI, new NullProgressMonitor());
 				}
 				
@@ -110,7 +122,7 @@ public class OpenDefinitionEditPolicy extends OpenEditPolicy {
 					page.openEditor(diagramEditorInput, editorID);
 				}
 				else {
-					page.openEditor(adlEditorInput, "org.ow2.fractal.mind.xtext.Fractal");
+					page.openEditor(adlEditorInput, "org.ow2.mindEd.adl.textual.Fractal");
 				}
 				
 			} catch (PartInitException e) {
@@ -127,24 +139,29 @@ public class OpenDefinitionEditPolicy extends OpenEditPolicy {
 			
 		if (model instanceof FileC) {
 			String directory = ((FileC) model).getDirectory();
-			if (directory == null || directory == "") {
-				MindProject project = ModelToProjectUtil.INSTANCE.getMindProject();
-				MindPackage pack = ModelToProjectUtil.INSTANCE.getPackage(project);
-				directory = pack.getFullpath();
-			}
-			if (!directory.endsWith("/"))
-				directory = directory + "/";
+			IFile file = null;
 			String fileName = ((FileC) model).getFileName();
-			String fullPath = directory + fileName;
+			if (directory == null || directory == "") {
+				MindPackage pack = ModelToProjectUtil.INSTANCE.getCurrentPackage();
+				if (pack != null) {
+					IFolder f = MindIdeCore.getResource(pack);
+					file = f.getFile(fileName);
+				}
+			} else {
+				File f = new File(directory, fileName);
+				if (f.isAbsolute()) {
+					IWorkspace workspace = org.eclipse.core.resources.ResourcesPlugin.getWorkspace();
+					file = workspace.getRoot().getFileForLocation(new Path(f.getAbsolutePath()));
+				} else {
+					//TODO resolve ???
+				}
+			}
 			
 			try {
 				// Get the file URI
-				URI fileURI = URI.createFileURI(fullPath);
-				
 				// Create the editor input
-				IFile file = ModelToProjectUtil.INSTANCE.getIFile(fileURI);
 				if (file == null || !(file.exists())) {
-					MindDiagramEditorPlugin.getInstance().logError("File not found : "+fullPath);
+					MindDiagramEditorPlugin.getInstance().logError("File not found : "+directory+"/"+fileName);
 					return null;
 				}
 				
@@ -157,14 +174,43 @@ public class OpenDefinitionEditPolicy extends OpenEditPolicy {
 				page.openEditor(cdtEditorInput, "org.eclipse.cdt.ui.editor.CEditor");
 				
 			} catch (PartInitException e) {
-				MindDiagramEditorPlugin.getInstance().logError("Failed to open the editor");
+				MindDiagramEditorPlugin.getInstance().logError("Failed to open the editor", e);
 			} catch (NullPointerException e) {
-				MindDiagramEditorPlugin.getInstance().logError("Failed to open the editor");
+				MindDiagramEditorPlugin.getInstance().logError("Failed to open the editor", e);
 			} catch (Exception e) {
-				e.printStackTrace();
-				MindDiagramEditorPlugin.getInstance().logError("Failed to open the editor");
+				MindDiagramEditorPlugin.getInstance().logError("Failed to open the editor", e);
 			}
 		}
+		
+		if (model instanceof InterfaceDefinition) {
+			InterfaceDefinition itf = (InterfaceDefinition) model;
+			String signature = itf.getSignature();
+			
+			try {
+
+				EList<String> imports = new BasicEList<String>();
+				//TODO complete imports object : add the list of imports
+				// Create the editor input
+				IFile file = ModelToProjectUtil.INSTANCE.resolveItf(itf.getSignature(), imports);
+				
+				if (file == null || !(file.exists())) {
+					MindDiagramEditorPlugin.getInstance().logError("File not found : "+signature);
+					return null;
+				}
+				
+				IEditorInput itfEditorInput = new FileEditorInput(file);
+				
+								
+				// Now try to open the editors
+				IWorkbenchWindow window=PlatformUI.getWorkbench().getActiveWorkbenchWindow();
+				IWorkbenchPage page = window.getActivePage();
+				page.openEditor(itfEditorInput, "org.ow2.mindEd.itf.editor.textual.FractalItf");
+			}
+			catch (Exception e) {
+				MindDiagramEditorPlugin.getInstance().logError("Failed to open the editor", e);
+			}
+		}
+		
 		
 		return null;
 	}

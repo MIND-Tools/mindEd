@@ -1,12 +1,12 @@
 package org.ow2.mindEd.adl.custom.util;
 
-import java.util.HashMap;
 import java.util.Iterator;
 
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EReference;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 
 import org.ow2.mindEd.adl.AdlDefinition;
 import org.ow2.mindEd.adl.AdlFactory;
@@ -32,15 +32,13 @@ public class BufferUtil extends AbstractMergeTreatment {
 	 * 
 	 */
 	private static ArchitectureDefinition buffer = null;
+	private static ArchitectureDefinition bufferHistory = null;
 	/**
 	 * HashMap<EObject,EObject> eBufferHistoryMapping : Maps the items of definition to put in buffer with those created in the buffer.
 	 * 
 	 */
 	
-	private HashMap<EObject, EObject> eBufferHistoryMapping = new HashMap<EObject, EObject>();
-
 	private BufferUtil() {
-		eBufferHistoryMapping.clear();
 		referencesToResolve.clear();
 		eObjectsMergeHistoryMapping.clear();
 	}
@@ -57,15 +55,41 @@ public class BufferUtil extends AbstractMergeTreatment {
 	 */
 	public void createBuffer(ArchitectureDefinition definition) {
 		if (buffer != null) buffer = null;
-		eBufferHistoryMapping.clear();
 		referencesToResolve.clear();
 		AdlDefinition adlDefinition = (AdlDefinition) copyObject(definition.eContainer());
 		buffer = adlDefinition.getArchitecturedefinition();
 		resolveReferences();
-		cleanMerge(buffer);
 	}
 	
-
+	/**
+	 * <b>Method</b> <i>historiseBuffer</i>
+	 * <p>
+	 * Method to create a stored buffer of the given definition. create the root object and copy the elements of given definition into the buffer.
+	 * 
+	 * @param definition
+	 *            : Definition to put into buffer
+	 * 
+	 * @author charrep
+	 */
+	public void storeBuffer(ArchitectureDefinition definition) {
+		if (bufferHistory != null) bufferHistory = null;
+		AdlDefinition adlDefinition = (AdlDefinition) copyObject(definition.eContainer());
+		bufferHistory= adlDefinition.getArchitecturedefinition();
+	}
+	
+	/**
+	 * <b>Method</b> <i>restoreFromBuffer</i>
+	 * <p>
+	 * 
+	 * 
+	 * @param definition
+	 *            : Return the stored buffer
+	 * 
+	 * @author charrep
+	 */
+	public ArchitectureDefinition restoreFromBuffer() {
+		return bufferHistory;
+	}
 	/**
 	 * <b>Method</b> <i>updateImports</i>
 	 * <p>
@@ -188,7 +212,21 @@ public class BufferUtil extends AbstractMergeTreatment {
 		updateImports(buffer, definition);
 		resolveReferences();
 	}
-
+	
+	/**
+	 * <b>Method</b> <i>restoreDefinitionFromBuffer</i>
+	 * <p>
+	 * This method copy current buffer definition to target definition
+	 * 
+	 * @param definition
+	 *            : target definition that will be replaced with buffer one.
+	 * 
+	 * @author proustr
+	 */
+	public void restoreDefinitionFromBuffer(ArchitectureDefinition definition) {
+		EcoreUtil.replace(definition, buffer);
+	}
+	
 	/**
 	 * <b>Method</b> <i>updateReference</i>
 	 * <p>
@@ -287,17 +325,17 @@ public class BufferUtil extends AbstractMergeTreatment {
 		}
 
 		for (EReference reference : sourceObject.eClass().getEAllContainments()) {
-			if (targetObject.eGet(reference) == null || !targetObject.eIsSet(reference)) {
+			if(sourceObject.eGet(reference) == null)
+			{
+				targetObject.eSet(reference, null);
+			}
+			else if (targetObject.eGet(reference) == null || !targetObject.eIsSet(reference) || !isSameEClass(sourceObject.eGet(reference),targetObject.eGet(reference))) {
 				if (sourceObject.eIsSet(reference)) {
 					if (!(sourceObject.eGet(reference) instanceof EList<?>) && sourceObject.eGet(reference)!=null) {
 						EObject newObject = createEObject(((EObject) sourceObject.eGet(reference)).eClass());
 						targetObject.eSet(reference, newObject);
 					}
 				}
-			}
-			else if(sourceObject.eGet(reference) == null)
-			{
-				targetObject.eSet(reference, null);
 			}
 			updateReference(sourceObject.eGet(reference), targetObject.eGet(reference));
 		}

@@ -3,6 +3,7 @@ package org.ow2.mindEd.adl.custom.impl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
 
 import org.ow2.mindEd.adl.AnnotationsList;
+import org.ow2.mindEd.adl.custom.MindObject;
 import org.ow2.mindEd.adl.custom.adapters.factory.AdlAdapterHelperFactory;
 import org.ow2.mindEd.adl.custom.helpers.IHelper;
 
@@ -24,8 +25,10 @@ import org.ow2.mindEd.adl.custom.helpers.IHelper;
  * @extends EObject
  */
 
-public class MindObjectImpl extends EObjectImpl {
+public class MindObjectImpl extends EObjectImpl implements MindObject {
 	protected IHelper<?> helper = getHelper();
+	
+	String MindObjectStaticID = getHelper().calculateID();
 	
 	public IHelper<?> getHelper() {
 		if(helper!=null)return helper;
@@ -71,12 +74,19 @@ public class MindObjectImpl extends EObjectImpl {
 	}
 
 	public AnnotationsList getAnnotationsList() {
-		// TODO 
 		return null;
 	}
 
 	public void setAnnotationsList(AnnotationsList value) {
-		// TODO 
+	}
+
+	public String getID() {
+		String tmpID = getHelper().calculateID();
+		if (tmpID != null)
+		{
+			MindObjectStaticID = tmpID;
+		}
+		return MindObjectStaticID;
 	}
 
 }

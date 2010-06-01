@@ -20,10 +20,11 @@ public abstract class AbstractMindEditPart implements MindTypes {
 	public static String EDIT_POLICY_PACKAGE = "org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.policies.";
 	
 	protected int creationMode = CREATION_MODE_NORMAL;
+	protected boolean isMerged = false;
 	
 	protected GraphicalEditPart realEditPart;
 	protected int visualID;
-	public int MIND_TYPE = TYPE_UNDEFINED;
+	public int mindType = TYPE_UNDEFINED;
 	
 	
 	public static int getMindType(int visualID) {
@@ -34,12 +35,27 @@ public abstract class AbstractMindEditPart implements MindTypes {
 	public static int getMindType(EditPart editPart) {
 		MindEditPart mindEP = getMindEditPartFor(editPart);
 		if (mindEP == null) return TYPE_UNDEFINED;
-		return mindEP.MIND_TYPE;
+		return mindEP.mindType;
 	}
 	
 	
 	public static MindEditPart getMindEditPartFor(EditPart editPart) {
 		return MindGenericEditPartFactory.INSTANCE.getMindEditPartFor(editPart);
+	}
+	
+	
+	public int getMindType() {
+		return mindType;
+	}
+	
+	
+	public GraphicalEditPart getRealEditPart() {
+		return realEditPart;
+	}
+	
+	
+	public int getVisualID() {
+		return visualID;
 	}
 	
 	
@@ -131,6 +147,14 @@ public abstract class AbstractMindEditPart implements MindTypes {
 	
 	public void setCreationMode(int mode) {
 		creationMode = mode;
+	}
+	
+	public boolean isMerged() {
+		return isMerged;
+	}
+	
+	public void setMerged(boolean merged) {
+		isMerged = merged;
 	}
 	
 	public abstract void activate();

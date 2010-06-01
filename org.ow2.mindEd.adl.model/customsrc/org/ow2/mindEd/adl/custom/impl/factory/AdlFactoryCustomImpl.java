@@ -15,11 +15,16 @@ import org.ow2.mindEd.adl.impl.AttributeDefinitionImpl;
 import org.ow2.mindEd.adl.impl.BindingDefinitionImpl;
 import org.ow2.mindEd.adl.impl.ComponentReferenceImpl;
 import org.ow2.mindEd.adl.impl.ComponentTypeDefinitionImpl;
+import org.ow2.mindEd.adl.impl.CompositeBodyImpl;
 import org.ow2.mindEd.adl.impl.CompositeReferencesListImpl;
 import org.ow2.mindEd.adl.impl.DataDefinitionImpl;
 import org.ow2.mindEd.adl.impl.ImplementationDefinitionImpl;
 import org.ow2.mindEd.adl.impl.InterfaceDefinitionImpl;
+import org.ow2.mindEd.adl.impl.PrimitiveBodyImpl;
 import org.ow2.mindEd.adl.impl.PrimitiveReferencesListImpl;
+import org.ow2.mindEd.adl.impl.SubComponentCompositeBodyImpl;
+import org.ow2.mindEd.adl.impl.SubComponentPrimitiveBodyImpl;
+import org.ow2.mindEd.adl.impl.TypeBodyImpl;
 import org.ow2.mindEd.adl.impl.TypeReferenceDefinitionImpl;
 import org.ow2.mindEd.adl.impl.TypeReferencesListImpl;
 
@@ -32,6 +37,27 @@ import org.ow2.mindEd.adl.impl.TypeReferencesListImpl;
  * @extends AdlFactoryImpl
  */
 public class AdlFactoryCustomImpl extends AdlFactoryImpl  {
+	
+	/* (non-Javadoc)
+	 * @see adl.impl.AdlFactoryImpl#createSubComponentCompositeBody()
+	 */
+	@Override
+	public SubComponentCompositeBody createSubComponentCompositeBody() {
+		SubComponentCompositeBodyImpl subComponentCompositeBody = new SubComponentCompositeBodyCustomImpl();
+		AdlAdapterCustomFactory.getInstance().createAdapter(subComponentCompositeBody);
+		return subComponentCompositeBody;
+	}
+	
+	/* (non-Javadoc)
+	 * @see adl.impl.AdlFactoryImpl#createSubComponentPrimitiveBody()
+	 */
+	@Override
+	public SubComponentPrimitiveBody createSubComponentPrimitiveBody() {
+		SubComponentPrimitiveBodyImpl subComponentPrimitiveBody = new SubComponentPrimitiveBodyCustomImpl();
+		AdlAdapterCustomFactory.getInstance().createAdapter(subComponentPrimitiveBody);
+		return subComponentPrimitiveBody;
+	}
+
 	/* (non-Javadoc)
 	 * @see adl.impl.AdlFactoryImpl#createCompositeComponentDefinition()
 	 */
@@ -48,6 +74,27 @@ public class AdlFactoryCustomImpl extends AdlFactoryImpl  {
 		AdlDefinitionCustomImpl adlDefinition = new AdlDefinitionCustomImpl();
 		AdlAdapterCustomFactory.getInstance().createAdapter(adlDefinition);
 		return adlDefinition;
+	}
+	
+	@Override
+	public CompositeBody createCompositeBody() {
+		CompositeBodyImpl compositeBody = new CompositeBodyCustomImpl();
+		AdlAdapterCustomFactory.getInstance().createAdapter(compositeBody);
+		return compositeBody;
+	}
+	
+	@Override
+	public PrimitiveBody createPrimitiveBody() {
+		PrimitiveBodyImpl primitiveBody = new PrimitiveBodyCustomImpl();
+		AdlAdapterCustomFactory.getInstance().createAdapter(primitiveBody);
+		return primitiveBody;
+	}
+	
+	@Override
+	public TypeBody createTypeBody() {
+		TypeBodyImpl typeBody = new TypeBodyCustomImpl();
+		AdlAdapterCustomFactory.getInstance().createAdapter(typeBody);
+		return typeBody;
 	}
 	
 	/* (non-Javadoc)

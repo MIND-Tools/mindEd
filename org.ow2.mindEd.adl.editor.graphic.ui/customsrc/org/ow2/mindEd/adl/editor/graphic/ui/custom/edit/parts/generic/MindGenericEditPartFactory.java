@@ -59,6 +59,11 @@ public class MindGenericEditPartFactory implements MindTypes {
 			editPartsMap.put(editPart, mindPart);
 			return mindPart;
 			
+		case TYPE_REFERENCES_LIST:
+			mindPart = new MindListEditPart(editPart, visualID, TYPE_REFERENCES_LIST);
+			editPartsMap.put(editPart, mindPart);
+			return mindPart;
+			
 		case TYPE_BODY:
 			mindPart = new MindBodyEditPart(editPart, visualID);
 			editPartsMap.put(editPart, mindPart);
@@ -84,9 +89,10 @@ public class MindGenericEditPartFactory implements MindTypes {
 			editPartsMap.put(editPart, mindPart);
 			return mindPart;
 			
-		case TYPE_MISC:
-			mindPart = new MindEditPart(editPart, visualID, TYPE_MISC);
+		case TYPE_ROOT:
+			mindPart = new MindEditPart(editPart, visualID, TYPE_ROOT);
 			editPartsMap.put(editPart, mindPart);
+			setRootEditPart(mindPart);
 			return mindPart;
 			
 		case TYPE_COMPARTMENT_BODY:
@@ -146,16 +152,16 @@ public class MindGenericEditPartFactory implements MindTypes {
 		case CompositeComponentDefinitionEditPart.VISUAL_ID:
 		case ComponentTypeDefinitionEditPart.VISUAL_ID:
 		case CompositeSubComponentEditPart.VISUAL_ID:
-		case DataDefinitionEditPart.VISUAL_ID:
-		case ImplementationDefinitionEditPart.VISUAL_ID:
 		case PrimitiveComponentDefinitionEditPart.VISUAL_ID:
 		case PrimitiveSubComponentEditPart.VISUAL_ID:
+		case UndefinedSubComponentEditPart.VISUAL_ID:
 			return TYPE_COMPONENT;
 			
 			// -- Body
 		case CompositeBodyEditPart.VISUAL_ID:
 		case PrimitiveBodyEditPart.VISUAL_ID:
 		case TypeBodyEditPart.VISUAL_ID:
+		case UndefinedBodyEditPart.VISUAL_ID:
 			return TYPE_BODY;
 			
 			// -- Lists
@@ -164,17 +170,20 @@ public class MindGenericEditPartFactory implements MindTypes {
 		case TypeAnnotationsListEditPart.VISUAL_ID:
 		case SubAnnotationsListEditPart.VISUAL_ID:
 		case CompositeFormalArgumentsListEditPart.VISUAL_ID:
-		case CompositeReferencesListEditPart.VISUAL_ID:
 		case PrimitiveFormalArgumentsListEditPart.VISUAL_ID:
-		case PrimitiveReferencesListEditPart.VISUAL_ID:
 		case TemplateSpecifiersListEditPart.VISUAL_ID:
-		case TypeReferencesListEditPart.VISUAL_ID:
 			return TYPE_LIST;
+
+		case CompositeReferencesListEditPart.VISUAL_ID:
+		case PrimitiveReferencesListEditPart.VISUAL_ID:
+		case TypeReferencesListEditPart.VISUAL_ID:
+			return TYPE_REFERENCES_LIST;
 			
 			// -- Body Compartments
 		case CompositeBodyCompartmentEditPart.VISUAL_ID:
 		case PrimitiveBodyCompartmentEditPart.VISUAL_ID:
 		case TypeBodyCompartmentEditPart.VISUAL_ID:
+		case UndefinedBodyCompartmentEditPart.VISUAL_ID:
 			return TYPE_COMPARTMENT_BODY;
 			
 			// -- List Compartments
@@ -195,9 +204,9 @@ public class MindGenericEditPartFactory implements MindTypes {
 			return TYPE_COMPARTMENT_LIST;
 			
 			// -- Miscellaneous Compartments
-		case DataDefinitionCompartmentEditPart.VISUAL_ID:
-		case ImplementationDefinitionCompartmentEditPart.VISUAL_ID:
-			return TYPE_COMPARTMENT;
+//		case DataDefinitionCompartmentEditPart.VISUAL_ID:
+//		case ImplementationDefinitionCompartmentEditPart.VISUAL_ID:
+//			return TYPE_COMPARTMENT;
 			
 			// -- References
 		case CompositeReferenceEditPart.VISUAL_ID:
@@ -215,6 +224,7 @@ public class MindGenericEditPartFactory implements MindTypes {
 			// -- Sub Component References
 		case PrimitiveSubReferenceEditPart.VISUAL_ID:
 		case CompositeSubReferenceEditPart.VISUAL_ID:
+		case UndefinedSubReferenceEditPart.VISUAL_ID:
 			return TYPE_SUB_REFERENCE;
 			
 			// -- Label
@@ -233,7 +243,7 @@ public class MindGenericEditPartFactory implements MindTypes {
 					
 			// - Miscellaneous
 		case AdlDefinitionEditPart.VISUAL_ID:
-			return TYPE_MISC;
+			return TYPE_ROOT;
 			
 			// -- Items
 		case AnnotationEditPart.VISUAL_ID:
@@ -241,11 +251,28 @@ public class MindGenericEditPartFactory implements MindTypes {
 		case AttributeDefinitionEditPart.VISUAL_ID:
 		case FormalArgumentEditPart.VISUAL_ID:
 		case TemplateSpecifierEditPart.VISUAL_ID:
+		case DataDefinitionEditPart.VISUAL_ID:
+		case ImplementationDefinitionEditPart.VISUAL_ID:
 			return TYPE_ITEM;
 			
 		}
 		
 		return TYPE_UNDEFINED;
+	}
+	
+	
+	public int getMindType(EditPart part) {
+		return getMindEditPartFor(part).mindType;
+	}
+	
+	protected MindEditPart rootEditPart = null;
+	
+	public void setRootEditPart(MindEditPart rootPart) {
+		rootEditPart = rootPart;
+	}
+	
+	public MindEditPart getRootEditPart() {
+		return rootEditPart;
 	}
 	
 }

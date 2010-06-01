@@ -36,9 +36,9 @@
          ================================= -->
 	<target name="generate" depends="init" description="build generated files emf, gmf, xtext ...">
 				
-		<eclipse.refreshLocal resource="org.ow2.mindEd.adl.model" depth="infinite"/>
-		<eclipse.refreshLocal resource="org.ow2.mindEd.adl.edit" depth="infinite"/>
-		<eclipse.refreshLocal resource="org.ow2.mindEd.adl.editor" depth="infinite"/>
+		<eclipse.refreshLocal resource="${adl.model.id}" depth="infinite"/>
+		<eclipse.refreshLocal resource="${adl.edit.id}" depth="infinite"/>
+		<eclipse.refreshLocal resource="${adl.editor.tree.id}" depth="infinite"/>
 		
 		<emf.Ecore2Java genModel="${adl.shema}/mind.genmodel" model="${adl.shema}/mind.ecore" 
 			generatejavacode="true" 
@@ -94,7 +94,12 @@
 		<mkdir dir="${adl.edit}/src" />
 		<delete dir="${adl.editor.tree}/src"/>
 		<mkdir dir="${adl.editor.tree}/src" />
-		<mkdir dir="${adl.editor.graphic.ui}/src" />
+		<delete dir="${adl.editor.graphic.ui}/src/org"/>
+		
+		<eclipse.refreshLocal resource="${adl.model.id}" depth="infinite"/>
+		<eclipse.refreshLocal resource="${adl.edit.id}" depth="infinite"/>
+		<eclipse.refreshLocal resource="${adl.editor.tree.id}" depth="infinite"/>
+		<eclipse.refreshLocal resource="${adl.editor.graphic.ui.id}" depth="infinite"/>
 	</target>
 
 </project>

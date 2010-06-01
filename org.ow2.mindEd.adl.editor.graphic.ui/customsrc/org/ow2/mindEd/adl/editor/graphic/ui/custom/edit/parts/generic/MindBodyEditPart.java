@@ -10,17 +10,17 @@ import org.eclipse.gef.EditPolicy;
 import org.eclipse.gef.Request;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.AbstractBorderedShapeEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.GraphicalEditPart;
+import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.ConstrainedToolbarLayout;
 import org.eclipse.swt.graphics.Color;
 
-import org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.policies.MindSubCreationEditPolicy;
+import org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.policies.ParentCreationEditPolicy;
 import org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.policies.NoDragDropEditPolicy;
 import org.ow2.mindEd.adl.editor.graphic.ui.custom.figures.AbstractComponentShape;
 import org.ow2.mindEd.adl.editor.graphic.ui.custom.figures.IFractalShape;
 import org.ow2.mindEd.adl.editor.graphic.ui.custom.layouts.InterfaceBorderItemLocator;
 import org.ow2.mindEd.adl.editor.graphic.ui.custom.providers.NoDragTracker;
-import org.ow2.mindEd.adl.editor.graphic.ui.edit.parts.CompositeBodyCompartmentEditPart;
 import org.ow2.mindEd.adl.editor.graphic.ui.edit.parts.InterfaceDefinitionEditPart;
 
 public class MindBodyEditPart extends MindEditPart {
@@ -49,7 +49,7 @@ public class MindBodyEditPart extends MindEditPart {
 		// Extended creation features
 		realEditPart.installEditPolicy(
 				EditPolicyRoles.CREATION_ROLE,
-				new MindSubCreationEditPolicy());
+				new ParentCreationEditPolicy());
 		setCreationMode(CREATION_MODE_PARENT);
 		realEditPart.removeEditPolicy(EditPolicyRoles.DRAG_DROP_ROLE);
 		realEditPart.installEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE,
@@ -67,7 +67,7 @@ public class MindBodyEditPart extends MindEditPart {
 			IFigure compartment = getCompartmentFigure();
 			if (compartment == null) return false;
 			// Set the layout
-			setupCompartment(compartment);
+			setupContentPane(compartment);
 			compartment.add(((GraphicalEditPart) childEditPart)
 							.getFigure());
 			return true;
@@ -81,9 +81,9 @@ public class MindBodyEditPart extends MindEditPart {
 			if (parentBorderedEditPart == null) return false;
 			InterfaceBorderItemLocator locator = new InterfaceBorderItemLocator(
 					parentBorderedEditPart.getMainFigure()); 
+//			IFigure container = parentBorderedEditPart.getBorderedFigure().getBorderItemContainer();
 			parentBorderedEditPart.getBorderedFigure().getBorderItemContainer().add(
 					((InterfaceDefinitionEditPart) childEditPart).getFigure(), locator);
-			
 			return true;
 		}
 		return false;
@@ -103,10 +103,12 @@ public class MindBodyEditPart extends MindEditPart {
 	}
 	
 	
-	public boolean setLayoutConstraint(EditPart child, IFigure childFigure,
-			Object constraint) {
-		parentComponent.setLayoutConstraint(child, childFigure, constraint);
-		return true;
+	public IFigure getContentPaneFor(IGraphicalEditPart editPart) {
+		if (editPart instanceof InterfaceDefinitionEditPart) {
+			return parentComponent.borderedEditPart.getBorderedFigure().getBorderItemContainer();
+		} else {
+			return null;
+		}
 	}
 	
 	
@@ -141,7 +143,7 @@ public class MindBodyEditPart extends MindEditPart {
 	 * @param body
 	 * @return
 	 */
-	public IFigure setupCompartment(IFigure compartment) {
+	public IFigure setupContentPane(IFigure compartment) {
 		if (compartment.getLayoutManager() == null) {
 			ConstrainedToolbarLayout layout = new ConstrainedToolbarLayout() ;
 			compartment.setLayoutManager(layout);

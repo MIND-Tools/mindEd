@@ -27,13 +27,6 @@ import org.ow2.mindEd.adl.editor.graphic.ui.part.MindDiagramEditorPlugin;
 @SuppressWarnings("rawtypes")
 public class BindingCreationTool extends UnspecifiedTypeConnectionTool {
 
-//	
-//	@Override
-//	protected boolean handleCreateConnection() {
-//		// TODO Auto-generated method stub
-//		return super.handleCreateConnection();
-//	}
-
 
 	protected void updateTargetRequest()
     {
@@ -72,8 +65,10 @@ public class BindingCreationTool extends UnspecifiedTypeConnectionTool {
 		    if (this.customTargetEditPart != null)
 		    	 handleExitingEditPart();
 		    
-		    editpart = generateItfs(editpart);
-		    
+		    EditPart genEditPart = generateItfs(editpart);
+		    if (genEditPart != null)
+		    	editpart = genEditPart;
+		    	
 		    this.customTargetEditPart = editpart;
 		    
 		    if (getTargetRequest() instanceof TargetRequest) {
@@ -101,12 +96,11 @@ public class BindingCreationTool extends UnspecifiedTypeConnectionTool {
 		InterfaceDefinition source = null;
 		InterfaceDefinition target = null;
 		
-		ArchitectureDefinition sourceParent;
-		ArchitectureDefinition targetParent;
+		ArchitectureDefinition sourceParent = null;
+		ArchitectureDefinition targetParent = null;
 		
 		boolean sourceIsGenerated = false;
 		boolean targetIsGenerated = false;
-		
 		if (generatedSource != null && generatedTarget != null){
 			// Two generated interfaces
 			source = generatedSource;
@@ -274,7 +268,16 @@ public class BindingCreationTool extends UnspecifiedTypeConnectionTool {
 	 * @return
 	 */
 	protected InterfaceDefinition createInterfaceDefinition(Body body, String name) {
-				
+		
+		// Do not generate an interface in merged body
+		if (body.isMerged()) {
+			return null;
+		}
+		
+		// If editor is in an instable state
+		if (getEditingDomain() == null)
+			return null;
+		
 		InterfaceDefinition newInterface = null;
 		try {
 			TransactionImpl transaction = new TransactionImpl(getEditingDomain(), false);

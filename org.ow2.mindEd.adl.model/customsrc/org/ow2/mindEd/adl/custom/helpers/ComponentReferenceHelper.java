@@ -1,6 +1,5 @@
 package org.ow2.mindEd.adl.custom.helpers;
 
-import org.eclipse.emf.common.util.URI;
 import org.ow2.mindEd.ide.core.ModelToProjectUtil;
 
 import org.ow2.mindEd.adl.ArchitectureDefinition;
@@ -36,13 +35,11 @@ public class ComponentReferenceHelper extends HelperAdapter<ComponentReference> 
 	 * @author proustr
 	 */
 	public String getNameFQN() {
-		URI tmpName = null;
-		tmpName = ModelToProjectUtil.INSTANCE.resolveAdl(getObject().getReferenceName(), mergeUtil
+		String tmpName = ModelToProjectUtil.INSTANCE.getNameFQN(getObject().getReferenceName(), mergeUtil
 				.recoverImports(getObject()));
-		String tmpString = ModelToProjectUtil.INSTANCE.getFQNFromURI(tmpName);
 		if (tmpName == null) return getObject().getReferenceName();
 		else
-			return tmpString;
+			return tmpName;
 	}
 
 	@Override

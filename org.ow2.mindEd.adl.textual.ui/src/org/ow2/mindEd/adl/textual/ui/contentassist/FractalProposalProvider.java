@@ -17,6 +17,7 @@ import org.ow2.mindEd.adl.AdlDefinition;
 import org.ow2.mindEd.adl.ArchitectureDefinition;
 import org.ow2.mindEd.adl.BindingDefinition;
 import org.ow2.mindEd.adl.CompositeBody;
+import org.ow2.mindEd.adl.CompositeComponentDefinition;
 import org.ow2.mindEd.adl.Element;
 import org.ow2.mindEd.adl.InterfaceDefinition;
 import org.ow2.mindEd.adl.SubComponentDefinition;
@@ -72,7 +73,7 @@ public class FractalProposalProvider extends AbstractFractalProposalProvider {
 
             // Interfaces proposals
 
-            List<String> itf = ModelToProjectUtil.INSTANCE.getInterfacesInProject();
+            List<String> itf = ModelToProjectUtil.INSTANCE.getAllFQNItfInProject();
 
             for (String key : itf) {
                 proposal = key;
@@ -136,7 +137,7 @@ public class FractalProposalProvider extends AbstractFractalProposalProvider {
 
             // Interface proposals
 
-            List<String> itfList = ModelToProjectUtil.INSTANCE.getInterfacesInProject();
+            List<String> itfList = ModelToProjectUtil.INSTANCE.getAllFQNItfInProject();
             for (String itf : itfList) {
                 completionProposal = createCompletionProposal(itf + ";", itf + " - interface",
                         null, context);
@@ -473,6 +474,24 @@ public class FractalProposalProvider extends AbstractFractalProposalProvider {
 
                 acceptor.accept(completionProposal);
 
+            }
+            
+            
+            // Manage Template proposal            
+            if (definition.getArchitecturedefinition() instanceof CompositeComponentDefinition){
+            	CompositeComponentDefinition compositeDef = (CompositeComponentDefinition) definition.getArchitecturedefinition();
+            	for ( TemplateSpecifier templateSpecifier : compositeDef.getTemplateSpecifiersList().getTemplateSpecifiers()){
+                  
+            		// Creates proposal
+                    proposal = getValueConverter().toString(templateSpecifier.getName(), "ID");
+                    // Set display text
+                    String displayText = proposal + " - template";
+
+                    completionProposal = createCompletionProposal(proposal, displayText,
+                            getImage(definition), context);
+
+                    acceptor.accept(completionProposal);
+            	}
             }
         }
 

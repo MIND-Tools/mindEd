@@ -917,16 +917,15 @@
       resizeConstraint="NONE"
       contentPane="//@figures.0/@descriptors.23/@accessors.0"/>
   <nodes
-      name="ComponentReferenceDefinition"/>
-  <nodes
       name="AttributeDefinition"
       figure="AttributeDefinitionFigure"/>
   <nodes
       name="CompositeSubComponent"
       figure="SubComponentFigure"/>
   <nodes
-      name="CompositeReferenceDefinition"
+      name="ComponentReferenceDefinition"
       figure="ReferenceFigure"
+      resizeConstraint="NONE"
       contentPane="//@figures.0/@descriptors.22/@accessors.1"/>
   <nodes
       name="TemplateReference"
@@ -943,6 +942,12 @@
   <nodes
       name="PrimitiveReferenceDefinition"
       figure="ReferenceFigure"/>
+  <nodes
+      name="UndefinedReferenceDefinition"
+      figure="ReferenceFigure"/>
+  <nodes
+      name="UndefinedSubComponent"
+      figure="ComponentFigure"/>
   <connections
       name="Binding"
       figure="BindingFigure"/>

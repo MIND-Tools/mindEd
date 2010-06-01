@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 
+import org.eclipse.core.resources.IFile;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
@@ -16,7 +17,8 @@ import org.ow2.mindEd.adl.AdlFactory;
 import org.ow2.mindEd.adl.AdlPackage;
 import org.ow2.mindEd.adl.ArchitectureDefinition;
 import org.ow2.mindEd.adl.custom.util.AdlMergeUtilTrace.MessageTypes;
-
+import org.eclipse.ui.IEditorInput;
+import org.eclipse.ui.part.FileEditorInput;
 /**
  * <b>Class</b> <i>DefinitionLoaderUtil</i>
  * <p>
@@ -90,6 +92,22 @@ public class DefinitionLoaderUtil {
 		return definition;
 	}
 
+	public void computeEditorInput(String definitionCall, ArrayList<String> importsList)
+	{
+		URI resourceURI = getResourcePath(definitionCall, importsList);
+		if (resourceURI != null) {
+			IFile fileDef = ModelToProjectUtil.INSTANCE.getIFile(resourceURI);
+			if(fileDef!=null)
+			{
+				IEditorInput fileInput = new FileEditorInput(fileDef);
+				if(fileInput!=null)
+				{
+					ModelToProjectUtil.INSTANCE.setEditorInput(fileInput);
+				}
+			}
+		}
+	}
+	
 	/**
 	 * <b>Method</b> <i>unloadDefinition</i>
 	 * <p>
@@ -118,7 +136,7 @@ public class DefinitionLoaderUtil {
 			logger.log(definitionCall, "Resource to unload not found", MessageTypes.ERROR, false, false, true, false);
 		}
 	}
-
+	
 	/**
 	 * <b>Method</b> <i>getResourcePath</i>
 	 * <p>
@@ -129,7 +147,8 @@ public class DefinitionLoaderUtil {
 	 * @param importsList
 	 *            : Imports list
 	 * @return the URI of associated definition file
-	 * 
+	 * <pre>
+   *   platform:/resource/project-name/path</pre>
 	 * @author proustr
 	 */
 	public URI getResourcePath(String definitionCall, ArrayList<String> importsList) {

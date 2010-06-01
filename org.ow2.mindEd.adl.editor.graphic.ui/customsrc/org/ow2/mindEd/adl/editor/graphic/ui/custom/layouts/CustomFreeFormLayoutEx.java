@@ -25,7 +25,7 @@ public class CustomFreeFormLayoutEx extends FreeFormLayoutEx {
 	
 	
 	public void layout(IFigure parent) {
-        Iterator children = parent.getChildren().iterator();
+        Iterator<?> children = parent.getChildren().iterator();
         Point offset = getOrigin(parent);
         IFigure f;
         childrenBounds.clear();

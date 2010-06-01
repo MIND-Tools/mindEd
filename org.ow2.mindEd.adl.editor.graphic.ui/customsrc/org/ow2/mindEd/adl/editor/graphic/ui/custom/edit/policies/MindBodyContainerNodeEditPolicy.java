@@ -10,7 +10,6 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.gef.EditPart;
 import org.eclipse.gef.Request;
 import org.eclipse.gef.commands.Command;
-import org.eclipse.gef.requests.CreateConnectionRequest;
 import org.eclipse.gmf.runtime.common.core.command.CompositeCommand;
 import org.eclipse.gmf.runtime.diagram.core.edithelpers.CreateElementRequestAdapter;
 import org.eclipse.gmf.runtime.diagram.core.util.ViewUtil;
@@ -20,7 +19,6 @@ import org.eclipse.gmf.runtime.diagram.ui.commands.ICommandProxy;
 import org.eclipse.gmf.runtime.diagram.ui.commands.SemanticCreateCommand;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.INodeEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.ContainerNodeEditPolicy;
-import org.eclipse.gmf.runtime.diagram.ui.editpolicies.GraphicalNodeEditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.requests.CreateConnectionViewAndElementRequest;
 import org.eclipse.gmf.runtime.diagram.ui.requests.CreateConnectionViewRequest;
 import org.eclipse.gmf.runtime.diagram.ui.requests.CreateUnspecifiedTypeConnectionRequest;
@@ -87,8 +85,8 @@ public class MindBodyContainerNodeEditPolicy extends ContainerNodeEditPolicy {
 
 			// Get the start command for each individual request, this will
 			// update each request as required.
-			final List commands = new ArrayList();
-			for (Iterator iter = request.getAllRequests().iterator(); iter
+			final List<Command> commands = new ArrayList<Command>();
+			for (Iterator<?> iter = request.getAllRequests().iterator(); iter
 				.hasNext();) {
 				Request individualRequest = (Request) iter.next();				
 				Command cmd = null;

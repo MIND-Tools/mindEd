@@ -2,6 +2,7 @@ package org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.parts;
 
 import org.eclipse.draw2d.LayoutManager;
 import org.eclipse.gef.DragTracker;
+import org.eclipse.gef.EditPart;
 import org.eclipse.gef.Request;
 import org.eclipse.gmf.runtime.notation.View;
 
@@ -53,4 +54,18 @@ public class TemplateSpecifiersListCompartmentCustomEditPart extends
 		genericEditPart.refresh();
 	}
 
+	
+	@Override
+	protected void addChild(EditPart childEditPart, int index) {
+		super.addChild(childEditPart, index);
+		getParent().refresh();
+	}
+	
+	@Override
+	protected void removeChild(EditPart childEditPart) {
+		super.removeChild(childEditPart);
+		getParent().refresh();
+	}
+	
+	
 }

@@ -354,9 +354,8 @@ public class RectilinearRouterEx extends ObliqueRouter implements OrthogonalRout
 	 * @return the <code>PointList</code> that is the list of points that are
 	 *         a direct mapping of the constraint points.
 	 */
-	@SuppressWarnings("unchecked")
 	public PointList routeFromConstraint(Connection conn) {
-		List bendpoints = (List) conn.getConnectionRouter().getConstraint(conn);
+		List<?> bendpoints = (List<?>) conn.getConnectionRouter().getConstraint(conn);
 		if (bendpoints == null)
 			bendpoints = Collections.EMPTY_LIST;
 

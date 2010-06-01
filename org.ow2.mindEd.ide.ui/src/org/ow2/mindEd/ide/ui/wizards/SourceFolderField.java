@@ -70,7 +70,11 @@ public class SourceFolderField {
 		button.addSelectionListener(new SelectionAdapter() {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
-				_srcFolder = handleSelect(_model.getAllProject(), Messages.ComponentNewWizardPage_src_field_title, _sourceFolderText);
+				MindRootSrc s = handleSelect(_model.getAllProject(), Messages.ComponentNewWizardPage_src_field_title, _sourceFolderText);
+				if (s != null) {	
+					_srcFolder = s;
+					_sourceFolderText.setText(_srcFolder.getFullpath());
+				}
 			}
 		});
 	}

@@ -5,6 +5,8 @@ import java.util.Collections;
 
 import org.eclipse.core.commands.ExecutionException;
 import org.eclipse.core.commands.operations.OperationHistoryFactory;
+import org.eclipse.core.resources.IResource;
+import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IAdaptable;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.SubProgressMonitor;
@@ -29,7 +31,7 @@ public class CustomMindDiagramEditorUtil extends MindDiagramEditorUtil {
 	
 	/**
 	 * This method should be called within a workspace modify operation since it creates resources.
-	 * @generated
+	 * @not generated
 	 */
 	public static Resource initDiagram(URI diagramURI, URI modelURI, IProgressMonitor progressMonitor) {
 		TransactionalEditingDomain editingDomain = GMFEditingDomainFactory.INSTANCE
@@ -76,6 +78,16 @@ public class CustomMindDiagramEditorUtil extends MindDiagramEditorUtil {
 			OperationHistoryFactory.getOperationHistory().execute(command,
 					new SubProgressMonitor(progressMonitor, 1), null);
 			setCharset(WorkspaceSynchronizer.getFile(modelResource));
+			// Bug if diagramResource is not refresh in workspace : setCharset
+			// throws an exception.
+			if (diagramURI.isFile()) {
+				try {
+					WorkspaceSynchronizer.getFile(diagramResource)
+							.refreshLocal(IResource.DEPTH_ONE, progressMonitor);
+				} catch (CoreException ignored) {
+				}
+			}
+			
 			setCharset(WorkspaceSynchronizer.getFile(diagramResource));
 		} catch (ExecutionException e) {
 			MindDiagramEditorPlugin.getInstance().logError(

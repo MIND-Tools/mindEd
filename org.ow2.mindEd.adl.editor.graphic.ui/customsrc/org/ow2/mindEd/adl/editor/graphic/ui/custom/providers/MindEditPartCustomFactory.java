@@ -4,18 +4,9 @@ import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 
 import org.eclipse.gef.EditPart;
-import org.eclipse.gef.EditPolicy;
-import org.eclipse.gmf.runtime.diagram.ui.editparts.ConnectionEditPart;
-import org.eclipse.gmf.runtime.diagram.ui.editparts.GraphicalEditPart;
 import org.eclipse.gmf.runtime.notation.View;
-import org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.parts.*;
-import org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.parts.generic.MindEditPart;
-import org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.parts.generic.MindGenericEditPartFactory;
-
-import org.ow2.mindEd.adl.editor.graphic.ui.edit.parts.*;
-import org.ow2.mindEd.adl.editor.graphic.ui.edit.policies.MindBaseItemSemanticEditPolicy;
+import org.ow2.mindEd.adl.editor.graphic.ui.edit.parts.MindEditPartFactory;
 import org.ow2.mindEd.adl.editor.graphic.ui.part.MindDiagramEditorPlugin;
-import org.ow2.mindEd.adl.editor.graphic.ui.part.MindDiagramEditorUtil;
 import org.ow2.mindEd.adl.editor.graphic.ui.part.MindVisualIDRegistry;
 
 /**

@@ -1,8 +1,6 @@
 package org.ow2.mindEd.adl.editor.graphic.ui.custom.figures;
 
 import org.eclipse.swt.graphics.Color;
-import org.ow2.mindEd.adl.editor.graphic.ui.custom.figures.AbstractComponentShape;
-import org.ow2.mindEd.adl.editor.graphic.ui.custom.figures.ComponentBorder;
 
 /**
  * Custom figure to define static attributes used in the generated figure
@@ -11,6 +9,7 @@ import org.ow2.mindEd.adl.editor.graphic.ui.custom.figures.ComponentBorder;
  *
  */
 public class AttributeDefinitionCustomFigure extends AbstractComponentShape {
+
 
 	public AttributeDefinitionCustomFigure() {
 		super();

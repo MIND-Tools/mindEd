@@ -151,7 +151,7 @@ public class ComponentNewWizard extends Wizard implements INewWizard {
 			file.create(stream, true, monitor);
 		}
 //		// -- Debut modif Olivier Marot
-		createDiagram(monitor, adl);
+		Activator.createDiagram(monitor, adl);
 		// -- Fin modif Olivier Marot
 		
 		monitor.worked(1);
@@ -163,19 +163,6 @@ public class ComponentNewWizard extends Wizard implements INewWizard {
 		});
 		monitor.worked(1);
 	}
-
-	
-
-//	// -- Debut modif Olivier Marot
-	static private void createDiagram(IProgressMonitor monitor, MindAdl adl) {
-		monitor.setTaskName("Creating and opening diagram");
-		URI modelURI = URI.createURI(adl.getFullpath());
-		URI diagramURI = URI.createURI(adl.getFullpath()+MindIdeCore.DIAGRAM_EXT);
-		Activator.initGmfDiagram(diagramURI, modelURI, monitor);
-		monitor.worked(1);
-	}
-	// -- Fin modif Olivier Marot
-	
 	
 	private void create(IContainer container, IProgressMonitor monitor) throws CoreException {
 		Assert.isNotNull(container);

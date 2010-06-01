@@ -10,6 +10,7 @@ import java.util.Hashtable;
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IResource;
 import org.eclipse.core.runtime.IAdaptable;
+import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.core.runtime.Path;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.jface.resource.ImageDescriptor;
@@ -36,6 +37,7 @@ import org.eclipse.ui.internal.ide.IDEWorkbenchMessages;
 import org.eclipse.ui.internal.ide.IDEWorkbenchPlugin;
 import org.eclipse.ui.part.FileEditorInput;
 import org.ow2.mindEd.ide.core.MindIdeCore;
+import org.ow2.mindEd.ide.model.MindAdl;
 import org.ow2.mindEd.ide.ui.Activator;
 
 @SuppressWarnings("restriction")
@@ -325,15 +327,19 @@ public class MindOpenWithMenu extends OpenWithMenu {
         }
         if (editorDescriptor != null && editorDescriptor.getId().equals("org.ow2.mindEd.adl.editor.graphic.ui.MindDiagramEditorID")) {
         	// Save model URI, needed if diagram must be created
-        	URI modelURI = URI.createFileURI(file.getFullPath().toPortableString());
+        	URI modelURI = URI.createPlatformResourceURI(file.getFullPath().toPortableString(), true);
         	IDE.setDefaultEditor(file, editorDescriptor.getId());
         	// This is the diagram URI
-        	file = file.getParent().getFile(new Path(file.getName()+MindIdeCore.DIAGRAM_EXT));
-        	URI diagramURI = URI.createFileURI(file.getFullPath().toPortableString());
+        	IFile fileDiagram = file.getParent().getFile(new Path(file.getName()+MindIdeCore.DIAGRAM_EXT));
+        	URI diagramURI = URI.createPlatformResourceURI(fileDiagram.getFullPath().toPortableString(), true);
         	// If diagram file doesn't exist, create it from the model
-        	if (!(file.exists())) {
-				Activator.initGmfDiagram(diagramURI, modelURI);
+        	if (!(fileDiagram.exists())) {
+        		Activator.initGmfDiagram(diagramURI, modelURI);
         	}
+        	if (!(fileDiagram.exists())) {
+        		return;
+        	}
+    		file = fileDiagram;
         }
         try {
         	if (openUsingDescriptor) {

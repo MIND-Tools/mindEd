@@ -2,6 +2,7 @@ package org.ow2.mindEd.adl.custom.adapters.factory;
 
 import org.ow2.mindEd.adl.custom.adapters.AdlDefinitionAdapter;
 import org.ow2.mindEd.adl.custom.adapters.ArchitectureDefinitionAdapter;
+import org.ow2.mindEd.adl.custom.adapters.BodyAdapter;
 import org.ow2.mindEd.adl.custom.adapters.ComponentReferenceAdapter;
 import org.ow2.mindEd.adl.custom.adapters.CompositeComponentReferenceAdapter;
 import org.ow2.mindEd.adl.custom.adapters.ReferencesListAdapter;
@@ -32,6 +33,18 @@ public class AdlAdapterCustomFactory extends AdlAdapterFactory {
 		return adapter;
 	}
 
+	/**
+	 * Creates a new adapter for the default case.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @generated
+	 */
+	public Adapter createEObjectAdapter() {
+		return AdlDefinitionAdapter.getInstance();
+	}
+	
 	/**
 	 * Gets the single instance of AdapterFactory.
 	 * 
@@ -88,6 +101,34 @@ public class AdlAdapterCustomFactory extends AdlAdapterFactory {
 	@Override
 	public Adapter createCompositeReferencesListAdapter() {
 		return ReferencesListAdapter.getInstance();
+	}
+	
+	@Override
+	public Adapter createSubComponentCompositeBodyAdapter() {
+		return BodyAdapter.getInstance();
+	}
+	
+	@Override
+	public Adapter createSubComponentPrimitiveBodyAdapter() {
+		return BodyAdapter.getInstance();
+	}
+	
+	@Override
+	public Adapter createBodyAdapter() {
+		return super.createBodyAdapter();
+	}
+	@Override
+	public Adapter createCompositeBodyAdapter() {
+		return BodyAdapter.getInstance();
+	}
+	
+	@Override
+	public Adapter createPrimitiveBodyAdapter() {
+		return BodyAdapter.getInstance();
+	}
+	@Override
+	public Adapter createTypeBodyAdapter() {
+		return BodyAdapter.getInstance();
 	}
 
 	@Override

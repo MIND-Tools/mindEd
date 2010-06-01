@@ -13,6 +13,7 @@ import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.util.Arrays;
 import java.util.Collection;
+import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
 
@@ -30,8 +31,10 @@ import org.eclipse.cdt.managedbuilder.core.ManagedBuildManager;
 import org.eclipse.core.resources.ICommand;
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IFolder;
+import org.eclipse.core.resources.IMarker;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IProjectDescription;
+import org.eclipse.core.resources.IResource;
 import org.eclipse.core.resources.IncrementalProjectBuilder;
 import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
@@ -46,12 +49,19 @@ import org.eclipse.emf.ecore.util.EContentAdapter;
 import org.junit.After;
 import org.junit.BeforeClass;
 import org.junit.Test;
+import org.objectweb.fractal.adl.ADLException;
+import org.objectweb.fractal.adl.CompilerError;
+import org.objectweb.fractal.adl.StaticJavaGenerator.InvalidCommandLineException;
+import org.objectweb.fractal.adl.error.Error;
+import org.objectweb.fractal.adl.error.ErrorTemplate;
 import org.ow2.mindEd.ide.core.FamilyJobCST;
 import org.ow2.mindEd.ide.core.MindActivator;
+import org.ow2.mindEd.ide.core.MindCMarker;
 import org.ow2.mindEd.ide.core.MindIdeBuilder;
 import org.ow2.mindEd.ide.core.MindIdeCore;
 import org.ow2.mindEd.ide.core.MindModelManager;
 import org.ow2.mindEd.ide.core.MindNature;
+import org.ow2.mindEd.ide.core.MindcErrorCodes;
 import org.ow2.mindEd.ide.core.impl.CDTUtil;
 import org.ow2.mindEd.ide.core.impl.MindMakefile;
 import org.ow2.mindEd.ide.core.impl.MindPathEntryCustomImpl;
@@ -679,6 +689,38 @@ public class TestMindProject {
 		p2 = UtilMindIde.find(mindRootSrc.getPackages(), "p2");
 		assertNull(p2);
 
+		
+		// delete default package 
+		
+		mp2.getProject().getFile("src/z.adl").create(
+				new ByteArrayInputStream("primitive z".getBytes()), true,
+				new NullProgressMonitor());
+		mp2.getProject().getFile("src/u.adl").create(
+				new ByteArrayInputStream("primitive u".getBytes()), true,
+				new NullProgressMonitor());
+		mp2.getProject().getFolder("src/p2").create(false, true,
+				new NullProgressMonitor());
+		mp2.getProject().getFile("src/p2/t.adl").create(
+				new ByteArrayInputStream("primitive p2.t".getBytes()), true,
+				new NullProgressMonitor());
+		mp2.getProject().getFile("src/p2/z.adl").create(
+				new ByteArrayInputStream("primitive p2.z".getBytes()), true,
+				new NullProgressMonitor());
+		assertEquals(3, mindRootSrc.getPackages().size());
+		
+		MindAdl adlZ = mp2.resolveAdl("z", "", null);
+		assertNotNull(adlZ);
+		
+		MindPackage defaultPackage = adlZ.getPackage();
+		defaultPackage.getRootsrc().getPackages().remove(defaultPackage);
+		waitJob(DEFAULT_TIME_OUT_WAIT_JOB, 10, "failremove",
+				FamilyJobCST.FAMILY_ALL);
+		
+		assertTrue(!mp2.getProject().getFile("src/z.adl").exists());
+		assertTrue(!mp2.getProject().getFile("src/u.adl").exists());
+		
+		assertEquals(2, mindRootSrc.getPackages().size());
+		
 	}
 
 	@Test
@@ -1242,6 +1284,7 @@ public class TestMindProject {
 		mp1.getMindpathentries().remove(p1_src2);
 		waitJob(DEFAULT_TIME_OUT_WAIT_JOB, 10, "fail createCSource",
 				FamilyJobCST.FAMILY_REMOVE_CSOURCE_FOLDER);
+		sleep(60);
 		assertNotCSource(src2);
 		assertTrue(!mp1.getMindpathentries().contains(p1_src2));
 		assertTrue(src2.exists());
@@ -1572,5 +1615,108 @@ public class TestMindProject {
 	private String getMakeFileVar(MindProject mp, String varname)
 			throws CoreException, IOException {
 		return new MindMakefile(mp.getProject()).getMakefileVariable(varname);
+	}
+	
+	@Test
+	public void tesMindC() throws CoreException, IOException, InvalidCommandLineException, ADLException, CompilerError {
+		String name;
+		name = "P2_" + System.currentTimeMillis();
+		MindProject mp2 = MindIdeCore.createMINDProject(name,
+				new NullProgressMonitor());
+		assertNotNull(mp2);
+
+		// create two packages p1 and p2
+		// create two component in each package
+		mp2.getProject().getFolder("src/p1").create(false, true,
+				new NullProgressMonitor());
+		// create p1.t and check
+		IFile tAdlFile = mp2.getProject().getFile("src/p1/t.adl");
+		tAdlFile.create(
+				new ByteArrayInputStream("primitive p1.t".getBytes()), true,
+				new NullProgressMonitor());
+		MindObject mindObject = MindIdeCore.get(tAdlFile);
+		assertTrue(mindObject instanceof MindAdl);
+		MindIdeBuilder.checkFile(mp2.getProject(), Collections.singletonList(((MindFile)mindObject)));
+		
+		// create p1.z and check
+		IFile zAdlFile = mp2.getProject().getFile("src/p1/z.adl");
+		zAdlFile.create(
+				new ByteArrayInputStream("primitive p1.z".getBytes()), true,
+				new NullProgressMonitor());
+		mindObject = MindIdeCore.get(zAdlFile);
+		assertTrue(mindObject instanceof MindAdl);
+		MindIdeBuilder.checkFile(mp2.getProject(), Collections.singletonList(((MindFile)mindObject)));
+		
+		
+		mp2.getProject().getFolder("src/p2").create(false, true,
+				new NullProgressMonitor());
+		// create p2.t and check
+		IFile tP2AdlFile = mp2.getProject().getFile("src/p2/t.adl");
+		tP2AdlFile.create(
+				new ByteArrayInputStream("primitive p2.t".getBytes()), true,
+				new NullProgressMonitor());
+		mindObject = MindIdeCore.get(zAdlFile);
+		assertTrue(mindObject instanceof MindAdl);
+		MindIdeBuilder.checkFile(mp2.getProject(), Collections.singletonList(((MindFile)mindObject)));
+		
+		
+		// create p2.z and check
+		IFile zP2AdlFile = mp2.getProject().getFile("src/p2/z.adl");
+		zP2AdlFile.create(
+				new ByteArrayInputStream("primitive p2.z".getBytes()), true,
+				new NullProgressMonitor());
+		mindObject = MindIdeCore.get(zAdlFile);
+		assertTrue(mindObject instanceof MindAdl);
+		MindIdeBuilder.checkFile(mp2.getProject(), Collections.singletonList(((MindFile)mindObject)));
+		
+		mp2.getProject().build(IncrementalProjectBuilder.INCREMENTAL_BUILD,
+				new NullProgressMonitor());
+
+		IMarker[] errors = mp2.getProject().findMarkers(MindCMarker.MARKER_ID, false, IResource.DEPTH_INFINITE);
+		assertTrue(errors == null || errors.length == 0);
+	}
+	
+	
+	@Test
+	public void tesMindCErros() throws CoreException, IOException, InvalidCommandLineException, ADLException, CompilerError {
+		String name;
+		name = "P2_" + System.currentTimeMillis();
+		MindProject mp2 = MindIdeCore.createMINDProject(name,
+				new NullProgressMonitor());
+		assertNotNull(mp2);
+
+		// create two packages p1 and p2
+		// create two component in each package
+		mp2.getProject().getFolder("src/p1").create(false, true,
+				new NullProgressMonitor());
+		// create p1.t and check
+		IFile tAdlFile = mp2.getProject().getFile("src/p1/t.adl");
+		tAdlFile.create(
+				new ByteArrayInputStream("primitive p1.a".getBytes()), true,
+				new NullProgressMonitor());
+		MindObject mindObject = MindIdeCore.get(tAdlFile);
+		assertTrue(mindObject instanceof MindAdl);
+		checkError(mp2, mindObject, MindcErrorCodes.GROUP_ID_ADL,MindcErrorCodes.ADL_WRONG_DEFINITION_NAME);
+	}
+
+	private void checkError(MindProject mp2, MindObject mindObject, 
+			String goodGroupId, int goodErrorId)
+			throws InvalidCommandLineException, CompilerError, CoreException {
+		try {
+			MindIdeBuilder.checkFile(mp2.getProject(), Collections.singletonList(((MindFile)mindObject)));
+		} catch (ADLException e) {
+			Error error = e.getError();
+			if (error == null)
+				fail("No found error object !!");
+			ErrorTemplate template = error.getTemplate();
+			if (template == null)
+				fail("No found template object !!");
+			int errorId = template.getErrorId();
+			String groupId = template.getGroupId();
+			if (groupId.equals(goodGroupId) && goodErrorId == errorId)
+				return;
+			fail("Found error "+groupId+"-"+errorId+" not "+goodGroupId+"-"+goodErrorId+" !!! ");
+		}
+		fail("No error found "+goodGroupId+"-"+goodErrorId+" !!! ");
 	}
 }

@@ -6,9 +6,7 @@ import org.eclipse.gef.EditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.GraphicalEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
 import org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.policies.FixedChildrenLayoutEditPolicy;
-import org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.policies.MindSuperCreationEditPolicy;
 import org.ow2.mindEd.adl.editor.graphic.ui.custom.layouts.ConstrainedFlowLayout;
-import org.ow2.mindEd.adl.editor.graphic.ui.custom.layouts.CustomFreeFormLayoutEx;
 
 public class MindListCompartmentEditPart extends MindCompartmentEditPart {
 
@@ -27,9 +25,6 @@ public class MindListCompartmentEditPart extends MindCompartmentEditPart {
 		// Extended layout features
 		realEditPart.installEditPolicy(EditPolicy.LAYOUT_ROLE,
 				new FixedChildrenLayoutEditPolicy());
-		// Extended creation features
-		realEditPart.installEditPolicy(EditPolicyRoles.CREATION_ROLE,
-				new MindSuperCreationEditPolicy());
 		// No drag and drop
 		realEditPart.removeEditPolicy(EditPolicyRoles.DRAG_DROP_ROLE);
 	}
@@ -47,9 +42,9 @@ public class MindListCompartmentEditPart extends MindCompartmentEditPart {
 	@Override
 	public LayoutManager getLayoutManager() {
 		if (layoutManager == null) {
-			layoutManager = new ConstrainedFlowLayout(false);
-			((ConstrainedFlowLayout)layoutManager).setMinorSpacing(0);
-			((ConstrainedFlowLayout)layoutManager).setMajorSpacing(0);
+			layoutManager = new ConstrainedFlowLayout(false);	
+			((ConstrainedFlowLayout)layoutManager).setMinorSpacing(3);
+			((ConstrainedFlowLayout)layoutManager).setMajorSpacing(3);
 		}
 		return layoutManager;
 	}

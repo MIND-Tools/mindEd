@@ -7,7 +7,7 @@
 
 «REM» Default size set to 10 instead of 40 «ENDREM» 
 «AROUND setupNodePlate FOR gmfgen::GenNode»
-		result.setDefaultSize(0, 0);
+		result.setDefaultSize(20, 10);
 «ENDAROUND»
 
 «AROUND createDefaultEditPoliciesBody FOR gmfgen::GenNode-»

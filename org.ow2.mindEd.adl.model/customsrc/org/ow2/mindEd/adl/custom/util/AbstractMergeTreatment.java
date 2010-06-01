@@ -130,8 +130,12 @@ public abstract class AbstractMergeTreatment extends
 	 * 
 	 * @author proustr
 	 */
-	public boolean isSameEClass(EObject object1, EObject object2) {
-		return object1.eClass() == object2.eClass();
+	public boolean isSameEClass(Object object1, Object object2) {
+		if(object1 instanceof EObject && object2 instanceof EObject)
+		{
+			return ((EObject)object1).eClass() == ((EObject)object2).eClass();
+		}
+		else return false;
 	}
 
 	/**
@@ -148,6 +152,7 @@ public abstract class AbstractMergeTreatment extends
 	 */
 	protected EObject copyObject(EObject source) {
 		EObject target = EcoreUtil.copy(source);
+		if(source==null) return null;
 		TreeIterator<EObject> sourceIterator = source.eAllContents();
 		TreeIterator<EObject> targetIterator = target.eAllContents();
 		while (sourceIterator.hasNext() && targetIterator.hasNext()) {

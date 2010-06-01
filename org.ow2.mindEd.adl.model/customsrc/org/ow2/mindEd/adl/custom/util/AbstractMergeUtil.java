@@ -1,14 +1,12 @@
 package org.ow2.mindEd.adl.custom.util;
 
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Set;
 
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.TreeIterator;
-import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EReference;
@@ -18,11 +16,11 @@ import org.ow2.mindEd.adl.AdlDefinition;
 import org.ow2.mindEd.adl.AdlFactory;
 import org.ow2.mindEd.adl.AdlPackage;
 import org.ow2.mindEd.adl.ArchitectureDefinition;
-import org.ow2.mindEd.adl.BindingDefinition;
 import org.ow2.mindEd.adl.ComponentReference;
 import org.ow2.mindEd.adl.ImportDefinition;
 import org.ow2.mindEd.adl.MergedObject;
 import org.ow2.mindEd.adl.SubComponentDefinition;
+import org.ow2.mindEd.adl.custom.MindObject;
 
 public abstract class AbstractMergeUtil extends AbstractReferencesTreatment {
 	protected HashMap<EObject, EObject> eObjectsMergeHistoryMapping = new HashMap<EObject, EObject>();
@@ -36,7 +34,7 @@ public abstract class AbstractMergeUtil extends AbstractReferencesTreatment {
 			EList<EObject> listToCheck, boolean checkeClass) {
 		for (EObject targetObject : listToCheck) {
 			if (targetObject.eClass() == referenceObject.eClass() || !checkeClass)
-				if (haveSameName(referenceObject, targetObject))
+				if (targetObject instanceof MindObject && haveSameName((MindObject)referenceObject, (MindObject)targetObject))
 					if(!eObjectsMergeHistoryMapping.containsValue(targetObject))
 					return targetObject;
 		}
@@ -54,9 +52,9 @@ public abstract class AbstractMergeUtil extends AbstractReferencesTreatment {
 		return false;
 	}
 	
-	protected boolean haveSameName(EObject object1, EObject object2) {
-		String sourceObjectName = getAttributeName(object1);
-		String targetObjectName = getAttributeName(object2);
+	protected boolean haveSameName(MindObject object1, MindObject object2) {
+		String sourceObjectName = object1.getHelper().getAttributeName();
+		String targetObjectName = object2.getHelper().getAttributeName();
 		if(sourceObjectName!=null && targetObjectName!=null)
 		{
 			if (sourceObjectName.equalsIgnoreCase(targetObjectName) && sourceObjectName!=null) {
@@ -251,17 +249,6 @@ public abstract class AbstractMergeUtil extends AbstractReferencesTreatment {
 		referencesToResolve.clear();
 	}
 	
-
-
-	protected String getAttributeName(EObject object) {
-		for (EAttribute attribute : object.eClass().getEAllAttributes()) {
-			if (attribute.getName().toLowerCase().contains("name")) {
-				return (String) object.eGet(attribute);
-			}
-		}
-		return null;
-	}
-
 	@SuppressWarnings("unchecked")
 	public ArrayList<String> getReferencesList(ArchitectureDefinition definition) {
 		ArrayList<String> result = new ArrayList<String>();
@@ -290,19 +277,6 @@ public abstract class AbstractMergeUtil extends AbstractReferencesTreatment {
 		}
 		return result;
 	}
-
-	protected EStructuralFeature getFeatureContainingName(EObject objectToMerge,
-			String featureName) {
-		for (EStructuralFeature feature : objectToMerge.eClass()
-				.getEAllStructuralFeatures()) {
-			if (feature.getName().toLowerCase().contains(featureName.toLowerCase())) {
-				return feature;
-			}
-		}
-		return null;
-
-	}
-
 
 	public static boolean isMerging() {
 		return merging;

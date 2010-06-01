@@ -1,5 +1,8 @@
 package org.ow2.mindEd.adl.custom.impl;
 
+import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.ow2.mindEd.adl.AdlPackage;
 import org.ow2.mindEd.adl.impl.PrimitiveReferenceDefinitionImpl;
 
 /**
@@ -42,10 +45,15 @@ public class PrimitiveReferenceDefinitionCustomImpl extends PrimitiveReferenceDe
 	 */
 	@Override
 	public void setReferenceName(String newReferenceName) {
-		if (newReferenceName != null && !newReferenceName.equals(referenceName)) {
+		String oldReferenceName = referenceName;
+		referenceName = newReferenceName;
+		resolved = false;
+		if (newReferenceName != null && !referenceName.equals(oldReferenceName)) {
 			nameFQN = getHelper().getNameFQN();
 		}
-		super.setReferenceName(newReferenceName);
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, AdlPackage.COMPONENT_REFERENCE__REFERENCE_NAME, oldReferenceName, referenceName));
+
 	}
 
 }

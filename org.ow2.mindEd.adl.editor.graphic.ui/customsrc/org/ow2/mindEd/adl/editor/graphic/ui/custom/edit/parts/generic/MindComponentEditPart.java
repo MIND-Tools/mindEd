@@ -2,10 +2,11 @@ package org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.parts.generic;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
+import java.util.Iterator;
+import java.util.List;
+
 import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.geometry.Dimension;
-import org.eclipse.draw2d.geometry.Point;
-import org.eclipse.draw2d.geometry.Rectangle;
 import org.eclipse.gef.DragTracker;
 import org.eclipse.gef.EditPart;
 import org.eclipse.gef.EditPolicy;
@@ -14,20 +15,13 @@ import org.eclipse.gmf.runtime.diagram.ui.editparts.AbstractBorderedShapeEditPar
 import org.eclipse.gmf.runtime.diagram.ui.editparts.GraphicalEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.ConstrainedToolbarLayout;
-import org.eclipse.gmf.runtime.notation.NotationPackage;
 import org.eclipse.swt.graphics.Color;
 import org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.policies.ComponentLayoutEditPolicy;
 import org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.policies.CustomDragDropEditPolicy;
-import org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.policies.MindSubCreationEditPolicy;
-
-import org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.policies.*;
 import org.ow2.mindEd.adl.editor.graphic.ui.custom.figures.AbstractComponentShape;
 import org.ow2.mindEd.adl.editor.graphic.ui.custom.figures.IFractalShape;
-import org.ow2.mindEd.adl.editor.graphic.ui.custom.helpers.ComponentHelper;
 import org.ow2.mindEd.adl.editor.graphic.ui.custom.layouts.ComponentLayout;
-import org.ow2.mindEd.adl.editor.graphic.ui.custom.providers.CustomDragEditPartsTracker;
 import org.ow2.mindEd.adl.editor.graphic.ui.custom.providers.DragEditPartsCustomTracker;
-import org.ow2.mindEd.adl.editor.graphic.ui.custom.providers.NoDragTracker;
 import org.ow2.mindEd.adl.editor.graphic.ui.edit.parts.*;
 
 public class MindComponentEditPart extends MindEditPart {
@@ -54,20 +48,17 @@ public class MindComponentEditPart extends MindEditPart {
 	public void createDefaultEditPolicies(){
 		super.createDefaultEditPolicies();
 		
-		realEditPart.installEditPolicy(EditPolicyRoles.CREATION_ROLE,
-				new MindSubCreationEditPolicy());
-		setCreationMode(CREATION_MODE_PARENT);
-		
 		realEditPart.installEditPolicy(EditPolicyRoles.DRAG_DROP_ROLE,
 				new CustomDragDropEditPolicy());
 		
 		realEditPart.installEditPolicy(EditPolicy.LAYOUT_ROLE,
 				new ComponentLayoutEditPolicy());
+		
 	};
 	
 	
-	public DragTracker getDragTracker(EditPart ep) {
-		return new DragEditPartsCustomTracker(ep);
+	public DragTracker getDragTracker(Request request) {
+		return new DragEditPartsCustomTracker(realEditPart);
 	}
 	
 	
@@ -87,6 +78,24 @@ public class MindComponentEditPart extends MindEditPart {
 	
 	@Override
 	public boolean addFixedChild(EditPart childEditPart) {
+		return false;
+	}
+	
+	@SuppressWarnings("unchecked")
+	public boolean removeFixedChild(EditPart childEditPart) {
+		if (getMindType(childEditPart) == TYPE_BODY) {
+			if (!MindGenericEditPartFactory.INSTANCE.getMindEditPartFor(childEditPart).isMerged()) {
+				// Remove interfaces' figures from border
+	        	List<IFigure> borderItems = borderedEditPart.getBorderedFigure().getBorderItemContainer().getChildren();
+	        	Iterator<IFigure> iter = borderItems.listIterator();
+	        	while (iter.hasNext()) {
+	        		iter.next();
+	        		iter.remove();
+	        	}
+			}
+			// continue remove
+			return false;
+		}
 		return false;
 	}
 	
@@ -137,6 +146,8 @@ public class MindComponentEditPart extends MindEditPart {
 			return COMPONENT_PRIMITIVE;
 		if (realEditPart instanceof PrimitiveSubComponentEditPart)
 			return COMPONENT_SUB_PRIMITIVE;
+		if (realEditPart instanceof UndefinedSubComponentEditPart)
+			return COMPONENT_SUB_UNDEFINED;
 		if (realEditPart instanceof ComponentTypeDefinitionEditPart)
 			return COMPONENT_TYPE;
 		return COMPONENT_UNDEFINED;
@@ -183,6 +194,7 @@ public class MindComponentEditPart extends MindEditPart {
 			return new Dimension(500,500);
 		case COMPONENT_SUB_COMPOSITE:
 		case COMPONENT_SUB_PRIMITIVE:
+		case COMPONENT_SUB_UNDEFINED:
 			return new Dimension(200,200);
 		default :
 			return super.getMindPreferredSize();	

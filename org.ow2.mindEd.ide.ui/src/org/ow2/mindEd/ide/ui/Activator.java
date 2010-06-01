@@ -19,6 +19,7 @@ import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.osgi.framework.Bundle;
 import org.osgi.framework.BundleContext;
 import org.ow2.mindEd.ide.core.MindIdeCore;
+import org.ow2.mindEd.ide.model.MindAdl;
 
 /**
  * The activator class controls the plug-in life cycle
@@ -114,8 +115,16 @@ public class Activator extends AbstractUIPlugin {
 		}
 	}
 
-	public static void initGmfDiagram(URI modelURI, URI diagramURI) {
+	public static void initGmfDiagram(URI diagramURI, URI modelURI) {
 		initGmfDiagram(diagramURI, modelURI, new NullProgressMonitor());
+	}
+	
+	public static void createDiagram(IProgressMonitor monitor, MindAdl adl) {
+		monitor.setTaskName("Creating and opening diagram");
+		URI modelURI = URI.createURI(adl.getFullpath());
+		URI diagramURI = URI.createURI(adl.getFullpath()+MindIdeCore.DIAGRAM_EXT);
+		initGmfDiagram(diagramURI, modelURI, monitor);
+		monitor.worked(1);
 	}
 
 	public static void initGmfDiagram(URI diagramURI, URI modelURI,

@@ -8,15 +8,16 @@
     rootExtendsClass="org.ow2.mindEd.adl.custom.impl.MindObjectImpl" rootImplementsInterface=""
     featureMapWrapperInterface="" featureMapWrapperInternalInterface="" featureMapWrapperClass="adl.MindObject"
     booleanFlagsField="" importerID="org.eclipse.emf.importer.ecore" complianceLevel="6.0"
-    copyrightFields="false" editPluginID="org.ow2.mindEd.adl.edit" editorPluginID="org.ow2.mindEd.adl.editor.tree"
-    language="adl" interfaceNamePattern="" classNamePattern="">
+    copyrightFields="false" publicConstructors="true" editPluginID="org.ow2.mindEd.adl.edit"
+    editorPluginID="org.ow2.mindEd.adl.editor.tree" language="adl" interfaceNamePattern=""
+    classNamePattern="">
   <foreignModel>mind.ecore</foreignModel>
   <genPackages prefix="Adl" basePackage="org.ow2.mindEd" disposableProviderFactory="true"
       loadInitialization="true" generateExampleClass="false" multipleEditorPages="false"
       generateModelWizard="false" ecorePackage="mind.ecore#/">
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="mind.ecore#//Contingency">
-      <genEnumLiterals ecoreEnumLiteral="mind.ecore#//Contingency/optional"/>
       <genEnumLiterals ecoreEnumLiteral="mind.ecore#//Contingency/mandatory"/>
+      <genEnumLiterals ecoreEnumLiteral="mind.ecore#//Contingency/optional"/>
     </genEnums>
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="mind.ecore#//Role">
       <genEnumLiterals ecoreEnumLiteral="mind.ecore#//Role/provides"/>
@@ -34,8 +35,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference mind.ecore#//ArchitectureDefinition/body"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference mind.ecore#//ArchitectureDefinition/referencesList"/>
       <genFeatures property="None" createChild="false" ecoreFeature="ecore:EAttribute mind.ecore#//ArchitectureDefinition/nameFQN"/>
-      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute mind.ecore#//ArchitectureDefinition/simpleName"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mind.ecore#//ArchitectureDefinition/componentKind"/>
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute mind.ecore#//ArchitectureDefinition/componentKind"/>
     </genClasses>
     <genClasses ecoreClass="mind.ecore#//AdlDefinition">
       <genFeatures children="true" createChild="false" propertySortChoices="true"
@@ -71,20 +71,23 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mind.ecore#//BindingDefinition/interfaceTargetIndex"/>
       <genFeatures property="None" createChild="false" ecoreFeature="ecore:EAttribute mind.ecore#//BindingDefinition/interfaceSourceName"/>
       <genFeatures property="None" createChild="false" ecoreFeature="ecore:EAttribute mind.ecore#//BindingDefinition/interfaceTargetName"/>
-      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute mind.ecore#//BindingDefinition/interfaceSourceParentName"/>
-      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute mind.ecore#//BindingDefinition/interfaceTargetParentName"/>
+      <genFeatures property="None" createChild="false" ecoreFeature="ecore:EAttribute mind.ecore#//BindingDefinition/interfaceSourceParentName"/>
+      <genFeatures property="None" createChild="false" ecoreFeature="ecore:EAttribute mind.ecore#//BindingDefinition/interfaceTargetParentName"/>
     </genClasses>
     <genClasses ecoreClass="mind.ecore#//Body">
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference mind.ecore#//Body/parentComponent"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference mind.ecore#//Body/elements"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference mind.ecore#//Body/annotationsList"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mind.ecore#//Body/anonymous"/>
+      <genFeatures property="None" createChild="false" ecoreFeature="ecore:EAttribute mind.ecore#//Body/anonymous"/>
     </genClasses>
     <genClasses ecoreClass="mind.ecore#//ComponentReference">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mind.ecore#//ComponentReference/referenceName"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference mind.ecore#//ComponentReference/templatesList"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference mind.ecore#//ComponentReference/argumentsList"/>
       <genFeatures property="None" createChild="false" ecoreFeature="ecore:EAttribute mind.ecore#//ComponentReference/nameFQN"/>
+      <genFeatures property="None" createChild="false" ecoreFeature="ecore:EAttribute mind.ecore#//ComponentReference/resolved"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference mind.ecore#//ComponentReference/parentReferencesList"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference mind.ecore#//ComponentReference/parentSubComponent"/>
     </genClasses>
     <genClasses ecoreClass="mind.ecore#//ComponentTypeDefinition">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference mind.ecore#//ComponentTypeDefinition/annotationsList"/>
@@ -145,13 +148,13 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mind.ecore#//InterfaceDefinition/collection"/>
     </genClasses>
     <genClasses image="false" ecoreClass="mind.ecore#//MergedObject">
-      <genFeatures property="None" createChild="false" ecoreFeature="ecore:EAttribute mind.ecore#//MergedObject/merged"/>
+      <genFeatures property="None" createChild="false" propertyCategory="" ecoreFeature="ecore:EAttribute mind.ecore#//MergedObject/merged"/>
       <genFeatures property="None" createChild="false" ecoreFeature="ecore:EAttribute mind.ecore#//MergedObject/override"/>
       <genFeatures property="None" createChild="false" ecoreFeature="ecore:EAttribute mind.ecore#//MergedObject/canOverride"/>
     </genClasses>
     <genClasses ecoreClass="mind.ecore#//PrimitiveBody"/>
     <genClasses ecoreClass="mind.ecore#//PrimitiveComponentDefinition">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mind.ecore#//PrimitiveComponentDefinition/abstract"/>
+      <genFeatures createChild="false" propertyCategory="" ecoreFeature="ecore:EAttribute mind.ecore#//PrimitiveComponentDefinition/abstract"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference mind.ecore#//PrimitiveComponentDefinition/primitiveFormalArgumentsList"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference mind.ecore#//PrimitiveComponentDefinition/annotationsList"/>
     </genClasses>

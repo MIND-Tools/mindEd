@@ -1,13 +1,9 @@
 package org.ow2.mindEd.adl.editor.graphic.ui.custom.figures;
 
-import org.eclipse.draw2d.Border;
 import org.eclipse.draw2d.Graphics;
 import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.Shape;
 import org.eclipse.draw2d.geometry.Rectangle;
-import org.eclipse.gmf.runtime.draw2d.ui.figures.RectangularDropShadowLineBorder;
-import org.eclipse.swt.graphics.Color;
-import org.ow2.mindEd.adl.editor.graphic.ui.custom.figures.IFractalShape;
 
 /**
  * 

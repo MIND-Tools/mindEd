@@ -29,6 +29,7 @@ public interface MindFile extends MindObject {
 	/**
 	 * Returns the value of the '<em><b>Fullpath</b></em>' attribute.
 	 * <!-- begin-user-doc -->
+	 * full workspace path
 	 * <p>
 	 * If the meaning of the '<em>Fullpath</em>' attribute isn't clear,
 	 * there really should be more of a description here...

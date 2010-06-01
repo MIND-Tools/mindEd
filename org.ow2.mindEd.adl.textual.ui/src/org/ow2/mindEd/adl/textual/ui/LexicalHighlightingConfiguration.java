@@ -150,13 +150,13 @@ public class LexicalHighlightingConfiguration implements IHighlightingConfigurat
 	// -- Interfaces 
 	public TextStyle providesTextStyle() {
 		TextStyle textStyle = defaultTextStyle().copy();
-		textStyle.setColor(IFractalShape.GREEN.getRGB());
+		textStyle.setColor(IFractalShape.RED.getRGB());
 		textStyle.setStyle(SWT.BOLD);
 		return textStyle;
 	}
 	public TextStyle requiresTextStyle() {
 		TextStyle textStyle = defaultTextStyle().copy();
-		textStyle.setColor(IFractalShape.RED.getRGB());
+		textStyle.setColor(IFractalShape.GREEN.getRGB());
 		textStyle.setStyle(SWT.BOLD);
 		return textStyle;
 	}

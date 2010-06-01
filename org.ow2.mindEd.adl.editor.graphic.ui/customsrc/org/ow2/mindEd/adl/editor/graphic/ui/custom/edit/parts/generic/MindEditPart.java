@@ -24,11 +24,11 @@ public class MindEditPart extends AbstractMindEditPart {
 		visualID = vID;
 	}
 	
-	public MindEditPart(GraphicalEditPart editPart, int vID, int mindType) {
+	public MindEditPart(GraphicalEditPart editPart, int vID, int type) {
 		if (editPart == null) throw new NullPointerException();
 		realEditPart = editPart;
 		visualID = vID;
-		MIND_TYPE = mindType;
+		mindType = type;
 	}
 	
 	@SuppressWarnings("unchecked")

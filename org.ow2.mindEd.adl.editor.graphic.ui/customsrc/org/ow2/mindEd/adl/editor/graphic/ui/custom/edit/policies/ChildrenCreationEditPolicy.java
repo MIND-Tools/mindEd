@@ -5,17 +5,16 @@ import java.util.List;
 import org.eclipse.gef.EditPart;
 import org.eclipse.gmf.runtime.notation.View;
 
-import org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.policies.MindSubCreationEditPolicy;
+import org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.policies.ParentCreationEditPolicy;
 import org.ow2.mindEd.adl.editor.graphic.ui.part.MindVisualIDRegistry;
 
 /**
- * Same as MindCreationForParentsEditPolicy but allows creation by clicking on a
- * super edit part instead of a sub edit part.
+ * Allow creation of elements contained in one of host's children
  * @author maroto
  *
  */
-public class MindSuperCreationEditPolicy extends
-		MindSubCreationEditPolicy {
+public class ChildrenCreationEditPolicy extends
+		ParentCreationEditPolicy {
 	
 	/**
 	 * Method to get the host even when creating by pointing on a super edit part 

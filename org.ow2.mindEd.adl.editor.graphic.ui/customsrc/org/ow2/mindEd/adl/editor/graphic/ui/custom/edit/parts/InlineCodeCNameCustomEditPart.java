@@ -16,6 +16,7 @@ import org.ow2.mindEd.adl.editor.graphic.ui.edit.parts.MindEditPartFactory;
  */
 
 
+@SuppressWarnings("restriction")
 public class InlineCodeCNameCustomEditPart extends InlineCodeCNameEditPart {
 
 	public InlineCodeCNameCustomEditPart(View view) {

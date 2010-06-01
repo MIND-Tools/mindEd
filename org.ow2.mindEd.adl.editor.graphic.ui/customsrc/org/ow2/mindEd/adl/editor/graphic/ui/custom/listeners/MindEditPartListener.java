@@ -2,7 +2,6 @@ package org.ow2.mindEd.adl.editor.graphic.ui.custom.listeners;
 
 import org.eclipse.gef.EditPart;
 import org.eclipse.gef.EditPartListener;
-import org.eclipse.gmf.runtime.diagram.ui.editparts.GraphicalEditPart;
 
 /**
  * not implemented yet
@@ -31,8 +30,7 @@ public class MindEditPartListener implements EditPartListener {
 
 	@Override
 	public void removingChild(EditPart editpart, int i) {
-		// TODO Auto-generated method stub
-
+		editpart.refresh();
 	}
 
 	@Override
