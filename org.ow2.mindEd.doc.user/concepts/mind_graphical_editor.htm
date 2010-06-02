@@ -1,0 +1,87 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html lang="en">
+<head>
+
+<meta http-equiv="Content-Language" content="en-us">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="../help.css">
+<style>
+.failed {
+	color: red;
+	text-transform:capitalize;
+	font-weight:bold;
+}
+.def {
+	color: blue;
+}
+</style>
+<title>MindEd - Graphical Editor</title>
+</head>
+<body>
+
+<h1 id="top">MindEd - Graphical Editor</h1>
+
+The MindEd Graphical Editor (or Diagram Editor) provides a graphical representation of adl files.<br/>
+It also supplies various features for edition.<br /><br />
+
+<strong>Features</strong>
+<ul>
+	<li> <span class="def"> Palette </span> <br />
+	The palette provides creation tools for all items, in the form of a paint-like application.
+	</li>
+	<br />
+	<li> <span class="def"> Properties view </span> <br />
+	The properties view display the attributes' values of the selected item (e.g. name). These can be modified
+	if not greyed out. To show this view, clic on an element and select "Show properties view".
+	</li>
+	<br />
+	<li> <span class="def"> Labels </span> <br />
+	Names or values are displayed in the editor, and can be directly edited.
+	</li>
+	<br />
+	<li> <span class="def"> Serialization </span> <br />
+	Created or modified items are serialized, meaning that the appropriate code will be generated in the adl file.
+	</li>
+	<br /> 
+	<li> <span class="def"> Zoom </span> <br />
+	Zoom or dezoom with ctrl + mousewheel.
+	</li>
+	<br />
+	<li> <span class="def"> Validation </span> <br />
+	If you make a mistake when you are editing an adl file, a warning (or an error) is 
+	displayed inside the Eclipse problem view and directly into the editor. When you put the cursor 
+	on it, a message describes the error more precisely.<br/>
+	Some problems will keep you from saving in order not to generate incoherent code.
+	</li>
+	<br /> 
+	<li> <span class="def"> Links to other definitions </span> <br />
+	When other files are referenced by a label, double clic on it to open the file in a new tab.<br/>
+	This feature includes :
+	- adl files (e.g. extends or conformsto)<br/>
+	- cpl files (e.g. source or data)<br/>
+	- itf files (e.g. provides or requires)
+	</li>
+	<br /> 
+	<li> <span class="def"> Sub Components </span> <br />
+	Sub components switch from composite/primitive and anonymous/inherited depending on their contents.<br/>
+	To change the kind, either change the reference or delete the body to create a new one.
+	</li>
+	<br /> 
+	<li> <span class="def"> Opening </span> <br />
+	To open a definition in the graphical editor :<br/>
+	- In Mind View, right clic > Open With > MindEd Graphical Editor
+	- In Package Explorer, open the xx.adl_diagram file
+	</li>
+	<br /> 
+</ul>
+
+<strong>Troubleshooting</strong>
+<ul>
+	<li> <span class="def"> I can't open the diagram file anymore </span> <br />
+	Try to delete the adl_diagram file, and recreate it with a right clic on the .adl > Initialize adl_diagram file 
+	(in package explorer)
+	</li>
+	<br />
+</ul>
+</body>
+</html>
