@@ -26,6 +26,8 @@ import org.ow2.mindEd.ide.model.MindAdl;
  */
 public class Activator extends AbstractUIPlugin {
 
+	public static final String MIND_DIAGRAM_EDITOR_ID = "org.ow2.mindEd.adl.editor.graphic.ui.MindDiagramEditorID";
+
 	/**
 	 * The plug-in ID
 	 */
@@ -95,11 +97,12 @@ public class Activator extends AbstractUIPlugin {
 					editor = PlatformUI.getWorkbench().getEditorRegistry()
 							.findEditor(EditorsUI.DEFAULT_TEXT_EDITOR_ID);
 				}
-				if (editor.getId().equals("org.ow2.mindEd.adl.editor.graphic.ui.MindDiagramEditorID")) {
+				if (editor.getId().equals(MIND_DIAGRAM_EDITOR_ID)) {
 					// Save model URI, needed if diagram must be created
 		        	URI modelURI = URI.createFileURI(jf.getFullPath().toPortableString());
 		        	// This is the diagram URI
-		        	jf = jf.getParent().getFile(new Path(jf.getName()+MindIdeCore.DIAGRAM_EXT));
+		        	if (!jf.getName().endsWith(MindIdeCore.DIAGRAM_EXT))
+		        		jf = jf.getParent().getFile(new Path(jf.getName()+MindIdeCore.DIAGRAM_EXT));
 		        	URI diagramURI = URI.createFileURI(jf.getFullPath().toPortableString());
 		        	// If diagram file doesn't exist, create it from the model
 		        	if (!(jf.exists())) {
@@ -113,6 +116,18 @@ public class Activator extends AbstractUIPlugin {
 				MindIdeCore.log(e, "Cannot open file "+jf);
 			}
 		}
+	}
+	
+	static public String editor(IFile jf) {
+		if (jf != null) {
+				IEditorDescriptor editor = IDE.getDefaultEditor(jf);
+				if (editor == null) {
+					editor = PlatformUI.getWorkbench().getEditorRegistry()
+							.findEditor(EditorsUI.DEFAULT_TEXT_EDITOR_ID);
+				}
+				return editor.getId();
+			}
+		return null;
 	}
 
 	public static void initGmfDiagram(URI diagramURI, URI modelURI) {
