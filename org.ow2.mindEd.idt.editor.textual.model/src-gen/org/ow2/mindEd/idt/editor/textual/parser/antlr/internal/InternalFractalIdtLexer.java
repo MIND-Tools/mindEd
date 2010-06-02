@@ -10,6 +10,7 @@ import java.util.Stack;
 import java.util.List;
 import java.util.ArrayList;
 
+@SuppressWarnings("all")
 public class InternalFractalIdtLexer extends Lexer {
     public static final int RULE_BOOLEAN=7;
     public static final int T73=73;
