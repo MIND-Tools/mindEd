@@ -1,81 +1,60 @@
 package org.ow2.mindEd.ide.ui.test;
 
-import static org.eclipse.swtbot.swt.finder.matchers.WidgetMatcherFactory.allOf;
-import static org.eclipse.swtbot.swt.finder.matchers.WidgetMatcherFactory.withMnemonic;
 import static org.hamcrest.Matchers.instanceOf;
 
-import java.util.ArrayList;
+import java.io.ByteArrayInputStream;
 import java.util.List;
-import java.util.zip.Adler32;
 
+import org.eclipse.cdt.core.templateengine.process.processes.CreateFolder;
+import org.eclipse.cdt.utils.debug.IDebugEntryRequestor;
+import org.eclipse.core.resources.IContainer;
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IFolder;
 import org.eclipse.core.resources.IProject;
+import org.eclipse.core.resources.IResource;
 import org.eclipse.core.resources.ResourcesPlugin;
+import org.eclipse.core.runtime.CoreException;
 import org.eclipse.draw2d.FigureCanvas;
 import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.geometry.Rectangle;
 import org.eclipse.emf.common.util.EList;
-import org.eclipse.swt.SWT;
-import org.eclipse.swt.widgets.Event;
-import org.eclipse.swt.widgets.Menu;
-import org.eclipse.swt.widgets.MenuItem;
-import org.eclipse.swt.widgets.Widget;
-import org.eclipse.swtbot.eclipse.gef.finder.widgets.SWTBotGefFigureCanvas;
-import org.eclipse.swtbot.swt.finder.SWTBot;
-import org.eclipse.swtbot.swt.finder.exceptions.WidgetNotFoundException;
-import org.eclipse.swtbot.swt.finder.finders.MenuFinder;
-import org.eclipse.swtbot.swt.finder.results.WidgetResult;
-import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
-import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
+import org.eclipse.emf.transaction.TransactionalEditingDomain;
+import org.eclipse.gef.ui.rulers.RulerComposite;
+import org.eclipse.gmf.runtime.diagram.ui.resources.editor.parts.DiagramDocumentEditor;
+import org.eclipse.swtbot.eclipse.gef.finder.widgets.SWTBotGefFigureCanvas;
 import org.eclipse.swtbot.swt.finder.utils.SWTBotPreferences;
-import org.eclipse.swtbot.swt.finder.widgets.SWTBotMenu;
-import org.eclipse.swtbot.swt.finder.widgets.SWTBotTreeItem;
 import org.eclipse.ui.IEditorPart;
 import org.eclipse.ui.IWorkbench;
 import org.eclipse.ui.IWorkbenchPage;
 import org.eclipse.ui.IWorkbenchWindow;
 import org.eclipse.ui.PlatformUI;
-import org.eclipse.ui.activities.WorkbenchActivityHelper;
-import org.eclipse.ui.internal.WorkbenchPlugin;
+import org.eclipse.xtext.resource.XtextResource;
+import org.eclipse.xtext.ui.editor.XtextEditor;
+import org.eclipse.xtext.ui.editor.model.XtextDocument;
+import org.eclipse.xtext.util.concurrent.IUnitOfWork;
 import org.hamcrest.Matcher;
+import org.junit.BeforeClass;
 import org.junit.Test;
 import org.ow2.mindEd.adl.AdlDefinition;
 import org.ow2.mindEd.adl.ArchitectureDefinition;
 import org.ow2.mindEd.adl.ComponentReference;
 import org.ow2.mindEd.adl.ReferencesList;
+import org.ow2.mindEd.adl.editor.graphic.ui.edit.parts.FileCEditPart;
 import org.ow2.mindEd.ide.core.MindIdeCore;
-import org.ow2.mindEd.ide.core.ModelToProjectUtil;
 import org.ow2.mindEd.ide.model.MindAdl;
 import org.ow2.mindEd.ide.model.MindProject;
 import org.ow2.mindEd.ide.test.TestMindProject;
+import org.ow2.mindEd.ide.ui.Activator;
 import org.ow2.mindEd.ide.ui.wizards.Messages;
 
 import fr.imag.adele.graphictests.gef.gtgefeditor.GTGefEditor;
 import fr.imag.adele.graphictests.gtmenu.GTMenu;
 import fr.imag.adele.graphictests.gttree.GTTreePath;
-import fr.imag.adele.graphictests.gtworkbench_part.GTEditor;
 import fr.imag.adele.graphictests.gtworkbench_part.GTShell;
 import fr.imag.adele.graphictests.gtworkbench_part.GTTextEditor;
 import fr.imag.adele.graphictests.gtworkbench_part.GTView;
 import fr.imag.adele.graphictests.test.GTTestCase;
-
-import org.eclipse.xtext.resource.XtextResource;
-import org.eclipse.xtext.ui.editor.XtextEditor;
-import org.eclipse.xtext.ui.editor.model.IXtextDocument;
-import org.eclipse.xtext.ui.editor.model.XtextDocument;
-import org.eclipse.xtext.util.concurrent.IUnitOfWork;
-
-import org.eclipse.ui.editors.text.TextEditor;
-
-import org.eclipse.gef.ui.rulers.RulerComposite;
-
-import org.ow2.mindEd.adl.editor.graphic.ui.edit.parts.FileCEditPart;
-import org.eclipse.gmf.runtime.diagram.ui.resources.editor.parts.DiagramDocumentEditor;
-
-import org.eclipse.emf.transaction.TransactionalEditingDomain;
-import org.eclipse.emf.common.util.URI;
 
 /**
  * Test Fractal Mind Wizard
@@ -83,6 +62,7 @@ import org.eclipse.emf.common.util.URI;
 public class TestCreateMindproject extends GTTestCase {
 	
 	
+	private static final String MIND_ADL = "Mind Adl ";
 	private static final String MIND_GRAPHICAL_EDITOR = "Mind Graphical Editor";
 	protected static final String OPEN_WITH = "Open With";
 	private static final String MIND_ADL_COMPONENT_MENU = "Mind ADL Component";
@@ -100,6 +80,7 @@ public class TestCreateMindproject extends GTTestCase {
 		super.setUp();
 		SWTBotPreferences.TIMEOUT = 6000;
 	}
+	
 	/**
 	 * Test Fractal Mind Wizard in the default location.
 	 * @throws Exception
@@ -284,7 +265,7 @@ public class TestCreateMindproject extends GTTestCase {
 		GTTextEditor text = new GTTextEditor(compA+".adl");
 		text.close();
 		
-		GTTreePath compANode = packageNode.concat("Mind Adl "+compA.substring(0,1).toLowerCase()+compA.substring(1));
+		GTTreePath compANode = packageNode.concat(MIND_ADL+compA.substring(0,1).toLowerCase()+compA.substring(1));
 		mindView.selectNode(compANode);
 		
 //		final SWTBotMenu openWMenu = mindView.contextMenu(compANode, "Open With");
@@ -610,7 +591,7 @@ public class TestCreateMindproject extends GTTestCase {
 		GTTextEditor text = new GTTextEditor(compA+".adl");
 		text.close();
 		
-		GTTreePath compANode = packageNode.concat("Mind Adl "+compA.substring(0,1).toLowerCase()+compA.substring(1));
+		GTTreePath compANode = packageNode.concat(MIND_ADL+compA.substring(0,1).toLowerCase()+compA.substring(1));
 		mindView.selectNode(compANode);
 		
 		mindView.click(compANode, OPEN_WITH,MIND_GRAPHICAL_EDITOR);
@@ -635,6 +616,84 @@ public class TestCreateMindproject extends GTTestCase {
 		
 	}
 	
+	@Test
+	public void testOpenSommesFile() throws Exception {
+		try {
+			GTMenu.clickItem(GTMenu.FILE_MENU, "Close All");
+		} catch (Throwable ignored) {
+		}
+		GTView mindView = new GTView(MIND_NAVIGATOR);
+		mindView.show();
+		
+		GTTreePath rootNode = new GTTreePath(MIND_REPO_WS);
+		
+		projectName = "Test2_"+System.currentTimeMillis() ; //call a generator which compute a new name
+		
+		mindView.contextMenu(rootNode, FRACTAL_MIND_PROJECT).click();
+		GTShell shell = new GTShell(Messages.MindProjectWizard_window_title);
+		shell.findTextWithLabel("Project name:").typeText(projectName);
+		shell.close();
+		
+		IProject p = ResourcesPlugin.getWorkspace().getRoot().getProject(projectName);
+		assertTrue(p.exists());
+		IFolder srcFolder = p.getFolder("src");
+		assertTrue(srcFolder.exists());
+		
+		String[] paths = TestIDEUIActivator.getDefault().getPath();
+		for (String relPath : paths) {
+			String t = TestIDEUIActivator.getDefault().getText(relPath);
+			assertNotNull(t);
+			IFile f = srcFolder.getFile(relPath);
+			createFolderIfNeed(f.getParent());
+			f.create(new ByteArrayInputStream(t.getBytes()), true, null);
+			assertTrue(f.exists());
+			
+		}
+		for (String relPath : paths) {
+			IFile f = srcFolder.getFile(relPath);
+			tryOpen(f);
+		}
+		GTTreePath rootSrcNode = rootNode.concat(MIND_PROJECT_NODE+projectName, "/"+projectName+"/src");
+		mindView.show();
+		for (String relPath : paths) {
+			IFile f = srcFolder.getFile(relPath);
+			if (f.getName().endsWith(".adl")) {
+				String[] path = relPath.split("/");
+				path[path.length-1] = MIND_ADL+f.getName().substring(0,f.getName().length()-4);
+				GTTreePath fNode = rootSrcNode.concat(path);
+				try {
+					mindView.selectNode(fNode);
+				} catch (Exception e) {
+					fail("Cannot select node "+fNode);
+				}
+				mindView.click(fNode, OPEN_WITH,MIND_GRAPHICAL_EDITOR);
+				
+				GTGefEditor edi = new GTGefEditor(f.getName() + MindIdeCore.DIAGRAM_EXT );
+				checkError(edi);
+				edi.close();
+			}
+		}
+	}
+	
+	private void createFolderIfNeed(IContainer parent) throws CoreException {
+		if (parent.exists())return;
+		if (parent.getType() == IResource.FOLDER) {
+			createFolderIfNeed(parent.getParent());
+			((IFolder)parent).create(true, true, null);
+		}
+	}
+
+	private void tryOpen(final IFile f) {
+		bot.getDisplay().syncExec(new Runnable() {
+			
+			@Override
+			public void run() {
+				Activator.openFile(f);	
+			}
+		});
+		GTTextEditor edi = new GTTextEditor(f.getName());
+		edi.close();
+	}
 	
 	private <T> T findFigure(IFigure f, Class<T> findClass) {
 		if (f.getClass() == findClass)
