@@ -11,7 +11,7 @@ var runtimeProject = "../${projectName}"
 
 Workflow {
     bean = StandaloneSetup {
-		platformUri = "${runtimeProject}/.."
+		platformUri = ".."
 		registerGeneratedEPackage = "org.ow2.mindEd.adl.AdlPackage"
 	}
 	
@@ -53,7 +53,7 @@ Workflow {
 			// fragment = AntlrDelegatingFragment {}
 			
 			// the following fragment tries to use the Antlr Generator fragment which can be installed via update manager from http://download.itemis.com/updates/ -->
-			fragment = de.itemis.xtext.antlr.XtextAntlrGeneratorFragment {
+			fragment = org.eclipse.xtext.generator.parser.antlr.XtextAntlrGeneratorFragment {
 				options = {
 					backtrack = true
 					classSplitting = true
@@ -108,7 +108,7 @@ Workflow {
 			//	message="You are generating without ANTLR. It is highly recommended to download and use the plugin \'de.itemis.xtext.antlr\' \n\t using the update site http:\//download.itemis.com/updates/."
 			//}
 			
-			fragment = de.itemis.xtext.antlr.XtextAntlrUiGeneratorFragment { 
+			fragment = org.eclipse.xtext.generator.parser.antlr.XtextAntlrUiGeneratorFragment { 
 				options = {
 					backtrack = true
 					classSplitting = true

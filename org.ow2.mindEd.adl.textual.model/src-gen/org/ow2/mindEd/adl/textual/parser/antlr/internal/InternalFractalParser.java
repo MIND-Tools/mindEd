@@ -23,6 +23,7 @@ import java.util.List;
 import java.util.ArrayList;
 import java.util.Map;
 import java.util.HashMap;
+@SuppressWarnings("all")
 public class InternalFractalParser extends AbstractInternalAntlrParser {
     public static final String[] tokenNames = new String[] {
         "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_ID", "RULE_INT", "RULE_PATH", "RULE_CODEC", "RULE_STRING", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'import'", "';'", "'abstract'", "'primitive'", "'{'", "'}'", "'type'", "'composite'", "'<'", "','", "'>'", "'('", "')'", "'extends'", "'contains'", "'as'", "'='", "'attribute'", "'['", "']'", "'[]'", "'binds'", "'this'", "'.'", "'to'", "'data'", "'source'", "'conformsto'", "'@'", "'null'", "'0x'", "'Override'", "'Singleton'", "'LDFlags'", "'CFlags'", "'STRUCT'", "'UNION'", "'ENUM'", "'.*'", "'+'", "'-'", "'optional'", "'mandatory'", "'provides'", "'requires'"
@@ -130,7 +131,7 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
         EObject lv_architecturedefinition_1_0 = null;
 
 
-         @SuppressWarnings("unused") EObject temp=null; setCurrentLookahead(); resetLookahead(); 
+         EObject temp=null; setCurrentLookahead(); resetLookahead(); 
             
         try {
             // ../org.ow2.mindEd.adl.textual.model/src-gen/org/ow2/mindEd/adl/textual/parser/antlr/internal/InternalFractal.g:98:6: ( ( ( (lv_imports_0_0= ruleImportDefinition ) )* ( (lv_architecturedefinition_1_0= ruleArchitectureDefinition ) ) ) )
@@ -310,7 +311,7 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
         AntlrDatatypeRuleToken lv_importName_1_2 = null;
 
 
-         @SuppressWarnings("unused") EObject temp=null; setCurrentLookahead(); resetLookahead(); 
+         EObject temp=null; setCurrentLookahead(); resetLookahead(); 
             
         try {
             // ../org.ow2.mindEd.adl.textual.model/src-gen/org/ow2/mindEd/adl/textual/parser/antlr/internal/InternalFractal.g:169:6: ( ( 'import' ( ( (lv_importName_1_1= ruleFQN | lv_importName_1_2= ruleFULL_IMPORT_NAME ) ) ) ';' ) )
@@ -493,7 +494,7 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
         EObject this_CompositeComponentDefinition_2 = null;
 
 
-         @SuppressWarnings("unused") EObject temp=null; setCurrentLookahead(); resetLookahead(); 
+         EObject temp=null; setCurrentLookahead(); resetLookahead(); 
             
         try {
             // ../org.ow2.mindEd.adl.textual.model/src-gen/org/ow2/mindEd/adl/textual/parser/antlr/internal/InternalFractal.g:248:6: ( (this_ComponentTypeDefinition_0= ruleComponentTypeDefinition | this_PrimitiveComponentDefinition_1= rulePrimitiveComponentDefinition | this_CompositeComponentDefinition_2= ruleCompositeComponentDefinition ) )
@@ -709,7 +710,7 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
         EObject lv_body_9_0 = null;
 
 
-         @SuppressWarnings("unused") EObject temp=null; setCurrentLookahead(); resetLookahead(); 
+         EObject temp=null; setCurrentLookahead(); resetLookahead(); 
             
         try {
             // ../org.ow2.mindEd.adl.textual.model/src-gen/org/ow2/mindEd/adl/textual/parser/antlr/internal/InternalFractal.g:309:6: ( ( ( (lv_annotationsList_0_0= ruleAnnotationsList ) )? ( (lv_abstract_1_0= 'abstract' ) )? 'primitive' ( (lv_name_3_0= ruleFQN ) ) ( (lv_primitiveFormalArgumentsList_4_0= ruleFormalArgumentsList ) )? ( (lv_referencesList_5_0= rulePrimitiveReferencesList ) )? ( ( '{' ( (lv_body_7_0= rulePrimitiveBody ) )? '}' ) | ( (lv_body_9_0= rulePrimitiveBody ) ) )? ) )
@@ -1199,7 +1200,7 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
         EObject this_ImplementationDefinition_3 = null;
 
 
-         @SuppressWarnings("unused") EObject temp=null; setCurrentLookahead(); resetLookahead(); 
+         EObject temp=null; setCurrentLookahead(); resetLookahead(); 
             
         try {
             // ../org.ow2.mindEd.adl.textual.model/src-gen/org/ow2/mindEd/adl/textual/parser/antlr/internal/InternalFractal.g:510:6: ( (this_InterfaceDefinition_0= ruleInterfaceDefinition | this_AttributeDefinition_1= ruleAttributeDefinition | this_DataDefinition_2= ruleDataDefinition | this_ImplementationDefinition_3= ruleImplementationDefinition ) )
@@ -1446,7 +1447,7 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
         EObject lv_body_7_0 = null;
 
 
-         @SuppressWarnings("unused") EObject temp=null; setCurrentLookahead(); resetLookahead(); 
+         EObject temp=null; setCurrentLookahead(); resetLookahead(); 
             
         try {
             // ../org.ow2.mindEd.adl.textual.model/src-gen/org/ow2/mindEd/adl/textual/parser/antlr/internal/InternalFractal.g:584:6: ( ( ( (lv_annotationsList_0_0= ruleAnnotationsList ) )? 'type' ( (lv_name_2_0= ruleFQN ) ) ( (lv_referencesList_3_0= ruleTypeReferencesList ) )? ( ( '{' ( (lv_body_5_0= ruleTypeBody ) )? '}' ) | ( (lv_body_7_0= ruleTypeBody ) ) )? ) )
@@ -1832,7 +1833,7 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
         AntlrDatatypeRuleToken lv_referenceName_0_0 = null;
 
 
-         @SuppressWarnings("unused") EObject temp=null; setCurrentLookahead(); resetLookahead(); 
+         EObject temp=null; setCurrentLookahead(); resetLookahead(); 
             
         try {
             // ../org.ow2.mindEd.adl.textual.model/src-gen/org/ow2/mindEd/adl/textual/parser/antlr/internal/InternalFractal.g:740:6: ( ( (lv_referenceName_0_0= ruleFQN ) ) )
@@ -1946,7 +1947,7 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
         EObject this_InterfaceDefinition_0 = null;
 
 
-         @SuppressWarnings("unused") EObject temp=null; setCurrentLookahead(); resetLookahead(); 
+         EObject temp=null; setCurrentLookahead(); resetLookahead(); 
             
         try {
             // ../org.ow2.mindEd.adl.textual.model/src-gen/org/ow2/mindEd/adl/textual/parser/antlr/internal/InternalFractal.g:787:6: (this_InterfaceDefinition_0= ruleInterfaceDefinition )
@@ -2052,7 +2053,7 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
         EObject lv_body_9_0 = null;
 
 
-         @SuppressWarnings("unused") EObject temp=null; setCurrentLookahead(); resetLookahead(); 
+         EObject temp=null; setCurrentLookahead(); resetLookahead(); 
             
         try {
             // ../org.ow2.mindEd.adl.textual.model/src-gen/org/ow2/mindEd/adl/textual/parser/antlr/internal/InternalFractal.g:822:6: ( ( ( (lv_annotationsList_0_0= ruleAnnotationsList ) )? 'composite' ( (lv_name_2_0= ruleFQN ) ) ( (lv_templateSpecifiersList_3_0= ruleTemplateSpecifiersList ) )? ( (lv_compositeFormalArgumentsList_4_0= ruleFormalArgumentsList ) )? ( (lv_referencesList_5_0= ruleCompositeReferencesList ) )? ( ( '{' ( (lv_body_7_0= ruleCompositeBody ) ) '}' ) | ( (lv_body_9_0= ruleCompositeBody ) ) )? ) )
@@ -2526,7 +2527,7 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
         EObject lv_templateSpecifiers_3_0 = null;
 
 
-         @SuppressWarnings("unused") EObject temp=null; setCurrentLookahead(); resetLookahead(); 
+         EObject temp=null; setCurrentLookahead(); resetLookahead(); 
             
         try {
             // ../org.ow2.mindEd.adl.textual.model/src-gen/org/ow2/mindEd/adl/textual/parser/antlr/internal/InternalFractal.g:1026:6: ( ( '<' ( ( (lv_templateSpecifiers_1_0= ruleTemplateSpecifier ) ) ( ',' ( (lv_templateSpecifiers_3_0= ruleTemplateSpecifier ) ) )* ) '>' ) )
@@ -2736,7 +2737,7 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
         EObject lv_formalArguments_3_0 = null;
 
 
-         @SuppressWarnings("unused") EObject temp=null; setCurrentLookahead(); resetLookahead(); 
+         EObject temp=null; setCurrentLookahead(); resetLookahead(); 
             
         try {
             // ../org.ow2.mindEd.adl.textual.model/src-gen/org/ow2/mindEd/adl/textual/parser/antlr/internal/InternalFractal.g:1109:6: ( ( '(' ( ( (lv_formalArguments_1_0= ruleFormalArgument ) ) ( ',' ( (lv_formalArguments_3_0= ruleFormalArgument ) ) )* ) ')' ) )
@@ -2946,7 +2947,7 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
         EObject lv_references_3_0 = null;
 
 
-         @SuppressWarnings("unused") EObject temp=null; setCurrentLookahead(); resetLookahead(); 
+         EObject temp=null; setCurrentLookahead(); resetLookahead(); 
             
         try {
             // ../org.ow2.mindEd.adl.textual.model/src-gen/org/ow2/mindEd/adl/textual/parser/antlr/internal/InternalFractal.g:1192:6: ( ( 'extends' ( (lv_references_1_0= rulePrimitiveReferenceDefinition ) ) ( ',' ( (lv_references_3_0= rulePrimitiveReferenceDefinition ) ) )* ) )
@@ -3144,7 +3145,7 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
         EObject lv_references_3_0 = null;
 
 
-         @SuppressWarnings("unused") EObject temp=null; setCurrentLookahead(); resetLookahead(); 
+         EObject temp=null; setCurrentLookahead(); resetLookahead(); 
             
         try {
             // ../org.ow2.mindEd.adl.textual.model/src-gen/org/ow2/mindEd/adl/textual/parser/antlr/internal/InternalFractal.g:1271:6: ( ( 'extends' ( (lv_references_1_0= ruleCompositeReferenceDefinition ) ) ( ',' ( (lv_references_3_0= ruleCompositeReferenceDefinition ) ) )* ) )
@@ -3342,7 +3343,7 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
         EObject lv_references_3_0 = null;
 
 
-         @SuppressWarnings("unused") EObject temp=null; setCurrentLookahead(); resetLookahead(); 
+         EObject temp=null; setCurrentLookahead(); resetLookahead(); 
             
         try {
             // ../org.ow2.mindEd.adl.textual.model/src-gen/org/ow2/mindEd/adl/textual/parser/antlr/internal/InternalFractal.g:1350:6: ( ( 'extends' ( (lv_references_1_0= ruleTypeReferenceDefinition ) ) ( ',' ( (lv_references_3_0= ruleTypeReferenceDefinition ) ) )* ) )
@@ -3537,7 +3538,7 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
 
         Token lv_name_0_0=null;
 
-         @SuppressWarnings("unused") EObject temp=null; setCurrentLookahead(); resetLookahead(); 
+         EObject temp=null; setCurrentLookahead(); resetLookahead(); 
             
         try {
             // ../org.ow2.mindEd.adl.textual.model/src-gen/org/ow2/mindEd/adl/textual/parser/antlr/internal/InternalFractal.g:1429:6: ( ( (lv_name_0_0= RULE_ID ) ) )
@@ -3652,7 +3653,7 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
         EObject this_BindingDefinition_2 = null;
 
 
-         @SuppressWarnings("unused") EObject temp=null; setCurrentLookahead(); resetLookahead(); 
+         EObject temp=null; setCurrentLookahead(); resetLookahead(); 
             
         try {
             // ../org.ow2.mindEd.adl.textual.model/src-gen/org/ow2/mindEd/adl/textual/parser/antlr/internal/InternalFractal.g:1476:6: ( (this_SubComponentDefinition_0= ruleSubComponentDefinition | this_InterfaceDefinition_1= ruleInterfaceDefinition | this_BindingDefinition_2= ruleBindingDefinition ) )
@@ -3864,7 +3865,7 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
         EObject lv_body_5_2 = null;
 
 
-         @SuppressWarnings("unused") EObject temp=null; setCurrentLookahead(); resetLookahead(); 
+         EObject temp=null; setCurrentLookahead(); resetLookahead(); 
             
         try {
             // ../org.ow2.mindEd.adl.textual.model/src-gen/org/ow2/mindEd/adl/textual/parser/antlr/internal/InternalFractal.g:1537:6: ( ( ( (lv_annotationsList_0_0= ruleAnnotationsList ) )? 'contains' ( (lv_referenceDefinition_2_0= ruleComponentReference ) )? 'as' ( (lv_name_4_0= RULE_ID ) ) ( ( (lv_body_5_1= ruleSubComponentCompositeBody | lv_body_5_2= ruleSubComponentPrimitiveBody ) ) )? ) )
@@ -4240,7 +4241,7 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
         EObject lv_elements_3_0 = null;
 
 
-         @SuppressWarnings("unused") EObject temp=null; setCurrentLookahead(); resetLookahead(); 
+         EObject temp=null; setCurrentLookahead(); resetLookahead(); 
             
         try {
             // ../org.ow2.mindEd.adl.textual.model/src-gen/org/ow2/mindEd/adl/textual/parser/antlr/internal/InternalFractal.g:1690:6: ( ( ( (lv_annotationsList_0_0= ruleAnnotationsList ) )? ( (lv_anonymous_1_0= 'composite' ) ) '{' ( ( (lv_elements_3_0= ruleCompositeDefinitionElement ) ) ( ';' )? )* '}' ) )
@@ -4506,7 +4507,7 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
         EObject lv_elements_3_0 = null;
 
 
-         @SuppressWarnings("unused") EObject temp=null; setCurrentLookahead(); resetLookahead(); 
+         EObject temp=null; setCurrentLookahead(); resetLookahead(); 
             
         try {
             // ../org.ow2.mindEd.adl.textual.model/src-gen/org/ow2/mindEd/adl/textual/parser/antlr/internal/InternalFractal.g:1794:6: ( ( ( (lv_annotationsList_0_0= ruleAnnotationsList ) )? ( (lv_anonymous_1_0= 'primitive' ) ) '{' ( ( (lv_elements_3_0= rulePrimitiveDefinitionElement ) ) ( ';' )? )* '}' ) )
@@ -4769,7 +4770,7 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
         EObject lv_elements_0_0 = null;
 
 
-         @SuppressWarnings("unused") EObject temp=null; setCurrentLookahead(); resetLookahead(); 
+         EObject temp=null; setCurrentLookahead(); resetLookahead(); 
             
         try {
             // ../org.ow2.mindEd.adl.textual.model/src-gen/org/ow2/mindEd/adl/textual/parser/antlr/internal/InternalFractal.g:1898:6: ( ( ( (lv_elements_0_0= ruleCompositeDefinitionElement ) ) ( ';' )? )* )
@@ -4930,7 +4931,7 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
         EObject lv_elements_0_0 = null;
 
 
-         @SuppressWarnings("unused") EObject temp=null; setCurrentLookahead(); resetLookahead(); 
+         EObject temp=null; setCurrentLookahead(); resetLookahead(); 
             
         try {
             // ../org.ow2.mindEd.adl.textual.model/src-gen/org/ow2/mindEd/adl/textual/parser/antlr/internal/InternalFractal.g:1949:6: ( ( ( (lv_elements_0_0= rulePrimitiveDefinitionElement ) ) ( ';' )? )* )
@@ -5091,7 +5092,7 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
         EObject lv_elements_0_0 = null;
 
 
-         @SuppressWarnings("unused") EObject temp=null; setCurrentLookahead(); resetLookahead(); 
+         EObject temp=null; setCurrentLookahead(); resetLookahead(); 
             
         try {
             // ../org.ow2.mindEd.adl.textual.model/src-gen/org/ow2/mindEd/adl/textual/parser/antlr/internal/InternalFractal.g:2000:6: ( ( ( (lv_elements_0_0= ruleTypeDefinitionElement ) ) ( ';' )? )* )
@@ -5256,7 +5257,7 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
         EObject this_TypeReferenceDefinition_2 = null;
 
 
-         @SuppressWarnings("unused") EObject temp=null; setCurrentLookahead(); resetLookahead(); 
+         EObject temp=null; setCurrentLookahead(); resetLookahead(); 
             
         try {
             // ../org.ow2.mindEd.adl.textual.model/src-gen/org/ow2/mindEd/adl/textual/parser/antlr/internal/InternalFractal.g:2053:6: ( (this_CompositeReferenceDefinition_0= ruleCompositeReferenceDefinition | this_PrimitiveReferenceDefinition_1= rulePrimitiveReferenceDefinition | this_TypeReferenceDefinition_2= ruleTypeReferenceDefinition ) )
@@ -5451,7 +5452,7 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
         EObject lv_argumentsList_9_0 = null;
 
 
-         @SuppressWarnings("unused") EObject temp=null; setCurrentLookahead(); resetLookahead(); 
+         EObject temp=null; setCurrentLookahead(); resetLookahead(); 
             
         try {
             // ../org.ow2.mindEd.adl.textual.model/src-gen/org/ow2/mindEd/adl/textual/parser/antlr/internal/InternalFractal.g:2114:6: ( ( ( (lv_referenceName_0_0= ruleFQN ) ) ( '<' ( (lv_templatesList_2_0= ruleTemplateDefinition ) ) ( ',' ( (lv_templatesList_4_0= ruleTemplateDefinition ) ) )* '>' )? ( '(' ( (lv_argumentsList_7_0= ruleArgumentDefinition ) ) ( ',' ( (lv_argumentsList_9_0= ruleArgumentDefinition ) ) )* ')' )? ) )
@@ -5853,7 +5854,7 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
         EObject lv_argumentsList_4_0 = null;
 
 
-         @SuppressWarnings("unused") EObject temp=null; setCurrentLookahead(); resetLookahead(); 
+         EObject temp=null; setCurrentLookahead(); resetLookahead(); 
             
         try {
             // ../org.ow2.mindEd.adl.textual.model/src-gen/org/ow2/mindEd/adl/textual/parser/antlr/internal/InternalFractal.g:2281:6: ( ( ( (lv_referenceName_0_0= ruleFQN ) ) ( '(' ( (lv_argumentsList_2_0= ruleArgumentDefinition ) ) ( ',' ( (lv_argumentsList_4_0= ruleArgumentDefinition ) ) )* ')' )? ) )
@@ -6113,7 +6114,7 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
         EObject lv_reference_2_0 = null;
 
 
-         @SuppressWarnings("unused") EObject temp=null; setCurrentLookahead(); resetLookahead(); 
+         EObject temp=null; setCurrentLookahead(); resetLookahead(); 
             
         try {
             // ../org.ow2.mindEd.adl.textual.model/src-gen/org/ow2/mindEd/adl/textual/parser/antlr/internal/InternalFractal.g:2388:6: ( ( ( ( (lv_name_0_0= RULE_ID ) ) '=' )? ( (lv_reference_2_0= ruleCompositeReferenceDefinition ) ) ) )
@@ -6302,7 +6303,7 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
         AntlrDatatypeRuleToken lv_value_5_0 = null;
 
 
-         @SuppressWarnings("unused") EObject temp=null; setCurrentLookahead(); resetLookahead(); 
+         EObject temp=null; setCurrentLookahead(); resetLookahead(); 
             
         try {
             // ../org.ow2.mindEd.adl.textual.model/src-gen/org/ow2/mindEd/adl/textual/parser/antlr/internal/InternalFractal.g:2463:6: ( ( ( (lv_annotationsList_0_0= ruleAnnotationsList ) )? 'attribute' ( (lv_type_2_0= ruleAttributeType ) )? ( (lv_attributeName_3_0= RULE_ID ) ) ( '=' ( (lv_value_5_0= ruleValue ) ) )? ) )
@@ -6600,7 +6601,7 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
         AntlrDatatypeRuleToken lv_argumentValue_3_0 = null;
 
 
-         @SuppressWarnings("unused") EObject temp=null; setCurrentLookahead(); resetLookahead(); 
+         EObject temp=null; setCurrentLookahead(); resetLookahead(); 
             
         try {
             // ../org.ow2.mindEd.adl.textual.model/src-gen/org/ow2/mindEd/adl/textual/parser/antlr/internal/InternalFractal.g:2590:6: ( ( ( ( (lv_argumentName_0_0= RULE_ID ) ) '=' ( (lv_argumentValue_2_0= ruleValue ) ) ) | ( (lv_argumentValue_3_0= ruleValue ) ) ) )
@@ -6860,7 +6861,7 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
         AntlrDatatypeRuleToken lv_signature_3_0 = null;
 
 
-         @SuppressWarnings("unused") EObject temp=null; setCurrentLookahead(); resetLookahead(); 
+         EObject temp=null; setCurrentLookahead(); resetLookahead(); 
             
         try {
             // ../org.ow2.mindEd.adl.textual.model/src-gen/org/ow2/mindEd/adl/textual/parser/antlr/internal/InternalFractal.g:2690:6: ( ( ( (lv_annotationsList_0_0= ruleAnnotationsList ) )? ( (lv_role_1_0= ruleRole ) ) ( (lv_contingency_2_0= ruleContingency ) )? ( (lv_signature_3_0= ruleFQN ) )? 'as' ( (lv_name_5_0= RULE_ID ) ) ( ( ( (lv_collection_6_0= '[' ) ) ( (lv_collectionsize_7_0= RULE_INT ) )? ']' ) | ( (lv_collection_9_0= '[]' ) ) )? ) )
@@ -7334,7 +7335,7 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
         EObject lv_annotationsList_0_0 = null;
 
 
-         @SuppressWarnings("unused") EObject temp=null; setCurrentLookahead(); resetLookahead(); 
+         EObject temp=null; setCurrentLookahead(); resetLookahead(); 
             
         try {
             // ../org.ow2.mindEd.adl.textual.model/src-gen/org/ow2/mindEd/adl/textual/parser/antlr/internal/InternalFractal.g:2908:6: ( ( ( (lv_annotationsList_0_0= ruleAnnotationsList ) )? ( 'binds' ( 'this' | ( (lv_interfaceSourceParentName_3_0= RULE_ID ) ) ) '.' ( (lv_interfaceSourceName_5_0= RULE_ID ) ) ( '[' ( (lv_interfaceSourceIndex_7_0= RULE_INT ) ) ']' )? 'to' ( 'this' | ( (lv_interfaceTargetParentName_11_0= RULE_ID ) ) ) '.' ( (lv_interfaceTargetName_13_0= RULE_ID ) ) ( '[' ( (lv_interfaceTargetIndex_15_0= RULE_INT ) ) ']' )? ) ) )
@@ -7857,7 +7858,7 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
         EObject lv_inlineCcode_3_0 = null;
 
 
-         @SuppressWarnings("unused") EObject temp=null; setCurrentLookahead(); resetLookahead(); 
+         EObject temp=null; setCurrentLookahead(); resetLookahead(); 
             
         try {
             // ../org.ow2.mindEd.adl.textual.model/src-gen/org/ow2/mindEd/adl/textual/parser/antlr/internal/InternalFractal.g:3141:6: ( ( ( (lv_annotationsList_0_0= ruleAnnotationsList ) )? 'data' ( ( (lv_fileC_2_0= ruleFileC ) ) | ( (lv_inlineCcode_3_0= ruleInlineCodeC ) ) ) ) )
@@ -8111,7 +8112,7 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
         EObject lv_inlineCcode_3_0 = null;
 
 
-         @SuppressWarnings("unused") EObject temp=null; setCurrentLookahead(); resetLookahead(); 
+         EObject temp=null; setCurrentLookahead(); resetLookahead(); 
             
         try {
             // ../org.ow2.mindEd.adl.textual.model/src-gen/org/ow2/mindEd/adl/textual/parser/antlr/internal/InternalFractal.g:3241:6: ( ( ( (lv_annotationsList_0_0= ruleAnnotationsList ) )? 'source' ( ( (lv_fileC_2_0= ruleFileC ) ) | ( (lv_inlineCcode_3_0= ruleInlineCodeC ) ) ) ) )
@@ -8362,7 +8363,7 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
         EObject lv_reference_2_0 = null;
 
 
-         @SuppressWarnings("unused") EObject temp=null; setCurrentLookahead(); resetLookahead(); 
+         EObject temp=null; setCurrentLookahead(); resetLookahead(); 
             
         try {
             // ../org.ow2.mindEd.adl.textual.model/src-gen/org/ow2/mindEd/adl/textual/parser/antlr/internal/InternalFractal.g:3341:6: ( ( ( (lv_name_0_0= RULE_ID ) ) 'conformsto' ( (lv_reference_2_0= ruleTypeReferenceDefinition ) ) ) )
@@ -8526,7 +8527,7 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
         AntlrDatatypeRuleToken lv_fileName_1_0 = null;
 
 
-         @SuppressWarnings("unused") EObject temp=null; setCurrentLookahead(); resetLookahead(); 
+         EObject temp=null; setCurrentLookahead(); resetLookahead(); 
             
         try {
             // ../org.ow2.mindEd.adl.textual.model/src-gen/org/ow2/mindEd/adl/textual/parser/antlr/internal/InternalFractal.g:3416:6: ( ( ( (lv_directory_0_0= RULE_PATH ) )? ( (lv_fileName_1_0= ruleFileName ) ) ) )
@@ -8823,7 +8824,7 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
 
         Token lv_codeC_0_0=null;
 
-         @SuppressWarnings("unused") EObject temp=null; setCurrentLookahead(); resetLookahead(); 
+         EObject temp=null; setCurrentLookahead(); resetLookahead(); 
             
         try {
             // ../org.ow2.mindEd.adl.textual.model/src-gen/org/ow2/mindEd/adl/textual/parser/antlr/internal/InternalFractal.g:3530:6: ( ( (lv_codeC_0_0= RULE_CODEC ) ) )
@@ -8936,7 +8937,7 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
         EObject lv_annotations_1_0 = null;
 
 
-         @SuppressWarnings("unused") EObject temp=null; setCurrentLookahead(); resetLookahead(); 
+         EObject temp=null; setCurrentLookahead(); resetLookahead(); 
             
         try {
             // ../org.ow2.mindEd.adl.textual.model/src-gen/org/ow2/mindEd/adl/textual/parser/antlr/internal/InternalFractal.g:3577:6: ( ( ( (lv_annotations_0_0= ruleAnnotation ) ) ( (lv_annotations_1_0= ruleAnnotation ) )* ) )
@@ -9118,7 +9119,7 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
         EObject lv_annotationElements_5_0 = null;
 
 
-         @SuppressWarnings("unused") EObject temp=null; setCurrentLookahead(); resetLookahead(); 
+         EObject temp=null; setCurrentLookahead(); resetLookahead(); 
             
         try {
             // ../org.ow2.mindEd.adl.textual.model/src-gen/org/ow2/mindEd/adl/textual/parser/antlr/internal/InternalFractal.g:3648:6: ( ( '@' ( (lv_name_1_0= ruleAnnotationType ) ) ( '(' ( (lv_annotationElements_3_0= ruleAnnotationElement ) ) ( ',' ( (lv_annotationElements_5_0= ruleAnnotationElement ) ) )* ')' )? ) )
@@ -9386,7 +9387,7 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
         EObject lv_elementValue_3_0 = null;
 
 
-         @SuppressWarnings("unused") EObject temp=null; setCurrentLookahead(); resetLookahead(); 
+         EObject temp=null; setCurrentLookahead(); resetLookahead(); 
             
         try {
             // ../org.ow2.mindEd.adl.textual.model/src-gen/org/ow2/mindEd/adl/textual/parser/antlr/internal/InternalFractal.g:3759:6: ( ( ( (lv_elementValue_0_0= ruleElementValue ) ) | ( ( (lv_elementName_1_0= RULE_ID ) ) '=' ( (lv_elementValue_3_0= ruleElementValue ) ) ) ) )
@@ -9626,7 +9627,7 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
         EObject this_ElementValueArrayInitializer_2 = null;
 
 
-         @SuppressWarnings("unused") EObject temp=null; setCurrentLookahead(); resetLookahead(); 
+         EObject temp=null; setCurrentLookahead(); resetLookahead(); 
             
         try {
             // ../org.ow2.mindEd.adl.textual.model/src-gen/org/ow2/mindEd/adl/textual/parser/antlr/internal/InternalFractal.g:3859:6: ( (this_ConstantValue_0= ruleConstantValue | this_Annotation_1= ruleAnnotation | this_ElementValueArrayInitializer_2= ruleElementValueArrayInitializer ) )
@@ -9809,7 +9810,7 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
         AntlrDatatypeRuleToken lv_value_0_0 = null;
 
 
-         @SuppressWarnings("unused") EObject temp=null; setCurrentLookahead(); resetLookahead(); 
+         EObject temp=null; setCurrentLookahead(); resetLookahead(); 
             
         try {
             // ../org.ow2.mindEd.adl.textual.model/src-gen/org/ow2/mindEd/adl/textual/parser/antlr/internal/InternalFractal.g:3920:6: ( ( (lv_value_0_0= ruleConstantFormat ) ) )
@@ -10056,7 +10057,7 @@ public class InternalFractalParser extends AbstractInternalAntlrParser {
         EObject lv_values_3_0 = null;
 
 
-         @SuppressWarnings("unused") EObject temp=null; setCurrentLookahead(); resetLookahead(); 
+         EObject temp=null; setCurrentLookahead(); resetLookahead(); 
             
         try {
             // ../org.ow2.mindEd.adl.textual.model/src-gen/org/ow2/mindEd/adl/textual/parser/antlr/internal/InternalFractal.g:4005:6: ( ( '{' ( (lv_values_1_0= ruleElementValue ) ) ( ',' ( (lv_values_3_0= ruleElementValue ) ) )* '}' ) )
