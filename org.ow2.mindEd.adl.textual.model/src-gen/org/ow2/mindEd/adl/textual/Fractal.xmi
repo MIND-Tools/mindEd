@@ -29,7 +29,7 @@
         <elements xsi:type="xtext:Assignment" feature="importName" operator="=">
           <terminal xsi:type="xtext:Alternatives">
             <elements xsi:type="xtext:RuleCall" rule="/0/@rules.49"/>
-            <elements xsi:type="xtext:RuleCall" rule="/0/@rules.52"/>
+            <elements xsi:type="xtext:RuleCall" rule="/0/@rules.51"/>
           </terminal>
         </elements>
         <elements xsi:type="xtext:Keyword" value=";"/>
@@ -533,10 +533,10 @@
           <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.38"/>
         </elements>
         <elements xsi:type="xtext:Assignment" feature="role" operator="=">
-          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.51"/>
-        </elements>
-        <elements xsi:type="xtext:Assignment" cardinality="?" feature="contingency" operator="=">
           <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.50"/>
+        </elements>
+        <elements xsi:type="xtext:Assignment" cardinality="?" feature="optional" operator="?=">
+          <terminal xsi:type="xtext:Keyword" value="optional"/>
         </elements>
         <elements xsi:type="xtext:Assignment" cardinality="?" feature="signature" operator="=">
           <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.49"/>
@@ -573,12 +573,12 @@
           <elements xsi:type="xtext:Keyword" value="binds"/>
           <elements xsi:type="xtext:Alternatives">
             <elements xsi:type="xtext:Keyword" value="this"/>
-            <elements xsi:type="xtext:Assignment" feature="interfaceSourceParentName" operator="=">
+            <elements xsi:type="xtext:Assignment" feature="interfaceSourceParentLabel" operator="=">
               <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.0"/>
             </elements>
           </elements>
           <elements xsi:type="xtext:Keyword" value="."/>
-          <elements xsi:type="xtext:Assignment" feature="interfaceSourceName" operator="=">
+          <elements xsi:type="xtext:Assignment" feature="interfaceSourceLabel" operator="=">
             <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.0"/>
           </elements>
           <elements xsi:type="xtext:Group" cardinality="?">
@@ -591,12 +591,12 @@
           <elements xsi:type="xtext:Keyword" value="to"/>
           <elements xsi:type="xtext:Alternatives">
             <elements xsi:type="xtext:Keyword" value="this"/>
-            <elements xsi:type="xtext:Assignment" feature="interfaceTargetParentName" operator="=">
+            <elements xsi:type="xtext:Assignment" feature="interfaceTargetParentLabel" operator="=">
               <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.0"/>
             </elements>
           </elements>
           <elements xsi:type="xtext:Keyword" value="."/>
-          <elements xsi:type="xtext:Assignment" feature="interfaceTargetName" operator="=">
+          <elements xsi:type="xtext:Assignment" feature="interfaceTargetLabel" operator="=">
             <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.0"/>
           </elements>
           <elements xsi:type="xtext:Group" cardinality="?">
@@ -667,7 +667,7 @@
       </type>
       <alternatives xsi:type="xtext:Group">
         <elements xsi:type="xtext:Assignment" cardinality="?" feature="directory" operator="=">
-          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.54"/>
+          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.53"/>
         </elements>
         <elements xsi:type="xtext:Assignment" feature="fileName" operator="=">
           <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.36"/>
@@ -691,7 +691,7 @@
         <classifier xsi:type="ecore:EClass" href="http://org.ow2.mindEd/adl.ecore/0.2.0#//InlineCodeC"/>
       </type>
       <alternatives xsi:type="xtext:Assignment" feature="codeC" operator="=">
-        <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.53"/>
+        <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.52"/>
       </alternatives>
     </rules>
     <rules xsi:type="xtext:ParserRule" name="AnnotationsList">
@@ -801,7 +801,7 @@
       </type>
       <alternatives xsi:type="xtext:Alternatives">
         <elements xsi:type="xtext:RuleCall" rule="/1/@rules.0"/>
-        <elements xsi:type="xtext:RuleCall" rule="/0/@rules.55"/>
+        <elements xsi:type="xtext:RuleCall" rule="/0/@rules.54"/>
         <elements xsi:type="xtext:RuleCall" rule="/0/@rules.46"/>
         <elements xsi:type="xtext:RuleCall" rule="/1/@rules.2"/>
         <elements xsi:type="xtext:Keyword" value="null"/>
@@ -848,21 +848,6 @@
         <elements xsi:type="xtext:Group" cardinality="*">
           <elements xsi:type="xtext:Keyword" value="."/>
           <elements xsi:type="xtext:RuleCall" rule="/1/@rules.0"/>
-        </elements>
-      </alternatives>
-    </rules>
-    <rules xsi:type="xtext:EnumRule" name="Contingency">
-      <type metamodel="/0/@metamodelDeclarations.0">
-        <classifier xsi:type="ecore:EEnum" href="http://org.ow2.mindEd/adl.ecore/0.2.0#//Contingency"/>
-      </type>
-      <alternatives xsi:type="xtext:Alternatives">
-        <elements xsi:type="xtext:EnumLiteralDeclaration">
-          <enumLiteral href="http://org.ow2.mindEd/adl.ecore/0.2.0#//Contingency/optional"/>
-          <literal value="optional"/>
-        </elements>
-        <elements xsi:type="xtext:EnumLiteralDeclaration">
-          <enumLiteral href="http://org.ow2.mindEd/adl.ecore/0.2.0#//Contingency/mandatory"/>
-          <literal value="mandatory"/>
         </elements>
       </alternatives>
     </rules>

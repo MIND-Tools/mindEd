@@ -1278,8 +1278,8 @@ public class FractalGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cAnnotationsListAnnotationsListParserRuleCall_0_0 = (RuleCall)cAnnotationsListAssignment_0.eContents().get(0);
 		private final Assignment cRoleAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final RuleCall cRoleRoleEnumRuleCall_1_0 = (RuleCall)cRoleAssignment_1.eContents().get(0);
-		private final Assignment cContingencyAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cContingencyContingencyEnumRuleCall_2_0 = (RuleCall)cContingencyAssignment_2.eContents().get(0);
+		private final Assignment cOptionalAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final Keyword cOptionalOptionalKeyword_2_0 = (Keyword)cOptionalAssignment_2.eContents().get(0);
 		private final Assignment cSignatureAssignment_3 = (Assignment)cGroup.eContents().get(3);
 		private final RuleCall cSignatureFQNParserRuleCall_3_0 = (RuleCall)cSignatureAssignment_3.eContents().get(0);
 		private final Keyword cAsKeyword_4 = (Keyword)cGroup.eContents().get(4);
@@ -1296,11 +1296,11 @@ public class FractalGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cCollectionLeftSquareBracketRightSquareBracketKeyword_6_1_0 = (Keyword)cCollectionAssignment_6_1.eContents().get(0);
 		
 		//InterfaceDefinition:
-		//	annotationsList=AnnotationsList? role=Role contingency=Contingency? signature=FQN? "as" name=ID (collection?="["
+		//	annotationsList=AnnotationsList? role=Role optional?="optional"? signature=FQN? "as" name=ID (collection?="["
 		//	collectionsize=INT? "]" | collection?="[]")?;
 		public ParserRule getRule() { return rule; }
 
-		//annotationsList=AnnotationsList? role=Role contingency=Contingency? signature=FQN? "as" name=ID (collection?="["
+		//annotationsList=AnnotationsList? role=Role optional?="optional"? signature=FQN? "as" name=ID (collection?="["
 		//collectionsize=INT? "]" | collection?="[]")?
 		public Group getGroup() { return cGroup; }
 
@@ -1316,11 +1316,11 @@ public class FractalGrammarAccess extends AbstractGrammarElementFinder {
 		//Role
 		public RuleCall getRoleRoleEnumRuleCall_1_0() { return cRoleRoleEnumRuleCall_1_0; }
 
-		//contingency=Contingency?
-		public Assignment getContingencyAssignment_2() { return cContingencyAssignment_2; }
+		//optional?="optional"?
+		public Assignment getOptionalAssignment_2() { return cOptionalAssignment_2; }
 
-		//Contingency
-		public RuleCall getContingencyContingencyEnumRuleCall_2_0() { return cContingencyContingencyEnumRuleCall_2_0; }
+		//"optional"
+		public Keyword getOptionalOptionalKeyword_2_0() { return cOptionalOptionalKeyword_2_0; }
 
 		//signature=FQN?
 		public Assignment getSignatureAssignment_3() { return cSignatureAssignment_3; }
@@ -1374,11 +1374,11 @@ public class FractalGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cBindsKeyword_1_0 = (Keyword)cGroup_1.eContents().get(0);
 		private final Alternatives cAlternatives_1_1 = (Alternatives)cGroup_1.eContents().get(1);
 		private final Keyword cThisKeyword_1_1_0 = (Keyword)cAlternatives_1_1.eContents().get(0);
-		private final Assignment cInterfaceSourceParentNameAssignment_1_1_1 = (Assignment)cAlternatives_1_1.eContents().get(1);
-		private final RuleCall cInterfaceSourceParentNameIDTerminalRuleCall_1_1_1_0 = (RuleCall)cInterfaceSourceParentNameAssignment_1_1_1.eContents().get(0);
+		private final Assignment cInterfaceSourceParentLabelAssignment_1_1_1 = (Assignment)cAlternatives_1_1.eContents().get(1);
+		private final RuleCall cInterfaceSourceParentLabelIDTerminalRuleCall_1_1_1_0 = (RuleCall)cInterfaceSourceParentLabelAssignment_1_1_1.eContents().get(0);
 		private final Keyword cFullStopKeyword_1_2 = (Keyword)cGroup_1.eContents().get(2);
-		private final Assignment cInterfaceSourceNameAssignment_1_3 = (Assignment)cGroup_1.eContents().get(3);
-		private final RuleCall cInterfaceSourceNameIDTerminalRuleCall_1_3_0 = (RuleCall)cInterfaceSourceNameAssignment_1_3.eContents().get(0);
+		private final Assignment cInterfaceSourceLabelAssignment_1_3 = (Assignment)cGroup_1.eContents().get(3);
+		private final RuleCall cInterfaceSourceLabelIDTerminalRuleCall_1_3_0 = (RuleCall)cInterfaceSourceLabelAssignment_1_3.eContents().get(0);
 		private final Group cGroup_1_4 = (Group)cGroup_1.eContents().get(4);
 		private final Keyword cLeftSquareBracketKeyword_1_4_0 = (Keyword)cGroup_1_4.eContents().get(0);
 		private final Assignment cInterfaceSourceIndexAssignment_1_4_1 = (Assignment)cGroup_1_4.eContents().get(1);
@@ -1387,11 +1387,11 @@ public class FractalGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cToKeyword_1_5 = (Keyword)cGroup_1.eContents().get(5);
 		private final Alternatives cAlternatives_1_6 = (Alternatives)cGroup_1.eContents().get(6);
 		private final Keyword cThisKeyword_1_6_0 = (Keyword)cAlternatives_1_6.eContents().get(0);
-		private final Assignment cInterfaceTargetParentNameAssignment_1_6_1 = (Assignment)cAlternatives_1_6.eContents().get(1);
-		private final RuleCall cInterfaceTargetParentNameIDTerminalRuleCall_1_6_1_0 = (RuleCall)cInterfaceTargetParentNameAssignment_1_6_1.eContents().get(0);
+		private final Assignment cInterfaceTargetParentLabelAssignment_1_6_1 = (Assignment)cAlternatives_1_6.eContents().get(1);
+		private final RuleCall cInterfaceTargetParentLabelIDTerminalRuleCall_1_6_1_0 = (RuleCall)cInterfaceTargetParentLabelAssignment_1_6_1.eContents().get(0);
 		private final Keyword cFullStopKeyword_1_7 = (Keyword)cGroup_1.eContents().get(7);
-		private final Assignment cInterfaceTargetNameAssignment_1_8 = (Assignment)cGroup_1.eContents().get(8);
-		private final RuleCall cInterfaceTargetNameIDTerminalRuleCall_1_8_0 = (RuleCall)cInterfaceTargetNameAssignment_1_8.eContents().get(0);
+		private final Assignment cInterfaceTargetLabelAssignment_1_8 = (Assignment)cGroup_1.eContents().get(8);
+		private final RuleCall cInterfaceTargetLabelIDTerminalRuleCall_1_8_0 = (RuleCall)cInterfaceTargetLabelAssignment_1_8.eContents().get(0);
 		private final Group cGroup_1_9 = (Group)cGroup_1.eContents().get(9);
 		private final Keyword cLeftSquareBracketKeyword_1_9_0 = (Keyword)cGroup_1_9.eContents().get(0);
 		private final Assignment cInterfaceTargetIndexAssignment_1_9_1 = (Assignment)cGroup_1_9.eContents().get(1);
@@ -1399,13 +1399,13 @@ public class FractalGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cRightSquareBracketKeyword_1_9_2 = (Keyword)cGroup_1_9.eContents().get(2);
 		
 		//BindingDefinition:
-		//	annotationsList=AnnotationsList? ("binds" ("this" | interfaceSourceParentName=ID) "." interfaceSourceName=ID ("["
-		//	interfaceSourceIndex=INT "]")? "to" ("this" | interfaceTargetParentName=ID) "." interfaceTargetName=ID ("["
+		//	annotationsList=AnnotationsList? ("binds" ("this" | interfaceSourceParentLabel=ID) "." interfaceSourceLabel=ID ("["
+		//	interfaceSourceIndex=INT "]")? "to" ("this" | interfaceTargetParentLabel=ID) "." interfaceTargetLabel=ID ("["
 		//	interfaceTargetIndex=INT "]")?);
 		public ParserRule getRule() { return rule; }
 
-		//annotationsList=AnnotationsList? ("binds" ("this" | interfaceSourceParentName=ID) "." interfaceSourceName=ID ("["
-		//interfaceSourceIndex=INT "]")? "to" ("this" | interfaceTargetParentName=ID) "." interfaceTargetName=ID ("["
+		//annotationsList=AnnotationsList? ("binds" ("this" | interfaceSourceParentLabel=ID) "." interfaceSourceLabel=ID ("["
+		//interfaceSourceIndex=INT "]")? "to" ("this" | interfaceTargetParentLabel=ID) "." interfaceTargetLabel=ID ("["
 		//interfaceTargetIndex=INT "]")?)
 		public Group getGroup() { return cGroup; }
 
@@ -1415,33 +1415,33 @@ public class FractalGrammarAccess extends AbstractGrammarElementFinder {
 		//AnnotationsList
 		public RuleCall getAnnotationsListAnnotationsListParserRuleCall_0_0() { return cAnnotationsListAnnotationsListParserRuleCall_0_0; }
 
-		//"binds" ("this" | interfaceSourceParentName=ID) "." interfaceSourceName=ID ("[" interfaceSourceIndex=INT "]")? "to"
-		//("this" | interfaceTargetParentName=ID) "." interfaceTargetName=ID ("[" interfaceTargetIndex=INT "]")?
+		//"binds" ("this" | interfaceSourceParentLabel=ID) "." interfaceSourceLabel=ID ("[" interfaceSourceIndex=INT "]")? "to"
+		//("this" | interfaceTargetParentLabel=ID) "." interfaceTargetLabel=ID ("[" interfaceTargetIndex=INT "]")?
 		public Group getGroup_1() { return cGroup_1; }
 
 		//"binds"
 		public Keyword getBindsKeyword_1_0() { return cBindsKeyword_1_0; }
 
-		//"this" | interfaceSourceParentName=ID
+		//"this" | interfaceSourceParentLabel=ID
 		public Alternatives getAlternatives_1_1() { return cAlternatives_1_1; }
 
 		//"this"
 		public Keyword getThisKeyword_1_1_0() { return cThisKeyword_1_1_0; }
 
-		//interfaceSourceParentName=ID
-		public Assignment getInterfaceSourceParentNameAssignment_1_1_1() { return cInterfaceSourceParentNameAssignment_1_1_1; }
+		//interfaceSourceParentLabel=ID
+		public Assignment getInterfaceSourceParentLabelAssignment_1_1_1() { return cInterfaceSourceParentLabelAssignment_1_1_1; }
 
 		//ID
-		public RuleCall getInterfaceSourceParentNameIDTerminalRuleCall_1_1_1_0() { return cInterfaceSourceParentNameIDTerminalRuleCall_1_1_1_0; }
+		public RuleCall getInterfaceSourceParentLabelIDTerminalRuleCall_1_1_1_0() { return cInterfaceSourceParentLabelIDTerminalRuleCall_1_1_1_0; }
 
 		//"."
 		public Keyword getFullStopKeyword_1_2() { return cFullStopKeyword_1_2; }
 
-		//interfaceSourceName=ID
-		public Assignment getInterfaceSourceNameAssignment_1_3() { return cInterfaceSourceNameAssignment_1_3; }
+		//interfaceSourceLabel=ID
+		public Assignment getInterfaceSourceLabelAssignment_1_3() { return cInterfaceSourceLabelAssignment_1_3; }
 
 		//ID
-		public RuleCall getInterfaceSourceNameIDTerminalRuleCall_1_3_0() { return cInterfaceSourceNameIDTerminalRuleCall_1_3_0; }
+		public RuleCall getInterfaceSourceLabelIDTerminalRuleCall_1_3_0() { return cInterfaceSourceLabelIDTerminalRuleCall_1_3_0; }
 
 		//("[" interfaceSourceIndex=INT "]")?
 		public Group getGroup_1_4() { return cGroup_1_4; }
@@ -1461,26 +1461,26 @@ public class FractalGrammarAccess extends AbstractGrammarElementFinder {
 		//"to"
 		public Keyword getToKeyword_1_5() { return cToKeyword_1_5; }
 
-		//"this" | interfaceTargetParentName=ID
+		//"this" | interfaceTargetParentLabel=ID
 		public Alternatives getAlternatives_1_6() { return cAlternatives_1_6; }
 
 		//"this"
 		public Keyword getThisKeyword_1_6_0() { return cThisKeyword_1_6_0; }
 
-		//interfaceTargetParentName=ID
-		public Assignment getInterfaceTargetParentNameAssignment_1_6_1() { return cInterfaceTargetParentNameAssignment_1_6_1; }
+		//interfaceTargetParentLabel=ID
+		public Assignment getInterfaceTargetParentLabelAssignment_1_6_1() { return cInterfaceTargetParentLabelAssignment_1_6_1; }
 
 		//ID
-		public RuleCall getInterfaceTargetParentNameIDTerminalRuleCall_1_6_1_0() { return cInterfaceTargetParentNameIDTerminalRuleCall_1_6_1_0; }
+		public RuleCall getInterfaceTargetParentLabelIDTerminalRuleCall_1_6_1_0() { return cInterfaceTargetParentLabelIDTerminalRuleCall_1_6_1_0; }
 
 		//"."
 		public Keyword getFullStopKeyword_1_7() { return cFullStopKeyword_1_7; }
 
-		//interfaceTargetName=ID
-		public Assignment getInterfaceTargetNameAssignment_1_8() { return cInterfaceTargetNameAssignment_1_8; }
+		//interfaceTargetLabel=ID
+		public Assignment getInterfaceTargetLabelAssignment_1_8() { return cInterfaceTargetLabelAssignment_1_8; }
 
 		//ID
-		public RuleCall getInterfaceTargetNameIDTerminalRuleCall_1_8_0() { return cInterfaceTargetNameIDTerminalRuleCall_1_8_0; }
+		public RuleCall getInterfaceTargetLabelIDTerminalRuleCall_1_8_0() { return cInterfaceTargetLabelIDTerminalRuleCall_1_8_0; }
 
 		//("[" interfaceTargetIndex=INT "]")?
 		public Group getGroup_1_9() { return cGroup_1_9; }
@@ -2115,34 +2115,6 @@ public class FractalGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	
-	public class ContingencyElements extends AbstractEnumRuleElementFinder {
-		private final EnumRule rule = (EnumRule) GrammarUtil.findRuleForName(getGrammar(), "Contingency");
-		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final EnumLiteralDeclaration cOptionalEnumLiteralDeclaration_0 = (EnumLiteralDeclaration)cAlternatives.eContents().get(0);
-		private final Keyword cOptionalOptionalKeyword_0_0 = (Keyword)cOptionalEnumLiteralDeclaration_0.eContents().get(0);
-		private final EnumLiteralDeclaration cMandatoryEnumLiteralDeclaration_1 = (EnumLiteralDeclaration)cAlternatives.eContents().get(1);
-		private final Keyword cMandatoryMandatoryKeyword_1_0 = (Keyword)cMandatoryEnumLiteralDeclaration_1.eContents().get(0);
-		
-		//enum Contingency:
-		//	optional | mandatory;
-		public EnumRule getRule() { return rule; }
-
-		//optional | mandatory
-		public Alternatives getAlternatives() { return cAlternatives; }
-
-		//optional
-		public EnumLiteralDeclaration getOptionalEnumLiteralDeclaration_0() { return cOptionalEnumLiteralDeclaration_0; }
-
-		//"optional"
-		public Keyword getOptionalOptionalKeyword_0_0() { return cOptionalOptionalKeyword_0_0; }
-
-		//mandatory
-		public EnumLiteralDeclaration getMandatoryEnumLiteralDeclaration_1() { return cMandatoryEnumLiteralDeclaration_1; }
-
-		//"mandatory"
-		public Keyword getMandatoryMandatoryKeyword_1_0() { return cMandatoryMandatoryKeyword_1_0; }
-	}
-
 	public class RoleElements extends AbstractEnumRuleElementFinder {
 		private final EnumRule rule = (EnumRule) GrammarUtil.findRuleForName(getGrammar(), "Role");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
@@ -2221,7 +2193,6 @@ public class FractalGrammarAccess extends AbstractGrammarElementFinder {
 	private AnnotationTypeElements pAnnotationType;
 	private AttributeTypeElements pAttributeType;
 	private FQNElements pFQN;
-	private ContingencyElements unknownRuleContingency;
 	private RoleElements unknownRuleRole;
 	private FULL_IMPORT_NAMEElements pFULL_IMPORT_NAME;
 	private TerminalRule tCodeC;
@@ -2557,7 +2528,7 @@ public class FractalGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//InterfaceDefinition:
-	//	annotationsList=AnnotationsList? role=Role contingency=Contingency? signature=FQN? "as" name=ID (collection?="["
+	//	annotationsList=AnnotationsList? role=Role optional?="optional"? signature=FQN? "as" name=ID (collection?="["
 	//	collectionsize=INT? "]" | collection?="[]")?;
 	public InterfaceDefinitionElements getInterfaceDefinitionAccess() {
 		return (pInterfaceDefinition != null) ? pInterfaceDefinition : (pInterfaceDefinition = new InterfaceDefinitionElements());
@@ -2568,8 +2539,8 @@ public class FractalGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//BindingDefinition:
-	//	annotationsList=AnnotationsList? ("binds" ("this" | interfaceSourceParentName=ID) "." interfaceSourceName=ID ("["
-	//	interfaceSourceIndex=INT "]")? "to" ("this" | interfaceTargetParentName=ID) "." interfaceTargetName=ID ("["
+	//	annotationsList=AnnotationsList? ("binds" ("this" | interfaceSourceParentLabel=ID) "." interfaceSourceLabel=ID ("["
+	//	interfaceSourceIndex=INT "]")? "to" ("this" | interfaceTargetParentLabel=ID) "." interfaceTargetLabel=ID ("["
 	//	interfaceTargetIndex=INT "]")?);
 	public BindingDefinitionElements getBindingDefinitionAccess() {
 		return (pBindingDefinition != null) ? pBindingDefinition : (pBindingDefinition = new BindingDefinitionElements());
@@ -2757,16 +2728,6 @@ public class FractalGrammarAccess extends AbstractGrammarElementFinder {
 	
 	public ParserRule getFQNRule() {
 		return getFQNAccess().getRule();
-	}
-
-	//enum Contingency:
-	//	optional | mandatory;
-	public ContingencyElements getContingencyAccess() {
-		return (unknownRuleContingency != null) ? unknownRuleContingency : (unknownRuleContingency = new ContingencyElements());
-	}
-	
-	public EnumRule getContingencyRule() {
-		return getContingencyAccess().getRule();
 	}
 
 	//enum Role:

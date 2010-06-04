@@ -2738,25 +2738,22 @@ ruleInterfaceDefinition returns [EObject current=null]
 )
 )(
 (
-		{ 
-	        currentNode=createCompositeNode(grammarAccess.getInterfaceDefinitionAccess().getContingencyContingencyEnumRuleCall_2_0(), currentNode); 
-	    }
-		lv_contingency_2_0=ruleContingency		{
+		lv_optional_2_0=	'optional' 
+    {
+        createLeafNode(grammarAccess.getInterfaceDefinitionAccess().getOptionalOptionalKeyword_2_0(), "optional"); 
+    }
+ 
+	    {
 	        if ($current==null) {
 	            $current = factory.create(grammarAccess.getInterfaceDefinitionRule().getType().getClassifier());
-	            associateNodeWithAstElement(currentNode.getParent(), $current);
+	            associateNodeWithAstElement(currentNode, $current);
 	        }
+	        
 	        try {
-	       		set(
-	       			$current, 
-	       			"contingency",
-	        		lv_contingency_2_0, 
-	        		"Contingency", 
-	        		currentNode);
+	       		set($current, "optional", true, "optional", lastConsumedNode);
 	        } catch (ValueConverterException vce) {
 				handleValueConverterException(vce);
 	        }
-	        currentNode = currentNode.getParent();
 	    }
 
 )
@@ -2941,9 +2938,9 @@ ruleBindingDefinition returns [EObject current=null]
 
     |(
 (
-		lv_interfaceSourceParentName_3_0=RULE_ID
+		lv_interfaceSourceParentLabel_3_0=RULE_ID
 		{
-			createLeafNode(grammarAccess.getBindingDefinitionAccess().getInterfaceSourceParentNameIDTerminalRuleCall_1_1_1_0(), "interfaceSourceParentName"); 
+			createLeafNode(grammarAccess.getBindingDefinitionAccess().getInterfaceSourceParentLabelIDTerminalRuleCall_1_1_1_0(), "interfaceSourceParentLabel"); 
 		}
 		{
 	        if ($current==null) {
@@ -2953,8 +2950,8 @@ ruleBindingDefinition returns [EObject current=null]
 	        try {
 	       		set(
 	       			$current, 
-	       			"interfaceSourceParentName",
-	        		lv_interfaceSourceParentName_3_0, 
+	       			"interfaceSourceParentLabel",
+	        		lv_interfaceSourceParentLabel_3_0, 
 	        		"ID", 
 	        		lastConsumedNode);
 	        } catch (ValueConverterException vce) {
@@ -2969,9 +2966,9 @@ ruleBindingDefinition returns [EObject current=null]
     }
 (
 (
-		lv_interfaceSourceName_5_0=RULE_ID
+		lv_interfaceSourceLabel_5_0=RULE_ID
 		{
-			createLeafNode(grammarAccess.getBindingDefinitionAccess().getInterfaceSourceNameIDTerminalRuleCall_1_3_0(), "interfaceSourceName"); 
+			createLeafNode(grammarAccess.getBindingDefinitionAccess().getInterfaceSourceLabelIDTerminalRuleCall_1_3_0(), "interfaceSourceLabel"); 
 		}
 		{
 	        if ($current==null) {
@@ -2981,8 +2978,8 @@ ruleBindingDefinition returns [EObject current=null]
 	        try {
 	       		set(
 	       			$current, 
-	       			"interfaceSourceName",
-	        		lv_interfaceSourceName_5_0, 
+	       			"interfaceSourceLabel",
+	        		lv_interfaceSourceLabel_5_0, 
 	        		"ID", 
 	        		lastConsumedNode);
 	        } catch (ValueConverterException vce) {
@@ -3034,9 +3031,9 @@ ruleBindingDefinition returns [EObject current=null]
 
     |(
 (
-		lv_interfaceTargetParentName_11_0=RULE_ID
+		lv_interfaceTargetParentLabel_11_0=RULE_ID
 		{
-			createLeafNode(grammarAccess.getBindingDefinitionAccess().getInterfaceTargetParentNameIDTerminalRuleCall_1_6_1_0(), "interfaceTargetParentName"); 
+			createLeafNode(grammarAccess.getBindingDefinitionAccess().getInterfaceTargetParentLabelIDTerminalRuleCall_1_6_1_0(), "interfaceTargetParentLabel"); 
 		}
 		{
 	        if ($current==null) {
@@ -3046,8 +3043,8 @@ ruleBindingDefinition returns [EObject current=null]
 	        try {
 	       		set(
 	       			$current, 
-	       			"interfaceTargetParentName",
-	        		lv_interfaceTargetParentName_11_0, 
+	       			"interfaceTargetParentLabel",
+	        		lv_interfaceTargetParentLabel_11_0, 
 	        		"ID", 
 	        		lastConsumedNode);
 	        } catch (ValueConverterException vce) {
@@ -3062,9 +3059,9 @@ ruleBindingDefinition returns [EObject current=null]
     }
 (
 (
-		lv_interfaceTargetName_13_0=RULE_ID
+		lv_interfaceTargetLabel_13_0=RULE_ID
 		{
-			createLeafNode(grammarAccess.getBindingDefinitionAccess().getInterfaceTargetNameIDTerminalRuleCall_1_8_0(), "interfaceTargetName"); 
+			createLeafNode(grammarAccess.getBindingDefinitionAccess().getInterfaceTargetLabelIDTerminalRuleCall_1_8_0(), "interfaceTargetLabel"); 
 		}
 		{
 	        if ($current==null) {
@@ -3074,8 +3071,8 @@ ruleBindingDefinition returns [EObject current=null]
 	        try {
 	       		set(
 	       			$current, 
-	       			"interfaceTargetName",
-	        		lv_interfaceTargetName_13_0, 
+	       			"interfaceTargetLabel",
+	        		lv_interfaceTargetLabel_13_0, 
 	        		"ID", 
 	        		lastConsumedNode);
 	        } catch (ValueConverterException vce) {
@@ -4411,27 +4408,6 @@ rulesignedINT returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken
     ;
 
 
-
-
-
-// Rule Contingency
-ruleContingency returns [Enumerator current=null] 
-    @init { setCurrentLookahead(); resetLookahead(); }
-    @after { resetLookahead(); 
-    	lastConsumedNode = currentNode;
-    }:
-((	'optional' 
-	{
-        $current = grammarAccess.getContingencyAccess().getOptionalEnumLiteralDeclaration_0().getEnumLiteral().getInstance();
-        createLeafNode(grammarAccess.getContingencyAccess().getOptionalEnumLiteralDeclaration_0(), null); 
-    }
-)
-    |(	'mandatory' 
-	{
-        $current = grammarAccess.getContingencyAccess().getMandatoryEnumLiteralDeclaration_1().getEnumLiteral().getInstance();
-        createLeafNode(grammarAccess.getContingencyAccess().getMandatoryEnumLiteralDeclaration_1(), null); 
-    }
-));
 
 
 

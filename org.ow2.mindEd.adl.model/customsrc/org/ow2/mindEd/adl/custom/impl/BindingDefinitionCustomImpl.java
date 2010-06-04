@@ -1,6 +1,5 @@
 package org.ow2.mindEd.adl.custom.impl;
 
-import org.ow2.mindEd.adl.AdlPackage;
 import org.ow2.mindEd.adl.ArchitectureDefinition;
 import org.ow2.mindEd.adl.Body;
 import org.ow2.mindEd.adl.InterfaceDefinition;
@@ -27,6 +26,11 @@ import org.ow2.mindEd.adl.impl.BindingDefinitionImpl;
  */
 public class BindingDefinitionCustomImpl extends BindingDefinitionImpl {
 
+	@Override
+	public boolean isCanOverride() {
+		return false;
+	}
+	
 	/*
 	 * (non-Javadoc)
 	 * 
@@ -34,15 +38,8 @@ public class BindingDefinitionCustomImpl extends BindingDefinitionImpl {
 	 */
 	@Override
 	public InterfaceDefinition getInterfaceSource() {
-		if (interfaceSourceName != null
-				&& !interfaceSourceName.equals(AdlPackage.eINSTANCE.getBindingDefinition_InterfaceSourceName()
-						.getDefaultValueLiteral())) {
-			InterfaceDefinition tmpinterface = getHelper().getInterfaceByName(interfaceSourceName, interfaceSourceParentName); 
-			if(tmpinterface!=null)
-			{
-				interfaceSource = tmpinterface;
-			}
-		}
+		InterfaceDefinition tmpinterface = getHelper().getInterfaceByName(interfaceSourceLabel, interfaceSourceParentLabel);
+		if(tmpinterface!=null)interfaceSource = tmpinterface;
 		return super.getInterfaceSource();
 	}
 
@@ -53,94 +50,49 @@ public class BindingDefinitionCustomImpl extends BindingDefinitionImpl {
 	 */
 	@Override
 	public InterfaceDefinition getInterfaceTarget() {
-		if (interfaceTargetName != null
-				&& !interfaceTargetName.equals(AdlPackage.eINSTANCE.getBindingDefinition_InterfaceTargetName()
-						.getDefaultValueLiteral())) {
-			InterfaceDefinition tmpinterface = getHelper().getInterfaceByName(interfaceTargetName, interfaceTargetParentName); 
-			if(tmpinterface!=null)
-			{
-				interfaceTarget = tmpinterface;
-			}
-		}
+		InterfaceDefinition tmpinterface = getHelper().getInterfaceByName(interfaceTargetLabel, interfaceTargetParentLabel);
+		if(tmpinterface!=null)interfaceTarget = tmpinterface;
 		return super.getInterfaceTarget();
 	}
 
 	/*
 	 * (non-Javadoc)
 	 * 
-	 * @see adl.impl.BindingDefinitionImpl#getInterfaceSourceName()
+	 * @see adl.impl.BindingDefinitionImpl#getInterfaceSourceLabel()
 	 */
 	@Override
-	public String getInterfaceSourceName() {
-		if (interfaceSource != null) {
-			interfaceSourceName = interfaceSource.getName();
-		}
-		InterfaceDefinition tmpInterfaceDefinition = getHelper().getInterfaceByName(interfaceSourceName,
-				interfaceSourceParentName);
-		if(tmpInterfaceDefinition!=null)interfaceSource = tmpInterfaceDefinition;
-		return super.getInterfaceSourceName();
+	public String getInterfaceSourceLabel() {
+		return super.getInterfaceSourceLabel();
 	}
 
 	/*
 	 * (non-Javadoc)
 	 * 
-	 * @see adl.impl.BindingDefinitionImpl#getInterfaceTargetName()
+	 * @see adl.impl.BindingDefinitionImpl#getInterfaceTargetLabel()
 	 */
 	@Override
-	public String getInterfaceTargetName() {
-		if (interfaceTarget != null) {
-			interfaceTargetName = interfaceTarget.getName();
-		}
-		InterfaceDefinition tmpInterfaceDefinition = getHelper().getInterfaceByName(interfaceTargetName,
-				interfaceTargetParentName);
-		interfaceTarget = tmpInterfaceDefinition;
-		return super.getInterfaceTargetName();
+	public String getInterfaceTargetLabel() {
+		return super.getInterfaceTargetLabel();
 	}
 
 	/*
 	 * (non-Javadoc)
 	 * 
-	 * @see adl.impl.BindingDefinitionImpl#getInterfaceSourceParentName()
+	 * @see adl.impl.BindingDefinitionImpl#getInterfaceSourceParentLabel()
 	 */
 	@Override
-	public String getInterfaceSourceParentName() {
-		ArchitectureDefinition parent = getInterfaceParent(interfaceSource);
-		if (interfaceSource != null && parent!= null) {
-			if (getHelper().getAdlDefinition() != null) {
-				if (parent == getHelper().getAdlDefinition().getHelper()
-								.getMainDefinition() && !interfaceSourceParentName.equals(getHelper().getSimpleName(parent))) {
-					interfaceSourceParentName = AdlPackage.eINSTANCE.getBindingDefinition_InterfaceSourceParentName()
-							.getDefaultValueLiteral();
-				}
-				else {
-					interfaceSourceParentName = getHelper().getSimpleName(parent);
-				}
-			}
-		}
-		return super.getInterfaceSourceParentName();
+	public String getInterfaceSourceParentLabel() {
+		return super.getInterfaceSourceParentLabel();
 	}
 
 	/*
 	 * (non-Javadoc)
 	 * 
-	 * @see adl.impl.BindingDefinitionImpl#getInterfaceTargetParentName()
+	 * @see adl.impl.BindingDefinitionImpl#getInterfaceTargetParentLabel()
 	 */
 	@Override
-	public String getInterfaceTargetParentName() {
-		ArchitectureDefinition parent = getInterfaceParent(interfaceTarget);
-		if (interfaceTarget != null && parent != null) {
-			if (getHelper().getAdlDefinition() != null) {
-				if (parent == getHelper().getAdlDefinition().getHelper()
-								.getMainDefinition() && !interfaceTargetParentName.equals(getHelper().getSimpleName(parent))) {
-					interfaceTargetParentName = AdlPackage.eINSTANCE.getBindingDefinition_InterfaceTargetParentName()
-							.getDefaultValueLiteral();
-				}
-				else {
-					interfaceTargetParentName = getHelper().getSimpleName(parent);
-				}
-			}
-		}
-		return super.getInterfaceTargetParentName();
+	public String getInterfaceTargetParentLabel() {
+		return super.getInterfaceTargetParentLabel();
 	}
 
 	/*
@@ -151,12 +103,10 @@ public class BindingDefinitionCustomImpl extends BindingDefinitionImpl {
 	@Override
 	public void setInterfaceSource(InterfaceDefinition newInterfaceSource) {
 		ArchitectureDefinition parent = getInterfaceParent(newInterfaceSource);
-		if (interfaceSource != newInterfaceSource && newInterfaceSource!=null) {
-			super.setInterfaceSource(newInterfaceSource);
-			if (newInterfaceSource != null) {
-				interfaceSourceName = newInterfaceSource.getName();
-				if (parent != null) interfaceSourceParentName = getHelper().getSimpleName(parent);
-			}
+		if(parent!=null)
+		{
+			interfaceSourceLabel = newInterfaceSource.getName();
+			interfaceSourceParentLabel = parent.getSimpleName();
 			super.setInterfaceSource(newInterfaceSource);
 		}
 	}
@@ -169,71 +119,52 @@ public class BindingDefinitionCustomImpl extends BindingDefinitionImpl {
 	@Override
 	public void setInterfaceTarget(InterfaceDefinition newInterfaceTarget) {
 		ArchitectureDefinition parent = getInterfaceParent(newInterfaceTarget);
-		if (interfaceTarget != newInterfaceTarget && newInterfaceTarget!=null) {
+		if(parent!=null)
+		{
+			interfaceTargetLabel = newInterfaceTarget.getName();
+			interfaceTargetParentLabel = parent.getSimpleName();
 			super.setInterfaceTarget(newInterfaceTarget);
-			if (newInterfaceTarget != null) {
-				interfaceTargetName = newInterfaceTarget.getName();
-				if (parent != null) interfaceTargetParentName = getHelper().getSimpleName(parent);
-			}
 		}
 	}
 
 	/*
 	 * (non-Javadoc)
 	 * 
-	 * @see adl.impl.BindingDefinitionImpl#setInterfaceSourceName(java.lang.String)
+	 * @see adl.impl.BindingDefinitionImpl#setinterfaceSourceLabel(java.lang.String)
 	 */
 	@Override
-	public void setInterfaceSourceName(String newInterfaceSourceName) {
-		if (newInterfaceSourceName != interfaceSourceName) {
-			super.setInterfaceSourceName(newInterfaceSourceName);
-			if (newInterfaceSourceName != null
-					&& !newInterfaceSourceName.equals(AdlPackage.eINSTANCE.getBindingDefinition_InterfaceSourceName())) {
-				InterfaceDefinition tmpInterface = getHelper().getInterfaceByName(newInterfaceSourceName,
-						interfaceSourceParentName);
-				if(tmpInterface!=null)interfaceSource = tmpInterface;
-			}
-		}
+	public void setInterfaceSourceLabel(String newinterfaceSourceLabel) {
+		super.setInterfaceSourceLabel(newinterfaceSourceLabel);
 	}
 
 	/*
 	 * (non-Javadoc)
 	 * 
-	 * @see adl.impl.BindingDefinitionImpl#setInterfaceTargetName(java.lang.String)
+	 * @see adl.impl.BindingDefinitionImpl#setinterfaceTargetLabel(java.lang.String)
 	 */
 	@Override
-	public void setInterfaceTargetName(String newInterfaceTargetName) {
-		if (newInterfaceTargetName != interfaceTargetName) {
-			super.setInterfaceTargetName(newInterfaceTargetName);
-			if (newInterfaceTargetName != null
-					&& !newInterfaceTargetName.equals(AdlPackage.eINSTANCE.getBindingDefinition_InterfaceTargetName())) {
-				InterfaceDefinition tmpInterface = getHelper().getInterfaceByName(newInterfaceTargetName,
-						interfaceTargetParentName);
-				if(tmpInterface!=null)interfaceTarget = tmpInterface;
-			}
-		}
+	public void setInterfaceTargetLabel(String newinterfaceTargetLabel) {
+		super.setInterfaceTargetLabel(newinterfaceTargetLabel);
 	}
 
 	/*
 	 * (non-Javadoc)
 	 * 
-	 * @see adl.impl.BindingDefinitionImpl#setInterfaceSourceParentName(java.lang .String)
+	 * @see adl.impl.BindingDefinitionImpl#setinterfaceSourceParentLabel(java.lang .String)
 	 */
 	@Override
-	public void setInterfaceSourceParentName(String newInterfaceSourceParentName) {
-		if (newInterfaceSourceParentName == null || !newInterfaceSourceParentName.equals(interfaceSourceParentName)) super
-				.setInterfaceSourceParentName(newInterfaceSourceParentName);
+	public void setInterfaceSourceParentLabel(String newinterfaceSourceParentLabel) {
+		super.setInterfaceSourceParentLabel(newinterfaceSourceParentLabel);
 	}
 
 	/*
 	 * (non-Javadoc)
 	 * 
-	 * @see adl.impl.BindingDefinitionImpl#setInterfaceTargetParentName(java.lang .String)
+	 * @see adl.impl.BindingDefinitionImpl#setinterfaceTargetParentLabel(java.lang .String)
 	 */
 	@Override
-	public void setInterfaceTargetParentName(String newInterfaceTargetParentName) {
-		if (newInterfaceTargetParentName == null || !newInterfaceTargetParentName.equals(interfaceTargetParentName)) super
-				.setInterfaceTargetParentName(newInterfaceTargetParentName);
+	public void setInterfaceTargetParentLabel(String newinterfaceTargetParentLabel) {
+		super.setInterfaceTargetParentLabel(newinterfaceTargetParentLabel);
 	}
 
 	

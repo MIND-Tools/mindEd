@@ -15,10 +15,6 @@
   <genPackages prefix="Adl" basePackage="org.ow2.mindEd" disposableProviderFactory="true"
       loadInitialization="true" generateExampleClass="false" multipleEditorPages="false"
       generateModelWizard="false" ecorePackage="mind.ecore#/">
-    <genEnums typeSafeEnumCompatible="false" ecoreEnum="mind.ecore#//Contingency">
-      <genEnumLiterals ecoreEnumLiteral="mind.ecore#//Contingency/mandatory"/>
-      <genEnumLiterals ecoreEnumLiteral="mind.ecore#//Contingency/optional"/>
-    </genEnums>
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="mind.ecore#//Role">
       <genEnumLiterals ecoreEnumLiteral="mind.ecore#//Role/provides"/>
       <genEnumLiterals ecoreEnumLiteral="mind.ecore#//Role/requires"/>
@@ -70,10 +66,10 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mind.ecore#//BindingDefinition/interfaceSourceIndex"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference mind.ecore#//BindingDefinition/interfaceTarget"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mind.ecore#//BindingDefinition/interfaceTargetIndex"/>
-      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute mind.ecore#//BindingDefinition/interfaceSourceName"/>
-      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute mind.ecore#//BindingDefinition/interfaceTargetName"/>
-      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute mind.ecore#//BindingDefinition/interfaceSourceParentName"/>
-      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute mind.ecore#//BindingDefinition/interfaceTargetParentName"/>
+      <genFeatures property="None" createChild="false" ecoreFeature="ecore:EAttribute mind.ecore#//BindingDefinition/interfaceSourceLabel"/>
+      <genFeatures property="None" createChild="false" ecoreFeature="ecore:EAttribute mind.ecore#//BindingDefinition/interfaceTargetLabel"/>
+      <genFeatures property="None" createChild="false" ecoreFeature="ecore:EAttribute mind.ecore#//BindingDefinition/interfaceSourceParentLabel"/>
+      <genFeatures property="None" createChild="false" ecoreFeature="ecore:EAttribute mind.ecore#//BindingDefinition/interfaceTargetParentLabel"/>
     </genClasses>
     <genClasses ecoreClass="mind.ecore#//Body">
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference mind.ecore#//Body/parentComponent"/>
@@ -144,7 +140,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mind.ecore#//InterfaceDefinition/role"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mind.ecore#//InterfaceDefinition/signature"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mind.ecore#//InterfaceDefinition/collectionsize"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mind.ecore#//InterfaceDefinition/contingency"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mind.ecore#//InterfaceDefinition/optional"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mind.ecore#//InterfaceDefinition/name"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mind.ecore#//InterfaceDefinition/collection"/>
     </genClasses>

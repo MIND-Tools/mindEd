@@ -235,7 +235,7 @@ public class FractalProposalProvider extends AbstractFractalProposalProvider {
      */
 
     @Override
-    public void completeBindingDefinition_InterfaceSourceParentName(EObject model,
+    public void completeBindingDefinition_InterfaceSourceParentLabel(EObject model,
             Assignment assignment, ContentAssistContext context,
             ICompletionProposalAcceptor acceptor) {
 
@@ -254,7 +254,7 @@ public class FractalProposalProvider extends AbstractFractalProposalProvider {
      */
 
     @Override
-    public void completeBindingDefinition_InterfaceTargetParentName(EObject model,
+    public void completeBindingDefinition_InterfaceTargetParentLabel(EObject model,
             Assignment assignment, ContentAssistContext context,
             ICompletionProposalAcceptor acceptor) {
 
@@ -275,7 +275,7 @@ public class FractalProposalProvider extends AbstractFractalProposalProvider {
      */
 
     @Override
-    public void completeBindingDefinition_InterfaceTargetName(EObject model, Assignment assignment,
+    public void completeBindingDefinition_InterfaceTargetLabel(EObject model, Assignment assignment,
             ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
 
         ArchitectureDefinition elt = FractalUtil.getArchitecureDefinitionFromChild(model);
@@ -291,12 +291,12 @@ public class FractalProposalProvider extends AbstractFractalProposalProvider {
             BindingDefinition definition = (BindingDefinition) model;
 
             // content assist using corresponding sub component
-            if (definition.getInterfaceTargetParentName() != null) {
+            if (definition.getInterfaceTargetParentLabel() != null) {
 
                 Map<String, ArchitectureDefinition> map = getSubComponents(elt);
 
                 // retrieve sub component
-                elt = map.get(definition.getInterfaceTargetParentName());
+                elt = map.get(definition.getInterfaceTargetParentLabel());
 
             }
             // else content assist using current component
@@ -328,7 +328,7 @@ public class FractalProposalProvider extends AbstractFractalProposalProvider {
      */
 
     @Override
-    public void completeBindingDefinition_InterfaceSourceName(EObject model, Assignment assignment,
+    public void completeBindingDefinition_InterfaceSourceLabel(EObject model, Assignment assignment,
             ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
 
         ArchitectureDefinition elt = FractalUtil.getArchitecureDefinitionFromChild(model);
@@ -348,7 +348,7 @@ public class FractalProposalProvider extends AbstractFractalProposalProvider {
                     .getParentComponent());
 
             // retrieve sub component
-            elt = map.get(definition.getInterfaceSourceParentName());
+            elt = map.get(definition.getInterfaceSourceParentLabel());
 
             // else content assist using current component
 

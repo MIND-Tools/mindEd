@@ -156,9 +156,9 @@ role=Role (optional?='optional')? (signature=FQN)?'as'name=ID
 BindingDefinition :
 (annotationsList=AnnotationsList)?
 ('binds'
-('this'|interfaceSourceParentName=ID)'.'interfaceSourceName=ID('['interfaceSourceIndex=INT']')?
+('this'|interfaceSourceParentLabel=ID)'.'interfaceSourceLabel=ID('['interfaceSourceIndex=INT']')?
 'to'
-('this'|interfaceTargetParentName=ID)'.'interfaceTargetName=ID('['interfaceTargetIndex=INT']')?);
+('this'|interfaceTargetParentLabel=ID)'.'interfaceTargetLabel=ID('['interfaceTargetIndex=INT']')?);
 
 DataDefinition :
 (annotationsList=AnnotationsList)?

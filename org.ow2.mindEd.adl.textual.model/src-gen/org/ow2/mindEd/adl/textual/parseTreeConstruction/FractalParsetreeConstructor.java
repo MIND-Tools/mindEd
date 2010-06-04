@@ -6189,12 +6189,12 @@ protected class ArgumentDefinition_ArgumentValueAssignment_1 extends AssignmentT
 /************ begin Rule InterfaceDefinition ****************
  *
  * InterfaceDefinition:
- * 	annotationsList=AnnotationsList? role=Role contingency=Contingency? signature=FQN? "as" name=ID (collection?="["
+ * 	annotationsList=AnnotationsList? role=Role optional?="optional"? signature=FQN? "as" name=ID (collection?="["
  * 	collectionsize=INT? "]" | collection?="[]")?;
  *
  **/
 
-// annotationsList=AnnotationsList? role=Role contingency=Contingency? signature=FQN? "as" name=ID (collection?="["
+// annotationsList=AnnotationsList? role=Role optional?="optional"? signature=FQN? "as" name=ID (collection?="["
 // collectionsize=INT? "]" | collection?="[]")?
 protected class InterfaceDefinition_Group extends GroupToken {
 	
@@ -6304,16 +6304,16 @@ protected class InterfaceDefinition_RoleAssignment_1 extends AssignmentToken  {
 
 }
 
-// contingency=Contingency?
-protected class InterfaceDefinition_ContingencyAssignment_2 extends AssignmentToken  {
+// optional?="optional"?
+protected class InterfaceDefinition_OptionalAssignment_2 extends AssignmentToken  {
 	
-	public InterfaceDefinition_ContingencyAssignment_2(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+	public InterfaceDefinition_OptionalAssignment_2(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
 		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
 	}
 	
 	@Override
 	public Assignment getGrammarElement() {
-		return grammarAccess.getInterfaceDefinitionAccess().getContingencyAssignment_2();
+		return grammarAccess.getInterfaceDefinitionAccess().getOptionalAssignment_2();
 	}
 
     @Override
@@ -6326,11 +6326,11 @@ protected class InterfaceDefinition_ContingencyAssignment_2 extends AssignmentTo
 
     @Override	
 	public IEObjectConsumer tryConsume() {
-		if((value = eObjectConsumer.getConsumable("contingency",false)) == null) return null;
-		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("contingency");
-		if(enumLitSerializer.isValid(obj.getEObject(), grammarAccess.getInterfaceDefinitionAccess().getContingencyContingencyEnumRuleCall_2_0(), value, null)) { 
-			type = AssignmentType.ENUM_RULE_CALL;
-			element = grammarAccess.getInterfaceDefinitionAccess().getContingencyContingencyEnumRuleCall_2_0();
+		if((value = eObjectConsumer.getConsumable("optional",false)) == null) return null;
+		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("optional");
+		if(Boolean.TRUE.equals(value)) { // org::eclipse::xtext::impl::KeywordImpl
+			type = AssignmentType.KEYWORD;
+			element = grammarAccess.getInterfaceDefinitionAccess().getOptionalOptionalKeyword_2_0();
 			return obj;
 		}
 		return null;
@@ -6353,7 +6353,7 @@ protected class InterfaceDefinition_SignatureAssignment_3 extends AssignmentToke
     @Override
 	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
 		switch(index) {
-			case 0: return new InterfaceDefinition_ContingencyAssignment_2(lastRuleCallOrigin, this, 0, inst);
+			case 0: return new InterfaceDefinition_OptionalAssignment_2(lastRuleCallOrigin, this, 0, inst);
 			case 1: return new InterfaceDefinition_RoleAssignment_1(lastRuleCallOrigin, this, 1, inst);
 			default: return null;
 		}	
@@ -6389,7 +6389,7 @@ protected class InterfaceDefinition_AsKeyword_4 extends KeywordToken  {
 	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
 		switch(index) {
 			case 0: return new InterfaceDefinition_SignatureAssignment_3(lastRuleCallOrigin, this, 0, inst);
-			case 1: return new InterfaceDefinition_ContingencyAssignment_2(lastRuleCallOrigin, this, 1, inst);
+			case 1: return new InterfaceDefinition_OptionalAssignment_2(lastRuleCallOrigin, this, 1, inst);
 			case 2: return new InterfaceDefinition_RoleAssignment_1(lastRuleCallOrigin, this, 2, inst);
 			default: return null;
 		}	
@@ -6610,14 +6610,14 @@ protected class InterfaceDefinition_CollectionAssignment_6_1 extends AssignmentT
 /************ begin Rule BindingDefinition ****************
  *
  * BindingDefinition:
- * 	annotationsList=AnnotationsList? ("binds" ("this" | interfaceSourceParentName=ID) "." interfaceSourceName=ID ("["
- * 	interfaceSourceIndex=INT "]")? "to" ("this" | interfaceTargetParentName=ID) "." interfaceTargetName=ID ("["
+ * 	annotationsList=AnnotationsList? ("binds" ("this" | interfaceSourceParentLabel=ID) "." interfaceSourceLabel=ID ("["
+ * 	interfaceSourceIndex=INT "]")? "to" ("this" | interfaceTargetParentLabel=ID) "." interfaceTargetLabel=ID ("["
  * 	interfaceTargetIndex=INT "]")?);
  *
  **/
 
-// annotationsList=AnnotationsList? ("binds" ("this" | interfaceSourceParentName=ID) "." interfaceSourceName=ID ("["
-// interfaceSourceIndex=INT "]")? "to" ("this" | interfaceTargetParentName=ID) "." interfaceTargetName=ID ("["
+// annotationsList=AnnotationsList? ("binds" ("this" | interfaceSourceParentLabel=ID) "." interfaceSourceLabel=ID ("["
+// interfaceSourceIndex=INT "]")? "to" ("this" | interfaceTargetParentLabel=ID) "." interfaceTargetLabel=ID ("["
 // interfaceTargetIndex=INT "]")?)
 protected class BindingDefinition_Group extends GroupToken {
 	
@@ -6692,8 +6692,8 @@ protected class BindingDefinition_AnnotationsListAssignment_0 extends Assignment
 	}	
 }
 
-// "binds" ("this" | interfaceSourceParentName=ID) "." interfaceSourceName=ID ("[" interfaceSourceIndex=INT "]")? "to"
-// ("this" | interfaceTargetParentName=ID) "." interfaceTargetName=ID ("[" interfaceTargetIndex=INT "]")?
+// "binds" ("this" | interfaceSourceParentLabel=ID) "." interfaceSourceLabel=ID ("[" interfaceSourceIndex=INT "]")? "to"
+// ("this" | interfaceTargetParentLabel=ID) "." interfaceTargetLabel=ID ("[" interfaceTargetIndex=INT "]")?
 protected class BindingDefinition_Group_1 extends GroupToken {
 	
 	public BindingDefinition_Group_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -6709,7 +6709,7 @@ protected class BindingDefinition_Group_1 extends GroupToken {
 	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
 		switch(index) {
 			case 0: return new BindingDefinition_Group_1_9(lastRuleCallOrigin, this, 0, inst);
-			case 1: return new BindingDefinition_InterfaceTargetNameAssignment_1_8(lastRuleCallOrigin, this, 1, inst);
+			case 1: return new BindingDefinition_InterfaceTargetLabelAssignment_1_8(lastRuleCallOrigin, this, 1, inst);
 			default: return null;
 		}	
 	}
@@ -6738,7 +6738,7 @@ protected class BindingDefinition_BindsKeyword_1_0 extends KeywordToken  {
 
 }
 
-// "this" | interfaceSourceParentName=ID
+// "this" | interfaceSourceParentLabel=ID
 protected class BindingDefinition_Alternatives_1_1 extends AlternativesToken {
 
 	public BindingDefinition_Alternatives_1_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -6754,7 +6754,7 @@ protected class BindingDefinition_Alternatives_1_1 extends AlternativesToken {
 	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
 		switch(index) {
 			case 0: return new BindingDefinition_ThisKeyword_1_1_0(lastRuleCallOrigin, this, 0, inst);
-			case 1: return new BindingDefinition_InterfaceSourceParentNameAssignment_1_1_1(lastRuleCallOrigin, this, 1, inst);
+			case 1: return new BindingDefinition_InterfaceSourceParentLabelAssignment_1_1_1(lastRuleCallOrigin, this, 1, inst);
 			default: return null;
 		}	
 	}
@@ -6783,16 +6783,16 @@ protected class BindingDefinition_ThisKeyword_1_1_0 extends KeywordToken  {
 
 }
 
-// interfaceSourceParentName=ID
-protected class BindingDefinition_InterfaceSourceParentNameAssignment_1_1_1 extends AssignmentToken  {
+// interfaceSourceParentLabel=ID
+protected class BindingDefinition_InterfaceSourceParentLabelAssignment_1_1_1 extends AssignmentToken  {
 	
-	public BindingDefinition_InterfaceSourceParentNameAssignment_1_1_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+	public BindingDefinition_InterfaceSourceParentLabelAssignment_1_1_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
 		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
 	}
 	
 	@Override
 	public Assignment getGrammarElement() {
-		return grammarAccess.getBindingDefinitionAccess().getInterfaceSourceParentNameAssignment_1_1_1();
+		return grammarAccess.getBindingDefinitionAccess().getInterfaceSourceParentLabelAssignment_1_1_1();
 	}
 
     @Override
@@ -6805,11 +6805,11 @@ protected class BindingDefinition_InterfaceSourceParentNameAssignment_1_1_1 exte
 
     @Override	
 	public IEObjectConsumer tryConsume() {
-		if((value = eObjectConsumer.getConsumable("interfaceSourceParentName",true)) == null) return null;
-		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("interfaceSourceParentName");
-		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getBindingDefinitionAccess().getInterfaceSourceParentNameIDTerminalRuleCall_1_1_1_0(), value, null)) {
+		if((value = eObjectConsumer.getConsumable("interfaceSourceParentLabel",true)) == null) return null;
+		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("interfaceSourceParentLabel");
+		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getBindingDefinitionAccess().getInterfaceSourceParentLabelIDTerminalRuleCall_1_1_1_0(), value, null)) {
 			type = AssignmentType.TERMINAL_RULE_CALL;
-			element = grammarAccess.getBindingDefinitionAccess().getInterfaceSourceParentNameIDTerminalRuleCall_1_1_1_0();
+			element = grammarAccess.getBindingDefinitionAccess().getInterfaceSourceParentLabelIDTerminalRuleCall_1_1_1_0();
 			return obj;
 		}
 		return null;
@@ -6840,16 +6840,16 @@ protected class BindingDefinition_FullStopKeyword_1_2 extends KeywordToken  {
 
 }
 
-// interfaceSourceName=ID
-protected class BindingDefinition_InterfaceSourceNameAssignment_1_3 extends AssignmentToken  {
+// interfaceSourceLabel=ID
+protected class BindingDefinition_InterfaceSourceLabelAssignment_1_3 extends AssignmentToken  {
 	
-	public BindingDefinition_InterfaceSourceNameAssignment_1_3(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+	public BindingDefinition_InterfaceSourceLabelAssignment_1_3(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
 		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
 	}
 	
 	@Override
 	public Assignment getGrammarElement() {
-		return grammarAccess.getBindingDefinitionAccess().getInterfaceSourceNameAssignment_1_3();
+		return grammarAccess.getBindingDefinitionAccess().getInterfaceSourceLabelAssignment_1_3();
 	}
 
     @Override
@@ -6862,11 +6862,11 @@ protected class BindingDefinition_InterfaceSourceNameAssignment_1_3 extends Assi
 
     @Override	
 	public IEObjectConsumer tryConsume() {
-		if((value = eObjectConsumer.getConsumable("interfaceSourceName",true)) == null) return null;
-		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("interfaceSourceName");
-		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getBindingDefinitionAccess().getInterfaceSourceNameIDTerminalRuleCall_1_3_0(), value, null)) {
+		if((value = eObjectConsumer.getConsumable("interfaceSourceLabel",true)) == null) return null;
+		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("interfaceSourceLabel");
+		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getBindingDefinitionAccess().getInterfaceSourceLabelIDTerminalRuleCall_1_3_0(), value, null)) {
 			type = AssignmentType.TERMINAL_RULE_CALL;
-			element = grammarAccess.getBindingDefinitionAccess().getInterfaceSourceNameIDTerminalRuleCall_1_3_0();
+			element = grammarAccess.getBindingDefinitionAccess().getInterfaceSourceLabelIDTerminalRuleCall_1_3_0();
 			return obj;
 		}
 		return null;
@@ -6911,7 +6911,7 @@ protected class BindingDefinition_LeftSquareBracketKeyword_1_4_0 extends Keyword
     @Override
 	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
 		switch(index) {
-			case 0: return new BindingDefinition_InterfaceSourceNameAssignment_1_3(lastRuleCallOrigin, this, 0, inst);
+			case 0: return new BindingDefinition_InterfaceSourceLabelAssignment_1_3(lastRuleCallOrigin, this, 0, inst);
 			default: return null;
 		}	
 	}
@@ -6991,14 +6991,14 @@ protected class BindingDefinition_ToKeyword_1_5 extends KeywordToken  {
 	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
 		switch(index) {
 			case 0: return new BindingDefinition_Group_1_4(lastRuleCallOrigin, this, 0, inst);
-			case 1: return new BindingDefinition_InterfaceSourceNameAssignment_1_3(lastRuleCallOrigin, this, 1, inst);
+			case 1: return new BindingDefinition_InterfaceSourceLabelAssignment_1_3(lastRuleCallOrigin, this, 1, inst);
 			default: return null;
 		}	
 	}
 
 }
 
-// "this" | interfaceTargetParentName=ID
+// "this" | interfaceTargetParentLabel=ID
 protected class BindingDefinition_Alternatives_1_6 extends AlternativesToken {
 
 	public BindingDefinition_Alternatives_1_6(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -7014,7 +7014,7 @@ protected class BindingDefinition_Alternatives_1_6 extends AlternativesToken {
 	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
 		switch(index) {
 			case 0: return new BindingDefinition_ThisKeyword_1_6_0(lastRuleCallOrigin, this, 0, inst);
-			case 1: return new BindingDefinition_InterfaceTargetParentNameAssignment_1_6_1(lastRuleCallOrigin, this, 1, inst);
+			case 1: return new BindingDefinition_InterfaceTargetParentLabelAssignment_1_6_1(lastRuleCallOrigin, this, 1, inst);
 			default: return null;
 		}	
 	}
@@ -7043,16 +7043,16 @@ protected class BindingDefinition_ThisKeyword_1_6_0 extends KeywordToken  {
 
 }
 
-// interfaceTargetParentName=ID
-protected class BindingDefinition_InterfaceTargetParentNameAssignment_1_6_1 extends AssignmentToken  {
+// interfaceTargetParentLabel=ID
+protected class BindingDefinition_InterfaceTargetParentLabelAssignment_1_6_1 extends AssignmentToken  {
 	
-	public BindingDefinition_InterfaceTargetParentNameAssignment_1_6_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+	public BindingDefinition_InterfaceTargetParentLabelAssignment_1_6_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
 		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
 	}
 	
 	@Override
 	public Assignment getGrammarElement() {
-		return grammarAccess.getBindingDefinitionAccess().getInterfaceTargetParentNameAssignment_1_6_1();
+		return grammarAccess.getBindingDefinitionAccess().getInterfaceTargetParentLabelAssignment_1_6_1();
 	}
 
     @Override
@@ -7065,11 +7065,11 @@ protected class BindingDefinition_InterfaceTargetParentNameAssignment_1_6_1 exte
 
     @Override	
 	public IEObjectConsumer tryConsume() {
-		if((value = eObjectConsumer.getConsumable("interfaceTargetParentName",true)) == null) return null;
-		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("interfaceTargetParentName");
-		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getBindingDefinitionAccess().getInterfaceTargetParentNameIDTerminalRuleCall_1_6_1_0(), value, null)) {
+		if((value = eObjectConsumer.getConsumable("interfaceTargetParentLabel",true)) == null) return null;
+		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("interfaceTargetParentLabel");
+		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getBindingDefinitionAccess().getInterfaceTargetParentLabelIDTerminalRuleCall_1_6_1_0(), value, null)) {
 			type = AssignmentType.TERMINAL_RULE_CALL;
-			element = grammarAccess.getBindingDefinitionAccess().getInterfaceTargetParentNameIDTerminalRuleCall_1_6_1_0();
+			element = grammarAccess.getBindingDefinitionAccess().getInterfaceTargetParentLabelIDTerminalRuleCall_1_6_1_0();
 			return obj;
 		}
 		return null;
@@ -7100,16 +7100,16 @@ protected class BindingDefinition_FullStopKeyword_1_7 extends KeywordToken  {
 
 }
 
-// interfaceTargetName=ID
-protected class BindingDefinition_InterfaceTargetNameAssignment_1_8 extends AssignmentToken  {
+// interfaceTargetLabel=ID
+protected class BindingDefinition_InterfaceTargetLabelAssignment_1_8 extends AssignmentToken  {
 	
-	public BindingDefinition_InterfaceTargetNameAssignment_1_8(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+	public BindingDefinition_InterfaceTargetLabelAssignment_1_8(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
 		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
 	}
 	
 	@Override
 	public Assignment getGrammarElement() {
-		return grammarAccess.getBindingDefinitionAccess().getInterfaceTargetNameAssignment_1_8();
+		return grammarAccess.getBindingDefinitionAccess().getInterfaceTargetLabelAssignment_1_8();
 	}
 
     @Override
@@ -7122,11 +7122,11 @@ protected class BindingDefinition_InterfaceTargetNameAssignment_1_8 extends Assi
 
     @Override	
 	public IEObjectConsumer tryConsume() {
-		if((value = eObjectConsumer.getConsumable("interfaceTargetName",true)) == null) return null;
-		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("interfaceTargetName");
-		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getBindingDefinitionAccess().getInterfaceTargetNameIDTerminalRuleCall_1_8_0(), value, null)) {
+		if((value = eObjectConsumer.getConsumable("interfaceTargetLabel",true)) == null) return null;
+		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("interfaceTargetLabel");
+		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getBindingDefinitionAccess().getInterfaceTargetLabelIDTerminalRuleCall_1_8_0(), value, null)) {
 			type = AssignmentType.TERMINAL_RULE_CALL;
-			element = grammarAccess.getBindingDefinitionAccess().getInterfaceTargetNameIDTerminalRuleCall_1_8_0();
+			element = grammarAccess.getBindingDefinitionAccess().getInterfaceTargetLabelIDTerminalRuleCall_1_8_0();
 			return obj;
 		}
 		return null;
@@ -7171,7 +7171,7 @@ protected class BindingDefinition_LeftSquareBracketKeyword_1_9_0 extends Keyword
     @Override
 	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
 		switch(index) {
-			case 0: return new BindingDefinition_InterfaceTargetNameAssignment_1_8(lastRuleCallOrigin, this, 0, inst);
+			case 0: return new BindingDefinition_InterfaceTargetLabelAssignment_1_8(lastRuleCallOrigin, this, 0, inst);
 			default: return null;
 		}	
 	}

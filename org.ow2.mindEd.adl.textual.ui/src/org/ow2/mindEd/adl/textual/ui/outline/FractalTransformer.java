@@ -123,8 +123,8 @@ public class FractalTransformer extends
 			ContentOutlineNode parentNode) {
 		ContentOutlineNode node = super.newOutlineNode(obj, parentNode);
 
-		node.setLabel(obj.getInterfaceSourceName() + " <-> "
-				+ obj.getInterfaceTargetName());
+		node.setLabel(obj.getInterfaceSourceLabel() + " <-> "
+				+ obj.getInterfaceTargetLabel());
 		return node;
 	}
 

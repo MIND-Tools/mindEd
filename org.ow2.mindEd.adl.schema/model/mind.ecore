@@ -66,13 +66,13 @@
         eType="#//InterfaceDefinition" transient="true" eKeys="#//InterfaceDefinition/name"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="interfaceTargetIndex" unique="false"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="interfaceSourceName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="interfaceSourceLabel" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         defaultValueLiteral=""/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="interfaceTargetName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="interfaceTargetLabel" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         defaultValueLiteral=""/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="interfaceSourceParentName"
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="interfaceSourceParentLabel"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="interfaceTargetParentName"
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="interfaceTargetParentLabel"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Body" eSuperTypes="#//MergedObject">

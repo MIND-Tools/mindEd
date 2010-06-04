@@ -39,7 +39,7 @@ public class BindingDefinitionHelper extends HelperAdapter<BindingDefinition> {
 		AdlDefinitionCustomImpl adlDefinition = getAdlDefinition();
 		if (adlDefinition == null) return null;
 		if (interfaceParentName == null
-				|| interfaceParentName == AdlPackage.eINSTANCE.getBindingDefinition_InterfaceSourceParentName()
+				|| interfaceParentName == AdlPackage.eINSTANCE.getBindingDefinition_InterfaceSourceParentLabel()
 						.getDefaultValueLiteral()) {
 			if(adlDefinition.getArchitecturedefinition()==null)return null;
 			interfaceParentName = getSimpleName(adlDefinition.getArchitecturedefinition());
