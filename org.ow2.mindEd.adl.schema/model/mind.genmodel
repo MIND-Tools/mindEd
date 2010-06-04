@@ -36,6 +36,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference mind.ecore#//ArchitectureDefinition/referencesList"/>
       <genFeatures property="None" createChild="false" ecoreFeature="ecore:EAttribute mind.ecore#//ArchitectureDefinition/nameFQN"/>
       <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute mind.ecore#//ArchitectureDefinition/componentKind"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mind.ecore#//ArchitectureDefinition/simpleName"/>
     </genClasses>
     <genClasses ecoreClass="mind.ecore#//AdlDefinition">
       <genFeatures children="true" createChild="false" propertySortChoices="true"
@@ -69,10 +70,10 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mind.ecore#//BindingDefinition/interfaceSourceIndex"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference mind.ecore#//BindingDefinition/interfaceTarget"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mind.ecore#//BindingDefinition/interfaceTargetIndex"/>
-      <genFeatures property="None" createChild="false" ecoreFeature="ecore:EAttribute mind.ecore#//BindingDefinition/interfaceSourceName"/>
-      <genFeatures property="None" createChild="false" ecoreFeature="ecore:EAttribute mind.ecore#//BindingDefinition/interfaceTargetName"/>
-      <genFeatures property="None" createChild="false" ecoreFeature="ecore:EAttribute mind.ecore#//BindingDefinition/interfaceSourceParentName"/>
-      <genFeatures property="None" createChild="false" ecoreFeature="ecore:EAttribute mind.ecore#//BindingDefinition/interfaceTargetParentName"/>
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute mind.ecore#//BindingDefinition/interfaceSourceName"/>
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute mind.ecore#//BindingDefinition/interfaceTargetName"/>
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute mind.ecore#//BindingDefinition/interfaceSourceParentName"/>
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute mind.ecore#//BindingDefinition/interfaceTargetParentName"/>
     </genClasses>
     <genClasses ecoreClass="mind.ecore#//Body">
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference mind.ecore#//Body/parentComponent"/>

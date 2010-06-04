@@ -175,8 +175,8 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="signature" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         defaultValueLiteral="signature"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="collectionsize" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="contingency" eType="#//Contingency"
-        defaultValueLiteral=""/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="optional" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+        defaultValueLiteral="false"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" unique="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         defaultValueLiteral="interface_name"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="collection" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
@@ -233,10 +233,6 @@
       eSuperTypes="#//Element"/>
   <eClassifiers xsi:type="ecore:EClass" name="TypeReferenceDefinition" eSuperTypes="#//ComponentReference"/>
   <eClassifiers xsi:type="ecore:EClass" name="TypeReferencesList" eSuperTypes="#//ReferencesList"/>
-  <eClassifiers xsi:type="ecore:EEnum" name="Contingency">
-    <eLiterals name="mandatory" literal="mandatory"/>
-    <eLiterals name="optional" value="1" literal="optional"/>
-  </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="Role">
     <eLiterals name="provides" literal="provides"/>
     <eLiterals name="requires" value="1" literal="requires"/>

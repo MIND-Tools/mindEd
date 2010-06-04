@@ -146,7 +146,7 @@ ArgumentDefinition :
 
 InterfaceDefinition :
 (annotationsList=AnnotationsList)?
-role=Role (contingency=Contingency)? (signature=FQN)?'as'name=ID
+role=Role (optional?='optional')? (signature=FQN)?'as'name=ID
 (
 	(collection?='['(collectionsize=INT)?']') 
 	| collection?='[]'
@@ -222,9 +222,6 @@ AttributeType :
 
 FQN:
 ID('.'ID)*;
-
-enum Contingency : 
-optional|mandatory;
 
 enum Role :
 provides|requires;
