@@ -1,5 +1,6 @@
 package org.ow2.mindEd.adl.custom.impl;
 
+import org.ow2.mindEd.adl.AdlPackage;
 import org.ow2.mindEd.adl.ArchitectureDefinition;
 import org.ow2.mindEd.adl.Body;
 import org.ow2.mindEd.adl.InterfaceDefinition;
@@ -106,7 +107,11 @@ public class BindingDefinitionCustomImpl extends BindingDefinitionImpl {
 		if(parent!=null)
 		{
 			interfaceSourceLabel = newInterfaceSource.getName();
-			interfaceSourceParentLabel = parent.getSimpleName();
+			if(parent==getHelper().getMainDefinition())
+			{
+				interfaceSourceParentLabel = AdlPackage.eINSTANCE.getBindingDefinition_InterfaceSourceParentLabel().getDefaultValueLiteral();
+			}
+			else interfaceSourceParentLabel = parent.getSimpleName();
 			super.setInterfaceSource(newInterfaceSource);
 		}
 	}
@@ -122,7 +127,11 @@ public class BindingDefinitionCustomImpl extends BindingDefinitionImpl {
 		if(parent!=null)
 		{
 			interfaceTargetLabel = newInterfaceTarget.getName();
-			interfaceTargetParentLabel = parent.getSimpleName();
+			if(parent==getHelper().getMainDefinition())
+			{
+				interfaceTargetParentLabel = AdlPackage.eINSTANCE.getBindingDefinition_InterfaceTargetParentLabel().getDefaultValueLiteral();
+			}
+			else interfaceTargetParentLabel = parent.getSimpleName();
 			super.setInterfaceTarget(newInterfaceTarget);
 		}
 	}

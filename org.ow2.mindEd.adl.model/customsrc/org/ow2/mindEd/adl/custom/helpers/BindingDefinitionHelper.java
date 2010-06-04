@@ -42,7 +42,7 @@ public class BindingDefinitionHelper extends HelperAdapter<BindingDefinition> {
 				|| interfaceParentName == AdlPackage.eINSTANCE.getBindingDefinition_InterfaceSourceParentLabel()
 						.getDefaultValueLiteral()) {
 			if(adlDefinition.getArchitecturedefinition()==null)return null;
-			interfaceParentName = getSimpleName(adlDefinition.getArchitecturedefinition());
+			interfaceParentName = getObject().getParentBody().getParentComponent().getSimpleName();
 		}
 		return adlDefinition.getHelper().getInterfaceByName(interfaceName, interfaceParentName);
 	}
