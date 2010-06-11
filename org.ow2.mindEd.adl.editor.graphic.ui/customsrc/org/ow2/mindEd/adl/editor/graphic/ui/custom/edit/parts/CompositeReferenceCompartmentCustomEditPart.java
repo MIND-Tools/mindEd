@@ -16,8 +16,6 @@ import org.ow2.mindEd.adl.editor.graphic.ui.edit.parts.CompositeReferenceCompart
 public class CompositeReferenceCompartmentCustomEditPart extends
 		CompositeReferenceCompartmentEditPart {
 
-	protected MindEditPart genericEditPart = MindGenericEditPartFactory.INSTANCE.createGenericEditPart (this, VISUAL_ID);
-	
 	public CompositeReferenceCompartmentCustomEditPart(View view) {
 		super(view);
 	}

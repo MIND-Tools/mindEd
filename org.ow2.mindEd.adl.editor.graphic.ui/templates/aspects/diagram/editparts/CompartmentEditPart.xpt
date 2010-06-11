@@ -1,0 +1,28 @@
+﻿«IMPORT 'http://www.eclipse.org/gmf/2009/GenModel'»
+«EXTENSION xpt::diagram::editparts::Utils»
+
+«AROUND additions FOR gmfgen::GenCompartment»
+
+	protected org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.parts.generic.MindEditPart genericEditPart = org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.parts.generic.MindGenericEditPartFactory.INSTANCE.createGenericEditPart (this, VISUAL_ID);
+		
+	
+	«IF listLayout»
+	«ELSE»
+		@Override
+		protected org.eclipse.draw2d.LayoutManager getLayoutManager() {
+			org.eclipse.draw2d.LayoutManager lm = genericEditPart.getLayoutManager();
+			if (lm == null)
+				lm = super.getLayoutManager();
+			return lm;
+		}
+	«ENDIF»
+	
+	@Override
+	public org.eclipse.gef.DragTracker getDragTracker(org.eclipse.gef.Request request) {
+		org.eclipse.gef.DragTracker tracker = genericEditPart.getDragTracker(request);
+		if (tracker == null)
+			tracker = super.getDragTracker(request);
+		return tracker;
+	}
+
+«ENDAROUND»

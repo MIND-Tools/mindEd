@@ -16,8 +16,6 @@ public class PrimitiveBodyCompartmentCustomEditPart extends
 		super(view);
 	}
 	
-	protected MindEditPart genericEditPart = MindGenericEditPartFactory.INSTANCE.createGenericEditPart (this, VISUAL_ID);
-	
 	
 	@Override
 	protected void createDefaultEditPolicies() {

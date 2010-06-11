@@ -162,6 +162,8 @@ public class MindGenericEditPartFactory implements MindTypes {
 		case PrimitiveBodyEditPart.VISUAL_ID:
 		case TypeBodyEditPart.VISUAL_ID:
 		case UndefinedBodyEditPart.VISUAL_ID:
+		case SubComponentCompositeBodyEditPart.VISUAL_ID:
+		case SubComponentPrimitiveBodyEditPart.VISUAL_ID:
 			return TYPE_BODY;
 			
 			// -- Lists
@@ -184,6 +186,8 @@ public class MindGenericEditPartFactory implements MindTypes {
 		case PrimitiveBodyCompartmentEditPart.VISUAL_ID:
 		case TypeBodyCompartmentEditPart.VISUAL_ID:
 		case UndefinedBodyCompartmentEditPart.VISUAL_ID:
+		case SubComponentCompositeBodyCompartmentEditPart.VISUAL_ID:
+		case SubComponentPrimitiveBodyCompartmentEditPart.VISUAL_ID:
 			return TYPE_COMPARTMENT_BODY;
 			
 			// -- List Compartments
@@ -202,11 +206,6 @@ public class MindGenericEditPartFactory implements MindTypes {
 		case TemplateDefinitionReferenceCompartmentEditPart.VISUAL_ID:
 		case CompositeReferenceCompartmentEditPart.VISUAL_ID:
 			return TYPE_COMPARTMENT_LIST;
-			
-			// -- Miscellaneous Compartments
-//		case DataDefinitionCompartmentEditPart.VISUAL_ID:
-//		case ImplementationDefinitionCompartmentEditPart.VISUAL_ID:
-//			return TYPE_COMPARTMENT;
 			
 			// -- References
 		case CompositeReferenceEditPart.VISUAL_ID:

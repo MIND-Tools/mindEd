@@ -416,6 +416,26 @@
             <ownedChild>
               <domainMetaElement
                   href="../../org.ow2.mindEd.adl.schema/model/mind.ecore#//InterfaceDefinition"/>
+              <domainInitializer
+                  xsi:type="gmfmap:FeatureSeqInitializer">
+                <initializers
+                    xsi:type="gmfmap:FeatureValueSpec">
+                  <feature
+                      xsi:type="ecore:EAttribute"
+                      href="../../org.ow2.mindEd.adl.schema/model/mind.ecore#//InterfaceDefinition/collection"/>
+                  <value
+                      body="false"/>
+                </initializers>
+                <initializers
+                    xsi:type="gmfmap:FeatureValueSpec">
+                  <feature
+                      xsi:type="ecore:EAttribute"
+                      href="../../org.ow2.mindEd.adl.schema/model/mind.ecore#//InterfaceDefinition/collectionsize"/>
+                  <value
+                      body="0"
+                      language="literal"/>
+                </initializers>
+              </domainInitializer>
               <labelMappings
                   xsi:type="gmfmap:FeatureLabelMapping">
                 <diagramLabel
@@ -515,12 +535,56 @@
                   </children>
                 </ownedChild>
               </children>
-              <children
-                  referencedChild="//@nodes.0/@ownedChild/@children.3/@ownedChild">
+              <children>
                 <containmentFeature
                     href="../../org.ow2.mindEd.adl.schema/model/mind.ecore#//ArchitectureDefinition/body"/>
                 <childrenFeature
                     href="../../org.ow2.mindEd.adl.schema/model/mind.ecore#//ArchitectureDefinition/body"/>
+                <ownedChild>
+                  <domainMetaElement
+                      href="../../org.ow2.mindEd.adl.schema/model/mind.ecore#//SubComponentCompositeBody"/>
+                  <tool
+                      xsi:type="gmftool:CreationTool"
+                      href="mind.gmftool#//@palette/@tools.0/@tools.4"/>
+                  <diagramNode
+                      href="mind.gmfgraph#Body"/>
+                  <children
+                      referencedChild="//@nodes.0/@ownedChild/@children.3/@ownedChild/@children.0/@ownedChild">
+                    <containmentFeature
+                        href="../../org.ow2.mindEd.adl.schema/model/mind.ecore#//Body/elements"/>
+                    <childrenFeature
+                        href="../../org.ow2.mindEd.adl.schema/model/mind.ecore#//Body/elements"/>
+                  </children>
+                  <children
+                      compartment="//@nodes.0/@ownedChild/@children.3/@ownedChild/@children.1/@ownedChild/@children.1/@ownedChild/@compartments.0"
+                      referencedChild="//@nodes.0/@ownedChild/@children.3/@ownedChild/@children.1/@ownedChild">
+                    <containmentFeature
+                        href="../../org.ow2.mindEd.adl.schema/model/mind.ecore#//Body/elements"/>
+                    <childrenFeature
+                        href="../../org.ow2.mindEd.adl.schema/model/mind.ecore#//Body/elements"/>
+                  </children>
+                  <children
+                      compartment="//@nodes.0/@ownedChild/@children.3/@ownedChild/@children.1/@ownedChild/@children.1/@ownedChild/@compartments.0"
+                      referencedChild="//@nodes.0/@ownedChild/@children.3/@ownedChild/@children.2/@ownedChild">
+                    <containmentFeature
+                        href="../../org.ow2.mindEd.adl.schema/model/mind.ecore#//Body/elements"/>
+                    <childrenFeature
+                        href="../../org.ow2.mindEd.adl.schema/model/mind.ecore#//Body/elements"/>
+                  </children>
+                  <children
+                      compartment="//@nodes.0/@ownedChild/@children.3/@ownedChild/@children.1/@ownedChild/@children.1/@ownedChild/@compartments.0"
+                      referencedChild="//@nodes.0/@ownedChild/@children.3/@ownedChild/@children.3/@ownedChild">
+                    <containmentFeature
+                        href="../../org.ow2.mindEd.adl.schema/model/mind.ecore#//Body/elements"/>
+                    <childrenFeature
+                        href="../../org.ow2.mindEd.adl.schema/model/mind.ecore#//Body/elements"/>
+                  </children>
+                  <compartments
+                      children="//@nodes.0/@ownedChild/@children.3/@ownedChild/@children.1/@ownedChild/@children.1/@ownedChild/@children.1 //@nodes.0/@ownedChild/@children.3/@ownedChild/@children.1/@ownedChild/@children.1/@ownedChild/@children.2 //@nodes.0/@ownedChild/@children.3/@ownedChild/@children.1/@ownedChild/@children.1/@ownedChild/@children.3">
+                    <compartment
+                        href="mind.gmfgraph#BodyCompartment"/>
+                  </compartments>
+                </ownedChild>
               </children>
               <children
                   referencedChild="//@nodes.0/@ownedChild/@children.4/@ownedChild">
@@ -623,158 +687,32 @@
                     href="../../org.ow2.mindEd.adl.schema/model/mind.ecore#//ArchitectureDefinition/body"/>
                 <ownedChild>
                   <domainMetaElement
-                      href="../../org.ow2.mindEd.adl.schema/model/mind.ecore#//PrimitiveBody"/>
+                      href="../../org.ow2.mindEd.adl.schema/model/mind.ecore#//SubComponentPrimitiveBody"/>
                   <tool
                       xsi:type="gmftool:CreationTool"
                       href="mind.gmftool#//@palette/@tools.0/@tools.4"/>
                   <diagramNode
                       href="mind.gmfgraph#Body"/>
-                  <children>
+                  <children
+                      referencedChild="//@nodes.1/@ownedChild/@children.2/@ownedChild/@children.0/@ownedChild">
                     <containmentFeature
                         href="../../org.ow2.mindEd.adl.schema/model/mind.ecore#//Body/elements"/>
                     <childrenFeature
                         href="../../org.ow2.mindEd.adl.schema/model/mind.ecore#//Body/elements"/>
-                    <ownedChild>
-                      <domainMetaElement
-                          href="../../org.ow2.mindEd.adl.schema/model/mind.ecore#//ImplementationDefinition"/>
-                      <labelMappings
-                          readOnly="true">
-                        <diagramLabel
-                            href="mind.gmfgraph#LabelImplementationTitle"/>
-                      </labelMappings>
-                      <tool
-                          xsi:type="gmftool:CreationTool"
-                          href="mind.gmftool#//@palette/@tools.2/@tools.2"/>
-                      <diagramNode
-                          href="mind.gmfgraph#Implementation"/>
-                      <children
-                          compartment="//@nodes.0/@ownedChild/@children.3/@ownedChild/@children.2/@ownedChild/@children.1/@ownedChild/@children.0/@ownedChild/@compartments.0"
-                          referencedChild="//@nodes.0/@ownedChild/@children.3/@ownedChild/@children.2/@ownedChild/@children.1/@ownedChild/@children.1/@ownedChild/@children.0/@ownedChild">
-                        <containmentFeature
-                            href="../../org.ow2.mindEd.adl.schema/model/mind.ecore#//ImplementationDefinition/fileC"/>
-                        <childrenFeature
-                            href="../../org.ow2.mindEd.adl.schema/model/mind.ecore#//ImplementationDefinition/fileC"/>
-                      </children>
-                      <children
-                          compartment="//@nodes.0/@ownedChild/@children.3/@ownedChild/@children.2/@ownedChild/@children.1/@ownedChild/@children.0/@ownedChild/@compartments.0"
-                          referencedChild="//@nodes.0/@ownedChild/@children.3/@ownedChild/@children.2/@ownedChild/@children.1/@ownedChild/@children.1/@ownedChild/@children.1/@ownedChild">
-                        <containmentFeature
-                            href="../../org.ow2.mindEd.adl.schema/model/mind.ecore#//ImplementationDefinition/inlineCcode"/>
-                        <childrenFeature
-                            href="../../org.ow2.mindEd.adl.schema/model/mind.ecore#//ImplementationDefinition/inlineCcode"/>
-                      </children>
-                      <compartments
-                          children="//@nodes.0/@ownedChild/@children.3/@ownedChild/@children.2/@ownedChild/@children.1/@ownedChild/@children.0/@ownedChild/@children.0 //@nodes.0/@ownedChild/@children.3/@ownedChild/@children.2/@ownedChild/@children.1/@ownedChild/@children.0/@ownedChild/@children.1">
-                        <compartment
-                            href="mind.gmfgraph#CompartmentImplementationBodyArea"/>
-                      </compartments>
-                    </ownedChild>
                   </children>
-                  <children>
+                  <children
+                      referencedChild="//@nodes.1/@ownedChild/@children.2/@ownedChild/@children.1/@ownedChild">
                     <containmentFeature
                         href="../../org.ow2.mindEd.adl.schema/model/mind.ecore#//Body/elements"/>
                     <childrenFeature
                         href="../../org.ow2.mindEd.adl.schema/model/mind.ecore#//Body/elements"/>
-                    <ownedChild>
-                      <domainMetaElement
-                          href="../../org.ow2.mindEd.adl.schema/model/mind.ecore#//DataDefinition"/>
-                      <labelMappings
-                          readOnly="true">
-                        <diagramLabel
-                            href="mind.gmfgraph#LabelDataDefinitionTitle"/>
-                      </labelMappings>
-                      <tool
-                          xsi:type="gmftool:CreationTool"
-                          href="mind.gmftool#//@palette/@tools.2/@tools.1"/>
-                      <diagramNode
-                          href="mind.gmfgraph#DataDefinition"/>
-                      <children
-                          compartment="//@nodes.0/@ownedChild/@children.3/@ownedChild/@children.2/@ownedChild/@children.1/@ownedChild/@children.1/@ownedChild/@compartments.0">
-                        <containmentFeature
-                            href="../../org.ow2.mindEd.adl.schema/model/mind.ecore#//DataDefinition/fileC"/>
-                        <childrenFeature
-                            href="../../org.ow2.mindEd.adl.schema/model/mind.ecore#//DataDefinition/fileC"/>
-                        <ownedChild>
-                          <domainMetaElement
-                              href="../../org.ow2.mindEd.adl.schema/model/mind.ecore#//FileC"/>
-                          <labelMappings
-                              xsi:type="gmfmap:FeatureLabelMapping"
-                              viewPattern="{0}{1}"
-                              editorPattern="{1}"
-                              editPattern="{1}">
-                            <diagramLabel
-                                href="mind.gmfgraph#LabelFileC"/>
-                            <features
-                                href="../../org.ow2.mindEd.adl.schema/model/mind.ecore#//FileC/directory"/>
-                            <features
-                                href="../../org.ow2.mindEd.adl.schema/model/mind.ecore#//FileC/fileName"/>
-                          </labelMappings>
-                          <tool
-                              xsi:type="gmftool:CreationTool"
-                              href="mind.gmftool#//@palette/@tools.2/@tools.3"/>
-                          <diagramNode
-                              href="mind.gmfgraph#FileC"/>
-                        </ownedChild>
-                      </children>
-                      <children
-                          compartment="//@nodes.0/@ownedChild/@children.3/@ownedChild/@children.2/@ownedChild/@children.1/@ownedChild/@children.1/@ownedChild/@compartments.0">
-                        <containmentFeature
-                            href="../../org.ow2.mindEd.adl.schema/model/mind.ecore#//DataDefinition/inlineCcode"/>
-                        <childrenFeature
-                            href="../../org.ow2.mindEd.adl.schema/model/mind.ecore#//DataDefinition/inlineCcode"/>
-                        <ownedChild>
-                          <domainMetaElement
-                              href="../../org.ow2.mindEd.adl.schema/model/mind.ecore#//InlineCodeC"/>
-                          <labelMappings
-                              xsi:type="gmfmap:FeatureLabelMapping"
-                              viewPattern="">
-                            <diagramLabel
-                                href="mind.gmfgraph#LabelInlineC"/>
-                            <features
-                                href="../../org.ow2.mindEd.adl.schema/model/mind.ecore#//InlineCodeC/codeC"/>
-                          </labelMappings>
-                          <tool
-                              xsi:type="gmftool:CreationTool"
-                              href="mind.gmftool#//@palette/@tools.2/@tools.4"/>
-                          <diagramNode
-                              href="mind.gmfgraph#InlineCcode"/>
-                        </ownedChild>
-                      </children>
-                      <compartments
-                          children="//@nodes.0/@ownedChild/@children.3/@ownedChild/@children.2/@ownedChild/@children.1/@ownedChild/@children.1/@ownedChild/@children.0 //@nodes.0/@ownedChild/@children.3/@ownedChild/@children.2/@ownedChild/@children.1/@ownedChild/@children.1/@ownedChild/@children.1">
-                        <compartment
-                            href="mind.gmfgraph#CompartmentDataDefinitionBodyArea"/>
-                      </compartments>
-                    </ownedChild>
                   </children>
-                  <children>
+                  <children
+                      referencedChild="//@nodes.1/@ownedChild/@children.2/@ownedChild/@children.2/@ownedChild">
                     <containmentFeature
                         href="../../org.ow2.mindEd.adl.schema/model/mind.ecore#//Body/elements"/>
                     <childrenFeature
                         href="../../org.ow2.mindEd.adl.schema/model/mind.ecore#//Body/elements"/>
-                    <ownedChild>
-                      <domainMetaElement
-                          href="../../org.ow2.mindEd.adl.schema/model/mind.ecore#//AttributeDefinition"/>
-                      <labelMappings
-                          xsi:type="gmfmap:FeatureLabelMapping"
-                          viewPattern="({0}) {1} = {2}"
-                          editorPattern="{0} {1} = {2}"
-                          editPattern="{0} {1} = {2}">
-                        <diagramLabel
-                            href="mind.gmfgraph#LabelAttributeDefinitionContent"/>
-                        <features
-                            href="../../org.ow2.mindEd.adl.schema/model/mind.ecore#//AttributeDefinition/type"/>
-                        <features
-                            href="../../org.ow2.mindEd.adl.schema/model/mind.ecore#//AttributeDefinition/attributeName"/>
-                        <features
-                            href="../../org.ow2.mindEd.adl.schema/model/mind.ecore#//AttributeDefinition/value"/>
-                      </labelMappings>
-                      <tool
-                          xsi:type="gmftool:CreationTool"
-                          href="mind.gmftool#//@palette/@tools.2/@tools.0"/>
-                      <diagramNode
-                          href="mind.gmfgraph#AttributeDefinition"/>
-                    </ownedChild>
                   </children>
                   <children
                       referencedChild="//@nodes.0/@ownedChild/@children.3/@ownedChild/@children.0/@ownedChild">
@@ -867,7 +805,7 @@
                 </ownedChild>
               </children>
               <children
-                  referencedChild="//@nodes.0/@ownedChild/@children.3/@ownedChild">
+                  referencedChild="//@nodes.0/@ownedChild/@children.3/@ownedChild/@children.1/@ownedChild/@children.1/@ownedChild">
                 <containmentFeature
                     href="../../org.ow2.mindEd.adl.schema/model/mind.ecore#//ArchitectureDefinition/body"/>
                 <childrenFeature
@@ -1162,6 +1100,173 @@
             href="../../org.ow2.mindEd.adl.schema/model/mind.ecore#//ArchitectureDefinition/body"/>
         <childrenFeature
             href="../../org.ow2.mindEd.adl.schema/model/mind.ecore#//ArchitectureDefinition/body"/>
+        <ownedChild>
+          <domainMetaElement
+              href="../../org.ow2.mindEd.adl.schema/model/mind.ecore#//PrimitiveBody"/>
+          <tool
+              xsi:type="gmftool:CreationTool"
+              href="mind.gmftool#//@palette/@tools.0/@tools.4"/>
+          <diagramNode
+              href="mind.gmfgraph#Body"/>
+          <children>
+            <containmentFeature
+                href="../../org.ow2.mindEd.adl.schema/model/mind.ecore#//Body/elements"/>
+            <childrenFeature
+                href="../../org.ow2.mindEd.adl.schema/model/mind.ecore#//Body/elements"/>
+            <ownedChild>
+              <domainMetaElement
+                  href="../../org.ow2.mindEd.adl.schema/model/mind.ecore#//ImplementationDefinition"/>
+              <labelMappings
+                  readOnly="true">
+                <diagramLabel
+                    href="mind.gmfgraph#LabelImplementationTitle"/>
+              </labelMappings>
+              <tool
+                  xsi:type="gmftool:CreationTool"
+                  href="mind.gmftool#//@palette/@tools.2/@tools.2"/>
+              <diagramNode
+                  href="mind.gmfgraph#Implementation"/>
+              <children
+                  compartment="//@nodes.1/@ownedChild/@children.2/@ownedChild/@children.0/@ownedChild/@compartments.0"
+                  referencedChild="//@nodes.1/@ownedChild/@children.2/@ownedChild/@children.1/@ownedChild/@children.0/@ownedChild">
+                <containmentFeature
+                    href="../../org.ow2.mindEd.adl.schema/model/mind.ecore#//ImplementationDefinition/fileC"/>
+                <childrenFeature
+                    href="../../org.ow2.mindEd.adl.schema/model/mind.ecore#//ImplementationDefinition/fileC"/>
+              </children>
+              <children
+                  compartment="//@nodes.1/@ownedChild/@children.2/@ownedChild/@children.0/@ownedChild/@compartments.0"
+                  referencedChild="//@nodes.1/@ownedChild/@children.2/@ownedChild/@children.1/@ownedChild/@children.1/@ownedChild">
+                <containmentFeature
+                    href="../../org.ow2.mindEd.adl.schema/model/mind.ecore#//ImplementationDefinition/inlineCcode"/>
+                <childrenFeature
+                    href="../../org.ow2.mindEd.adl.schema/model/mind.ecore#//ImplementationDefinition/inlineCcode"/>
+              </children>
+              <compartments
+                  children="//@nodes.1/@ownedChild/@children.2/@ownedChild/@children.0/@ownedChild/@children.0 //@nodes.1/@ownedChild/@children.2/@ownedChild/@children.0/@ownedChild/@children.1">
+                <compartment
+                    href="mind.gmfgraph#CompartmentImplementationBodyArea"/>
+              </compartments>
+            </ownedChild>
+          </children>
+          <children>
+            <containmentFeature
+                href="../../org.ow2.mindEd.adl.schema/model/mind.ecore#//Body/elements"/>
+            <childrenFeature
+                href="../../org.ow2.mindEd.adl.schema/model/mind.ecore#//Body/elements"/>
+            <ownedChild>
+              <domainMetaElement
+                  href="../../org.ow2.mindEd.adl.schema/model/mind.ecore#//DataDefinition"/>
+              <labelMappings
+                  readOnly="true">
+                <diagramLabel
+                    href="mind.gmfgraph#LabelDataDefinitionTitle"/>
+              </labelMappings>
+              <tool
+                  xsi:type="gmftool:CreationTool"
+                  href="mind.gmftool#//@palette/@tools.2/@tools.1"/>
+              <diagramNode
+                  href="mind.gmfgraph#DataDefinition"/>
+              <children
+                  compartment="//@nodes.1/@ownedChild/@children.2/@ownedChild/@children.1/@ownedChild/@compartments.0">
+                <containmentFeature
+                    href="../../org.ow2.mindEd.adl.schema/model/mind.ecore#//DataDefinition/fileC"/>
+                <childrenFeature
+                    href="../../org.ow2.mindEd.adl.schema/model/mind.ecore#//DataDefinition/fileC"/>
+                <ownedChild>
+                  <domainMetaElement
+                      href="../../org.ow2.mindEd.adl.schema/model/mind.ecore#//FileC"/>
+                  <labelMappings
+                      xsi:type="gmfmap:FeatureLabelMapping"
+                      viewPattern="{0}{1}"
+                      editorPattern="{1}"
+                      editPattern="{1}">
+                    <diagramLabel
+                        href="mind.gmfgraph#LabelFileC"/>
+                    <features
+                        href="../../org.ow2.mindEd.adl.schema/model/mind.ecore#//FileC/directory"/>
+                    <features
+                        href="../../org.ow2.mindEd.adl.schema/model/mind.ecore#//FileC/fileName"/>
+                  </labelMappings>
+                  <tool
+                      xsi:type="gmftool:CreationTool"
+                      href="mind.gmftool#//@palette/@tools.2/@tools.3"/>
+                  <diagramNode
+                      href="mind.gmfgraph#FileC"/>
+                </ownedChild>
+              </children>
+              <children
+                  compartment="//@nodes.1/@ownedChild/@children.2/@ownedChild/@children.1/@ownedChild/@compartments.0">
+                <containmentFeature
+                    href="../../org.ow2.mindEd.adl.schema/model/mind.ecore#//DataDefinition/inlineCcode"/>
+                <childrenFeature
+                    href="../../org.ow2.mindEd.adl.schema/model/mind.ecore#//DataDefinition/inlineCcode"/>
+                <ownedChild>
+                  <domainMetaElement
+                      href="../../org.ow2.mindEd.adl.schema/model/mind.ecore#//InlineCodeC"/>
+                  <labelMappings
+                      xsi:type="gmfmap:FeatureLabelMapping"
+                      viewPattern="">
+                    <diagramLabel
+                        href="mind.gmfgraph#LabelInlineC"/>
+                    <features
+                        href="../../org.ow2.mindEd.adl.schema/model/mind.ecore#//InlineCodeC/codeC"/>
+                  </labelMappings>
+                  <tool
+                      xsi:type="gmftool:CreationTool"
+                      href="mind.gmftool#//@palette/@tools.2/@tools.4"/>
+                  <diagramNode
+                      href="mind.gmfgraph#InlineCcode"/>
+                </ownedChild>
+              </children>
+              <compartments
+                  children="//@nodes.1/@ownedChild/@children.2/@ownedChild/@children.1/@ownedChild/@children.0 //@nodes.1/@ownedChild/@children.2/@ownedChild/@children.1/@ownedChild/@children.1">
+                <compartment
+                    href="mind.gmfgraph#CompartmentDataDefinitionBodyArea"/>
+              </compartments>
+            </ownedChild>
+          </children>
+          <children>
+            <containmentFeature
+                href="../../org.ow2.mindEd.adl.schema/model/mind.ecore#//Body/elements"/>
+            <childrenFeature
+                href="../../org.ow2.mindEd.adl.schema/model/mind.ecore#//Body/elements"/>
+            <ownedChild>
+              <domainMetaElement
+                  href="../../org.ow2.mindEd.adl.schema/model/mind.ecore#//AttributeDefinition"/>
+              <labelMappings
+                  xsi:type="gmfmap:FeatureLabelMapping"
+                  viewPattern="({0}) {1} = {2}"
+                  editorPattern="{0} {1} = {2}"
+                  editPattern="{0} {1} = {2}">
+                <diagramLabel
+                    href="mind.gmfgraph#LabelAttributeDefinitionContent"/>
+                <features
+                    href="../../org.ow2.mindEd.adl.schema/model/mind.ecore#//AttributeDefinition/type"/>
+                <features
+                    href="../../org.ow2.mindEd.adl.schema/model/mind.ecore#//AttributeDefinition/attributeName"/>
+                <features
+                    href="../../org.ow2.mindEd.adl.schema/model/mind.ecore#//AttributeDefinition/value"/>
+              </labelMappings>
+              <tool
+                  xsi:type="gmftool:CreationTool"
+                  href="mind.gmftool#//@palette/@tools.2/@tools.0"/>
+              <diagramNode
+                  href="mind.gmfgraph#AttributeDefinition"/>
+            </ownedChild>
+          </children>
+          <children
+              referencedChild="//@nodes.0/@ownedChild/@children.3/@ownedChild/@children.0/@ownedChild">
+            <containmentFeature
+                href="../../org.ow2.mindEd.adl.schema/model/mind.ecore#//Body/elements"/>
+            <childrenFeature
+                href="../../org.ow2.mindEd.adl.schema/model/mind.ecore#//Body/elements"/>
+          </children>
+          <compartments>
+            <compartment
+                href="mind.gmfgraph#BodyCompartment"/>
+          </compartments>
+        </ownedChild>
       </children>
       <children
           referencedChild="//@nodes.0/@ownedChild/@children.4/@ownedChild">

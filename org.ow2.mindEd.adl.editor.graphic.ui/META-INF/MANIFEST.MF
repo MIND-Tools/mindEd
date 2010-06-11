@@ -8,6 +8,7 @@ Bundle-Activator: org.ow2.mindEd.adl.editor.graphic.ui.part.MindDiagramEditorPlu
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
 Export-Package: org.ow2.mindEd.adl.editor.graphic.ui.custom.figures,
+ org.ow2.mindEd.adl.editor.graphic.ui.custom.providers,
  org.ow2.mindEd.adl.editor.graphic.ui.edit.parts,
  org.ow2.mindEd.adl.editor.graphic.ui.part,
  org.ow2.mindEd.adl.editor.graphic.ui.providers

@@ -16,8 +16,6 @@ public class SubAnnotationsListCompartmentCustomEditPart extends
 		super(view);
 	}
 	
-	protected MindEditPart genericEditPart = MindGenericEditPartFactory.INSTANCE.createGenericEditPart (this, VISUAL_ID);
-	
 	@Override
 	public void refresh() {
 		super.refresh();
