@@ -80,8 +80,7 @@ public class MindBodyEditPart extends MindEditPart {
 			AbstractBorderedShapeEditPart parentBorderedEditPart = parentComponent.borderedEditPart;
 			if (parentBorderedEditPart == null) return false;
 			InterfaceBorderItemLocator locator = new InterfaceBorderItemLocator(
-					parentBorderedEditPart.getMainFigure()); 
-//			IFigure container = parentBorderedEditPart.getBorderedFigure().getBorderItemContainer();
+					parentBorderedEditPart.getMainFigure());
 			parentBorderedEditPart.getBorderedFigure().getBorderItemContainer().add(
 					((InterfaceDefinitionEditPart) childEditPart).getFigure(), locator);
 			return true;

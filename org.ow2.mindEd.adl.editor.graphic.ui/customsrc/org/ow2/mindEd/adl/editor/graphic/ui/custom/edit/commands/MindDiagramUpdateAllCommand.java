@@ -252,8 +252,6 @@ public class MindDiagramUpdateAllCommand extends MindDiagramUpdateCommand {
 		GraphicalEditPart graphEP = (GraphicalEditPart) editPart;
 		graphEP.getFigure().setVisible(false);
 		// For components, primary shape must be hidden too
-		// I did not find a better way to do this, but I hope to hide the view
-		// instead of the figure
 		if (graphEP instanceof CompositeComponentDefinitionEditPart)
 			((CompositeComponentDefinitionEditPart)graphEP).getPrimaryShape().setVisible(false);
 		if (graphEP instanceof CompositeSubComponentEditPart)
@@ -261,7 +259,6 @@ public class MindDiagramUpdateAllCommand extends MindDiagramUpdateCommand {
 		
 		// Hiding the view seems a better way but it causes trouble
 		// The transaction sets "parent" attribute to null so it is never displayed again
-		// I will try to debug this later on
 	}
 	
 	/**
@@ -279,7 +276,6 @@ public class MindDiagramUpdateAllCommand extends MindDiagramUpdateCommand {
 		
 		// Hiding the view seems a better way but it causes trouble
 		// The transaction sets "parent" attribute to null so it is never displayed again
-		// I will try to debug this later on
 	}
 	
 	

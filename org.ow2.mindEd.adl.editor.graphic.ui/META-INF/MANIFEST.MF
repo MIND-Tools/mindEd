@@ -46,3 +46,4 @@ Import-Package: org.eclipse.gmf.runtime.diagram.ui.actions.internal.l10n,
  org.ow2.mindEd.ide.core,
  org.ow2.mindEd.ide.model
 Bundle-ActivationPolicy: lazy
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6

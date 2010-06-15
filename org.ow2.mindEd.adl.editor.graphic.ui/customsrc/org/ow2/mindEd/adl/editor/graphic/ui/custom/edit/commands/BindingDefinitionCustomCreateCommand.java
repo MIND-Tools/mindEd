@@ -162,7 +162,7 @@ public class BindingDefinitionCustomCreateCommand extends
 		// target may be null here but it's possible to check constraint
 		if ((customSource instanceof InterfaceDefinition) &&
 				(customTarget instanceof InterfaceDefinition)) {
-			return MindBaseItemSemanticEditPolicy.LinkConstraints
+			return MindBaseItemSemanticEditPolicy.getLinkConstraints()
 			.canCreateBindingDefinition_4003(getContainer(), getSource(),
 					getTarget());
 		}

@@ -216,8 +216,8 @@
       <viewProvider class="org.ow2.mindEd.adl.editor.graphic.ui.providers.MindViewProvider">
          <Priority name="Lowest"/>
          <context viewClass="org.eclipse.gmf.runtime.notation.Diagram" semanticHints="Mind"/>
-         <context viewClass="org.eclipse.gmf.runtime.notation.Node" semanticHints="2007,2008,2009,3096,3097,3098,3099,3100,3101,3102,3103,3104,3105,3129,3130,3131,3132,3161,3135,3157,3162,3140,3115,3116,3139,3118,3119,3138,3143,3150,3145,3146,3148,3149,3153,3160,3142,3147,3123,3124,3125,3137,3151,3127,3128,3159,3152"/>
-         <context viewClass="org.eclipse.gmf.runtime.notation.Edge" semanticHints="4003"/>
+         <context viewClass="org.eclipse.gmf.runtime.notation.Node"/>
+         <context viewClass="org.eclipse.gmf.runtime.notation.Edge"/>
       </viewProvider>
    </extension>
 
