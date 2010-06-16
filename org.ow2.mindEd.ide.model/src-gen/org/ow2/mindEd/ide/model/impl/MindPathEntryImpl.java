@@ -34,6 +34,7 @@ import org.ow2.mindEd.ide.model.MindidePackage;
  *   <li>{@link org.ow2.mindEd.ide.model.impl.MindPathEntryImpl#getOwnerProject <em>Owner Project</em>}</li>
  *   <li>{@link org.ow2.mindEd.ide.model.impl.MindPathEntryImpl#getResolvedBy <em>Resolved By</em>}</li>
  *   <li>{@link org.ow2.mindEd.ide.model.impl.MindPathEntryImpl#getEntryKind <em>Entry Kind</em>}</li>
+ *   <li>{@link org.ow2.mindEd.ide.model.impl.MindPathEntryImpl#getTargetFilter <em>Target Filter</em>}</li>
  * </ul>
  * </p>
  *
@@ -69,6 +70,26 @@ public class MindPathEntryImpl extends MindObjectImpl implements MindPathEntry {
 	 * @ordered
 	 */
 	protected MindPathKind entryKind = ENTRY_KIND_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getTargetFilter() <em>Target Filter</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getTargetFilter()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String TARGET_FILTER_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getTargetFilter() <em>Target Filter</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getTargetFilter()
+	 * @generated
+	 * @ordered
+	 */
+	protected String targetFilter = TARGET_FILTER_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -216,6 +237,27 @@ public class MindPathEntryImpl extends MindObjectImpl implements MindPathEntry {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public String getTargetFilter() {
+		return targetFilter;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setTargetFilter(String newTargetFilter) {
+		String oldTargetFilter = targetFilter;
+		targetFilter = newTargetFilter;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MindidePackage.MIND_PATH_ENTRY__TARGET_FILTER, oldTargetFilter, targetFilter));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public IResource getResource() {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
@@ -287,6 +329,8 @@ public class MindPathEntryImpl extends MindObjectImpl implements MindPathEntry {
 				return basicGetResolvedBy();
 			case MindidePackage.MIND_PATH_ENTRY__ENTRY_KIND:
 				return getEntryKind();
+			case MindidePackage.MIND_PATH_ENTRY__TARGET_FILTER:
+				return getTargetFilter();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -307,6 +351,9 @@ public class MindPathEntryImpl extends MindObjectImpl implements MindPathEntry {
 				return;
 			case MindidePackage.MIND_PATH_ENTRY__ENTRY_KIND:
 				setEntryKind((MindPathKind)newValue);
+				return;
+			case MindidePackage.MIND_PATH_ENTRY__TARGET_FILTER:
+				setTargetFilter((String)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -329,6 +376,9 @@ public class MindPathEntryImpl extends MindObjectImpl implements MindPathEntry {
 			case MindidePackage.MIND_PATH_ENTRY__ENTRY_KIND:
 				setEntryKind(ENTRY_KIND_EDEFAULT);
 				return;
+			case MindidePackage.MIND_PATH_ENTRY__TARGET_FILTER:
+				setTargetFilter(TARGET_FILTER_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -347,6 +397,8 @@ public class MindPathEntryImpl extends MindObjectImpl implements MindPathEntry {
 				return resolvedBy != null;
 			case MindidePackage.MIND_PATH_ENTRY__ENTRY_KIND:
 				return entryKind != ENTRY_KIND_EDEFAULT;
+			case MindidePackage.MIND_PATH_ENTRY__TARGET_FILTER:
+				return TARGET_FILTER_EDEFAULT == null ? targetFilter != null : !TARGET_FILTER_EDEFAULT.equals(targetFilter);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -363,6 +415,8 @@ public class MindPathEntryImpl extends MindObjectImpl implements MindPathEntry {
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (entryKind: ");
 		result.append(entryKind);
+		result.append(", targetFilter: ");
+		result.append(targetFilter);
 		result.append(')');
 		return result.toString();
 	}

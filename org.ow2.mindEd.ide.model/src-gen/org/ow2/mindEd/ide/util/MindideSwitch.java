@@ -181,6 +181,14 @@ public class MindideSwitch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case MindidePackage.MIND_LIBRARY: {
+				MindLibrary mindLibrary = (MindLibrary)theEObject;
+				T result = caseMindLibrary(mindLibrary);
+				if (result == null) result = caseMindRootSrc(mindLibrary);
+				if (result == null) result = caseMindObject(mindLibrary);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			default: return defaultCase(theEObject);
 		}
 	}
@@ -377,6 +385,21 @@ public class MindideSwitch<T> {
 	 * @generated
 	 */
 	public T caseMindPathEntry(MindPathEntry object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Mind Library</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Mind Library</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseMindLibrary(MindLibrary object) {
 		return null;
 	}
 

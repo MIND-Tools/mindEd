@@ -984,13 +984,140 @@ public interface MindidePackage extends EPackage {
 	int MIND_PATH_ENTRY__ENTRY_KIND = MIND_OBJECT_FEATURE_COUNT + 2;
 
 	/**
+	 * The feature id for the '<em><b>Target Filter</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MIND_PATH_ENTRY__TARGET_FILTER = MIND_OBJECT_FEATURE_COUNT + 3;
+
+	/**
 	 * The number of structural features of the '<em>Mind Path Entry</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MIND_PATH_ENTRY_FEATURE_COUNT = MIND_OBJECT_FEATURE_COUNT + 3;
+	int MIND_PATH_ENTRY_FEATURE_COUNT = MIND_OBJECT_FEATURE_COUNT + 4;
+
+	/**
+	 * The meta object id for the '{@link org.ow2.mindEd.ide.model.impl.MindLibraryImpl <em>Mind Library</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.ow2.mindEd.ide.model.impl.MindLibraryImpl
+	 * @see org.ow2.mindEd.ide.model.impl.MindidePackageImpl#getMindLibrary()
+	 * @generated
+	 */
+	int MIND_LIBRARY = 13;
+
+	/**
+	 * The feature id for the '<em><b>Mind Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MIND_LIBRARY__MIND_ID = MIND_ROOT_SRC__MIND_ID;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MIND_LIBRARY__NAME = MIND_ROOT_SRC__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Resolved Mind Path Entries</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MIND_LIBRARY__RESOLVED_MIND_PATH_ENTRIES = MIND_ROOT_SRC__RESOLVED_MIND_PATH_ENTRIES;
+
+	/**
+	 * The feature id for the '<em><b>Packages</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MIND_LIBRARY__PACKAGES = MIND_ROOT_SRC__PACKAGES;
+
+	/**
+	 * The feature id for the '<em><b>Project</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MIND_LIBRARY__PROJECT = MIND_ROOT_SRC__PROJECT;
+
+	/**
+	 * The feature id for the '<em><b>Repo</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MIND_LIBRARY__REPO = MIND_ROOT_SRC__REPO;
+
+	/**
+	 * The feature id for the '<em><b>Fullpath</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MIND_LIBRARY__FULLPATH = MIND_ROOT_SRC__FULLPATH;
+
+	/**
+	 * The feature id for the '<em><b>Folder</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MIND_LIBRARY__FOLDER = MIND_ROOT_SRC__FOLDER;
+
+	/**
+	 * The feature id for the '<em><b>Dependencies</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MIND_LIBRARY__DEPENDENCIES = MIND_ROOT_SRC__DEPENDENCIES;
+
+	/**
+	 * The feature id for the '<em><b>Target Filter</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MIND_LIBRARY__TARGET_FILTER = MIND_ROOT_SRC_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Fullpath Lib</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MIND_LIBRARY__FULLPATH_LIB = MIND_ROOT_SRC_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of structural features of the '<em>Mind Library</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MIND_LIBRARY_FEATURE_COUNT = MIND_ROOT_SRC_FEATURE_COUNT + 2;
 
 	/**
 	 * The meta object id for the '{@link org.ow2.mindEd.ide.model.MindPathKind <em>Mind Path Kind</em>}' enum.
@@ -1000,7 +1127,7 @@ public interface MindidePackage extends EPackage {
 	 * @see org.ow2.mindEd.ide.model.impl.MindidePackageImpl#getMindPathKind()
 	 * @generated
 	 */
-	int MIND_PATH_KIND = 13;
+	int MIND_PATH_KIND = 14;
 
 	/**
 	 * The meta object id for the '{@link org.ow2.mindEd.ide.model.ComponentKind <em>Component Kind</em>}' enum.
@@ -1010,7 +1137,7 @@ public interface MindidePackage extends EPackage {
 	 * @see org.ow2.mindEd.ide.model.impl.MindidePackageImpl#getComponentKind()
 	 * @generated
 	 */
-	int COMPONENT_KIND = 14;
+	int COMPONENT_KIND = 15;
 
 	/**
 	 * The meta object id for the '<em>IProject</em>' data type.
@@ -1020,7 +1147,7 @@ public interface MindidePackage extends EPackage {
 	 * @see org.ow2.mindEd.ide.model.impl.MindidePackageImpl#getIProject()
 	 * @generated
 	 */
-	int IPROJECT = 15;
+	int IPROJECT = 16;
 
 	/**
 	 * The meta object id for the '<em>IResource</em>' data type.
@@ -1030,7 +1157,7 @@ public interface MindidePackage extends EPackage {
 	 * @see org.ow2.mindEd.ide.model.impl.MindidePackageImpl#getIResource()
 	 * @generated
 	 */
-	int IRESOURCE = 16;
+	int IRESOURCE = 17;
 
 	/**
 	 * The meta object id for the '<em>URI</em>' data type.
@@ -1040,7 +1167,7 @@ public interface MindidePackage extends EPackage {
 	 * @see org.ow2.mindEd.ide.model.impl.MindidePackageImpl#getURI()
 	 * @generated
 	 */
-	int URI = 17;
+	int URI = 18;
 
 
 	/**
@@ -1482,6 +1609,49 @@ public interface MindidePackage extends EPackage {
 	EAttribute getMindPathEntry_EntryKind();
 
 	/**
+	 * Returns the meta object for the attribute '{@link org.ow2.mindEd.ide.model.MindPathEntry#getTargetFilter <em>Target Filter</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Target Filter</em>'.
+	 * @see org.ow2.mindEd.ide.model.MindPathEntry#getTargetFilter()
+	 * @see #getMindPathEntry()
+	 * @generated
+	 */
+	EAttribute getMindPathEntry_TargetFilter();
+
+	/**
+	 * Returns the meta object for class '{@link org.ow2.mindEd.ide.model.MindLibrary <em>Mind Library</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Mind Library</em>'.
+	 * @see org.ow2.mindEd.ide.model.MindLibrary
+	 * @generated
+	 */
+	EClass getMindLibrary();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.ow2.mindEd.ide.model.MindLibrary#getTargetFilter <em>Target Filter</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Target Filter</em>'.
+	 * @see org.ow2.mindEd.ide.model.MindLibrary#getTargetFilter()
+	 * @see #getMindLibrary()
+	 * @generated
+	 */
+	EAttribute getMindLibrary_TargetFilter();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.ow2.mindEd.ide.model.MindLibrary#getFullpathLib <em>Fullpath Lib</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Fullpath Lib</em>'.
+	 * @see org.ow2.mindEd.ide.model.MindLibrary#getFullpathLib()
+	 * @see #getMindLibrary()
+	 * @generated
+	 */
+	EAttribute getMindLibrary_FullpathLib();
+
+	/**
 	 * Returns the meta object for enum '{@link org.ow2.mindEd.ide.model.MindPathKind <em>Mind Path Kind</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1909,6 +2079,40 @@ public interface MindidePackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute MIND_PATH_ENTRY__ENTRY_KIND = eINSTANCE.getMindPathEntry_EntryKind();
+
+		/**
+		 * The meta object literal for the '<em><b>Target Filter</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute MIND_PATH_ENTRY__TARGET_FILTER = eINSTANCE.getMindPathEntry_TargetFilter();
+
+		/**
+		 * The meta object literal for the '{@link org.ow2.mindEd.ide.model.impl.MindLibraryImpl <em>Mind Library</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.ow2.mindEd.ide.model.impl.MindLibraryImpl
+		 * @see org.ow2.mindEd.ide.model.impl.MindidePackageImpl#getMindLibrary()
+		 * @generated
+		 */
+		EClass MIND_LIBRARY = eINSTANCE.getMindLibrary();
+
+		/**
+		 * The meta object literal for the '<em><b>Target Filter</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute MIND_LIBRARY__TARGET_FILTER = eINSTANCE.getMindLibrary_TargetFilter();
+
+		/**
+		 * The meta object literal for the '<em><b>Fullpath Lib</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute MIND_LIBRARY__FULLPATH_LIB = eINSTANCE.getMindLibrary_FullpathLib();
 
 		/**
 		 * The meta object literal for the '{@link org.ow2.mindEd.ide.model.MindPathKind <em>Mind Path Kind</em>}' enum.

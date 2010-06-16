@@ -27,6 +27,7 @@ import org.ow2.mindEd.ide.model.MindFile;
 import org.ow2.mindEd.ide.model.MindH;
 import org.ow2.mindEd.ide.model.MindIdf;
 import org.ow2.mindEd.ide.model.MindItf;
+import org.ow2.mindEd.ide.model.MindLibrary;
 import org.ow2.mindEd.ide.model.MindObject;
 import org.ow2.mindEd.ide.model.MindPackage;
 import org.ow2.mindEd.ide.model.MindPathEntry;
@@ -134,6 +135,13 @@ public class MindidePackageImpl extends EPackageImpl implements MindidePackage {
 	 * @generated
 	 */
 	private EClass mindPathEntryEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass mindLibraryEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -605,6 +613,42 @@ public class MindidePackageImpl extends EPackageImpl implements MindidePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getMindPathEntry_TargetFilter() {
+		return (EAttribute)mindPathEntryEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getMindLibrary() {
+		return mindLibraryEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getMindLibrary_TargetFilter() {
+		return (EAttribute)mindLibraryEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getMindLibrary_FullpathLib() {
+		return (EAttribute)mindLibraryEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EEnum getMindPathKind() {
 		return mindPathKindEEnum;
 	}
@@ -726,6 +770,11 @@ public class MindidePackageImpl extends EPackageImpl implements MindidePackage {
 		createEReference(mindPathEntryEClass, MIND_PATH_ENTRY__OWNER_PROJECT);
 		createEReference(mindPathEntryEClass, MIND_PATH_ENTRY__RESOLVED_BY);
 		createEAttribute(mindPathEntryEClass, MIND_PATH_ENTRY__ENTRY_KIND);
+		createEAttribute(mindPathEntryEClass, MIND_PATH_ENTRY__TARGET_FILTER);
+
+		mindLibraryEClass = createEClass(MIND_LIBRARY);
+		createEAttribute(mindLibraryEClass, MIND_LIBRARY__TARGET_FILTER);
+		createEAttribute(mindLibraryEClass, MIND_LIBRARY__FULLPATH_LIB);
 
 		// Create enums
 		mindPathKindEEnum = createEEnum(MIND_PATH_KIND);
@@ -776,6 +825,7 @@ public class MindidePackageImpl extends EPackageImpl implements MindidePackage {
 		mindFileEClass.getESuperTypes().add(this.getMindObject());
 		mindProjectEClass.getESuperTypes().add(this.getMindObject());
 		mindPathEntryEClass.getESuperTypes().add(this.getMindObject());
+		mindLibraryEClass.getESuperTypes().add(this.getMindRootSrc());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(mindRepoEClass, MindRepo.class, "MindRepo", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -881,8 +931,13 @@ public class MindidePackageImpl extends EPackageImpl implements MindidePackage {
 		initEReference(getMindPathEntry_OwnerProject(), this.getMindProject(), this.getMindProject_Mindpathentries(), "ownerProject", null, 1, 1, MindPathEntry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getMindPathEntry_ResolvedBy(), this.getMindObject(), this.getMindObject_ResolvedMindPathEntries(), "resolvedBy", null, 0, 1, MindPathEntry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getMindPathEntry_EntryKind(), this.getMindPathKind(), "entryKind", null, 0, 1, MindPathEntry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getMindPathEntry_TargetFilter(), ecorePackage.getEString(), "targetFilter", null, 0, 1, MindPathEntry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		addEOperation(mindPathEntryEClass, this.getIResource(), "getResource", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		initEClass(mindLibraryEClass, MindLibrary.class, "MindLibrary", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getMindLibrary_TargetFilter(), ecorePackage.getEString(), "targetFilter", null, 0, 1, MindLibrary.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getMindLibrary_FullpathLib(), ecorePackage.getEString(), "fullpathLib", null, 0, 1, MindLibrary.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(mindPathKindEEnum, MindPathKind.class, "MindPathKind");

@@ -79,6 +79,7 @@ public class MindideFactoryImpl extends EFactoryImpl implements MindideFactory {
 			case MindidePackage.MIND_OBJECT: return createMindObject();
 			case MindidePackage.MIND_PROJECT: return createMindProject();
 			case MindidePackage.MIND_PATH_ENTRY: return createMindPathEntry();
+			case MindidePackage.MIND_LIBRARY: return createMindLibrary();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -258,6 +259,16 @@ public class MindideFactoryImpl extends EFactoryImpl implements MindideFactory {
 	public MindPathEntry createMindPathEntry() {
 		MindPathEntryImpl mindPathEntry = new MindPathEntryImpl();
 		return mindPathEntry;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public MindLibrary createMindLibrary() {
+		MindLibraryImpl mindLibrary = new MindLibraryImpl();
+		return mindLibrary;
 	}
 
 	/**

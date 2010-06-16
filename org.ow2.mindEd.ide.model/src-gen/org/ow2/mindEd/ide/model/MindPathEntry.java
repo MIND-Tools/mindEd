@@ -19,6 +19,7 @@ import org.eclipse.core.resources.IResource;
  *   <li>{@link org.ow2.mindEd.ide.model.MindPathEntry#getOwnerProject <em>Owner Project</em>}</li>
  *   <li>{@link org.ow2.mindEd.ide.model.MindPathEntry#getResolvedBy <em>Resolved By</em>}</li>
  *   <li>{@link org.ow2.mindEd.ide.model.MindPathEntry#getEntryKind <em>Entry Kind</em>}</li>
+ *   <li>{@link org.ow2.mindEd.ide.model.MindPathEntry#getTargetFilter <em>Target Filter</em>}</li>
  * </ul>
  * </p>
  *
@@ -111,6 +112,32 @@ public interface MindPathEntry extends MindObject {
 	 * @generated
 	 */
 	void setEntryKind(MindPathKind value);
+
+	/**
+	 * Returns the value of the '<em><b>Target Filter</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Target Filter</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Target Filter</em>' attribute.
+	 * @see #setTargetFilter(String)
+	 * @see org.ow2.mindEd.ide.model.MindidePackage#getMindPathEntry_TargetFilter()
+	 * @model
+	 * @generated
+	 */
+	String getTargetFilter();
+
+	/**
+	 * Sets the value of the '{@link org.ow2.mindEd.ide.model.MindPathEntry#getTargetFilter <em>Target Filter</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Target Filter</em>' attribute.
+	 * @see #getTargetFilter()
+	 * @generated
+	 */
+	void setTargetFilter(String value);
 
 	/**
 	 * <!-- begin-user-doc -->

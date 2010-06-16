@@ -143,6 +143,15 @@ public interface MindideFactory extends EFactory {
 	MindPathEntry createMindPathEntry();
 
 	/**
+	 * Returns a new object of class '<em>Mind Library</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Mind Library</em>'.
+	 * @generated
+	 */
+	MindLibrary createMindLibrary();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
