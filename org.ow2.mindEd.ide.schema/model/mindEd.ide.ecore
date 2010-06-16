@@ -140,6 +140,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="resolvedBy" eType="#//MindObject"
         eOpposite="#//MindObject/resolvedMindPathEntries"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="entryKind" eType="#//MindPathKind"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="targetFilter" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EDataType" name="IProject" instanceClassName="org.eclipse.core.resources.IProject"/>
   <eClassifiers xsi:type="ecore:EEnum" name="MindPathKind">
@@ -158,4 +159,8 @@
     <eLiterals name="type" value="3" literal="TYPE"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EDataType" name="URI" instanceClassName="java.net.URI"/>
+  <eClassifiers xsi:type="ecore:EClass" name="MindLibrary" eSuperTypes="#//MindRootSrc">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="targetFilter" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="fullpathLib" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
 </ecore:EPackage>
