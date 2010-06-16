@@ -160,6 +160,11 @@ public class MindRepoItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
+				(MindidePackage.Literals.MIND_REPO__ROOTSRCS,
+				 MindideFactory.eINSTANCE.createMindLibrary()));
+
+		newChildDescriptors.add
+			(createChildParameter
 				(MindidePackage.Literals.MIND_REPO__MINDPROJECTS,
 				 MindideFactory.eINSTANCE.createMindProject()));
 	}

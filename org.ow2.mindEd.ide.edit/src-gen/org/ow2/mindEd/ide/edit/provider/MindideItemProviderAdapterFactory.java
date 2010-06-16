@@ -375,6 +375,29 @@ public class MindideItemProviderAdapterFactory extends MindideAdapterFactory imp
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link org.ow2.mindEd.ide.model.MindLibrary} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected MindLibraryItemProvider mindLibraryItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.ow2.mindEd.ide.model.MindLibrary}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createMindLibraryAdapter() {
+		if (mindLibraryItemProvider == null) {
+			mindLibraryItemProvider = new MindLibraryItemProvider(this);
+		}
+
+		return mindLibraryItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -486,6 +509,7 @@ public class MindideItemProviderAdapterFactory extends MindideAdapterFactory imp
 		if (mindObjectItemProvider != null) mindObjectItemProvider.dispose();
 		if (mindProjectItemProvider != null) mindProjectItemProvider.dispose();
 		if (mindPathEntryItemProvider != null) mindPathEntryItemProvider.dispose();
+		if (mindLibraryItemProvider != null) mindLibraryItemProvider.dispose();
 	}
 
 }

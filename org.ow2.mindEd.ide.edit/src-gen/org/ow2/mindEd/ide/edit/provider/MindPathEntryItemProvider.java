@@ -63,6 +63,7 @@ public class MindPathEntryItemProvider
 
 			addResolvedByPropertyDescriptor(object);
 			addEntryKindPropertyDescriptor(object);
+			addTargetFilterPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -112,6 +113,28 @@ public class MindPathEntryItemProvider
 	}
 
 	/**
+	 * This adds a property descriptor for the Target Filter feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addTargetFilterPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_MindPathEntry_targetFilter_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_MindPathEntry_targetFilter_feature", "_UI_MindPathEntry_type"),
+				 MindidePackage.Literals.MIND_PATH_ENTRY__TARGET_FILTER,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This returns MindPathEntry.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -149,6 +172,7 @@ public class MindPathEntryItemProvider
 
 		switch (notification.getFeatureID(MindPathEntry.class)) {
 			case MindidePackage.MIND_PATH_ENTRY__ENTRY_KIND:
+			case MindidePackage.MIND_PATH_ENTRY__TARGET_FILTER:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}
