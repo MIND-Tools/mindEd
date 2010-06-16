@@ -6,6 +6,7 @@ import java.util.List;
 import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.LayoutManager;
 import org.eclipse.draw2d.geometry.Dimension;
+import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.gef.DragTracker;
 import org.eclipse.gef.EditPart;
 import org.eclipse.gef.Request;
@@ -149,5 +150,7 @@ public class MindEditPart extends AbstractMindEditPart {
 			Object constraint) {
 		return false;
 	}
+
+	public void handleNotificationEvent(Notification notification) {}
 	
 }

@@ -38,4 +38,10 @@
 			tracker = super.getDragTracker(request);
 		return tracker;
 	}
+	
+	@Override
+	protected void handleNotificationEvent(org.eclipse.emf.common.notify.Notification notification) {
+		super.handleNotificationEvent(notification);
+		getGenericEditPart().handleNotificationEvent(notification);
+	}
 «ENDAROUND»
