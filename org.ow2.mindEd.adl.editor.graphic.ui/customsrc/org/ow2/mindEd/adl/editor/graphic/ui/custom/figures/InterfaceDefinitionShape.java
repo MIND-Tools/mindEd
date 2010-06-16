@@ -3,6 +3,7 @@ package org.ow2.mindEd.adl.editor.graphic.ui.custom.figures;
 import org.eclipse.draw2d.Graphics;
 import org.eclipse.draw2d.Shape;
 import org.eclipse.draw2d.geometry.Rectangle;
+import org.eclipse.swt.graphics.Color;
 import org.ow2.mindEd.adl.editor.graphic.ui.custom.figures.IFractalShape;
 import org.ow2.mindEd.adl.editor.graphic.ui.custom.figures.InterfaceDefinitionShape;
 
@@ -30,13 +31,11 @@ public class InterfaceDefinitionShape extends Shape implements IFractalShape{
 	
 	@Override
 	protected void fillShape(Graphics graphics) {
-		updateBackground();
 		if(this.role == Role.REQUIRES){
 			fillClientShape(graphics);
 		}else{
 			fillServerShape(graphics);
 		}
-
 	}
 
 	protected void fillClientShape(Graphics graphics){
@@ -92,6 +91,7 @@ public class InterfaceDefinitionShape extends Shape implements IFractalShape{
 		myCachedPath[index * 2] = x;
 		myCachedPath[index * 2 + 1] = y;
 	}
+	
 	private void updateBackground(){
 		if(editable == true){
 			if(role == Role.REQUIRES){
@@ -102,6 +102,10 @@ public class InterfaceDefinitionShape extends Shape implements IFractalShape{
 		}else{
 			setBackgroundColor(GRAY);
 		}
+	}
+	
+	public void setBackgroundColor(Color bg) {
+		super.setBackgroundColor(bg);
 	}
 	
 	public void setEditable(boolean editable){

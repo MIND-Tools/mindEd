@@ -117,4 +117,10 @@ public class InterfaceDefinitionCustomEditPart extends
 	
 	
 	
+	@Override
+	protected void refreshBackgroundColor() {
+		// Color must not be overriden
+	}
+	
+	
 }
