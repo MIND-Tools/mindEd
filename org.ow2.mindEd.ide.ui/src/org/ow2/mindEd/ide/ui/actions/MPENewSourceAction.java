@@ -20,5 +20,7 @@ public final class MPENewSourceAction extends MPEAction {
 	}
 
 	@Override
-	public void run() {MindMPETreeViewer.createOrEditSourceFolder(_shell, _p, null, _model);}
+	public void run() {
+		MindMPETreeViewer.createOrEditSourceFolder(_shell, _p, null, _model);
+	}
 }

@@ -21,6 +21,7 @@ public class MPEActionGroup extends ActionGroup {
 	private IAction _newProjectAction;
 	private IAction _newApplicationAction;
 	private IAction _newSourceEntryAction;
+	private IAction _newLibraryEntryAction;
 	private MPEDeleteAction _delete;
 	
 	public MPEActionGroup(Shell shell, MindProject p, MpeMindPathModel model) {
@@ -35,11 +36,13 @@ public class MPEActionGroup extends ActionGroup {
 		_newPackageAction = new MPENewImportPackageAction(_shell,_p,_model);
 		_newProjectAction = new MPENewReferenceProject(_shell,_p,_model);
 		_newSourceEntryAction =  new MPENewSourceAction(_shell,_p,_model);
+		_newLibraryEntryAction = new MPENewLibrary(_shell, _p, _model);
 		
 		menu.add(_newSourceEntryAction);
 		menu.add(_newPackageAction);
 		menu.add(_newProjectAction);
 		menu.add(_newApplicationAction);
+		menu.add(_newLibraryEntryAction);
 		
 		MindPathEntry mpe = getSelection((IStructuredSelection) getContext().getSelection());
 		if (mpe != null) {
