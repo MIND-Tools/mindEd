@@ -225,7 +225,7 @@ public class MindMPETreeViewer implements ExtendedModel, MpeMindPathModel {
 	}
 	
 	
-	public static void createOrEditProjectRefence(Shell shell, MindProject project, MindPathEntry mpe, MpeMindPathModel model) {
+	public static void createOrEditProjectReference(Shell shell, MindProject project, MindPathEntry mpe, MpeMindPathModel model) {
 		ElementListSelectionDialog dialog = new ElementListSelectionDialog(shell, new MindMPELabelProvider());
 		dialog.setIgnoreCase(false);
 		dialog.setAllowDuplicates(false);
@@ -299,7 +299,7 @@ public class MindMPETreeViewer implements ExtendedModel, MpeMindPathModel {
 			MindPathEntry mpe = (MindPathEntry) obj;
 			switch (mpe.getEntryKind()) {
 			case PROJECT:
-				createOrEditProjectRefence(getShell(), _project, mpe, this);
+				createOrEditProjectReference(getShell(), _project, mpe, this);
 				break;
 			case IMPORT_PACKAGE:
 				createOrEditImportPackage(getShell(), _project, mpe, this);

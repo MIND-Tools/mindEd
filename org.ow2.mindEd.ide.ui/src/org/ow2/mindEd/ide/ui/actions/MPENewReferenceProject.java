@@ -21,6 +21,6 @@ public final class MPENewReferenceProject extends MPEAction {
 
 	@Override
 	public void run() {
-		MindMPETreeViewer.createOrEditProjectRefence(_shell, _p, null, _model);
+		MindMPETreeViewer.createOrEditProjectReference(_shell, _p, null, _model);
 	}
 }
