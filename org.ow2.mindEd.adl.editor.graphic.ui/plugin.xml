@@ -1049,6 +1049,16 @@
             <message><![CDATA[Interface must have a name]]></message>
             <target class="adl.InterfaceDefinition"/>
          </constraint>
+                  <constraint id="subcomp_same_name"
+            lang="Java" class="org.ow2.mindEd.adl.editor.graphic.ui.providers.MindValidationProvider$Adapter4"
+            name="Duplicate name for subcomponents"
+            mode="Live"
+            severity="ERROR" statusCode="200">
+            
+            <description><![CDATA[Duplicate name for subcomponents]]></description>
+            <message><![CDATA[Duplicate name]]></message>
+            <target class="adl.SubComponentDefinition"/>
+         </constraint>
                   </constraints>
          <constraints categories="mindaudits/Code">
                   <constraint id="inline_pattern"
@@ -1133,6 +1143,7 @@ and
                   <constraint ref="org.ow2.mindEd.adl.editor.graphic.ui.reference_namecheck"/>
                   <constraint ref="org.ow2.mindEd.adl.editor.graphic.ui.component_namecheck"/>
                   <constraint ref="org.ow2.mindEd.adl.editor.graphic.ui.interface_name_check"/>
+                  <constraint ref="org.ow2.mindEd.adl.editor.graphic.ui.subcomp_same_name"/>
                   <constraint ref="org.ow2.mindEd.adl.editor.graphic.ui.inline_pattern"/>
                   <constraint ref="org.ow2.mindEd.adl.editor.graphic.ui.data_content"/>
                   <constraint ref="org.ow2.mindEd.adl.editor.graphic.ui.source_not_empty"/>

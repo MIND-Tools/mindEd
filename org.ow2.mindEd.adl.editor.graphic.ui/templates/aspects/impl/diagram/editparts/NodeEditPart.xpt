@@ -13,6 +13,7 @@
 «AROUND createDefaultEditPoliciesBody FOR gmfgen::GenNode-»
 	«targetDef.proceed()»
 	getGenericEditPart().createDefaultEditPolicies();
+	removeEditPolicy(org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles.CONNECTION_HANDLES_ROLE);
 «ENDAROUND»
 
 

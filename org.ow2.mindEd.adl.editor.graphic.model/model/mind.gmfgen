@@ -23,25 +23,25 @@
         name="Names"
         description="Names"
         path="//@audits/@categories.0 //@audits/@categories.2"
-        audits="//@audits/@rules.1 //@audits/@rules.2"/>
+        audits="//@audits/@rules.1 //@audits/@rules.2 //@audits/@rules.3"/>
     <categories
         id="Code"
         name="Code"
         description="Code"
         path="//@audits/@categories.0 //@audits/@categories.3"
-        audits="//@audits/@rules.3 //@audits/@rules.4 //@audits/@rules.5 //@audits/@rules.6"/>
+        audits="//@audits/@rules.4 //@audits/@rules.5 //@audits/@rules.6 //@audits/@rules.7"/>
     <categories
         id="Miscellaneous"
         name="Miscellaneous"
         description="Miscellaneous"
         path="//@audits/@categories.0 //@audits/@categories.4"
-        audits="//@audits/@rules.7"/>
+        audits="//@audits/@rules.8"/>
     <categories
         id="body"
         name="Body"
         description="Constraints for Body"
         path="//@audits/@categories.0 //@audits/@categories.5"
-        audits="//@audits/@rules.8"/>
+        audits="//@audits/@rules.9"/>
     <rules
         name="Primitive reference name check"
         description="This will check if a reference's name is correct"
@@ -82,6 +82,21 @@
           contextSelector="//@audits/@clientContexts.0">
         <element
             href="../../org.ow2.mindEd.adl.schema/model/mind.genmodel#//adl/InterfaceDefinition"/>
+      </target>
+    </rules>
+    <rules
+        name="Duplicate name for subcomponents"
+        description="Duplicate name for subcomponents"
+        id="subcomp_same_name"
+        rule="//@expressionProviders/@providers.2/@expressions.4"
+        message="Duplicate name"
+        useInLiveMode="true"
+        category="//@audits/@categories.2">
+      <target
+          xsi:type="gmfgen:GenDomainElementTarget"
+          contextSelector="//@audits/@clientContexts.0">
+        <element
+            href="../../org.ow2.mindEd.adl.schema/model/mind.genmodel#//adl/SubComponentDefinition"/>
       </target>
     </rules>
     <rules
@@ -171,7 +186,7 @@
       </target>
     </rules>
     <clientContexts
-        ruleTargets="//@audits/@rules.0/@target //@audits/@rules.1/@target //@audits/@rules.2/@target //@audits/@rules.3/@target //@audits/@rules.4/@target //@audits/@rules.5/@target //@audits/@rules.6/@target //@audits/@rules.7/@target //@audits/@rules.8/@target"/>
+        ruleTargets="//@audits/@rules.0/@target //@audits/@rules.1/@target //@audits/@rules.2/@target //@audits/@rules.3/@target //@audits/@rules.4/@target //@audits/@rules.5/@target //@audits/@rules.6/@target //@audits/@rules.7/@target //@audits/@rules.8/@target //@audits/@rules.9/@target"/>
   </audits>
   <diagram
       visualID="1000"
@@ -3402,6 +3417,9 @@
       <expressions
           xsi:type="gmfgen:GenConstraint"
           body="return org.ow2.mindEd.adl.editor.graphic.ui.custom.constraints.JavaConstraints.isUndefinedSubComponent(domainElement);"/>
+      <expressions
+          xsi:type="gmfgen:GenConstraint"
+          body="return org.ow2.mindEd.adl.editor.graphic.ui.custom.constraints.JavaConstraints.subCompSameName(context, ctx);"/>
     </providers>
   </expressionProviders>
   <labelParsers

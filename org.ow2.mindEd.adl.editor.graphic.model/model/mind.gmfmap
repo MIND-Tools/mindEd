@@ -1511,6 +1511,21 @@
               href="../../org.ow2.mindEd.adl.schema/model/mind.ecore#//InterfaceDefinition"/>
         </target>
       </audits>
+      <audits
+          name="Duplicate name for subcomponents"
+          description="Duplicate name for subcomponents"
+          id="subcomp_same_name"
+          useInLiveMode="true"
+          message="Duplicate name">
+        <rule
+            body="return org.ow2.mindEd.adl.editor.graphic.ui.custom.constraints.JavaConstraints.subCompSameName(context, ctx);"
+            language="java"/>
+        <target
+            xsi:type="gmfmap:DomainElementTarget">
+          <element
+              href="../../org.ow2.mindEd.adl.schema/model/mind.ecore#//SubComponentDefinition"/>
+        </target>
+      </audits>
     </childContainers>
     <childContainers
         id="Code"
