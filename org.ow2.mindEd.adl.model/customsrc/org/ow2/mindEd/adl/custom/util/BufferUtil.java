@@ -325,7 +325,7 @@ public class BufferUtil extends AbstractMergeTreatment {
 		}
 
 		for (EReference reference : sourceObject.eClass().getEAllContainments()) {
-			if(sourceObject.eGet(reference) == null)
+			if(sourceObject.eGet(reference) == null  && sourceObject.eIsSet(reference))
 			{
 				targetObject.eSet(reference, null);
 			}

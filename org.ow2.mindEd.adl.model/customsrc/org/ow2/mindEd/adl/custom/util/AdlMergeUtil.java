@@ -5,13 +5,11 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map.Entry;
 
-import org.eclipse.core.resources.IFile;
 import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.TreeIterator;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.ui.IEditorInput;
-import org.eclipse.ui.part.FileEditorInput;
 
 import org.ow2.mindEd.adl.AdlPackage;
 import org.ow2.mindEd.adl.ArchitectureDefinition;
@@ -468,8 +466,20 @@ public class AdlMergeUtil extends AbstractMergeTreatment {
 		if(objectToMerge.getBody()!=null)
 		{
 			if(mergedObject.getBody()==null)
-			{
-				mergedObject.setBody((Body) adlFactory.create(objectToMerge.getBody().eClass()));
+			{ 
+				if (objectToMerge.getBody().eClass().getClassifierID() == AdlPackage.COMPOSITE_BODY)
+					mergedObject.setBody((Body) adlFactory.createSubComponentCompositeBody());
+				else if (objectToMerge.getBody().eClass().getClassifierID() == AdlPackage.PRIMITIVE_BODY)
+					mergedObject.setBody((Body) adlFactory.createSubComponentPrimitiveBody());
+				else if (objectToMerge.getBody().eClass().getClassifierID() == AdlPackage.TYPE_BODY &&
+					mergedObject.eClass().getClassifierID() == AdlPackage.COMPOSITE_COMPONENT_DEFINITION)
+					mergedObject.setBody((Body) adlFactory.createCompositeBody());
+				else if (objectToMerge.getBody().eClass().getClassifierID() == AdlPackage.TYPE_BODY &&
+						mergedObject.eClass().getClassifierID() == AdlPackage.PRIMITIVE_COMPONENT_DEFINITION)
+					mergedObject.setBody((Body) adlFactory.createPrimitiveBody());
+				else
+					mergedObject.setBody((Body) adlFactory.create(objectToMerge.getBody().eClass()));
+
 				mergedObject.getBody().setMerged(true);
 			}
 			checkReference(objectToMerge.getBody(), mergedObject.getBody(), currentReferenceTreatment);

@@ -161,7 +161,8 @@ public abstract class AbstractMergeTreatment extends
 			if (sourceObject.eClass() == targetObject.eClass()) {
 				for (EAttribute attribute : sourceObject.eClass()
 						.getEAllAttributes()) {
-					targetObject.eSet(attribute, sourceObject.eGet(attribute));
+					if (sourceObject.eIsSet(attribute) == true) 
+						targetObject.eSet(attribute, sourceObject.eGet(attribute));
 				}
 			}
 			setReferenceToResolve(sourceObject,targetObject);
