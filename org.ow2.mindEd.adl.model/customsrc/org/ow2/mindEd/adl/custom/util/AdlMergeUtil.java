@@ -503,6 +503,8 @@ public class AdlMergeUtil extends AbstractMergeTreatment {
 	 * @author proustr
 	 */
 	private void checkReference(Body sourceBody, Body targetBody, ComponentReference currentReferenceTreatment) {
+		if (!canMergeBody(sourceBody, targetBody))
+			return;
 		for(Element element : sourceBody.getElements())
 		{
 			if(element instanceof MergedObject)
@@ -748,6 +750,51 @@ public class AdlMergeUtil extends AbstractMergeTreatment {
 			return true;
 		else return false;
 	}
+
+	/**
+	 * <b>Method</b> <i>canMergeBody</i>
+	 * <p>
+	 * Check by type if two body can be merged. returns true in those cases : <br>
+	 * - merged component is a template_sub_component <br>
+	 * - component to merge is a composite definition and : <br>
+	 * &nbsp;&nbsp;*mergedcomponent is a composite component <br>
+	 * &nbsp;&nbsp;*mergedcomponent is a composite sub component <br>
+	 * &nbsp;&nbsp;*mergedcomponent is a composite anonymous sub component <br>
+	 * - component to merge is a primitive definition and : <br>
+	 * &nbsp;&nbsp;*mergedcomponent is a primitive component <br>
+	 * &nbsp;&nbsp;*mergedcomponent is a primitive sub component <br>
+	 * &nbsp;&nbsp;*mergedcomponent is a primitive anonymous sub component <br>
+	 * - component to merge is a type component.
+	 * 
+	 * @param mergedComponent
+	 *            : Component that will be merge
+	 * @param componentToMerge
+	 *            : Component receiving merge
+	 * @return True if merge possible, false otherwise.
+	 * 
+	 * @author proustr
+	 */
+	protected boolean canMergeBody(Body sourceBody, Body targetBody) {
+		if(sourceBody==null || targetBody == null)
+			return true;
+		int SourceType = sourceBody.eClass().getClassifierID();
+		int TargetType = targetBody.eClass().getClassifierID();
+		if (SourceType == TargetType) return true;
+		switch (SourceType) {
+		case AdlPackage.COMPOSITE_BODY:
+			if (TargetType == AdlPackage.COMPOSITE_BODY ||
+					TargetType == AdlPackage.SUB_COMPONENT_COMPOSITE_BODY)
+				return true;
+			break;
+		case AdlPackage.PRIMITIVE_BODY:
+			if (TargetType == AdlPackage.PRIMITIVE_BODY ||
+					TargetType == AdlPackage.SUB_COMPONENT_PRIMITIVE_BODY)
+				return true;
+			break;
+		case AdlPackage.COMPONENT_TYPE_DEFINITION:
+			return true;
+		}
+		return false;}
 
 	/**
 	 * <b>Method</b> <i>findComponentType</i>
