@@ -48,7 +48,6 @@ public class FractalUiModule extends org.ow2.mindEd.adl.textual.ui.AbstractFract
 	public Class<? extends IHyperlinkHelper> bindIHyperlinkHelper() {
         return FractalHyperlink.class;
     }
-
 	
 	/**
 	 * 

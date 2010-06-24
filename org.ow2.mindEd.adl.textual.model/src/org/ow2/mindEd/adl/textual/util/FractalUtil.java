@@ -5,6 +5,8 @@ import java.util.Collection;
 import java.util.HashSet;
 import java.util.List;
 
+import org.eclipse.emf.common.util.BasicEList;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 import org.ow2.mindEd.adl.AdlDefinition;
@@ -296,5 +298,23 @@ public class FractalUtil {
 		// --
 		
 		return architectureDefinition;
+	}
+	
+	
+	/**
+	 *  
+	 * Convert eList of ImportDefinition to eList<String>, containing import names. 
+	 * 
+	 * @param imports
+	 * @return the same imports in a String list
+	 */
+	public static EList<String> transformImports(EList<ImportDefinition> imports){
+    	EList<String> importsString = new BasicEList<String>();
+        
+        for (ImportDefinition id : imports){
+        	importsString.add(id.getImportName());
+        }
+        
+		return importsString;
 	}
 }

@@ -330,7 +330,7 @@ public class ModelToProjectUtil {
 	}
 	
 	@Deprecated
-	private MindItf getMindItf(String itfName, EList<String> imports) {
+	public MindItf getMindItf(String itfName, EList<String> imports) {
 		// This is the current project
 		MindProject project = getMindProject();
 		if (project == null) {

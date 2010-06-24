@@ -20,6 +20,7 @@ import org.ow2.mindEd.adl.InterfaceDefinition;
 import org.ow2.mindEd.adl.TemplateSpecifier;
 import org.ow2.mindEd.adl.textual.validation.FractalJavaValidator;
 import org.ow2.mindEd.ide.core.MindcErrorCodes;
+import org.ow2.mindEd.ide.core.ModelToProjectUtil;
 
 public class FractalQuickfixProvider extends DefaultQuickfixProvider {
 
@@ -143,8 +144,7 @@ public class FractalQuickfixProvider extends DefaultQuickfixProvider {
 				});
 	}	
 	
-//TODO complete when ModelToProjectUtil facilities will be available
-/*
+
 	@Fix(FractalJavaValidator.UNKNOWN_INTERFACE)
 	public void createInterface(final Issue issue,
 			IssueResolutionAcceptor acceptor) {
@@ -157,12 +157,12 @@ public class FractalQuickfixProvider extends DefaultQuickfixProvider {
 					public void apply(IModificationContext context)
 							throws Exception {
 
-						// ModelToProjectUtil.INSTANCE.
+						//ModelToProjectUtil.INSTANCE.getCurrentPackage().
 
 					}
 				});
 	}
-*/
+
 	
 	
 	@Fix(MindcErrorCodes.CODE_KEY_ADL_3)
