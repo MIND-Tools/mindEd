@@ -39,7 +39,7 @@ public class SaveUtil {
 		if (mep	instanceof MindComponentEditPart)
 		{
 			EObject model = ((View)rootEditPart.getModel()).getElement();
-			boundsMemory.put(((MindObject)model).getID(), ((GraphicalEditPart)rootEditPart).getFigure().getBounds());
+			boundsMemory.put(((MindObject)model).getID(), ((GraphicalEditPart)rootEditPart).getFigure().getBounds().getCopy());
 		}
 		else if (mep instanceof MindInterfaceEditPart)
 		{
