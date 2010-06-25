@@ -11,7 +11,7 @@
 	«EXPAND xpt::Common::generatedMemberComment»
 	@Override
 	protected void refreshBounds() {
-		if (!getGenericEditPart().refreshBounds())
+		if (!getGenericEditPart().refreshBounds() && getParent() != null)
 			super.refreshBounds();
 	}
 	
