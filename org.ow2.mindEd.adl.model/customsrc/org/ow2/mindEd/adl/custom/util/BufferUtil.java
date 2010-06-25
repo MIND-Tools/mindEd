@@ -325,9 +325,12 @@ public class BufferUtil extends AbstractMergeTreatment {
 		}
 
 		for (EReference reference : sourceObject.eClass().getEAllContainments()) {
-			if(sourceObject.eGet(reference) == null  && sourceObject.eIsSet(reference))
+			if(sourceObject.eGet(reference) == null )
 			{
-				targetObject.eSet(reference, null);
+				if (reference.isUnsettable())
+					targetObject.eUnset(reference);
+				else
+					targetObject.eSet(reference, null);
 			}
 			else if (targetObject.eGet(reference) == null || !targetObject.eIsSet(reference) || !isSameEClass(sourceObject.eGet(reference),targetObject.eGet(reference))) {
 				if (sourceObject.eIsSet(reference)) {

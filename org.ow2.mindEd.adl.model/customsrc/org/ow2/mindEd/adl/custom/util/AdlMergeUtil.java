@@ -791,7 +791,7 @@ public class AdlMergeUtil extends AbstractMergeTreatment {
 					TargetType == AdlPackage.SUB_COMPONENT_PRIMITIVE_BODY)
 				return true;
 			break;
-		case AdlPackage.COMPONENT_TYPE_DEFINITION:
+		case AdlPackage.TYPE_BODY:
 			return true;
 		}
 		return false;}
