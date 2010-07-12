@@ -1,26 +1,17 @@
 package org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.policies;
 
-import java.util.ArrayList;
-import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
 
-import org.eclipse.core.runtime.IAdaptable;
-import org.eclipse.core.runtime.IStatus;
 import org.eclipse.draw2d.IFigure;
-import org.eclipse.emf.ecore.EObject;
 import org.eclipse.gef.commands.Command;
 import org.eclipse.gef.commands.CompoundCommand;
-import org.eclipse.gmf.runtime.common.core.util.Log;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.AbstractBorderedShapeEditPart;
-import org.eclipse.gmf.runtime.diagram.ui.internal.DiagramUIPlugin;
 import org.eclipse.gmf.runtime.diagram.ui.l10n.DiagramUIMessages;
 import org.eclipse.gmf.runtime.notation.View;
-import org.eclipse.osgi.util.NLS;
 import org.ow2.mindEd.adl.Body;
 import org.ow2.mindEd.adl.editor.graphic.ui.edit.policies.CompositeComponentDefinitionCanonicalEditPolicy;
 
-@SuppressWarnings("restriction")
 public class CompositeComponentDefinitionCustomCanonicalEditPolicy extends
 		CompositeComponentDefinitionCanonicalEditPolicy {
 	

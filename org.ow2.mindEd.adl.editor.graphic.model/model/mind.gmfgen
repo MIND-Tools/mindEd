@@ -2737,10 +2737,10 @@
     </compartments>
     <compartments
         visualID="7095"
-        editPartClassName="TypeBodyCompartmentEditPart"
-        itemSemanticEditPolicyClassName="TypeBodyCompartmentItemSemanticEditPolicy"
+        editPartClassName="UndefinedBodyCompartmentEditPart"
+        itemSemanticEditPolicyClassName="UndefinedBodyCompartmentItemSemanticEditPolicy"
         notationViewFactoryClassName="TypeBodyBodyCompartmentViewFactory"
-        canonicalEditPolicyClassName="TypeBodyCompartmentCanonicalEditPolicy"
+        canonicalEditPolicyClassName="UndefinedBodyCompartmentCanonicalEditPolicy"
         title="BodyCompartment"
         needsTitle="false"
         node="//@diagram/@childNodes.33"
@@ -2882,13 +2882,14 @@
     </compartments>
     <compartments
         visualID="7105"
-        editPartClassName="UndefinedBodyCompartmentEditPart"
-        itemSemanticEditPolicyClassName="UndefinedBodyCompartmentItemSemanticEditPolicy"
+        editPartClassName="TypeBodyCompartmentEditPart"
+        itemSemanticEditPolicyClassName="TypeBodyCompartmentItemSemanticEditPolicy"
         notationViewFactoryClassName="TypeBodyBodyCompartmentViewFactory"
-        canonicalEditPolicyClassName="UndefinedBodyCompartmentCanonicalEditPolicy"
+        canonicalEditPolicyClassName="TypeBodyCompartmentCanonicalEditPolicy"
         title="BodyCompartment"
         needsTitle="false"
-        node="//@diagram/@childNodes.42">
+        node="//@diagram/@childNodes.42"
+        listLayout="false">
       <diagramRunTimeClass
           href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <viewmap

@@ -69,7 +69,7 @@ public class MindCustomDocumentProvider extends MindDocumentProvider {
 	protected void doSaveDocument(IProgressMonitor monitor, Object element,
 			IDocument document, boolean overwrite) throws CoreException {
 		
-		try {			
+		try {
 			// Automatic validation with result
 			IWorkbenchPage page = PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage();
 			CustomValidateAction action = new CustomValidateAction(page, (IEditorInput) element);

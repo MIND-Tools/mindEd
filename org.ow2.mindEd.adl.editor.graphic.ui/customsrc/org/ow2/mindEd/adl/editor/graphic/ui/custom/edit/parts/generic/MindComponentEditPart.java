@@ -116,8 +116,8 @@ public class MindComponentEditPart extends MindEditPart {
 	public IFigure getCompartmentFigure() {
 		try {
 			
-			Method meth = realEditPart.getClass().getMethod("getPrimaryShape", null);
-			AbstractComponentShape result = (AbstractComponentShape) meth.invoke(realEditPart, null);
+			Method meth = realEditPart.getClass().getMethod("getPrimaryShape", (Class<?>[]) null);
+			AbstractComponentShape result = (AbstractComponentShape) meth.invoke(realEditPart, (Object[]) null);
 			return result.getCompartment();
 			
 		} catch (SecurityException e) {
