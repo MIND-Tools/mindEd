@@ -1,5 +1,6 @@
 package org.ow2.mindEd.adl.textual.ui.quickfix;
 
+import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.xtext.parsetree.AbstractNode;
@@ -13,14 +14,20 @@ import org.eclipse.xtext.ui.editor.quickfix.DefaultQuickfixProvider;
 import org.eclipse.xtext.ui.editor.quickfix.Fix;
 import org.eclipse.xtext.ui.editor.quickfix.IssueResolutionAcceptor;
 import org.eclipse.xtext.validation.Issue;
+import org.ow2.mindEd.adl.ArchitectureDefinition;
 import org.ow2.mindEd.adl.ComponentReference;
 import org.ow2.mindEd.adl.FormalArgument;
 import org.ow2.mindEd.adl.ImportDefinition;
 import org.ow2.mindEd.adl.InterfaceDefinition;
 import org.ow2.mindEd.adl.TemplateSpecifier;
+import org.ow2.mindEd.adl.impl.AdlDefinitionImpl;
+import org.ow2.mindEd.adl.impl.InterfaceDefinitionImpl;
+import org.ow2.mindEd.adl.textual.util.FractalUtil;
 import org.ow2.mindEd.adl.textual.validation.FractalJavaValidator;
+import org.ow2.mindEd.ide.core.MindIdeCore;
 import org.ow2.mindEd.ide.core.MindcErrorCodes;
 import org.ow2.mindEd.ide.core.ModelToProjectUtil;
+import org.ow2.mindEd.ide.model.MindPackage;
 
 public class FractalQuickfixProvider extends DefaultQuickfixProvider {
 
@@ -148,17 +155,33 @@ public class FractalQuickfixProvider extends DefaultQuickfixProvider {
 	@Fix(FractalJavaValidator.UNKNOWN_INTERFACE)
 	public void createInterface(final Issue issue,
 			IssueResolutionAcceptor acceptor) {
-		acceptor.accept(issue, "Create interface " + issue.getData()[0],
-				"Create a new interface definition file " + issue.getData()[0]
-						+ " in package " + issue.getData()[1] + ".", null,
-				new IModification() {
-
+		acceptor.accept(issue, 
+				"Create interface " + issue.getData()[0],
+				"Create a new interface definition file " 
+					+ issue.getData()[0]
+					+ " in package " 
+					+ issue.getData()[1] 
+					+ ".",
+				null,
+				new ISemanticModification() {
 					@Override
-					public void apply(IModificationContext context)
-							throws Exception {
+					public void apply(EObject element,
+							IModificationContext context) throws Exception {
 
-						//ModelToProjectUtil.INSTANCE.getCurrentPackage().
-
+						if (element instanceof InterfaceDefinition){
+							
+							InterfaceDefinition itf = (InterfaceDefinitionImpl) element;
+							AdlDefinitionImpl adlDefinition = (AdlDefinitionImpl) FractalUtil.getArchitecureDefinitionFromChild(itf).eContainer();
+							
+							URI uri = adlDefinition.eDirectResource().getURI();
+							MindPackage pack = ModelToProjectUtil.INSTANCE.getCurrentPackage(uri);
+							
+							MindIdeCore.createITFTemplate(
+									pack,
+									itf.getSignature(),
+									itf.getSignature(),
+									null);
+						}
 					}
 				});
 	}
