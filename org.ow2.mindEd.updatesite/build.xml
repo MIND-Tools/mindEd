@@ -33,7 +33,7 @@
           target: create              
          ================================= -->
 	<target name="create-zip" depends="" description="create update site">
-		<property name="version" value="0.2" />
+		<property name="version" value="0.2.1" />
 		<zip destfile="mindEd-${version}.zip">
 			<fileset  dir="${basedir}">
 				<include name="features/" />
