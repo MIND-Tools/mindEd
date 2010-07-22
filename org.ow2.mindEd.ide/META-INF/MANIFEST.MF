@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Mind IDE MODEL
 Bundle-SymbolicName: org.ow2.mindEd.ide;singleton:=true
-Bundle-Version: 0.2.0.qualifier
+Bundle-Version: 0.2.1.qualifier
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Import-Package: org.eclipse.cdt.core,
  org.eclipse.cdt.core.envvar,
@@ -50,11 +50,11 @@ Import-Package: org.eclipse.cdt.core,
  org.osgi.service.prefs,
  org.ow2.mindEd.ide.model;version="0.2.0",
  org.ow2.mindEd.ide.model.impl;version="0.2.0"
-Export-Package: org.ow2.mindEd.ide.core;version="0.2.0",
- org.ow2.mindEd.ide.core.impl;version="0.2.0",
- org.ow2.mindEd.ide.core.preferences;version="0.2.0",
- org.ow2.mindEd.ide.core.property;version="0.2.0",
- org.ow2.mindEd.ide.core.template;version="0.2.0"
+Export-Package: org.ow2.mindEd.ide.core;version="0.2.1",
+ org.ow2.mindEd.ide.core.impl;version="0.2.1",
+ org.ow2.mindEd.ide.core.preferences;version="0.2.1",
+ org.ow2.mindEd.ide.core.property;version="0.2.1",
+ org.ow2.mindEd.ide.core.template;version="0.2.1"
 Bundle-ActivationPolicy: lazy
 Bundle-Activator: org.ow2.mindEd.ide.core.MindActivator
 Bundle-Vendor: Partenaire Minalogic

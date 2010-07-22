@@ -2,15 +2,15 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Mind Multipage Editor
 Bundle-SymbolicName: org.ow2.mindEd.adl.editor.textual.ui;singleton:=true
-Bundle-Version: 0.2.0.qualifier
+Bundle-Version: 0.2.1.qualifier
 Bundle-Activator: org.ow2.fractal.mind.xtext.ui.editor.Activator
 Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime,
- org.ow2.mindEd.adl.textual.ui;bundle-version="0.2.0",
- org.ow2.mindEd.adl.model;bundle-version="0.2.0",
- org.ow2.mindEd.adl.edit;bundle-version="0.2.0",
+ org.ow2.mindEd.adl.textual.ui;bundle-version="0.2.1",
+ org.ow2.mindEd.adl.model;bundle-version="0.2.1",
+ org.ow2.mindEd.adl.edit;bundle-version="0.2.1",
  org.eclipse.ui.editors;bundle-version="3.4.0",
- org.ow2.mindEd.adl.schema.diagram;bundle-version="0.2.0";resolution:=optional
+ org.ow2.mindEd.adl.schema.diagram;bundle-version="0.2.1";resolution:=optional
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: J2SE-1.5
 Import-Package: com.google.inject,

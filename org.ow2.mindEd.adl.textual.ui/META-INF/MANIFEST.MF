@@ -2,20 +2,20 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: org.ow2.mindEd.adl.textual.ui
 Bundle-Vendor: Partenaire Minalogic
-Bundle-Version: 0.2.0.qualifier
+Bundle-Version: 0.2.1.qualifier
 Bundle-SymbolicName: org.ow2.mindEd.adl.textual.ui; singleton:=true
 Eclipse-RegisterBuddy: org.eclipse.xtext.log4j
 Bundle-ActivationPolicy: lazy
-Require-Bundle: org.ow2.mindEd.adl.textual.model;visibility:=reexport,
+Require-Bundle: org.ow2.mindEd.adl.textual.model;bundle-version="0.2.1";visibility:=reexport,
  org.eclipse.xtend,
- org.ow2.mindEd.adl.model,
+ org.ow2.mindEd.adl.model;bundle-version="0.2.1",
  org.eclipse.ui.editors,
  org.eclipse.ui,
  org.antlr.runtime,
  org.eclipse.xtext.ui,
  org.eclipse.xtext.ui.shared,
  org.eclipse.xtext.builder,
- org.ow2.mindEd.ide.ui;bundle-version="0.2.0"
+ org.ow2.mindEd.ide.ui;bundle-version="0.2.1"
 Bundle-RequiredExecutionEnvironment: J2SE-1.5
 Export-Package: org.ow2.mindEd.adl.textual.ui,
  org.ow2.mindEd.adl.textual.ui.contentassist.antlr,

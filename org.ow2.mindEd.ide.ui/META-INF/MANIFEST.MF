@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: org.ow2.mindEd.ide.ui
 Bundle-SymbolicName: org.ow2.mindEd.ide.ui;singleton:=true
-Bundle-Version: 0.2.0.qualifier
+Bundle-Version: 0.2.1.qualifier
 Bundle-Activator: org.ow2.mindEd.ide.ui.Activator
 Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime,
@@ -15,7 +15,7 @@ Require-Bundle: org.eclipse.ui,
  org.eclipse.cdt.managedbuilder.gnu.ui;bundle-version="5.0.100",
  org.eclipse.cdt.managedbuilder.ui;bundle-version="5.1.0",
  org.eclipse.help,
- org.ow2.mindEd.ide.edit,
+ org.ow2.mindEd.ide.edit;bundle-version="0.2.1",
  org.eclipse.ui.navigator,
  org.eclipse.ui.navigator.resources
 Bundle-ActivationPolicy: lazy
