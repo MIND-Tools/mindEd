@@ -1,4 +1,4 @@
-package org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.parts.generic;
+package org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.parts.proxy;
 
 import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.LayoutManager;
@@ -15,32 +15,32 @@ import org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure;
 import org.ow2.mindEd.adl.editor.graphic.ui.edit.policies.MindBaseItemSemanticEditPolicy;
 import org.ow2.mindEd.adl.editor.graphic.ui.part.MindDiagramEditorPlugin;
 
-public abstract class AbstractMindEditPart implements MindTypes {
+public abstract class AbstractMindProxy implements IMindTypes {
 	
 	public static String EDIT_POLICY_PACKAGE = "org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.policies.";
 	
 	protected int creationMode = CREATION_MODE_NORMAL;
 	protected boolean isMerged = false;
 	
-	protected GraphicalEditPart realEditPart;
+	protected GraphicalEditPart editPart;
 	protected int visualID;
 	public int mindType = TYPE_UNDEFINED;
 	
 	
 	public static int getMindType(int visualID) {
-		return MindGenericEditPartFactory.getMindType(visualID);
+		return MindProxyFactory.getMindType(visualID);
 	}
 	
 	
 	public static int getMindType(EditPart editPart) {
-		MindEditPart mindEP = getMindEditPartFor(editPart);
+		MindProxy mindEP = getMindProxyFor(editPart);
 		if (mindEP == null) return TYPE_UNDEFINED;
 		return mindEP.mindType;
 	}
 	
 	
-	public static MindEditPart getMindEditPartFor(EditPart editPart) {
-		return MindGenericEditPartFactory.INSTANCE.getMindEditPartFor(editPart);
+	public static MindProxy getMindProxyFor(EditPart editPart) {
+		return MindProxyFactory.INSTANCE.getMindProxyFor(editPart);
 	}
 	
 	
@@ -49,8 +49,8 @@ public abstract class AbstractMindEditPart implements MindTypes {
 	}
 	
 	
-	public GraphicalEditPart getRealEditPart() {
-		return realEditPart;
+	public GraphicalEditPart getEditPart() {
+		return editPart;
 	}
 	
 	
@@ -62,11 +62,11 @@ public abstract class AbstractMindEditPart implements MindTypes {
 	public void createDefaultEditPolicies() {
 		
 		if (getCustomItemSemanticEditPolicy() != null)
-			realEditPart.installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE,
+			editPart.installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE,
 					getCustomItemSemanticEditPolicy());
 		
 		if (getCustomCanonicalEditPolicy() != null)
-			realEditPart.installEditPolicy(EditPolicyRoles.CANONICAL_ROLE,
+			editPart.installEditPolicy(EditPolicyRoles.CANONICAL_ROLE,
 					getCustomCanonicalEditPolicy());
 	}
 	
@@ -77,7 +77,7 @@ public abstract class AbstractMindEditPart implements MindTypes {
 	 */
 	protected CanonicalEditPolicy getCustomCanonicalEditPolicy() {
 		String simpleName = 
-			realEditPart.getClass().getSimpleName().replace("EditPart", "CanonicalEditPolicy");
+			editPart.getClass().getSimpleName().replace("EditPart", "CanonicalEditPolicy");
 		String packageName = EDIT_POLICY_PACKAGE;
 		String editPolicyName = packageName.concat(simpleName);
 		
@@ -100,7 +100,7 @@ public abstract class AbstractMindEditPart implements MindTypes {
 	 */
 	protected MindBaseItemSemanticEditPolicy getCustomItemSemanticEditPolicy() {
 		String simpleName = 
-			realEditPart.getClass().getSimpleName().replace("EditPart", "ItemSemanticEditPolicy");
+			editPart.getClass().getSimpleName().replace("EditPart", "ItemSemanticEditPolicy");
 		String editPolicyName = EDIT_POLICY_PACKAGE.concat(simpleName);
 		
 		EditPolicy policy = getEditPolicyFromName(editPolicyName);

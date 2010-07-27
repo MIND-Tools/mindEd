@@ -20,8 +20,8 @@ import org.eclipse.gmf.runtime.notation.impl.ShapeImpl;
 import org.ow2.mindEd.adl.Body;
 import org.ow2.mindEd.adl.MergedObject;
 
-import org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.parts.generic.MindEditPart;
-import org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.parts.generic.MindGenericEditPartFactory;
+import org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.parts.proxy.MindProxy;
+import org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.parts.proxy.MindProxyFactory;
 import org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.policies.MergedComponentEditPolicy;
 import org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.policies.MergedInterfaceSemanticEditPolicy;
 import org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.policies.MergedItemSemanticEditPolicy;
@@ -105,7 +105,7 @@ public class ComponentHelper implements IFractalShape {
 	 */
 	public static void handleMergedElement(GraphicalEditPart element) {
 		
-		MindEditPart genericEditPart = MindGenericEditPartFactory.INSTANCE.getMindEditPartFor(element);
+		MindProxy genericEditPart = MindProxyFactory.INSTANCE.getMindProxyFor(element);
 		if (genericEditPart != null)
 			genericEditPart.setMerged(true);
 		

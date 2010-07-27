@@ -1,4 +1,4 @@
-package org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.parts.generic;
+package org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.parts.proxy;
 
 import org.eclipse.draw2d.IFigure;
 import org.eclipse.emf.common.notify.Notification;
@@ -11,15 +11,15 @@ import org.ow2.mindEd.adl.AdlPackage;
 import org.ow2.mindEd.adl.ComponentReference;
 import org.ow2.mindEd.adl.editor.graphic.ui.part.MindDiagramEditorPlugin;
 
-public class MindSubReferenceEditPart extends MindReferenceEditPart {
+public class MindSubReferenceProxy extends MindReferenceProxy {
 
 	
 	
-	public MindSubReferenceEditPart(GraphicalEditPart editPart, int vID) {
+	public MindSubReferenceProxy(GraphicalEditPart editPart, int vID) {
 		super(editPart, vID, TYPE_REFERENCE);
 	}
 	
-	public MindSubReferenceEditPart(GraphicalEditPart editPart, int vID, int mindType) {
+	public MindSubReferenceProxy(GraphicalEditPart editPart, int vID, int mindType) {
 		super(editPart, vID, mindType);
 	}
 	
@@ -34,7 +34,7 @@ public class MindSubReferenceEditPart extends MindReferenceEditPart {
 	
 	
 	public ComponentReference resolveSemanticElement() {
-		View view = ((View)realEditPart.getModel());
+		View view = ((View)editPart.getModel());
 		return ((ComponentReference)view.getElement());
 	}
 	
@@ -44,7 +44,7 @@ public class MindSubReferenceEditPart extends MindReferenceEditPart {
 			try {
 				// Refresh the parent body of this reference's component
 				CanonicalEditPolicy ep = 
-					(CanonicalEditPolicy) realEditPart.getParent().getParent()
+					(CanonicalEditPolicy) editPart.getParent().getParent()
 						.getEditPolicy(EditPolicyRoles.CANONICAL_ROLE);
 				ep.refresh();
 			}

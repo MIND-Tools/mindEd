@@ -42,8 +42,8 @@ import org.eclipse.ui.part.FileEditorInput;
 import org.ow2.mindEd.adl.custom.helpers.AdlDefinitionHelper;
 import org.ow2.mindEd.adl.custom.impl.AdlDefinitionCustomImpl;
 import org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.commands.MindDiagramUpdateAllCommand;
-import org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.parts.generic.MindEditPart;
-import org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.parts.generic.MindGenericEditPartFactory;
+import org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.parts.proxy.MindProxy;
+import org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.parts.proxy.MindProxyFactory;
 import org.ow2.mindEd.adl.editor.graphic.ui.custom.part.CustomValidateAction;
 import org.ow2.mindEd.adl.editor.graphic.ui.custom.part.SaveUtil;
 import org.eclipse.xtext.linking.lazy.LazyLinkingResource;
@@ -88,10 +88,10 @@ public class MindCustomDocumentProvider extends MindDocumentProvider {
 			return;
 		}
 		
-		MindEditPart mindRoot = MindGenericEditPartFactory.INSTANCE.getRootEditPart();
+		MindProxy mindRoot = MindProxyFactory.INSTANCE.getRootEditPart();
 		HashMap<String,Rectangle> boundsMemory = new HashMap<String,Rectangle>();
 		if (mindRoot != null) {
-			SaveUtil.saveBounds(mindRoot.getRealEditPart(), boundsMemory);
+			SaveUtil.saveBounds(mindRoot.getEditPart(), boundsMemory);
 		}
 		
 		// Prepare the transaction that will prepare the main definition
@@ -208,7 +208,7 @@ public class MindCustomDocumentProvider extends MindDocumentProvider {
 				// Now that editParts have been recreated by the update,
 				// we are able to restore the saved bounds
 				if (mindRoot != null) {
-					SaveUtil.restoreBounds(mindRoot.getRealEditPart(), boundsMemory);
+					SaveUtil.restoreBounds(mindRoot.getEditPart(), boundsMemory);
 					boundsMemory.clear();
 				}
 				

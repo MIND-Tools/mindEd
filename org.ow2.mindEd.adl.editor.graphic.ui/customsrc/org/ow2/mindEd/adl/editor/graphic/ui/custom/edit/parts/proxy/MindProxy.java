@@ -1,4 +1,4 @@
-package org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.parts.generic;
+package org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.parts.proxy;
 
 import java.util.Iterator;
 import java.util.List;
@@ -17,27 +17,27 @@ import org.eclipse.swt.graphics.Color;
 import org.ow2.mindEd.adl.editor.graphic.ui.custom.figures.IFractalShape;
 import org.ow2.mindEd.adl.editor.graphic.ui.custom.helpers.ComponentHelper;
 
-public class MindEditPart extends AbstractMindEditPart {
+public class MindProxy extends AbstractMindProxy {
 
-	public MindEditPart(GraphicalEditPart editPart, int vID) {
+	public MindProxy(GraphicalEditPart realEditPart, int vID) {
 		if (editPart == null) throw new NullPointerException();
-		realEditPart = editPart;
+		editPart = realEditPart;
 		visualID = vID;
 	}
 	
-	public MindEditPart(GraphicalEditPart editPart, int vID, int type) {
+	public MindProxy(GraphicalEditPart realEditPart, int vID, int type) {
 		if (editPart == null) throw new NullPointerException();
-		realEditPart = editPart;
+		editPart = realEditPart;
 		visualID = vID;
 		mindType = type;
 	}
 	
 	@SuppressWarnings("unchecked")
 	public GraphicalEditPart getCompartment() {
-		List<EditPart> children = realEditPart.getChildren();
+		List<EditPart> children = editPart.getChildren();
 		
 		for (EditPart child : children) {
-			if (getMindEditPartFor(child) instanceof MindCompartmentEditPart)
+			if (getMindProxyFor(child) instanceof MindCompartmentProxy)
 				return (GraphicalEditPart)child;
 		}
 		return null;
@@ -45,9 +45,9 @@ public class MindEditPart extends AbstractMindEditPart {
 	
 	
 	public void activate() {
-		if (ComponentHelper.isMerged(realEditPart)) 
+		if (ComponentHelper.isMerged(editPart)) 
 			// If the component is merged handle custom behaviour
-			ComponentHelper.handleMergedElement(realEditPart);
+			ComponentHelper.handleMergedElement(editPart);
 	}
 	
 	
@@ -80,7 +80,7 @@ public class MindEditPart extends AbstractMindEditPart {
 	}
 	
 	public void refreshParent() {
-		realEditPart.getParent().refresh();
+		editPart.getParent().refresh();
 	}
 	
 	public void refreshAllParents() {
@@ -89,10 +89,10 @@ public class MindEditPart extends AbstractMindEditPart {
 	
 	@SuppressWarnings("unchecked")
 	public void refreshAllChildren() {
-		List<EditPart> children = realEditPart.getChildren();
+		List<EditPart> children = editPart.getChildren();
 		for (EditPart child : children) {
 			child.refresh();
-			getMindEditPartFor(child).refreshAllChildren();
+			getMindProxyFor(child).refreshAllChildren();
 		}
 	}
 	

@@ -5,8 +5,8 @@ import org.eclipse.draw2d.LayoutListener;
 import org.eclipse.gef.EditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.GraphicalEditPart;
 
-import org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.parts.generic.MindGenericEditPartFactory;
-import org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.parts.generic.MindListEditPart;
+import org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.parts.proxy.MindProxyFactory;
+import org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.parts.proxy.MindListProxy;
 import org.ow2.mindEd.adl.editor.graphic.ui.edit.parts.AdlDefinitionEditPart;
 
 public class MindListLayoutListener implements LayoutListener {
@@ -38,7 +38,7 @@ public class MindListLayoutListener implements LayoutListener {
 	
 	public GraphicalEditPart getParentList() {
 		EditPart parentList = owner;
-		while (!(MindGenericEditPartFactory.INSTANCE.getMindEditPartFor(parentList) instanceof MindListEditPart)) {
+		while (!(MindProxyFactory.INSTANCE.getMindProxyFor(parentList) instanceof MindListProxy)) {
 			parentList = parentList.getParent();
 			if (parentList == null || parentList instanceof AdlDefinitionEditPart)
 				return null;

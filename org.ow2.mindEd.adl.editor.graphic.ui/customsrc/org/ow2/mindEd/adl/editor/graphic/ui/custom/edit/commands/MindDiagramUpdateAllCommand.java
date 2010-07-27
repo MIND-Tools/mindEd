@@ -28,8 +28,8 @@ import org.ow2.mindEd.adl.editor.graphic.ui.edit.parts.CompositeComponentDefinit
 import org.ow2.mindEd.adl.editor.graphic.ui.edit.parts.CompositeSubComponentEditPart;
 import org.ow2.mindEd.adl.editor.graphic.ui.part.MindDiagramEditorPlugin;
 import org.ow2.mindEd.adl.editor.graphic.ui.part.MindDiagramUpdateCommand;
-import org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.parts.generic.MindGenericEditPartFactory;
-import org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.parts.generic.MindComponentEditPart;
+import org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.parts.proxy.MindComponentProxy;
+import org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.parts.proxy.MindProxyFactory;
 
 /**
  * Extends generated UpdateCommand to update every elements in the diagram
@@ -139,7 +139,7 @@ public class MindDiagramUpdateAllCommand extends MindDiagramUpdateCommand {
 	 */
 	@SuppressWarnings("unchecked")
 	public void updateAll (EditPart rootEditPart, int rank){
-		if (MindGenericEditPartFactory.INSTANCE.getMindEditPartFor(rootEditPart) instanceof MindComponentEditPart)
+		if (MindProxyFactory.INSTANCE.getMindProxyFor(rootEditPart) instanceof MindComponentProxy)
 			// Increase rank if a component is encountered
 			rank++;
 		if (rank > maxRank) {

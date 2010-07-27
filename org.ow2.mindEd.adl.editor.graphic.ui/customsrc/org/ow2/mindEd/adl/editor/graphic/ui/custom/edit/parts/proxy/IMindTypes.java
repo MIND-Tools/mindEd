@@ -1,6 +1,6 @@
-package org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.parts.generic;
+package org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.parts.proxy;
 
-public interface MindTypes {
+public interface IMindTypes {
 
 	public static final int TYPE_UNDEFINED = 0;
 	public static final int TYPE_COMPONENT = 1;

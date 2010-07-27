@@ -25,9 +25,9 @@ import org.eclipse.gmf.runtime.diagram.ui.requests.RefreshConnectionsRequest;
 import org.eclipse.gmf.runtime.emf.commands.core.command.CompositeTransactionalCommand;
 import org.eclipse.gmf.runtime.emf.type.core.requests.CreateElementRequest;
 import org.eclipse.gmf.runtime.notation.View;
-import org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.parts.generic.MindComponentEditPart;
-import org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.parts.generic.MindGenericEditPartFactory;
-import org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.parts.generic.MindListEditPart;
+import org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.parts.proxy.MindComponentProxy;
+import org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.parts.proxy.MindProxyFactory;
+import org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.parts.proxy.MindListProxy;
 import org.ow2.mindEd.adl.editor.graphic.ui.edit.parts.AdlDefinitionEditPart;
 import org.ow2.mindEd.adl.editor.graphic.ui.part.MindVisualIDRegistry;
 
@@ -160,13 +160,13 @@ public class ParentCreationEditPolicy extends
 							MindVisualIDRegistry.getVisualID(semanticHint))
 					)
 					&& 
-					!(MindGenericEditPartFactory.INSTANCE.getMindEditPartFor(virtualHost)
-							instanceof MindComponentEditPart)
+					!(MindProxyFactory.INSTANCE.getMindProxyFor(virtualHost)
+							instanceof MindComponentProxy)
 					&&
 					!(virtualHost instanceof AdlDefinitionEditPart)
 					&&
-					!(MindGenericEditPartFactory.INSTANCE.getMindEditPartFor(virtualHost)
-							instanceof MindListEditPart)
+					!(MindProxyFactory.INSTANCE.getMindProxyFor(virtualHost)
+							instanceof MindListProxy)
 					) 
 			{
 				virtualHost = virtualHost.getParent();

@@ -1,4 +1,4 @@
-package org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.parts.generic;
+package org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.parts.proxy;
 
 import org.eclipse.gef.DragTracker;
 import org.eclipse.gef.EditPart;
@@ -8,26 +8,26 @@ import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
 import org.ow2.mindEd.adl.editor.graphic.ui.custom.providers.BorderItemDragTracker;
 import org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.policies.OpenDefinitionEditPolicy;
 
-public class MindInterfaceEditPart extends MindEditPart {
+public class MindInterfaceProxy extends MindProxy {
 	
-	public MindInterfaceEditPart(GraphicalEditPart editPart, int vID) {
+	public MindInterfaceProxy(GraphicalEditPart editPart, int vID) {
 		super(editPart,vID, TYPE_INTERFACE);
 	}
 	
-	public MindInterfaceEditPart(GraphicalEditPart editPart, int vID, int mindType) {
+	public MindInterfaceProxy(GraphicalEditPart editPart, int vID, int mindType) {
 		super(editPart, vID, mindType);
 	}
 
 	
 	public void createDefaultEditPolicies() {
 		super.createDefaultEditPolicies();
-		realEditPart.installEditPolicy(EditPolicyRoles.OPEN_ROLE, 
+		editPart.installEditPolicy(EditPolicyRoles.OPEN_ROLE, 
 				new OpenDefinitionEditPolicy());
 	}
 
 	@Override
 	public DragTracker getDragTracker(Request request) {
-		return new BorderItemDragTracker(realEditPart);
+		return new BorderItemDragTracker(editPart);
 	}
 	
 	@Override

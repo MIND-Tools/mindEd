@@ -1,4 +1,4 @@
-package org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.parts.generic;
+package org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.parts.proxy;
 
 import org.eclipse.draw2d.LayoutManager;
 import org.eclipse.gef.DragTracker;
@@ -11,13 +11,13 @@ import org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.policies.CustomXYLayoutE
 import org.ow2.mindEd.adl.editor.graphic.ui.custom.layouts.CustomFreeFormLayoutEx;
 import org.ow2.mindEd.adl.editor.graphic.ui.custom.providers.CustomDragEditPartsTracker;
 
-public class MindBodyCompartmentEditPart extends MindCompartmentEditPart {
+public class MindBodyCompartmentProxy extends MindCompartmentProxy {
 
-	public MindBodyCompartmentEditPart(GraphicalEditPart editPart, int vID) {
+	public MindBodyCompartmentProxy(GraphicalEditPart editPart, int vID) {
 		super(editPart, vID, TYPE_COMPARTMENT_BODY);
 	}
 
-	public MindBodyCompartmentEditPart(GraphicalEditPart editPart, int vID,
+	public MindBodyCompartmentProxy(GraphicalEditPart editPart, int vID,
 			int mindType) {
 		super(editPart, vID, mindType);
 	}
@@ -25,11 +25,11 @@ public class MindBodyCompartmentEditPart extends MindCompartmentEditPart {
 	public void createDefaultEditPolicies() {
 		super.createDefaultEditPolicies();
 		// Customized drag and drop features
-		realEditPart.installEditPolicy(
+		editPart.installEditPolicy(
 				EditPolicyRoles.DRAG_DROP_ROLE,
 				new CustomDragDropEditPolicy());
 		// Extended layout features
-		realEditPart.installEditPolicy(
+		editPart.installEditPolicy(
 				EditPolicy.LAYOUT_ROLE, 
 				new CustomXYLayoutEditPolicy());
 		
@@ -41,7 +41,7 @@ public class MindBodyCompartmentEditPart extends MindCompartmentEditPart {
 	 * @return
 	 */
 	public DragTracker getDragTracker(Request request) {
-		return new CustomDragEditPartsTracker(realEditPart);
+		return new CustomDragEditPartsTracker(editPart);
 	}
 	
 	/**

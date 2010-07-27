@@ -1,4 +1,4 @@
-package org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.parts.generic;
+package org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.parts.proxy;
 
 import org.eclipse.draw2d.ConnectionAnchor;
 import org.eclipse.draw2d.IFigure;
@@ -15,14 +15,14 @@ import org.ow2.mindEd.adl.editor.graphic.ui.custom.layouts.BindingConnectionCust
 import org.ow2.mindEd.adl.editor.graphic.ui.custom.layouts.BindingConnectionCustomAnchorTarget;
 import org.ow2.mindEd.adl.editor.graphic.ui.part.MindDiagramEditorPlugin;
 
-public class MindBindingEditPart {
+public class MindBindingProxy {
 	
-	protected ConnectionEditPart realEditPart;
+	protected ConnectionEditPart editPart;
 	protected int visualID;
 
-	public MindBindingEditPart(ConnectionEditPart editPart, int vID) {
+	public MindBindingProxy(ConnectionEditPart realEditPart, int vID) {
 		if (editPart == null) throw new NullPointerException();
-		realEditPart = editPart;
+		editPart = realEditPart;
 		visualID = vID;
 	}
 
@@ -32,17 +32,17 @@ public class MindBindingEditPart {
 	 */
 	public void activateFigure() {
 		// Originally in activateFigure()
-		RoutingStyle style = (RoutingStyle) ((View) realEditPart.getModel())
+		RoutingStyle style = (RoutingStyle) ((View) editPart.getModel())
 	     .getStyle(NotationPackage.Literals.ROUTING_STYLE);
 		
 		// Transaction
 		try {
-			TransactionImpl trans = new TransactionImpl(realEditPart.getEditingDomain(), false);
+			TransactionImpl trans = new TransactionImpl(editPart.getEditingDomain(), false);
 			trans.start();
 			// Set the routing style to rectilinear
 			style.setRouting(Routing.RECTILINEAR_LITERAL);
 			// Set the rounded radius
-			style.setRoundedBendpointsRadius(((BindingCustomFigure)realEditPart.getFigure()).getRoundedBendpointsRadius());
+			style.setRoundedBendpointsRadius(((BindingCustomFigure)editPart.getFigure()).getRoundedBendpointsRadius());
 			trans.commit();
 		}
 		catch (IllegalStateException e) {
@@ -61,7 +61,7 @@ public class MindBindingEditPart {
 	 * Implementation to set the line width of the connection
 	 */
 	public void setLineWidth (int width) {
-		IFigure figure = realEditPart.getFigure();
+		IFigure figure = editPart.getFigure();
 		if (figure instanceof Polyline)
 			((Polyline)figure).setLineWidth(width);
 	}
@@ -71,14 +71,14 @@ public class MindBindingEditPart {
 	 * Custom anchor source to bind the binding on the image instead of the label
 	 */
 	public ConnectionAnchor getSourceConnectionAnchor() {
-		return new BindingConnectionCustomAnchorSource(realEditPart);
+		return new BindingConnectionCustomAnchorSource(editPart);
 	}
 
 	/**
 	 * Custom anchor target to bind the binding on the image instead of the label
 	 */
 	public ConnectionAnchor getTargetConnectionAnchor() {
-		return new BindingConnectionCustomAnchorTarget(realEditPart);
+		return new BindingConnectionCustomAnchorTarget(editPart);
 	}
 	
 

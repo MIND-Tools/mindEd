@@ -1,8 +1,8 @@
 package org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.parts;
 
 import org.eclipse.gmf.runtime.notation.View;
-import org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.parts.generic.MindEditPart;
-import org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.parts.generic.MindGenericEditPartFactory;
+import org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.parts.proxy.MindProxy;
+import org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.parts.proxy.MindProxyFactory;
 import org.ow2.mindEd.adl.editor.graphic.ui.edit.parts.DataDefinitionCompartmentEditPart;
 
 /**
@@ -18,7 +18,7 @@ public class DataDefinitionCompartmentCustomEditPart extends
 		super(view);
 	}
 	
-	protected MindEditPart genericEditPart = MindGenericEditPartFactory.INSTANCE.createGenericEditPart (this, VISUAL_ID);
+	protected MindProxy genericEditPart = MindProxyFactory.INSTANCE.createMindProxy (this, VISUAL_ID);
 	
 	@Override
 	protected void createDefaultEditPolicies() {

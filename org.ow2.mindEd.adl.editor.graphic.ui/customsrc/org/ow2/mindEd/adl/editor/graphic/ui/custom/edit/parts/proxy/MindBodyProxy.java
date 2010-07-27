@@ -1,4 +1,4 @@
-package org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.parts.generic;
+package org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.parts.proxy;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
@@ -23,47 +23,47 @@ import org.ow2.mindEd.adl.editor.graphic.ui.custom.layouts.InterfaceBorderItemLo
 import org.ow2.mindEd.adl.editor.graphic.ui.custom.providers.NoDragTracker;
 import org.ow2.mindEd.adl.editor.graphic.ui.edit.parts.InterfaceDefinitionEditPart;
 
-public class MindBodyEditPart extends MindEditPart {
+public class MindBodyProxy extends MindProxy {
 	
-	protected MindComponentEditPart parentComponent;
+	protected MindComponentProxy parentComponent;
 
-	public MindBodyEditPart(GraphicalEditPart editPart, int vID) {
+	public MindBodyProxy(GraphicalEditPart editPart, int vID) {
 		super(editPart, vID, TYPE_BODY);
 		setParentComponent();
 	}
 	
-	public MindBodyEditPart(GraphicalEditPart editPart, int vID, int mindType) {
+	public MindBodyProxy(GraphicalEditPart editPart, int vID, int mindType) {
 		super(editPart, vID, mindType);
 		setParentComponent();
 	}
 	
 	protected void setParentComponent() {
-		MindEditPart parent = getMindEditPartFor(realEditPart.getParent());
-		if (parent instanceof MindComponentEditPart)
-			parentComponent = (MindComponentEditPart) parent;
+		MindProxy parent = getMindProxyFor(editPart.getParent());
+		if (parent instanceof MindComponentProxy)
+			parentComponent = (MindComponentProxy) parent;
 	}
 
 	@Override
 	public void createDefaultEditPolicies() {
 		super.createDefaultEditPolicies();
 		// Extended creation features
-		realEditPart.installEditPolicy(
+		editPart.installEditPolicy(
 				EditPolicyRoles.CREATION_ROLE,
 				new ParentCreationEditPolicy());
 		setCreationMode(CREATION_MODE_PARENT);
-		realEditPart.removeEditPolicy(EditPolicyRoles.DRAG_DROP_ROLE);
-		realEditPart.installEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE,
+		editPart.removeEditPolicy(EditPolicyRoles.DRAG_DROP_ROLE);
+		editPart.installEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE,
 				new NoDragDropEditPolicy());
 	}
 	
 	@Override
 	public DragTracker getDragTracker(Request request) {
-		return new NoDragTracker(realEditPart);
+		return new NoDragTracker(editPart);
 	}
 	
 	@Override
 	public boolean addFixedChild(EditPart childEditPart) {
-		if (getMindEditPartFor(childEditPart) instanceof MindCompartmentEditPart) {
+		if (getMindProxyFor(childEditPart) instanceof MindCompartmentProxy) {
 			IFigure compartment = getCompartmentFigure();
 			if (compartment == null) return false;
 			// Set the layout
@@ -72,7 +72,7 @@ public class MindBodyEditPart extends MindEditPart {
 							.getFigure());
 			return true;
 		}
-		if(getMindEditPartFor(childEditPart) instanceof MindInterfaceEditPart)
+		if(getMindProxyFor(childEditPart) instanceof MindInterfaceProxy)
 		{
 			//Make interfaces stick to the component's border
 			//Use InterfaceBorderItemLocator
@@ -114,8 +114,8 @@ public class MindBodyEditPart extends MindEditPart {
 	public IFigure getCompartmentFigure() {
 		try {
 			
-			Method meth = realEditPart.getClass().getMethod("getPrimaryShape", (Class<?>[]) null);
-			AbstractComponentShape result = (AbstractComponentShape) meth.invoke(realEditPart, (Object[]) null);
+			Method meth = editPart.getClass().getMethod("getPrimaryShape", (Class<?>[]) null);
+			AbstractComponentShape result = (AbstractComponentShape) meth.invoke(editPart, (Object[]) null);
 			return result.getCompartment();
 			
 		} catch (SecurityException e) {
@@ -150,11 +150,11 @@ public class MindBodyEditPart extends MindEditPart {
 		return compartment; // use compartment itself as contentPane
 	}
 	
-	public MindComponentEditPart getParentComponent() {
+	public MindComponentProxy getParentComponent() {
 		if (parentComponent == null) {
-			MindEditPart parent = getMindEditPartFor(realEditPart.getParent());
-			if (parent instanceof MindComponentEditPart)
-				parentComponent = (MindComponentEditPart) parent;
+			MindProxy parent = getMindProxyFor(editPart.getParent());
+			if (parent instanceof MindComponentProxy)
+				parentComponent = (MindComponentProxy) parent;
 		}
 		return parentComponent;
 	}

@@ -12,10 +12,10 @@ import org.eclipse.gmf.runtime.diagram.ui.editparts.GraphicalEditPart;
 import org.eclipse.gmf.runtime.notation.NotationPackage;
 import org.eclipse.gmf.runtime.notation.View;
 import org.ow2.mindEd.adl.custom.MindObject;
-import org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.parts.generic.MindComponentEditPart;
-import org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.parts.generic.MindEditPart;
-import org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.parts.generic.MindGenericEditPartFactory;
-import org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.parts.generic.MindInterfaceEditPart;
+import org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.parts.proxy.MindComponentProxy;
+import org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.parts.proxy.MindInterfaceProxy;
+import org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.parts.proxy.MindProxy;
+import org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.parts.proxy.MindProxyFactory;
 import org.ow2.mindEd.adl.editor.graphic.ui.part.MindDiagramEditorPlugin;
 
 public class SaveUtil {
@@ -35,13 +35,13 @@ public class SaveUtil {
 	@SuppressWarnings("unchecked")
 	public static void saveBounds(EditPart rootEditPart, HashMap<String,Rectangle> boundsMemory) {
 		
-		MindEditPart mep = MindGenericEditPartFactory.INSTANCE.getMindEditPartFor(rootEditPart);
-		if (mep	instanceof MindComponentEditPart)
+		MindProxy mep = MindProxyFactory.INSTANCE.getMindProxyFor(rootEditPart);
+		if (mep	instanceof MindComponentProxy)
 		{
 			EObject model = ((View)rootEditPart.getModel()).getElement();
 			boundsMemory.put(((MindObject)model).getID(), ((GraphicalEditPart)rootEditPart).getFigure().getBounds().getCopy());
 		}
-		else if (mep instanceof MindInterfaceEditPart)
+		else if (mep instanceof MindInterfaceProxy)
 		{
 			GraphicalEditPart gep = (GraphicalEditPart)rootEditPart;
 			int x = ((Integer) gep.getStructuralFeatureValue(attr_x)).intValue();
@@ -72,9 +72,9 @@ public class SaveUtil {
 	@SuppressWarnings("unchecked")
 	public static void restoreBounds(EditPart rootEditPart, HashMap<String,Rectangle> boundsMemory) {
 		
-		MindEditPart mep = MindGenericEditPartFactory.INSTANCE.getMindEditPartFor(rootEditPart);
-		if (mep	instanceof MindComponentEditPart ||
-				mep instanceof MindInterfaceEditPart)
+		MindProxy mep = MindProxyFactory.INSTANCE.getMindProxyFor(rootEditPart);
+		if (mep	instanceof MindComponentProxy ||
+				mep instanceof MindInterfaceProxy)
 		{
 			EObject model = ((View)rootEditPart.getModel()).getElement();
 			Rectangle bounds = boundsMemory.get(((MindObject) model).getID());

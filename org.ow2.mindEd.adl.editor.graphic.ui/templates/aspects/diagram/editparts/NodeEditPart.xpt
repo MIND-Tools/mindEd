@@ -1,17 +1,17 @@
 
 «AROUND additions FOR gmfgen::GenNode-»
 	«EXPAND xpt::Common::generatedMemberComment»
-	protected org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.parts.generic.MindEditPart genericEditPart = org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.parts.generic.MindGenericEditPartFactory.INSTANCE.createGenericEditPart (this, VISUAL_ID);
+	protected org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.parts.proxy.MindProxy mindProxy = org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.parts.proxy.MindProxyFactory.INSTANCE.createMindProxy (this, VISUAL_ID);
 	
 	«EXPAND xpt::Common::generatedMemberComment»
-	public org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.parts.generic.MindEditPart getGenericEditPart() {
-		return genericEditPart;
+	public org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.parts.proxy.MindProxy getMindProxy() {
+		return mindProxy;
 	}
 	
 	«EXPAND xpt::Common::generatedMemberComment»
 	@Override
 	protected void refreshBounds() {
-		if (!getGenericEditPart().refreshBounds() && getParent() != null)
+		if (!getMindProxy().refreshBounds() && getParent() != null)
 			super.refreshBounds();
 	}
 	
@@ -19,7 +19,7 @@
 	@Override
 	public void refresh() {
 		super.refresh();
-		getGenericEditPart().refresh();
+		getMindProxy().refresh();
 		refreshBounds();
 	}
 	
@@ -27,13 +27,13 @@
 	@Override
 	public void activate() {
 		super.activate();
-		getGenericEditPart().activate();
+		getMindProxy().activate();
 	}
 	
 	«EXPAND xpt::Common::generatedMemberComment»
 	@Override
 	public org.eclipse.gef.DragTracker getDragTracker(org.eclipse.gef.Request request) {
-		org.eclipse.gef.DragTracker tracker = getGenericEditPart().getDragTracker(request);
+		org.eclipse.gef.DragTracker tracker = getMindProxy().getDragTracker(request);
 		if (tracker == null)
 			tracker = super.getDragTracker(request);
 		return tracker;
@@ -42,7 +42,7 @@
 	@Override
 	protected void handleNotificationEvent(org.eclipse.emf.common.notify.Notification notification) {
 		super.handleNotificationEvent(notification);
-		getGenericEditPart().handleNotificationEvent(notification);
+		getMindProxy().handleNotificationEvent(notification);
 	}
 	
 	
@@ -54,7 +54,7 @@
 	 */
 	 @Override
 	protected void reorderChild(org.eclipse.gef.EditPart child, int index) {
-		if (org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.parts.generic.MindEditPart.getMindEditPartFor(child) instanceof org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.parts.generic.MindBodyEditPart) {
+		if (org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.parts.proxy.MindProxy.getMindProxyFor(child) instanceof org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.parts.proxy.MindBodyProxy) {
 			// Save the border item locator so that it does not get lost during
 			// the remove and re-add. This is overridden from the parent class
 			// so that the correct content pane is used.

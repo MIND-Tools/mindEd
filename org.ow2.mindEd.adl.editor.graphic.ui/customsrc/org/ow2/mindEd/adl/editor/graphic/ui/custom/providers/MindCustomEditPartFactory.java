@@ -20,7 +20,7 @@ import org.ow2.mindEd.adl.editor.graphic.ui.part.MindVisualIDRegistry;
  * @author maroto
  *
  */
-public class MindEditPartCustomFactory extends MindEditPartFactory {
+public class MindCustomEditPartFactory extends MindEditPartFactory {
 	
 	
 	public String CUSTOMEDITPARTS_PACKAGE = "org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.parts.";
@@ -58,7 +58,6 @@ public class MindEditPartCustomFactory extends MindEditPartFactory {
 			EditPart part;
 			
 			if (customPart != null) {
-				
 				part = customPart;
 			}
 			else {
@@ -118,8 +117,8 @@ public class MindEditPartCustomFactory extends MindEditPartFactory {
 			for (IConfigurationElement e : config) {
 				System.out.println("Evaluating extension");
 				final Object o = e.createExecutableExtension("attribute_name");
-				if (o instanceof MindEditPartCustomFactory) {
-					((MindEditPartCustomFactory)o).createEditPart(context, model);
+				if (o instanceof MindCustomEditPartFactory) {
+					((MindCustomEditPartFactory)o).createEditPart(context, model);
 				}
 			}
 		} catch (CoreException ex) {

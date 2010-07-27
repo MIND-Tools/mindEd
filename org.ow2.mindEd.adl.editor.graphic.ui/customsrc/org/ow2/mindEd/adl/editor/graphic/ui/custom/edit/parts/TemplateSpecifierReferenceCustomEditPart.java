@@ -13,7 +13,7 @@ public class TemplateSpecifierReferenceCustomEditPart extends
 	
 	@Override
 	public NodeFigure createNodePlate() {
-		NodeFigure fig = genericEditPart.createNodePlate();
+		NodeFigure fig = getMindProxy().createNodePlate();
 		if (fig == null)
 			fig = super.createNodePlate();
 		return fig;

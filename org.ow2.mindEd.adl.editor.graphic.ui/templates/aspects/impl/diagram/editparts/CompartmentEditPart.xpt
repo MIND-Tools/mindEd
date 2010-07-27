@@ -3,5 +3,5 @@
 
 «AROUND createDefaultEditPoliciesBody FOR gmfgen::GenCompartment-»
 	«targetDef.proceed()»
-	genericEditPart.createDefaultEditPolicies();
+	getMindProxy().createDefaultEditPolicies();
 «ENDAROUND»

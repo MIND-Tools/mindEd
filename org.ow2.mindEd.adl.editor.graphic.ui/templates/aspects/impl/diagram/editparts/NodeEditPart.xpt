@@ -12,7 +12,7 @@
 
 «AROUND createDefaultEditPoliciesBody FOR gmfgen::GenNode-»
 	«targetDef.proceed()»
-	getGenericEditPart().createDefaultEditPolicies();
+	getMindProxy().createDefaultEditPolicies();
 	removeEditPolicy(org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles.CONNECTION_HANDLES_ROLE);
 «ENDAROUND»
 
@@ -21,7 +21,7 @@
 	
 	«EXPAND xpt::Common::generatedMemberComment»
 	protected boolean addFixedChild(org.eclipse.gef.EditPart childEditPart) {
-		if (getGenericEditPart().addFixedChild(childEditPart)) return true;
+		if (getMindProxy().addFixedChild(childEditPart)) return true;
 «FOREACH getInnerFixedLabels(self) AS label»«LET label.viewmap.oclAsType(gmfgen::ParentAssignedViewmap) AS childViewmap-»
 		if (childEditPart instanceof «label.getEditPartQualifiedClassName()») {
 			((«label.getEditPartQualifiedClassName()») childEditPart).«EXPAND impl::diagram::editparts::TextAware::labelSetterName FOR childViewmap»(getPrimaryShape().«childViewmap.getterName»());
@@ -52,17 +52,17 @@
 		
 	«EXPAND xpt::Common::generatedMemberComment»
 	protected org.eclipse.swt.graphics.Color getMindBorderColor() {
-		return genericEditPart.getMindBorderColor();
+		return getMindProxy().getMindBorderColor();
 	}
 	
 	«EXPAND xpt::Common::generatedMemberComment»
 	protected org.eclipse.swt.graphics.Color getMindBackgroundColor() {
-		return genericEditPart.getMindBackgroundColor();
+		return getMindProxy().getMindBackgroundColor();
 	}
 	
 	«EXPAND xpt::Common::generatedMemberComment»
 	protected org.eclipse.draw2d.geometry.Dimension getMindPreferredSize() {
-		return genericEditPart.getMindPreferredSize();
+		return getMindProxy().getMindPreferredSize();
 	}
 	
 	«classBody»
@@ -75,7 +75,7 @@
 		'@param nodeShape instance of generated figure class'
 	)»
 	protected org.eclipse.draw2d.IFigure setupContentPane(org.eclipse.draw2d.IFigure nodeShape) {
-		org.eclipse.draw2d.IFigure shape = getGenericEditPart().setupContentPane(nodeShape);
+		org.eclipse.draw2d.IFigure shape = getMindProxy().setupContentPane(nodeShape);
 		if (shape != null) return shape;
 		
 		«IF not childNodes->isEmpty() or (not compartments->isEmpty() or labels[not oclIsKindOf(gmfgen::GenExternalNodeLabel)]->notEmpty())-»

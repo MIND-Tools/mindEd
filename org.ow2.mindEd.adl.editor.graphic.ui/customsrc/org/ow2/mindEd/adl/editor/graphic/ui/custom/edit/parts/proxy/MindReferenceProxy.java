@@ -1,4 +1,4 @@
-package org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.parts.generic;
+package org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.parts.proxy;
 
 import org.eclipse.draw2d.IFigure;
 import org.eclipse.gef.DragTracker;
@@ -17,13 +17,13 @@ import org.ow2.mindEd.adl.editor.graphic.ui.custom.layouts.ConstrainedFlowLayout
 import org.ow2.mindEd.adl.editor.graphic.ui.custom.listeners.MindListLayoutListener;
 import org.ow2.mindEd.adl.editor.graphic.ui.custom.providers.NoDragTracker;
 
-public class MindReferenceEditPart extends MindEditPart {
+public class MindReferenceProxy extends MindProxy {
 	
-	public MindReferenceEditPart (GraphicalEditPart editPart, int vID) {
+	public MindReferenceProxy (GraphicalEditPart editPart, int vID) {
 		super(editPart, vID, TYPE_REFERENCE);
 	}
 	
-	public MindReferenceEditPart(GraphicalEditPart editPart, int vID, int mindType) {
+	public MindReferenceProxy(GraphicalEditPart editPart, int vID, int mindType) {
 		super(editPart, vID, mindType);
 	}
 	
@@ -31,24 +31,24 @@ public class MindReferenceEditPart extends MindEditPart {
 	@Override
 	public DragTracker getDragTracker(Request request) {
 		// No drag and drop allowed
-		return new NoDragTracker(realEditPart);
+		return new NoDragTracker(editPart);
 	}
 	
 
 	@Override
 	public void createDefaultEditPolicies() {
 		// Extended layout features
-		realEditPart.installEditPolicy(EditPolicy.LAYOUT_ROLE,
+		editPart.installEditPolicy(EditPolicy.LAYOUT_ROLE,
 				new FixedChildrenLayoutEditPolicy());
 		// Extended creation features
-		realEditPart.installEditPolicy(EditPolicyRoles.CREATION_ROLE,
+		editPart.installEditPolicy(EditPolicyRoles.CREATION_ROLE,
 				new ChildrenCreationEditPolicy());
 		setCreationMode(CREATION_MODE_CHILD);
 		// Extended drag and drop features
-		realEditPart.installEditPolicy(EditPolicyRoles.DRAG_DROP_ROLE,
+		editPart.installEditPolicy(EditPolicyRoles.DRAG_DROP_ROLE,
 				new CustomDragDropEditPolicy());
 		// To open the referenced component on double clic
-		realEditPart.installEditPolicy(EditPolicyRoles.OPEN_ROLE, 
+		editPart.installEditPolicy(EditPolicyRoles.OPEN_ROLE, 
 				new OpenDefinitionEditPolicy());
 		
 	}
@@ -65,7 +65,7 @@ public class MindReferenceEditPart extends MindEditPart {
 		if (nodeShape.getLayoutManager() == null) {
 			ConstrainedFlowLayout layout = new ConstrainedFlowLayout(false);
 			nodeShape.setLayoutManager(layout);
-			nodeShape.addLayoutListener(new MindListLayoutListener(realEditPart));
+			nodeShape.addLayoutListener(new MindListLayoutListener(editPart));
 		}
 		return nodeShape; // use nodeShape itself as contentPane
 	}

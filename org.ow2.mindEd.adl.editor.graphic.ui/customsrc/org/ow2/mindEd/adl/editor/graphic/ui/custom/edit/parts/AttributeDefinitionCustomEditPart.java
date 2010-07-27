@@ -28,7 +28,7 @@ public class AttributeDefinitionCustomEditPart extends
 	
 	@Override
 	protected LayoutEditPolicy createLayoutEditPolicy() {
-		LayoutEditPolicy glep = genericEditPart.createLayoutEditPolicy();
+		LayoutEditPolicy glep = getMindProxy().createLayoutEditPolicy();
 		if (glep == null)
 			glep = super.createLayoutEditPolicy();
 		return glep;

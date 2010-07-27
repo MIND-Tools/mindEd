@@ -21,7 +21,7 @@ public class TemplateSpecifierCustomEditPart extends TemplateSpecifierEditPart {
 	
 
 	public NodeFigure createNodePlate() {
-		NodeFigure fig = genericEditPart.createNodePlate();
+		NodeFigure fig = getMindProxy().createNodePlate();
 		if (fig == null)
 			fig = super.createNodePlate();
 		return fig;

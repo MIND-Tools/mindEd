@@ -3,14 +3,17 @@
 
 «AROUND additions FOR gmfgen::GenCompartment»
 
-	protected org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.parts.generic.MindEditPart genericEditPart = org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.parts.generic.MindGenericEditPartFactory.INSTANCE.createGenericEditPart (this, VISUAL_ID);
-		
+	protected org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.parts.proxy.MindProxy mindProxy = org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.parts.proxy.MindProxyFactory.INSTANCE.createMindProxy (this, VISUAL_ID);	
+	
+	public org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.parts.proxy.MindProxy getMindProxy() {
+		return mindProxy;
+	}
 	
 	«IF listLayout»
 	«ELSE»
 		@Override
 		protected org.eclipse.draw2d.LayoutManager getLayoutManager() {
-			org.eclipse.draw2d.LayoutManager lm = genericEditPart.getLayoutManager();
+			org.eclipse.draw2d.LayoutManager lm = getMindProxy().getLayoutManager();
 			if (lm == null)
 				lm = super.getLayoutManager();
 			return lm;
@@ -19,7 +22,7 @@
 	
 	@Override
 	public org.eclipse.gef.DragTracker getDragTracker(org.eclipse.gef.Request request) {
-		org.eclipse.gef.DragTracker tracker = genericEditPart.getDragTracker(request);
+		org.eclipse.gef.DragTracker tracker = getMindProxy().getDragTracker(request);
 		if (tracker == null)
 			tracker = super.getDragTracker(request);
 		return tracker;

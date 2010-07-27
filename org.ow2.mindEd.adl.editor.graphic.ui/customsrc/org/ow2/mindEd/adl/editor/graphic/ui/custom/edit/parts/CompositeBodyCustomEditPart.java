@@ -4,7 +4,7 @@ import org.eclipse.draw2d.IFigure;
 import org.eclipse.gef.EditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
 import org.eclipse.gmf.runtime.notation.View;
-import org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.parts.generic.MindBodyEditPart;
+import org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.parts.proxy.MindBodyProxy;
 import org.ow2.mindEd.adl.editor.graphic.ui.edit.parts.CompositeBodyEditPart;
 
 public class CompositeBodyCustomEditPart extends CompositeBodyEditPart {
@@ -12,7 +12,7 @@ public class CompositeBodyCustomEditPart extends CompositeBodyEditPart {
 	@Override
 	public void setLayoutConstraint(EditPart child, IFigure childFigure,
 			Object constraint) {
-		if ((genericEditPart.setLayoutConstraint(child,childFigure,constraint)) == false)
+		if ((getMindProxy().setLayoutConstraint(child,childFigure,constraint)) == false)
 		super.setLayoutConstraint(child, childFigure, constraint);
 	}
 
@@ -22,19 +22,19 @@ public class CompositeBodyCustomEditPart extends CompositeBodyEditPart {
 	
 	
 	protected boolean removeFixedChild(EditPart childEditPart) {
-		if (genericEditPart.removeFixedChild(childEditPart)) return true;
+		if (getMindProxy().removeFixedChild(childEditPart)) return true;
 		return super.removeFixedChild(childEditPart);
 	}
 	
 	@Override
 	protected void addChildVisual(EditPart childEditPart, int index) {
-		if(genericEditPart.addChildVisual(childEditPart, index))
+		if(getMindProxy().addChildVisual(childEditPart, index))
 			return;
 		super.addChildVisual(childEditPart, index);
 	}
 	
 	protected IFigure getContentPaneFor(IGraphicalEditPart editPart) {
-		IFigure fig = ((MindBodyEditPart)genericEditPart).getContentPaneFor(editPart);
+		IFigure fig = ((MindBodyProxy)getMindProxy()).getContentPaneFor(editPart);
 		if (fig != null)
 			return fig;
 		else

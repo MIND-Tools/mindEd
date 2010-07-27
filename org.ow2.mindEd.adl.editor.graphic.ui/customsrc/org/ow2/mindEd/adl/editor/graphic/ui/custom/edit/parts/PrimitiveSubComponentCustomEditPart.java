@@ -26,7 +26,7 @@ public class PrimitiveSubComponentCustomEditPart extends
 
 	
 	protected boolean removeFixedChild(EditPart childEditPart) {
-		if (genericEditPart.removeFixedChild(childEditPart)) return true;
+		if (getMindProxy().removeFixedChild(childEditPart)) return true;
 		return super.removeFixedChild(childEditPart);
 	}
 	

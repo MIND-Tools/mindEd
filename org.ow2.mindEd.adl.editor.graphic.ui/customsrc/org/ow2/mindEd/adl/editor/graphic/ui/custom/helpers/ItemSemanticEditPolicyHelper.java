@@ -7,9 +7,9 @@ import org.eclipse.gef.commands.Command;
 import org.eclipse.gmf.runtime.diagram.ui.requests.EditCommandRequestWrapper;
 import org.eclipse.gmf.runtime.emf.type.core.requests.CreateElementRequest;
 import org.eclipse.gmf.runtime.notation.View;
-import org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.parts.generic.MindComponentEditPart;
-import org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.parts.generic.MindGenericEditPartFactory;
-import org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.parts.generic.MindTypes;
+import org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.parts.proxy.IMindTypes;
+import org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.parts.proxy.MindComponentProxy;
+import org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.parts.proxy.MindProxyFactory;
 import org.ow2.mindEd.adl.editor.graphic.ui.edit.parts.AdlDefinitionEditPart;
 
 /**
@@ -36,7 +36,7 @@ public class ItemSemanticEditPolicyHelper {
 		if (
 				(cmd == null)
 				&&
-				!(MindGenericEditPartFactory.INSTANCE.getMindEditPartFor(host) instanceof MindComponentEditPart)
+				!(MindProxyFactory.INSTANCE.getMindProxyFor(host) instanceof MindComponentProxy)
 				&&
 				!(host instanceof AdlDefinitionEditPart)
 				)
@@ -47,7 +47,7 @@ public class ItemSemanticEditPolicyHelper {
 			
 			// If new host has a ChildrenCreationEditPolicy, don't try to get a command from him
 			// because it would lead to a stack overflow
-			if (MindGenericEditPartFactory.INSTANCE.getMindEditPartFor(host).getCreationMode() != MindTypes.CREATION_MODE_CHILD)
+			if (MindProxyFactory.INSTANCE.getMindProxyFor(host).getCreationMode() != IMindTypes.CREATION_MODE_CHILD)
 			{
 				// Try to get a command from the new host
 				reqWrap = new EditCommandRequestWrapper(req);

@@ -18,7 +18,7 @@ public class FormalArgumentCustomEditPart extends FormalArgumentEditPart {
 	
 	@Override
 	protected NodeFigure createNodePlate() {
-		NodeFigure result = genericEditPart.createNodePlate();
+		NodeFigure result = getMindProxy().createNodePlate();
 		if (result == null)
 			result = super.createNodePlate();
 		return result;

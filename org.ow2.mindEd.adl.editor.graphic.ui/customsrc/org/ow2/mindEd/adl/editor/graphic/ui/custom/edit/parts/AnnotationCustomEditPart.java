@@ -20,7 +20,7 @@ public class AnnotationCustomEditPart extends AnnotationEditPart {
 	
 	
 	public NodeFigure createNodePlate() {
-		NodeFigure fig = genericEditPart.createNodePlate();
+		NodeFigure fig = getMindProxy().createNodePlate();
 		if (fig == null)
 			fig = super.createNodePlate();
 		return fig;

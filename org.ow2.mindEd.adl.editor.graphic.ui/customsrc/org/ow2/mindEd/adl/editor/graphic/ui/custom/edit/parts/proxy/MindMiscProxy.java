@@ -1,4 +1,4 @@
-package org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.parts.generic;
+package org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.parts.proxy;
 
 import java.util.List;
 
@@ -16,13 +16,13 @@ import org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.policies.ParentCreationE
 import org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.policies.NoDragDropEditPolicy;
 import org.ow2.mindEd.adl.editor.graphic.ui.custom.listeners.MindListLayoutListener;
 
-public class MindItemEditPart extends MindEditPart {
+public class MindMiscProxy extends MindProxy {
 
-	public MindItemEditPart(GraphicalEditPart editPart, int vID) {
+	public MindMiscProxy(GraphicalEditPart editPart, int vID) {
 		super(editPart,vID, TYPE_ITEM);
 	}
 	
-	public MindItemEditPart(GraphicalEditPart editPart, int vID, int mindType) {
+	public MindMiscProxy(GraphicalEditPart editPart, int vID, int mindType) {
 		super(editPart, vID, mindType);
 	}
 	
@@ -30,11 +30,11 @@ public class MindItemEditPart extends MindEditPart {
 	public void createDefaultEditPolicies() {
 		super.createDefaultEditPolicies();
 		// No drag and drop
-		realEditPart.removeEditPolicy(EditPolicyRoles.DRAG_DROP_ROLE);
-		realEditPart.installEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE,
+		editPart.removeEditPolicy(EditPolicyRoles.DRAG_DROP_ROLE);
+		editPart.installEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE,
 				new NoDragDropEditPolicy());
 		// Extended creation features
-		realEditPart.installEditPolicy(EditPolicyRoles.CREATION_ROLE,
+		editPart.installEditPolicy(EditPolicyRoles.CREATION_ROLE,
 				new ParentCreationEditPolicy());
 		setCreationMode(CREATION_MODE_PARENT);
 		
@@ -42,10 +42,10 @@ public class MindItemEditPart extends MindEditPart {
 	
 	@SuppressWarnings("unchecked")
 	public GraphicalEditPart getCompartment() {
-		List<EditPart> children = realEditPart.getChildren();
+		List<EditPart> children = editPart.getChildren();
 		
 		for (EditPart child : children) {
-			if (getMindEditPartFor(child) instanceof MindCompartmentEditPart)
+			if (getMindProxyFor(child) instanceof MindCompartmentProxy)
 				return (GraphicalEditPart)child;
 		}
 		return null;
@@ -59,7 +59,7 @@ public class MindItemEditPart extends MindEditPart {
 			//no spacing anymore
 			ConstrainedToolbarLayout layout = new ConstrainedToolbarLayout();
 			nodeShape.setLayoutManager(layout);
-			nodeShape.addLayoutListener(new MindListLayoutListener(realEditPart));
+			nodeShape.addLayoutListener(new MindListLayoutListener(editPart));
 		}
 		return nodeShape; // use nodeShape itself as contentPane
 	}

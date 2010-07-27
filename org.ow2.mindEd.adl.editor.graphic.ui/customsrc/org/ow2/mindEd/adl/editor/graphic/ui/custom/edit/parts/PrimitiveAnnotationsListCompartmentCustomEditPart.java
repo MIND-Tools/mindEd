@@ -17,17 +17,17 @@ public class PrimitiveAnnotationsListCompartmentCustomEditPart extends
 	@Override
 	public void refresh() {
 		super.refresh();
-		genericEditPart.refresh();
+		getMindProxy().refresh();
 	}
 
 	@Override
 	public void createDefaultEditPolicies() {
 		super.createDefaultEditPolicies();
-		genericEditPart.createDefaultEditPolicies();
+		getMindProxy().createDefaultEditPolicies();
 	}
 	
 	public DragTracker getDragTracker(Request request) {
-		DragTracker tracker = genericEditPart.getDragTracker(request);
+		DragTracker tracker = getMindProxy().getDragTracker(request);
 		if (tracker == null)
 			tracker = super.getDragTracker(request);
 		return tracker;
@@ -36,12 +36,12 @@ public class PrimitiveAnnotationsListCompartmentCustomEditPart extends
 	@Override
 	public void activate() {
 		super.activate();
-		genericEditPart.activate();
+		getMindProxy().activate();
 	}
 	
 	@Override
 	protected LayoutManager getLayoutManager() {
-		LayoutManager layoutManager = genericEditPart.getLayoutManager();
+		LayoutManager layoutManager = getMindProxy().getLayoutManager();
 		if (layoutManager == null) {
 			layoutManager = super.getLayoutManager();
 		}

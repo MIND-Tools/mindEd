@@ -1,4 +1,4 @@
-package org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.parts.generic;
+package org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.parts.proxy;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
@@ -24,7 +24,7 @@ import org.ow2.mindEd.adl.editor.graphic.ui.custom.layouts.ComponentLayout;
 import org.ow2.mindEd.adl.editor.graphic.ui.custom.providers.DragEditPartsCustomTracker;
 import org.ow2.mindEd.adl.editor.graphic.ui.edit.parts.*;
 
-public class MindComponentEditPart extends MindEditPart {
+public class MindComponentProxy extends MindProxy {
 
 	/**
 	 * The edit part if it is a BorderedShapeEditPart
@@ -32,13 +32,13 @@ public class MindComponentEditPart extends MindEditPart {
 	 */
 	AbstractBorderedShapeEditPart borderedEditPart;
 	
-	public MindComponentEditPart (GraphicalEditPart editPart, int vID) {
+	public MindComponentProxy (GraphicalEditPart editPart, int vID) {
 		super(editPart, vID, TYPE_COMPONENT);
 		if (editPart instanceof AbstractBorderedShapeEditPart)
 			borderedEditPart = (AbstractBorderedShapeEditPart) editPart;
 	}
 	
-	public MindComponentEditPart(GraphicalEditPart editPart, int vID, int mindType) {
+	public MindComponentProxy(GraphicalEditPart editPart, int vID, int mindType) {
 		super(editPart, vID, mindType);
 		if (editPart instanceof AbstractBorderedShapeEditPart)
 			borderedEditPart = (AbstractBorderedShapeEditPart) editPart;
@@ -48,17 +48,17 @@ public class MindComponentEditPart extends MindEditPart {
 	public void createDefaultEditPolicies(){
 		super.createDefaultEditPolicies();
 		
-		realEditPart.installEditPolicy(EditPolicyRoles.DRAG_DROP_ROLE,
+		editPart.installEditPolicy(EditPolicyRoles.DRAG_DROP_ROLE,
 				new CustomDragDropEditPolicy());
 		
-		realEditPart.installEditPolicy(EditPolicy.LAYOUT_ROLE,
+		editPart.installEditPolicy(EditPolicy.LAYOUT_ROLE,
 				new ComponentLayoutEditPolicy());
 		
 	};
 	
 	
 	public DragTracker getDragTracker(Request request) {
-		return new DragEditPartsCustomTracker(realEditPart);
+		return new DragEditPartsCustomTracker(editPart);
 	}
 	
 	
@@ -84,7 +84,7 @@ public class MindComponentEditPart extends MindEditPart {
 	@SuppressWarnings("unchecked")
 	public boolean removeFixedChild(EditPart childEditPart) {
 		if (getMindType(childEditPart) == TYPE_BODY) {
-			if (!MindGenericEditPartFactory.INSTANCE.getMindEditPartFor(childEditPart).isMerged()) {
+			if (!MindProxyFactory.INSTANCE.getMindProxyFor(childEditPart).isMerged()) {
 				// Remove interfaces' figures from border
 	        	List<IFigure> borderItems = borderedEditPart.getBorderedFigure().getBorderItemContainer().getChildren();
 	        	Iterator<IFigure> iter = borderItems.listIterator();
@@ -116,8 +116,8 @@ public class MindComponentEditPart extends MindEditPart {
 	public IFigure getCompartmentFigure() {
 		try {
 			
-			Method meth = realEditPart.getClass().getMethod("getPrimaryShape", (Class<?>[]) null);
-			AbstractComponentShape result = (AbstractComponentShape) meth.invoke(realEditPart, (Object[]) null);
+			Method meth = editPart.getClass().getMethod("getPrimaryShape", (Class<?>[]) null);
+			AbstractComponentShape result = (AbstractComponentShape) meth.invoke(editPart, (Object[]) null);
 			return result.getCompartment();
 			
 		} catch (SecurityException e) {
@@ -138,17 +138,17 @@ public class MindComponentEditPart extends MindEditPart {
 	}
 	
 	public int getComponentType() {
-		if (realEditPart instanceof CompositeComponentDefinitionEditPart)
+		if (editPart instanceof CompositeComponentDefinitionEditPart)
 			return COMPONENT_COMPOSITE;
-		if (realEditPart instanceof CompositeSubComponentEditPart)
+		if (editPart instanceof CompositeSubComponentEditPart)
 			return COMPONENT_SUB_COMPOSITE;
-		if (realEditPart instanceof PrimitiveComponentDefinitionEditPart)
+		if (editPart instanceof PrimitiveComponentDefinitionEditPart)
 			return COMPONENT_PRIMITIVE;
-		if (realEditPart instanceof PrimitiveSubComponentEditPart)
+		if (editPart instanceof PrimitiveSubComponentEditPart)
 			return COMPONENT_SUB_PRIMITIVE;
-		if (realEditPart instanceof UndefinedSubComponentEditPart)
+		if (editPart instanceof UndefinedSubComponentEditPart)
 			return COMPONENT_SUB_UNDEFINED;
-		if (realEditPart instanceof ComponentTypeDefinitionEditPart)
+		if (editPart instanceof ComponentTypeDefinitionEditPart)
 			return COMPONENT_TYPE;
 		return COMPONENT_UNDEFINED;
 	}
@@ -204,7 +204,7 @@ public class MindComponentEditPart extends MindEditPart {
 	@Override
 	public void activate() {
 		super.activate();
-		realEditPart.refresh();
+		editPart.refresh();
 	}
 	
 }

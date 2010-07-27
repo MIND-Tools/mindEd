@@ -1,4 +1,4 @@
-package org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.parts.generic;
+package org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.parts.proxy;
 
 import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.LayoutManager;
@@ -9,18 +9,18 @@ import org.eclipse.gmf.runtime.draw2d.ui.figures.ConstrainedToolbarLayout;
 import org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.policies.FixedChildrenLayoutEditPolicy;
 import org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.policies.ParentCreationEditPolicy;
 
-public class MindCompartmentEditPart extends MindEditPart {
+public class MindCompartmentProxy extends MindProxy {
 
 	/**
 	 * Remember the layout manager
 	 */
 	protected LayoutManager layoutManager; 
 	
-	public MindCompartmentEditPart(GraphicalEditPart editPart, int vID) {
+	public MindCompartmentProxy(GraphicalEditPart editPart, int vID) {
 		super(editPart, vID, TYPE_COMPARTMENT);
 	}
 	
-	public MindCompartmentEditPart(GraphicalEditPart editPart, int vID, int mindType) {
+	public MindCompartmentProxy(GraphicalEditPart editPart, int vID, int mindType) {
 		super(editPart, vID, mindType);
 	}
 	
@@ -29,14 +29,14 @@ public class MindCompartmentEditPart extends MindEditPart {
 	public void createDefaultEditPolicies(){
 		super.createDefaultEditPolicies();
 		// Extended layout features
-		realEditPart.installEditPolicy(EditPolicy.LAYOUT_ROLE,
+		editPart.installEditPolicy(EditPolicy.LAYOUT_ROLE,
 				new FixedChildrenLayoutEditPolicy());
 		// Extended creation features
-		realEditPart.installEditPolicy(EditPolicyRoles.CREATION_ROLE,
+		editPart.installEditPolicy(EditPolicyRoles.CREATION_ROLE,
 				new ParentCreationEditPolicy());
 		setCreationMode(CREATION_MODE_PARENT);
 		// No drag and drop
-		realEditPart.removeEditPolicy(EditPolicyRoles.DRAG_DROP_ROLE);
+		editPart.removeEditPolicy(EditPolicyRoles.DRAG_DROP_ROLE);
 	}
 	
 	

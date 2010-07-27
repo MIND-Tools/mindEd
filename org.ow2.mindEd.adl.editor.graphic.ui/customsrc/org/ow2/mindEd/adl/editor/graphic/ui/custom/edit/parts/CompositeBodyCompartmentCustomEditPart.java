@@ -16,13 +16,13 @@ public class CompositeBodyCompartmentCustomEditPart extends
 	@Override
 	protected void createDefaultEditPolicies() {
 		super.createDefaultEditPolicies();
-		genericEditPart.createDefaultEditPolicies();
+		getMindProxy().createDefaultEditPolicies();
 	}
 	
 	
 	@Override
 	protected LayoutManager getLayoutManager() {
-		LayoutManager lm = genericEditPart.getLayoutManager();
+		LayoutManager lm = getMindProxy().getLayoutManager();
 		if (lm == null)
 			lm = super.getLayoutManager();
 		return lm;
@@ -32,7 +32,7 @@ public class CompositeBodyCompartmentCustomEditPart extends
 	
 	@Override
 	public DragTracker getDragTracker(Request request) {
-		DragTracker tracker = genericEditPart.getDragTracker(request);
+		DragTracker tracker = getMindProxy().getDragTracker(request);
 		if (tracker == null)
 			tracker = super.getDragTracker(request);
 		return tracker;

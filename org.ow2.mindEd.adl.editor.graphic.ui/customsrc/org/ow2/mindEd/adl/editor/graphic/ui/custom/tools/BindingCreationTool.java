@@ -13,9 +13,10 @@ import org.eclipse.gmf.runtime.diagram.ui.editparts.GraphicalEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.tools.UnspecifiedTypeConnectionTool;
 import org.eclipse.gmf.runtime.notation.View;
 import org.ow2.mindEd.adl.custom.util.CreationUtil;
-import org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.parts.generic.MindBodyCompartmentEditPart;
-import org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.parts.generic.MindBodyEditPart;
-import org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.parts.generic.MindGenericEditPartFactory;
+import org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.parts.proxy.MindBodyCompartmentProxy;
+import org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.parts.proxy.MindBodyProxy;
+import org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.parts.proxy.MindBodyProxy;
+import org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.parts.proxy.MindProxyFactory;
 
 import org.ow2.mindEd.adl.ArchitectureDefinition;
 import org.ow2.mindEd.adl.Body;
@@ -178,8 +179,8 @@ public class BindingCreationTool extends UnspecifiedTypeConnectionTool {
 	
 	protected EditPart generateItfs(EditPart editpart) {
 
-		if ((MindGenericEditPartFactory.INSTANCE.getMindEditPartFor(editpart)
-				instanceof MindBodyCompartmentEditPart)) {
+		if ((MindProxyFactory.INSTANCE.getMindProxyFor(editpart)
+				instanceof MindBodyCompartmentProxy)) {
 			// Delegate to body
 			editpart = editpart.getParent();
 		}
@@ -187,16 +188,16 @@ public class BindingCreationTool extends UnspecifiedTypeConnectionTool {
 		if (isDragging()) {
 			// Button is down, generate target if there is none
 			if ((generatedTarget == null) &&
-					(MindGenericEditPartFactory.INSTANCE.getMindEditPartFor(editpart)
-					instanceof MindBodyEditPart)) {
+					(MindProxyFactory.INSTANCE.getMindProxyFor(editpart)
+					instanceof MindBodyProxy)) {
 				// Create an interface to delegate the binding creation
 				editpart = createTarget(editpart);
 			}
 		} else {
 			// Button is up, generate source if there is none
 			if ((generatedSource == null) &&
-					(MindGenericEditPartFactory.INSTANCE.getMindEditPartFor(editpart)
-					instanceof MindBodyEditPart)) {
+					(MindProxyFactory.INSTANCE.getMindProxyFor(editpart)
+					instanceof MindBodyProxy)) {
 				// Create an interface to delegate the binding creation
 				editpart = createSource(editpart);
 			}
@@ -213,8 +214,8 @@ public class BindingCreationTool extends UnspecifiedTypeConnectionTool {
 	 */
 	protected InterfaceDefinitionEditPart createSource(EditPart bodyEditPart){
 				
-		if (!(MindGenericEditPartFactory.INSTANCE.getMindEditPartFor(bodyEditPart)
-				instanceof MindBodyEditPart))
+		if (!(MindProxyFactory.INSTANCE.getMindProxyFor(bodyEditPart)
+				instanceof MindBodyProxy))
 			return null;
 		
 		InterfaceDefinitionEditPart newPart = null;
@@ -241,8 +242,8 @@ public class BindingCreationTool extends UnspecifiedTypeConnectionTool {
 	 */
 	protected InterfaceDefinitionEditPart createTarget(EditPart bodyEditPart){
 				
-		if (!(MindGenericEditPartFactory.INSTANCE.getMindEditPartFor(bodyEditPart)
-				instanceof MindBodyEditPart))
+		if (!(MindProxyFactory.INSTANCE.getMindProxyFor(bodyEditPart)
+				instanceof MindBodyProxy))
 			return null;
 		
 		InterfaceDefinitionEditPart newPart = null;

@@ -34,7 +34,7 @@ public class InterfaceDefinitionCustomEditPart extends
 	
 	protected void createDefaultEditPolicies() {
 		super.createDefaultEditPolicies();
-		getGenericEditPart().createDefaultEditPolicies();
+		getMindProxy().createDefaultEditPolicies();
 	}
 	
 	private InterfaceDefinitionShape interfaceDefinitionShape; 

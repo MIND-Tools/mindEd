@@ -13,7 +13,7 @@ public class ImplementationDefinitionCompartmentCustomEditPart extends
 	
 	protected void createDefaultEditPolicies() {
 		super.createDefaultEditPolicies();
-		genericEditPart.createDefaultEditPolicies();
+		getMindProxy().createDefaultEditPolicies();
 	}
 
 }

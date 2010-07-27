@@ -1,4 +1,4 @@
-package org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.parts.generic;
+package org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.parts.proxy;
 
 import java.util.List;
 
@@ -20,18 +20,18 @@ import org.ow2.mindEd.adl.editor.graphic.ui.custom.layouts.ConstrainedFlowLayout
 import org.ow2.mindEd.adl.editor.graphic.ui.custom.layouts.IFractalSize;
 import org.ow2.mindEd.adl.editor.graphic.ui.custom.providers.NoDragTracker;
 
-public class MindListEditPart extends MindEditPart {
+public class MindListProxy extends MindProxy {
 
 	/**
 	 * This is the layout used for this edit part's compartment
 	 */
 	ConstrainedToolbarLayout layoutManager  = new ConstrainedToolbarLayout();;
 	
-	public MindListEditPart(GraphicalEditPart editPart, int vID) {
+	public MindListProxy(GraphicalEditPart editPart, int vID) {
 		super(editPart,vID, TYPE_LIST);
 	}
 	
-	public MindListEditPart(GraphicalEditPart editPart, int vID, int mindType) {
+	public MindListProxy(GraphicalEditPart editPart, int vID, int mindType) {
 		super(editPart, vID, mindType);
 	}
 	
@@ -39,11 +39,11 @@ public class MindListEditPart extends MindEditPart {
 	public void createDefaultEditPolicies() {
 		super.createDefaultEditPolicies();
 		// No drag and drop allowed
-		realEditPart.installEditPolicy(EditPolicyRoles.DRAG_DROP_ROLE,
+		editPart.installEditPolicy(EditPolicyRoles.DRAG_DROP_ROLE,
 				new NoDragDropEditPolicy());
-		realEditPart.installEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE,
+		editPart.installEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE,
 				new NoDragDropEditPolicy());
-		realEditPart.installEditPolicy(EditPolicy.LAYOUT_ROLE,
+		editPart.installEditPolicy(EditPolicy.LAYOUT_ROLE,
 				new FixedChildrenLayoutEditPolicy());
 	}
 
@@ -58,7 +58,7 @@ public class MindListEditPart extends MindEditPart {
 	
 	public DragTracker getDragTracker(Request request) {
 		// Do not allow drag and drop
-		return new NoDragTracker(realEditPart);
+		return new NoDragTracker(editPart);
 	}
 	
 	@SuppressWarnings("unchecked")
@@ -73,7 +73,7 @@ public class MindListEditPart extends MindEditPart {
 		GraphicalEditPart pane = getCompartment();
 		LayoutManager areaLayout = null;
 		if (pane != null)
-			areaLayout = getMindEditPartFor(pane).getLayoutManager();
+			areaLayout = getMindProxyFor(pane).getLayoutManager();
 		if (areaLayout != null && areaLayout instanceof ConstrainedFlowLayout) {
 			// The manager should be a ConstrainedFlowLayout
 			// It keeps the total height used so we can use it here
@@ -91,9 +91,9 @@ public class MindListEditPart extends MindEditPart {
 		// Now set the constraint
 		Dimension size = new Dimension(width, height);
 		Point loc = new Point(0, 0);
-		((GraphicalEditPart) realEditPart.getParent()).setLayoutConstraint(
-			realEditPart,
-			realEditPart.getFigure(),
+		((GraphicalEditPart) editPart.getParent()).setLayoutConstraint(
+			editPart,
+			editPart.getFigure(),
 			new Rectangle(loc, size));
 		
 		return true;
