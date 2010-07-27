@@ -92,7 +92,7 @@ public class MindProxyFactory implements IMindTypes {
 		case TYPE_ROOT:
 			mindProxy = new MindProxy(editPart, visualID, TYPE_ROOT);
 			editPartsMap.put(editPart, mindProxy);
-			setRootEditPart(mindProxy);
+			setRootProxy(mindProxy);
 			return mindProxy;
 			
 		case TYPE_COMPARTMENT_BODY:
@@ -116,7 +116,7 @@ public class MindProxyFactory implements IMindTypes {
 			return mindProxy;
 			
 		default :
-			mindProxy = new MindMiscProxy(editPart, visualID);
+			mindProxy = new MindProxy(editPart, visualID);
 			editPartsMap.put(editPart, mindProxy);
 			return mindProxy;
 		}
@@ -264,14 +264,14 @@ public class MindProxyFactory implements IMindTypes {
 		return getMindProxyFor(part).mindType;
 	}
 	
-	protected MindProxy rootEditPart = null;
+	protected MindProxy rootProxy = null;
 	
-	public void setRootEditPart(MindProxy rootPart) {
-		rootEditPart = rootPart;
+	public void setRootProxy(MindProxy root) {
+		rootProxy = root;
 	}
 	
-	public MindProxy getRootEditPart() {
-		return rootEditPart;
+	public MindProxy getRootProxy() {
+		return rootProxy;
 	}
 	
 }

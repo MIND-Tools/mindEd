@@ -88,7 +88,7 @@ public class MindCustomDocumentProvider extends MindDocumentProvider {
 			return;
 		}
 		
-		MindProxy mindRoot = MindProxyFactory.INSTANCE.getRootEditPart();
+		MindProxy mindRoot = MindProxyFactory.INSTANCE.getRootProxy();
 		HashMap<String,Rectangle> boundsMemory = new HashMap<String,Rectangle>();
 		if (mindRoot != null) {
 			SaveUtil.saveBounds(mindRoot.getEditPart(), boundsMemory);
