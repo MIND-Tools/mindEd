@@ -248,7 +248,32 @@ public class MindProjectImpl extends org.ow2.mindEd.ide.model.impl.MindProjectIm
 	}
 	
 	@Override
-	public MindItf resolveIdl(String componentName, String defaultPackage,
+	public boolean exists(MindFile obj) {
+		IResource r = MindIdeCore.getResource(obj);
+		return r.exists();
+	}
+	
+	/**
+	 * Return the first
+	 */
+	@Override
+	public MindFile findMindFile(String qualifiedName) {
+		int ptIndex = qualifiedName.lastIndexOf('.');
+		String pn = qualifiedName.substring(0,ptIndex);
+		String cn = qualifiedName.substring(ptIndex+1);
+		EList<MindPackage> packages = ResolveImpl.findPackagesInMindPath(this).get(pn);
+		for (MindPackage p : packages) {
+			for (MindFile mf : p.getFiles()) {
+				if (mf.getName().equals(cn) && exists(mf)) {
+					return mf;
+				}
+			}
+		}
+		return null;
+	}
+	
+	@Override
+	public MindItf resolveItf(String componentName, String defaultPackage,
 			EList<String> imports) {
 		return (MindItf) ResolveImpl.resolve(this, MindidePackage.Literals.MIND_ITF, componentName, defaultPackage, imports);
 	}
@@ -259,7 +284,7 @@ public class MindProjectImpl extends org.ow2.mindEd.ide.model.impl.MindProjectIm
 	}
 	
 	@Override
-	public EList<MindItf> resolvePossibleIdlInMindPath(String componentName) {
+	public EList<MindItf> resolvePossibleItfInMindPath(String componentName) {
 		return ResolveImpl.resolve(this, MindidePackage.Literals.MIND_ITF, componentName);
 	}
 	
@@ -269,7 +294,7 @@ public class MindProjectImpl extends org.ow2.mindEd.ide.model.impl.MindProjectIm
 	}
 	
 	@Override
-	public EList<MindItf> resolvePossibleIdlInPackage(String packageName) {
+	public EList<MindItf> resolvePossibleItfInPackage(String packageName) {
 		return ResolveImpl.resolveP(this, MindidePackage.Literals.MIND_ITF, packageName);
 	}
 	
@@ -279,7 +304,7 @@ public class MindProjectImpl extends org.ow2.mindEd.ide.model.impl.MindProjectIm
 	}
 	
 	@Override
-	public EList<MindItf> resolvePossibleIdlInWorkspace(String componentName) {
+	public EList<MindItf> resolvePossibleItfInWorkspace(String componentName) {
 		return ResolveImpl.resolveInWorkspace(MindidePackage.Literals.MIND_ITF, componentName);
 	}
 	

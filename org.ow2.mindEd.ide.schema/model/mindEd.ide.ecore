@@ -93,18 +93,18 @@
     <eOperations name="resolvePossibleAdlInWorkspace" upperBound="-1" eType="#//MindAdl">
       <eParameters name="componentName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </eOperations>
-    <eOperations name="resolveIdl" eType="#//MindItf">
+    <eOperations name="resolveItf" eType="#//MindItf">
       <eParameters name="componentName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       <eParameters name="defaultPackage" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       <eParameters name="imports" upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </eOperations>
-    <eOperations name="resolvePossibleIdlInMindPath" upperBound="-1" eType="#//MindItf">
+    <eOperations name="resolvePossibleItfInMindPath" upperBound="-1" eType="#//MindItf">
       <eParameters name="componentName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </eOperations>
-    <eOperations name="resolvePossibleIdlInPackage" upperBound="-1" eType="#//MindItf">
+    <eOperations name="resolvePossibleItfInPackage" upperBound="-1" eType="#//MindItf">
       <eParameters name="packageName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </eOperations>
-    <eOperations name="resolvePossibleIdlInWorkspace" upperBound="-1" eType="#//MindItf">
+    <eOperations name="resolvePossibleItfInWorkspace" upperBound="-1" eType="#//MindItf">
       <eParameters name="componentName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </eOperations>
     <eOperations name="findQualifiedComponent" eType="#//MindAdl">
@@ -119,6 +119,12 @@
     </eOperations>
     <eOperations name="addMindPathImportPackageFromFile" eType="#//MindPathEntry">
       <eParameters name="file" eType="#//MindFile"/>
+    </eOperations>
+    <eOperations name="findMindFile" eType="#//MindFile">
+      <eParameters name="qualifiedName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eOperations>
+    <eOperations name="exists" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+      <eParameters name="obj" eType="#//MindFile"/>
     </eOperations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="rootsrcs" upperBound="-1"
         eType="#//MindRootSrc" eOpposite="#//MindRootSrc/project"/>

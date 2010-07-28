@@ -902,18 +902,18 @@ public class MindidePackageImpl extends EPackageImpl implements MindidePackage {
 		op = addEOperation(mindProjectEClass, this.getMindAdl(), "resolvePossibleAdlInWorkspace", 0, -1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "componentName", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		op = addEOperation(mindProjectEClass, this.getMindItf(), "resolveIdl", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = addEOperation(mindProjectEClass, this.getMindItf(), "resolveItf", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "componentName", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "defaultPackage", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "imports", 0, -1, IS_UNIQUE, IS_ORDERED);
 
-		op = addEOperation(mindProjectEClass, this.getMindItf(), "resolvePossibleIdlInMindPath", 0, -1, IS_UNIQUE, IS_ORDERED);
+		op = addEOperation(mindProjectEClass, this.getMindItf(), "resolvePossibleItfInMindPath", 0, -1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "componentName", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		op = addEOperation(mindProjectEClass, this.getMindItf(), "resolvePossibleIdlInPackage", 0, -1, IS_UNIQUE, IS_ORDERED);
+		op = addEOperation(mindProjectEClass, this.getMindItf(), "resolvePossibleItfInPackage", 0, -1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "packageName", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		op = addEOperation(mindProjectEClass, this.getMindItf(), "resolvePossibleIdlInWorkspace", 0, -1, IS_UNIQUE, IS_ORDERED);
+		op = addEOperation(mindProjectEClass, this.getMindItf(), "resolvePossibleItfInWorkspace", 0, -1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "componentName", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		op = addEOperation(mindProjectEClass, this.getMindAdl(), "findQualifiedComponent", 0, 1, IS_UNIQUE, IS_ORDERED);
@@ -926,6 +926,12 @@ public class MindidePackageImpl extends EPackageImpl implements MindidePackage {
 
 		op = addEOperation(mindProjectEClass, this.getMindPathEntry(), "addMindPathImportPackageFromFile", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getMindFile(), "file", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = addEOperation(mindProjectEClass, this.getMindFile(), "findMindFile", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEString(), "qualifiedName", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = addEOperation(mindProjectEClass, ecorePackage.getEBoolean(), "exists", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getMindFile(), "obj", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(mindPathEntryEClass, MindPathEntry.class, "MindPathEntry", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getMindPathEntry_OwnerProject(), this.getMindProject(), this.getMindProject_Mindpathentries(), "ownerProject", null, 1, 1, MindPathEntry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

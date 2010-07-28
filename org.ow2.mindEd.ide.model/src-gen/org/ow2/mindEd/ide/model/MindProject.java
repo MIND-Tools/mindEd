@@ -238,7 +238,7 @@ public interface MindProject extends MindObject {
 	 * @model importsMany="true"
 	 * @generated
 	 */
-	MindItf resolveIdl(String componentName, String defaultPackage, EList<String> imports);
+	MindItf resolveItf(String componentName, String defaultPackage, EList<String> imports);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -246,7 +246,7 @@ public interface MindProject extends MindObject {
 	 * @model
 	 * @generated
 	 */
-	EList<MindItf> resolvePossibleIdlInMindPath(String componentName);
+	EList<MindItf> resolvePossibleItfInMindPath(String componentName);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -254,7 +254,7 @@ public interface MindProject extends MindObject {
 	 * @model
 	 * @generated
 	 */
-	EList<MindItf> resolvePossibleIdlInPackage(String packageName);
+	EList<MindItf> resolvePossibleItfInPackage(String packageName);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -262,7 +262,7 @@ public interface MindProject extends MindObject {
 	 * @model
 	 * @generated
 	 */
-	EList<MindItf> resolvePossibleIdlInWorkspace(String componentName);
+	EList<MindItf> resolvePossibleItfInWorkspace(String componentName);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -298,5 +298,21 @@ public interface MindProject extends MindObject {
 	 * @generated
 	 */
 	MindPathEntry addMindPathImportPackageFromFile(MindFile file);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	MindFile findMindFile(String qualifiedName);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	boolean exists(MindFile obj);
 
 } // MindProject

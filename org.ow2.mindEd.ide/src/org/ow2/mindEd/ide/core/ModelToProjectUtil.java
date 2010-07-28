@@ -162,7 +162,7 @@ public class ModelToProjectUtil {
 		}
 		
 		// Resolve and return the URI
-		MindItf itf = project.resolveIdl(itfName, defaultPackageObj.getName(), imports);
+		MindItf itf = project.resolveItf(itfName, defaultPackageObj.getName(), imports);
 		return itf;
 	}
 	
@@ -344,7 +344,7 @@ public class ModelToProjectUtil {
 		}
 		
 		// Resolve and return the URI
-		MindItf itf = project.resolveIdl(itfName, defaultPackageObj.getName(), imports);
+		MindItf itf = project.resolveItf(itfName, defaultPackageObj.getName(), imports);
 		return itf;
 	}
 	

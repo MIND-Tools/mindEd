@@ -306,7 +306,7 @@ public class MindProjectImpl extends MindObjectImpl implements MindProject {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public MindItf resolveIdl(String componentName, String defaultPackage, EList<String> imports) {
+	public MindItf resolveItf(String componentName, String defaultPackage, EList<String> imports) {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
@@ -317,7 +317,7 @@ public class MindProjectImpl extends MindObjectImpl implements MindProject {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<MindItf> resolvePossibleIdlInMindPath(String componentName) {
+	public EList<MindItf> resolvePossibleItfInMindPath(String componentName) {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
@@ -328,7 +328,7 @@ public class MindProjectImpl extends MindObjectImpl implements MindProject {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<MindItf> resolvePossibleIdlInPackage(String packageName) {
+	public EList<MindItf> resolvePossibleItfInPackage(String packageName) {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
@@ -339,7 +339,7 @@ public class MindProjectImpl extends MindObjectImpl implements MindProject {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<MindItf> resolvePossibleIdlInWorkspace(String componentName) {
+	public EList<MindItf> resolvePossibleItfInWorkspace(String componentName) {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
@@ -384,6 +384,28 @@ public class MindProjectImpl extends MindObjectImpl implements MindProject {
 	 * @generated
 	 */
 	public MindPathEntry addMindPathImportPackageFromFile(MindFile file) {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public MindFile findMindFile(String qualifiedName) {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean exists(MindFile obj) {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
