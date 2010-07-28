@@ -20,13 +20,13 @@ import org.ow2.mindEd.adl.editor.graphic.ui.custom.helpers.ComponentHelper;
 public class MindProxy extends AbstractMindProxy {
 
 	public MindProxy(GraphicalEditPart realEditPart, int vID) {
-		if (editPart == null) throw new NullPointerException();
+		if (realEditPart == null) throw new NullPointerException();
 		editPart = realEditPart;
 		visualID = vID;
 	}
 	
 	public MindProxy(GraphicalEditPart realEditPart, int vID, int type) {
-		if (editPart == null) throw new NullPointerException();
+		if (realEditPart == null) throw new NullPointerException();
 		editPart = realEditPart;
 		visualID = vID;
 		mindType = type;

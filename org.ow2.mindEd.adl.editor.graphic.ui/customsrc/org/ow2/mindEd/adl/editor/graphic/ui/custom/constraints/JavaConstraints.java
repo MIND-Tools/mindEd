@@ -6,10 +6,9 @@ import java.util.List;
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.validation.IValidationContext;
-import org.ow2.mindEd.adl.ArchitectureDefinition;
+import org.ow2.mindEd.adl.ComponentKind;
 import org.ow2.mindEd.adl.Element;
 import org.ow2.mindEd.adl.SubComponentDefinition;
-import org.ow2.mindEd.adl.ComponentKind;
 
 public class JavaConstraints {
 
