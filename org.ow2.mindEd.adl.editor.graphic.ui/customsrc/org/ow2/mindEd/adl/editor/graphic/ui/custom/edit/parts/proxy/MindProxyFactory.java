@@ -259,7 +259,6 @@ public class MindProxyFactory implements IMindTypes {
 		return TYPE_UNDEFINED;
 	}
 	
-	
 	public int getMindType(EditPart part) {
 		return getMindProxyFor(part).mindType;
 	}
