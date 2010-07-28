@@ -223,7 +223,7 @@
 
    <extension point="org.eclipse.gmf.runtime.diagram.ui.editpartProviders" id="ep-provider">
       <?gmfgen generated="false"?>
-      <editpartProvider class="org.ow2.mindEd.adl.editor.graphic.ui.custom.providers.MindEditPartCustomProvider">
+      <editpartProvider class="org.ow2.mindEd.adl.editor.graphic.ui.custom.providers.MindCustomEditPartProvider">
          <Priority name="Lowest"/>
          <object class="org.eclipse.gmf.runtime.notation.Diagram" id="generated-diagram">
             <method name="getType()" value="Mind"/>
