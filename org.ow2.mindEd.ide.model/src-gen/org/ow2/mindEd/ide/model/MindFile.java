@@ -6,6 +6,8 @@
  */
 package org.ow2.mindEd.ide.model;
 
+import java.net.URI;
+
 
 /**
  * <!-- begin-user-doc -->
@@ -18,6 +20,7 @@ package org.ow2.mindEd.ide.model;
  *   <li>{@link org.ow2.mindEd.ide.model.MindFile#getFullpath <em>Fullpath</em>}</li>
  *   <li>{@link org.ow2.mindEd.ide.model.MindFile#getPackage <em>Package</em>}</li>
  *   <li>{@link org.ow2.mindEd.ide.model.MindFile#getQualifiedName <em>Qualified Name</em>}</li>
+ *   <li>{@link org.ow2.mindEd.ide.model.MindFile#getIcon <em>Icon</em>}</li>
  * </ul>
  * </p>
  *
@@ -106,5 +109,31 @@ public interface MindFile extends MindObject {
 	 * @generated
 	 */
 	void setQualifiedName(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Icon</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Icon</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Icon</em>' attribute.
+	 * @see #setIcon(URI)
+	 * @see org.ow2.mindEd.ide.model.MindidePackage#getMindFile_Icon()
+	 * @model dataType="org.ow2.mindEd.ide.model.URI"
+	 * @generated
+	 */
+	URI getIcon();
+
+	/**
+	 * Sets the value of the '{@link org.ow2.mindEd.ide.model.MindFile#getIcon <em>Icon</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Icon</em>' attribute.
+	 * @see #getIcon()
+	 * @generated
+	 */
+	void setIcon(URI value);
 
 } // MindFile

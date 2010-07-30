@@ -6,6 +6,7 @@
  */
 package org.ow2.mindEd.ide.model.impl;
 
+import java.net.URI;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -30,6 +31,7 @@ import org.ow2.mindEd.ide.model.MindidePackage;
  *   <li>{@link org.ow2.mindEd.ide.model.impl.MindFileImpl#getFullpath <em>Fullpath</em>}</li>
  *   <li>{@link org.ow2.mindEd.ide.model.impl.MindFileImpl#getPackage <em>Package</em>}</li>
  *   <li>{@link org.ow2.mindEd.ide.model.impl.MindFileImpl#getQualifiedName <em>Qualified Name</em>}</li>
+ *   <li>{@link org.ow2.mindEd.ide.model.impl.MindFileImpl#getIcon <em>Icon</em>}</li>
  * </ul>
  * </p>
  *
@@ -75,6 +77,26 @@ public class MindFileImpl extends MindObjectImpl implements MindFile {
 	 * @ordered
 	 */
 	protected String qualifiedName = QUALIFIED_NAME_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getIcon() <em>Icon</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getIcon()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final URI ICON_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getIcon() <em>Icon</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getIcon()
+	 * @generated
+	 * @ordered
+	 */
+	protected URI icon = ICON_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -183,6 +205,27 @@ public class MindFileImpl extends MindObjectImpl implements MindFile {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public URI getIcon() {
+		return icon;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setIcon(URI newIcon) {
+		URI oldIcon = icon;
+		icon = newIcon;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MindidePackage.MIND_FILE__ICON, oldIcon, icon));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -236,6 +279,8 @@ public class MindFileImpl extends MindObjectImpl implements MindFile {
 				return getPackage();
 			case MindidePackage.MIND_FILE__QUALIFIED_NAME:
 				return getQualifiedName();
+			case MindidePackage.MIND_FILE__ICON:
+				return getIcon();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -256,6 +301,9 @@ public class MindFileImpl extends MindObjectImpl implements MindFile {
 				return;
 			case MindidePackage.MIND_FILE__QUALIFIED_NAME:
 				setQualifiedName((String)newValue);
+				return;
+			case MindidePackage.MIND_FILE__ICON:
+				setIcon((URI)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -278,6 +326,9 @@ public class MindFileImpl extends MindObjectImpl implements MindFile {
 			case MindidePackage.MIND_FILE__QUALIFIED_NAME:
 				setQualifiedName(QUALIFIED_NAME_EDEFAULT);
 				return;
+			case MindidePackage.MIND_FILE__ICON:
+				setIcon(ICON_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -296,6 +347,8 @@ public class MindFileImpl extends MindObjectImpl implements MindFile {
 				return getPackage() != null;
 			case MindidePackage.MIND_FILE__QUALIFIED_NAME:
 				return QUALIFIED_NAME_EDEFAULT == null ? qualifiedName != null : !QUALIFIED_NAME_EDEFAULT.equals(qualifiedName);
+			case MindidePackage.MIND_FILE__ICON:
+				return ICON_EDEFAULT == null ? icon != null : !ICON_EDEFAULT.equals(icon);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -314,6 +367,8 @@ public class MindFileImpl extends MindObjectImpl implements MindFile {
 		result.append(fullpath);
 		result.append(", qualifiedName: ");
 		result.append(qualifiedName);
+		result.append(", icon: ");
+		result.append(icon);
 		result.append(')');
 		return result.toString();
 	}

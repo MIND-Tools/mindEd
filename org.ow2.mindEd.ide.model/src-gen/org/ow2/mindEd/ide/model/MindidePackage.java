@@ -409,13 +409,22 @@ public interface MindidePackage extends EPackage {
 	int MIND_FILE__QUALIFIED_NAME = MIND_OBJECT_FEATURE_COUNT + 2;
 
 	/**
+	 * The feature id for the '<em><b>Icon</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MIND_FILE__ICON = MIND_OBJECT_FEATURE_COUNT + 3;
+
+	/**
 	 * The number of structural features of the '<em>Mind File</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MIND_FILE_FEATURE_COUNT = MIND_OBJECT_FEATURE_COUNT + 3;
+	int MIND_FILE_FEATURE_COUNT = MIND_OBJECT_FEATURE_COUNT + 4;
 
 	/**
 	 * The meta object id for the '{@link org.ow2.mindEd.ide.model.impl.MindAdlImpl <em>Mind Adl</em>}' class.
@@ -480,6 +489,15 @@ public interface MindidePackage extends EPackage {
 	 * @ordered
 	 */
 	int MIND_ADL__QUALIFIED_NAME = MIND_FILE__QUALIFIED_NAME;
+
+	/**
+	 * The feature id for the '<em><b>Icon</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MIND_ADL__ICON = MIND_FILE__ICON;
 
 	/**
 	 * The feature id for the '<em><b>Kind</b></em>' attribute.
@@ -564,6 +582,15 @@ public interface MindidePackage extends EPackage {
 	int MIND_C__QUALIFIED_NAME = MIND_FILE__QUALIFIED_NAME;
 
 	/**
+	 * The feature id for the '<em><b>Icon</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MIND_C__ICON = MIND_FILE__ICON;
+
+	/**
 	 * The number of structural features of the '<em>Mind C</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -635,6 +662,15 @@ public interface MindidePackage extends EPackage {
 	 * @ordered
 	 */
 	int MIND_ITF__QUALIFIED_NAME = MIND_FILE__QUALIFIED_NAME;
+
+	/**
+	 * The feature id for the '<em><b>Icon</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MIND_ITF__ICON = MIND_FILE__ICON;
 
 	/**
 	 * The number of structural features of the '<em>Mind Itf</em>' class.
@@ -710,6 +746,15 @@ public interface MindidePackage extends EPackage {
 	int MIND_H__QUALIFIED_NAME = MIND_FILE__QUALIFIED_NAME;
 
 	/**
+	 * The feature id for the '<em><b>Icon</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MIND_H__ICON = MIND_FILE__ICON;
+
+	/**
 	 * The number of structural features of the '<em>Mind H</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -781,6 +826,15 @@ public interface MindidePackage extends EPackage {
 	 * @ordered
 	 */
 	int MIND_IDF__QUALIFIED_NAME = MIND_FILE__QUALIFIED_NAME;
+
+	/**
+	 * The feature id for the '<em><b>Icon</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MIND_IDF__ICON = MIND_FILE__ICON;
 
 	/**
 	 * The number of structural features of the '<em>Mind Idf</em>' class.
@@ -1426,6 +1480,17 @@ public interface MindidePackage extends EPackage {
 	EAttribute getMindFile_QualifiedName();
 
 	/**
+	 * Returns the meta object for the attribute '{@link org.ow2.mindEd.ide.model.MindFile#getIcon <em>Icon</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Icon</em>'.
+	 * @see org.ow2.mindEd.ide.model.MindFile#getIcon()
+	 * @see #getMindFile()
+	 * @generated
+	 */
+	EAttribute getMindFile_Icon();
+
+	/**
 	 * Returns the meta object for class '{@link org.ow2.mindEd.ide.model.MindAllRepo <em>Mind All Repo</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1935,6 +2000,14 @@ public interface MindidePackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute MIND_FILE__QUALIFIED_NAME = eINSTANCE.getMindFile_QualifiedName();
+
+		/**
+		 * The meta object literal for the '<em><b>Icon</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute MIND_FILE__ICON = eINSTANCE.getMindFile_Icon();
 
 		/**
 		 * The meta object literal for the '{@link org.ow2.mindEd.ide.model.impl.MindAllRepoImpl <em>Mind All Repo</em>}' class.

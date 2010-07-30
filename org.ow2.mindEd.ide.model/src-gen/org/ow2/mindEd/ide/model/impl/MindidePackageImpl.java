@@ -460,6 +460,15 @@ public class MindidePackageImpl extends EPackageImpl implements MindidePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getMindFile_Icon() {
+		return (EAttribute)mindFileEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getMindAllRepo() {
 		return mindAllRepoEClass;
 	}
@@ -749,6 +758,7 @@ public class MindidePackageImpl extends EPackageImpl implements MindidePackage {
 		createEAttribute(mindFileEClass, MIND_FILE__FULLPATH);
 		createEReference(mindFileEClass, MIND_FILE__PACKAGE);
 		createEAttribute(mindFileEClass, MIND_FILE__QUALIFIED_NAME);
+		createEAttribute(mindFileEClass, MIND_FILE__ICON);
 
 		mindAllRepoEClass = createEClass(MIND_ALL_REPO);
 		createEReference(mindAllRepoEClass, MIND_ALL_REPO__REPOS);
@@ -863,6 +873,7 @@ public class MindidePackageImpl extends EPackageImpl implements MindidePackage {
 		initEAttribute(getMindFile_Fullpath(), ecorePackage.getEString(), "fullpath", null, 0, 1, MindFile.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getMindFile_Package(), this.getMindPackage(), this.getMindPackage_Files(), "package", null, 1, 1, MindFile.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getMindFile_QualifiedName(), ecorePackage.getEString(), "qualifiedName", null, 0, 1, MindFile.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getMindFile_Icon(), this.getURI(), "icon", null, 0, 1, MindFile.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(mindAllRepoEClass, MindAllRepo.class, "MindAllRepo", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getMindAllRepo_Repos(), this.getMindRepo(), null, "repos", null, 0, -1, MindAllRepo.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
