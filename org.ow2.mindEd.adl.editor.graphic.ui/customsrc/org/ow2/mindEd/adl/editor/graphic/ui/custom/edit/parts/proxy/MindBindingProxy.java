@@ -21,7 +21,7 @@ public class MindBindingProxy {
 	protected int visualID;
 
 	public MindBindingProxy(ConnectionEditPart realEditPart, int vID) {
-		if (editPart == null) throw new NullPointerException();
+		if (realEditPart == null) throw new NullPointerException();
 		editPart = realEditPart;
 		visualID = vID;
 	}
