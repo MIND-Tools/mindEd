@@ -1,5 +1,8 @@
 package org.ow2.mindEd.ide.ui;
 
+import java.net.MalformedURLException;
+import java.net.URL;
+
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.NullProgressMonitor;
@@ -83,6 +86,15 @@ public class Activator extends AbstractUIPlugin {
 	 */
 	public static ImageDescriptor getImageDescriptor(String path) {
 		return imageDescriptorFromPlugin(PLUGIN_ID, path);
+	}
+	
+	public static ImageDescriptor getImageDescriptorURI(java.net.URI uri) throws MalformedURLException {
+		ImageDescriptor image = getDefault().getImageRegistry().getDescriptor(uri.toString());
+		if (image == null) {
+			image = ImageDescriptor.createFromURL(new URL(uri.toString()));
+			getDefault().getImageRegistry().put(uri.toString(), image);
+		}
+		return image;
 	}
 	
 	/** 
