@@ -254,7 +254,8 @@ public class MindProjectImpl extends org.ow2.mindEd.ide.model.impl.MindProjectIm
 	}
 	
 	/**
-	 * Return the first
+	 * Return the first mindfile find in the packages. The resource exists at this moment.
+	 * Return null if no mindfile found.
 	 */
 	@Override
 	public MindFile findMindFile(String qualifiedName) {

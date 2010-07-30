@@ -1,11 +1,13 @@
 package org.ow2.mindEd.ide.core.impl;
 
 import java.io.IOException;
+import java.net.URI;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
 import org.eclipse.core.resources.IContainer;
+import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IFolder;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IResource;
@@ -16,6 +18,7 @@ import org.eclipse.core.resources.IResourceDeltaVisitor;
 import org.eclipse.core.resources.IResourceVisitor;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IPath;
+import org.eclipse.core.runtime.Path;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.ow2.mindEd.ide.core.MindIdeCore;
@@ -217,10 +220,19 @@ public class MindIdeWorkspaceChangeListener implements IResourceVisitor, IResour
 		   mf.setQualifiedName(nameFile);
 		else
 		   mf.setQualifiedName(p.getName()+"."+nameFile);
+		
+		IFile iconFile = resource.getParent().getFile(new Path(nameFile+".png"));
+		if (iconFile.exists()) {
+			mf.setIcon(toURI(iconFile));
+		}
 		p.getFiles().add(mf);
 		return mf;
 	}
 	
+	private URI toURI(IFile iconFile) {
+		return iconFile.getLocationURI();
+	}
+
 	/**
 	 * Find or create if need and asked a MindPackage from given resource.
 	 * @param resource the resource

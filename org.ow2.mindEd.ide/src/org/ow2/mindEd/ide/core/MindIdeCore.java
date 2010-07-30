@@ -441,6 +441,37 @@ public class MindIdeCore {
 		createITFTemplate(MindIdeCore.getResource(adl), componentName, qn, monitor);
 	}
 	
+	static public void createITFTemplate(IFile f, IProgressMonitor monitor) throws MindException, CoreException {
+		MindProject p = get(f.getProject());
+		if (p == null)
+			throw new MindException("The project '"+f.getProject().getName()+"' isn't a mind project.");
+		if (!f.getName().endsWith(".itf"))
+			throw new MindException("Bad extendsion for '"+f.getName()+"'");
+		String cn = f.getName().substring(0, f.getName().length() - 4);
+		if (cn.contains(".")) {
+			throw new MindException("The component name '"+f.getName()+"' contains '.'.");
+		}
+		IPath mindItfPath = f.getFullPath();
+		
+		// search the goot root source for compute package
+		for (MindRootSrc rs : p.getRootsrcs()) {
+			IFolder rsContainer = getResource(rs);
+			if (rsContainer.getFullPath().isPrefixOf(mindItfPath)) {
+				StringBuilder qn = new StringBuilder();
+				IPath packagePath = f.getParent().getFullPath().removeFirstSegments(rsContainer.getFullPath().segmentCount());
+				for (String s : packagePath.segments()) {
+					qn.append(s);
+					qn.append('.');
+				}
+				qn.append(cn);
+				createITFTemplate(f.getParent(), cn, qn.toString(), monitor);
+				return;
+			}
+		}
+		throw new MindException("Cannot found the root source for '"+mindItfPath.toPortableString()+"'.");
+		
+	}
+	
 	/**
 	 * Create a file .itf with a template.
 	 * 
