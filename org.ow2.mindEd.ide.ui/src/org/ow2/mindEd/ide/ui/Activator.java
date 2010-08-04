@@ -89,9 +89,13 @@ public class Activator extends AbstractUIPlugin {
 	}
 	
 	public static ImageDescriptor getImageDescriptorURI(java.net.URI uri) throws MalformedURLException {
+		return getImageDescriptorURI(new URL(uri.toString()));
+	}
+	
+	public static ImageDescriptor getImageDescriptorURI(java.net.URL uri) throws MalformedURLException {
 		ImageDescriptor image = getDefault().getImageRegistry().getDescriptor(uri.toString());
 		if (image == null) {
-			image = ImageDescriptor.createFromURL(new URL(uri.toString()));
+			image = ImageDescriptor.createFromURL(uri);
 			getDefault().getImageRegistry().put(uri.toString(), image);
 		}
 		return image;
