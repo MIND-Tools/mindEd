@@ -100,7 +100,7 @@ public class InterfaceDefinitionShape extends Shape implements IFractalShape{
 				setBackgroundColor(RED);
 			}
 		}else{
-			setBackgroundColor(GRAY);
+			setBackgroundColor(GREY);
 		}
 	}
 	

@@ -93,7 +93,7 @@ public class MindListProxy extends MindProxy {
 		Point loc = new Point(0, 0);
 		((GraphicalEditPart) editPart.getParent()).setLayoutConstraint(
 			editPart,
-			editPart.getFigure(),
+			getGraphicalEditPart().getFigure(),
 			new Rectangle(loc, size));
 		
 		return true;

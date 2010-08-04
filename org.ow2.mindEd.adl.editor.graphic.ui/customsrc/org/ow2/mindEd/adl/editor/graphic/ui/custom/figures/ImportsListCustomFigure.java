@@ -15,10 +15,10 @@ public class ImportsListCustomFigure extends AbstractComponentShape {
 	protected static Dimension MAXIMUM_SIZE = new Dimension(500000,75);
 	
 	public ImportsListCustomFigure() {
-		setBackgroundColor(LIGHT_GRAY);
+		setBackgroundColor(LIGHT_GREY);
 		setMaximumSize(MAXIMUM_SIZE);
 		setPreferredSize(MAXIMUM_SIZE);
 	}
 	
-	protected static Color BACKGROUND_COLOR = LIGHT_GRAY;
+	protected static Color BACKGROUND_COLOR = LIGHT_GREY;
 }

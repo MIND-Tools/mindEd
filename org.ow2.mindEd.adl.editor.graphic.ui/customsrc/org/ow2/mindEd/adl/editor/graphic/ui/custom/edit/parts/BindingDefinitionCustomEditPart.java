@@ -1,5 +1,6 @@
 package org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.parts;
 
+import org.eclipse.draw2d.Connection;
 import org.eclipse.draw2d.ConnectionAnchor;
 import org.eclipse.gmf.runtime.notation.View;
 import org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.parts.proxy.MindBindingProxy;
@@ -13,7 +14,7 @@ import org.ow2.mindEd.adl.editor.graphic.ui.edit.parts.BindingDefinitionEditPart
  */
 public class BindingDefinitionCustomEditPart extends BindingDefinitionEditPart {
 
-	protected MindBindingProxy genericEditPart = MindProxyFactory.INSTANCE.createMindProxy (this, VISUAL_ID);
+	protected MindBindingProxy mindProxy = MindProxyFactory.INSTANCE.createMindProxy (this, VISUAL_ID);
 	
 	public BindingDefinitionCustomEditPart(View view) {
 		super(view);
@@ -22,22 +23,26 @@ public class BindingDefinitionCustomEditPart extends BindingDefinitionEditPart {
 	
 	@Override
 	public void activateFigure() {
-		
 		super.activateFigure();
-		
-		genericEditPart.activateFigure();
+		mindProxy.activateFigure();
+	}
+	
+	@Override
+	protected Connection createConnectionFigure() {
+		Connection figure = super.createConnectionFigure();
+		return mindProxy.createConnectionFigure(figure);
 	}
 	
 	
 	@Override
 	protected ConnectionAnchor getSourceConnectionAnchor() {
-		return genericEditPart.getSourceConnectionAnchor();
+		return mindProxy.getSourceConnectionAnchor();
 	}
 
 	
 	@Override
 	protected ConnectionAnchor getTargetConnectionAnchor() {
-		return genericEditPart.getTargetConnectionAnchor();
+		return mindProxy.getTargetConnectionAnchor();
 	}
 	
 }

@@ -38,7 +38,7 @@ public class MindBodyProxy extends MindProxy {
 	}
 	
 	protected void setParentComponent() {
-		MindProxy parent = getMindProxyFor(editPart.getParent());
+		MindProxy parent = getMindProxyFor((GraphicalEditPart) editPart.getParent());
 		if (parent instanceof MindComponentProxy)
 			parentComponent = (MindComponentProxy) parent;
 	}
@@ -63,7 +63,7 @@ public class MindBodyProxy extends MindProxy {
 	
 	@Override
 	public boolean addFixedChild(EditPart childEditPart) {
-		if (getMindProxyFor(childEditPart) instanceof MindCompartmentProxy) {
+		if (getMindProxyFor((GraphicalEditPart) childEditPart) instanceof MindCompartmentProxy) {
 			IFigure compartment = getCompartmentFigure();
 			if (compartment == null) return false;
 			// Set the layout
@@ -72,7 +72,7 @@ public class MindBodyProxy extends MindProxy {
 							.getFigure());
 			return true;
 		}
-		if(getMindProxyFor(childEditPart) instanceof MindInterfaceProxy)
+		if(getMindProxyFor((GraphicalEditPart) childEditPart) instanceof MindInterfaceProxy)
 		{
 			//Make interfaces stick to the component's border
 			//Use InterfaceBorderItemLocator
@@ -152,7 +152,7 @@ public class MindBodyProxy extends MindProxy {
 	
 	public MindComponentProxy getParentComponent() {
 		if (parentComponent == null) {
-			MindProxy parent = getMindProxyFor(editPart.getParent());
+			MindProxy parent = getMindProxyFor((GraphicalEditPart) editPart.getParent());
 			if (parent instanceof MindComponentProxy)
 				parentComponent = (MindComponentProxy) parent;
 		}
@@ -160,8 +160,13 @@ public class MindBodyProxy extends MindProxy {
 	}
 
 	public Color getMindBorderColor() {
+		// Color from the extension point
+		Color extColor = super.getMindBorderColor();
+		if ( extColor != null)
+			return extColor;
+		// Normal color
 		if (getParentComponent() == null)
-			return IFractalShape.GRAY;
+			return IFractalShape.GREY;
 		switch(getParentComponent().getComponentType()) {
 		case COMPONENT_COMPOSITE:
 			return IFractalShape.BLUE;
@@ -172,14 +177,19 @@ public class MindBodyProxy extends MindProxy {
 		case COMPONENT_SUB_PRIMITIVE:
 			return IFractalShape.ORANGE;
 		case COMPONENT_TYPE:
-			return IFractalShape.GRAY;
+			return IFractalShape.GREY;
 		}
-		return IFractalShape.GRAY;
+		return IFractalShape.GREY;
 	}
 	
 	public Color getMindBackgroundColor() {
+		// Color from the extension point
+		Color extColor = super.getMindBackgroundColor();
+		if ( extColor != null)
+			return extColor;
+		// Normal color
 		if (getParentComponent() == null)
-			return IFractalShape.GRAY;
+			return IFractalShape.GREY;
 		switch(getParentComponent().getComponentType()) {
 		case COMPONENT_COMPOSITE:
 			return IFractalShape.LIGHT_BLUE;
@@ -190,9 +200,9 @@ public class MindBodyProxy extends MindProxy {
 		case COMPONENT_SUB_PRIMITIVE:
 			return IFractalShape.LIGHT_ORANGE;
 		case COMPONENT_TYPE:
-			return IFractalShape.LIGHT_GRAY;
+			return IFractalShape.LIGHT_GREY;
 		}
-		return IFractalShape.LIGHT_GRAY;
+		return IFractalShape.LIGHT_GREY;
 	}
 	
 }

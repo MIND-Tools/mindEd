@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?eclipse version="3.0"?>
 <plugin>
-   <extension-point id="test_id" name="factory" schema="schema/test_id.exsd"/>
+   <extension-point id="mindAnnotation" name="mindAnnotation" schema="schema/mindAnnotation.exsd"/>
 
    
 
@@ -1156,7 +1156,7 @@ and
 <extension id="validationDecoratorProvider" name="ValidationDecorations" point="org.eclipse.gmf.runtime.diagram.ui.decoratorProviders">
       <?gmfgen generated="true"?>
       <decoratorProvider class="org.ow2.mindEd.adl.editor.graphic.ui.providers.MindValidationDecoratorProvider">
-         <Priority name="High"/>
+         <Priority name="Highest"/>
          <object class="org.eclipse.gmf.runtime.diagram.ui.editparts.IPrimaryEditPart(org.eclipse.gmf.runtime.diagram.ui)" id="PRIMARY_VIEW"/>
          <context decoratorTargets="PRIMARY_VIEW"/>
       </decoratorProvider>
@@ -1173,6 +1173,25 @@ and
          documentType="org.eclipse.gmf.runtime.diagram.ui.editor.IDocument"
          id="org.ow2.mindEd.adl.editor.graphic.ui.MindDocumentProvider">
    </provider>
+</extension>
+<extension
+      point="org.eclipse.gmf.runtime.diagram.ui.decoratorProviders">
+   <decoratorProvider
+         class="org.ow2.mindEd.adl.editor.graphic.ui.custom.providers.AnnotationIconsProvider">
+      <Priority
+            name="Highest">
+      </Priority>
+      <context
+            decoratorTargets="PRIMARY_VIEW">
+      </context>
+      <object
+            class="org.eclipse.gmf.runtime.diagram.ui.editparts.IPrimaryEditPart(org.eclipse.gmf.runtime.diagram.ui)"
+            id="PRIMARY_VIEW">
+      </object>
+   </decoratorProvider>
+</extension>
+<extension
+      point="org.ow2.mindEd.adl.editor.graphic.ui.mindAnnotation">
 </extension>
 
 

@@ -20,6 +20,7 @@ import org.eclipse.gmf.runtime.notation.impl.ShapeImpl;
 import org.ow2.mindEd.adl.Body;
 import org.ow2.mindEd.adl.MergedObject;
 
+import org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.parts.proxy.AbstractMindProxy;
 import org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.parts.proxy.MindProxy;
 import org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.parts.proxy.MindProxyFactory;
 import org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.policies.MergedComponentEditPolicy;
@@ -105,9 +106,9 @@ public class ComponentHelper implements IFractalShape {
 	 */
 	public static void handleMergedElement(GraphicalEditPart element) {
 		
-		MindProxy genericEditPart = MindProxyFactory.INSTANCE.getMindProxyFor(element);
-		if (genericEditPart != null)
-			genericEditPart.setMerged(true);
+		MindProxy mindProxy = MindProxyFactory.INSTANCE.getMindProxyFor(element);
+		if (mindProxy != null)
+			mindProxy.setMerged(true);
 		
 		IFigure figure = element.getFigure();
 		if (figure != null) {
@@ -151,11 +152,11 @@ public class ComponentHelper implements IFractalShape {
 	
 	@SuppressWarnings("unchecked")
 	public static void handleMergedComponentFigure(IFigure figure) {
-		figure.setBackgroundColor(LIGHT_GRAY);
+		figure.setBackgroundColor(LIGHT_GREY);
 		Border border = figure.getBorder();
 		if (border != null) { 
 			if (border instanceof ComponentBorder) {
-				((ComponentBorder)border).setColor(GRAY);
+				((ComponentBorder)border).setColor(GREY);
 			}
 		}
 		

@@ -84,7 +84,7 @@ public class MindComponentProxy extends MindProxy {
 	@SuppressWarnings("unchecked")
 	public boolean removeFixedChild(EditPart childEditPart) {
 		if (getMindType(childEditPart) == TYPE_BODY) {
-			if (!MindProxyFactory.INSTANCE.getMindProxyFor(childEditPart).isMerged()) {
+			if (!MindProxyFactory.INSTANCE.getMindProxyFor((GraphicalEditPart)childEditPart).isMerged()) {
 				// Remove interfaces' figures from border
 	        	List<IFigure> borderItems = borderedEditPart.getBorderedFigure().getBorderItemContainer().getChildren();
 	        	Iterator<IFigure> iter = borderItems.listIterator();
@@ -155,6 +155,11 @@ public class MindComponentProxy extends MindProxy {
 	
 	
 	public Color getMindBorderColor() {
+		// Color from the extension point
+		Color extColor = super.getMindBorderColor();
+		if ( extColor != null)
+			return extColor;
+		// Normal color
 		switch(getComponentType()) {
 		case COMPONENT_COMPOSITE:
 			return IFractalShape.BLUE;
@@ -165,12 +170,17 @@ public class MindComponentProxy extends MindProxy {
 		case COMPONENT_SUB_PRIMITIVE:
 			return IFractalShape.ORANGE;
 		case COMPONENT_TYPE:
-			return IFractalShape.GRAY;
+			return IFractalShape.GREY;
 		}
-		return IFractalShape.GRAY;
+		return IFractalShape.GREY;
 	}
 	
 	public Color getMindBackgroundColor() {
+		// Color from the extension point
+		Color extColor = super.getMindBackgroundColor();
+		if ( extColor != null)
+			return extColor;
+		// Normal color
 		switch(getComponentType()) {
 		case COMPONENT_COMPOSITE:
 			return IFractalShape.LIGHT_BLUE;
@@ -181,9 +191,9 @@ public class MindComponentProxy extends MindProxy {
 		case COMPONENT_SUB_PRIMITIVE:
 			return IFractalShape.LIGHT_ORANGE;
 		case COMPONENT_TYPE:
-			return IFractalShape.LIGHT_GRAY;
+			return IFractalShape.LIGHT_GREY;
 		}
-		return IFractalShape.LIGHT_GRAY;
+		return IFractalShape.LIGHT_GREY;
 	}
 	
 	public Dimension getMindPreferredSize() {

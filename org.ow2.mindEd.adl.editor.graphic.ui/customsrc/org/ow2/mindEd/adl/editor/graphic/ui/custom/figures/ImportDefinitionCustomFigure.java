@@ -15,6 +15,6 @@ public class ImportDefinitionCustomFigure extends AbstractComponentShape {
 		super();
 	}
 	
-	protected static Color BACKGROUND_COLOR = LIGHT_GRAY;
+	protected static Color BACKGROUND_COLOR = LIGHT_GREY;
 
 }

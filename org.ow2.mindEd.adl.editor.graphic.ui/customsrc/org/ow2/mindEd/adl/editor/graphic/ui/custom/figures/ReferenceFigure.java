@@ -21,8 +21,8 @@ public class ReferenceFigure extends AbstractComponentShape {
 		super();
 	}
 	
-	protected static Color BACKGROUND_COLOR = LIGHT_GRAY;
-	protected Color borderColor = GRAY;
+	protected static Color BACKGROUND_COLOR = LIGHT_GREY;
+	protected Color borderColor = GREY;
 	
 	protected static Dimension PREFERRED_SIZE = new Dimension (200,20);
 	

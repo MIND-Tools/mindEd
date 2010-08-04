@@ -199,7 +199,7 @@ public class MindCustomDocumentProvider extends MindDocumentProvider {
 				
 				// Update diagram
 				try {
-					MindDiagramUpdateCommand update = new MindDiagramUpdateAllCommand();
+					MindDiagramUpdateCommand update = new MindDiagramUpdateAllCommand(false);
 					update.execute(new ExecutionEvent());
 				}catch (ExecutionException e) {
 					MindDiagramEditorPlugin.getInstance().logError("Update failed", e);

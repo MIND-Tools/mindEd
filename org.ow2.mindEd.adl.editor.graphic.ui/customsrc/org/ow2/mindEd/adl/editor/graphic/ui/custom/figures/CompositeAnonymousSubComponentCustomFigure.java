@@ -24,7 +24,7 @@ public class CompositeAnonymousSubComponentCustomFigure extends
 	protected static Dimension componentPreferredSize = new Dimension (200,200);
 
 	// Couleurs pour le merge
-	protected static Color MERGED_GRAY = LIGHT_GRAY;
+	protected static Color MERGED_GRAY = LIGHT_GREY;
 	
 	
 }

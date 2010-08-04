@@ -15,6 +15,7 @@ import org.eclipse.gmf.runtime.diagram.ui.commands.CommandProxy;
 import org.eclipse.gmf.runtime.diagram.ui.commands.CreateCommand;
 import org.eclipse.gmf.runtime.diagram.ui.commands.ICommandProxy;
 import org.eclipse.gmf.runtime.diagram.ui.commands.SemanticCreateCommand;
+import org.eclipse.gmf.runtime.diagram.ui.editparts.GraphicalEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.CreationEditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.l10n.DiagramUIMessages;
@@ -160,12 +161,12 @@ public class ParentCreationEditPolicy extends
 							MindVisualIDRegistry.getVisualID(semanticHint))
 					)
 					&& 
-					!(MindProxyFactory.INSTANCE.getMindProxyFor(virtualHost)
+					!(MindProxyFactory.INSTANCE.getMindProxyFor((GraphicalEditPart) virtualHost)
 							instanceof MindComponentProxy)
 					&&
 					!(virtualHost instanceof AdlDefinitionEditPart)
 					&&
-					!(MindProxyFactory.INSTANCE.getMindProxyFor(virtualHost)
+					!(MindProxyFactory.INSTANCE.getMindProxyFor((GraphicalEditPart) virtualHost)
 							instanceof MindListProxy)
 					) 
 			{

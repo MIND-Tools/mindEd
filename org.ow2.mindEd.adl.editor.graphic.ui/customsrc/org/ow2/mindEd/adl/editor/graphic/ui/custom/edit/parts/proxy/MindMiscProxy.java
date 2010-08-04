@@ -40,17 +40,6 @@ public class MindMiscProxy extends MindProxy {
 		
 	}
 	
-	@SuppressWarnings("unchecked")
-	public GraphicalEditPart getCompartment() {
-		List<EditPart> children = editPart.getChildren();
-		
-		for (EditPart child : children) {
-			if (getMindProxyFor(child) instanceof MindCompartmentProxy)
-				return (GraphicalEditPart)child;
-		}
-		return null;
-	}
-	
 	/**
 	 * Default layout is OK but we don't want the spacing
 	 */
@@ -59,7 +48,7 @@ public class MindMiscProxy extends MindProxy {
 			//no spacing anymore
 			ConstrainedToolbarLayout layout = new ConstrainedToolbarLayout();
 			nodeShape.setLayoutManager(layout);
-			nodeShape.addLayoutListener(new MindListLayoutListener(editPart));
+			nodeShape.addLayoutListener(new MindListLayoutListener(getGraphicalEditPart()));
 		}
 		return nodeShape; // use nodeShape itself as contentPane
 	}

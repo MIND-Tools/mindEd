@@ -24,12 +24,7 @@ public class MindProxyFactory implements IMindTypes {
 	/**
 	 * This Hashmap remembers created MindEditParts and their associated EditParts
 	 */
-	private HashMap<EditPart,MindProxy> editPartsMap = new HashMap<EditPart,MindProxy>();
-	
-	/**
-	 * This Hashmap remembers created MindBindingEditParts and their associated EditParts
-	 */
-	private HashMap<ConnectionEditPart,MindBindingProxy> bindingsMap = new HashMap<ConnectionEditPart,MindBindingProxy>();
+	private HashMap<EditPart,AbstractMindProxy> editPartsMap = new HashMap<EditPart,AbstractMindProxy>();
 	
 	/**
 	 * The factory, based on the type definition (see getMindType)
@@ -40,86 +35,73 @@ public class MindProxyFactory implements IMindTypes {
 	public MindProxy createMindProxy(GraphicalEditPart editPart,int visualID) {
 		
 		MindProxy mindProxy;
-		int type = MindProxy.getMindType(visualID);
+		int type = getMindType(visualID);
 		
 		switch (type){
 		
 		case TYPE_UNDEFINED:
 			mindProxy = new MindProxy(editPart, visualID);
-			editPartsMap.put(editPart, mindProxy);
-			return mindProxy;
+			break;
 			
 		case TYPE_COMPONENT:
 			mindProxy = new MindComponentProxy(editPart, visualID);
-			editPartsMap.put(editPart, mindProxy);
-			return mindProxy;
+			break;
 			
 		case TYPE_LIST:
 			mindProxy = new MindListProxy(editPart, visualID);
-			editPartsMap.put(editPart, mindProxy);
-			return mindProxy;
+			break;
 			
 		case TYPE_REFERENCES_LIST:
 			mindProxy = new MindListProxy(editPart, visualID, TYPE_REFERENCES_LIST);
-			editPartsMap.put(editPart, mindProxy);
-			return mindProxy;
+			break;
 			
 		case TYPE_BODY:
 			mindProxy = new MindBodyProxy(editPart, visualID);
-			editPartsMap.put(editPart, mindProxy);
-			return mindProxy;
+			break;
 			
 		case TYPE_INTERFACE:
 			mindProxy = new MindInterfaceProxy(editPart, visualID);
-			editPartsMap.put(editPart, mindProxy);
-			return mindProxy;
+			break;
 			
 		case TYPE_REFERENCE:
 			mindProxy = new MindReferenceProxy(editPart, visualID);
-			editPartsMap.put(editPart, mindProxy);
-			return mindProxy;
+			break;
 			
 		case TYPE_SUB_REFERENCE:
 			mindProxy = new MindSubReferenceProxy(editPart, visualID);
-			editPartsMap.put(editPart, mindProxy);
-			return mindProxy;
+			break;
 			
 		case TYPE_ITEM:
 			mindProxy = new MindMiscProxy(editPart, visualID);
-			editPartsMap.put(editPart, mindProxy);
-			return mindProxy;
+			break;
 			
 		case TYPE_ROOT:
 			mindProxy = new MindProxy(editPart, visualID, TYPE_ROOT);
-			editPartsMap.put(editPart, mindProxy);
 			setRootProxy(mindProxy);
-			return mindProxy;
+			break;
 			
 		case TYPE_COMPARTMENT_BODY:
 			mindProxy = new MindBodyCompartmentProxy(editPart, visualID);
-			editPartsMap.put(editPart, mindProxy);
-			return mindProxy;
+			break;
 			
 		case TYPE_COMPARTMENT_LIST:
 			mindProxy = new MindListCompartmentProxy(editPart, visualID);
-			editPartsMap.put(editPart, mindProxy);
-			return mindProxy;
+			break;
 			
 		case TYPE_COMPARTMENT:
 			mindProxy = new MindCompartmentProxy(editPart, visualID);
-			editPartsMap.put(editPart, mindProxy);
-			return mindProxy;
+			break;
 			
 		case TYPE_LABEL:
 			mindProxy = new MindLabelProxy(editPart, visualID);
-			editPartsMap.put(editPart, mindProxy);
-			return mindProxy;
+			break;
 			
 		default :
 			mindProxy = new MindProxy(editPart, visualID);
-			editPartsMap.put(editPart, mindProxy);
-			return mindProxy;
 		}
+
+		editPartsMap.put(editPart, mindProxy);
+		return mindProxy;
 	}
 	
 	/**
@@ -130,19 +112,44 @@ public class MindProxyFactory implements IMindTypes {
 	 */
 	public MindBindingProxy createMindProxy(ConnectionEditPart editPart,int visualID) {
 		MindBindingProxy mindProxy = new MindBindingProxy(editPart, visualID);
-		bindingsMap.put(editPart, mindProxy);
+		editPartsMap.put(editPart, mindProxy);
 		return mindProxy;
 	}
 	
+	public AbstractMindProxy createMindProxy(EditPart editPart, int visualID) {
+		if (editPart instanceof GraphicalEditPart)
+			return createMindProxy(editPart, visualID);
+		else if (editPart instanceof ConnectionEditPart)
+			return createMindProxy(editPart, visualID);
+		else 
+			throw new IllegalArgumentException();
+	}
 
-	public MindProxy getMindProxyFor(EditPart editPart) {
+	public AbstractMindProxy getAbstractMindProxyFor(EditPart editPart) {
 		return editPartsMap.get(editPart);
 	}
 	
-	public MindBindingProxy getMindProxyFor(ConnectionEditPart editPart) {
-		return bindingsMap.get(editPart);
+	public MindProxy getMindProxyFor(GraphicalEditPart editPart) {
+		return (MindProxy) editPartsMap.get(editPart);
 	}
 	
+	public MindBindingProxy getMindProxyFor(ConnectionEditPart editPart) {
+		return (MindBindingProxy) editPartsMap.get(editPart);
+	}
+	
+	/**
+	 * Should be removed
+	 * @param editPart
+	 * @return the MindProxy associated to editPart if it is a GraphicalEditPart
+	 * @throws IllegalArgumentException if editPart is not a GraphicalEditPart
+	 */
+	@Deprecated
+	public MindProxy getMindProxyFor(EditPart editPart) {
+		if (editPart instanceof GraphicalEditPart)
+			return getMindProxyFor((GraphicalEditPart)editPart);
+		else
+			throw new IllegalArgumentException();
+	}
 	
 	public static int getMindType(int visualID) {
 		
@@ -260,7 +267,7 @@ public class MindProxyFactory implements IMindTypes {
 	}
 	
 	public int getMindType(EditPart part) {
-		return getMindProxyFor(part).mindType;
+		return getAbstractMindProxyFor(part).getMindType();
 	}
 	
 	protected MindProxy rootProxy = null;

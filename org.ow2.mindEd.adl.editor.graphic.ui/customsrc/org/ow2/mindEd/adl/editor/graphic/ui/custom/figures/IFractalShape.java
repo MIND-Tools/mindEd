@@ -11,12 +11,12 @@ import org.ow2.mindEd.adl.editor.graphic.ui.custom.layouts.IFractalSize;
 public interface IFractalShape extends IFractalSize {
 	static Color WHITE = new Color(null,255,255,255);
 	static Color GRAY_FOR_MERGED_ELEMENT = new Color(null,200,200,200);
-	static Color LIGHT_GRAY = new Color(null,220,220,220);
+	static Color LIGHT_GREY = new Color(null,220,220,220);
 	static Color DARK_GRAY = new Color(null,100,100,100);
 	static Color BLACK = new Color(null,0,0,0);
 	static Color RED = new Color(null,240,10,10);
 	static Color GREEN = new Color(null,150,240,150);
-	static Color GRAY = new Color(null,150,150,150);
+	static Color GREY = new Color(null,150,150,150);
 	static Color BLUE = new Color(null,100,100,250);
 	static Color LIGHT_BLUE = new Color(null, 240, 240, 250);
 	static Color BROWN = new Color(null,200,150,75);

@@ -19,6 +19,6 @@ public class ImplementationCustomFigure extends ContainerShape {
 	// Taille par défaut du component
 	public static Dimension componentPreferredSize = new Dimension (100,100);
 	
-	public static Color BORDER_COLOR = GRAY;
+	public static Color BORDER_COLOR = GREY;
 
 }

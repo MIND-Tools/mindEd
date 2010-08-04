@@ -17,9 +17,9 @@ public class LabelTitleImportsListCustomFigure extends
 	
 	protected static Dimension PREFERRED_SIZE = new Dimension(500000,20);
 	protected static Dimension MAXIMUM_SIZE = new Dimension(500000,20);
-	protected static Color BACKGROUND_COLOR = LIGHT_GRAY;
-	protected static Color BORDER_COLOR = GRAY;
-	protected static Color FOREGROUND_COLOR = LIGHT_GRAY;
+	protected static Color BACKGROUND_COLOR = LIGHT_GREY;
+	protected static Color BORDER_COLOR = GREY;
+	protected static Color FOREGROUND_COLOR = LIGHT_GREY;
 	
 	public LabelTitleImportsListCustomFigure() {
 		super();

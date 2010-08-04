@@ -12,7 +12,7 @@ public class LabelReferenceDefinitionNameCustomFigure extends AbstractComponentN
 	protected static Dimension PREFERRED_SIZE = new Dimension(5000,20);
 	protected static Dimension MAXIMUM_SIZE = new Dimension(5000,20);
 	protected static Color BACKGROUND_COLOR = WHITE;
-	protected static Color BORDER_COLOR = GRAY;
+	protected static Color BORDER_COLOR = GREY;
 	protected static Color FOREGROUND_COLOR = WHITE;
 	
 	public LabelReferenceDefinitionNameCustomFigure() {

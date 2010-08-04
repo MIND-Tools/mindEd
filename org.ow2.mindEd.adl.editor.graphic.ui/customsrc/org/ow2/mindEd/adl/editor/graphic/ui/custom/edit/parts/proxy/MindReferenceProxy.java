@@ -65,7 +65,7 @@ public class MindReferenceProxy extends MindProxy {
 		if (nodeShape.getLayoutManager() == null) {
 			ConstrainedFlowLayout layout = new ConstrainedFlowLayout(false);
 			nodeShape.setLayoutManager(layout);
-			nodeShape.addLayoutListener(new MindListLayoutListener(editPart));
+			nodeShape.addLayoutListener(new MindListLayoutListener(getGraphicalEditPart()));
 		}
 		return nodeShape; // use nodeShape itself as contentPane
 	}

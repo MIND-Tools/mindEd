@@ -39,6 +39,7 @@ public class SaveUtil {
 		if (mep	instanceof MindComponentProxy)
 		{
 			EObject model = ((View)rootEditPart.getModel()).getElement();
+			String id = ((MindObject) model).getID();
 			boundsMemory.put(((MindObject)model).getID(), ((GraphicalEditPart)rootEditPart).getFigure().getBounds().getCopy());
 		}
 		else if (mep instanceof MindInterfaceProxy)

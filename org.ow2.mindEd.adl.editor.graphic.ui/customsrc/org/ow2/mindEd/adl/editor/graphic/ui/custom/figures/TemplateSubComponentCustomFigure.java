@@ -16,10 +16,10 @@ public class TemplateSubComponentCustomFigure extends
 							AbstractComponentShape {
 	
 	//Couleur de fond du component
-	public static Color bodyAreaColor = LIGHT_GRAY;
+	public static Color bodyAreaColor = LIGHT_GREY;
 	
 	//Couleur de la bordure
-	public static Color borderColor = GRAY;
+	public static Color borderColor = GREY;
 	
 	//Taille maximum du label
 	public static Dimension nameLabelMaxSize = new Dimension (500000,50);

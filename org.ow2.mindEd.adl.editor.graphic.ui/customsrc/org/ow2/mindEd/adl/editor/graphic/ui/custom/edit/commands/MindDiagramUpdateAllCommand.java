@@ -45,6 +45,14 @@ public class MindDiagramUpdateAllCommand extends MindDiagramUpdateCommand {
 	 * Beyond this depth level, figures will not be displayed.
 	 */
 	private int maxRank;
+	private boolean needsRefreshMerge = true;
+	
+	public MindDiagramUpdateAllCommand () {
+	}
+	
+	public MindDiagramUpdateAllCommand (boolean refreshMerge) {
+		needsRefreshMerge = refreshMerge;
+	}
 	
 	
 	
@@ -74,19 +82,21 @@ public class MindDiagramUpdateAllCommand extends MindDiagramUpdateCommand {
 				TransactionalEditingDomain domain = ((AdlDefinitionEditPart)rootEditPart).getEditingDomain();
 				TransactionImpl transaction = new TransactionImpl(domain, false);
 				
-				try {
-					transaction.start();
-					EObject root = ((View)rootEditPart.getModel()).getElement();
-					if (root != null && root instanceof AdlDefinitionCustomImpl)
-						refreshMerge((AdlDefinitionCustomImpl)root);
-					transaction.commit();
+				if (needsRefreshMerge) {
+					try {
+						transaction.start();
+						EObject root = ((View)rootEditPart.getModel()).getElement();
+						if (root != null && root instanceof AdlDefinitionCustomImpl)
+							refreshMerge((AdlDefinitionCustomImpl)root);
+						transaction.commit();
+					}
+					catch (Exception e){
+						e.printStackTrace();
+						MindDiagramEditorPlugin.getInstance().logError("Refresh of merge elements failed");
+						transaction.rollback();
+					}
+					finally{}
 				}
-				catch (Exception e){
-					e.printStackTrace();
-					MindDiagramEditorPlugin.getInstance().logError("Refresh of merge elements failed");
-					transaction.rollback();
-				}
-				finally{}
 				
 				try {
 					// Just refresh and then keep the same value for this update

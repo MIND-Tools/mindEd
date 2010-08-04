@@ -20,7 +20,7 @@ public class ReferencesListCustomFigure extends Shape implements IFractalShape {
 		super();
 	}
 	
-	public static Color BACKGROUND_COLOR = LIGHT_GRAY;
+	public static Color BACKGROUND_COLOR = LIGHT_GREY;
 
 	@Override
 	protected void fillShape(Graphics graphics) {
