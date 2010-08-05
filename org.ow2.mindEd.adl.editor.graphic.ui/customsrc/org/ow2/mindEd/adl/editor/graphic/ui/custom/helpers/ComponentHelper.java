@@ -20,7 +20,6 @@ import org.eclipse.gmf.runtime.notation.impl.ShapeImpl;
 import org.ow2.mindEd.adl.Body;
 import org.ow2.mindEd.adl.MergedObject;
 
-import org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.parts.proxy.AbstractMindProxy;
 import org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.parts.proxy.MindProxy;
 import org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.parts.proxy.MindProxyFactory;
 import org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.policies.MergedComponentEditPolicy;

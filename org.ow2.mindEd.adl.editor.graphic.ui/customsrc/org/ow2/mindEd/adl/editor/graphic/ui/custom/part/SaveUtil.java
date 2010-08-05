@@ -40,7 +40,7 @@ public class SaveUtil {
 		{
 			EObject model = ((View)rootEditPart.getModel()).getElement();
 			String id = ((MindObject) model).getID();
-			boundsMemory.put(((MindObject)model).getID(), ((GraphicalEditPart)rootEditPart).getFigure().getBounds().getCopy());
+			boundsMemory.put(id, ((GraphicalEditPart)rootEditPart).getFigure().getBounds().getCopy());
 		}
 		else if (mep instanceof MindInterfaceProxy)
 		{
@@ -78,7 +78,8 @@ public class SaveUtil {
 				mep instanceof MindInterfaceProxy)
 		{
 			EObject model = ((View)rootEditPart.getModel()).getElement();
-			Rectangle bounds = boundsMemory.get(((MindObject) model).getID());
+			String id = ((MindObject) model).getID();
+			Rectangle bounds = boundsMemory.get(id);
 			
 			if (bounds != null)
 			{

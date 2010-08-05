@@ -72,12 +72,9 @@ public class MindCustomViewProvider extends MindViewProvider {
 		}
 		
 		// Set routing style to rectilinear
-		Routing routing = Routing.RECTILINEAR_LITERAL;
-		if (routing != null) {
-			ViewUtil.setStructuralFeatureValue(edge,
-					NotationPackage.eINSTANCE.getRoutingStyle_Routing(),
-					routing);
-		}
+		ViewUtil.setStructuralFeatureValue(edge,
+				NotationPackage.eINSTANCE.getRoutingStyle_Routing(),
+				Routing.RECTILINEAR_LITERAL);
 
     	// Set the color from the extension
 		Color color = MindExtensionHelper.getAnnotationExtensionColor(domainElement);
