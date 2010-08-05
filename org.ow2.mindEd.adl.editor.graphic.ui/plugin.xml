@@ -1192,6 +1192,15 @@ and
 </extension>
 <extension
       point="org.ow2.mindEd.adl.editor.graphic.ui.mindAnnotation">
+   <Annotation
+         annotationName="distributed">
+      <Appearance
+            icon="icons/Annotation.gif">
+         <Element
+               elementType="Bindings">
+         </Element>
+      </Appearance>
+   </Annotation>
 </extension>
 
 

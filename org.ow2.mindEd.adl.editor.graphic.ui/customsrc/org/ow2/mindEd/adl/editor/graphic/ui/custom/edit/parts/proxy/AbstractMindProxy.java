@@ -1,5 +1,6 @@
 package org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.parts.proxy;
 
+import java.net.URL;
 import java.util.List;
 
 import org.eclipse.core.runtime.IConfigurationElement;
@@ -166,16 +167,13 @@ public abstract class AbstractMindProxy implements IMindTypes {
 		return null;
 	}
 	
-	public String getExtensionIconFullPath() {
+	public URL getExtensionIconURL() {
 		IConfigurationElement extensionElement = getAnnotationExtensionAppearance();
 		if (extensionElement != null && !(this instanceof MindBodyProxy)) {
 			String icon = extensionElement.getAttribute("icon");
-			
 			String contributor = extensionElement.getContributor().getName();
-			String loc = Platform.getBundle(contributor).getLocation();
-			loc = loc.substring(loc.indexOf("/")+1);
-			icon = loc.concat(icon);
-			return icon;
+			
+			return Platform.getBundle(contributor).getResource(icon);
 		}
 		return null;
 	}

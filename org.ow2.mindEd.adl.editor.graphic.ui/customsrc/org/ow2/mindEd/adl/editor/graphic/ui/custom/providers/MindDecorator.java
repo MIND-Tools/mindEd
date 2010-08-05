@@ -1,5 +1,7 @@
 package org.ow2.mindEd.adl.editor.graphic.ui.custom.providers;
 
+import java.net.URL;
+
 import org.eclipse.gef.EditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.ConnectionEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.GraphicalEditPart;
@@ -7,11 +9,12 @@ import org.eclipse.gmf.runtime.diagram.ui.services.decorator.IDecoration;
 import org.eclipse.gmf.runtime.diagram.ui.services.decorator.IDecorator;
 import org.eclipse.gmf.runtime.diagram.ui.services.decorator.IDecoratorTarget;
 import org.eclipse.gmf.runtime.diagram.ui.services.decorator.IDecoratorTarget.Direction;
+import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.swt.graphics.Image;
-import org.eclipse.swt.widgets.Display;
 import org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.parts.proxy.AbstractMindProxy;
 import org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.parts.proxy.MindProxyFactory;
 import org.ow2.mindEd.adl.editor.graphic.ui.part.MindDiagramEditorPlugin;
+import org.ow2.mindEd.ide.ui.Activator;
 
 public class MindDecorator implements IDecorator {
 
@@ -27,15 +30,16 @@ public class MindDecorator implements IDecorator {
 	@Override
 	public void activate() {
 		AbstractMindProxy proxy = MindProxyFactory.INSTANCE.getAbstractMindProxyFor(editPart);
-		String icon = proxy.getExtensionIconFullPath();
+		URL icon = proxy.getExtensionIconURL();
 		if (icon == null)
 			return;
 
 		Image image = null;
 		try {
-			image = new Image(Display.getCurrent(),icon);
+			ImageDescriptor desc = Activator.getImageDescriptorURI(icon);
+			image = desc.createImage();
 		}catch (Exception e) {
-			MindDiagramEditorPlugin.getInstance().logError("Annotation extension icon not found : " + icon, e);
+			MindDiagramEditorPlugin.getInstance().logError("Annotation extension icon not found", e);
 		}
 		if (image == null)
 			return;
