@@ -160,13 +160,11 @@ public class MindProxy extends AbstractMindProxy {
 	}
 
 	public Color getMindBorderColor() {
-		String color = getExtensionColor();
-		return getColorFromString(color);
+		return getAnnotationExtensionColor();
 	}
 	
 	public Color getMindBackgroundColor() {
-		String color = getExtensionColor();
-		return getLightColorFromString(color);
+		return getAnnotationExtensionColorLight();
 	}
 	
 	

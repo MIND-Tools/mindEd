@@ -2,6 +2,7 @@ package org.ow2.mindEd.adl.editor.graphic.ui.custom.providers;
 
 import java.net.URL;
 
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.gef.EditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.ConnectionEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.GraphicalEditPart;
@@ -9,10 +10,12 @@ import org.eclipse.gmf.runtime.diagram.ui.services.decorator.IDecoration;
 import org.eclipse.gmf.runtime.diagram.ui.services.decorator.IDecorator;
 import org.eclipse.gmf.runtime.diagram.ui.services.decorator.IDecoratorTarget;
 import org.eclipse.gmf.runtime.diagram.ui.services.decorator.IDecoratorTarget.Direction;
+import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.swt.graphics.Image;
 import org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.parts.proxy.AbstractMindProxy;
 import org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.parts.proxy.MindProxyFactory;
+import org.ow2.mindEd.adl.editor.graphic.ui.custom.helpers.MindExtensionHelper;
 import org.ow2.mindEd.adl.editor.graphic.ui.part.MindDiagramEditorPlugin;
 import org.ow2.mindEd.ide.ui.Activator;
 
@@ -21,16 +24,17 @@ public class MindDecorator implements IDecorator {
 	private IDecoratorTarget target;
 	private EditPart editPart;
 	private IDecoration decoration = null;
+	private EObject semanticElement;
 	
 	public MindDecorator(IDecoratorTarget decoratorTarget) {
 		target = decoratorTarget;
 		editPart = (EditPart) decoratorTarget.getAdapter(EditPart.class);
+		semanticElement = ((View) editPart.getModel()).getElement();
 	}
 
 	@Override
 	public void activate() {
-		AbstractMindProxy proxy = MindProxyFactory.INSTANCE.getAbstractMindProxyFor(editPart);
-		URL icon = proxy.getExtensionIconURL();
+		URL icon = MindExtensionHelper.getExtensionIconURL(semanticElement);
 		if (icon == null)
 			return;
 

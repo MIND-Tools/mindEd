@@ -45,4 +45,10 @@ public class BindingDefinitionCustomEditPart extends BindingDefinitionEditPart {
 		return mindProxy.getTargetConnectionAnchor();
 	}
 	
+	@Override
+	protected void installRouter() {
+		if (!mindProxy.installRouter())
+			super.installRouter();
+	}
+	
 }

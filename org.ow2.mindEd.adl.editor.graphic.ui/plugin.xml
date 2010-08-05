@@ -1156,7 +1156,7 @@ and
 <extension id="validationDecoratorProvider" name="ValidationDecorations" point="org.eclipse.gmf.runtime.diagram.ui.decoratorProviders">
       <?gmfgen generated="true"?>
       <decoratorProvider class="org.ow2.mindEd.adl.editor.graphic.ui.providers.MindValidationDecoratorProvider">
-         <Priority name="Highest"/>
+         <Priority name="High"/>
          <object class="org.eclipse.gmf.runtime.diagram.ui.editparts.IPrimaryEditPart(org.eclipse.gmf.runtime.diagram.ui)" id="PRIMARY_VIEW"/>
          <context decoratorTargets="PRIMARY_VIEW"/>
       </decoratorProvider>
@@ -1195,7 +1195,8 @@ and
    <Annotation
          annotationName="distributed">
       <Appearance
-            icon="icons/Annotation.gif">
+            color="Red"
+            icon="icons/distributed.gif">
          <Element
                elementType="Bindings">
          </Element>
