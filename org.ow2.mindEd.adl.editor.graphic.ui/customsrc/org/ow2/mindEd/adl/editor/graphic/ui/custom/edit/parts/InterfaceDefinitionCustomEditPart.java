@@ -7,7 +7,6 @@ import org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure;
 import org.eclipse.gmf.runtime.notation.View;
 import org.ow2.mindEd.adl.InterfaceDefinition;
 import org.ow2.mindEd.adl.Role;
-
 import org.ow2.mindEd.adl.editor.graphic.ui.custom.figures.InterfaceDefinitionShape;
 import org.ow2.mindEd.adl.editor.graphic.ui.edit.parts.InterfaceDefinitionEditPart;
 
@@ -69,6 +68,9 @@ public class InterfaceDefinitionCustomEditPart extends
 		}
 		figure.add(interfaceDefinitionShape);
 		contentPane = setupContentPane(interfaceDefinitionShape);
+		
+		interfaceDefinitionShape.setExtensionColor(mindProxy.getAnnotationExtensionColor());
+		
 		return figure;
 	}
 
@@ -119,7 +121,8 @@ public class InterfaceDefinitionCustomEditPart extends
 	
 	@Override
 	protected void refreshBackgroundColor() {
-		// Color must not be overriden
+		interfaceDefinitionShape.setExtensionColor(mindProxy.getAnnotationExtensionColor());
+		interfaceDefinitionShape.updateBackground();
 	}
 	
 	

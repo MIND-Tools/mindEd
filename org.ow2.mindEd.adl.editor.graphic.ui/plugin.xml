@@ -1198,7 +1198,7 @@ and
             color="Red"
             icon="icons/distributed.gif">
          <Element
-               elementType="Bindings">
+               elementType="Interfaces">
          </Element>
       </Appearance>
    </Annotation>

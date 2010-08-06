@@ -14,6 +14,7 @@ public class InterfaceDefinitionShape extends Shape implements IFractalShape{
 	public enum Role {PROVIDES,REQUIRES};
 	protected Role role = Role.REQUIRES;
 	private boolean editable = true;
+	private Color extensionColor = null;
 	
 	public InterfaceDefinitionShape() {
 		super();
@@ -92,9 +93,11 @@ public class InterfaceDefinitionShape extends Shape implements IFractalShape{
 		myCachedPath[index * 2 + 1] = y;
 	}
 	
-	private void updateBackground(){
+	public void updateBackground(){
 		if(editable == true){
-			if(role == Role.REQUIRES){
+			if (extensionColor != null)
+				setBackgroundColor(extensionColor);
+			else if(role == Role.REQUIRES){
 				setBackgroundColor(GREEN);
 			}else{
 				setBackgroundColor(RED);
@@ -106,6 +109,14 @@ public class InterfaceDefinitionShape extends Shape implements IFractalShape{
 	
 	public void setBackgroundColor(Color bg) {
 		super.setBackgroundColor(bg);
+	}
+	
+	public Color getExtensionColor() {
+		return extensionColor;
+	}
+	
+	public void setExtensionColor(Color color) {
+		extensionColor  = color;
 	}
 	
 	public void setEditable(boolean editable){
