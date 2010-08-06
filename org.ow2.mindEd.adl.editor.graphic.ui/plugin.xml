@@ -1203,6 +1203,18 @@ and
       </context>
    </viewProvider>
 </extension>
+<extension
+      point="org.ow2.mindEd.adl.editor.graphic.ui.mindAnnotation">
+   <Annotation
+         annotationName="singleton">
+      <Appearance
+            icon="icons/singleton.gif">
+         <Element
+               elementType="Components">
+         </Element>
+      </Appearance>
+   </Annotation>
+</extension>
 
 
 
