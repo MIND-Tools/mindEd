@@ -1191,19 +1191,6 @@ and
    </decoratorProvider>
 </extension>
 <extension
-      point="org.ow2.mindEd.adl.editor.graphic.ui.mindAnnotation">
-   <Annotation
-         annotationName="distributed">
-      <Appearance
-            color="Red"
-            icon="icons/distributed.gif">
-         <Element
-               elementType="Interfaces">
-         </Element>
-      </Appearance>
-   </Annotation>
-</extension>
-<extension
       point="org.eclipse.gmf.runtime.diagram.core.viewProviders">
    <viewProvider
          class="org.ow2.mindEd.adl.editor.graphic.ui.custom.providers.MindCustomViewProvider">
