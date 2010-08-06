@@ -13,6 +13,7 @@ import org.eclipse.gmf.runtime.diagram.ui.editparts.GraphicalEditPart;
 import org.eclipse.gmf.runtime.notation.Bendpoints;
 import org.eclipse.gmf.runtime.notation.Connector;
 import org.eclipse.gmf.runtime.notation.NotationPackage;
+import org.eclipse.gmf.runtime.notation.RelativeBendpoints;
 import org.eclipse.gmf.runtime.notation.View;
 import org.ow2.mindEd.adl.custom.MindObject;
 import org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.parts.proxy.MindComponentProxy;
@@ -100,7 +101,10 @@ public class SaveUtil {
 						TransactionImpl trans = new TransactionImpl(connection.getEditingDomain(),false);
 						try {
 							trans.start();
-							((Connector) edge).setBendpoints(bendpoints);
+							Bendpoints points = ((Connector) edge).getBendpoints();
+							if (points instanceof RelativeBendpoints) {
+								((RelativeBendpoints) points).setPoints(((RelativeBendpoints)bendpoints).getPoints());
+							}
 							trans.commit();
 						}
 						catch(Exception e) {
