@@ -131,6 +131,7 @@ public class SaveUtil {
 					gep.setStructuralFeatureValue(attr_y, bounds.y);
 					gep.setStructuralFeatureValue(attr_width, bounds.width);
 					gep.setStructuralFeatureValue(attr_height, bounds.height);
+					gep.getFigure().setBounds(bounds);
 					trans.commit();
 				}
 				catch(Exception e) {
@@ -138,7 +139,6 @@ public class SaveUtil {
 				}
 			}
 		}
-		
 		
 		List<EditPart> editPartList = rootEditPart.getChildren();
 		for (EditPart child : editPartList) {
