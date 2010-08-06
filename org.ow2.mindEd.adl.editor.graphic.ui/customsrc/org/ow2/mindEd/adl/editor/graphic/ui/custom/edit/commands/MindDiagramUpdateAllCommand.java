@@ -14,11 +14,6 @@ import org.eclipse.gmf.runtime.diagram.ui.editparts.GraphicalEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.CanonicalEditPolicy;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.jface.preference.IPreferenceStore;
-import org.eclipse.jface.viewers.ISelection;
-import org.eclipse.jface.viewers.IStructuredSelection;
-import org.eclipse.ui.PlatformUI;
-
-
 import org.ow2.mindEd.adl.custom.helpers.AdlDefinitionHelper;
 import org.ow2.mindEd.adl.custom.helpers.ArchitectureDefinitionHelper;
 import org.ow2.mindEd.adl.custom.impl.AdlDefinitionCustomImpl;
@@ -58,76 +53,55 @@ public class MindDiagramUpdateAllCommand extends MindDiagramUpdateCommand {
 	
 	public Object execute(ExecutionEvent event) throws ExecutionException {
 		
-		ISelection selection = PlatformUI.getWorkbench()
-				.getActiveWorkbenchWindow().getSelectionService()
-				.getSelection();
+		EditPart rootEditPart = MindProxyFactory.INSTANCE.getRootProxy().getEditPart();
+				
+		// Transaction to refresh the merge
+		TransactionalEditingDomain domain = ((AdlDefinitionEditPart)rootEditPart).getEditingDomain();
+		TransactionImpl transaction = new TransactionImpl(domain, false);
 		
-		if (selection instanceof IStructuredSelection) {
-			IStructuredSelection structuredSelection = (IStructuredSelection) selection;
-			if (structuredSelection.size() != 1) {
-				return null;
+		if (needsRefreshMerge) {
+			try {
+				transaction.start();
+				EObject root = ((View)rootEditPart.getModel()).getElement();
+				if (root != null && root instanceof AdlDefinitionCustomImpl)
+					refreshMerge((AdlDefinitionCustomImpl)root);
+				transaction.commit();
 			}
-			if (structuredSelection.getFirstElement() instanceof EditPart
-					&& ((EditPart) structuredSelection.getFirstElement())
-							.getModel() instanceof View) {
-				
-				// rootEditPart is the AdlDefinitionEditPart
-				EditPart rootEditPart = (EditPart) structuredSelection.getFirstElement();
-				while (!(rootEditPart instanceof AdlDefinitionEditPart)) {
-					rootEditPart = rootEditPart.getParent();
-					if (rootEditPart == null) return null;
-				}
-				
-				// Transaction to refresh the merge
-				TransactionalEditingDomain domain = ((AdlDefinitionEditPart)rootEditPart).getEditingDomain();
-				TransactionImpl transaction = new TransactionImpl(domain, false);
-				
-				if (needsRefreshMerge) {
-					try {
-						transaction.start();
-						EObject root = ((View)rootEditPart.getModel()).getElement();
-						if (root != null && root instanceof AdlDefinitionCustomImpl)
-							refreshMerge((AdlDefinitionCustomImpl)root);
-						transaction.commit();
-					}
-					catch (Exception e){
-						e.printStackTrace();
-						MindDiagramEditorPlugin.getInstance().logError("Refresh of merge elements failed");
-						transaction.rollback();
-					}
-					finally{}
-				}
-				
-				try {
-					// Just refresh and then keep the same value for this update
-					// Else it could become a bit messy
-					refreshMaxRank();
-					// Update all elements in the diagram by calling with the rootEditPart
-					updateAll(rootEditPart, 0);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-				
-				try {
-					// This will hide elements beyond maxRank
-					for (EditPart editPart : getMarkedForHiding()) {
-						hideElement(editPart);
-					}
-					hidingDone();
-					
-					// This will display elements which had been hidden in a previous update
-					// And which are no longer beyond maxRank
-					for (EditPart editPart : getMarkedForDisplay()) {
-						displayElement(editPart);
-					}
-					displayDone();
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-				
-				
+			catch (Exception e){
+				e.printStackTrace();
+				MindDiagramEditorPlugin.getInstance().logError("Refresh of merge elements failed");
+				transaction.rollback();
 			}
+			finally{}
 		}
+		
+		try {
+			// Just refresh and then keep the same value for this update
+			// Else it could become a bit messy
+			refreshMaxRank();
+			// Update all elements in the diagram by calling with the rootEditPart
+			updateAll(rootEditPart, 0);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		try {
+			// This will hide elements beyond maxRank
+			for (EditPart editPart : getMarkedForHiding()) {
+				hideElement(editPart);
+			}
+			hidingDone();
+			
+			// This will display elements which had been hidden in a previous update
+			// And which are no longer beyond maxRank
+			for (EditPart editPart : getMarkedForDisplay()) {
+				displayElement(editPart);
+			}
+			displayDone();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+				
 		return null;
 	}
 	

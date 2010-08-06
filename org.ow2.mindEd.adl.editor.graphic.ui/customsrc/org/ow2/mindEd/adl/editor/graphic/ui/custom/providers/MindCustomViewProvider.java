@@ -84,11 +84,6 @@ public class MindCustomViewProvider extends MindViewProvider {
 					color.getRGB().hashCode());
 		}
 		
-		// Set line width to 2
-		ViewUtil.setStructuralFeatureValue(edge,
-				NotationPackage.eINSTANCE.getLineStyle_LineWidth(),
-				2);
-		
 		return edge;
 	}
 	

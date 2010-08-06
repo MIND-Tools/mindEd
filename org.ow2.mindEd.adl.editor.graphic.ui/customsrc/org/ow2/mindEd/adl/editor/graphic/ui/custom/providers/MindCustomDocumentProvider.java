@@ -31,6 +31,7 @@ import org.eclipse.gmf.runtime.diagram.ui.resources.editor.document.IDocument;
 import org.eclipse.gmf.runtime.diagram.ui.resources.editor.internal.EditorStatusCodes;
 import org.eclipse.gmf.runtime.emf.commands.core.command.AbstractTransactionalCommand;
 import org.eclipse.gmf.runtime.emf.core.resources.GMFResource;
+import org.eclipse.gmf.runtime.notation.Bendpoints;
 import org.eclipse.gmf.runtime.notation.Diagram;
 import org.eclipse.gmf.runtime.notation.impl.DiagramImpl;
 import org.eclipse.osgi.util.NLS;
@@ -90,8 +91,9 @@ public class MindCustomDocumentProvider extends MindDocumentProvider {
 		
 		MindProxy mindRoot = MindProxyFactory.INSTANCE.getRootProxy();
 		HashMap<String,Rectangle> boundsMemory = new HashMap<String,Rectangle>();
+		HashMap<String,Bendpoints> bendpointsMemory = new HashMap<String,Bendpoints>();
 		if (mindRoot != null) {
-			SaveUtil.saveBounds(mindRoot.getEditPart(), boundsMemory);
+			SaveUtil.saveBounds(mindRoot.getEditPart(), boundsMemory, bendpointsMemory);
 		}
 		
 		// Prepare the transaction that will prepare the main definition
@@ -208,7 +210,7 @@ public class MindCustomDocumentProvider extends MindDocumentProvider {
 				// Now that editParts have been recreated by the update,
 				// we are able to restore the saved bounds
 				if (mindRoot != null) {
-					SaveUtil.restoreBounds(mindRoot.getEditPart(), boundsMemory);
+					SaveUtil.restoreBounds(mindRoot.getEditPart(), boundsMemory, bendpointsMemory);
 					boundsMemory.clear();
 				}
 				

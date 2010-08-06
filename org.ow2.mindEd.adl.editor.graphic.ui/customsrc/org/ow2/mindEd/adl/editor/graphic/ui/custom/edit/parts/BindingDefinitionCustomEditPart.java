@@ -51,4 +51,6 @@ public class BindingDefinitionCustomEditPart extends BindingDefinitionEditPart {
 			super.installRouter();
 	}
 	
+	
+	
 }

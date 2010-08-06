@@ -8,7 +8,10 @@ import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.transaction.impl.TransactionImpl;
 import org.eclipse.gef.EditPart;
+import org.eclipse.gmf.runtime.diagram.ui.editparts.ConnectionEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.GraphicalEditPart;
+import org.eclipse.gmf.runtime.notation.Bendpoints;
+import org.eclipse.gmf.runtime.notation.Connector;
 import org.eclipse.gmf.runtime.notation.NotationPackage;
 import org.eclipse.gmf.runtime.notation.View;
 import org.ow2.mindEd.adl.custom.MindObject;
@@ -16,6 +19,7 @@ import org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.parts.proxy.MindComponen
 import org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.parts.proxy.MindInterfaceProxy;
 import org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.parts.proxy.MindProxy;
 import org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.parts.proxy.MindProxyFactory;
+import org.ow2.mindEd.adl.editor.graphic.ui.edit.parts.AdlDefinitionEditPart;
 import org.ow2.mindEd.adl.editor.graphic.ui.part.MindDiagramEditorPlugin;
 
 public class SaveUtil {
@@ -33,9 +37,21 @@ public class SaveUtil {
 	 * @param rootEditPart the first editpart to be saved, all its children will be saved too.
 	 */
 	@SuppressWarnings("unchecked")
-	public static void saveBounds(EditPart rootEditPart, HashMap<String,Rectangle> boundsMemory) {
+	public static void saveBounds(EditPart rootEditPart, HashMap<String,Rectangle> boundsMemory, HashMap<String,Bendpoints> bendpointsMemory) {
 		
 		MindProxy mep = MindProxyFactory.INSTANCE.getMindProxyFor(rootEditPart);
+		
+		if (rootEditPart instanceof AdlDefinitionEditPart) {
+			List<ConnectionEditPart> connections = ((AdlDefinitionEditPart) rootEditPart).getConnections();
+			for (ConnectionEditPart connection : connections) {
+				View edge = connection.getNotationView();
+				if (edge instanceof Connector) {
+					Bendpoints bendpoints = ((Connector) edge).getBendpoints();
+					if (bendpoints != null)
+						bendpointsMemory.put(((MindObject)edge.getElement()).getID(), bendpoints);
+				}
+			}
+		}
 		if (mep	instanceof MindComponentProxy)
 		{
 			EObject model = ((View)rootEditPart.getModel()).getElement();
@@ -58,7 +74,7 @@ public class SaveUtil {
 		
 		List<EditPart> editPartList = rootEditPart.getChildren();
 		for (EditPart child : editPartList) {
-			saveBounds(child, boundsMemory);
+			saveBounds(child, boundsMemory, bendpointsMemory);
 		}
 	}
 	
@@ -71,9 +87,29 @@ public class SaveUtil {
 	 * @param rootEditPart the first editpart to be restored, all its children will be restored too.
 	 */
 	@SuppressWarnings("unchecked")
-	public static void restoreBounds(EditPart rootEditPart, HashMap<String,Rectangle> boundsMemory) {
+	public static void restoreBounds(EditPart rootEditPart, HashMap<String,Rectangle> boundsMemory, HashMap<String,Bendpoints> bendpointsMemory) {
 		
 		MindProxy mep = MindProxyFactory.INSTANCE.getMindProxyFor(rootEditPart);
+		if (rootEditPart instanceof AdlDefinitionEditPart) {
+			List<ConnectionEditPart> connections = ((AdlDefinitionEditPart) rootEditPart).getConnections();
+			for (ConnectionEditPart connection : connections) {
+				View edge = connection.getNotationView();
+				if (edge instanceof Connector) {
+					Bendpoints bendpoints = bendpointsMemory.get(((MindObject)edge.getElement()).getID());
+					if (bendpoints != null) {
+						TransactionImpl trans = new TransactionImpl(connection.getEditingDomain(),false);
+						try {
+							trans.start();
+							((Connector) edge).setBendpoints(bendpoints);
+							trans.commit();
+						}
+						catch(Exception e) {
+							MindDiagramEditorPlugin.getInstance().logError("Failed to restore bendpoints of binding", e);
+						}
+					}
+				}
+			}
+		}
 		if (mep	instanceof MindComponentProxy ||
 				mep instanceof MindInterfaceProxy)
 		{
@@ -102,7 +138,7 @@ public class SaveUtil {
 		
 		List<EditPart> editPartList = rootEditPart.getChildren();
 		for (EditPart child : editPartList) {
-			restoreBounds(child, boundsMemory);
+			restoreBounds(child, boundsMemory, bendpointsMemory);
 		}
 	}
 }

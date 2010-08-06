@@ -24,11 +24,14 @@ import org.ow2.mindEd.adl.editor.graphic.ui.preferences.DiagramGeneralPreference
  */
 public class CustomGeneralPreferencePage extends DiagramGeneralPreferencePage {
 	
-	private static String CUSTOM_SETTINGS_GROUP_LABEL = "Custom";
+	private static String CUSTOM_SETTINGS_GROUP_LABEL = "Display settings";
 	public static String PREF_DISPLAY_DEPTH_LEVEL = "Global.displayDepthLevel";
 	private static String DISPLAY_DEPTH_LEVEL_LABEL = "Max depth level to display : ";
+	public static String PREF_LINE_WIDTH = "Global.lineWidth";
+	private static String LINE_WIDTH_LABEL = "Bindings width : ";
 	
 	private IntegerFieldEditor displayDepthLevel = null;
+	private IntegerFieldEditor lineWidth = null;
 	
 	
 	protected void addFields(Composite parent) {
@@ -54,6 +57,15 @@ public class CustomGeneralPreferencePage extends DiagramGeneralPreferencePage {
 		displayDepthLevel.getTextControl(composite).setLayoutData(new GridData(15,-1));
 		displayDepthLevel.setValidRange(1, 99);
 		addField(displayDepthLevel);
+		
+		lineWidth = new IntegerFieldEditor(
+				PREF_LINE_WIDTH,
+				LINE_WIDTH_LABEL,
+				composite,
+				2);
+		lineWidth.getTextControl(composite).setLayoutData(new GridData(15,-1));
+		lineWidth.setValidRange(1, 5);
+		addField(lineWidth);
 	}
 	
 	/**
@@ -76,6 +88,8 @@ public class CustomGeneralPreferencePage extends DiagramGeneralPreferencePage {
 		preferenceStore.setDefault(IPreferenceConstants.PREF_SHOW_STATUS_LINE, true);	
 		
 		preferenceStore.setDefault(PREF_DISPLAY_DEPTH_LEVEL, 5);
+		
+		preferenceStore.setDefault(PREF_LINE_WIDTH, 2);
 	}
 	
 	/**
