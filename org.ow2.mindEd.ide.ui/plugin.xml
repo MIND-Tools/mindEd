@@ -266,6 +266,11 @@
                </instanceof>
             </or>
          </triggerPoints>
+         <dropAssistant
+               class="org.ow2.mindEd.ide.ui.MindEdDropAdapterAssistant"
+               id="org.ow2.mindEd.ide.ui.dropAssistant2">
+            <possibleDropTargets></possibleDropTargets>
+         </dropAssistant>
       </navigatorContent>
       <actionProvider
             class="org.ow2.mindEd.ide.ui.navigator.MindPathActionProvider"
@@ -402,6 +407,11 @@
                </instanceof>
             </or>
          </enablement>
+         <dropAssistant
+               class="org.ow2.mindEd.ide.ui.MindEdDropAdapterAssistant"
+               id="org.ow2.mindEd.ide.ui.dropAssistant1">
+            <possibleDropTargets></possibleDropTargets>
+         </dropAssistant>
       </navigatorContent>
       <actionProvider
             class="org.ow2.mindEd.ide.ui.navigator.MindEditActionProvider"
