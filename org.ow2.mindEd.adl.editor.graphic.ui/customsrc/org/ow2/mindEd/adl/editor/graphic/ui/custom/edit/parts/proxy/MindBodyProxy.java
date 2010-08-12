@@ -20,7 +20,7 @@ import org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.policies.NoDragDropEditP
 import org.ow2.mindEd.adl.editor.graphic.ui.custom.figures.AbstractComponentShape;
 import org.ow2.mindEd.adl.editor.graphic.ui.custom.figures.IFractalShape;
 import org.ow2.mindEd.adl.editor.graphic.ui.custom.layouts.InterfaceBorderItemLocator;
-import org.ow2.mindEd.adl.editor.graphic.ui.custom.providers.NoDragTracker;
+import org.ow2.mindEd.adl.editor.graphic.ui.custom.part.NoDragTracker;
 import org.ow2.mindEd.adl.editor.graphic.ui.edit.parts.InterfaceDefinitionEditPart;
 
 public class MindBodyProxy extends MindProxy {
