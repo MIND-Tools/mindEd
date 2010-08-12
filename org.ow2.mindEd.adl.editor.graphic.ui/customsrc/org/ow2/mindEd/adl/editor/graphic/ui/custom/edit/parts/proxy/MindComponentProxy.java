@@ -21,7 +21,7 @@ import org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.policies.CustomDragDropE
 import org.ow2.mindEd.adl.editor.graphic.ui.custom.figures.AbstractComponentShape;
 import org.ow2.mindEd.adl.editor.graphic.ui.custom.figures.IFractalShape;
 import org.ow2.mindEd.adl.editor.graphic.ui.custom.layouts.ComponentLayout;
-import org.ow2.mindEd.adl.editor.graphic.ui.custom.providers.DragEditPartsCustomTracker;
+import org.ow2.mindEd.adl.editor.graphic.ui.custom.part.CustomDragEditPartsTracker;
 import org.ow2.mindEd.adl.editor.graphic.ui.edit.parts.*;
 
 public class MindComponentProxy extends MindProxy {
@@ -58,7 +58,7 @@ public class MindComponentProxy extends MindProxy {
 	
 	
 	public DragTracker getDragTracker(Request request) {
-		return new DragEditPartsCustomTracker(editPart);
+		return new CustomDragEditPartsTracker(editPart);
 	}
 	
 	

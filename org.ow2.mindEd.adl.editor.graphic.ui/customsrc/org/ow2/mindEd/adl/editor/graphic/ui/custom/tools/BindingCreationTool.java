@@ -53,7 +53,7 @@ public class BindingCreationTool extends UnspecifiedTypeConnectionTool {
 	protected TransactionalEditingDomain getEditingDomain() {
 		if ((domain == null) && (customTargetEditPart instanceof GraphicalEditPart)) {
 			domain = ((GraphicalEditPart)customTargetEditPart).getEditingDomain();
-		}
+		}		
 		return domain;
 	}
 	

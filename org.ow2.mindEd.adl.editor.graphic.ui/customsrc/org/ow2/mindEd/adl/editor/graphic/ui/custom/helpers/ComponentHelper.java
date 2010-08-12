@@ -30,7 +30,7 @@ import org.ow2.mindEd.adl.editor.graphic.ui.custom.figures.ComponentBorder;
 import org.ow2.mindEd.adl.editor.graphic.ui.custom.figures.IFractalShape;
 import org.ow2.mindEd.adl.editor.graphic.ui.custom.figures.InterfaceDefinitionShape;
 import org.ow2.mindEd.adl.editor.graphic.ui.custom.layouts.ComponentLayout;
-import org.ow2.mindEd.adl.editor.graphic.ui.custom.providers.CustomDragEditPartsTracker;
+import org.ow2.mindEd.adl.editor.graphic.ui.custom.part.CustomDragEditPartsTracker;
 import org.ow2.mindEd.adl.editor.graphic.ui.edit.parts.InterfaceDefinitionEditPart;
 import org.ow2.mindEd.adl.editor.graphic.ui.part.MindVisualIDRegistry;
 import org.ow2.mindEd.adl.editor.graphic.ui.providers.MindElementTypes;

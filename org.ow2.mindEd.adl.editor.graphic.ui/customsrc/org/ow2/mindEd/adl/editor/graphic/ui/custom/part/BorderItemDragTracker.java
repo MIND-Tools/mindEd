@@ -1,4 +1,4 @@
-package org.ow2.mindEd.adl.editor.graphic.ui.custom.providers;
+package org.ow2.mindEd.adl.editor.graphic.ui.custom.part;
 
 import org.eclipse.draw2d.PositionConstants;
 import org.eclipse.emf.transaction.impl.TransactionImpl;
