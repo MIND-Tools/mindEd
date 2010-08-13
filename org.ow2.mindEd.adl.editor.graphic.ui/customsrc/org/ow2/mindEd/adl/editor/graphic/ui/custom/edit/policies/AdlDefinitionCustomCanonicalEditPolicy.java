@@ -13,7 +13,6 @@ import org.eclipse.gmf.runtime.notation.Node;
 import org.eclipse.gmf.runtime.notation.NotationPackage;
 import org.eclipse.gmf.runtime.notation.View;
 
-import org.ow2.mindEd.adl.editor.graphic.ui.custom.helpers.CanonicalEditPolicyHelper;
 import org.ow2.mindEd.adl.editor.graphic.ui.edit.policies.AdlDefinitionCanonicalEditPolicy;
 import org.ow2.mindEd.adl.editor.graphic.ui.part.MindVisualIDRegistry;
 
@@ -25,7 +24,7 @@ public class AdlDefinitionCustomCanonicalEditPolicy extends
 
 	@Override
 	protected String getDefaultFactoryHint() {
-		return CanonicalEditPolicyHelper.getDefaultFactoryHint(this);
+		return null;
 	}
 	
 	@Override

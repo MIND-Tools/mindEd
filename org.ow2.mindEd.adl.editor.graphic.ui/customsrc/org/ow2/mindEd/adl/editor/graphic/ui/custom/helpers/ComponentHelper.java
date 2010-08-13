@@ -43,43 +43,6 @@ import org.ow2.mindEd.adl.editor.graphic.ui.providers.MindElementTypes;
 public class ComponentHelper implements IFractalShape {
 	
 	/**
-	 * Call this instead of generated setupContentPane to implement our custom layout
-	 * @param nodeShape
-	 * @return
-	 */
-	public static IFigure setupContentPane(IFigure nodeShape) {
-		if (nodeShape.getLayoutManager() == null) {
-			// Custom Layout
-			ComponentLayout layout = new ComponentLayout();
-			nodeShape.setLayoutManager(layout);
-		}
-		return nodeShape; // use nodeShape itself as contentPane
-	}
-	
-	/**
-	 * Call this for body edit parts instead of generated setupContentPane, to keep
-	 * the default layout but without the annoying 5 pixels spacing
-	 * @param body
-	 * @return
-	 */
-	public static IFigure setupBody(IFigure body) {
-		if (body.getLayoutManager() == null) {
-			ConstrainedToolbarLayout layout = new ConstrainedToolbarLayout() ;
-			body.setLayoutManager(layout);
-		}
-		return body; // use nodeShape itself as contentPane
-	}
-	
-	/**
-	 * Call this to implement our custom drag tracker which gives us extended drag and drop features
-	 * @param ep
-	 * @return
-	 */
-	public static DragTracker getDragTracker(EditPart ep) {
-		return new CustomDragEditPartsTracker(ep);
-	}
-	
-	/**
 	 * Helper to get merge attributes from domain model
 	 * @param element
 	 * @return true if element is merged and not overridden, false otherwise

@@ -13,6 +13,11 @@ import org.ow2.mindEd.adl.editor.graphic.ui.custom.layouts.InterfaceBorderItemLo
 import org.ow2.mindEd.adl.editor.graphic.ui.edit.parts.InterfaceDefinitionEditPart;
 import org.ow2.mindEd.adl.editor.graphic.ui.part.MindDiagramEditorPlugin;
 
+/**
+ * Allows user to change interface's role by dragging it to the other side of the component
+ * @author maroto
+ *
+ */
 public class BorderItemDragTracker extends DragEditPartsTrackerEx {
 
 	public BorderItemDragTracker(EditPart sourceEditPart) {
