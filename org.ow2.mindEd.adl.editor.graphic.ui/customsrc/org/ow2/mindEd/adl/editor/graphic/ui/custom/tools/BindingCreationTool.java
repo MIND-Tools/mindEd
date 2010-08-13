@@ -177,7 +177,7 @@ public class BindingCreationTool extends UnspecifiedTypeConnectionTool {
 	
 	protected EditPart generateItfs(EditPart editpart) {
 
-		if ((MindProxyFactory.INSTANCE.getMindProxyFor(editpart)
+		if ((MindProxyFactory.INSTANCE.getAbstractMindProxyFor(editpart)
 				instanceof MindBodyCompartmentProxy)) {
 			// Delegate to body
 			editpart = editpart.getParent();
@@ -186,7 +186,7 @@ public class BindingCreationTool extends UnspecifiedTypeConnectionTool {
 		if (isDragging()) {
 			// Button is down, generate target if there is none
 			if ((generatedTarget == null) &&
-					(MindProxyFactory.INSTANCE.getMindProxyFor(editpart)
+					(MindProxyFactory.INSTANCE.getAbstractMindProxyFor(editpart)
 					instanceof MindBodyProxy)) {
 				// Create an interface to delegate the binding creation
 				editpart = createTarget(editpart);
@@ -194,7 +194,7 @@ public class BindingCreationTool extends UnspecifiedTypeConnectionTool {
 		} else {
 			// Button is up, generate source if there is none
 			if ((generatedSource == null) &&
-					(MindProxyFactory.INSTANCE.getMindProxyFor(editpart)
+					(MindProxyFactory.INSTANCE.getAbstractMindProxyFor(editpart)
 					instanceof MindBodyProxy)) {
 				// Create an interface to delegate the binding creation
 				editpart = createSource(editpart);
@@ -212,7 +212,7 @@ public class BindingCreationTool extends UnspecifiedTypeConnectionTool {
 	 */
 	protected InterfaceDefinitionEditPart createSource(EditPart bodyEditPart){
 				
-		if (!(MindProxyFactory.INSTANCE.getMindProxyFor(bodyEditPart)
+		if (!(MindProxyFactory.INSTANCE.getAbstractMindProxyFor(bodyEditPart)
 				instanceof MindBodyProxy))
 			return null;
 		
@@ -240,7 +240,7 @@ public class BindingCreationTool extends UnspecifiedTypeConnectionTool {
 	 */
 	protected InterfaceDefinitionEditPart createTarget(EditPart bodyEditPart){
 				
-		if (!(MindProxyFactory.INSTANCE.getMindProxyFor(bodyEditPart)
+		if (!(MindProxyFactory.INSTANCE.getAbstractMindProxyFor(bodyEditPart)
 				instanceof MindBodyProxy))
 			return null;
 		
