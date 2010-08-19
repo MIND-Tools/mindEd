@@ -11,6 +11,7 @@ import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IWorkspace;
 import org.eclipse.core.resources.IWorkspaceRoot;
 import org.eclipse.core.resources.ResourcesPlugin;
+import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IPath;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.URI;
@@ -31,6 +32,8 @@ import org.ow2.mindEd.adl.custom.util.CreationUtil;
 import org.ow2.mindEd.adl.editor.graphic.ui.edit.parts.PrimitiveBodyEditPart;
 import org.ow2.mindEd.adl.editor.graphic.ui.part.MindDiagramEditor;
 import org.ow2.mindEd.adl.editor.graphic.ui.part.MindDiagramEditorPlugin;
+import org.ow2.mindEd.ide.core.MindException;
+import org.ow2.mindEd.ide.core.MindIdeCore;
 import org.ow2.mindEd.ide.core.ModelToProjectUtil;
 import org.ow2.mindEd.ide.model.MindFile;
 import org.ow2.mindEd.ide.model.MindProject;
@@ -116,36 +119,13 @@ public class WizardAddNewInterface extends Wizard{
 		else
 			project = ResourcesPlugin.getWorkspace().getRoot().getProject(elements[0]);
 		
+	
+		
+		// TODO Currently, itf path is /project/src/pkg/name.itf". Convert this form to use ModelToProjectUtil
+		
 		MindProject mindProject = ModelToProjectUtil.INSTANCE.getMindProject(project);
 		
-		EList<MindFile> tempArray = mindProject.getAllFiles();
-		
-		URI adlURI = null;
-		IEditorInput editor = PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage().getActiveEditor().getEditorInput();
-		if (editor instanceof FileEditorInput) {
-			IPath path = ((FileEditorInput)editor).getFile().getFullPath();
-			adlURI = URI.createFileURI(path.toPortableString());
-		}
-		
-//		List<String> listITF = ModelToProjectUtil.INSTANCE.getAllFQNItfInProject(adlURI);
-		
-		MindFile mindFile = mindProject.findMindFile(newInterfaceInformation.getPath());
-		
-		String temp =  newInterfaceInformation.getPath();
-		URI fileURI = URI.createURI(temp);
-		
-		File definition = (File) ModelToProjectUtil.INSTANCE.getIFile(fileURI);
-		
-		
-		
-		
-//		URI fileURI = URI.createFileURI(ResourcesPlugin.getWorkspace().getRoot().getLocationURI().getPath() + signature);
-//		URI fileURI = URI.createFileURI(newInterfaceInformation.getPath());
-		
-//		IFile newInterface = ModelToProjectUtil.INSTANCE.getIFile(fileURI);
-//		if (!newInterface.exists()) {
-//			WizardDialog wizConfirmation = new WizardDialog(PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell()
-//					, new WizardConfirmation(""));
+
 
 		@SuppressWarnings("unused")
 		InterfaceDefinition newInterface = null;
