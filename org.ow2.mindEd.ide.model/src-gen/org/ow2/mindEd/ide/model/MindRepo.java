@@ -18,6 +18,7 @@ import org.eclipse.emf.common.util.EList;
  * <ul>
  *   <li>{@link org.ow2.mindEd.ide.model.MindRepo#getRootsrcs <em>Rootsrcs</em>}</li>
  *   <li>{@link org.ow2.mindEd.ide.model.MindRepo#getMindprojects <em>Mindprojects</em>}</li>
+ *   <li>{@link org.ow2.mindEd.ide.model.MindRepo#getMindLibrary <em>Mind Library</em>}</li>
  * </ul>
  * </p>
  *
@@ -61,5 +62,21 @@ public interface MindRepo extends MindObject {
 	 * @generated
 	 */
 	EList<MindProject> getMindprojects();
+
+	/**
+	 * Returns the value of the '<em><b>Mind Library</b></em>' containment reference list.
+	 * The list contents are of type {@link org.ow2.mindEd.ide.model.MindLibrary}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Mind Library</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Mind Library</em>' containment reference list.
+	 * @see org.ow2.mindEd.ide.model.MindidePackage#getMindRepo_MindLibrary()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<MindLibrary> getMindLibrary();
 
 } // MindRepo

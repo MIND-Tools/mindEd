@@ -63,6 +63,7 @@ public class MindLibraryItemProvider
 
 			addTargetFilterPropertyDescriptor(object);
 			addFullpathLibPropertyDescriptor(object);
+			addActivePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -112,6 +113,28 @@ public class MindLibraryItemProvider
 	}
 
 	/**
+	 * This adds a property descriptor for the Active feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addActivePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_MindLibrary_active_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_MindLibrary_active_feature", "_UI_MindLibrary_type"),
+				 MindidePackage.Literals.MIND_LIBRARY__ACTIVE,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This returns MindLibrary.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -150,6 +173,7 @@ public class MindLibraryItemProvider
 		switch (notification.getFeatureID(MindLibrary.class)) {
 			case MindidePackage.MIND_LIBRARY__TARGET_FILTER:
 			case MindidePackage.MIND_LIBRARY__FULLPATH_LIB:
+			case MindidePackage.MIND_LIBRARY__ACTIVE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

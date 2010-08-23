@@ -163,13 +163,22 @@ public interface MindidePackage extends EPackage {
 	int MIND_REPO__MINDPROJECTS = MIND_OBJECT_FEATURE_COUNT + 1;
 
 	/**
+	 * The feature id for the '<em><b>Mind Library</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MIND_REPO__MIND_LIBRARY = MIND_OBJECT_FEATURE_COUNT + 2;
+
+	/**
 	 * The number of structural features of the '<em>Mind Repo</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MIND_REPO_FEATURE_COUNT = MIND_OBJECT_FEATURE_COUNT + 2;
+	int MIND_REPO_FEATURE_COUNT = MIND_OBJECT_FEATURE_COUNT + 3;
 
 	/**
 	 * The meta object id for the '{@link org.ow2.mindEd.ide.model.impl.MindRootSrcImpl <em>Mind Root Src</em>}' class.
@@ -1165,13 +1174,22 @@ public interface MindidePackage extends EPackage {
 	int MIND_LIBRARY__FULLPATH_LIB = MIND_ROOT_SRC_FEATURE_COUNT + 1;
 
 	/**
+	 * The feature id for the '<em><b>Active</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MIND_LIBRARY__ACTIVE = MIND_ROOT_SRC_FEATURE_COUNT + 2;
+
+	/**
 	 * The number of structural features of the '<em>Mind Library</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MIND_LIBRARY_FEATURE_COUNT = MIND_ROOT_SRC_FEATURE_COUNT + 2;
+	int MIND_LIBRARY_FEATURE_COUNT = MIND_ROOT_SRC_FEATURE_COUNT + 3;
 
 	/**
 	 * The meta object id for the '{@link org.ow2.mindEd.ide.model.MindPathKind <em>Mind Path Kind</em>}' enum.
@@ -1255,6 +1273,17 @@ public interface MindidePackage extends EPackage {
 	 * @generated
 	 */
 	EReference getMindRepo_Mindprojects();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link org.ow2.mindEd.ide.model.MindRepo#getMindLibrary <em>Mind Library</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Mind Library</em>'.
+	 * @see org.ow2.mindEd.ide.model.MindRepo#getMindLibrary()
+	 * @see #getMindRepo()
+	 * @generated
+	 */
+	EReference getMindRepo_MindLibrary();
 
 	/**
 	 * Returns the meta object for class '{@link org.ow2.mindEd.ide.model.MindRootSrc <em>Mind Root Src</em>}'.
@@ -1717,6 +1746,17 @@ public interface MindidePackage extends EPackage {
 	EAttribute getMindLibrary_FullpathLib();
 
 	/**
+	 * Returns the meta object for the attribute '{@link org.ow2.mindEd.ide.model.MindLibrary#isActive <em>Active</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Active</em>'.
+	 * @see org.ow2.mindEd.ide.model.MindLibrary#isActive()
+	 * @see #getMindLibrary()
+	 * @generated
+	 */
+	EAttribute getMindLibrary_Active();
+
+	/**
 	 * Returns the meta object for enum '{@link org.ow2.mindEd.ide.model.MindPathKind <em>Mind Path Kind</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1816,6 +1856,14 @@ public interface MindidePackage extends EPackage {
 		 * @generated
 		 */
 		EReference MIND_REPO__MINDPROJECTS = eINSTANCE.getMindRepo_Mindprojects();
+
+		/**
+		 * The meta object literal for the '<em><b>Mind Library</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference MIND_REPO__MIND_LIBRARY = eINSTANCE.getMindRepo_MindLibrary();
 
 		/**
 		 * The meta object literal for the '{@link org.ow2.mindEd.ide.model.impl.MindRootSrcImpl <em>Mind Root Src</em>}' class.
@@ -2186,6 +2234,14 @@ public interface MindidePackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute MIND_LIBRARY__FULLPATH_LIB = eINSTANCE.getMindLibrary_FullpathLib();
+
+		/**
+		 * The meta object literal for the '<em><b>Active</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute MIND_LIBRARY__ACTIVE = eINSTANCE.getMindLibrary_Active();
 
 		/**
 		 * The meta object literal for the '{@link org.ow2.mindEd.ide.model.MindPathKind <em>Mind Path Kind</em>}' enum.

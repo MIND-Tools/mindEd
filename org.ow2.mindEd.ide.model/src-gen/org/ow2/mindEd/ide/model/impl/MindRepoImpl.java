@@ -15,9 +15,11 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
+import org.ow2.mindEd.ide.model.MindLibrary;
 import org.ow2.mindEd.ide.model.MindProject;
 import org.ow2.mindEd.ide.model.MindRepo;
 import org.ow2.mindEd.ide.model.MindRootSrc;
@@ -32,6 +34,7 @@ import org.ow2.mindEd.ide.model.MindidePackage;
  * <ul>
  *   <li>{@link org.ow2.mindEd.ide.model.impl.MindRepoImpl#getRootsrcs <em>Rootsrcs</em>}</li>
  *   <li>{@link org.ow2.mindEd.ide.model.impl.MindRepoImpl#getMindprojects <em>Mindprojects</em>}</li>
+ *   <li>{@link org.ow2.mindEd.ide.model.impl.MindRepoImpl#getMindLibrary <em>Mind Library</em>}</li>
  * </ul>
  * </p>
  *
@@ -57,6 +60,16 @@ public class MindRepoImpl extends MindObjectImpl implements MindRepo {
 	 * @ordered
 	 */
 	protected EList<MindProject> mindprojects;
+
+	/**
+	 * The cached value of the '{@link #getMindLibrary() <em>Mind Library</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getMindLibrary()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<MindLibrary> mindLibrary;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -106,6 +119,18 @@ public class MindRepoImpl extends MindObjectImpl implements MindRepo {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<MindLibrary> getMindLibrary() {
+		if (mindLibrary == null) {
+			mindLibrary = new EObjectContainmentEList<MindLibrary>(MindLibrary.class, this, MindidePackage.MIND_REPO__MIND_LIBRARY);
+		}
+		return mindLibrary;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
@@ -130,6 +155,8 @@ public class MindRepoImpl extends MindObjectImpl implements MindRepo {
 				return ((InternalEList<?>)getRootsrcs()).basicRemove(otherEnd, msgs);
 			case MindidePackage.MIND_REPO__MINDPROJECTS:
 				return ((InternalEList<?>)getMindprojects()).basicRemove(otherEnd, msgs);
+			case MindidePackage.MIND_REPO__MIND_LIBRARY:
+				return ((InternalEList<?>)getMindLibrary()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -146,6 +173,8 @@ public class MindRepoImpl extends MindObjectImpl implements MindRepo {
 				return getRootsrcs();
 			case MindidePackage.MIND_REPO__MINDPROJECTS:
 				return getMindprojects();
+			case MindidePackage.MIND_REPO__MIND_LIBRARY:
+				return getMindLibrary();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -167,6 +196,10 @@ public class MindRepoImpl extends MindObjectImpl implements MindRepo {
 				getMindprojects().clear();
 				getMindprojects().addAll((Collection<? extends MindProject>)newValue);
 				return;
+			case MindidePackage.MIND_REPO__MIND_LIBRARY:
+				getMindLibrary().clear();
+				getMindLibrary().addAll((Collection<? extends MindLibrary>)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -185,6 +218,9 @@ public class MindRepoImpl extends MindObjectImpl implements MindRepo {
 			case MindidePackage.MIND_REPO__MINDPROJECTS:
 				getMindprojects().clear();
 				return;
+			case MindidePackage.MIND_REPO__MIND_LIBRARY:
+				getMindLibrary().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -201,6 +237,8 @@ public class MindRepoImpl extends MindObjectImpl implements MindRepo {
 				return rootsrcs != null && !rootsrcs.isEmpty();
 			case MindidePackage.MIND_REPO__MINDPROJECTS:
 				return mindprojects != null && !mindprojects.isEmpty();
+			case MindidePackage.MIND_REPO__MIND_LIBRARY:
+				return mindLibrary != null && !mindLibrary.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

@@ -8,6 +8,8 @@
         eType="#//MindRootSrc" containment="true" eOpposite="#//MindRootSrc/repo"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="mindprojects" upperBound="-1"
         eType="#//MindProject" containment="true" eOpposite="#//MindProject/repo"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="mindLibrary" upperBound="-1"
+        eType="#//MindLibrary" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="MindRootSrc" eSuperTypes="#//MindObject">
     <eStructuralFeatures xsi:type="ecore:EReference" name="packages" upperBound="-1"
@@ -169,5 +171,6 @@
   <eClassifiers xsi:type="ecore:EClass" name="MindLibrary" eSuperTypes="#//MindRootSrc">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="targetFilter" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="fullpathLib" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="active" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
   </eClassifiers>
 </ecore:EPackage>

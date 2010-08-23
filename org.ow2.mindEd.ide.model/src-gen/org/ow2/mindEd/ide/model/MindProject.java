@@ -188,14 +188,14 @@ public interface MindProject extends MindObject {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * La résolution du nom d'une référence de définition suit les règles suivantes :
-	 * - Si le nom contient au moins 2 identifiants, celui-ci est considéré comme un nom pleinement qualifié. Ainsi la définition référencée est la définition qui porte ce nom.- 
-	 * - Si le nom ne contient qu'un seul identifiant ne correspondant pas à une paramètre générique de la définition englobante, chaque directive d'importation est évaluée dans l'ordre de déclaration. 
-	 * - Si la directive d'importation est une directive d'importation directe et que le nom simple de la directive correspond au nom à résoudre, La définition référencée est la définition qui porte le nom pleinement qualifié de la directive d'importation.
-	 * - Si la directive d'importation est une directive d'importation à la demande et si une définition dont le nom pleinement qualifié est la concaténation du nom de paquetage importé et du nom à résoudre, existe, alors la définition référencée est cette définition.
-	 * - Si aucune des directives d'importation n'a permis de résoudre la définition référencée et si une définition dont le nom pleinement qualifié est la concaténation du nom de paquetage de la définition englobante et du nom à résoudre, existe, alors la définition référencée est cette définition.
-	 * - En dernier recours, si une définition dont le nom pleinement qualifié est le nom à résoudre (définition sans nom de paquetage), existe, alors la définition référencée est cette définition.
-	 * - Enfin si aucune définition n'a pu être trouvée, une erreur de compilation doit être relevée par l'outillage.
+	 * La r√©solution du nom d'une r√©f√©rence de d√©finition suit les r√®gles suivantes :
+	 * - Si le nom contient au moins 2 identifiants, celui-ci est consid√©r√© comme un nom pleinement qualifi√©. Ainsi la d√©finition r√©f√©renc√©e est la d√©finition qui porte ce nom.- 
+	 * - Si le nom ne contient qu'un seul identifiant ne correspondant pas √† une param√®tre g√©n√©rique de la d√©finition englobante, chaque directive d'importation est √©valu√©e dans l'ordre de d√©claration. 
+	 * - Si la directive d'importation est une directive d'importation directe et que le nom simple de la directive correspond au nom √† r√©soudre, La d√©finition r√©f√©renc√©e est la d√©finition qui porte le nom pleinement qualifi√© de la directive d'importation.
+	 * - Si la directive d'importation est une directive d'importation √† la demande et si une d√©finition dont le nom pleinement qualifi√© est la concat√©nation du nom de paquetage import√© et du nom √† r√©soudre, existe, alors la d√©finition r√©f√©renc√©e est cette d√©finition.
+	 * - Si aucune des directives d'importation n'a permis de r√©soudre la d√©finition r√©f√©renc√©e et si une d√©finition dont le nom pleinement qualifi√© est la concat√©nation du nom de paquetage de la d√©finition englobante et du nom √† r√©soudre, existe, alors la d√©finition r√©f√©renc√©e est cette d√©finition.
+	 * - En dernier recours, si une d√©finition dont le nom pleinement qualifi√© est le nom √† r√©soudre (d√©finition sans nom de paquetage), existe, alors la d√©finition r√©f√©renc√©e est cette d√©finition.
+	 * - Enfin si aucune d√©finition n'a pu √™tre trouv√©e, une erreur de compilation doit √™tre relev√©e par l'outillage.
 	 * <!-- end-model-doc -->
 	 * @model importsMany="true"
 	 * @generated

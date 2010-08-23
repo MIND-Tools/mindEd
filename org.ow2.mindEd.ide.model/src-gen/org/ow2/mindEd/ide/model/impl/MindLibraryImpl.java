@@ -24,6 +24,7 @@ import org.ow2.mindEd.ide.model.MindidePackage;
  * <ul>
  *   <li>{@link org.ow2.mindEd.ide.model.impl.MindLibraryImpl#getTargetFilter <em>Target Filter</em>}</li>
  *   <li>{@link org.ow2.mindEd.ide.model.impl.MindLibraryImpl#getFullpathLib <em>Fullpath Lib</em>}</li>
+ *   <li>{@link org.ow2.mindEd.ide.model.impl.MindLibraryImpl#isActive <em>Active</em>}</li>
  * </ul>
  * </p>
  *
@@ -69,6 +70,26 @@ public class MindLibraryImpl extends MindRootSrcImpl implements MindLibrary {
 	 * @ordered
 	 */
 	protected String fullpathLib = FULLPATH_LIB_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #isActive() <em>Active</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isActive()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean ACTIVE_EDEFAULT = false;
+
+	/**
+	 * The cached value of the '{@link #isActive() <em>Active</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isActive()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean active = ACTIVE_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -136,6 +157,27 @@ public class MindLibraryImpl extends MindRootSrcImpl implements MindLibrary {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public boolean isActive() {
+		return active;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setActive(boolean newActive) {
+		boolean oldActive = active;
+		active = newActive;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MindidePackage.MIND_LIBRARY__ACTIVE, oldActive, active));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
@@ -143,6 +185,8 @@ public class MindLibraryImpl extends MindRootSrcImpl implements MindLibrary {
 				return getTargetFilter();
 			case MindidePackage.MIND_LIBRARY__FULLPATH_LIB:
 				return getFullpathLib();
+			case MindidePackage.MIND_LIBRARY__ACTIVE:
+				return isActive();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -160,6 +204,9 @@ public class MindLibraryImpl extends MindRootSrcImpl implements MindLibrary {
 				return;
 			case MindidePackage.MIND_LIBRARY__FULLPATH_LIB:
 				setFullpathLib((String)newValue);
+				return;
+			case MindidePackage.MIND_LIBRARY__ACTIVE:
+				setActive((Boolean)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -179,6 +226,9 @@ public class MindLibraryImpl extends MindRootSrcImpl implements MindLibrary {
 			case MindidePackage.MIND_LIBRARY__FULLPATH_LIB:
 				setFullpathLib(FULLPATH_LIB_EDEFAULT);
 				return;
+			case MindidePackage.MIND_LIBRARY__ACTIVE:
+				setActive(ACTIVE_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -195,6 +245,8 @@ public class MindLibraryImpl extends MindRootSrcImpl implements MindLibrary {
 				return TARGET_FILTER_EDEFAULT == null ? targetFilter != null : !TARGET_FILTER_EDEFAULT.equals(targetFilter);
 			case MindidePackage.MIND_LIBRARY__FULLPATH_LIB:
 				return FULLPATH_LIB_EDEFAULT == null ? fullpathLib != null : !FULLPATH_LIB_EDEFAULT.equals(fullpathLib);
+			case MindidePackage.MIND_LIBRARY__ACTIVE:
+				return active != ACTIVE_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -213,6 +265,8 @@ public class MindLibraryImpl extends MindRootSrcImpl implements MindLibrary {
 		result.append(targetFilter);
 		result.append(", fullpathLib: ");
 		result.append(fullpathLib);
+		result.append(", active: ");
+		result.append(active);
 		result.append(')');
 		return result.toString();
 	}

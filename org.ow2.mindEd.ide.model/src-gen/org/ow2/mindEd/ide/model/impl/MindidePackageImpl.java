@@ -271,6 +271,15 @@ public class MindidePackageImpl extends EPackageImpl implements MindidePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getMindRepo_MindLibrary() {
+		return (EReference)mindRepoEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getMindRootSrc() {
 		return mindRootSrcEClass;
 	}
@@ -658,6 +667,15 @@ public class MindidePackageImpl extends EPackageImpl implements MindidePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getMindLibrary_Active() {
+		return (EAttribute)mindLibraryEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EEnum getMindPathKind() {
 		return mindPathKindEEnum;
 	}
@@ -729,6 +747,7 @@ public class MindidePackageImpl extends EPackageImpl implements MindidePackage {
 		mindRepoEClass = createEClass(MIND_REPO);
 		createEReference(mindRepoEClass, MIND_REPO__ROOTSRCS);
 		createEReference(mindRepoEClass, MIND_REPO__MINDPROJECTS);
+		createEReference(mindRepoEClass, MIND_REPO__MIND_LIBRARY);
 
 		mindRootSrcEClass = createEClass(MIND_ROOT_SRC);
 		createEReference(mindRootSrcEClass, MIND_ROOT_SRC__PACKAGES);
@@ -785,6 +804,7 @@ public class MindidePackageImpl extends EPackageImpl implements MindidePackage {
 		mindLibraryEClass = createEClass(MIND_LIBRARY);
 		createEAttribute(mindLibraryEClass, MIND_LIBRARY__TARGET_FILTER);
 		createEAttribute(mindLibraryEClass, MIND_LIBRARY__FULLPATH_LIB);
+		createEAttribute(mindLibraryEClass, MIND_LIBRARY__ACTIVE);
 
 		// Create enums
 		mindPathKindEEnum = createEEnum(MIND_PATH_KIND);
@@ -841,6 +861,7 @@ public class MindidePackageImpl extends EPackageImpl implements MindidePackage {
 		initEClass(mindRepoEClass, MindRepo.class, "MindRepo", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getMindRepo_Rootsrcs(), this.getMindRootSrc(), this.getMindRootSrc_Repo(), "rootsrcs", null, 0, -1, MindRepo.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getMindRepo_Mindprojects(), this.getMindProject(), this.getMindProject_Repo(), "mindprojects", null, 0, -1, MindRepo.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getMindRepo_MindLibrary(), this.getMindLibrary(), null, "mindLibrary", null, 0, -1, MindRepo.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(mindRootSrcEClass, MindRootSrc.class, "MindRootSrc", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getMindRootSrc_Packages(), this.getMindPackage(), this.getMindPackage_Rootsrc(), "packages", null, 0, -1, MindRootSrc.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -955,6 +976,7 @@ public class MindidePackageImpl extends EPackageImpl implements MindidePackage {
 		initEClass(mindLibraryEClass, MindLibrary.class, "MindLibrary", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getMindLibrary_TargetFilter(), ecorePackage.getEString(), "targetFilter", null, 0, 1, MindLibrary.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getMindLibrary_FullpathLib(), ecorePackage.getEString(), "fullpathLib", null, 0, 1, MindLibrary.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getMindLibrary_Active(), ecorePackage.getEBoolean(), "active", null, 0, 1, MindLibrary.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(mindPathKindEEnum, MindPathKind.class, "MindPathKind");
