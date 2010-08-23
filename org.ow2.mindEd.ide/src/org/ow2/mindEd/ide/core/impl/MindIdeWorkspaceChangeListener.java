@@ -55,7 +55,7 @@ public class MindIdeWorkspaceChangeListener implements IResourceVisitor, IResour
 			return false;
 		
 		if (resource.getType() == IResource.PROJECT) {
-			MindProject mp;
+			MindObject mp;
 			try {
 				IProject p = (IProject) resource;
 				mp = _model.init(p, kind != IResourceDelta.REMOVED || !p.isOpen(), false);
@@ -64,7 +64,7 @@ public class MindIdeWorkspaceChangeListener implements IResourceVisitor, IResour
 						if(MindModelImpl.TRACING)
 							System.out.println("REMOVE PROJECT "+p);
 
-						_model.remove(mp);
+						_model.removeMO(mp);
 						return false;
 					}
 					_mapResourceToMind.put(resource, mp);

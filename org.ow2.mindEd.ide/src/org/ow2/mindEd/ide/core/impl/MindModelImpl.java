@@ -45,7 +45,13 @@ import org.ow2.mindEd.ide.core.MindNature;
 import org.ow2.mindEd.ide.core.RepoTypeAdapter;
 import org.ow2.mindEd.ide.model.MindAdl;
 import org.ow2.mindEd.ide.model.MindAllRepo;
+import org.ow2.mindEd.ide.model.MindC;
 import org.ow2.mindEd.ide.model.MindFile;
+import org.ow2.mindEd.ide.model.MindH;
+import org.ow2.mindEd.ide.model.MindIdf;
+import org.ow2.mindEd.ide.model.MindItf;
+import org.ow2.mindEd.ide.model.MindLibOrProject;
+import org.ow2.mindEd.ide.model.MindLibrary;
 import org.ow2.mindEd.ide.model.MindObject;
 import org.ow2.mindEd.ide.model.MindPackage;
 import org.ow2.mindEd.ide.model.MindPathEntry;
@@ -104,15 +110,15 @@ public class MindModelImpl implements MindModel {
 				notifyChangedMindProject_Allsrc(notification);
 				return;
 			}
-			if (f == MindidePackage.Literals.MIND_PROJECT__MINDPATHENTRIES) {
+			if (f == MindidePackage.Literals.MIND_LIB_OR_PROJECT__MINDPATHENTRIES) {
 				notifyChangedMindProject_Mindpathentries(notification);
 				return;
 			}
-			if (f == MindidePackage.Literals.MIND_PROJECT__ROOTSRCS) {
+			if (f == MindidePackage.Literals.MIND_LIB_OR_PROJECT__ROOTSRCS) {
 				notifyChangedMindRepo_Rootsrcs(notification);
 				return;
 			}
-			if (f == MindidePackage.Literals.MIND_REPO__MINDPROJECTS) {
+			if (f == MindidePackage.Literals.MIND_REPO__MIND_LIB_OR_PROJECTS) {
 				notifyChangedMindRepo_MindProjects(notification);
 				return;
 			}
@@ -140,7 +146,7 @@ public class MindModelImpl implements MindModel {
 	public static final String WS = "ws";
 
 	private static MindRootSrc createRootSrc(MindProject mindp, MindRepo repo,
-			IFolder f, String srcRootName) {
+			IContainer f, String srcRootName) {
 		MindRootSrc srcRoot;
 		srcRoot = MindideFactory.eINSTANCE.createMindRootSrc();
 		srcRoot.setName(srcRootName);
@@ -154,6 +160,7 @@ public class MindModelImpl implements MindModel {
 	Map<String, List<MindPackage>> _packages;
 
 	private Map<String, MindProject> _projects;
+	private Map<String, MindLibrary> _libs;
 
 	MindAllRepo _repos;
 
@@ -183,9 +190,9 @@ public class MindModelImpl implements MindModel {
 	}
 
 	public MindProject findEmfMindProject(MindRepo repo, IProject project) {
-		MindProject ret = UtilMindIde.find(repo.getMindprojects(), project
+		MindLibOrProject ret = UtilMindIde.find(repo.getMindLibOrProjects(), project
 				.getName());
-		return ret;
+		return (MindProject) (ret instanceof MindProject ? ret : null);
 	}
 
 	@Override
@@ -214,26 +221,29 @@ public class MindModelImpl implements MindModel {
 		return ret;
 	}
 
-	public MindRootSrc findOrCreateRootSrc(MindProject mindp, IFolder f,
+	public MindRootSrc findOrCreateRootSrc(MindLibOrProject mindp, IFolder f,
 			boolean sync) {
-		return findOrCreateRootSrc(mindp, mindp.getRepo(), f, sync);
+		return findOrCreateRootSrc(mindp, mindp.getRepoFromLibOrProject(), f, sync);
 	}
 
-	public MindRootSrc findOrCreateRootSrc(MindProject mindp, MindRepo repo,
-			IFolder f) {
+	public MindRootSrc findOrCreateRootSrc(MindLibOrProject mindp, MindRepo repo,
+			IContainer f) {
 		MindRootSrc srcRoot;
+		if (mindp instanceof MindLibrary) {
+			return (MindLibrary) mindp;
+		}
 		String srcRootName = f.getFullPath().toPortableString();
 		srcRoot = UtilMindIde.find(repo.getRootsrcs(), srcRootName);
 		if (srcRoot == null) {
-			srcRoot = createRootSrc(mindp, repo, f, srcRootName);
+			srcRoot = createRootSrc((MindProject) mindp, repo, f, srcRootName);
 		} else {
 			Assert.isTrue(mindp == srcRoot.getProject());
 		}
 		return srcRoot;
 	}
 
-	public MindRootSrc findOrCreateRootSrc(MindProject mindp, MindRepo repo,
-			IFolder f, boolean sync) {
+	public MindRootSrc findOrCreateRootSrc(MindLibOrProject mindp, MindRepo repo,
+			IContainer f, boolean sync) {
 		MindRootSrc srcRoot = findOrCreateRootSrc(mindp, repo, f);
 		if (sync && f.exists()) {
 			try {
@@ -248,7 +258,7 @@ public class MindModelImpl implements MindModel {
 	}
 
 	public MindPackage findPackage(MindPathEntry mpe) {
-		MindProject prj = mpe.getOwnerProject();
+		MindLibOrProject prj = mpe.getOwnerProject();
 		Map<String, List<MindPackage>> packages = getAllPackages();
 		List<MindPackage> refPackages = packages.get(mpe.getName());
 		if (refPackages == null || refPackages.size() == 0)
@@ -260,7 +270,7 @@ public class MindModelImpl implements MindModel {
 				return mindPackage;
 		}
 
-		EList<MindProject> usedPackage = getUsedPackage(prj);
+		EList<MindLibOrProject> usedPackage = getUsedPackage(prj);
 		for (MindPackage mindPackage : refPackages) {
 			if (usedPackage.contains(mindPackage.getRootsrc().getProject()))
 				return mindPackage;
@@ -272,9 +282,9 @@ public class MindModelImpl implements MindModel {
 		Path p = new Path(mpe.getName());
 		String projectName = p.segment(0);
 		for (MindRepo r : _repos.getRepos()) {
-			for (MindProject prj : r.getMindprojects()) {
-				if (prj.getName().equals(projectName))
-					return prj;
+			for (MindLibOrProject prj : r.getMindLibOrProjects()) {
+				if (prj instanceof MindProject && prj.getName().equals(projectName))
+					return (MindProject) prj;
 			}
 		}
 		return null;
@@ -371,13 +381,28 @@ public class MindModelImpl implements MindModel {
 		if (_projects == null) {
 			_projects = new HashMap<String, MindProject>();
 		}
-		MindProject ret = _projects.get(p.getName());
+		MindLibOrProject ret = _projects.get(p.getName());
 		if (ret != null)
-			return ret;
-		ret = UtilMindIde.find(_wsMindRoot.getMindprojects(), p.getName());
-		if (ret != null) {
-			_projects.put(p.getName(), ret);
-			return ret;
+			return (MindProject) ret;
+		ret = UtilMindIde.find(_wsMindRoot.getMindLibOrProjects(), p.getName());
+		if (ret instanceof MindProject && ret != null) {
+			_projects.put(p.getName(), (MindProject) ret);
+			return (MindProject) ret;
+		}
+		return null;
+	}
+	
+	public MindLibrary getMindLib(IProject p) {
+		if (_libs == null) {
+			_libs = new HashMap<String, MindLibrary>();
+		}
+		MindLibOrProject ret = _libs.get(p.getName());
+		if (ret != null)
+			return (MindLibrary) ret;
+		ret = UtilMindIde.find(_wsMindRoot.getMindLibOrProjects(), p.getName());
+		if (ret instanceof MindLibrary && ret != null) {
+			_libs.put(p.getName(), (MindLibrary) ret);
+			return (MindLibrary) ret;
 		}
 		return null;
 	}
@@ -414,15 +439,15 @@ public class MindModelImpl implements MindModel {
 		return ret;
 	}
 
-	private EList<MindProject> getUsedPackage(MindProject prj) {
-		EList<MindProject> ret = new BasicEList<MindProject>();
+	private EList<MindLibOrProject> getUsedPackage(MindLibOrProject prj) {
+		EList<MindLibOrProject> ret = new BasicEList<MindLibOrProject>();
 		if (prj != null)
 			getUsedPackage(prj, ret);
 		return ret;
 	}
 
-	private void getUsedPackage(MindProject prj, EList<MindProject> ret) {
-		for (MindProject mindProject : prj.getUses()) {
+	private void getUsedPackage(MindLibOrProject prj, EList<MindLibOrProject> ret) {
+		for (MindLibOrProject mindProject : prj.getUses()) {
 			if (ret.contains(mindProject))
 				continue;
 			ret.add(mindProject);
@@ -454,7 +479,7 @@ public class MindModelImpl implements MindModel {
 	}
 
 	@Override
-	public MindProject init(IProject p) throws CoreException, IOException {
+	public MindLibOrProject init(IProject p) throws CoreException, IOException {
 		return init(p, true, true);
 	}
 
@@ -473,10 +498,14 @@ public class MindModelImpl implements MindModel {
 	 * @throws IOException
 	 */
 
-	public MindProject init(IProject p, boolean create, boolean sync)
+	public MindLibOrProject init(IProject p, boolean create, boolean sync)
 			throws CoreException, IOException {
-		MindProject ret;
+		MindLibOrProject ret;
 		ret = getMindProject(p);
+		if (ret != null) {
+			return ret;
+		}
+		ret = getMindLib(p);
 		if (ret != null) {
 			return ret;
 		}
@@ -486,14 +515,21 @@ public class MindModelImpl implements MindModel {
 		if (!p.isOpen() || !p.hasNature(MindNature.NATURE_ID)) {
 			return null;
 		}
-		ret = new MindProjectImpl(p, this);
+		
+		IFile f = p.getFile(MindProjectImpl.MINDLIB_FILENAME);
+		if (f.exists()) {
+			ret = new MindLibraryImpl(p,this);
+			_libs.put(p.getName(), (MindLibrary) ret);
+		} else {
+			ret = new MindProjectImpl(p, this);
+			_projects.put(p.getName(), (MindProject) ret);
+		}
 		ret.setName(p.getName());
 		ret.setMindId(_wsMindRoot.getMindId() + "/" + p.getName());
-		_wsMindRoot.getMindprojects().add(ret);
-		ret.getMindpathentries().addAll(
-				(MindProjectImpl.readFileEntriesWithException(p)));
-		_projects.put(p.getName(), ret);
-
+		_wsMindRoot.getMindLibOrProjects().add(ret);
+		
+		MindProjectImpl.readFileEntriesWithException2(p, ret);
+		
 		syncMindPath(p, ret, _wsMindRoot, sync);
 		return ret;
 	}
@@ -813,8 +849,8 @@ public class MindModelImpl implements MindModel {
 		}
 	}
 
-	public void remove(MindFile mf) {
-		mf.getPackage().getFiles().remove(mf);
+	public void remove(MindFile mp) {
+		mp.getPackage().getFiles().remove(mp);
 	}
 
 	public void remove(MindRootSrc rs, MindPackage mindPackage, boolean removeSubPackage) {
@@ -871,6 +907,41 @@ public class MindModelImpl implements MindModel {
 		return rs.getFullpath().equals(mindPackage.getFullpath());
 	}
 
+	public void removeMO(MindObject mo) {
+		switch (mo.eClass().getClassifierID()) {
+		case MindidePackage.MIND_PROJECT:
+			remove((MindProject)mo);
+			break;
+		case MindidePackage.MIND_ROOT_SRC:
+			remove((MindRootSrc)mo);
+			break;
+		case MindidePackage.MIND_PACKAGE:
+			//remove((MindPackage)mo);
+			break;
+		case MindidePackage.MIND_ADL:
+			remove((MindAdl)mo);
+			break;
+		case MindidePackage.MIND_C:
+			remove((MindC)mo);
+			break;
+		case MindidePackage.MIND_ITF:
+			remove((MindItf)mo);
+			break;
+		case MindidePackage.MIND_IDF:
+			remove((MindIdf)mo);
+			break;
+		case MindidePackage.MIND_H:
+			remove((MindH)mo);
+			break;
+		case MindidePackage.MIND_LIBRARY:
+			remove((MindLibrary)mo);
+			break;
+
+		
+		default:
+			break;
+		}
+	}
 	public void remove(MindProject mp) {
 		if (MindModelImpl.TRACING)
 			System.out.println("REMOVING MIND PROJECT " + mp.getProject());
@@ -885,10 +956,10 @@ public class MindModelImpl implements MindModel {
 		mp.getResolvedMindPathEntries().clear();
 		if (MindModelImpl.TRACING)
 			System.out.println("DONE REMOVE MIND PROJECT " + mp.getProject());
-		if (mp.getRepo() == null)
+		if (mp.getRepoFromLibOrProject() == null)
 			return;
 
-		mp.getRepo().getMindprojects().remove(mp);
+		mp.getRepoFromLibOrProject().getMindLibOrProjects().remove(mp);
 		if (MindModelImpl.TRACING)
 			System.out.println("DONE2 REMOVE MIND PROJECT " + mp.getProject());
 
@@ -903,10 +974,10 @@ public class MindModelImpl implements MindModel {
 		mindRootsrc.getResolvedMindPathEntries().clear();
 		mindRootsrc.getPackages().clear();
 
-		if (mindRootsrc.getRepo() == null)
+		if (mindRootsrc.getRepoFromRootSrc() == null)
 			return;
 
-		mindRootsrc.getRepo().getRootsrcs().remove(mindRootsrc);
+		mindRootsrc.getRepoFromRootSrc().getRootsrcs().remove(mindRootsrc);
 
 	}
 
@@ -936,7 +1007,7 @@ public class MindModelImpl implements MindModel {
 			return;
 		}
 		if (mpe.getEntryKind() == MindPathKind.SOURCE) {
-			MindProject prj = mpe.getOwnerProject();
+			MindLibOrProject prj = mpe.getOwnerProject();
 			IFolder f = ResourcesPlugin.getWorkspace().getRoot().getFolder(
 					new Path(mpe.getName()));
 			
@@ -967,7 +1038,7 @@ public class MindModelImpl implements MindModel {
 	 */
 	public void resolve(MindPathKind k, String nameAttendu, MindObject r) {
 		for (MindRepo mr : _repos.getRepos()) {
-			for (MindProject prj : mr.getMindprojects()) {
+			for (MindLibOrProject prj : mr.getMindLibOrProjects()) {
 				for (MindPathEntry mpe : prj.getMindpathentries()) {
 					if (mpe.getEntryKind() == k && mpe.getResolvedBy() == null) {
 						if (mpe.getName().equals(nameAttendu)) {
@@ -1057,12 +1128,17 @@ public class MindModelImpl implements MindModel {
 	 * @param repo the current repository where is the project
 	 * @param sync true if synchronize into source folder
 	 */
-	void syncMindPath(IProject p, MindProject mindp, MindRepo repo, boolean sync) {
+	void syncMindPath(IProject p, MindLibOrProject mindp, MindRepo repo, boolean sync) {
 		EList<MindPathEntry> mindpath = mindp.getRawMinpath();
 		for (MindPathEntry mindPathEntry : mindpath) {
 			if (mindPathEntry.getEntryKind() == MindPathKind.SOURCE) {
-				IPath pathE = new Path(mindPathEntry.getName());
-				IFolder f = p.getFolder(pathE.removeFirstSegments(1));
+				String pathName = mindPathEntry.getName();
+				IPath pathE = new Path(pathName);
+				IContainer f ;
+				if (pathName.equals("."))
+					f = p;
+				else
+					f = p.getFolder(pathE.removeFirstSegments(1));
 				if (f.exists()) {
 					findOrCreateRootSrc(mindp, repo, f, sync);
 				}
@@ -1087,7 +1163,7 @@ public class MindModelImpl implements MindModel {
 				.getRootsrcs());
 		mp.getRootsrcs().clear();
 		for (MindRootSrc s : rootSrcs) {
-			s.getRepo().getRootsrcs().remove(s);
+			s.getRepoFromRootSrc().getRootsrcs().remove(s);
 		}
 		mp.getResolvedMindPathEntries().clear();
 	}
@@ -1112,7 +1188,7 @@ public class MindModelImpl implements MindModel {
 //					MindIdeCore.log(e, "Cannot delete folder "+src);
 //				}
 //			}
-			MindRootSrc rs = UtilMindIde.findRootSrc(mindProject.getRepo(), src.getFullPath());
+			MindRootSrc rs = UtilMindIde.findRootSrc(mindProject.getRepoFromLibOrProject(), src.getFullPath());
 			if (rs != null)
 				remove(rs);
 		}
@@ -1244,6 +1320,4 @@ public class MindModelImpl implements MindModel {
 			return Status.OK_STATUS;
 		return ret;
 	}
-
-
 }

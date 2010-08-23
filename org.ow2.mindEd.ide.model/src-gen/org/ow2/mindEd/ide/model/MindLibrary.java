@@ -25,7 +25,7 @@ package org.ow2.mindEd.ide.model;
  * @model
  * @generated
  */
-public interface MindLibrary extends MindRootSrc {
+public interface MindLibrary extends MindLibOrProject, MindRootSrc {
 	/**
 	 * Returns the value of the '<em><b>Target Filter</b></em>' attribute.
 	 * <!-- begin-user-doc -->

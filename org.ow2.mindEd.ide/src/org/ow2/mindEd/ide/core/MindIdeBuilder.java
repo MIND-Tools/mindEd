@@ -34,6 +34,7 @@ import org.objectweb.fractal.adl.StaticJavaGenerator.InvalidCommandLineException
 import org.objectweb.fractal.adl.error.Error;
 import org.objectweb.fractal.adl.error.ErrorLocator;
 import org.ow2.mindEd.ide.model.MindFile;
+import org.ow2.mindEd.ide.model.MindLibOrProject;
 import org.ow2.mindEd.ide.model.MindObject;
 import org.ow2.mindEd.ide.model.MindPackage;
 import org.ow2.mindEd.ide.model.MindPathEntry;
@@ -295,7 +296,7 @@ public class MindIdeBuilder extends IncrementalProjectBuilder {
 		return mindCClassLoader;
 	}
 	
-	public static void computeResolvedMindPath(MindProject mp, Set<MindObject> visited, Set<MindObject> path) {
+	public static void computeResolvedMindPath(MindLibOrProject mp, Set<MindObject> visited, Set<MindObject> path) {
 		if (visited.contains(mp)) return;
 		visited.add(mp);
 		for (MindPathEntry mpe : mp.getMindpathentries()) {
@@ -312,7 +313,7 @@ public class MindIdeBuilder extends IncrementalProjectBuilder {
 			} else if (mpe.getEntryKind() == MindPathKind.IMPORT_PACKAGE) {
 				MindPackage p = (MindPackage) mpe.getResolvedBy();
 				MindRootSrc rs;
-				MindProject mp2;
+				MindLibOrProject mp2;
 				if (p != null && ((rs = p.getRootsrc()) != null) && ((mp2 = rs.getProject()) != null)) {
 					computeResolvedMindPath(mp2, visited, path);
 				}

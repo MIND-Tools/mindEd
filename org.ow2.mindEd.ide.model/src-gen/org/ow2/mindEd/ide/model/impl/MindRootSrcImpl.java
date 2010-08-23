@@ -25,6 +25,7 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
 
+import org.ow2.mindEd.ide.model.MindLibOrProject;
 import org.ow2.mindEd.ide.model.MindPackage;
 import org.ow2.mindEd.ide.model.MindProject;
 import org.ow2.mindEd.ide.model.MindRepo;
@@ -40,7 +41,7 @@ import org.ow2.mindEd.ide.model.MindidePackage;
  * <ul>
  *   <li>{@link org.ow2.mindEd.ide.model.impl.MindRootSrcImpl#getPackages <em>Packages</em>}</li>
  *   <li>{@link org.ow2.mindEd.ide.model.impl.MindRootSrcImpl#getProject <em>Project</em>}</li>
- *   <li>{@link org.ow2.mindEd.ide.model.impl.MindRootSrcImpl#getRepo <em>Repo</em>}</li>
+ *   <li>{@link org.ow2.mindEd.ide.model.impl.MindRootSrcImpl#getRepoFromRootSrc <em>Repo From Root Src</em>}</li>
  *   <li>{@link org.ow2.mindEd.ide.model.impl.MindRootSrcImpl#getFullpath <em>Fullpath</em>}</li>
  *   <li>{@link org.ow2.mindEd.ide.model.impl.MindRootSrcImpl#getFolder <em>Folder</em>}</li>
  *   <li>{@link org.ow2.mindEd.ide.model.impl.MindRootSrcImpl#getDependencies <em>Dependencies</em>}</li>
@@ -68,7 +69,7 @@ public class MindRootSrcImpl extends MindObjectImpl implements MindRootSrc {
 	 * @generated
 	 * @ordered
 	 */
-	protected MindProject project;
+	protected MindLibOrProject project;
 
 	/**
 	 * The default value of the '{@link #getFullpath() <em>Fullpath</em>}' attribute.
@@ -156,10 +157,10 @@ public class MindRootSrcImpl extends MindObjectImpl implements MindRootSrc {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public MindProject getProject() {
+	public MindLibOrProject getProject() {
 		if (project != null && project.eIsProxy()) {
 			InternalEObject oldProject = (InternalEObject)project;
-			project = (MindProject)eResolveProxy(oldProject);
+			project = (MindLibOrProject)eResolveProxy(oldProject);
 			if (project != oldProject) {
 				if (eNotificationRequired())
 					eNotify(new ENotificationImpl(this, Notification.RESOLVE, MindidePackage.MIND_ROOT_SRC__PROJECT, oldProject, project));
@@ -173,7 +174,7 @@ public class MindRootSrcImpl extends MindObjectImpl implements MindRootSrc {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public MindProject basicGetProject() {
+	public MindLibOrProject basicGetProject() {
 		return project;
 	}
 
@@ -182,8 +183,8 @@ public class MindRootSrcImpl extends MindObjectImpl implements MindRootSrc {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetProject(MindProject newProject, NotificationChain msgs) {
-		MindProject oldProject = project;
+	public NotificationChain basicSetProject(MindLibOrProject newProject, NotificationChain msgs) {
+		MindLibOrProject oldProject = project;
 		project = newProject;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MindidePackage.MIND_ROOT_SRC__PROJECT, oldProject, newProject);
@@ -197,13 +198,13 @@ public class MindRootSrcImpl extends MindObjectImpl implements MindRootSrc {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setProject(MindProject newProject) {
+	public void setProject(MindLibOrProject newProject) {
 		if (newProject != project) {
 			NotificationChain msgs = null;
 			if (project != null)
-				msgs = ((InternalEObject)project).eInverseRemove(this, MindidePackage.MIND_PROJECT__ROOTSRCS, MindProject.class, msgs);
+				msgs = ((InternalEObject)project).eInverseRemove(this, MindidePackage.MIND_LIB_OR_PROJECT__ROOTSRCS, MindLibOrProject.class, msgs);
 			if (newProject != null)
-				msgs = ((InternalEObject)newProject).eInverseAdd(this, MindidePackage.MIND_PROJECT__ROOTSRCS, MindProject.class, msgs);
+				msgs = ((InternalEObject)newProject).eInverseAdd(this, MindidePackage.MIND_LIB_OR_PROJECT__ROOTSRCS, MindLibOrProject.class, msgs);
 			msgs = basicSetProject(newProject, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
@@ -216,8 +217,8 @@ public class MindRootSrcImpl extends MindObjectImpl implements MindRootSrc {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public MindRepo getRepo() {
-		if (eContainerFeatureID() != MindidePackage.MIND_ROOT_SRC__REPO) return null;
+	public MindRepo getRepoFromRootSrc() {
+		if (eContainerFeatureID() != MindidePackage.MIND_ROOT_SRC__REPO_FROM_ROOT_SRC) return null;
 		return (MindRepo)eContainer();
 	}
 
@@ -226,8 +227,8 @@ public class MindRootSrcImpl extends MindObjectImpl implements MindRootSrc {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetRepo(MindRepo newRepo, NotificationChain msgs) {
-		msgs = eBasicSetContainer((InternalEObject)newRepo, MindidePackage.MIND_ROOT_SRC__REPO, msgs);
+	public NotificationChain basicSetRepoFromRootSrc(MindRepo newRepoFromRootSrc, NotificationChain msgs) {
+		msgs = eBasicSetContainer((InternalEObject)newRepoFromRootSrc, MindidePackage.MIND_ROOT_SRC__REPO_FROM_ROOT_SRC, msgs);
 		return msgs;
 	}
 
@@ -236,20 +237,20 @@ public class MindRootSrcImpl extends MindObjectImpl implements MindRootSrc {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setRepo(MindRepo newRepo) {
-		if (newRepo != eInternalContainer() || (eContainerFeatureID() != MindidePackage.MIND_ROOT_SRC__REPO && newRepo != null)) {
-			if (EcoreUtil.isAncestor(this, newRepo))
+	public void setRepoFromRootSrc(MindRepo newRepoFromRootSrc) {
+		if (newRepoFromRootSrc != eInternalContainer() || (eContainerFeatureID() != MindidePackage.MIND_ROOT_SRC__REPO_FROM_ROOT_SRC && newRepoFromRootSrc != null)) {
+			if (EcoreUtil.isAncestor(this, newRepoFromRootSrc))
 				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
 			NotificationChain msgs = null;
 			if (eInternalContainer() != null)
 				msgs = eBasicRemoveFromContainer(msgs);
-			if (newRepo != null)
-				msgs = ((InternalEObject)newRepo).eInverseAdd(this, MindidePackage.MIND_REPO__ROOTSRCS, MindRepo.class, msgs);
-			msgs = basicSetRepo(newRepo, msgs);
+			if (newRepoFromRootSrc != null)
+				msgs = ((InternalEObject)newRepoFromRootSrc).eInverseAdd(this, MindidePackage.MIND_REPO__ROOTSRCS, MindRepo.class, msgs);
+			msgs = basicSetRepoFromRootSrc(newRepoFromRootSrc, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, MindidePackage.MIND_ROOT_SRC__REPO, newRepo, newRepo));
+			eNotify(new ENotificationImpl(this, Notification.SET, MindidePackage.MIND_ROOT_SRC__REPO_FROM_ROOT_SRC, newRepoFromRootSrc, newRepoFromRootSrc));
 	}
 
 	/**
@@ -319,12 +320,12 @@ public class MindRootSrcImpl extends MindObjectImpl implements MindRootSrc {
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getPackages()).basicAdd(otherEnd, msgs);
 			case MindidePackage.MIND_ROOT_SRC__PROJECT:
 				if (project != null)
-					msgs = ((InternalEObject)project).eInverseRemove(this, MindidePackage.MIND_PROJECT__ROOTSRCS, MindProject.class, msgs);
-				return basicSetProject((MindProject)otherEnd, msgs);
-			case MindidePackage.MIND_ROOT_SRC__REPO:
+					msgs = ((InternalEObject)project).eInverseRemove(this, MindidePackage.MIND_LIB_OR_PROJECT__ROOTSRCS, MindLibOrProject.class, msgs);
+				return basicSetProject((MindLibOrProject)otherEnd, msgs);
+			case MindidePackage.MIND_ROOT_SRC__REPO_FROM_ROOT_SRC:
 				if (eInternalContainer() != null)
 					msgs = eBasicRemoveFromContainer(msgs);
-				return basicSetRepo((MindRepo)otherEnd, msgs);
+				return basicSetRepoFromRootSrc((MindRepo)otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -341,8 +342,8 @@ public class MindRootSrcImpl extends MindObjectImpl implements MindRootSrc {
 				return ((InternalEList<?>)getPackages()).basicRemove(otherEnd, msgs);
 			case MindidePackage.MIND_ROOT_SRC__PROJECT:
 				return basicSetProject(null, msgs);
-			case MindidePackage.MIND_ROOT_SRC__REPO:
-				return basicSetRepo(null, msgs);
+			case MindidePackage.MIND_ROOT_SRC__REPO_FROM_ROOT_SRC:
+				return basicSetRepoFromRootSrc(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -355,7 +356,7 @@ public class MindRootSrcImpl extends MindObjectImpl implements MindRootSrc {
 	@Override
 	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
 		switch (eContainerFeatureID()) {
-			case MindidePackage.MIND_ROOT_SRC__REPO:
+			case MindidePackage.MIND_ROOT_SRC__REPO_FROM_ROOT_SRC:
 				return eInternalContainer().eInverseRemove(this, MindidePackage.MIND_REPO__ROOTSRCS, MindRepo.class, msgs);
 		}
 		return super.eBasicRemoveFromContainerFeature(msgs);
@@ -374,8 +375,8 @@ public class MindRootSrcImpl extends MindObjectImpl implements MindRootSrc {
 			case MindidePackage.MIND_ROOT_SRC__PROJECT:
 				if (resolve) return getProject();
 				return basicGetProject();
-			case MindidePackage.MIND_ROOT_SRC__REPO:
-				return getRepo();
+			case MindidePackage.MIND_ROOT_SRC__REPO_FROM_ROOT_SRC:
+				return getRepoFromRootSrc();
 			case MindidePackage.MIND_ROOT_SRC__FULLPATH:
 				return getFullpath();
 			case MindidePackage.MIND_ROOT_SRC__FOLDER:
@@ -400,10 +401,10 @@ public class MindRootSrcImpl extends MindObjectImpl implements MindRootSrc {
 				getPackages().addAll((Collection<? extends MindPackage>)newValue);
 				return;
 			case MindidePackage.MIND_ROOT_SRC__PROJECT:
-				setProject((MindProject)newValue);
+				setProject((MindLibOrProject)newValue);
 				return;
-			case MindidePackage.MIND_ROOT_SRC__REPO:
-				setRepo((MindRepo)newValue);
+			case MindidePackage.MIND_ROOT_SRC__REPO_FROM_ROOT_SRC:
+				setRepoFromRootSrc((MindRepo)newValue);
 				return;
 			case MindidePackage.MIND_ROOT_SRC__FULLPATH:
 				setFullpath((String)newValue);
@@ -431,10 +432,10 @@ public class MindRootSrcImpl extends MindObjectImpl implements MindRootSrc {
 				getPackages().clear();
 				return;
 			case MindidePackage.MIND_ROOT_SRC__PROJECT:
-				setProject((MindProject)null);
+				setProject((MindLibOrProject)null);
 				return;
-			case MindidePackage.MIND_ROOT_SRC__REPO:
-				setRepo((MindRepo)null);
+			case MindidePackage.MIND_ROOT_SRC__REPO_FROM_ROOT_SRC:
+				setRepoFromRootSrc((MindRepo)null);
 				return;
 			case MindidePackage.MIND_ROOT_SRC__FULLPATH:
 				setFullpath(FULLPATH_EDEFAULT);
@@ -461,8 +462,8 @@ public class MindRootSrcImpl extends MindObjectImpl implements MindRootSrc {
 				return packages != null && !packages.isEmpty();
 			case MindidePackage.MIND_ROOT_SRC__PROJECT:
 				return project != null;
-			case MindidePackage.MIND_ROOT_SRC__REPO:
-				return getRepo() != null;
+			case MindidePackage.MIND_ROOT_SRC__REPO_FROM_ROOT_SRC:
+				return getRepoFromRootSrc() != null;
 			case MindidePackage.MIND_ROOT_SRC__FULLPATH:
 				return FULLPATH_EDEFAULT == null ? fullpath != null : !FULLPATH_EDEFAULT.equals(fullpath);
 			case MindidePackage.MIND_ROOT_SRC__FOLDER:

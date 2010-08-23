@@ -79,8 +79,7 @@ public class MindRepoItemProvider
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(MindidePackage.Literals.MIND_REPO__ROOTSRCS);
-			childrenFeatures.add(MindidePackage.Literals.MIND_REPO__MINDPROJECTS);
-			childrenFeatures.add(MindidePackage.Literals.MIND_REPO__MIND_LIBRARY);
+			childrenFeatures.add(MindidePackage.Literals.MIND_REPO__MIND_LIB_OR_PROJECTS);
 		}
 		return childrenFeatures;
 	}
@@ -136,8 +135,7 @@ public class MindRepoItemProvider
 
 		switch (notification.getFeatureID(MindRepo.class)) {
 			case MindidePackage.MIND_REPO__ROOTSRCS:
-			case MindidePackage.MIND_REPO__MINDPROJECTS:
-			case MindidePackage.MIND_REPO__MIND_LIBRARY:
+			case MindidePackage.MIND_REPO__MIND_LIB_OR_PROJECTS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -167,12 +165,12 @@ public class MindRepoItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(MindidePackage.Literals.MIND_REPO__MINDPROJECTS,
+				(MindidePackage.Literals.MIND_REPO__MIND_LIB_OR_PROJECTS,
 				 MindideFactory.eINSTANCE.createMindProject()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(MindidePackage.Literals.MIND_REPO__MIND_LIBRARY,
+				(MindidePackage.Literals.MIND_REPO__MIND_LIB_OR_PROJECTS,
 				 MindideFactory.eINSTANCE.createMindLibrary()));
 	}
 
@@ -189,7 +187,7 @@ public class MindRepoItemProvider
 
 		boolean qualify =
 			childFeature == MindidePackage.Literals.MIND_REPO__ROOTSRCS ||
-			childFeature == MindidePackage.Literals.MIND_REPO__MIND_LIBRARY;
+			childFeature == MindidePackage.Literals.MIND_REPO__MIND_LIB_OR_PROJECTS;
 
 		if (qualify) {
 			return getString

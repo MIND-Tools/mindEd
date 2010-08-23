@@ -26,7 +26,7 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  *
  * @see org.ow2.mindEd.ide.model.MindidePackage#getMindObject()
- * @model
+ * @model abstract="true"
  * @generated
  */
 public interface MindObject extends EObject, org.eclipse.core.runtime.IAdaptable {

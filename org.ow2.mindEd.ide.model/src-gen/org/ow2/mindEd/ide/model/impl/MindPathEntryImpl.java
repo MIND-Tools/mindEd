@@ -12,12 +12,14 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import org.eclipse.emf.ecore.util.EcoreUtil;
 
+import org.ow2.mindEd.ide.model.MindLibOrProject;
 import org.ow2.mindEd.ide.model.MindObject;
 import org.ow2.mindEd.ide.model.MindPathEntry;
 import org.ow2.mindEd.ide.model.MindPathKind;
@@ -115,9 +117,10 @@ public class MindPathEntryImpl extends MindObjectImpl implements MindPathEntry {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public MindProject getOwnerProject() {
+	@SuppressWarnings("unchecked")
+	public MindLibOrProject getOwnerProject() {
 		if (eContainerFeatureID() != MindidePackage.MIND_PATH_ENTRY__OWNER_PROJECT) return null;
-		return (MindProject)eContainer();
+		return (MindLibOrProject)eContainer();
 	}
 
 	/**
@@ -125,7 +128,7 @@ public class MindPathEntryImpl extends MindObjectImpl implements MindPathEntry {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetOwnerProject(MindProject newOwnerProject, NotificationChain msgs) {
+	public NotificationChain basicSetOwnerProject(MindLibOrProject newOwnerProject, NotificationChain msgs) {
 		msgs = eBasicSetContainer((InternalEObject)newOwnerProject, MindidePackage.MIND_PATH_ENTRY__OWNER_PROJECT, msgs);
 		return msgs;
 	}
@@ -135,7 +138,7 @@ public class MindPathEntryImpl extends MindObjectImpl implements MindPathEntry {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setOwnerProject(MindProject newOwnerProject) {
+	public void setOwnerProject(MindLibOrProject newOwnerProject) {
 		if (newOwnerProject != eInternalContainer() || (eContainerFeatureID() != MindidePackage.MIND_PATH_ENTRY__OWNER_PROJECT && newOwnerProject != null)) {
 			if (EcoreUtil.isAncestor(this, newOwnerProject))
 				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
@@ -143,7 +146,7 @@ public class MindPathEntryImpl extends MindObjectImpl implements MindPathEntry {
 			if (eInternalContainer() != null)
 				msgs = eBasicRemoveFromContainer(msgs);
 			if (newOwnerProject != null)
-				msgs = ((InternalEObject)newOwnerProject).eInverseAdd(this, MindidePackage.MIND_PROJECT__MINDPATHENTRIES, MindProject.class, msgs);
+				msgs = ((InternalEObject)newOwnerProject).eInverseAdd(this, MindidePackage.MIND_LIB_OR_PROJECT__MINDPATHENTRIES, MindLibOrProject.class, msgs);
 			msgs = basicSetOwnerProject(newOwnerProject, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
@@ -269,13 +272,14 @@ public class MindPathEntryImpl extends MindObjectImpl implements MindPathEntry {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case MindidePackage.MIND_PATH_ENTRY__OWNER_PROJECT:
 				if (eInternalContainer() != null)
 					msgs = eBasicRemoveFromContainer(msgs);
-				return basicSetOwnerProject((MindProject)otherEnd, msgs);
+				return basicSetOwnerProject((MindLibOrProject)otherEnd, msgs);
 			case MindidePackage.MIND_PATH_ENTRY__RESOLVED_BY:
 				if (resolvedBy != null)
 					msgs = ((InternalEObject)resolvedBy).eInverseRemove(this, MindidePackage.MIND_OBJECT__RESOLVED_MIND_PATH_ENTRIES, MindObject.class, msgs);
@@ -309,7 +313,7 @@ public class MindPathEntryImpl extends MindObjectImpl implements MindPathEntry {
 	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
 		switch (eContainerFeatureID()) {
 			case MindidePackage.MIND_PATH_ENTRY__OWNER_PROJECT:
-				return eInternalContainer().eInverseRemove(this, MindidePackage.MIND_PROJECT__MINDPATHENTRIES, MindProject.class, msgs);
+				return eInternalContainer().eInverseRemove(this, MindidePackage.MIND_LIB_OR_PROJECT__MINDPATHENTRIES, MindLibOrProject.class, msgs);
 		}
 		return super.eBasicRemoveFromContainerFeature(msgs);
 	}
@@ -340,11 +344,12 @@ public class MindPathEntryImpl extends MindObjectImpl implements MindPathEntry {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case MindidePackage.MIND_PATH_ENTRY__OWNER_PROJECT:
-				setOwnerProject((MindProject)newValue);
+				setOwnerProject((MindLibOrProject)newValue);
 				return;
 			case MindidePackage.MIND_PATH_ENTRY__RESOLVED_BY:
 				setResolvedBy((MindObject)newValue);
@@ -368,7 +373,7 @@ public class MindPathEntryImpl extends MindObjectImpl implements MindPathEntry {
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case MindidePackage.MIND_PATH_ENTRY__OWNER_PROJECT:
-				setOwnerProject((MindProject)null);
+				setOwnerProject((MindLibOrProject)null);
 				return;
 			case MindidePackage.MIND_PATH_ENTRY__RESOLVED_BY:
 				setResolvedBy((MindObject)null);

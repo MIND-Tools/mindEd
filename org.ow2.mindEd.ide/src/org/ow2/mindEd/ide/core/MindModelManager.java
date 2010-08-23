@@ -2,6 +2,7 @@ package org.ow2.mindEd.ide.core;
 
 import org.eclipse.core.resources.IProject;
 import org.ow2.mindEd.ide.core.impl.MindModelManagerImpl;
+import org.ow2.mindEd.ide.model.MindLibrary;
 import org.ow2.mindEd.ide.model.MindProject;
 
 /**
@@ -37,5 +38,13 @@ public abstract class MindModelManager {
 	 */
 	public abstract MindProject getMindProject(IProject project);
 
+
+	/**
+	 * Return the mind lib corresponding to the eclipse project. Return null if the project is not a mind lib element.
+	 * 
+	 * @param p an eclipse project
+	 * @return a mind lib or null.
+	 */
+	public abstract MindLibrary getMindLib(IProject project);
 
 }
