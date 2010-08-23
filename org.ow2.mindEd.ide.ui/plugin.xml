@@ -512,4 +512,17 @@
          </view>
       </perspectiveExtension>
    </extension>
+   <extension
+         point="org.eclipse.ui.exportWizards">
+      <category
+            id="org.ow2.mindEd.ide.ui.category.mindEd"
+            name="MindEd">
+      </category>
+      <wizard
+            category="org.ow2.mindEd.ide.ui.category.mindEd"
+            class="org.ow2.mindEd.ide.ui.wizards.ExportLibWizard"
+            id="org.ow2.mindEd.ide.ui.wizardlib"
+            name="Export mindProject to sourceLib">
+      </wizard>
+   </extension>
 </plugin>
