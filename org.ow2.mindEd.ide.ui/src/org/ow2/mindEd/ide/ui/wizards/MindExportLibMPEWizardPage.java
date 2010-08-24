@@ -43,6 +43,7 @@ import org.ow2.mindEd.ide.core.impl.MindPathEntryCustomImpl;
 import org.ow2.mindEd.ide.model.MindObject;
 import org.ow2.mindEd.ide.model.MindPackage;
 import org.ow2.mindEd.ide.model.MindPathEntry;
+import org.ow2.mindEd.ide.model.MindPathKind;
 import org.ow2.mindEd.ide.model.MindProject;
 import org.ow2.mindEd.ide.model.MindRootSrc;
 import org.ow2.mindEd.ide.ui.Activator;
@@ -190,6 +191,9 @@ public class MindExportLibMPEWizardPage extends WizardPage implements PageUdapte
 				if (mapsName.containsKey(resObj)) {
 					continue;
 				}
+				if(mpe.getEntryKind() == MindPathKind.SOURCE)
+					continue;
+				
 				MindPathEntryCustomImpl mpeClone = new MindPathEntryCustomImpl(mpe);
 				mpesLib.add(mpeClone);
 			}
@@ -255,6 +259,10 @@ public class MindExportLibMPEWizardPage extends WizardPage implements PageUdapte
 	
 	public void updateErrorStatus(String msg) {
 		updateStatus(msg);
+	}
+
+	public EList<MindPathEntry> getMindPath() {
+		return mpesLib;
 	}
 
 	

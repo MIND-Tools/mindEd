@@ -277,4 +277,8 @@ public class MindExportLibWizardPage extends WizardPage implements PageUdapteSta
 		return (MindProject[]) ret.toArray(new MindProject[ret.size()]);
 	}
 
+	public String getDestinationPath() {
+		return _resultPath.toOSString();
+	}
+
 }
