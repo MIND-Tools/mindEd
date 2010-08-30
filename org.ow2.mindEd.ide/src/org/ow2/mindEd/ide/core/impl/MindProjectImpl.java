@@ -365,7 +365,7 @@ public class MindProjectImpl extends org.ow2.mindEd.ide.model.impl.MindProjectIm
 	/**
 	 * Returns the XML String encoding of the class path.
 	 */
-	protected static String encodeMindpath(EList<MindPathEntry> classpath, boolean indent) throws IOException {
+	public static String encodeMindpath(EList<MindPathEntry> classpath, boolean indent) throws IOException {
 		ByteArrayOutputStream s = new ByteArrayOutputStream();
 		OutputStreamWriter writer = new OutputStreamWriter(s, "UTF8"); //$NON-NLS-1$
 		XMLWriter xmlWriter = new XMLWriter(writer, true/*print XML version*/);
