@@ -1,10 +1,7 @@
 package org.ow2.mindEd.adl.editor.graphic.ui.custom.preferences;
 
 import org.eclipse.jface.preference.IPreferenceStore;
-
-import org.ow2.mindEd.adl.editor.graphic.ui.custom.preferences.CustomGeneralPreferencePage;
 import org.ow2.mindEd.adl.editor.graphic.ui.preferences.DiagramAppearancePreferencePage;
-import org.ow2.mindEd.adl.editor.graphic.ui.preferences.DiagramConnectionsPreferencePage;
 import org.ow2.mindEd.adl.editor.graphic.ui.preferences.DiagramPreferenceInitializer;
 import org.ow2.mindEd.adl.editor.graphic.ui.preferences.DiagramPrintingPreferencePage;
 import org.ow2.mindEd.adl.editor.graphic.ui.preferences.DiagramRulersAndGridPreferencePage;
@@ -22,7 +19,7 @@ public class CustomDiagramPreferenceInitializer extends
 		// Custom general preference page
 		CustomGeneralPreferencePage.initDefaults(store);
 		DiagramAppearancePreferencePage.initDefaults(store);
-		DiagramConnectionsPreferencePage.initDefaults(store);
+		CustomDiagramConnectionsPreferencePage.initDefaults(store);
 		DiagramPrintingPreferencePage.initDefaults(store);
 		DiagramRulersAndGridPreferencePage.initDefaults(store);
 	}

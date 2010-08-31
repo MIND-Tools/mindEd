@@ -128,6 +128,10 @@ public class MindideAdapterFactory extends AdapterFactoryImpl {
 				return createMindLibraryAdapter();
 			}
 			@Override
+			public Adapter caseMindLibOrProject(MindLibOrProject object) {
+				return createMindLibOrProjectAdapter();
+			}
+			@Override
 			public Adapter defaultCase(EObject object) {
 				return createEObjectAdapter();
 			}
@@ -340,6 +344,20 @@ public class MindideAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createMindLibraryAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.ow2.mindEd.ide.model.MindLibOrProject <em>Mind Lib Or Project</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.ow2.mindEd.ide.model.MindLibOrProject
+	 * @generated
+	 */
+	public Adapter createMindLibOrProjectAdapter() {
 		return null;
 	}
 

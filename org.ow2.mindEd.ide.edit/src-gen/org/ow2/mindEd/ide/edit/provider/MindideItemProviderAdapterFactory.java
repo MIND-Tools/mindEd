@@ -306,29 +306,6 @@ public class MindideItemProviderAdapterFactory extends MindideAdapterFactory imp
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link org.ow2.mindEd.ide.model.MindObject} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected MindObjectItemProvider mindObjectItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link org.ow2.mindEd.ide.model.MindObject}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createMindObjectAdapter() {
-		if (mindObjectItemProvider == null) {
-			mindObjectItemProvider = new MindObjectItemProvider(this);
-		}
-
-		return mindObjectItemProvider;
-	}
-
-	/**
 	 * This keeps track of the one adapter used for all {@link org.ow2.mindEd.ide.model.MindProject} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -506,7 +483,6 @@ public class MindideItemProviderAdapterFactory extends MindideAdapterFactory imp
 		if (mindIdfItemProvider != null) mindIdfItemProvider.dispose();
 		if (mindFileItemProvider != null) mindFileItemProvider.dispose();
 		if (mindAllRepoItemProvider != null) mindAllRepoItemProvider.dispose();
-		if (mindObjectItemProvider != null) mindObjectItemProvider.dispose();
 		if (mindProjectItemProvider != null) mindProjectItemProvider.dispose();
 		if (mindPathEntryItemProvider != null) mindPathEntryItemProvider.dispose();
 		if (mindLibraryItemProvider != null) mindLibraryItemProvider.dispose();

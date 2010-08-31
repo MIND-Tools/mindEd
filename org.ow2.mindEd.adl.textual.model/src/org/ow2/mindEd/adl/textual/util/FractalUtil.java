@@ -160,16 +160,20 @@ public class FractalUtil {
 		// it does'nt work at that time for sub packages
 		//String s = ModelToProjectUtil.INSTANCE.getFQNFromURI(uri);
 		
-		// FIXME -- TEMP 
+		// FIXME -- hack
+		return getFQNFromURI("src", ".adl", uri);
+		
+	}
+	
+	public static String getFQNFromURI(String srcFolder, String extension, URI uri){
+
 		// we try to catch the keywords from which package directories are beginning		
-				
-		String src_folder = "src";
-		String extension = ".adl";
+		
 		int i = 0;
 		String fQN = "";
 		for (String segment : uri.segments()){
 			i++;
-			if (segment.equals(src_folder))
+			if (segment.equals(srcFolder))
 				break;
 		}
 				
@@ -183,7 +187,6 @@ public class FractalUtil {
 		// --
 		
 		return fQN;
-		
 	}
 	
 	/**

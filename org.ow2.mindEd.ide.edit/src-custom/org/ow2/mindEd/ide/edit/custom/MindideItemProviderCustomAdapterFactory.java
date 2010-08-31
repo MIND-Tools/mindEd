@@ -41,7 +41,7 @@ public class MindideItemProviderCustomAdapterFactory extends MindideItemProvider
 						childrenFeatures = new ArrayList<EStructuralFeature>();
 						 //TODO if ! object is ws root
 						 //TODO childrenFeatures.add(MindidePackage.Literals.MIND_REPO__ROOTSRCS);
-						childrenFeatures.add(MindidePackage.Literals.MIND_REPO__MINDPROJECTS);
+						childrenFeatures.add(MindidePackage.Literals.MIND_REPO__MIND_LIB_OR_PROJECTS);
 					}
 					return childrenFeatures;
 				}
@@ -171,18 +171,6 @@ public class MindideItemProviderCustomAdapterFactory extends MindideItemProvider
 		}
 
 		return mindAllRepoItemProvider;
-	}
-
-	/**
-	 * This creates an adapter for a {@link org.ow2.mindEd.ide.edit.MindObject}.
-	 */
-	@Override
-	public Adapter createMindObjectAdapter() {
-		if (mindObjectItemProvider == null) {
-			mindObjectItemProvider = new MindObjectItemProvider(this);
-		}
-
-		return mindObjectItemProvider;
 	}
 
 	/**

@@ -116,15 +116,6 @@ public interface MindideFactory extends EFactory {
 	MindAllRepo createMindAllRepo();
 
 	/**
-	 * Returns a new object of class '<em>Mind Object</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Mind Object</em>'.
-	 * @generated
-	 */
-	MindObject createMindObject();
-
-	/**
 	 * Returns a new object of class '<em>Mind Project</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

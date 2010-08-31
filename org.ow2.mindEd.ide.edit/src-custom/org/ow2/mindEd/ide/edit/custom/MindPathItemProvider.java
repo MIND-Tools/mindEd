@@ -52,7 +52,7 @@ public class MindPathItemProvider extends ItemProviderAdapter  implements IEditi
 			Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(MindidePackage.Literals.MIND_PROJECT__MINDPATHENTRIES);
+			childrenFeatures.add(MindidePackage.Literals.MIND_LIB_OR_PROJECT__MINDPATHENTRIES);
 		}
 		return super.getChildrenFeatures(object);
 	}

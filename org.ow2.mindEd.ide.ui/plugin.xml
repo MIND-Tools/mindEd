@@ -235,12 +235,17 @@
             </enablement>
          </commonWizard>
          <enablement>
-            <instanceof
-                  value="org.ow2.mindEd.ide.model.MindObject">
-            </instanceof>
-            <instanceof
-                  value="org.eclipse.core.resources.IWorkspaceRoot">
-            </instanceof>
+            <or>
+               <instanceof
+                     value="org.ow2.mindEd.ide.model.MindObject">
+               </instanceof>
+               <instanceof
+                     value="org.eclipse.core.resources.IWorkspaceRoot">
+               </instanceof>
+               <instanceof
+                     value="org.eclipse.core.resources.IResource">
+               </instanceof>
+            </or>
          </enablement>
          <triggerPoints>
             <or>
@@ -269,7 +274,15 @@
          <dropAssistant
                class="org.ow2.mindEd.ide.ui.MindEdDropAdapterAssistant"
                id="org.ow2.mindEd.ide.ui.dropAssistant2">
-            <possibleDropTargets></possibleDropTargets>
+            <possibleDropTargets>
+               <or>
+                  <instanceof
+                        value="org.ow2.mindEd.ide.model.MindFile">
+                  </instanceof>
+                  <adapt
+                        type="org.ow2.mindEd.ide.model.MindFile">
+                  </adapt>
+               </or></possibleDropTargets>
          </dropAssistant>
       </navigatorContent>
       <actionProvider
@@ -410,7 +423,12 @@
          <dropAssistant
                class="org.ow2.mindEd.ide.ui.MindEdDropAdapterAssistant"
                id="org.ow2.mindEd.ide.ui.dropAssistant1">
-            <possibleDropTargets></possibleDropTargets>
+            <possibleDropTargets>
+               <or>
+                  <instanceof
+                        value="org.ow2.mindEd.ide.model.MindFile">
+                  </instanceof>
+               </or></possibleDropTargets>
          </dropAssistant>
       </navigatorContent>
       <actionProvider
@@ -511,5 +529,18 @@
                relative="org.eclipse.ui.navigator.ProjectExplorer">
          </view>
       </perspectiveExtension>
+   </extension>
+   <extension
+         point="org.eclipse.ui.exportWizards">
+      <category
+            id="org.ow2.mindEd.ide.ui.category.mindEd"
+            name="MindEd">
+      </category>
+      <wizard
+            category="org.ow2.mindEd.ide.ui.category.mindEd"
+            class="org.ow2.mindEd.ide.ui.wizards.ExportLibWizard"
+            id="org.ow2.mindEd.ide.ui.wizardlib"
+            name="Export mindProject to sourceLib">
+      </wizard>
    </extension>
 </plugin>

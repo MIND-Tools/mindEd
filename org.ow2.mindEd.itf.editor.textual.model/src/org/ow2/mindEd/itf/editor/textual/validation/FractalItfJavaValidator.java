@@ -2,6 +2,7 @@ package org.ow2.mindEd.itf.editor.textual.validation;
 
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.xtext.validation.Check;
+import org.ow2.mindEd.adl.textual.util.FractalUtil;
 import org.ow2.mindEd.itf.editor.textual.fractalIDL.FractalIDLPackage;
 import org.ow2.mindEd.itf.editor.textual.fractalIDL.InterfaceDefinition;
 import org.ow2.mindEd.itf.editor.textual.fractalIDL.impl.ItfFileImpl;
@@ -24,8 +25,7 @@ public class FractalItfJavaValidator extends AbstractFractalItfJavaValidator {
 					FractalItfJavaValidator.WRONG_NAME);
 		}
 
-	}
-	
+	}	
 	
 	// Utils
 	
@@ -33,9 +33,9 @@ public class FractalItfJavaValidator extends AbstractFractalItfJavaValidator {
 		
 		ItfFileImpl itfFile = (ItfFileImpl) interfaceDefinition.eContainer();
 		URI uri = itfFile.eDirectResource().getURI();
-		String expectedName = uri.lastSegment().substring(0, uri.lastSegment().lastIndexOf("."));
 		
+		String expectedName = FractalUtil.getFQNFromURI("src", ".itf", uri);
 		return expectedName;
-	}
+	}	
 
 }

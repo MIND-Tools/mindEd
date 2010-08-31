@@ -42,7 +42,7 @@ public class MindCustomEditPartFactory extends MindEditPartFactory {
 			// Here you can implement custom edit parts with
 			// names different from [element]CustomEditPart template
 			
-//			// -- Example
+			// -- Example
 //			case AnnotationsListEditPart.VISUAL_ID:
 //				return new AnnotationsListCustomEditPart(view);
 			}
@@ -107,24 +107,6 @@ public class MindCustomEditPartFactory extends MindEditPartFactory {
 	}
 	
 	
-	public String FACTORY_ID="org.ow2.mindEd.adl.editor.graphic.ui.test_id";
-	
-	public void test(EditPart context, Object model) {
-		
-		IConfigurationElement[] config = Platform.getExtensionRegistry()
-		.getConfigurationElementsFor(FACTORY_ID);
-		try {
-			for (IConfigurationElement e : config) {
-				System.out.println("Evaluating extension");
-				final Object o = e.createExecutableExtension("attribute_name");
-				if (o instanceof MindCustomEditPartFactory) {
-					((MindCustomEditPartFactory)o).createEditPart(context, model);
-				}
-			}
-		} catch (CoreException ex) {
-			System.out.println(ex.getMessage());
-}
-	}
 
 
 }

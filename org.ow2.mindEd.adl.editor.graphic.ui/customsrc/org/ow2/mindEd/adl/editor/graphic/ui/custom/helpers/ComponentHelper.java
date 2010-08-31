@@ -30,7 +30,7 @@ import org.ow2.mindEd.adl.editor.graphic.ui.custom.figures.ComponentBorder;
 import org.ow2.mindEd.adl.editor.graphic.ui.custom.figures.IFractalShape;
 import org.ow2.mindEd.adl.editor.graphic.ui.custom.figures.InterfaceDefinitionShape;
 import org.ow2.mindEd.adl.editor.graphic.ui.custom.layouts.ComponentLayout;
-import org.ow2.mindEd.adl.editor.graphic.ui.custom.providers.CustomDragEditPartsTracker;
+import org.ow2.mindEd.adl.editor.graphic.ui.custom.part.CustomDragEditPartsTracker;
 import org.ow2.mindEd.adl.editor.graphic.ui.edit.parts.InterfaceDefinitionEditPart;
 import org.ow2.mindEd.adl.editor.graphic.ui.part.MindVisualIDRegistry;
 import org.ow2.mindEd.adl.editor.graphic.ui.providers.MindElementTypes;
@@ -41,43 +41,6 @@ import org.ow2.mindEd.adl.editor.graphic.ui.providers.MindElementTypes;
  *
  */
 public class ComponentHelper implements IFractalShape {
-	
-	/**
-	 * Call this instead of generated setupContentPane to implement our custom layout
-	 * @param nodeShape
-	 * @return
-	 */
-	public static IFigure setupContentPane(IFigure nodeShape) {
-		if (nodeShape.getLayoutManager() == null) {
-			// Custom Layout
-			ComponentLayout layout = new ComponentLayout();
-			nodeShape.setLayoutManager(layout);
-		}
-		return nodeShape; // use nodeShape itself as contentPane
-	}
-	
-	/**
-	 * Call this for body edit parts instead of generated setupContentPane, to keep
-	 * the default layout but without the annoying 5 pixels spacing
-	 * @param body
-	 * @return
-	 */
-	public static IFigure setupBody(IFigure body) {
-		if (body.getLayoutManager() == null) {
-			ConstrainedToolbarLayout layout = new ConstrainedToolbarLayout() ;
-			body.setLayoutManager(layout);
-		}
-		return body; // use nodeShape itself as contentPane
-	}
-	
-	/**
-	 * Call this to implement our custom drag tracker which gives us extended drag and drop features
-	 * @param ep
-	 * @return
-	 */
-	public static DragTracker getDragTracker(EditPart ep) {
-		return new CustomDragEditPartsTracker(ep);
-	}
 	
 	/**
 	 * Helper to get merge attributes from domain model

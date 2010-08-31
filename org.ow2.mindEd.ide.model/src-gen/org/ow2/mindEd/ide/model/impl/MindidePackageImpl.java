@@ -27,6 +27,7 @@ import org.ow2.mindEd.ide.model.MindFile;
 import org.ow2.mindEd.ide.model.MindH;
 import org.ow2.mindEd.ide.model.MindIdf;
 import org.ow2.mindEd.ide.model.MindItf;
+import org.ow2.mindEd.ide.model.MindLibOrProject;
 import org.ow2.mindEd.ide.model.MindLibrary;
 import org.ow2.mindEd.ide.model.MindObject;
 import org.ow2.mindEd.ide.model.MindPackage;
@@ -148,6 +149,13 @@ public class MindidePackageImpl extends EPackageImpl implements MindidePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EClass mindLibOrProjectEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EEnum mindPathKindEEnum = null;
 
 	/**
@@ -262,7 +270,7 @@ public class MindidePackageImpl extends EPackageImpl implements MindidePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getMindRepo_Mindprojects() {
+	public EReference getMindRepo_MindLibOrProjects() {
 		return (EReference)mindRepoEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -298,7 +306,7 @@ public class MindidePackageImpl extends EPackageImpl implements MindidePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getMindRootSrc_Repo() {
+	public EReference getMindRootSrc_RepoFromRootSrc() {
 		return (EReference)mindRootSrcEClass.getEStructuralFeatures().get(2);
 	}
 
@@ -532,44 +540,8 @@ public class MindidePackageImpl extends EPackageImpl implements MindidePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getMindProject_Rootsrcs() {
-		return (EReference)mindProjectEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getMindProject_Repo() {
-		return (EReference)mindProjectEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getMindProject_Uses() {
-		return (EReference)mindProjectEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getMindProject_Mindpathentries() {
-		return (EReference)mindProjectEClass.getEStructuralFeatures().get(3);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EAttribute getMindProject_Project() {
-		return (EAttribute)mindProjectEClass.getEStructuralFeatures().get(4);
+		return (EAttribute)mindProjectEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -578,7 +550,7 @@ public class MindidePackageImpl extends EPackageImpl implements MindidePackage {
 	 * @generated
 	 */
 	public EReference getMindProject_Allsrc() {
-		return (EReference)mindProjectEClass.getEStructuralFeatures().get(5);
+		return (EReference)mindProjectEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -658,6 +630,60 @@ public class MindidePackageImpl extends EPackageImpl implements MindidePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getMindLibrary_Active() {
+		return (EAttribute)mindLibraryEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getMindLibOrProject() {
+		return mindLibOrProjectEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getMindLibOrProject_Mindpathentries() {
+		return (EReference)mindLibOrProjectEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getMindLibOrProject_RepoFromLibOrProject() {
+		return (EReference)mindLibOrProjectEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getMindLibOrProject_Uses() {
+		return (EReference)mindLibOrProjectEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getMindLibOrProject_Rootsrcs() {
+		return (EReference)mindLibOrProjectEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EEnum getMindPathKind() {
 		return mindPathKindEEnum;
 	}
@@ -728,12 +754,12 @@ public class MindidePackageImpl extends EPackageImpl implements MindidePackage {
 		// Create classes and their features
 		mindRepoEClass = createEClass(MIND_REPO);
 		createEReference(mindRepoEClass, MIND_REPO__ROOTSRCS);
-		createEReference(mindRepoEClass, MIND_REPO__MINDPROJECTS);
+		createEReference(mindRepoEClass, MIND_REPO__MIND_LIB_OR_PROJECTS);
 
 		mindRootSrcEClass = createEClass(MIND_ROOT_SRC);
 		createEReference(mindRootSrcEClass, MIND_ROOT_SRC__PACKAGES);
 		createEReference(mindRootSrcEClass, MIND_ROOT_SRC__PROJECT);
-		createEReference(mindRootSrcEClass, MIND_ROOT_SRC__REPO);
+		createEReference(mindRootSrcEClass, MIND_ROOT_SRC__REPO_FROM_ROOT_SRC);
 		createEAttribute(mindRootSrcEClass, MIND_ROOT_SRC__FULLPATH);
 		createEAttribute(mindRootSrcEClass, MIND_ROOT_SRC__FOLDER);
 		createEReference(mindRootSrcEClass, MIND_ROOT_SRC__DEPENDENCIES);
@@ -769,10 +795,6 @@ public class MindidePackageImpl extends EPackageImpl implements MindidePackage {
 		createEReference(mindObjectEClass, MIND_OBJECT__RESOLVED_MIND_PATH_ENTRIES);
 
 		mindProjectEClass = createEClass(MIND_PROJECT);
-		createEReference(mindProjectEClass, MIND_PROJECT__ROOTSRCS);
-		createEReference(mindProjectEClass, MIND_PROJECT__REPO);
-		createEReference(mindProjectEClass, MIND_PROJECT__USES);
-		createEReference(mindProjectEClass, MIND_PROJECT__MINDPATHENTRIES);
 		createEAttribute(mindProjectEClass, MIND_PROJECT__PROJECT);
 		createEReference(mindProjectEClass, MIND_PROJECT__ALLSRC);
 
@@ -785,6 +807,13 @@ public class MindidePackageImpl extends EPackageImpl implements MindidePackage {
 		mindLibraryEClass = createEClass(MIND_LIBRARY);
 		createEAttribute(mindLibraryEClass, MIND_LIBRARY__TARGET_FILTER);
 		createEAttribute(mindLibraryEClass, MIND_LIBRARY__FULLPATH_LIB);
+		createEAttribute(mindLibraryEClass, MIND_LIBRARY__ACTIVE);
+
+		mindLibOrProjectEClass = createEClass(MIND_LIB_OR_PROJECT);
+		createEReference(mindLibOrProjectEClass, MIND_LIB_OR_PROJECT__MINDPATHENTRIES);
+		createEReference(mindLibOrProjectEClass, MIND_LIB_OR_PROJECT__REPO_FROM_LIB_OR_PROJECT);
+		createEReference(mindLibOrProjectEClass, MIND_LIB_OR_PROJECT__USES);
+		createEReference(mindLibOrProjectEClass, MIND_LIB_OR_PROJECT__ROOTSRCS);
 
 		// Create enums
 		mindPathKindEEnum = createEEnum(MIND_PATH_KIND);
@@ -833,19 +862,21 @@ public class MindidePackageImpl extends EPackageImpl implements MindidePackage {
 		mindHEClass.getESuperTypes().add(this.getMindFile());
 		mindIdfEClass.getESuperTypes().add(this.getMindFile());
 		mindFileEClass.getESuperTypes().add(this.getMindObject());
-		mindProjectEClass.getESuperTypes().add(this.getMindObject());
+		mindProjectEClass.getESuperTypes().add(this.getMindLibOrProject());
 		mindPathEntryEClass.getESuperTypes().add(this.getMindObject());
+		mindLibraryEClass.getESuperTypes().add(this.getMindLibOrProject());
 		mindLibraryEClass.getESuperTypes().add(this.getMindRootSrc());
+		mindLibOrProjectEClass.getESuperTypes().add(this.getMindObject());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(mindRepoEClass, MindRepo.class, "MindRepo", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getMindRepo_Rootsrcs(), this.getMindRootSrc(), this.getMindRootSrc_Repo(), "rootsrcs", null, 0, -1, MindRepo.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getMindRepo_Mindprojects(), this.getMindProject(), this.getMindProject_Repo(), "mindprojects", null, 0, -1, MindRepo.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getMindRepo_Rootsrcs(), this.getMindRootSrc(), this.getMindRootSrc_RepoFromRootSrc(), "rootsrcs", null, 0, -1, MindRepo.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getMindRepo_MindLibOrProjects(), this.getMindLibOrProject(), this.getMindLibOrProject_RepoFromLibOrProject(), "mindLibOrProjects", null, 0, -1, MindRepo.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(mindRootSrcEClass, MindRootSrc.class, "MindRootSrc", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getMindRootSrc_Packages(), this.getMindPackage(), this.getMindPackage_Rootsrc(), "packages", null, 0, -1, MindRootSrc.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getMindRootSrc_Project(), this.getMindProject(), this.getMindProject_Rootsrcs(), "project", null, 0, 1, MindRootSrc.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getMindRootSrc_Repo(), this.getMindRepo(), this.getMindRepo_Rootsrcs(), "repo", null, 1, 1, MindRootSrc.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getMindRootSrc_Project(), this.getMindLibOrProject(), this.getMindLibOrProject_Rootsrcs(), "project", null, 0, 1, MindRootSrc.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getMindRootSrc_RepoFromRootSrc(), this.getMindRepo(), this.getMindRepo_Rootsrcs(), "repoFromRootSrc", null, 1, 1, MindRootSrc.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getMindRootSrc_Fullpath(), ecorePackage.getEString(), "fullpath", null, 0, 1, MindRootSrc.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getMindRootSrc_Folder(), this.getURI(), "folder", null, 0, 1, MindRootSrc.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getMindRootSrc_Dependencies(), this.getMindRootSrc(), null, "dependencies", null, 0, -1, MindRootSrc.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -878,59 +909,17 @@ public class MindidePackageImpl extends EPackageImpl implements MindidePackage {
 		initEClass(mindAllRepoEClass, MindAllRepo.class, "MindAllRepo", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getMindAllRepo_Repos(), this.getMindRepo(), null, "repos", null, 0, -1, MindAllRepo.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(mindObjectEClass, MindObject.class, "MindObject", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(mindObjectEClass, MindObject.class, "MindObject", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getMindObject_MindId(), ecorePackage.getEString(), "mindId", null, 0, 1, MindObject.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getMindObject_Name(), ecorePackage.getEString(), "name", null, 0, 1, MindObject.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getMindObject_ResolvedMindPathEntries(), this.getMindPathEntry(), this.getMindPathEntry_ResolvedBy(), "resolvedMindPathEntries", null, 0, -1, MindObject.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(mindProjectEClass, MindProject.class, "MindProject", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getMindProject_Rootsrcs(), this.getMindRootSrc(), this.getMindRootSrc_Project(), "rootsrcs", null, 0, -1, MindProject.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getMindProject_Repo(), this.getMindRepo(), this.getMindRepo_Mindprojects(), "repo", null, 1, 1, MindProject.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getMindProject_Uses(), this.getMindProject(), null, "uses", null, 0, -1, MindProject.class, !IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getMindProject_Mindpathentries(), this.getMindPathEntry(), this.getMindPathEntry_OwnerProject(), "mindpathentries", null, 0, -1, MindProject.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getMindProject_Project(), this.getIProject(), "project", null, 0, 1, MindProject.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getMindProject_Allsrc(), this.getMindRootSrc(), null, "allsrc", null, 0, -1, MindProject.class, IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 
-		addEOperation(mindProjectEClass, this.getMindPathEntry(), "getRawMinpath", 0, -1, IS_UNIQUE, IS_ORDERED);
-
-		op = addEOperation(mindProjectEClass, this.getMindPathEntry(), "getResolvedMindpath", 0, -1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, ecorePackage.getEBoolean(), "ignoreUnresolvedEntry", 0, 1, IS_UNIQUE, IS_ORDERED);
-
 		op = addEOperation(mindProjectEClass, null, "setMindpath", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getMindPathEntry(), "mindpath", 0, -1, IS_UNIQUE, IS_ORDERED);
-
-		op = addEOperation(mindProjectEClass, this.getMindAdl(), "resolveAdl", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, ecorePackage.getEString(), "componentName", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, ecorePackage.getEString(), "defaultPackage", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, ecorePackage.getEString(), "imports", 0, -1, IS_UNIQUE, IS_ORDERED);
-
-		op = addEOperation(mindProjectEClass, this.getMindAdl(), "resolvePossibleAdlInMindPath", 0, -1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, ecorePackage.getEString(), "componentName", 0, 1, IS_UNIQUE, IS_ORDERED);
-
-		op = addEOperation(mindProjectEClass, this.getMindAdl(), "resolvePossibleAdlInPackage", 0, -1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, ecorePackage.getEString(), "packageName", 0, 1, IS_UNIQUE, IS_ORDERED);
-
-		op = addEOperation(mindProjectEClass, this.getMindAdl(), "resolvePossibleAdlInWorkspace", 0, -1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, ecorePackage.getEString(), "componentName", 0, 1, IS_UNIQUE, IS_ORDERED);
-
-		op = addEOperation(mindProjectEClass, this.getMindItf(), "resolveItf", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, ecorePackage.getEString(), "componentName", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, ecorePackage.getEString(), "defaultPackage", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, ecorePackage.getEString(), "imports", 0, -1, IS_UNIQUE, IS_ORDERED);
-
-		op = addEOperation(mindProjectEClass, this.getMindItf(), "resolvePossibleItfInMindPath", 0, -1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, ecorePackage.getEString(), "componentName", 0, 1, IS_UNIQUE, IS_ORDERED);
-
-		op = addEOperation(mindProjectEClass, this.getMindItf(), "resolvePossibleItfInPackage", 0, -1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, ecorePackage.getEString(), "packageName", 0, 1, IS_UNIQUE, IS_ORDERED);
-
-		op = addEOperation(mindProjectEClass, this.getMindItf(), "resolvePossibleItfInWorkspace", 0, -1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, ecorePackage.getEString(), "componentName", 0, 1, IS_UNIQUE, IS_ORDERED);
-
-		op = addEOperation(mindProjectEClass, this.getMindAdl(), "findQualifiedComponent", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, ecorePackage.getEString(), "cn", 0, 1, IS_UNIQUE, IS_ORDERED);
-
-		addEOperation(mindProjectEClass, this.getMindFile(), "getAllFiles", 0, -1, IS_UNIQUE, IS_ORDERED);
 
 		op = addEOperation(mindProjectEClass, this.getMindPathEntry(), "addMindPathProjectReferenceFromFile", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getMindFile(), "file", 0, 1, IS_UNIQUE, IS_ORDERED);
@@ -938,14 +927,8 @@ public class MindidePackageImpl extends EPackageImpl implements MindidePackage {
 		op = addEOperation(mindProjectEClass, this.getMindPathEntry(), "addMindPathImportPackageFromFile", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getMindFile(), "file", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		op = addEOperation(mindProjectEClass, this.getMindFile(), "findMindFile", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, ecorePackage.getEString(), "qualifiedName", 0, 1, IS_UNIQUE, IS_ORDERED);
-
-		op = addEOperation(mindProjectEClass, ecorePackage.getEBoolean(), "exists", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, this.getMindFile(), "obj", 0, 1, IS_UNIQUE, IS_ORDERED);
-
 		initEClass(mindPathEntryEClass, MindPathEntry.class, "MindPathEntry", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getMindPathEntry_OwnerProject(), this.getMindProject(), this.getMindProject_Mindpathentries(), "ownerProject", null, 1, 1, MindPathEntry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getMindPathEntry_OwnerProject(), this.getMindLibOrProject(), this.getMindLibOrProject_Mindpathentries(), "ownerProject", null, 1, 1, MindPathEntry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getMindPathEntry_ResolvedBy(), this.getMindObject(), this.getMindObject_ResolvedMindPathEntries(), "resolvedBy", null, 0, 1, MindPathEntry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getMindPathEntry_EntryKind(), this.getMindPathKind(), "entryKind", null, 0, 1, MindPathEntry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getMindPathEntry_TargetFilter(), ecorePackage.getEString(), "targetFilter", null, 0, 1, MindPathEntry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -955,6 +938,57 @@ public class MindidePackageImpl extends EPackageImpl implements MindidePackage {
 		initEClass(mindLibraryEClass, MindLibrary.class, "MindLibrary", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getMindLibrary_TargetFilter(), ecorePackage.getEString(), "targetFilter", null, 0, 1, MindLibrary.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getMindLibrary_FullpathLib(), ecorePackage.getEString(), "fullpathLib", null, 0, 1, MindLibrary.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getMindLibrary_Active(), ecorePackage.getEBoolean(), "active", null, 0, 1, MindLibrary.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(mindLibOrProjectEClass, MindLibOrProject.class, "MindLibOrProject", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getMindLibOrProject_Mindpathentries(), this.getMindPathEntry(), this.getMindPathEntry_OwnerProject(), "mindpathentries", null, 0, -1, MindLibOrProject.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getMindLibOrProject_RepoFromLibOrProject(), this.getMindRepo(), this.getMindRepo_MindLibOrProjects(), "repoFromLibOrProject", null, 1, 1, MindLibOrProject.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getMindLibOrProject_Uses(), this.getMindLibOrProject(), null, "uses", null, 0, -1, MindLibOrProject.class, !IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getMindLibOrProject_Rootsrcs(), this.getMindRootSrc(), this.getMindRootSrc_Project(), "rootsrcs", null, 0, -1, MindLibOrProject.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		addEOperation(mindLibOrProjectEClass, this.getMindPathEntry(), "getRawMinpath", 0, -1, IS_UNIQUE, IS_ORDERED);
+
+		op = addEOperation(mindLibOrProjectEClass, this.getMindPathEntry(), "getResolvedMindpath", 0, -1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEBoolean(), "ignoreUnresolvedEntry", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = addEOperation(mindLibOrProjectEClass, this.getMindAdl(), "resolveAdl", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEString(), "componentName", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEString(), "defaultPackage", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEString(), "imports", 0, -1, IS_UNIQUE, IS_ORDERED);
+
+		op = addEOperation(mindLibOrProjectEClass, this.getMindAdl(), "resolvePossibleAdlInMindPath", 0, -1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEString(), "componentName", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = addEOperation(mindLibOrProjectEClass, this.getMindAdl(), "resolvePossibleAdlInPackage", 0, -1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEString(), "packageName", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = addEOperation(mindLibOrProjectEClass, this.getMindAdl(), "resolvePossibleAdlInWorkspace", 0, -1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEString(), "componentName", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = addEOperation(mindLibOrProjectEClass, this.getMindItf(), "resolveItf", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEString(), "componentName", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEString(), "defaultPackage", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEString(), "imports", 0, -1, IS_UNIQUE, IS_ORDERED);
+
+		op = addEOperation(mindLibOrProjectEClass, this.getMindItf(), "resolvePossibleItfInMindPath", 0, -1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEString(), "componentName", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = addEOperation(mindLibOrProjectEClass, this.getMindItf(), "resolvePossibleItfInPackage", 0, -1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEString(), "packageName", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = addEOperation(mindLibOrProjectEClass, this.getMindItf(), "resolvePossibleItfInWorkspace", 0, -1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEString(), "componentName", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = addEOperation(mindLibOrProjectEClass, this.getMindAdl(), "findQualifiedComponent", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEString(), "cn", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		addEOperation(mindLibOrProjectEClass, this.getMindFile(), "getAllFiles", 0, -1, IS_UNIQUE, IS_ORDERED);
+
+		op = addEOperation(mindLibOrProjectEClass, this.getMindFile(), "findMindFile", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEString(), "qualifiedName", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = addEOperation(mindLibOrProjectEClass, ecorePackage.getEBoolean(), "exists", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getMindFile(), "obj", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(mindPathKindEEnum, MindPathKind.class, "MindPathKind");

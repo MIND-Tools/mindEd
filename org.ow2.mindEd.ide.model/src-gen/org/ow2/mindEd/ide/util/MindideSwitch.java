@@ -170,6 +170,7 @@ public class MindideSwitch<T> {
 			case MindidePackage.MIND_PROJECT: {
 				MindProject mindProject = (MindProject)theEObject;
 				T result = caseMindProject(mindProject);
+				if (result == null) result = caseMindLibOrProject(mindProject);
 				if (result == null) result = caseMindObject(mindProject);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -184,8 +185,16 @@ public class MindideSwitch<T> {
 			case MindidePackage.MIND_LIBRARY: {
 				MindLibrary mindLibrary = (MindLibrary)theEObject;
 				T result = caseMindLibrary(mindLibrary);
+				if (result == null) result = caseMindLibOrProject(mindLibrary);
 				if (result == null) result = caseMindRootSrc(mindLibrary);
 				if (result == null) result = caseMindObject(mindLibrary);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case MindidePackage.MIND_LIB_OR_PROJECT: {
+				MindLibOrProject mindLibOrProject = (MindLibOrProject)theEObject;
+				T result = caseMindLibOrProject(mindLibOrProject);
+				if (result == null) result = caseMindObject(mindLibOrProject);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -400,6 +409,21 @@ public class MindideSwitch<T> {
 	 * @generated
 	 */
 	public T caseMindLibrary(MindLibrary object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Mind Lib Or Project</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Mind Lib Or Project</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseMindLibOrProject(MindLibOrProject object) {
 		return null;
 	}
 
