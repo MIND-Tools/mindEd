@@ -30,7 +30,7 @@ import org.eclipse.core.resources.IResource;
 public interface MindPathEntry extends MindObject {
 	/**
 	 * Returns the value of the '<em><b>Owner Project</b></em>' container reference.
-	 * It is bidirectional and its opposite is '{@link org.ow2.mindEd.ide.model.MindLibOrProject#getMindpathentries <em>Mindpathentries</em>}'.
+	 * It is bidirectional and its opposite is '{@link org.ow2.mindEd.ide.model.MindProject#getMindpathentries <em>Mindpathentries</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Owner Project</em>' container reference isn't clear,
@@ -38,13 +38,13 @@ public interface MindPathEntry extends MindObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Owner Project</em>' container reference.
-	 * @see #setOwnerProject(MindLibOrProject)
+	 * @see #setOwnerProject(MindProject)
 	 * @see org.ow2.mindEd.ide.model.MindidePackage#getMindPathEntry_OwnerProject()
-	 * @see org.ow2.mindEd.ide.model.MindLibOrProject#getMindpathentries
+	 * @see org.ow2.mindEd.ide.model.MindProject#getMindpathentries
 	 * @model opposite="mindpathentries" required="true" transient="false"
 	 * @generated
 	 */
-	MindLibOrProject getOwnerProject();
+	MindProject getOwnerProject();
 
 	/**
 	 * Sets the value of the '{@link org.ow2.mindEd.ide.model.MindPathEntry#getOwnerProject <em>Owner Project</em>}' container reference.
@@ -54,7 +54,7 @@ public interface MindPathEntry extends MindObject {
 	 * @see #getOwnerProject()
 	 * @generated
 	 */
-	void setOwnerProject(MindLibOrProject value);
+	void setOwnerProject(MindProject value);
 
 	/**
 	 * Returns the value of the '<em><b>Resolved By</b></em>' reference.

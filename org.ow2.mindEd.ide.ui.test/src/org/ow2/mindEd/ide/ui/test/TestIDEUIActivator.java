@@ -66,7 +66,7 @@ public class TestIDEUIActivator extends AbstractUIPlugin {
 	
 	public void computePath(String dirpath, ArrayList<String> strings) {
 		Enumeration paths = getBundle().getEntryPaths(dirpath);
-		while (paths != null && paths.hasMoreElements()) {
+		while (paths.hasMoreElements()) {
 			String p = (String) paths.nextElement();
 			if (p.endsWith("/")) {
 				computePath(p, strings);

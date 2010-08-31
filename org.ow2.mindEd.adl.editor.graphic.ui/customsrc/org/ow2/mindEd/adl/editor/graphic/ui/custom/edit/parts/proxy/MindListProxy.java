@@ -18,7 +18,7 @@ import org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.policies.FixedChildrenLa
 import org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.policies.NoDragDropEditPolicy;
 import org.ow2.mindEd.adl.editor.graphic.ui.custom.layouts.ConstrainedFlowLayout;
 import org.ow2.mindEd.adl.editor.graphic.ui.custom.layouts.IFractalSize;
-import org.ow2.mindEd.adl.editor.graphic.ui.custom.part.NoDragTracker;
+import org.ow2.mindEd.adl.editor.graphic.ui.custom.providers.NoDragTracker;
 
 public class MindListProxy extends MindProxy {
 

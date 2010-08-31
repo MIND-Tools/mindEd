@@ -42,7 +42,7 @@ import org.ow2.mindEd.ide.model.MindidePackage;
  *
  * @generated
  */
-public abstract class MindObjectImpl extends EObjectImpl implements MindObject {
+public class MindObjectImpl extends EObjectImpl implements MindObject {
 	/**
 	 * The default value of the '{@link #getMindId() <em>Mind Id</em>}' attribute.
 	 * <!-- begin-user-doc -->

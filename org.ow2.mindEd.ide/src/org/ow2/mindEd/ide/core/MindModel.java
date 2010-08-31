@@ -12,9 +12,6 @@ import org.eclipse.core.runtime.IStatus;
 import org.eclipse.emf.common.util.EList;
 import org.ow2.mindEd.ide.model.MindAdl;
 import org.ow2.mindEd.ide.model.MindAllRepo;
-import org.ow2.mindEd.ide.model.MindLibOrProject;
-import org.ow2.mindEd.ide.model.MindLibrary;
-import org.ow2.mindEd.ide.model.MindObject;
 import org.ow2.mindEd.ide.model.MindPackage;
 import org.ow2.mindEd.ide.model.MindPathEntry;
 import org.ow2.mindEd.ide.model.MindProject;
@@ -35,13 +32,13 @@ public interface MindModel {
 	
 	/**
 	 * Init a project.
-	 * @param p a project or a library
+	 * @param p a project
 	 * @return the mind project object.
 	 * @throws CoreException
 	 * @throws IOException
 	 */
 
-	MindLibOrProject init(IProject p) throws CoreException, IOException;
+	MindProject init(IProject p) throws CoreException, IOException;
 
 	/**
 	 * Return the mind project corresponding to the eclipse project. Return null if the project is not a mind project.
@@ -128,12 +125,5 @@ public interface MindModel {
 	 * @return the adl if is found or null
 	 */
 	MindAdl getAdl(MindProject mp, String packageName, String componantName);
-	
-	/**
-	 * 
-	 * @param project
-	 * @return
-	 */
-	MindLibrary getMindLib(IProject project) ;
 
 }

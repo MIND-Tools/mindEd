@@ -9,7 +9,6 @@ import java.io.OutputStreamWriter;
 import java.io.StringReader;
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
-import java.util.Iterator;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -38,8 +37,6 @@ import org.ow2.mindEd.ide.core.MindIdeCore;
 import org.ow2.mindEd.ide.model.MindAdl;
 import org.ow2.mindEd.ide.model.MindFile;
 import org.ow2.mindEd.ide.model.MindItf;
-import org.ow2.mindEd.ide.model.MindLibOrProject;
-import org.ow2.mindEd.ide.model.MindLibrary;
 import org.ow2.mindEd.ide.model.MindObject;
 import org.ow2.mindEd.ide.model.MindPackage;
 import org.ow2.mindEd.ide.model.MindPathEntry;
@@ -57,18 +54,16 @@ import org.xml.sax.SAXException;
 public class MindProjectImpl extends org.ow2.mindEd.ide.model.impl.MindProjectImpl {
 	private final class SaveMPEJob extends Job {
 		private final IProject p;
-		private final MindProject mp;
-		
-		private SaveMPEJob(IProject p, MindProject mp) {
+
+		private SaveMPEJob(IProject p) {
 			super("Save mind path file for project "+p.getName());
 			this.p = p;
-			this.mp = mp;
 		}
 
 		@Override
 		protected IStatus run(IProgressMonitor monitor) {
 				try {
-					writeFileEntries(p, getRawMinpath(), mp);
+					writeFileEntries(p, getRawMinpath());
 				} catch (CoreException e) {
 					return new Status(Status.ERROR,MindActivator.ID,"Exception while write " + p.getFullPath(),e);
 					
@@ -183,12 +178,6 @@ public class MindProjectImpl extends org.ow2.mindEd.ide.model.impl.MindProjectIm
 	public static final String MINDPATH_FILENAME = ".mindpath";  //$NON-NLS-1$
 	
 	/**
-	 * Name of file containing project classpath
-	 */
-	public static final String MINDLIB_FILENAME = ".mindlib";  //$NON-NLS-1$
-	
-	
-	/**
 	 * Value of the project's raw classpath if the .classpath file contains invalid entries.
 	 */
 	public static final EList<MindPathEntry> INVALID_MINDPATH = null;
@@ -209,7 +198,7 @@ public class MindProjectImpl extends org.ow2.mindEd.ide.model.impl.MindProjectIm
 		getMindpathentries().clear();
 		getMindpathentries().addAll(mindpath);
 		
-		_model.syncMindPath(project, this, getRepoFromLibOrProject(), true);
+		_model.syncMindPath(project, this, getRepo(), true);
 	}
 	
 	@Override
@@ -228,12 +217,12 @@ public class MindProjectImpl extends org.ow2.mindEd.ide.model.impl.MindProjectIm
 	}
 	
 	@Override
-	public EList<MindLibOrProject> getUses() {
-		BasicEList<MindLibOrProject> ret = new BasicEList<MindLibOrProject>();
+	public EList<MindProject> getUses() {
+		BasicEList<MindProject> ret = new BasicEList<MindProject>();
 		for (MindPathEntry mpe : mindpathentries) {
 			MindObject resolvedObject = mpe.getResolvedBy();
 			if (resolvedObject == null) continue;
-			MindLibOrProject  mp = null;
+			MindProject  mp = null;
 			if (resolvedObject instanceof MindRootSrc) {
 				MindRootSrc s = (MindRootSrc) resolvedObject;
 				mp = s.getProject();
@@ -365,7 +354,7 @@ public class MindProjectImpl extends org.ow2.mindEd.ide.model.impl.MindProjectIm
 	/**
 	 * Returns the XML String encoding of the class path.
 	 */
-	public static String encodeMindpath(EList<MindPathEntry> classpath, boolean indent) throws IOException {
+	protected static String encodeMindpath(EList<MindPathEntry> classpath, boolean indent) throws IOException {
 		ByteArrayOutputStream s = new ByteArrayOutputStream();
 		OutputStreamWriter writer = new OutputStreamWriter(s, "UTF8"); //$NON-NLS-1$
 		XMLWriter xmlWriter = new XMLWriter(writer, true/*print XML version*/);
@@ -438,37 +427,8 @@ public class MindProjectImpl extends org.ow2.mindEd.ide.model.impl.MindProjectIm
 	 * As a side effect, unknown elements are stored in the given map (if not null)
 	 * Throws exceptions if the file cannot be accessed or is malformed.
 	 */
-	public static void readFileEntriesWithException2(IProject p, MindLibOrProject mp) throws CoreException, IOException {
-		EList<MindPathEntry> list = readFileEntriesWithException(p, mp);
-		if (mp instanceof MindLibrary) {
-			filterMPEForLib(list);
-		}
-		mp.getMindpathentries().addAll(list);
-		
-	}
-
-	protected static void filterMPEForLib(EList<MindPathEntry> list) {
-		for (Iterator iterator = list.iterator(); iterator.hasNext();) {
-			MindPathEntry mpe = (MindPathEntry) iterator.next();
-			if (mpe.getEntryKind() == MindPathKind.SOURCE) {
-				iterator.remove();
-			}
-		}
-		MindPathEntryCustomImpl mpe = new MindPathEntryCustomImpl();
-		mpe.setEntryKind(MindPathKind.SOURCE);
-		mpe.setName(".");
-		list.add(mpe);
-	}
-	
-	/*
-	 * Reads the classpath file entries of this project's .classpath file.
-	 * This includes the output entry.
-	 * As a side effect, unknown elements are stored in the given map (if not null)
-	 * Throws exceptions if the file cannot be accessed or is malformed.
-	 */
-	public static EList<MindPathEntry> readFileEntriesWithException(IProject p, MindLibOrProject mp) throws CoreException, IOException {
-		
-		File file = mp.eClass() == MindidePackage.Literals.MIND_LIBRARY ? getMindLibFile(p) : getMindPathFile(p);
+	public static EList<MindPathEntry> readFileEntriesWithException(IProject p) throws CoreException, IOException {
+		File file = getMindPathFile(p);
 		if (!file.exists()) {
 			return setDefaultMindpath(p);
 		}
@@ -496,17 +456,11 @@ public class MindProjectImpl extends org.ow2.mindEd.ide.model.impl.MindProjectIm
 			xmlMindpath = new String(bytes);
 		}
 		return decodeMindpath(xmlMindpath);
-		
 	}
 
 	private static File getMindPathFile(IProject p) throws IOException,
 			CoreException {
 		return MindIdeCore.getFile(p.getFile(MINDPATH_FILENAME));
-	}
-	
-	private static File getMindLibFile(IProject p) throws IOException,
-		CoreException {
-	return MindIdeCore.getFile(p.getFile(MINDLIB_FILENAME));
 	}
 
 	
@@ -525,9 +479,9 @@ public class MindProjectImpl extends org.ow2.mindEd.ide.model.impl.MindProjectIm
 	 * This includes the output entry.
 	 * As a side effect, unknown elements are stored in the given map (if not null)
 	 */
-	private static EList<MindPathEntry> readFileEntries(IProject p, MindLibOrProject mp) {
+	private static EList<MindPathEntry> readFileEntries(IProject p) {
 		try {
-			return readFileEntriesWithException(p, mp);
+			return readFileEntriesWithException(p);
 		} catch (CoreException e) {
 			MindIdeCore.log(e, "Exception while reading " + p.getFullPath().append(MINDPATH_FILENAME)); //$NON-NLS-1$
 			return INVALID_MINDPATH;
@@ -547,11 +501,11 @@ public class MindProjectImpl extends org.ow2.mindEd.ide.model.impl.MindProjectIm
 	 * @throws CoreException 
 	 * @throws JavaModelException
 	 */
-	public static  boolean writeFileEntries(IProject p, EList<MindPathEntry> newMindpath, MindLibOrProject mp) throws CoreException, IOException  {
+	public static  boolean writeFileEntries(IProject p, EList<MindPathEntry> newMindpath) throws CoreException, IOException  {
 
 		if (!p.isAccessible()) return false;
 
-		EList<MindPathEntry> fileEntries = readFileEntries(p, mp);
+		EList<MindPathEntry> fileEntries = readFileEntries(p);
 		if (fileEntries != INVALID_MINDPATH && areMindpathsEqual(newMindpath, fileEntries)) {
 			// no need to save it, it is the same
 			return false;
@@ -589,7 +543,7 @@ public class MindProjectImpl extends org.ow2.mindEd.ide.model.impl.MindProjectIm
 	}
 
 	public void saveMPE() {
-		Job t = new SaveMPEJob(getProject(), this);
+		Job t = new SaveMPEJob(getProject());
 		t.schedule();
 	}
 
@@ -598,7 +552,7 @@ public class MindProjectImpl extends org.ow2.mindEd.ide.model.impl.MindProjectIm
 		try {
 			File f = getMindPathFile(getProject());
 			if (f.exists()) {
-				EList<MindPathEntry> mindPath = readFileEntries(getProject(), this);
+				EList<MindPathEntry> mindPath = readFileEntries(getProject());
 				setMindpath(mindPath);
 			} else {
 				saveMPE();
@@ -626,16 +580,12 @@ public class MindProjectImpl extends org.ow2.mindEd.ide.model.impl.MindProjectIm
 	
 	@Override
 	public MindPathEntry addMindPathProjectReferenceFromFile(MindFile file) {
-		MindLibOrProject fileProject = file.getPackage() == null ? null: file.getPackage().getRootsrc() == null ? null : file.getPackage().getRootsrc().getProject();
+		MindProject fileProject = file.getPackage() == null ? null: file.getPackage().getRootsrc() == null ? null : file.getPackage().getRootsrc().getProject();
 		if (fileProject == null || fileProject == this) 
 			return null;
-		if (fileProject instanceof MindLibrary)
+		if (fileProject.getProject() == null)
 			return null;
-		
-		IProject eclipseProject = ((MindProject) fileProject).getProject();
-		if (eclipseProject == null)
-			return null;
-		MindPathEntry mpe = MindIdeCore.newMPEProject(eclipseProject);
+		MindPathEntry mpe = MindIdeCore.newMPEProject(fileProject.getProject());
 		if (getMindpathentries().contains(mpe)) return null;
 		getMindpathentries().add(mpe);
 		return mpe;

@@ -285,7 +285,7 @@ public class ComponentNewWizardPage extends WizardPage implements PageUdapteStat
 			return;
 		}
 		
-		MindAdl adl = _model.getAdl((MindProject) _sourceFolderField.getSourceFolder().getProject(),
+		MindAdl adl = _model.getAdl(_sourceFolderField.getSourceFolder().getProject(),
 				getPackageName(), componantName);
 		if (adl != null) {
 			updateStatus("Component allready exits");

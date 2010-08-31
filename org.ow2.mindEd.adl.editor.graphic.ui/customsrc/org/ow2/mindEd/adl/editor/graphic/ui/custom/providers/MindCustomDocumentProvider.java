@@ -45,8 +45,8 @@ import org.ow2.mindEd.adl.custom.impl.AdlDefinitionCustomImpl;
 import org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.commands.MindDiagramUpdateAllCommand;
 import org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.parts.proxy.MindProxy;
 import org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.parts.proxy.MindProxyFactory;
-import org.ow2.mindEd.adl.editor.graphic.ui.custom.helpers.SaveUtil;
 import org.ow2.mindEd.adl.editor.graphic.ui.custom.part.CustomValidateAction;
+import org.ow2.mindEd.adl.editor.graphic.ui.custom.part.SaveUtil;
 import org.eclipse.xtext.linking.lazy.LazyLinkingResource;
 
 import org.ow2.mindEd.adl.editor.graphic.ui.part.Messages;

@@ -1174,46 +1174,61 @@ and
          id="org.ow2.mindEd.adl.editor.graphic.ui.MindDocumentProvider">
    </provider>
 </extension>
+
 <extension
-      point="org.eclipse.gmf.runtime.diagram.ui.decoratorProviders">
-   <decoratorProvider
-         class="org.ow2.mindEd.adl.editor.graphic.ui.custom.providers.AnnotationIconsProvider">
-      <Priority
-            name="Highest">
-      </Priority>
-      <context
-            decoratorTargets="PRIMARY_VIEW">
-      </context>
-      <object
-            class="org.eclipse.gmf.runtime.diagram.ui.editparts.IPrimaryEditPart(org.eclipse.gmf.runtime.diagram.ui)"
-            id="PRIMARY_VIEW">
-      </object>
-   </decoratorProvider>
+      point="org.eclipse.ui.commands">
+   <command
+         categoryId="org.ow2.mindEd.adl.editor.graphic.ui.MindDiagramEditorID"
+         description="Create a new Interface"
+         id="org.ow2.mindEd.adl.editor.graphic.ui.NewInterface"
+         name="NewInterface">
+   </command>
+   <command
+         description="Create new subcomponent"
+         id="org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.commands.tempDND"
+         name="NewSubComponent">
+   </command>
 </extension>
 <extension
-      point="org.eclipse.gmf.runtime.diagram.core.viewProviders">
-   <viewProvider
-         class="org.ow2.mindEd.adl.editor.graphic.ui.custom.providers.MindCustomViewProvider">
-      <Priority
-            name="Low">
-      </Priority>
-      <context
-            semanticHints="4003"
-            viewClass="org.eclipse.gmf.runtime.notation.Edge">
-      </context>
-   </viewProvider>
-</extension>
-<extension
-      point="org.ow2.mindEd.adl.editor.graphic.ui.mindAnnotation">
-   <Annotation
-         annotationName="singleton">
-      <Appearance
-            icon="icons/singleton.gif">
-         <Element
-               elementType="Components">
-         </Element>
-      </Appearance>
-   </Annotation>
+      point="org.eclipse.ui.popupMenus">
+   <objectContribution
+         adaptable="false"
+         id="org.ow2.mindEd.adl.editor.graphic.ui.objectContribution1"
+         objectClass="org.ow2.mindEd.adl.editor.graphic.ui.edit.parts.PrimitiveBodyCompartmentEditPart">
+      <menu
+            id="org.ow2.mindEd.adl.editor.graphic.ui.AddNewMenu"
+            label="Add New">
+         <separator
+               name="AddNewGroup">
+         </separator>
+      </menu>
+      <action
+            class="org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.commands.AddNewPopupMenu"
+            definitionId="org.ow2.mindEd.adl.editor.graphic.ui.NewInterface"
+            id="org.ow2.mindEd.adl.editor.graphic.ui.AddNewInterface"
+            label="Interface"
+            menubarPath="org.ow2.mindEd.adl.editor.graphic.ui.AddNewMenu/AddNewGroup">
+      </action>
+
+   </objectContribution>
+   <objectContribution
+         adaptable="false"
+         id="org.ow2.mindEd.adl.editor.graphic.ui.objectContribution2"
+         objectClass="org.eclipse.gmf.runtime.diagram.ui.editparts.GraphicalEditPart">
+      <menu
+            id="org.ow2.mindEd.adl.editor.graphic.ui.menu1"
+            label="Add New">
+         <separator
+               name="tempseparator">
+         </separator>
+      </menu>
+      <action
+            class="org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.commands.tempDND"
+            id="org.ow2.mindEd.adl.editor.graphic.ui.action1"
+            label="DND"
+            menubarPath="org.ow2.mindEd.adl.editor.graphic.ui.menu1/tempseparator">
+      </action>
+   </objectContribution>
 </extension>
 
 

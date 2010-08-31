@@ -15,7 +15,7 @@ import org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.policies.ChildrenCreatio
 import org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.policies.OpenDefinitionEditPolicy;
 import org.ow2.mindEd.adl.editor.graphic.ui.custom.layouts.ConstrainedFlowLayout;
 import org.ow2.mindEd.adl.editor.graphic.ui.custom.listeners.MindListLayoutListener;
-import org.ow2.mindEd.adl.editor.graphic.ui.custom.part.NoDragTracker;
+import org.ow2.mindEd.adl.editor.graphic.ui.custom.providers.NoDragTracker;
 
 public class MindReferenceProxy extends MindProxy {
 	

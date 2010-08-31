@@ -63,7 +63,6 @@ public class MindFileItemProvider
 
 			addFullpathPropertyDescriptor(object);
 			addQualifiedNamePropertyDescriptor(object);
-			addIconPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -113,28 +112,6 @@ public class MindFileItemProvider
 	}
 
 	/**
-	 * This adds a property descriptor for the Icon feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addIconPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_MindFile_icon_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_MindFile_icon_feature", "_UI_MindFile_type"),
-				 MindidePackage.Literals.MIND_FILE__ICON,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
 	 * This returns MindFile.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -173,7 +150,6 @@ public class MindFileItemProvider
 		switch (notification.getFeatureID(MindFile.class)) {
 			case MindidePackage.MIND_FILE__FULLPATH:
 			case MindidePackage.MIND_FILE__QUALIFIED_NAME:
-			case MindidePackage.MIND_FILE__ICON:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

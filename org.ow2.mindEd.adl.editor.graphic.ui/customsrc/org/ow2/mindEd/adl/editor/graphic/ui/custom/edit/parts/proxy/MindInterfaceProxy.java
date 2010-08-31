@@ -6,7 +6,7 @@ import org.eclipse.gef.Request;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.GraphicalEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
 import org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.policies.OpenDefinitionEditPolicy;
-import org.ow2.mindEd.adl.editor.graphic.ui.custom.part.BorderItemDragTracker;
+import org.ow2.mindEd.adl.editor.graphic.ui.custom.providers.BorderItemDragTracker;
 
 public class MindInterfaceProxy extends MindProxy {
 	

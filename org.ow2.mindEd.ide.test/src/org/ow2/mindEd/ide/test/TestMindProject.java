@@ -83,7 +83,7 @@ public class TestMindProject {
 	static class TestListener extends EContentAdapter {
 		@Override
 		public void notifyChanged(Notification notification) {
-			if (notification.getFeature() == MindidePackage.Literals.MIND_REPO__MIND_LIB_OR_PROJECTS) {
+			if (notification.getFeature() == MindidePackage.Literals.MIND_REPO__MINDPROJECTS) {
 				switch (notification.getEventType()) {
 				case Notification.ADD:
 					resolve((MindProject) notification.getNewValue());
@@ -567,7 +567,7 @@ public class TestMindProject {
 		mp2.getProject().build(IncrementalProjectBuilder.INCREMENTAL_BUILD,
 				new NullProgressMonitor());
 
-		assertNull(mindRootSrc2.getRepoFromRootSrc());
+		assertNull(mindRootSrc2.getRepo());
 		assertNull(mindRootSrc2.getProject());
 		assertNull(p2_src2.getResolvedBy());
 
@@ -1183,14 +1183,14 @@ public class TestMindProject {
 		MindPathEntry p1_src2 = MindIdeCore.newMPESource(src2);
 		mp1.getMindpathentries().add(p1_src2);
 		
-		MindRootSrc rootSrc2 = UtilMindIde.findRootSrc(mp1.getRepoFromLibOrProject(), src2.getFullPath());
+		MindRootSrc rootSrc2 = UtilMindIde.findRootSrc(mp1.getRepo(), src2.getFullPath());
 		assertNotNull(rootSrc2);
 		assertNotNull(p1_src2.getResolvedBy());
 		assertEquals(rootSrc2, p1_src2.getResolvedBy());
 
 		// 2 delete mpe source ==> delete root src and mpe not reolved
 		mp1.getMindpathentries().remove(p1_src2);
-		rootSrc2 = UtilMindIde.findRootSrc(mp1.getRepoFromLibOrProject(), src2.getFullPath());
+		rootSrc2 = UtilMindIde.findRootSrc(mp1.getRepo(), src2.getFullPath());
 		assertNull(rootSrc2);
 		assertNull(p1_src2.getResolvedBy());
 
@@ -1202,14 +1202,14 @@ public class TestMindProject {
 		mp1.getMindpathentries().add(p1_src3);
 		
 		sleep(30);
-		MindRootSrc rootSrc3 = UtilMindIde.findRootSrc(mp1.getRepoFromLibOrProject(), src3.getFullPath());
+		MindRootSrc rootSrc3 = UtilMindIde.findRootSrc(mp1.getRepo(), src3.getFullPath());
 		assertNotNull(rootSrc3);
 		assertNotNull(p1_src3.getResolvedBy());
 		assertEquals(rootSrc3, p1_src3.getResolvedBy());
 		
 		src3.delete(true,  new NullProgressMonitor());
 		sleep(30);
-		rootSrc3 = UtilMindIde.findRootSrc(mp1.getRepoFromLibOrProject(), src3.getFullPath());
+		rootSrc3 = UtilMindIde.findRootSrc(mp1.getRepo(), src3.getFullPath());
 		assertNull(rootSrc3);
 		assertNull(p1_src3.getResolvedBy());
 		assertNotNull(p1_src3.getOwnerProject());
@@ -1217,7 +1217,7 @@ public class TestMindProject {
 		//4 recreate folder src3
 		src3.create(false, true, new NullProgressMonitor());
 		sleep(30);
-		rootSrc3 = UtilMindIde.findRootSrc(mp1.getRepoFromLibOrProject(), src3.getFullPath());
+		rootSrc3 = UtilMindIde.findRootSrc(mp1.getRepo(), src3.getFullPath());
 		assertNotNull(rootSrc3);
 		assertNotNull(p1_src3.getResolvedBy());
 		assertEquals(rootSrc3, p1_src3.getResolvedBy());

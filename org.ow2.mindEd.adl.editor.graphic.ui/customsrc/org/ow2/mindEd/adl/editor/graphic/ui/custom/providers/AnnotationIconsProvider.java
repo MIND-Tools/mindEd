@@ -12,7 +12,6 @@ import org.eclipse.gmf.runtime.diagram.ui.services.decorator.IDecoratorProvider;
 import org.eclipse.gmf.runtime.diagram.ui.services.decorator.IDecoratorTarget;
 import org.eclipse.gmf.runtime.notation.Edge;
 import org.eclipse.gmf.runtime.notation.View;
-import org.ow2.mindEd.adl.editor.graphic.ui.custom.part.MindDecorator;
 import org.ow2.mindEd.adl.editor.graphic.ui.part.MindDiagramEditor;
 
 public class AnnotationIconsProvider extends AbstractProvider implements

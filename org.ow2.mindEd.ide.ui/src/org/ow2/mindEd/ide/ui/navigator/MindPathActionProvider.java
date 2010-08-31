@@ -6,7 +6,6 @@ import org.eclipse.jface.action.IMenuManager;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.ui.navigator.CommonActionProvider;
 import org.ow2.mindEd.ide.edit.custom.MindPathItemProvider;
-import org.ow2.mindEd.ide.model.MindLibOrProject;
 import org.ow2.mindEd.ide.model.MindPathEntry;
 import org.ow2.mindEd.ide.model.MindProject;
 import org.ow2.mindEd.ide.ui.actions.MPEActionGroup;
@@ -55,9 +54,7 @@ public class MindPathActionProvider extends CommonActionProvider {
 				return ((MindPathItemProvider)obj).getMindProject();
 			}
 			if (obj instanceof MindPathEntry) {
-				MindLibOrProject ownerProject = ((MindPathEntry)obj).getOwnerProject();
-				if (ownerProject instanceof MindProject)
-					return (MindProject) ownerProject;
+				return ((MindPathEntry)obj).getOwnerProject();
 			}
 		}
 		return null;

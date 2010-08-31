@@ -154,13 +154,13 @@ public interface MindidePackage extends EPackage {
 	int MIND_REPO__ROOTSRCS = MIND_OBJECT_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Mind Lib Or Projects</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Mindprojects</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MIND_REPO__MIND_LIB_OR_PROJECTS = MIND_OBJECT_FEATURE_COUNT + 1;
+	int MIND_REPO__MINDPROJECTS = MIND_OBJECT_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>Mind Repo</em>' class.
@@ -227,13 +227,13 @@ public interface MindidePackage extends EPackage {
 	int MIND_ROOT_SRC__PROJECT = MIND_OBJECT_FEATURE_COUNT + 1;
 
 	/**
-	 * The feature id for the '<em><b>Repo From Root Src</b></em>' container reference.
+	 * The feature id for the '<em><b>Repo</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MIND_ROOT_SRC__REPO_FROM_ROOT_SRC = MIND_OBJECT_FEATURE_COUNT + 2;
+	int MIND_ROOT_SRC__REPO = MIND_OBJECT_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Fullpath</b></em>' attribute.
@@ -874,88 +874,6 @@ public interface MindidePackage extends EPackage {
 	int MIND_ALL_REPO_FEATURE_COUNT = 1;
 
 	/**
-	 * The meta object id for the '{@link org.ow2.mindEd.ide.model.impl.MindLibOrProjectImpl <em>Mind Lib Or Project</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.ow2.mindEd.ide.model.impl.MindLibOrProjectImpl
-	 * @see org.ow2.mindEd.ide.model.impl.MindidePackageImpl#getMindLibOrProject()
-	 * @generated
-	 */
-	int MIND_LIB_OR_PROJECT = 14;
-
-	/**
-	 * The feature id for the '<em><b>Mind Id</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MIND_LIB_OR_PROJECT__MIND_ID = MIND_OBJECT__MIND_ID;
-
-	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MIND_LIB_OR_PROJECT__NAME = MIND_OBJECT__NAME;
-
-	/**
-	 * The feature id for the '<em><b>Resolved Mind Path Entries</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MIND_LIB_OR_PROJECT__RESOLVED_MIND_PATH_ENTRIES = MIND_OBJECT__RESOLVED_MIND_PATH_ENTRIES;
-
-	/**
-	 * The feature id for the '<em><b>Mindpathentries</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MIND_LIB_OR_PROJECT__MINDPATHENTRIES = MIND_OBJECT_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Repo From Lib Or Project</b></em>' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MIND_LIB_OR_PROJECT__REPO_FROM_LIB_OR_PROJECT = MIND_OBJECT_FEATURE_COUNT + 1;
-
-	/**
-	 * The feature id for the '<em><b>Uses</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MIND_LIB_OR_PROJECT__USES = MIND_OBJECT_FEATURE_COUNT + 2;
-
-	/**
-	 * The feature id for the '<em><b>Rootsrcs</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MIND_LIB_OR_PROJECT__ROOTSRCS = MIND_OBJECT_FEATURE_COUNT + 3;
-
-	/**
-	 * The number of structural features of the '<em>Mind Lib Or Project</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MIND_LIB_OR_PROJECT_FEATURE_COUNT = MIND_OBJECT_FEATURE_COUNT + 4;
-
-	/**
 	 * The meta object id for the '{@link org.ow2.mindEd.ide.model.impl.MindProjectImpl <em>Mind Project</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -972,7 +890,7 @@ public interface MindidePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MIND_PROJECT__MIND_ID = MIND_LIB_OR_PROJECT__MIND_ID;
+	int MIND_PROJECT__MIND_ID = MIND_OBJECT__MIND_ID;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -981,7 +899,7 @@ public interface MindidePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MIND_PROJECT__NAME = MIND_LIB_OR_PROJECT__NAME;
+	int MIND_PROJECT__NAME = MIND_OBJECT__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Resolved Mind Path Entries</b></em>' reference list.
@@ -990,34 +908,7 @@ public interface MindidePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MIND_PROJECT__RESOLVED_MIND_PATH_ENTRIES = MIND_LIB_OR_PROJECT__RESOLVED_MIND_PATH_ENTRIES;
-
-	/**
-	 * The feature id for the '<em><b>Mindpathentries</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MIND_PROJECT__MINDPATHENTRIES = MIND_LIB_OR_PROJECT__MINDPATHENTRIES;
-
-	/**
-	 * The feature id for the '<em><b>Repo From Lib Or Project</b></em>' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MIND_PROJECT__REPO_FROM_LIB_OR_PROJECT = MIND_LIB_OR_PROJECT__REPO_FROM_LIB_OR_PROJECT;
-
-	/**
-	 * The feature id for the '<em><b>Uses</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MIND_PROJECT__USES = MIND_LIB_OR_PROJECT__USES;
+	int MIND_PROJECT__RESOLVED_MIND_PATH_ENTRIES = MIND_OBJECT__RESOLVED_MIND_PATH_ENTRIES;
 
 	/**
 	 * The feature id for the '<em><b>Rootsrcs</b></em>' reference list.
@@ -1026,7 +917,34 @@ public interface MindidePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MIND_PROJECT__ROOTSRCS = MIND_LIB_OR_PROJECT__ROOTSRCS;
+	int MIND_PROJECT__ROOTSRCS = MIND_OBJECT_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Repo</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MIND_PROJECT__REPO = MIND_OBJECT_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Uses</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MIND_PROJECT__USES = MIND_OBJECT_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Mindpathentries</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MIND_PROJECT__MINDPATHENTRIES = MIND_OBJECT_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Project</b></em>' attribute.
@@ -1035,7 +953,7 @@ public interface MindidePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MIND_PROJECT__PROJECT = MIND_LIB_OR_PROJECT_FEATURE_COUNT + 0;
+	int MIND_PROJECT__PROJECT = MIND_OBJECT_FEATURE_COUNT + 4;
 
 	/**
 	 * The feature id for the '<em><b>Allsrc</b></em>' reference list.
@@ -1044,7 +962,7 @@ public interface MindidePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MIND_PROJECT__ALLSRC = MIND_LIB_OR_PROJECT_FEATURE_COUNT + 1;
+	int MIND_PROJECT__ALLSRC = MIND_OBJECT_FEATURE_COUNT + 5;
 
 	/**
 	 * The number of structural features of the '<em>Mind Project</em>' class.
@@ -1053,7 +971,7 @@ public interface MindidePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MIND_PROJECT_FEATURE_COUNT = MIND_LIB_OR_PROJECT_FEATURE_COUNT + 2;
+	int MIND_PROJECT_FEATURE_COUNT = MIND_OBJECT_FEATURE_COUNT + 6;
 
 	/**
 	 * The meta object id for the '{@link org.ow2.mindEd.ide.model.impl.MindPathEntryImpl <em>Mind Path Entry</em>}' class.
@@ -1154,7 +1072,7 @@ public interface MindidePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MIND_LIBRARY__MIND_ID = MIND_LIB_OR_PROJECT__MIND_ID;
+	int MIND_LIBRARY__MIND_ID = MIND_ROOT_SRC__MIND_ID;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1163,7 +1081,7 @@ public interface MindidePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MIND_LIBRARY__NAME = MIND_LIB_OR_PROJECT__NAME;
+	int MIND_LIBRARY__NAME = MIND_ROOT_SRC__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Resolved Mind Path Entries</b></em>' reference list.
@@ -1172,43 +1090,7 @@ public interface MindidePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MIND_LIBRARY__RESOLVED_MIND_PATH_ENTRIES = MIND_LIB_OR_PROJECT__RESOLVED_MIND_PATH_ENTRIES;
-
-	/**
-	 * The feature id for the '<em><b>Mindpathentries</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MIND_LIBRARY__MINDPATHENTRIES = MIND_LIB_OR_PROJECT__MINDPATHENTRIES;
-
-	/**
-	 * The feature id for the '<em><b>Repo From Lib Or Project</b></em>' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MIND_LIBRARY__REPO_FROM_LIB_OR_PROJECT = MIND_LIB_OR_PROJECT__REPO_FROM_LIB_OR_PROJECT;
-
-	/**
-	 * The feature id for the '<em><b>Uses</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MIND_LIBRARY__USES = MIND_LIB_OR_PROJECT__USES;
-
-	/**
-	 * The feature id for the '<em><b>Rootsrcs</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MIND_LIBRARY__ROOTSRCS = MIND_LIB_OR_PROJECT__ROOTSRCS;
+	int MIND_LIBRARY__RESOLVED_MIND_PATH_ENTRIES = MIND_ROOT_SRC__RESOLVED_MIND_PATH_ENTRIES;
 
 	/**
 	 * The feature id for the '<em><b>Packages</b></em>' containment reference list.
@@ -1217,7 +1099,7 @@ public interface MindidePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MIND_LIBRARY__PACKAGES = MIND_LIB_OR_PROJECT_FEATURE_COUNT + 0;
+	int MIND_LIBRARY__PACKAGES = MIND_ROOT_SRC__PACKAGES;
 
 	/**
 	 * The feature id for the '<em><b>Project</b></em>' reference.
@@ -1226,16 +1108,16 @@ public interface MindidePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MIND_LIBRARY__PROJECT = MIND_LIB_OR_PROJECT_FEATURE_COUNT + 1;
+	int MIND_LIBRARY__PROJECT = MIND_ROOT_SRC__PROJECT;
 
 	/**
-	 * The feature id for the '<em><b>Repo From Root Src</b></em>' container reference.
+	 * The feature id for the '<em><b>Repo</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MIND_LIBRARY__REPO_FROM_ROOT_SRC = MIND_LIB_OR_PROJECT_FEATURE_COUNT + 2;
+	int MIND_LIBRARY__REPO = MIND_ROOT_SRC__REPO;
 
 	/**
 	 * The feature id for the '<em><b>Fullpath</b></em>' attribute.
@@ -1244,7 +1126,7 @@ public interface MindidePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MIND_LIBRARY__FULLPATH = MIND_LIB_OR_PROJECT_FEATURE_COUNT + 3;
+	int MIND_LIBRARY__FULLPATH = MIND_ROOT_SRC__FULLPATH;
 
 	/**
 	 * The feature id for the '<em><b>Folder</b></em>' attribute.
@@ -1253,7 +1135,7 @@ public interface MindidePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MIND_LIBRARY__FOLDER = MIND_LIB_OR_PROJECT_FEATURE_COUNT + 4;
+	int MIND_LIBRARY__FOLDER = MIND_ROOT_SRC__FOLDER;
 
 	/**
 	 * The feature id for the '<em><b>Dependencies</b></em>' reference list.
@@ -1262,7 +1144,7 @@ public interface MindidePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MIND_LIBRARY__DEPENDENCIES = MIND_LIB_OR_PROJECT_FEATURE_COUNT + 5;
+	int MIND_LIBRARY__DEPENDENCIES = MIND_ROOT_SRC__DEPENDENCIES;
 
 	/**
 	 * The feature id for the '<em><b>Target Filter</b></em>' attribute.
@@ -1271,7 +1153,7 @@ public interface MindidePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MIND_LIBRARY__TARGET_FILTER = MIND_LIB_OR_PROJECT_FEATURE_COUNT + 6;
+	int MIND_LIBRARY__TARGET_FILTER = MIND_ROOT_SRC_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Fullpath Lib</b></em>' attribute.
@@ -1280,16 +1162,7 @@ public interface MindidePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MIND_LIBRARY__FULLPATH_LIB = MIND_LIB_OR_PROJECT_FEATURE_COUNT + 7;
-
-	/**
-	 * The feature id for the '<em><b>Active</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MIND_LIBRARY__ACTIVE = MIND_LIB_OR_PROJECT_FEATURE_COUNT + 8;
+	int MIND_LIBRARY__FULLPATH_LIB = MIND_ROOT_SRC_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>Mind Library</em>' class.
@@ -1298,7 +1171,7 @@ public interface MindidePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MIND_LIBRARY_FEATURE_COUNT = MIND_LIB_OR_PROJECT_FEATURE_COUNT + 9;
+	int MIND_LIBRARY_FEATURE_COUNT = MIND_ROOT_SRC_FEATURE_COUNT + 2;
 
 	/**
 	 * The meta object id for the '{@link org.ow2.mindEd.ide.model.MindPathKind <em>Mind Path Kind</em>}' enum.
@@ -1308,7 +1181,7 @@ public interface MindidePackage extends EPackage {
 	 * @see org.ow2.mindEd.ide.model.impl.MindidePackageImpl#getMindPathKind()
 	 * @generated
 	 */
-	int MIND_PATH_KIND = 15;
+	int MIND_PATH_KIND = 14;
 
 	/**
 	 * The meta object id for the '{@link org.ow2.mindEd.ide.model.ComponentKind <em>Component Kind</em>}' enum.
@@ -1318,7 +1191,7 @@ public interface MindidePackage extends EPackage {
 	 * @see org.ow2.mindEd.ide.model.impl.MindidePackageImpl#getComponentKind()
 	 * @generated
 	 */
-	int COMPONENT_KIND = 16;
+	int COMPONENT_KIND = 15;
 
 	/**
 	 * The meta object id for the '<em>IProject</em>' data type.
@@ -1328,7 +1201,7 @@ public interface MindidePackage extends EPackage {
 	 * @see org.ow2.mindEd.ide.model.impl.MindidePackageImpl#getIProject()
 	 * @generated
 	 */
-	int IPROJECT = 17;
+	int IPROJECT = 16;
 
 	/**
 	 * The meta object id for the '<em>IResource</em>' data type.
@@ -1338,7 +1211,7 @@ public interface MindidePackage extends EPackage {
 	 * @see org.ow2.mindEd.ide.model.impl.MindidePackageImpl#getIResource()
 	 * @generated
 	 */
-	int IRESOURCE = 18;
+	int IRESOURCE = 17;
 
 	/**
 	 * The meta object id for the '<em>URI</em>' data type.
@@ -1348,7 +1221,7 @@ public interface MindidePackage extends EPackage {
 	 * @see org.ow2.mindEd.ide.model.impl.MindidePackageImpl#getURI()
 	 * @generated
 	 */
-	int URI = 19;
+	int URI = 18;
 
 
 	/**
@@ -1373,15 +1246,15 @@ public interface MindidePackage extends EPackage {
 	EReference getMindRepo_Rootsrcs();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link org.ow2.mindEd.ide.model.MindRepo#getMindLibOrProjects <em>Mind Lib Or Projects</em>}'.
+	 * Returns the meta object for the containment reference list '{@link org.ow2.mindEd.ide.model.MindRepo#getMindprojects <em>Mindprojects</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Mind Lib Or Projects</em>'.
-	 * @see org.ow2.mindEd.ide.model.MindRepo#getMindLibOrProjects()
+	 * @return the meta object for the containment reference list '<em>Mindprojects</em>'.
+	 * @see org.ow2.mindEd.ide.model.MindRepo#getMindprojects()
 	 * @see #getMindRepo()
 	 * @generated
 	 */
-	EReference getMindRepo_MindLibOrProjects();
+	EReference getMindRepo_Mindprojects();
 
 	/**
 	 * Returns the meta object for class '{@link org.ow2.mindEd.ide.model.MindRootSrc <em>Mind Root Src</em>}'.
@@ -1416,15 +1289,15 @@ public interface MindidePackage extends EPackage {
 	EReference getMindRootSrc_Project();
 
 	/**
-	 * Returns the meta object for the container reference '{@link org.ow2.mindEd.ide.model.MindRootSrc#getRepoFromRootSrc <em>Repo From Root Src</em>}'.
+	 * Returns the meta object for the container reference '{@link org.ow2.mindEd.ide.model.MindRootSrc#getRepo <em>Repo</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the container reference '<em>Repo From Root Src</em>'.
-	 * @see org.ow2.mindEd.ide.model.MindRootSrc#getRepoFromRootSrc()
+	 * @return the meta object for the container reference '<em>Repo</em>'.
+	 * @see org.ow2.mindEd.ide.model.MindRootSrc#getRepo()
 	 * @see #getMindRootSrc()
 	 * @generated
 	 */
-	EReference getMindRootSrc_RepoFromRootSrc();
+	EReference getMindRootSrc_Repo();
 
 	/**
 	 * Returns the meta object for the attribute '{@link org.ow2.mindEd.ide.model.MindRootSrc#getFullpath <em>Fullpath</em>}'.
@@ -1692,6 +1565,50 @@ public interface MindidePackage extends EPackage {
 	EClass getMindProject();
 
 	/**
+	 * Returns the meta object for the reference list '{@link org.ow2.mindEd.ide.model.MindProject#getRootsrcs <em>Rootsrcs</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Rootsrcs</em>'.
+	 * @see org.ow2.mindEd.ide.model.MindProject#getRootsrcs()
+	 * @see #getMindProject()
+	 * @generated
+	 */
+	EReference getMindProject_Rootsrcs();
+
+	/**
+	 * Returns the meta object for the container reference '{@link org.ow2.mindEd.ide.model.MindProject#getRepo <em>Repo</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the container reference '<em>Repo</em>'.
+	 * @see org.ow2.mindEd.ide.model.MindProject#getRepo()
+	 * @see #getMindProject()
+	 * @generated
+	 */
+	EReference getMindProject_Repo();
+
+	/**
+	 * Returns the meta object for the reference list '{@link org.ow2.mindEd.ide.model.MindProject#getUses <em>Uses</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Uses</em>'.
+	 * @see org.ow2.mindEd.ide.model.MindProject#getUses()
+	 * @see #getMindProject()
+	 * @generated
+	 */
+	EReference getMindProject_Uses();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link org.ow2.mindEd.ide.model.MindProject#getMindpathentries <em>Mindpathentries</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Mindpathentries</em>'.
+	 * @see org.ow2.mindEd.ide.model.MindProject#getMindpathentries()
+	 * @see #getMindProject()
+	 * @generated
+	 */
+	EReference getMindProject_Mindpathentries();
+
+	/**
 	 * Returns the meta object for the attribute '{@link org.ow2.mindEd.ide.model.MindProject#getProject <em>Project</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1800,71 +1717,6 @@ public interface MindidePackage extends EPackage {
 	EAttribute getMindLibrary_FullpathLib();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.ow2.mindEd.ide.model.MindLibrary#isActive <em>Active</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Active</em>'.
-	 * @see org.ow2.mindEd.ide.model.MindLibrary#isActive()
-	 * @see #getMindLibrary()
-	 * @generated
-	 */
-	EAttribute getMindLibrary_Active();
-
-	/**
-	 * Returns the meta object for class '{@link org.ow2.mindEd.ide.model.MindLibOrProject <em>Mind Lib Or Project</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Mind Lib Or Project</em>'.
-	 * @see org.ow2.mindEd.ide.model.MindLibOrProject
-	 * @generated
-	 */
-	EClass getMindLibOrProject();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link org.ow2.mindEd.ide.model.MindLibOrProject#getMindpathentries <em>Mindpathentries</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Mindpathentries</em>'.
-	 * @see org.ow2.mindEd.ide.model.MindLibOrProject#getMindpathentries()
-	 * @see #getMindLibOrProject()
-	 * @generated
-	 */
-	EReference getMindLibOrProject_Mindpathentries();
-
-	/**
-	 * Returns the meta object for the container reference '{@link org.ow2.mindEd.ide.model.MindLibOrProject#getRepoFromLibOrProject <em>Repo From Lib Or Project</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the container reference '<em>Repo From Lib Or Project</em>'.
-	 * @see org.ow2.mindEd.ide.model.MindLibOrProject#getRepoFromLibOrProject()
-	 * @see #getMindLibOrProject()
-	 * @generated
-	 */
-	EReference getMindLibOrProject_RepoFromLibOrProject();
-
-	/**
-	 * Returns the meta object for the reference list '{@link org.ow2.mindEd.ide.model.MindLibOrProject#getUses <em>Uses</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Uses</em>'.
-	 * @see org.ow2.mindEd.ide.model.MindLibOrProject#getUses()
-	 * @see #getMindLibOrProject()
-	 * @generated
-	 */
-	EReference getMindLibOrProject_Uses();
-
-	/**
-	 * Returns the meta object for the reference list '{@link org.ow2.mindEd.ide.model.MindLibOrProject#getRootsrcs <em>Rootsrcs</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Rootsrcs</em>'.
-	 * @see org.ow2.mindEd.ide.model.MindLibOrProject#getRootsrcs()
-	 * @see #getMindLibOrProject()
-	 * @generated
-	 */
-	EReference getMindLibOrProject_Rootsrcs();
-
-	/**
 	 * Returns the meta object for enum '{@link org.ow2.mindEd.ide.model.MindPathKind <em>Mind Path Kind</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1958,12 +1810,12 @@ public interface MindidePackage extends EPackage {
 		EReference MIND_REPO__ROOTSRCS = eINSTANCE.getMindRepo_Rootsrcs();
 
 		/**
-		 * The meta object literal for the '<em><b>Mind Lib Or Projects</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Mindprojects</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference MIND_REPO__MIND_LIB_OR_PROJECTS = eINSTANCE.getMindRepo_MindLibOrProjects();
+		EReference MIND_REPO__MINDPROJECTS = eINSTANCE.getMindRepo_Mindprojects();
 
 		/**
 		 * The meta object literal for the '{@link org.ow2.mindEd.ide.model.impl.MindRootSrcImpl <em>Mind Root Src</em>}' class.
@@ -1992,12 +1844,12 @@ public interface MindidePackage extends EPackage {
 		EReference MIND_ROOT_SRC__PROJECT = eINSTANCE.getMindRootSrc_Project();
 
 		/**
-		 * The meta object literal for the '<em><b>Repo From Root Src</b></em>' container reference feature.
+		 * The meta object literal for the '<em><b>Repo</b></em>' container reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference MIND_ROOT_SRC__REPO_FROM_ROOT_SRC = eINSTANCE.getMindRootSrc_RepoFromRootSrc();
+		EReference MIND_ROOT_SRC__REPO = eINSTANCE.getMindRootSrc_Repo();
 
 		/**
 		 * The meta object literal for the '<em><b>Fullpath</b></em>' attribute feature.
@@ -2220,6 +2072,38 @@ public interface MindidePackage extends EPackage {
 		EClass MIND_PROJECT = eINSTANCE.getMindProject();
 
 		/**
+		 * The meta object literal for the '<em><b>Rootsrcs</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference MIND_PROJECT__ROOTSRCS = eINSTANCE.getMindProject_Rootsrcs();
+
+		/**
+		 * The meta object literal for the '<em><b>Repo</b></em>' container reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference MIND_PROJECT__REPO = eINSTANCE.getMindProject_Repo();
+
+		/**
+		 * The meta object literal for the '<em><b>Uses</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference MIND_PROJECT__USES = eINSTANCE.getMindProject_Uses();
+
+		/**
+		 * The meta object literal for the '<em><b>Mindpathentries</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference MIND_PROJECT__MINDPATHENTRIES = eINSTANCE.getMindProject_Mindpathentries();
+
+		/**
 		 * The meta object literal for the '<em><b>Project</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2302,56 +2186,6 @@ public interface MindidePackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute MIND_LIBRARY__FULLPATH_LIB = eINSTANCE.getMindLibrary_FullpathLib();
-
-		/**
-		 * The meta object literal for the '<em><b>Active</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute MIND_LIBRARY__ACTIVE = eINSTANCE.getMindLibrary_Active();
-
-		/**
-		 * The meta object literal for the '{@link org.ow2.mindEd.ide.model.impl.MindLibOrProjectImpl <em>Mind Lib Or Project</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see org.ow2.mindEd.ide.model.impl.MindLibOrProjectImpl
-		 * @see org.ow2.mindEd.ide.model.impl.MindidePackageImpl#getMindLibOrProject()
-		 * @generated
-		 */
-		EClass MIND_LIB_OR_PROJECT = eINSTANCE.getMindLibOrProject();
-
-		/**
-		 * The meta object literal for the '<em><b>Mindpathentries</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference MIND_LIB_OR_PROJECT__MINDPATHENTRIES = eINSTANCE.getMindLibOrProject_Mindpathentries();
-
-		/**
-		 * The meta object literal for the '<em><b>Repo From Lib Or Project</b></em>' container reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference MIND_LIB_OR_PROJECT__REPO_FROM_LIB_OR_PROJECT = eINSTANCE.getMindLibOrProject_RepoFromLibOrProject();
-
-		/**
-		 * The meta object literal for the '<em><b>Uses</b></em>' reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference MIND_LIB_OR_PROJECT__USES = eINSTANCE.getMindLibOrProject_Uses();
-
-		/**
-		 * The meta object literal for the '<em><b>Rootsrcs</b></em>' reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference MIND_LIB_OR_PROJECT__ROOTSRCS = eINSTANCE.getMindLibOrProject_Rootsrcs();
 
 		/**
 		 * The meta object literal for the '{@link org.ow2.mindEd.ide.model.MindPathKind <em>Mind Path Kind</em>}' enum.

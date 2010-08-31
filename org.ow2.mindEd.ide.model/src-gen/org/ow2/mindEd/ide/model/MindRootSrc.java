@@ -20,7 +20,7 @@ import org.eclipse.emf.common.util.EList;
  * <ul>
  *   <li>{@link org.ow2.mindEd.ide.model.MindRootSrc#getPackages <em>Packages</em>}</li>
  *   <li>{@link org.ow2.mindEd.ide.model.MindRootSrc#getProject <em>Project</em>}</li>
- *   <li>{@link org.ow2.mindEd.ide.model.MindRootSrc#getRepoFromRootSrc <em>Repo From Root Src</em>}</li>
+ *   <li>{@link org.ow2.mindEd.ide.model.MindRootSrc#getRepo <em>Repo</em>}</li>
  *   <li>{@link org.ow2.mindEd.ide.model.MindRootSrc#getFullpath <em>Fullpath</em>}</li>
  *   <li>{@link org.ow2.mindEd.ide.model.MindRootSrc#getFolder <em>Folder</em>}</li>
  *   <li>{@link org.ow2.mindEd.ide.model.MindRootSrc#getDependencies <em>Dependencies</em>}</li>
@@ -52,7 +52,7 @@ public interface MindRootSrc extends MindObject {
 
 	/**
 	 * Returns the value of the '<em><b>Project</b></em>' reference.
-	 * It is bidirectional and its opposite is '{@link org.ow2.mindEd.ide.model.MindLibOrProject#getRootsrcs <em>Rootsrcs</em>}'.
+	 * It is bidirectional and its opposite is '{@link org.ow2.mindEd.ide.model.MindProject#getRootsrcs <em>Rootsrcs</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Project</em>' reference isn't clear,
@@ -60,13 +60,13 @@ public interface MindRootSrc extends MindObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Project</em>' reference.
-	 * @see #setProject(MindLibOrProject)
+	 * @see #setProject(MindProject)
 	 * @see org.ow2.mindEd.ide.model.MindidePackage#getMindRootSrc_Project()
-	 * @see org.ow2.mindEd.ide.model.MindLibOrProject#getRootsrcs
+	 * @see org.ow2.mindEd.ide.model.MindProject#getRootsrcs
 	 * @model opposite="rootsrcs"
 	 * @generated
 	 */
-	MindLibOrProject getProject();
+	MindProject getProject();
 
 	/**
 	 * Sets the value of the '{@link org.ow2.mindEd.ide.model.MindRootSrc#getProject <em>Project</em>}' reference.
@@ -76,35 +76,35 @@ public interface MindRootSrc extends MindObject {
 	 * @see #getProject()
 	 * @generated
 	 */
-	void setProject(MindLibOrProject value);
+	void setProject(MindProject value);
 
 	/**
-	 * Returns the value of the '<em><b>Repo From Root Src</b></em>' container reference.
+	 * Returns the value of the '<em><b>Repo</b></em>' container reference.
 	 * It is bidirectional and its opposite is '{@link org.ow2.mindEd.ide.model.MindRepo#getRootsrcs <em>Rootsrcs</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Repo From Root Src</em>' container reference isn't clear,
+	 * If the meaning of the '<em>Repo</em>' container reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Repo From Root Src</em>' container reference.
-	 * @see #setRepoFromRootSrc(MindRepo)
-	 * @see org.ow2.mindEd.ide.model.MindidePackage#getMindRootSrc_RepoFromRootSrc()
+	 * @return the value of the '<em>Repo</em>' container reference.
+	 * @see #setRepo(MindRepo)
+	 * @see org.ow2.mindEd.ide.model.MindidePackage#getMindRootSrc_Repo()
 	 * @see org.ow2.mindEd.ide.model.MindRepo#getRootsrcs
 	 * @model opposite="rootsrcs" required="true" transient="false"
 	 * @generated
 	 */
-	MindRepo getRepoFromRootSrc();
+	MindRepo getRepo();
 
 	/**
-	 * Sets the value of the '{@link org.ow2.mindEd.ide.model.MindRootSrc#getRepoFromRootSrc <em>Repo From Root Src</em>}' container reference.
+	 * Sets the value of the '{@link org.ow2.mindEd.ide.model.MindRootSrc#getRepo <em>Repo</em>}' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Repo From Root Src</em>' container reference.
-	 * @see #getRepoFromRootSrc()
+	 * @param value the new value of the '<em>Repo</em>' container reference.
+	 * @see #getRepo()
 	 * @generated
 	 */
-	void setRepoFromRootSrc(MindRepo value);
+	void setRepo(MindRepo value);
 
 	/**
 	 * Returns the value of the '<em><b>Fullpath</b></em>' attribute.

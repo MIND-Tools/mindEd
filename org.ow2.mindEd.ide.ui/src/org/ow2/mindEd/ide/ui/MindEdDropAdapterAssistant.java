@@ -9,12 +9,13 @@ import org.eclipse.ui.navigator.CommonDropAdapterAssistant;
 public class MindEdDropAdapterAssistant extends CommonDropAdapterAssistant {
 
 	public MindEdDropAdapterAssistant() {
+		// TODO Auto-generated constructor stub
 	}
 
 	@Override
 	public IStatus validateDrop(Object target, int operation,
 			TransferData transferType) {
-		System.out.println(target.getClass());
+		// TODO Auto-generated method stub
 		return null;
 	}
 

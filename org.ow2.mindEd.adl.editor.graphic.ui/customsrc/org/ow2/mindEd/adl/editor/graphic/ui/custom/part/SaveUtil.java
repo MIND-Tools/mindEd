@@ -1,4 +1,4 @@
-package org.ow2.mindEd.adl.editor.graphic.ui.custom.helpers;
+package org.ow2.mindEd.adl.editor.graphic.ui.custom.part;
 
 import java.util.HashMap;
 import java.util.List;

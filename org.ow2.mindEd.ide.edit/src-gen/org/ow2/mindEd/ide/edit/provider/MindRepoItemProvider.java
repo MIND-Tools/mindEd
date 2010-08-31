@@ -79,7 +79,7 @@ public class MindRepoItemProvider
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(MindidePackage.Literals.MIND_REPO__ROOTSRCS);
-			childrenFeatures.add(MindidePackage.Literals.MIND_REPO__MIND_LIB_OR_PROJECTS);
+			childrenFeatures.add(MindidePackage.Literals.MIND_REPO__MINDPROJECTS);
 		}
 		return childrenFeatures;
 	}
@@ -135,7 +135,7 @@ public class MindRepoItemProvider
 
 		switch (notification.getFeatureID(MindRepo.class)) {
 			case MindidePackage.MIND_REPO__ROOTSRCS:
-			case MindidePackage.MIND_REPO__MIND_LIB_OR_PROJECTS:
+			case MindidePackage.MIND_REPO__MINDPROJECTS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -165,36 +165,8 @@ public class MindRepoItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(MindidePackage.Literals.MIND_REPO__MIND_LIB_OR_PROJECTS,
+				(MindidePackage.Literals.MIND_REPO__MINDPROJECTS,
 				 MindideFactory.eINSTANCE.createMindProject()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(MindidePackage.Literals.MIND_REPO__MIND_LIB_OR_PROJECTS,
-				 MindideFactory.eINSTANCE.createMindLibrary()));
-	}
-
-	/**
-	 * This returns the label text for {@link org.eclipse.emf.edit.command.CreateChildCommand}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public String getCreateChildText(Object owner, Object feature, Object child, Collection<?> selection) {
-		Object childFeature = feature;
-		Object childObject = child;
-
-		boolean qualify =
-			childFeature == MindidePackage.Literals.MIND_REPO__ROOTSRCS ||
-			childFeature == MindidePackage.Literals.MIND_REPO__MIND_LIB_OR_PROJECTS;
-
-		if (qualify) {
-			return getString
-				("_UI_CreateChild_text2",
-				 new Object[] { getTypeText(childObject), getFeatureText(childFeature), getTypeText(owner) });
-		}
-		return super.getCreateChildText(owner, feature, child, selection);
 	}
 
 }
