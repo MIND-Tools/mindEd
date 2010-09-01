@@ -226,6 +226,8 @@ public class MindIdeCore {
 	 * @return the eclipse resource corresponding to the given mind object or null.
 	 */
 	public static IResource getResource(MindObject obj) {
+		if (obj == null)
+			return null;
 		switch (obj.eClass().getClassifierID()) {
 
 		case MindidePackage.MIND_ADL:

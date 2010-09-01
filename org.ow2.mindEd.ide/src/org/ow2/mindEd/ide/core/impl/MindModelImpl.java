@@ -1,5 +1,6 @@
 package org.ow2.mindEd.ide.core.impl;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -16,6 +17,7 @@ import org.eclipse.cdt.core.settings.model.ICConfigurationDescription;
 import org.eclipse.cdt.core.settings.model.ICProjectDescription;
 import org.eclipse.cdt.core.settings.model.ICProjectDescriptionManager;
 import org.eclipse.cdt.core.settings.model.ICSourceEntry;
+import org.eclipse.core.filesystem.EFS;
 import org.eclipse.core.resources.IContainer;
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IFolder;
@@ -135,15 +137,15 @@ public class MindModelImpl implements MindModel {
 				return;
 			}
 		}
-
 	}
 
-	static RepoTypeAdapter[] _repoType = { new WSRepoTypeAdapter() };
+	static RepoTypeAdapter[] _repoType = { new WSRepoTypeAdapter(), new LocalRepoTypeAdapter() };
 
 	/* debugging flag to enable tracing */
 	public static final boolean TRACING = "true".equalsIgnoreCase(Platform.getDebugOption("org.ow2.mindEd.ide.core.ide/traceModel")); //$NON-NLS-1$ //$NON-NLS-2$
 
-	public static final String WS = "ws";
+	public static final String WS = "workspace";
+	public static final String REPO = "local repository";
 
 	private static MindRootSrc createRootSrc(MindProject mindp, MindRepo repo,
 			IContainer f, String srcRootName) {
@@ -167,6 +169,10 @@ public class MindModelImpl implements MindModel {
 	private MindIdeWorkspaceChangeListener _wsListener;
 
 	private MindRepo _wsMindRoot;
+
+	private MindRepo _repoMindRoot;
+
+	private IFolder _localRepoContainer;
 
 	public MindModelImpl() {
 	}
@@ -459,6 +465,15 @@ public class MindModelImpl implements MindModel {
 	public MindRepo getWSRepo() {
 		return _wsMindRoot;
 	}
+	
+	@Override
+	public MindRepo getLocalRepo() {
+		return _repoMindRoot;
+	}
+	
+	public IFolder getLocalRepoFolder() {
+		return _localRepoContainer;
+	};
 
 	public void init() {
 		MindPathListener l = new MindPathListener();
@@ -467,8 +482,33 @@ public class MindModelImpl implements MindModel {
 		_repos.eAdapters().add(l);
 
 		_wsMindRoot = UtilMindIde.findOrCreateRepo(this, MindModelImpl.WS);
-		_wsListener = new MindIdeWorkspaceChangeListener(this, _wsMindRoot,
+		
+		
+		File repoFile = new File( System.getProperty("user.home")+File.separator+".mind"+File.separator+"repository");
+		if (!repoFile.exists())
+			repoFile.mkdirs();
+		
+		try {
+			IWorkspace ws = ResourcesPlugin.getWorkspace();
+			IProject project = ws.getRoot().getProject(".localmindrepo");
+			if (!project.exists())
+			    project.create(null);
+			if (!project.isOpen())
+			    project.open(null);
+			project.setHidden(false);
+			IPath location = new Path(repoFile.getAbsolutePath());
+			_localRepoContainer = project.getFolder(location.lastSegment());
+			if (!_localRepoContainer.exists())
+				_localRepoContainer.createLink(location, IResource.NONE, null);
+		} catch (CoreException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		_wsListener = new MindIdeWorkspaceChangeListener(this,
 				null);
+		_repoMindRoot = UtilMindIde.findOrCreateRepo(this, MindModelImpl.REPO);
+
 
 		for (RepoTypeAdapter rt : _repoType) {
 			rt.initRepo(this);
@@ -476,6 +516,9 @@ public class MindModelImpl implements MindModel {
 
 		IWorkspace workspace = ResourcesPlugin.getWorkspace();
 		workspace.addResourceChangeListener(_wsListener);
+		
+		
+		
 	}
 
 	@Override
@@ -719,7 +762,7 @@ public class MindModelImpl implements MindModel {
 	protected void notifyChangedMindRepo_MindProjects(Notification notification) {
 		switch (notification.getEventType()) {
 		case Notification.ADD:
-			MindModelImpl.this.resolve((MindProject) notification
+			MindModelImpl.this.resolve((MindLibOrProject) notification
 					.getNewValue());
 			break;
 		case Notification.ADD_MANY:
@@ -1058,9 +1101,13 @@ public class MindModelImpl implements MindModel {
 	 * A new project is added.
 	 * @param p the added project.
 	 */
-	public void resolve(MindProject p) {
-		resolve(MindPathKind.PROJECT, p.getProject().getFullPath()
+	public void resolve(MindLibOrProject p) {
+		
+		if (p instanceof MindProject)
+			resolve(MindPathKind.PROJECT, ((MindProject) p).getProject().getFullPath()
 				.toPortableString(), p);
+		else
+			resolve(MindPathKind.LIBRARY, p.getName(), p);
 	}
 
 	/**
@@ -1128,7 +1175,7 @@ public class MindModelImpl implements MindModel {
 	 * @param repo the current repository where is the project
 	 * @param sync true if synchronize into source folder
 	 */
-	void syncMindPath(IProject p, MindLibOrProject mindp, MindRepo repo, boolean sync) {
+	void syncMindPath(IContainer p, MindLibOrProject mindp, MindRepo repo, boolean sync) {
 		EList<MindPathEntry> mindpath = mindp.getRawMinpath();
 		for (MindPathEntry mindPathEntry : mindpath) {
 			if (mindPathEntry.getEntryKind() == MindPathKind.SOURCE) {
@@ -1319,5 +1366,69 @@ public class MindModelImpl implements MindModel {
 		if (ret.isOK())
 			return Status.OK_STATUS;
 		return ret;
+	}
+
+	public MindLibrary findOrCreateLib(IFolder resource, String libname, MindRepo mindRepo, boolean sync) {
+		MindLibraryImpl ret = (MindLibraryImpl) _libs.get("repo/"+resource.getName());
+		if (ret == null) {
+			ret = new MindLibraryImpl(resource,this);
+			_libs.put("repo/"+libname, (MindLibrary) ret);
+		
+			ret.setName(libname);
+			ret.setMindId(mindRepo.getMindId() + "/" + libname);
+			ret.setFullpath(resource.getFullPath().toPortableString());
+			mindRepo.getMindLibOrProjects().add(ret);
+		}
+		
+		if (sync)
+			syncMindPath(resource, ret, mindRepo, true);
+		return ret;
+	}
+	
+	@Override
+	public MindLibrary createMindLibFromProject(MindProject mp, String libName, IProgressMonitor monitor) throws CoreException {
+		IFolder r = _localRepoContainer.getFolder(new Path(libName));
+		if (!r.exists())
+			r.create(true, true, monitor);
+		MindLibrary lib = findOrCreateLib(r, libName, _repoMindRoot, false);
+		HashSet<IPath> pathsAdded = new HashSet<IPath>();
+		for (MindRootSrc rs : mp.getRootsrcs()) {
+			IFolder sourceFolder = MindIdeCore.getResource(rs);
+			try {
+				syncFolder(sourceFolder, Path.EMPTY, r, pathsAdded, monitor);
+			} catch (CoreException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		
+		//TODO remove deleted file
+		
+		syncMindPath(r, lib, _repoMindRoot, true);
+		return lib;
+	}
+
+	private void syncFolder(IFolder sourceFolder, IPath p, IFolder r,
+			HashSet<IPath> pathsAdded, IProgressMonitor monitor) throws CoreException {
+		for (IResource resource : sourceFolder.members()) {
+			if (resource.getType() == IResource.FILE) {
+				if (pathsAdded.add(p.append(resource.getName()))) {
+					copyFile((IFile) resource, r.getFile(resource.getName()), monitor);
+				}
+			} else {
+				if (resource.getType() == IResource.FOLDER) {
+					IFolder rSubFolder = r.getFolder(resource.getName());
+					if (!rSubFolder.exists())
+						rSubFolder.create(true, true, monitor);
+					syncFolder((IFolder) resource, p.append(resource.getName()), rSubFolder, pathsAdded, monitor);
+				}
+			}
+		}
+	}
+
+	private void copyFile(IFile resource, IFile destFile, IProgressMonitor monitor) throws CoreException {
+		if (destFile.exists())
+			destFile.delete(true, monitor);
+		resource.copy(destFile.getFullPath(), true, monitor);
 	}
 }

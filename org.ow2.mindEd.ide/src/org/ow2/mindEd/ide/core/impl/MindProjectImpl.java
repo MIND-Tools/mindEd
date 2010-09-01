@@ -270,19 +270,10 @@ public class MindProjectImpl extends org.ow2.mindEd.ide.model.impl.MindProjectIm
 	 */
 	@Override
 	public MindFile findMindFile(String qualifiedName) {
-		int ptIndex = qualifiedName.lastIndexOf('.');
-		String pn = qualifiedName.substring(0,ptIndex);
-		String cn = qualifiedName.substring(ptIndex+1);
-		EList<MindPackage> packages = ResolveImpl.findPackagesInMindPath(this).get(pn);
-		for (MindPackage p : packages) {
-			for (MindFile mf : p.getFiles()) {
-				if (mf.getName().equals(cn) && exists(mf)) {
-					return mf;
-				}
-			}
-		}
-		return null;
+		return ResolveImpl.findMindFile(this, qualifiedName);
 	}
+
+	
 	
 	@Override
 	public MindItf resolveItf(String componentName, String defaultPackage,
