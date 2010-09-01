@@ -17,10 +17,12 @@ import org.eclipse.xtext.validation.Issue;
 import org.ow2.mindEd.adl.ArchitectureDefinition;
 import org.ow2.mindEd.adl.ComponentReference;
 import org.ow2.mindEd.adl.FormalArgument;
+import org.ow2.mindEd.adl.ImplementationDefinition;
 import org.ow2.mindEd.adl.ImportDefinition;
 import org.ow2.mindEd.adl.InterfaceDefinition;
 import org.ow2.mindEd.adl.TemplateSpecifier;
 import org.ow2.mindEd.adl.impl.AdlDefinitionImpl;
+import org.ow2.mindEd.adl.impl.ImplementationDefinitionImpl;
 import org.ow2.mindEd.adl.impl.InterfaceDefinitionImpl;
 import org.ow2.mindEd.adl.textual.util.FractalUtil;
 import org.ow2.mindEd.adl.textual.validation.FractalJavaValidator;
@@ -228,4 +230,39 @@ public class FractalQuickfixProvider extends DefaultQuickfixProvider {
 
 	}
 
+	@Fix(FractalJavaValidator.UNKNOWN_SOURCE_FILE)
+	public void createSourceFile(final Issue issue,
+			IssueResolutionAcceptor acceptor) {
+		acceptor.accept(issue, 
+				"Create source " + issue.getData()[0],
+				"Create the associated source file " 
+					+ issue.getData()[0] + ".",
+				null,
+				new ISemanticModification() {
+					@Override
+					public void apply(EObject element,
+							IModificationContext context) throws Exception {
+
+						if (element instanceof ImplementationDefinition){
+							
+							ImplementationDefinition impl = (ImplementationDefinitionImpl) element;
+							AdlDefinitionImpl adlDefinition = (AdlDefinitionImpl) FractalUtil.getArchitecureDefinitionFromChild(impl).eContainer();
+							
+							URI uri = adlDefinition.eDirectResource().getURI();
+							MindPackage pack = ModelToProjectUtil.INSTANCE.getCurrentPackage(uri);
+							
+							// we remove the .c extension for being compliant with the MindIdeCore C template creator
+							String sourceFileName = issue.getData()[0];
+							int i = sourceFileName.lastIndexOf(".");
+							sourceFileName = sourceFileName.substring(0, i);
+							
+							MindIdeCore.createCTemplate(
+									pack,
+									adlDefinition.getArchitecturedefinition().getNameFQN(),
+									sourceFileName,
+									null);
+						}
+					}
+				});
+	}
 }

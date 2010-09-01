@@ -1,10 +1,12 @@
 package org.ow2.mindEd.adl.textual.validation;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 import java.util.Map;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.xtext.validation.Check;
@@ -33,6 +35,7 @@ import org.ow2.mindEd.adl.textual.util.FractalUtil;
 import org.ow2.mindEd.ide.core.MindModelManager;
 import org.ow2.mindEd.ide.core.ModelToProjectUtil;
 import org.ow2.mindEd.ide.model.MindAdl;
+import org.ow2.mindEd.ide.model.MindFile;
 import org.ow2.mindEd.ide.model.MindPackage;
 
 import com.google.common.collect.Multiset;
@@ -59,6 +62,7 @@ public class FractalJavaValidator extends AbstractFractalJavaValidator {
 	public static final String DUPLICATE_TEMPLATE_SPECIFIER_NAME = "org.ow2.fractal.mind.xtext.validation.duplicate_template_specifier_name";
 	public static final String DUPLICATE_INTERFACE_NAME = "org.ow2.fractal.mind.xtext.validation.duplicate_interface_name";
 	public static final String UNKNOWN_INTERFACE = "org.ow2.fractal.mind.xtext.validation.unknown_interface";
+	public static final String UNKNOWN_SOURCE_FILE = "org.ow2.fractal.mind.xtext.validation.unknown_source";
 
 	/**
 	 * Register Mind Adl Package
@@ -291,32 +295,46 @@ public class FractalJavaValidator extends AbstractFractalJavaValidator {
 	/**
 	 * Assert that an implementation file associated to a primitive exists.
 	 * 
-	 * @param implementationDefinition
+	 * @param sourceDefinition
 	 */
 	@Check
-	public void assertImplementationFileExists(
+	public void assertSourceFileExists(
 			ImplementationDefinition implementationDefinition) {
 
 		FileC fileC = implementationDefinition.getFileC();
+	
 
 		// the file extension should be ".c"
-		if (!fileC.getFileName().endsWith(".c"))
+		if (!fileC.getFileName().endsWith(".c")) {
 			warning("The file extension should be \".c\" .",
 					AdlPackage.IMPLEMENTATION_DEFINITION__FILE_C);
-
-		/*
-		 * // -- assert that this file exists
-		 * 
-		 * EList<MindFile> files =
-		 * ModelToProjectUtil.INSTANCE.getMindProject().getAllFiles(); for
-		 * (MindFile file : files) { // here we are if
-		 * (file.getName().equals(fileC.getFileName())){ // the file exist, good
-		 * bye return; } } // we don't find it -> warning at least
-		 * warning("This source file cannot be found.",
-		 * AdlPackage.IMPLEMENTATION_DEFINITION__FILE_C);
-		 * 
-		 * // --
-		 */
+			// in this case we just get out
+			return;
+		}
+		
+		// -- assert that this file exists
+		 
+		EList<MindFile> files =	ModelToProjectUtil.INSTANCE.getMindProject().getAllFiles(); 
+		for	(MindFile file : files) {
+			
+			// here we are, we extract the file name 
+			int i = file.getFullpath().lastIndexOf(File.separator);
+			String tmpFile = file.getFullpath().substring(++i);
+			
+			if (tmpFile.equals(fileC.getFileName())){ 
+				// the file exist, good	bye
+				return; } 
+			}
+		
+		// we don't find it -> warning at least
+		warning("This source file cannot be found.",
+				AdlPackage.IMPLEMENTATION_DEFINITION__FILE_C,
+				FractalJavaValidator.UNKNOWN_SOURCE_FILE,
+				// we include the wanted file name
+				fileC.getFileName() );
+		
+		// --
+		
 	}
 
 	/**
