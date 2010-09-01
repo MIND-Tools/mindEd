@@ -160,8 +160,8 @@ public class MindExtensionHelper {
 		if (extensionElement != null && !(semantic instanceof Body)) {
 			String icon = extensionElement.getAttribute("icon");
 			String contributor = extensionElement.getContributor().getName();
-			
-			return Platform.getBundle(contributor).getResource(icon);
+			if (icon != null && contributor != null)
+				return Platform.getBundle(contributor).getResource(icon);
 		}
 		return null;
 	}
