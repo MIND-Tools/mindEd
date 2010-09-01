@@ -1,4 +1,4 @@
-package org.ow2.mindEd.adl.editor.graphic.ui.custom.providers;
+package org.ow2.mindEd.adl.editor.graphic.ui.custom.part;
 
 import org.eclipse.gef.EditPart;
 import org.eclipse.gmf.runtime.diagram.ui.tools.DragEditPartsTrackerEx;

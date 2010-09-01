@@ -38,8 +38,8 @@ public final class MindProjectItemProviderCustom extends
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.remove(MindidePackage.Literals.MIND_PROJECT__MINDPATHENTRIES);
-			childrenFeatures.add(MindidePackage.Literals.MIND_PROJECT__ROOTSRCS);
+			childrenFeatures.remove(MindidePackage.Literals.MIND_LIB_OR_PROJECT__MINDPATHENTRIES);
+			childrenFeatures.add(MindidePackage.Literals.MIND_LIB_OR_PROJECT__ROOTSRCS);
 		}
 		return childrenFeatures;
 	}

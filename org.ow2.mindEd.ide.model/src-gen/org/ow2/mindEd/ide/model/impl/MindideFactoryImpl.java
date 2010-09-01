@@ -76,7 +76,6 @@ public class MindideFactoryImpl extends EFactoryImpl implements MindideFactory {
 			case MindidePackage.MIND_IDF: return createMindIdf();
 			case MindidePackage.MIND_FILE: return createMindFile();
 			case MindidePackage.MIND_ALL_REPO: return createMindAllRepo();
-			case MindidePackage.MIND_OBJECT: return createMindObject();
 			case MindidePackage.MIND_PROJECT: return createMindProject();
 			case MindidePackage.MIND_PATH_ENTRY: return createMindPathEntry();
 			case MindidePackage.MIND_LIBRARY: return createMindLibrary();
@@ -229,16 +228,6 @@ public class MindideFactoryImpl extends EFactoryImpl implements MindideFactory {
 	public MindAllRepo createMindAllRepo() {
 		MindAllRepoImpl mindAllRepo = new MindAllRepoImpl();
 		return mindAllRepo;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public MindObject createMindObject() {
-		MindObjectImpl mindObject = new MindObjectImpl();
-		return mindObject;
 	}
 
 	/**
