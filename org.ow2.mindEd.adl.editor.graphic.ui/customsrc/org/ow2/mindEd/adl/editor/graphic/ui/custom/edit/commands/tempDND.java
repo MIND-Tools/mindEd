@@ -68,7 +68,7 @@ public class tempDND extends AbstractPopupMenu implements IObjectActionDelegate{
 					MindProject mindProject = ModelToProjectUtil.INSTANCE.getMindProject(project);
 					
 					// Get Mind File
-					MindFile mindFile = mindProject.findMindFile("mindpkg.df");
+					MindFile mindFile = mindProject.findMindFile("mindpkg.new");
 					if(mindFile != null)
 					{
 						// Test Type of Mind File
