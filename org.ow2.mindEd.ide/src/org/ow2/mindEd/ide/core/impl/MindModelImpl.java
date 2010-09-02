@@ -24,6 +24,7 @@ import org.eclipse.core.resources.IFolder;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IResource;
 import org.eclipse.core.resources.IWorkspace;
+import org.eclipse.core.resources.ResourceAttributes;
 import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.Assert;
 import org.eclipse.core.runtime.CoreException;
@@ -1071,6 +1072,16 @@ public class MindModelImpl implements MindModel {
 				mpe.setResolvedBy(p);
 			return;
 		}
+		if (mpe.getEntryKind() == MindPathKind.LIBRARY) {
+			MindLibrary p = findLibrary(mpe);
+			if (p != null)
+				mpe.setResolvedBy(p);
+			return;
+		}
+	}
+
+	private MindLibrary findLibrary(MindPathEntry mpe) {
+		return (MindLibraryImpl) _libs.get("repo/"+mpe.getName());
 	}
 
 	/** try to resolve project, source or import package.
@@ -1430,5 +1441,21 @@ public class MindModelImpl implements MindModel {
 		if (destFile.exists())
 			destFile.delete(true, monitor);
 		resource.copy(destFile.getFullPath(), true, monitor);
+		setReadOnly(destFile, true);
+	}
+	
+	/** (non-Javadoc)
+	 * @see IResource#setReadOnly(boolean)
+	 */
+	public void setReadOnly(IFile destFile, boolean readonly) {
+		ResourceAttributes attributes = destFile.getResourceAttributes();
+		if (attributes == null)
+			return;
+		attributes.setReadOnly(readonly);
+		try {
+			destFile.setResourceAttributes(attributes);
+		} catch (CoreException e) {
+			//failure is not an option
+		}
 	}
 }

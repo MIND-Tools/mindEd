@@ -7,13 +7,17 @@ import org.eclipse.core.resources.IResource;
 import org.eclipse.emf.edit.ui.provider.ExtendedImageRegistry;
 import org.eclipse.jface.window.Window;
 import org.eclipse.swt.widgets.Shell;
+import org.eclipse.ui.dialogs.ElementListSelectionDialog;
 import org.eclipse.ui.ide.dialogs.PathVariableSelectionDialog;
+import org.ow2.mindEd.ide.core.MindIdeCore;
 import org.ow2.mindEd.ide.core.impl.MindPathEntryCustomImpl;
 import org.ow2.mindEd.ide.edit.provider.MindIDEEditPlugin;
+import org.ow2.mindEd.ide.model.MindLibOrProject;
 import org.ow2.mindEd.ide.model.MindPathEntry;
 import org.ow2.mindEd.ide.model.MindPathKind;
 import org.ow2.mindEd.ide.model.MindProject;
 import org.ow2.mindEd.ide.model.MindideFactory;
+import org.ow2.mindEd.ide.ui.properties.MindMPELabelProvider;
 import org.ow2.mindEd.ide.ui.properties.MindMPETreeViewer;
 import org.ow2.mindEd.ide.ui.properties.MpeMindPathModel;
 
@@ -28,23 +32,26 @@ public final class MPENewLibrary extends MPEAction {
 
 	@Override
 	public void run() {
-		PathVariableSelectionDialog dialog 
-		     = new PathVariableSelectionDialog(getShell(), IResource.FOLDER|IResource.FILE);
+		ElementListSelectionDialog dialog 
+		     = new ElementListSelectionDialog(getShell(), new MindMPELabelProvider());
 		dialog.setTitle("Library entry");
 		dialog.setMessage("Library entry");
+		dialog.setElements(MindIdeCore.getModel().getLocalRepo().getMindLibOrProjects().toArray());
+		dialog.setIgnoreCase(false);
+		dialog.setAllowDuplicates(false);
+		dialog.setMultipleSelection(false);
+		
 		int responce = dialog.open();
 		if (responce == Window.OK) {
-			String[] result = (String[]) dialog.getResult();
+			Object[] result = dialog.getResult();
 			MindPathEntry mpe = null;
 			if (mpe == null) {
 				mpe = MindideFactory.eINSTANCE
 						.createMindPathEntry();
 				mpe.setEntryKind(MindPathKind.LIBRARY);
-				mpe.setName(result[0]);
+				mpe.setName(((MindLibOrProject)result[0]).getName());
+				mpe.setResolvedBy(((MindLibOrProject)result[0]));
 				_model.mpeAdded(mpe);
-			} else {
-				mpe.setName(result[0]);
-				_model.mpeChanged(mpe);
 			}
 		}
 	}

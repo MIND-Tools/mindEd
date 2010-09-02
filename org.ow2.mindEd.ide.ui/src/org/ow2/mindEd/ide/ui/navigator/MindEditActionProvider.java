@@ -3,6 +3,7 @@ package org.ow2.mindEd.ide.ui.navigator;
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.runtime.IAdaptable;
 import org.eclipse.core.runtime.Platform;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.emf.edit.ui.action.CopyAction;
 import org.eclipse.emf.edit.ui.action.CutAction;
@@ -13,11 +14,13 @@ import org.eclipse.emf.edit.ui.action.UndoAction;
 import org.eclipse.jface.action.ActionContributionItem;
 import org.eclipse.jface.action.IMenuManager;
 import org.eclipse.jface.action.Separator;
+import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.jface.viewers.DoubleClickEvent;
 import org.eclipse.jface.viewers.IDoubleClickListener;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.viewers.StructuredSelection;
+import org.eclipse.swt.widgets.MessageBox;
 import org.eclipse.ui.IActionBars;
 import org.eclipse.ui.ISharedImages;
 import org.eclipse.ui.IViewPart;
@@ -28,6 +31,8 @@ import org.eclipse.ui.navigator.CommonActionProvider;
 import org.eclipse.ui.navigator.ICommonActionExtensionSite;
 import org.eclipse.ui.navigator.ICommonMenuConstants;
 import org.eclipse.ui.views.properties.PropertySheet;
+import org.ow2.mindEd.ide.core.MindIdeCore;
+import org.ow2.mindEd.ide.model.MindObject;
 import org.ow2.mindEd.ide.ui.Activator;
 
 public class MindEditActionProvider extends CommonActionProvider {
@@ -91,7 +96,29 @@ public class MindEditActionProvider extends CommonActionProvider {
 		ISharedImages sharedImages = PlatformUI.getWorkbench()
 				.getSharedImages();
 		EditingDomain domain = new MindEditingDomain((MindUICore.mindViewAdapterFactory()));
-		deleteAction = new DeleteAction(domain, removeAllReferencesOnDelete());
+		deleteAction = new DeleteAction(domain, removeAllReferencesOnDelete()) {
+			public void run() {
+				if (MessageDialog.openConfirm( null, "Do you want delete ?",  "Do you want delete ?"))
+					super.run();
+			}
+			
+			public boolean updateSelection(IStructuredSelection selection) {
+				for (Object obj : selection.toArray()) {
+					if (obj instanceof MindObject && isReadOnly((MindObject) obj))
+						return false;
+				}
+				return super.updateSelection(selection);
+			}
+
+			private boolean isReadOnly(EObject obj) {
+				if (obj == MindIdeCore.getModel().getLocalRepo())
+					return true;
+				if (obj.eContainer() != null)
+					return isReadOnly(obj.eContainer());
+				return false;
+			};
+			
+		};
 		deleteAction.setImageDescriptor(sharedImages
 				.getImageDescriptor(ISharedImages.IMG_TOOL_DELETE));
 
@@ -192,10 +219,10 @@ public class MindEditActionProvider extends CommonActionProvider {
 			ISelection selection = context.getSelection();
 			IStructuredSelection structuredSelection = selection instanceof IStructuredSelection ? (IStructuredSelection) selection
 					: StructuredSelection.EMPTY;
-			deleteAction.updateSelection(structuredSelection);
-			cutAction.updateSelection(structuredSelection);
-			copyAction.updateSelection(structuredSelection);
-			pasteAction.updateSelection(structuredSelection);
+			deleteAction.setEnabled(deleteAction.updateSelection(structuredSelection));
+			cutAction.setEnabled(cutAction.updateSelection(structuredSelection));
+			copyAction.setEnabled(copyAction.updateSelection(structuredSelection));
+			pasteAction.setEnabled(pasteAction.updateSelection(structuredSelection));
 			undoAction.update();
 			redoAction.update();
 		}

@@ -11,6 +11,7 @@ import org.eclipse.jface.viewers.LabelProvider;
 import org.eclipse.swt.graphics.Image;
 import org.ow2.mindEd.ide.edit.provider.MindIDEEditPlugin;
 import org.ow2.mindEd.ide.model.MindAdl;
+import org.ow2.mindEd.ide.model.MindLibOrProject;
 import org.ow2.mindEd.ide.model.MindPathEntry;
 import org.ow2.mindEd.ide.model.MindProject;
 
@@ -39,8 +40,8 @@ public class MindMPELabelProvider
 			MindAdl adl = (MindAdl) element;
 			return adl.getQualifiedName();
 		}
-		if (element instanceof MindProject) {
-			MindProject mindProject = (MindProject) element;
+		if (element instanceof MindLibOrProject) {
+			MindLibOrProject mindProject = (MindLibOrProject) element;
 			return mindProject.getName();
 		}
 		return super.getText(element);
