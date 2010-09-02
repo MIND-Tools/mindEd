@@ -32,7 +32,8 @@
             primary="true">
       </toc>
       <toc
-            file="topics_Concepts.xml">
+            file="topics_Concepts.xml"
+            primary="false">
       </toc>
       <toc
             file="contexts_MIND_UI.xml"
