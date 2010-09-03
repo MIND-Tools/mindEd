@@ -28,6 +28,7 @@ import org.eclipse.ui.internal.WorkbenchPlugin;
 import org.eclipse.ui.part.FileEditorInput;
 import org.ow2.mindEd.adl.Body;
 import org.ow2.mindEd.adl.InterfaceDefinition;
+import org.ow2.mindEd.adl.Role;
 import org.ow2.mindEd.adl.custom.util.CreationUtil;
 import org.ow2.mindEd.adl.editor.graphic.ui.edit.parts.PrimitiveBodyEditPart;
 import org.ow2.mindEd.adl.editor.graphic.ui.part.MindDiagramEditor;
@@ -133,7 +134,7 @@ public class WizardAddNewInterface extends Wizard{
               TransactionImpl transaction = new TransactionImpl(bodyEditPart.getEditingDomain(), false);
               transaction.start();
               newInterface = CreationUtil.createInterface((Body) (bodyEditPart.resolveSemanticElement())
-            		  ,null
+            		  ,Role.REQUIRES
             		  ,newInterfaceInformation.getName()
             		  ,newInterfaceInformation.getPath()
             		  ,newInterfaceInformation.isOptional()
