@@ -23,6 +23,7 @@ import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IFolder;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IResource;
+import org.eclipse.core.resources.IResourceVisitor;
 import org.eclipse.core.resources.IWorkspace;
 import org.eclipse.core.resources.ResourceAttributes;
 import org.eclipse.core.resources.ResourcesPlugin;
@@ -896,6 +897,10 @@ public class MindModelImpl implements MindModel {
 	public void remove(MindFile mp) {
 		mp.getPackage().getFiles().remove(mp);
 	}
+	
+	public void remove(MindPackage p) {
+		remove(p.getRootsrc(), p, true);
+	}
 
 	public void remove(MindRootSrc rs, MindPackage mindPackage, boolean removeSubPackage) {
 		List<MindPackage> list = _packages.get(mindPackage.getName());
@@ -1397,51 +1402,119 @@ public class MindModelImpl implements MindModel {
 	}
 	
 	@Override
-	public MindLibrary createMindLibFromProject(MindProject mp, String libName, IProgressMonitor monitor) throws CoreException {
-		IFolder r = _localRepoContainer.getFolder(new Path(libName));
-		if (!r.exists())
-			r.create(true, true, monitor);
-		MindLibrary lib = findOrCreateLib(r, libName, _repoMindRoot, false);
-		HashSet<IPath> pathsAdded = new HashSet<IPath>();
-		for (MindRootSrc rs : mp.getRootsrcs()) {
-			IFolder sourceFolder = MindIdeCore.getResource(rs);
-			try {
-				syncFolder(sourceFolder, Path.EMPTY, r, pathsAdded, monitor);
-			} catch (CoreException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+	public MindLibrary createMindLibFromProject(MindProject mp, String libName, IProgressMonitor monitor)  {
+		List<CoreException> errors;
+		IFolder r = null;
+		MindLibrary lib = null;
+		errors = new ArrayList<CoreException>();
+		try {
+			r = _localRepoContainer.getFolder(new Path(libName));
+			if (!r.exists())
+				r.create(true, true, monitor);
+			lib = findOrCreateLib(r, libName, _repoMindRoot, false);
+			final HashSet<IPath> pathsAdded = new HashSet<IPath>();
+			for (MindRootSrc rs : mp.getRootsrcs()) {
+				IFolder sourceFolder = MindIdeCore.getResource(rs);
+				try {
+					syncFolder(sourceFolder, Path.EMPTY, r, pathsAdded, monitor, errors);
+				} catch (CoreException e) {
+					errors.add(e);
+				}
 			}
+			final int libSegmentCount = r.getFullPath().segmentCount();
+			
+			final HashSet<IResource> mustDelete = new HashSet<IResource>();
+			// remove deleted file
+			try {
+				r.accept(new IResourceVisitor() {
+					
+					@Override
+					public boolean visit(IResource resource) throws CoreException {
+						IPath p = resource.getFullPath();
+						if (resource.getType() == IResource.FILE) {
+							p = p.removeFirstSegments(libSegmentCount);
+							if (! pathsAdded.contains(p)) {
+								mustDelete.add(resource);
+							}						
+						}
+						return true;
+					}
+				});
+			} catch (CoreException e1) {
+				errors.add(e1);
+			}
+			for (IResource res : mustDelete) {
+				try {
+					setReadOnly((IFile) res, false);
+					res.delete(true, monitor);
+					MindFile f = (MindFile) MindIdeCore.get(res);
+					if (f != null)
+						remove(f);
+				} catch (CoreException e) {
+					errors.add(e);
+				}
+			}
+			for (IResource res : mustDelete) {
+				IContainer packageOrLib = res.getParent();
+				if (packageOrLib == r || packageOrLib == null || !packageOrLib.exists()) continue;
+				if (!UtilMindIde.hasFile(packageOrLib)) {
+					try {
+						packageOrLib.delete(true, monitor);
+						MindPackage f = (MindPackage) MindIdeCore.get(res);
+						if (f != null)
+							remove(f);
+					} catch (CoreException e) {
+						errors.add(e);
+					}
+				}
+			}
+		} catch (CoreException e) {
+			errors.add(e);
 		}
-		
-		//TODO remove deleted file
-		
+			
+		if (errors.size() > 0) {
+			IStatus[] errrosStatus = new IStatus[errors.size()];
+			for (int i = 0; i < errrosStatus.length; i++) {
+				errrosStatus[i] = errors.get(i).getStatus();
+			}
+			IStatus s = new MultiStatus(MindActivator.ID, 0, errrosStatus, "Errors in sync "+libName, null);
+			MindActivator.log(s);
+		}
+				
 		syncMindPath(r, lib, _repoMindRoot, true);
 		return lib;
 	}
 
 	private void syncFolder(IFolder sourceFolder, IPath p, IFolder r,
-			HashSet<IPath> pathsAdded, IProgressMonitor monitor) throws CoreException {
+			HashSet<IPath> pathsAdded, IProgressMonitor monitor, List<CoreException> errors) throws CoreException {
 		for (IResource resource : sourceFolder.members()) {
 			if (resource.getType() == IResource.FILE) {
 				if (pathsAdded.add(p.append(resource.getName()))) {
-					copyFile((IFile) resource, r.getFile(resource.getName()), monitor);
+					copyFile((IFile) resource, r.getFile(resource.getName()), monitor, errors);
 				}
 			} else {
 				if (resource.getType() == IResource.FOLDER) {
 					IFolder rSubFolder = r.getFolder(resource.getName());
 					if (!rSubFolder.exists())
 						rSubFolder.create(true, true, monitor);
-					syncFolder((IFolder) resource, p.append(resource.getName()), rSubFolder, pathsAdded, monitor);
+					syncFolder((IFolder) resource, p.append(resource.getName()), rSubFolder, pathsAdded, monitor, errors);
 				}
 			}
 		}
 	}
 
-	private void copyFile(IFile resource, IFile destFile, IProgressMonitor monitor) throws CoreException {
-		if (destFile.exists())
-			destFile.delete(true, monitor);
-		resource.copy(destFile.getFullPath(), true, monitor);
-		setReadOnly(destFile, true);
+	private void copyFile(IFile resource, IFile destFile, IProgressMonitor monitor, List<CoreException> errors)  {
+		try {
+			if (destFile.exists()) {
+
+				setReadOnly(destFile, false);
+				destFile.delete(true, monitor);
+			}
+			resource.copy(destFile.getFullPath(), true, monitor);
+			setReadOnly(destFile, true);
+		} catch (CoreException e) {
+			errors.add(e);
+		}
 	}
 	
 	/** (non-Javadoc)
@@ -1452,6 +1525,7 @@ public class MindModelImpl implements MindModel {
 		if (attributes == null)
 			return;
 		attributes.setReadOnly(readonly);
+		attributes.setArchive(true);
 		try {
 			destFile.setResourceAttributes(attributes);
 		} catch (CoreException e) {
