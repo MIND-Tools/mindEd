@@ -9,6 +9,7 @@ import org.eclipse.draw2d.DelegatingLayout;
 import org.eclipse.draw2d.FreeformLayer;
 import org.eclipse.draw2d.Layer;
 import org.eclipse.draw2d.LayeredPane;
+import org.eclipse.draw2d.geometry.Point;
 import org.eclipse.emf.common.ui.URIEditorInput;
 import org.eclipse.emf.edit.command.CommandParameter;
 import org.eclipse.emf.edit.ui.dnd.LocalTransfer;
@@ -117,7 +118,8 @@ public class CustomMindDiagramEditor extends MindDiagramEditor {
 						super.handleDrop();
 						DragAndDrop.executeDrop(
 								getObjectsBeingDropped(), 
-								getTargetEditPart());
+								getTargetEditPart(),
+								new Point (getCurrentEvent().x,getCurrentEvent().y));
 
 					}
 					
