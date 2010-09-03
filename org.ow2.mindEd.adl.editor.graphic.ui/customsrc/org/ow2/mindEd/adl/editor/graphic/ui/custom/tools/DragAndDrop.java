@@ -4,14 +4,25 @@ import java.util.ArrayList;
 import java.util.List;
 
 
+import org.eclipse.core.runtime.IAdaptable;
+import org.eclipse.draw2d.geometry.Dimension;
+import org.eclipse.draw2d.geometry.Point;
+import org.eclipse.draw2d.geometry.Rectangle;
+import org.eclipse.emf.ecore.resource.ResourceSet;
+import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
+import org.eclipse.emf.transaction.TransactionalEditingDomain;
 import org.eclipse.emf.transaction.impl.TransactionImpl;
 import org.eclipse.gef.EditPart;
 import org.eclipse.gef.commands.Command;
 import org.eclipse.gmf.runtime.common.core.command.CommandResult;
+import org.eclipse.gmf.runtime.diagram.core.edithelpers.CreateElementRequestAdapter;
+import org.eclipse.gmf.runtime.diagram.ui.commands.SetBoundsCommand;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.GraphicalEditPart;
+import org.eclipse.gmf.runtime.diagram.ui.editpolicies.CanonicalEditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.requests.EditCommandRequestWrapper;
 import org.eclipse.gmf.runtime.emf.type.core.commands.EditElementCommand;
 import org.eclipse.gmf.runtime.emf.type.core.requests.CreateElementRequest;
+import org.eclipse.gmf.runtime.notation.NotationPackage;
 import org.ow2.mindEd.adl.custom.impl.CompositeReferenceDefinitionCustomImpl;
 import org.ow2.mindEd.adl.custom.impl.FileCCustomImpl;
 import org.ow2.mindEd.adl.custom.impl.ImplementationDefinitionCustomImpl;
@@ -40,9 +51,12 @@ import org.ow2.mindEd.ide.model.MindAdl;
 import org.ow2.mindEd.ide.model.MindC;
 import org.ow2.mindEd.ide.model.MindFile;
 import org.ow2.mindEd.ide.model.MindItf;
+import org.eclipse.gmf.runtime.diagram.ui.requests.CreateViewAndElementRequest;
 
 public class DragAndDrop {
 
+	protected static SetBoundsCommand testBounds = null;
+	
 	public static boolean isValid(List listDropObject, EditPart targetEditPart)
 	{
 		boolean valid = true;
@@ -100,6 +114,7 @@ public class DragAndDrop {
 				{
 					mindFile = (MindFile)object;
 					EditElementCommand command = null;
+					CreateElementRequest request = null;
 					GraphicalEditPart EP = null;
 					if (targetEditPart instanceof GraphicalEditPart)
 						EP = (GraphicalEditPart)targetEditPart;
@@ -112,17 +127,20 @@ public class DragAndDrop {
 						{
 							// If Drop on Composite Body or Sub-Component Composite Body
 							// Create new Undefined Primitive Sub-Component
-							CreateElementRequest createNewUndefinedSubComponent = new CreateElementRequest(EP.getEditingDomain(), EP.resolveSemanticElement() , MindElementTypes.SubComponentDefinition_3153);
-							command = new UndefinedSubComponentCreateCommand(createNewUndefinedSubComponent);
+							request = new CreateElementRequest(EP.getEditingDomain(), EP.resolveSemanticElement() , MindElementTypes.SubComponentDefinition_3153);
+							command = new UndefinedSubComponentCreateCommand(request);
 							command.setLabel(mindFile.getFullpath());
 						}
 						else if(targetEditPart instanceof AdlDefinitionCustomEditPart)
 						{
 							// If Drop on ADL Definition
 							// Create new Primitive Component
-							CreateElementRequest createNewPrimitiveComponent = new CreateElementRequest(EP.getEditingDomain(), EP.resolveSemanticElement() , MindElementTypes.PrimitiveComponentDefinition_2008);
-							command = new PrimitiveComponentDefinitionCreateCommand(createNewPrimitiveComponent);
+							request = new CreateElementRequest(EP.getEditingDomain(), EP.resolveSemanticElement() , MindElementTypes.PrimitiveComponentDefinition_2008);
+							command = new PrimitiveComponentDefinitionCreateCommand(request);
 							command.setLabel(mindFile.getFullpath());
+
+							
+							
 						}
 						else if(targetEditPart instanceof SubComponentPrimitiveBodyCompartmentEditPart)
 						{
@@ -130,12 +148,12 @@ public class DragAndDrop {
 							
 							PrimitiveSubComponentCustomEditPart primitiveSubCompo = (PrimitiveSubComponentCustomEditPart) EP.getParent().getParent();
 							
-							CreateElementRequest createNewExtends = new CreateElementRequest(
+							request = new CreateElementRequest(
 									primitiveSubCompo.getEditingDomain(), 
 									primitiveSubCompo.resolveSemanticElement() , 
 									MindElementTypes.CompositeComponentDefinition_2007);
 			
-							command = new PrimitiveSubReferenceCreateCommand(createNewExtends);
+							command = new PrimitiveSubReferenceCreateCommand(request);
 							command.setLabel(mindFile.getFullpath());
 						}
 						else if(targetEditPart instanceof PrimitiveBodyCompartmentCustomEditPart)
@@ -143,12 +161,12 @@ public class DragAndDrop {
 							// If Drop on Primitive Component
 							PrimitiveComponentDefinitionCustomEditPart primitiveCompo = (PrimitiveComponentDefinitionCustomEditPart) EP.getParent().getParent();
 							
-							CreateElementRequest createNewExtends = new CreateElementRequest(
+							request = new CreateElementRequest(
 									primitiveCompo.getEditingDomain(), 
 									primitiveCompo.resolveSemanticElement() , 
 									MindElementTypes.PrimitiveReferencesList_3124);
 			
-							command = new PrimitiveReferencesListCreateCommand(createNewExtends);
+							command = new PrimitiveReferencesListCreateCommand(request);
 							command.setLabel(mindFile.getFullpath());
 							
 						}
@@ -160,39 +178,39 @@ public class DragAndDrop {
 								|| (targetEditPart instanceof SubComponentCompositeBodyCompartmentEditPart))
 						{
 							// If Drop on Composite Body or Sub-Component Composite Body
-							CreateElementRequest createNewPrimitiveSubComponent = new CreateElementRequest(EP.getEditingDomain(), EP.resolveSemanticElement() , MindElementTypes.SubComponentDefinition_3135);
-							command = new PrimitiveSubComponentCreateCommand(createNewPrimitiveSubComponent);
+							request = new CreateElementRequest(EP.getEditingDomain(), EP.resolveSemanticElement() , MindElementTypes.SubComponentDefinition_3135);
+							command = new PrimitiveSubComponentCreateCommand(request);
 							command.setLabel(mindFile.getFullpath());
 						}
 						else if(targetEditPart instanceof AdlDefinitionCustomEditPart)
 						{
 							// If Drop on ADL Definition
 							// Create new Primitive Component
-							CreateElementRequest createNewPrimitiveComponent = new CreateElementRequest(EP.getEditingDomain(), EP.resolveSemanticElement() , MindElementTypes.PrimitiveComponentDefinition_2008);
-							command = new PrimitiveComponentDefinitionCreateCommand(createNewPrimitiveComponent);
+							request = new CreateElementRequest(EP.getEditingDomain(), EP.resolveSemanticElement() , MindElementTypes.PrimitiveComponentDefinition_2008);
+							command = new PrimitiveComponentDefinitionCreateCommand(request);
 							command.setLabel(mindFile.getFullpath());
 						}
 						else if((targetEditPart instanceof SubComponentPrimitiveBodyCompartmentEditPart)
 								|| (targetEditPart instanceof PrimitiveBodyCompartmentCustomEditPart))
 						{
 							// If Drop on Primitive Sub Component or Primitive Component								
-							CreateElementRequest createNewImplementation = new CreateElementRequest(
+							request = new CreateElementRequest(
 									EP.getEditingDomain(), 
 									EP.resolveSemanticElement() , 
 									MindElementTypes.ImplementationDefinition_3140);
-							command = new ImplementationDefinitionCreateCommand(createNewImplementation);
+							command = new ImplementationDefinitionCreateCommand(request);
 							command.setLabel(mindFile.getFullpath());
 						}
 					}
 					if(mindFile instanceof MindItf)
 					{
 						Command newInterfaceCommand = null;
-						CreateElementRequest createNewInterface = new CreateElementRequest(EP.getEditingDomain(), EP.resolveSemanticElement() , MindElementTypes.InterfaceDefinition_3130);
-						EditCommandRequestWrapper wrapper = new EditCommandRequestWrapper(createNewInterface);
+						request = new CreateElementRequest(EP.getEditingDomain(), EP.resolveSemanticElement() , MindElementTypes.InterfaceDefinition_3130);
+						EditCommandRequestWrapper wrapper = new EditCommandRequestWrapper(request);
 						newInterfaceCommand = targetEditPart.getCommand(wrapper);
 						if(newInterfaceCommand == null)
 						{
-							command = new InterfaceDefinitionCreateCommand(createNewInterface){
+							command = new InterfaceDefinitionCreateCommand(request){
 								@Override
 								public boolean canExecute() {
 									return false;
@@ -201,15 +219,34 @@ public class DragAndDrop {
 						}
 						else
 						{
-							command = new InterfaceDefinitionCreateCommand(createNewInterface);
+							command = new InterfaceDefinitionCreateCommand(request);
 						}
 						command.setLabel(mindFile.getFullpath());
 					}
-					
-					if (command != null)
+					if(command != null)
 					{
 						commadList.add(command);
 					}
+					
+					CreateElementRequestAdapter adapter = new CreateElementRequestAdapter(request);
+
+					
+					
+					Dimension size = new Dimension(20, 20);
+					Rectangle bounds = new Rectangle(20,20,20,20);
+					
+					SetBoundsCommand test = new SetBoundsCommand(
+							command.getEditingDomain(), 
+							command.getLabel(), 
+							(IAdaptable) adapter, 
+							bounds);
+				
+					
+					if (test != null)
+						testBounds = test;
+					else
+						testBounds = null;
+
 				}
 			}
 		}
@@ -255,21 +292,24 @@ public class DragAndDrop {
 									CompositeReferenceDefinitionImpl newReferenceDefinition = new CompositeReferenceDefinitionImpl();
 									newReferenceDefinition.setReferenceName(mindFile.getQualifiedName());
 									SubComponentDefinitionCustomImpl subComponentDefinition = (SubComponentDefinitionCustomImpl) commandResult.getReturnValue();
-									subComponentDefinition.setName(mindFile.getName());
+									//subComponentDefinition.setName(mindFile.getName() + "_adl");
 									
 									subComponentDefinition.setReferenceDefinition(newReferenceDefinition);
+									
 								}
 								else if(targetEditPart instanceof AdlDefinitionCustomEditPart)
 								{
 									// If Drop on ADL Definition
 									PrimitiveComponentDefinitionCustomImpl primitiveComponentDefinition = (PrimitiveComponentDefinitionCustomImpl) commandResult.getReturnValue();
-									primitiveComponentDefinition.setName(mindFile.getName());
 									PrimitiveReferencesListImpl referenceList = new PrimitiveReferencesListImpl();
 									PrimitiveReferenceDefinitionCustomImpl newReferenceDefinition = new PrimitiveReferenceDefinitionCustomImpl();
 									
 									newReferenceDefinition.setReferenceName(mindFile.getQualifiedName());
 									primitiveComponentDefinition.setReferencesList(referenceList);
 									newReferenceDefinition.setParentReferencesList(referenceList);
+									
+									//primitiveComponentDefinition.setName(mindFile.getName() + "_adl");
+									
 								}
 								else if(targetEditPart instanceof SubComponentPrimitiveBodyCompartmentEditPart)
 								{
@@ -332,10 +372,29 @@ public class DragAndDrop {
 								InterfaceDefinitionCustomImpl newInterfaceDefinition = (InterfaceDefinitionCustomImpl) commandResult.getReturnValue();
 								newInterfaceDefinition.setSignature(mindFile.getQualifiedName());
 								newInterfaceDefinition.setName(mindFile.getName());
-							}
 								
+							}
+
 							transaction.commit();
 							
+							
+							
+							List<CanonicalEditPolicy> ListEditPolicy = CanonicalEditPolicy.getRegisteredEditPolicies(EP.getNotationView().getElement());
+							for(CanonicalEditPolicy EPItem : ListEditPolicy)
+							{
+								EPItem.refresh();				        
+							}
+							
+							SetBoundsCommand temp = testBounds;
+							if(testBounds != null)
+							{
+								if (testBounds.canExecute())
+								{
+									int a = 1;
+									testBounds.execute(null, null);
+									a = a * 1;
+								}
+							}
 							
 						}catch (Exception e){
 							e.printStackTrace();

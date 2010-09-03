@@ -55,7 +55,7 @@ public class tempDND extends AbstractPopupMenu implements IObjectActionDelegate{
 
 	@Override
 	public void run(IAction action) {
-		
+		Object test_return = null;
 		try {
 				ISelection selection = ((PluginAction)action).getSelection();
 				@SuppressWarnings("rawtypes")
@@ -68,7 +68,7 @@ public class tempDND extends AbstractPopupMenu implements IObjectActionDelegate{
 					MindProject mindProject = ModelToProjectUtil.INSTANCE.getMindProject(project);
 					
 					// Get Mind File
-					MindFile mindFile = mindProject.findMindFile("mindpkg.new");
+					MindFile mindFile = mindProject.findMindFile("mindpkg.df");
 					if(mindFile != null)
 					{
 						// Test Type of Mind File
@@ -90,6 +90,7 @@ public class tempDND extends AbstractPopupMenu implements IObjectActionDelegate{
 								// If Drop on ADL Definition
 								// Create new Primitive Component
 								CreateElementRequest createNewPrimitiveComponent = new CreateElementRequest(EP.getEditingDomain(), EP.resolveSemanticElement() , MindElementTypes.PrimitiveComponentDefinition_2008);
+								test_return = createNewPrimitiveComponent.getNewElement();
 								command = new PrimitiveComponentDefinitionCreateCommand(createNewPrimitiveComponent); 
 							}
 							else if(element instanceof SubComponentPrimitiveBodyCompartmentEditPart)
