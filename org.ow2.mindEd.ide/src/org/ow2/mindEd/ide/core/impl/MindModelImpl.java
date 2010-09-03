@@ -517,10 +517,7 @@ public class MindModelImpl implements MindModel {
 		}
 
 		IWorkspace workspace = ResourcesPlugin.getWorkspace();
-		workspace.addResourceChangeListener(_wsListener);
-		
-		
-		
+		workspace.addResourceChangeListener(_wsListener);	
 	}
 
 	@Override
@@ -768,16 +765,16 @@ public class MindModelImpl implements MindModel {
 					.getNewValue());
 			break;
 		case Notification.ADD_MANY:
-			for (MindProject p : ((Collection<MindProject>) notification
+			for (MindLibOrProject p : ((Collection<MindLibOrProject>) notification
 					.getNewValue())) {
 				MindModelImpl.this.resolve(p);
 			}
 			break;
 		case Notification.REMOVE:
-			unresolve((MindProject) notification.getOldValue());
+			unresolve((MindLibOrProject) notification.getOldValue());
 			break;
 		case Notification.REMOVE_MANY:
-			for (MindProject p : ((Collection<MindProject>) notification
+			for (MindLibOrProject p : ((Collection<MindLibOrProject>) notification
 					.getOldValue())) {
 				unresolve(p);
 			}
@@ -807,7 +804,6 @@ public class MindModelImpl implements MindModel {
 				remove(p);
 			}
 			break;
-
 		}
 	}
 
@@ -865,7 +861,6 @@ public class MindModelImpl implements MindModel {
 				mpe_project.removeSrcDep(l);
 			}
 			break;
-
 		}
 	}
 
@@ -890,7 +885,6 @@ public class MindModelImpl implements MindModel {
 				remove((MindRootSrc) notification.getNotifier(), p, true);
 			}
 			break;
-
 		}
 	}
 
@@ -1208,6 +1202,10 @@ public class MindModelImpl implements MindModel {
 			}
 		}
 	}
+	void unresolve(MindLibOrProject lop) {
+		if (lop instanceof MindProject)
+			unresolve((MindProject) lop);
+	}
 
 	/**
 	 * Delete project
@@ -1394,6 +1392,7 @@ public class MindModelImpl implements MindModel {
 			ret.setMindId(mindRepo.getMindId() + "/" + libname);
 			ret.setFullpath(resource.getFullPath().toPortableString());
 			mindRepo.getMindLibOrProjects().add(ret);
+			//mindRepo.getRootsrcs().add(ret); pose un problème dans la vue.
 		}
 		
 		if (sync)
