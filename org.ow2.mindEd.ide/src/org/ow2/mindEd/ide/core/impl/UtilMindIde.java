@@ -1,5 +1,6 @@
 package org.ow2.mindEd.ide.core.impl;
 
+import org.eclipse.core.resources.IContainer;
 import org.eclipse.core.resources.IFolder;
 import org.eclipse.core.resources.IResource;
 import org.eclipse.core.runtime.CoreException;
@@ -143,7 +144,7 @@ public class UtilMindIde {
 	 * @param f a folder
 	 * @return true if has file or is a sheet element
 	 */
-	public static boolean hasFile(IFolder f) {
+	public static boolean hasFile(IContainer f) {
 		try {
 			IResource[] members = f.members();
 			if (members.length == 0)
