@@ -12,6 +12,9 @@ import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.draw2d.geometry.Point;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.impl.EObjectImpl;
+import org.eclipse.emf.transaction.RollbackException;
+import org.eclipse.emf.transaction.impl.TransactionImpl;
 import org.eclipse.gef.EditPart;
 import org.eclipse.gef.EditPartViewer;
 import org.eclipse.gef.Request;
@@ -19,6 +22,7 @@ import org.eclipse.gef.RootEditPart;
 import org.eclipse.gef.commands.Command;
 import org.eclipse.gef.requests.CreateRequest;
 import org.eclipse.gmf.runtime.common.core.command.CommandResult;
+import org.eclipse.gmf.runtime.diagram.core.edithelpers.CreateElementRequestAdapter;
 import org.eclipse.gmf.runtime.diagram.core.preferences.PreferencesHint;
 import org.eclipse.gmf.runtime.diagram.ui.commands.SetBoundsCommand;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.GraphicalEditPart;
@@ -29,8 +33,12 @@ import org.eclipse.gmf.runtime.diagram.ui.requests.CreateViewRequest;
 import org.eclipse.gmf.runtime.diagram.ui.requests.CreateViewRequestFactory;
 import org.eclipse.gmf.runtime.emf.commands.core.command.AbstractTransactionalCommand;
 import org.eclipse.gmf.runtime.emf.type.core.IElementType;
+import org.eclipse.gmf.runtime.emf.type.core.requests.CreateElementRequest;
 import org.eclipse.gmf.runtime.notation.View;
+import org.eclipse.gmf.runtime.notation.impl.ShapeImpl;
+import org.ow2.mindEd.adl.CompositeComponentDefinition;
 import org.ow2.mindEd.adl.CompositeReferenceDefinition;
+import org.ow2.mindEd.adl.Element;
 import org.ow2.mindEd.adl.ImplementationDefinition;
 import org.ow2.mindEd.adl.InterfaceDefinition;
 import org.ow2.mindEd.adl.PrimitiveComponentDefinition;
@@ -43,6 +51,7 @@ import org.ow2.mindEd.adl.custom.impl.InterfaceDefinitionCustomImpl;
 import org.ow2.mindEd.adl.custom.impl.PrimitiveComponentDefinitionCustomImpl;
 import org.ow2.mindEd.adl.custom.impl.PrimitiveReferenceDefinitionCustomImpl;
 import org.ow2.mindEd.adl.custom.impl.SubComponentDefinitionCustomImpl;
+import org.ow2.mindEd.adl.custom.impl.SubComponentPrimitiveBodyCustomImpl;
 import org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.parts.AdlDefinitionCustomEditPart;
 import org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.parts.CompositeBodyCompartmentCustomEditPart;
 import org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.parts.PrimitiveBodyCompartmentCustomEditPart;
@@ -199,7 +208,7 @@ public class DragAndDrop {
 		return commadList;
 	}
 
-
+	
 	public static void executeDrop(List listDropObject, EditPart targetEditPart, Point location) {
 		// TODO Auto-generated method stub
 		
@@ -209,6 +218,8 @@ public class DragAndDrop {
 		GraphicalEditPart EP = null;
 		if (targetEditPart instanceof GraphicalEditPart)
 			EP = (GraphicalEditPart)targetEditPart;
+		
+		List <String> componentName = getNameSubComponent(EP);
 		
 		IElementType type = null;
 		for(Object object : listDropObject)
@@ -225,99 +236,202 @@ public class DragAndDrop {
 						if(command.canExecute())
 						{
 							command.execute();
+							Collection temp = DiagramCommandStack.getReturnValues(command);
 							List<View> addedViews = getAddedViews(EP.getViewer(), DiagramCommandStack.getReturnValues(command));
 							
-							for(View view : addedViews) {
-								final EObject element = view.getElement();
-								final MindFile mindFileInsert = mindFile;
-								AbstractTransactionalCommand semanticChange = new AbstractTransactionalCommand(EP.getEditingDomain(),"label",null) {	
-									@Override
-									protected CommandResult doExecuteWithResult(IProgressMonitor monitor,
-											IAdaptable info) throws ExecutionException {
-										// Set name, body and all here
-										if(mindFileInsert instanceof MindAdl)
+							for(Object elementRequest : temp)
+							{
+
+								if(elementRequest instanceof CreateElementRequestAdapter)
+								{
+									CreateElementRequest request = (CreateElementRequest) ((CreateElementRequestAdapter)elementRequest).getAdapter(CreateElementRequest.class);
+									Object element = request.getNewElement();
+									
+									TransactionImpl transaction = new TransactionImpl(EP.getEditingDomain(), false);
+									
+									try {
+										transaction.start();
+
+										if(mindFile instanceof MindAdl)
 										{
 											if (element instanceof SubComponentDefinition)
 											{
 												CompositeReferenceDefinitionImpl newReferenceDefinition = new CompositeReferenceDefinitionImpl();
-												newReferenceDefinition.setReferenceName(mindFileInsert.getQualifiedName());
+												newReferenceDefinition.setReferenceName(mindFile.getQualifiedName());
 												((SubComponentDefinitionCustomImpl) element).setReferenceDefinition(newReferenceDefinition);
-												((SubComponentDefinitionCustomImpl) element).setName(mindFileInsert.getName() + "_adl");
+												((SubComponentDefinitionCustomImpl) element).setName(getNameComponentWithIndice(EP,mindFile.getName(),"_adl"));
 											}
 											else if(element instanceof PrimitiveComponentDefinition)
 											{
 												PrimitiveReferencesListImpl referenceList = new PrimitiveReferencesListImpl();
 												PrimitiveReferenceDefinitionCustomImpl newReferenceDefinition = new PrimitiveReferenceDefinitionCustomImpl();
-												newReferenceDefinition.setReferenceName(mindFileInsert.getQualifiedName());
+												newReferenceDefinition.setReferenceName(mindFile.getQualifiedName());
 												((PrimitiveComponentDefinitionCustomImpl)element).setReferencesList(referenceList);
 												newReferenceDefinition.setParentReferencesList(referenceList);
-												((PrimitiveComponentDefinitionCustomImpl)element).setName(mindFileInsert.getName());
+												((PrimitiveComponentDefinitionCustomImpl)element).setName(getNameComponentWithIndice(EP,mindFile.getName(),"_adl"));
 											}
 											else if (element instanceof CompositeReferenceDefinition)
 											{
-												((CompositeReferenceDefinitionCustomImpl)element).setReferenceName(mindFileInsert.getQualifiedName());
+												((CompositeReferenceDefinitionCustomImpl)element).setReferenceName(mindFile.getQualifiedName());
 											}
 											else if (element instanceof PrimitiveReferencesList)
 											{
-												((PrimitiveReferencesListImpl)element).getReferences().get(0).setReferenceName(mindFileInsert.getQualifiedName());
+												((PrimitiveReferencesListImpl)element).getReferences().get(0).setReferenceName(mindFile.getQualifiedName());
 											}
 										}
-										else if(mindFileInsert instanceof MindC)
+										else if(mindFile instanceof MindC)
 										{
 											if (element instanceof SubComponentDefinition) {
 												ImplementationDefinitionCustomImpl implementationDefinition = new ImplementationDefinitionCustomImpl();
 												FileCCustomImpl fileC = new FileCCustomImpl();
-												fileC.setFileName(mindFileInsert.getQualifiedName());//												
+												fileC.setFileName(mindFile.getQualifiedName());//												
 												implementationDefinition.setFileC(fileC);
 												((SubComponentDefinitionCustomImpl) element).getBody().getElements().add(implementationDefinition);
-												((SubComponentDefinitionCustomImpl) element).setName(mindFileInsert.getName());
+												((SubComponentDefinitionCustomImpl) element).setName(getNameComponentWithIndice(EP,mindFile.getName(),"_c"));
 											}
 											else if(element instanceof PrimitiveComponentDefinition)
 											{
 												ImplementationDefinitionCustomImpl implementationDefinition = new ImplementationDefinitionCustomImpl();
 												FileCCustomImpl fileC = new FileCCustomImpl();
-												fileC.setFileName(mindFileInsert.getQualifiedName());												
+												fileC.setFileName(mindFile.getQualifiedName());												
 												implementationDefinition.setFileC(fileC);
 												((PrimitiveComponentDefinitionCustomImpl) element).getBody().getElements().add(implementationDefinition);
-												((PrimitiveComponentDefinitionCustomImpl) element).setName(mindFileInsert.getName());
+												((PrimitiveComponentDefinitionCustomImpl) element).setName(getNameComponentWithIndice(EP,mindFile.getName(),"_c"));
 											}
 											else if (element instanceof ImplementationDefinition)
 											{
 												FileCCustomImpl fileC = new FileCCustomImpl();
-												fileC.setFileName(mindFileInsert.getQualifiedName());
+												fileC.setFileName(mindFile.getQualifiedName());
 												((ImplementationDefinitionCustomImpl)element).setFileC(fileC);
 											}
 										}
-										else if(mindFileInsert instanceof MindItf)
+										else if(mindFile instanceof MindItf)
 										{
 											if (element instanceof InterfaceDefinition)
 											{
-												((InterfaceDefinitionCustomImpl)element).setSignature(mindFileInsert.getQualifiedName());
-												((InterfaceDefinitionCustomImpl)element).setName(mindFileInsert.getName());
+												((InterfaceDefinitionCustomImpl)element).setSignature(mindFile.getQualifiedName());
+												((InterfaceDefinitionCustomImpl)element).setName(getNameInterfaceWithIndice((InterfaceDefinitionCustomImpl)element, mindFile.getName(), "_itf"));
 											}
-										}									
-										return CommandResult.newOKCommandResult();
+										}	
+										
+										transaction.commit();
+										
+									} catch (InterruptedException e) {
+										e.printStackTrace();
+									} catch (RollbackException e) {
+										e.printStackTrace();
 									}
-								};
-								
-								try {
-									semanticChange.execute(new NullProgressMonitor(), null);
-								} catch (ExecutionException e) {
-									e.printStackTrace();
+									//Refresh
+									List<CanonicalEditPolicy> editPolicies = CanonicalEditPolicy.getRegisteredEditPolicies((EObject) element);
+									for (CanonicalEditPolicy editPolicy : editPolicies) {
+										editPolicy.refresh();
+									}
 								}
-								
-								//Refresh
-								List<CanonicalEditPolicy> editPolicies = CanonicalEditPolicy.getRegisteredEditPolicies(element);
-								for (CanonicalEditPolicy editPolicy : editPolicies) {
-									editPolicy.refresh();
-								}
-								
 							}
 						}
 					}
 				}
 			}
-		}	
+		}
+	}
+
+
+	protected static List getNameSubComponent(GraphicalEditPart EP)
+	{
+		List children = EP.getChildren();
+		List <String> componentName = new ArrayList<String>();
+		for (Object child : children)
+		{
+			if(child instanceof GraphicalEditPart)
+			{
+				ShapeImpl model = (ShapeImpl) ((GraphicalEditPart)child).getModel();
+				Object element = model.getElement();
+				if (element instanceof SubComponentDefinition)
+				{
+					componentName.add(((SubComponentDefinition)element).getName());
+				}
+				else if(element instanceof PrimitiveComponentDefinition)
+				{
+					componentName.add(((PrimitiveComponentDefinition)element).getName());
+				}
+				else if(element instanceof CompositeComponentDefinition)
+				{
+					componentName.add(((CompositeComponentDefinition)element).getName());
+				}
+				
+			}
+		}
+		return componentName;
+	}
+	
+	protected static String getNameComponentWithIndice(GraphicalEditPart EP, String name, String extension)
+	{
+		List <String> componentName = getNameSubComponent(EP);
+
+		for(int i = 0;;i++)
+		{
+			if(i == 0)
+			{
+				if(!componentName.contains(name + extension))
+				{
+					return name + extension;
+				}
+			}
+			else
+			{
+				if(!componentName.contains(name + extension + String.valueOf(i)))
+				{
+					return name + extension + String.valueOf(i);
+				}
+			}
+		}
+	}
+	
+	private static String getNameInterfaceWithIndice(
+			InterfaceDefinitionCustomImpl interfaceDefinition, String name, String extension) {
+		
+		List <String> interfaceName = new ArrayList<String>();
+		List <Element> elementList = null;
+
+		Object body =interfaceDefinition.getParentBody();
+		
+		if (body instanceof SubComponentPrimitiveBodyCustomImpl)
+		{
+			elementList = ((SubComponentPrimitiveBodyCustomImpl)body).getElements();
+		}
+		else if(body instanceof PrimitiveComponentDefinition)
+		{
+			
+		}
+		else if(body instanceof CompositeComponentDefinition)
+		{
+			
+		}
+		for(Object element : elementList)
+		{
+			if(element instanceof InterfaceDefinition)
+			{
+				interfaceName.add(((InterfaceDefinition)element).getName());
+			}
+		}
+		
+		for(int i = 0;;i++)
+		{
+			if(i == 0)
+			{
+				if(!interfaceName.contains(name + extension))
+				{
+					return name + extension;
+				}
+			}
+			else
+			{
+				if(!interfaceName.contains(name + extension + String.valueOf(i)))
+				{
+					return name + extension + String.valueOf(i);
+				}
+			}
+		}
 	}
 	
 	protected static Request createRequest(IElementType elementType, EditPartViewer viewer) {
