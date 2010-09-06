@@ -66,12 +66,13 @@ public class CustomMindDiagramEditor extends MindDiagramEditor {
 						super.handleDragOver();
 					
 						boolean commandIsValid = true;
-						List<EditElementCommand> listCommand = DragAndDrop.getListCommand(
+						List<Command> listCommand = DragAndDrop.getListCommand(
 								getObjectsBeingDropped(), 
-								getTargetEditPart());
+								getTargetEditPart(),
+								new Point (getCurrentEvent().x,getCurrentEvent().y));
 						if(listCommand != null)
 						{
-							for(EditElementCommand command : listCommand)
+							for(Command command : listCommand)
 							{
 								if(!command.canExecute())
 								{
@@ -116,10 +117,11 @@ public class CustomMindDiagramEditor extends MindDiagramEditor {
 					@Override
 					protected void handleDrop() {
 						super.handleDrop();
+						
 						DragAndDrop.executeDrop(
 								getObjectsBeingDropped(), 
 								getTargetEditPart(),
-								new Point (getCurrentEvent().x,getCurrentEvent().y));
+								this.getDropLocation());
 
 					}
 					
