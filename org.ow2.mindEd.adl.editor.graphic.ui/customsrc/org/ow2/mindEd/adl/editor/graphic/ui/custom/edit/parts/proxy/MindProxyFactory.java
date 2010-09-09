@@ -5,6 +5,7 @@ import java.util.HashMap;
 import org.eclipse.gef.EditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.ConnectionEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.GraphicalEditPart;
+import org.eclipse.ui.IEditorInput;
 
 import org.ow2.mindEd.adl.editor.graphic.ui.edit.parts.*;
 
@@ -25,6 +26,11 @@ public class MindProxyFactory implements IMindTypes {
 	 * This Hashmap remembers created MindEditParts and their associated EditParts
 	 */
 	private HashMap<EditPart,AbstractMindProxy> editPartsMap = new HashMap<EditPart,AbstractMindProxy>();
+	
+	/**
+	 * This is the editor input
+	 */
+	IEditorInput editorInput = null;
 	
 	/**
 	 * The factory, based on the type definition (see getMindType)
@@ -278,6 +284,14 @@ public class MindProxyFactory implements IMindTypes {
 	
 	public MindProxy getRootProxy() {
 		return rootProxy;
+	}
+
+	public void setEditorInput(IEditorInput input) {
+		editorInput = input;
+	}
+	
+	public IEditorInput getEditorInput (){
+		return editorInput;
 	}
 	
 }

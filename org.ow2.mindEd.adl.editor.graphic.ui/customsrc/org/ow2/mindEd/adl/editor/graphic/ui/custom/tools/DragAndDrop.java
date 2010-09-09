@@ -7,13 +7,13 @@ import java.util.List;
 
 
 import org.eclipse.core.commands.ExecutionException;
+import org.eclipse.core.resources.IFile;
 import org.eclipse.core.runtime.IAdaptable;
-import org.eclipse.core.runtime.IProgressMonitor;
-import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.draw2d.geometry.Point;
+import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.ecore.impl.EObjectImpl;
 import org.eclipse.emf.transaction.RollbackException;
+import org.eclipse.emf.transaction.TransactionalEditingDomain;
 import org.eclipse.emf.transaction.impl.TransactionImpl;
 import org.eclipse.gef.EditPart;
 import org.eclipse.gef.EditPartViewer;
@@ -21,7 +21,7 @@ import org.eclipse.gef.Request;
 import org.eclipse.gef.RootEditPart;
 import org.eclipse.gef.commands.Command;
 import org.eclipse.gef.requests.CreateRequest;
-import org.eclipse.gmf.runtime.common.core.command.CommandResult;
+import org.eclipse.gmf.runtime.diagram.core.DiagramEditingDomainFactory;
 import org.eclipse.gmf.runtime.diagram.core.edithelpers.CreateElementRequestAdapter;
 import org.eclipse.gmf.runtime.diagram.core.preferences.PreferencesHint;
 import org.eclipse.gmf.runtime.diagram.ui.commands.SetBoundsCommand;
@@ -29,47 +29,60 @@ import org.eclipse.gmf.runtime.diagram.ui.editparts.GraphicalEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.IDiagramPreferenceSupport;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.CanonicalEditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.parts.DiagramCommandStack;
+import org.eclipse.gmf.runtime.diagram.ui.parts.DiagramEditDomain;
 import org.eclipse.gmf.runtime.diagram.ui.requests.CreateViewRequest;
 import org.eclipse.gmf.runtime.diagram.ui.requests.CreateViewRequestFactory;
-import org.eclipse.gmf.runtime.emf.commands.core.command.AbstractTransactionalCommand;
 import org.eclipse.gmf.runtime.emf.type.core.IElementType;
 import org.eclipse.gmf.runtime.emf.type.core.requests.CreateElementRequest;
 import org.eclipse.gmf.runtime.notation.View;
+import org.eclipse.gmf.runtime.notation.impl.BasicCompartmentImpl;
+import org.eclipse.gmf.runtime.notation.impl.BasicDecorationNodeImpl;
 import org.eclipse.gmf.runtime.notation.impl.ShapeImpl;
+import org.eclipse.ui.IEditorInput;
+import org.eclipse.ui.part.FileEditorInput;
 import org.ow2.mindEd.adl.CompositeComponentDefinition;
 import org.ow2.mindEd.adl.CompositeReferenceDefinition;
 import org.ow2.mindEd.adl.Element;
+import org.ow2.mindEd.adl.FileC;
 import org.ow2.mindEd.adl.ImplementationDefinition;
 import org.ow2.mindEd.adl.InterfaceDefinition;
 import org.ow2.mindEd.adl.PrimitiveComponentDefinition;
 import org.ow2.mindEd.adl.PrimitiveReferencesList;
 import org.ow2.mindEd.adl.SubComponentDefinition;
+import org.ow2.mindEd.adl.custom.impl.CompositeBodyCustomImpl;
 import org.ow2.mindEd.adl.custom.impl.CompositeReferenceDefinitionCustomImpl;
 import org.ow2.mindEd.adl.custom.impl.FileCCustomImpl;
 import org.ow2.mindEd.adl.custom.impl.ImplementationDefinitionCustomImpl;
 import org.ow2.mindEd.adl.custom.impl.InterfaceDefinitionCustomImpl;
+import org.ow2.mindEd.adl.custom.impl.PrimitiveBodyCustomImpl;
 import org.ow2.mindEd.adl.custom.impl.PrimitiveComponentDefinitionCustomImpl;
 import org.ow2.mindEd.adl.custom.impl.PrimitiveReferenceDefinitionCustomImpl;
+import org.ow2.mindEd.adl.custom.impl.SubComponentCompositeBodyCustomImpl;
 import org.ow2.mindEd.adl.custom.impl.SubComponentDefinitionCustomImpl;
 import org.ow2.mindEd.adl.custom.impl.SubComponentPrimitiveBodyCustomImpl;
+import org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.commands.MindDiagramUpdateAllCommand;
 import org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.parts.AdlDefinitionCustomEditPart;
 import org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.parts.CompositeBodyCompartmentCustomEditPart;
 import org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.parts.PrimitiveBodyCompartmentCustomEditPart;
+import org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.parts.proxy.MindProxyFactory;
 import org.ow2.mindEd.adl.editor.graphic.ui.edit.parts.SubComponentCompositeBodyCompartmentEditPart;
 import org.ow2.mindEd.adl.editor.graphic.ui.edit.parts.SubComponentPrimitiveBodyCompartmentEditPart;
 import org.ow2.mindEd.adl.editor.graphic.ui.providers.MindElementTypes;
 import org.ow2.mindEd.adl.impl.CompositeReferenceDefinitionImpl;
+import org.ow2.mindEd.adl.impl.FileCImpl;
 import org.ow2.mindEd.adl.impl.PrimitiveReferencesListImpl;
+import org.ow2.mindEd.ide.core.ModelToProjectUtil;
 import org.ow2.mindEd.ide.model.MindAdl;
 import org.ow2.mindEd.ide.model.MindC;
 import org.ow2.mindEd.ide.model.MindFile;
 import org.ow2.mindEd.ide.model.MindItf;
+import org.ow2.mindEd.ide.model.MindideFactory;
 
 public class DragAndDrop {
 
 	protected static SetBoundsCommand testBounds = null;
 	
-	public static boolean isValid(List listDropObject, EditPart targetEditPart)
+	public static boolean isValid(List<?> listDropObject, EditPart targetEditPart)
 	{
 		boolean valid = true;
 		if (listDropObject != null)
@@ -114,7 +127,7 @@ public class DragAndDrop {
 	}
 	
 	
-	public static List getListCommand(List listDropObject, EditPart targetEditPart, Point location)
+	public static List<Command> getListCommand(List<?> listDropObject, EditPart targetEditPart, Point location)
 	{
 		List<Command> commadList = new ArrayList<Command>();
 		IElementType type = null;
@@ -138,12 +151,15 @@ public class DragAndDrop {
 						{
 							// If Drop on Composite Body or Sub-Component Composite Body
 							// Create new Undefined Primitive Sub-Component
-							type = MindElementTypes.SubComponentDefinition_3135;
+							type = MindElementTypes.SubComponentDefinition_3153;
 						}
 						else if(targetEditPart instanceof AdlDefinitionCustomEditPart)
 						{
 							// If Drop on ADL Definition
 							// Create new Primitive Component
+							
+							
+							
 							type = MindElementTypes.PrimitiveComponentDefinition_2008;
 						}
 						else if(targetEditPart instanceof SubComponentPrimitiveBodyCompartmentEditPart)
@@ -154,6 +170,23 @@ public class DragAndDrop {
 						else if(targetEditPart instanceof PrimitiveBodyCompartmentCustomEditPart)
 						{
 							// If Drop on Primitive Component
+							
+							DiagramEditDomain ED = null;
+							Object temp = EP.getDiagramEditDomain();
+							if( temp instanceof DiagramEditDomain)
+								ED = (DiagramEditDomain) temp;
+							
+							
+							TransactionalEditingDomain dlkjvle = null;
+							IEditorInput input = MindProxyFactory.INSTANCE.getEditorInput();
+							if(input instanceof FileEditorInput)
+							{
+								IFile ifile = ((FileEditorInput)input).getFile();
+								URI adlURI = URI.createFileURI(ifile.getProjectRelativePath().toString());
+								MindFile mindfile2 = ModelToProjectUtil.INSTANCE.getCurrentMindFile(adlURI);
+								int temp2 = 3;
+							}
+							
 							type = MindElementTypes.PrimitiveReferencesList_3124;
 						}
 					}
@@ -176,7 +209,50 @@ public class DragAndDrop {
 								|| (targetEditPart instanceof PrimitiveBodyCompartmentCustomEditPart))
 						{
 							// If Drop on Primitive Sub Component or Primitive Component
-							type = MindElementTypes.ImplementationDefinition_3140;
+							if(targetEditPart instanceof SubComponentPrimitiveBodyCompartmentEditPart)
+							{
+								BasicDecorationNodeImpl model = (BasicDecorationNodeImpl) ((SubComponentPrimitiveBodyCompartmentEditPart)targetEditPart).getModel();
+								SubComponentPrimitiveBodyCustomImpl component = (SubComponentPrimitiveBodyCustomImpl) model.getElement();
+								List<Element> elementList = component.getElements();
+								if(elementList.size() != 0)
+								{
+									type = MindElementTypes.ImplementationDefinition_3140;
+									for (Element element : elementList)
+									{
+										if(element instanceof ImplementationDefinitionCustomImpl)
+										{
+											FileC fileC = ((ImplementationDefinitionCustomImpl)element).getFileC();
+											if(fileC.getFileName().equals(mindFile.getQualifiedName()))
+												type = null;
+												
+										}
+									}
+								}
+								else
+									type = MindElementTypes.ImplementationDefinition_3140;
+							}
+							else if(targetEditPart instanceof PrimitiveBodyCompartmentCustomEditPart)
+							{
+								BasicDecorationNodeImpl model = (BasicDecorationNodeImpl) ((PrimitiveBodyCompartmentCustomEditPart)targetEditPart).getModel();
+								PrimitiveBodyCustomImpl component = (PrimitiveBodyCustomImpl) model.getElement();
+								List<Element> elementList = component.getElements();
+								if(elementList.size() != 0)
+								{
+									type = MindElementTypes.ImplementationDefinition_3140;
+									for (Element element : elementList)
+									{
+										if(element instanceof ImplementationDefinitionCustomImpl)
+										{
+											FileC fileC = ((ImplementationDefinitionCustomImpl)element).getFileC();
+											if(fileC.getFileName().equals(mindFile.getQualifiedName()))
+												type = null;
+										}
+									}
+								}
+								else
+									type = MindElementTypes.ImplementationDefinition_3140;
+							}
+							
 						}
 					}
 					if(mindFile instanceof MindItf)
@@ -209,9 +285,11 @@ public class DragAndDrop {
 	}
 
 	
-	public static void executeDrop(List listDropObject, EditPart targetEditPart, Point location) {
-		// TODO Auto-generated method stub
-		
+	@SuppressWarnings({ "rawtypes" })
+	public static void executeDrop(List<?> listDropObject, EditPart targetEditPart, Point location) {
+
+		int c = 1;
+		c = c * 1;
 		
 		List<Command> listCommand = getListCommand(listDropObject, targetEditPart, location);
 		MindFile mindFile = null;
@@ -219,9 +297,6 @@ public class DragAndDrop {
 		if (targetEditPart instanceof GraphicalEditPart)
 			EP = (GraphicalEditPart)targetEditPart;
 		
-		List <String> componentName = getNameSubComponent(EP);
-		
-		IElementType type = null;
 		for(Object object : listDropObject)
 		{
 			if((object instanceof MindAdl) 
@@ -237,6 +312,7 @@ public class DragAndDrop {
 						{
 							command.execute();
 							Collection temp = DiagramCommandStack.getReturnValues(command);
+							@SuppressWarnings("unused")
 							List<View> addedViews = getAddedViews(EP.getViewer(), DiagramCommandStack.getReturnValues(command));
 							
 							for(Object elementRequest : temp)
@@ -322,9 +398,12 @@ public class DragAndDrop {
 										e.printStackTrace();
 									}
 									//Refresh
-									List<CanonicalEditPolicy> editPolicies = CanonicalEditPolicy.getRegisteredEditPolicies((EObject) element);
-									for (CanonicalEditPolicy editPolicy : editPolicies) {
-										editPolicy.refresh();
+									MindDiagramUpdateAllCommand update = new MindDiagramUpdateAllCommand(true);
+									try {
+										update.execute(null);
+									} catch (ExecutionException e) {
+										// TODO Auto-generated catch block
+										e.printStackTrace();
 									}
 								}
 							}
@@ -336,9 +415,9 @@ public class DragAndDrop {
 	}
 
 
-	protected static List getNameSubComponent(GraphicalEditPart EP)
+	protected static List<String> getNameSubComponent(GraphicalEditPart EP)
 	{
-		List children = EP.getChildren();
+		List<?> children = EP.getChildren();
 		List <String> componentName = new ArrayList<String>();
 		for (Object child : children)
 		{
@@ -399,14 +478,19 @@ public class DragAndDrop {
 		{
 			elementList = ((SubComponentPrimitiveBodyCustomImpl)body).getElements();
 		}
-		else if(body instanceof PrimitiveComponentDefinition)
+		else if(body instanceof CompositeBodyCustomImpl)
 		{
-			
+			elementList = ((CompositeBodyCustomImpl)body).getElements();
 		}
-		else if(body instanceof CompositeComponentDefinition)
+		else if(body instanceof PrimitiveBodyCustomImpl)
 		{
-			
+			elementList = ((PrimitiveBodyCustomImpl)body).getElements();
 		}
+		else if(body instanceof SubComponentCompositeBodyCustomImpl)
+		{
+			elementList = ((SubComponentCompositeBodyCustomImpl)body).getElements();
+		}
+		
 		for(Object element : elementList)
 		{
 			if(element instanceof InterfaceDefinition)
@@ -464,9 +548,9 @@ public class DragAndDrop {
 	 * @param viewer
 	 * @param objects
 	 */
-	protected static List<View> getAddedViews(EditPartViewer viewer, Collection objects) {
+	protected static List<View> getAddedViews(EditPartViewer viewer, Collection<?> objects) {
 		final List<View> views = new ArrayList<View>();
-		for (Iterator i = objects.iterator(); i.hasNext();) {
+		for (Iterator<?> i = objects.iterator(); i.hasNext();) {
 			Object object = i.next();
 			if (object instanceof IAdaptable) {
 				Object view =

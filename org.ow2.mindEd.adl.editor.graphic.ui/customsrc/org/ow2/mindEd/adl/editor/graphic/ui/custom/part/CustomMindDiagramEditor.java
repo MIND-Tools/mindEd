@@ -43,6 +43,7 @@ import org.eclipse.ui.part.PluginTransferData;
 import org.eclipse.ui.views.contentoutline.IContentOutlinePage;
 import org.eclipse.ui.views.navigator.LocalSelectionTransfer;
 
+import org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.parts.proxy.MindProxyFactory;
 import org.ow2.mindEd.adl.editor.graphic.ui.custom.layouts.CustomConnectionLayerEx;
 import org.ow2.mindEd.adl.editor.graphic.ui.custom.providers.MindCustomDocumentProvider;
 import org.ow2.mindEd.adl.editor.graphic.ui.custom.tools.DragAndDrop;
@@ -72,14 +73,22 @@ public class CustomMindDiagramEditor extends MindDiagramEditor {
 								new Point (getCurrentEvent().x,getCurrentEvent().y));
 						if(listCommand != null)
 						{
-							for(Command command : listCommand)
+							if(listCommand.size() != 0)
 							{
-								if(!command.canExecute())
+								for(Command command : listCommand)
 								{
-									commandIsValid = commandIsValid & false;
+									if(!command.canExecute())
+									{
+										commandIsValid = commandIsValid & false;
+									}
 								}
 							}
+							else
+							{
+								commandIsValid = false;
+							}
 						}
+						
 						
 						if(!commandIsValid)
 						{
@@ -199,6 +208,7 @@ public class CustomMindDiagramEditor extends MindDiagramEditor {
 			}
 		}
 		ModelToProjectUtil.INSTANCE.setEditorInput(input);
+		MindProxyFactory.INSTANCE.setEditorInput(input);
 		super.setInput(input);
 	}
 	
