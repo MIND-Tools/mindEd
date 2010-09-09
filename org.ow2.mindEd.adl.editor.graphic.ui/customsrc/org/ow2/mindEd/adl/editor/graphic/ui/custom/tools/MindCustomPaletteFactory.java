@@ -15,6 +15,8 @@ import org.ow2.mindEd.adl.editor.graphic.ui.providers.MindElementTypes;
 
 public class MindCustomPaletteFactory extends MindPaletteFactory {
 
+	
+
 	@Override
 	protected ToolEntry createBinding2CreationTool() {
 		BindingToolEntry entry = new BindingToolEntry(
@@ -84,5 +86,45 @@ public class MindCustomPaletteFactory extends MindPaletteFactory {
 		}
 		
 	}
+	
+	@Override
+	protected ToolEntry createInterface1CreationTool() {
+
+		InterfaceToolEntry entry = new InterfaceToolEntry(
+				org.ow2.mindEd.adl.editor.graphic.ui.part.Messages.Interface1CreationTool_title,
+				org.ow2.mindEd.adl.editor.graphic.ui.part.Messages.Interface1CreationTool_desc,
+				Collections
+						.singletonList(org.ow2.mindEd.adl.editor.graphic.ui.providers.MindElementTypes.InterfaceDefinition_3130));
+		entry.setId("createInterface1CreationTool"); //$NON-NLS-1$
+		entry.setSmallIcon(org.ow2.mindEd.adl.editor.graphic.ui.providers.MindElementTypes
+				.getImageDescriptor(org.ow2.mindEd.adl.editor.graphic.ui.providers.MindElementTypes.InterfaceDefinition_3130));
+		entry.setLargeIcon(entry.getSmallIcon());
+		entry.setToolClass(InterfaceCreationTool.class);
+		return entry;
+		
+	}
+	
+	protected static class InterfaceToolEntry extends ToolEntry {
+
+		private final List<IElementType> relationshipTypes;
+		
+		public InterfaceToolEntry(String label, String shortDesc,
+				List<IElementType> relationshipTypes) {
+			super(label, shortDesc, null, null);
+			this.relationshipTypes = relationshipTypes;
+		}
+
+			
+		public Tool createTool() {
+			Tool tool = new InterfaceCreationTool(relationshipTypes);
+			tool.setProperties(getToolProperties());
+			return tool;
+			
+		}
+		
+	}
+	
+
+	
 	
 }

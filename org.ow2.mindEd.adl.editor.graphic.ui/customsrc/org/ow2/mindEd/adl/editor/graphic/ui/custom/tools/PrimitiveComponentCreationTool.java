@@ -20,13 +20,17 @@ public class PrimitiveComponentCreationTool extends UnspecifiedTypeCreationTool{
 		
 		EditPartViewer viewer = getCurrentViewer();
 		Command c = getCurrentCommand();
-		executeCurrentCommand();
+		
 		selectAddedObject(viewer, DiagramCommandStack.getReturnValues(c));
 		WizardPrimitiveComponent wizWizard = new WizardPrimitiveComponent(); 
         WizardDialog wizDialog = new WizardDialog(PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell(), wizWizard);
         wizWizard.setWizardDialog(wizDialog);
 		wizDialog.setBlockOnOpen(true);
-		wizDialog.open();
+		if(wizDialog.open() == WizardDialog.OK)
+		{
+			executeCurrentCommand();
+		}
+		
 		
 		antiScroll = false;
 	}

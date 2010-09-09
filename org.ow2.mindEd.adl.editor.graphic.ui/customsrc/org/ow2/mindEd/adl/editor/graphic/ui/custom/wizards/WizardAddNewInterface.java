@@ -46,8 +46,19 @@ public class WizardAddNewInterface extends Wizard{
 	WizardSelectionTest selectionPage;
 	PrimitiveBodyEditPart bodyEditPart;
 	
-	public InterfaceInformation newInterfaceInformation = new InterfaceInformation();
+	protected InterfaceInformation newInterfaceInformation = new InterfaceInformation();
 	
+
+	public InterfaceInformation getNewInterfaceInformation() {
+		return newInterfaceInformation;
+	}
+
+
+	public void setNewInterfaceInformation(
+			InterfaceInformation newInterfaceInformation) {
+		this.newInterfaceInformation = newInterfaceInformation;
+	}
+
 
 	public WizardAddNewInterface(PrimitiveBodyEditPart bodyEP){
 		super();
@@ -127,7 +138,7 @@ public class WizardAddNewInterface extends Wizard{
 		MindProject mindProject = ModelToProjectUtil.INSTANCE.getMindProject(project);
 		
 
-
+/*
 		@SuppressWarnings("unused")
 		InterfaceDefinition newInterface = null;
         try {
@@ -145,7 +156,7 @@ public class WizardAddNewInterface extends Wizard{
         catch(Exception e) {
               MindDiagramEditorPlugin.getInstance().logError("Error generating an interface to bind", e);
         }
-
+*/
 				
 		return true;
 	}

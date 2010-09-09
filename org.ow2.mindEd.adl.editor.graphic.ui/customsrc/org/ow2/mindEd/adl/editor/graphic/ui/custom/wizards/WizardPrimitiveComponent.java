@@ -37,14 +37,14 @@ public class WizardPrimitiveComponent extends CustomWizard {
 	public void addPages() {
 		primitiveMainPage = new WizardPagePrimitiveMain("Main Page", this);
 		addPage(primitiveMainPage);
-		
-		
 	}
 	
 	@Override
 	public boolean performFinish() {
-		// TODO Auto-generated method stub
-		return false;
+		if(primitiveSecondPage == null)
+			return true;
+		else
+			return false;
 	}
 	
 	public void enableSecondPage()
