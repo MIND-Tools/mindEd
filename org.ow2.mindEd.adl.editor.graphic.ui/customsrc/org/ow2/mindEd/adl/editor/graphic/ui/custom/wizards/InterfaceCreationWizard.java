@@ -40,9 +40,9 @@ import org.ow2.mindEd.ide.model.MindFile;
 import org.ow2.mindEd.ide.model.MindProject;
 
 @SuppressWarnings("restriction")
-public class WizardAddNewInterface extends Wizard{
+public class InterfaceCreationWizard extends Wizard{
 
-	WizardPageAddNewInterface mainPage;
+	InterfaceMainPage mainPage;
 	WizardSelectionTest selectionPage;
 	PrimitiveBodyEditPart bodyEditPart;
 	
@@ -52,15 +52,12 @@ public class WizardAddNewInterface extends Wizard{
 	public InterfaceInformation getNewInterfaceInformation() {
 		return newInterfaceInformation;
 	}
-
-
 	public void setNewInterfaceInformation(
 			InterfaceInformation newInterfaceInformation) {
 		this.newInterfaceInformation = newInterfaceInformation;
 	}
 
-
-	public WizardAddNewInterface(PrimitiveBodyEditPart bodyEP){
+	public InterfaceCreationWizard(PrimitiveBodyEditPart bodyEP){
 		super();
 		
 		bodyEditPart = bodyEP;
@@ -74,23 +71,20 @@ public class WizardAddNewInterface extends Wizard{
 		}
         this.setDialogSettings(wizardSettings);
         this.setForcePreviousAndNextButtons(false);
-        this.setWindowTitle(ResourcesWizard.WIZARD_TITLE);
+        this.setWindowTitle(ResourcesWizard.INTERFACE_WIZARD_TITLE);
 	}
 	
 	
 	public void addPages() {
-		mainPage = new WizardPageAddNewInterface("Main Page");
+		mainPage = new InterfaceMainPage("Main Page");
 		addPage(mainPage);
-//		selectionPage = new WizardNewFileCreationPage("SelectionPage", (IStructuredSelection) currentSelection);
-//		selectionPage = new WizardSelectionTest("Test1", (IStructuredSelection) currentSelection);
-//		addPage(selectionPage);
 	}
 	
 	@Override
 	public boolean performFinish() {
 		if((mainPage.getInterfaceName() == null) || (mainPage.getInterfaceName().length() == 0))
 		{
-			new WizardMessageBox(PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell()
+			new MessageBoxWizard(PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell()
 					, ResourcesWizard.ERROR_NAME
 					, SWT.ICON_WARNING | SWT.OK)
 			.open();
@@ -102,7 +96,7 @@ public class WizardAddNewInterface extends Wizard{
 		
 		if((mainPage.getSignature() == null) || (mainPage.getSignature().length() == 0))
 		{
-			new WizardMessageBox(PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell()
+			new MessageBoxWizard(PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell()
 					, ResourcesWizard.ERROR_PATH
 					, SWT.ICON_WARNING | SWT.OK)
 			.open();
@@ -113,8 +107,8 @@ public class WizardAddNewInterface extends Wizard{
 			newInterfaceInformation.setPath(mainPage.getSignature());
 			if(!newInterfaceInformation.getPath().endsWith(".itf"))
 			{
-				new WizardMessageBox(PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell()
-						, ResourcesWizard.ERROR_EXTENSION
+				new MessageBoxWizard(PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell()
+						, String.format(ResourcesWizard.ERROR_EXTENSION, "'itf'")
 						, SWT.ICON_WARNING | SWT.OK)
 				.open();
 				return false;
@@ -161,4 +155,6 @@ public class WizardAddNewInterface extends Wizard{
 		return true;
 	}
 
+	
+	
 }

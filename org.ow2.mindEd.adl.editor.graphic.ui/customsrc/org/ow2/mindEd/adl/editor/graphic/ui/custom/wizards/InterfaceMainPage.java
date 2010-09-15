@@ -41,7 +41,7 @@ import org.eclipse.ui.model.WorkbenchLabelProvider;
 
 
 @SuppressWarnings("restriction")
-public class WizardPageAddNewInterface extends WizardPage {
+public class InterfaceMainPage extends WizardPage {
 
 	Text interfaceNameText;
 	
@@ -69,10 +69,10 @@ public class WizardPageAddNewInterface extends WizardPage {
 	private Label collectionLabel;
 	protected Text collectionSize;
 	
-	public WizardPageAddNewInterface(String pageName) {
+	public InterfaceMainPage(String pageName) {
 		super(pageName);
-		setTitle(ResourcesWizard.PAGE_TITLE);
-		setDescription(ResourcesWizard.PAGE_DESCRIPTION);
+		setTitle(ResourcesWizard.INTERFACE_PAGE_TITLE);
+		setDescription(ResourcesWizard.INTERFACE_PAGE_DESCRIPTION);
 	}
 
 	@Override
@@ -99,7 +99,7 @@ public class WizardPageAddNewInterface extends WizardPage {
         topLevel.setLayout(layoutSignature);
         setControl(topLevel);
         
-        new Label(topLevel,SWT.NONE).setText(ResourcesWizard.SIGNATURE);        
+        new Label(topLevel,SWT.NONE).setText(ResourcesWizard.INTERFACE_SIGNATURE);        
 
         treeViewer = new TreeViewer (new Tree (topLevel, style));
         treeViewer.setContentProvider(new WorkbenchContentProvider());
@@ -319,17 +319,17 @@ public class WizardPageAddNewInterface extends WizardPage {
 	        browseWorkspaceButton.setText(CommonUIPlugin.INSTANCE.getString("_UI_BrowseWorkspace_label"));
 	        prepareBrowseWorkspaceButton(browseWorkspaceButton);
 */	        
-        new Label(compositeAdvanced,SWT.NONE).setText(ResourcesWizard.CONTINGENCY);
+        new Label(compositeAdvanced,SWT.NONE).setText(ResourcesWizard.INTERFACE_CONTINGENCY);
         contengencyCombo = new Combo(compositeAdvanced, SWT.DROP_DOWN);
-        contengencyCombo.add(ResourcesWizard.CONTINGENCY_MANDATORY, CONTINGENCY_MANDATORY_INDEX);
-        contengencyCombo.add(ResourcesWizard.CONTINGENCY_OPTIONAL, CONTINGENCY_OPTIONAL_INDEX);
+        contengencyCombo.add(ResourcesWizard.INTERFACE_CONTINGENCY_MANDATORY, CONTINGENCY_MANDATORY_INDEX);
+        contengencyCombo.add(ResourcesWizard.INTERFACE_CONTINGENCY_OPTIONAL, CONTINGENCY_OPTIONAL_INDEX);
         contengencyCombo.select(CONTINGENCY_MANDATORY_INDEX);
         contengencyCombo.setLayoutData(gridData);
         
-        new Label(compositeAdvanced,SWT.NONE).setText(ResourcesWizard.COLLECTION);
+        new Label(compositeAdvanced,SWT.NONE).setText(ResourcesWizard.INTERFACE_COLLECTION);
         collectionCombo = new Combo(compositeAdvanced, SWT.DROP_DOWN);
-        collectionCombo.add(ResourcesWizard.COLLECTION_FALSE, COLLECTION_FALSE_INDEX);
-        collectionCombo.add(ResourcesWizard.COLLECTION_TRUE, COLLECTION_TRUE_INDEX);
+        collectionCombo.add(ResourcesWizard.INTERFACE_COLLECTION_FALSE, COLLECTION_FALSE_INDEX);
+        collectionCombo.add(ResourcesWizard.INTERFACE_COLLECTION_TRUE, COLLECTION_TRUE_INDEX);
         collectionCombo.select(COLLECTION_FALSE_INDEX);
         collectionCombo.setLayoutData(gridData);
         collectionCombo.addSelectionListener(new SelectionAdapter() {
@@ -339,7 +339,7 @@ public class WizardPageAddNewInterface extends WizardPage {
         });
         
 		collectionLabel = new Label(compositeAdvanced, SWT.NONE);
-		collectionLabel.setText(ResourcesWizard.COLLECTION_SIZE);
+		collectionLabel.setText(ResourcesWizard.INTERFACE_COLLECTION_SIZE);
 		collectionSize = new Text(compositeAdvanced, SWT.BORDER);
 		collectionSize.setText("0");
 		collectionSize.setLayoutData(gridData);

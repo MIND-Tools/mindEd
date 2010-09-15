@@ -16,6 +16,8 @@ import org.eclipse.jface.viewers.TreeViewer;
 import org.eclipse.jface.wizard.Wizard;
 import org.eclipse.jface.wizard.WizardPage;
 import org.eclipse.swt.SWT;
+import org.eclipse.swt.events.MouseEvent;
+import org.eclipse.swt.events.MouseListener;
 import org.eclipse.swt.events.SelectionEvent;
 import org.eclipse.swt.events.SelectionListener;
 import org.eclipse.swt.layout.GridData;
@@ -28,7 +30,27 @@ import org.eclipse.swt.widgets.Tree;
 import org.eclipse.ui.model.WorkbenchContentProvider;
 import org.eclipse.ui.model.WorkbenchLabelProvider;
 
-public class WizardPagePrimitiveMain extends WizardPage{
+public class PrimitiveMainPage extends WizardPage{
+
+	public String getPrimitiveName() {
+		return primitiveName.getText();
+	}
+
+	public boolean isExtend() {
+		return extendsButton.getSelection();
+	}
+
+	public boolean isOverride() {
+		return overrideButton.getSelection();
+	}
+
+	public boolean isAnonymous() {
+		return anonymousButton.getSelection();
+	}
+	
+	public String getExtendPath(){
+		return uriField.getText();
+	}
 
 	Composite topLevel;
 	Composite treeComposite;
@@ -46,12 +68,12 @@ public class WizardPagePrimitiveMain extends WizardPage{
 	protected final int HEIGHT_DATA = 200;
 	protected final int WIDTH_DATA = 200;
 	
-	WizardPrimitiveComponent wizParent;
+	PrimitiveCreationWizard wizParent;
 	
-	protected WizardPagePrimitiveMain(String pageName, WizardPrimitiveComponent parent) {
+	protected PrimitiveMainPage(String pageName, PrimitiveCreationWizard parent) {
 		super(pageName);
-		setTitle("Personal Information");
-		setDescription("Please enter your personal information");
+		setTitle(ResourcesWizard.PRIMITIVE_PAGE_TITLE);
+		setDescription(ResourcesWizard.PRIMITIVE_PAGE_DESCRIPTION);
 		wizParent = parent;
 	}
 
@@ -66,7 +88,7 @@ public class WizardPagePrimitiveMain extends WizardPage{
 			setControl(topLevel);
 		}
 		
-        new Label(topLevel,SWT.NONE).setText("Name");
+        new Label(topLevel,SWT.NONE).setText(ResourcesWizard.PRIMITIVE_NAME);
         primitiveName = new Text(topLevel,SWT.BORDER);
         {
         	primitiveName.setFont(parent.getFont());
@@ -76,7 +98,7 @@ public class WizardPagePrimitiveMain extends WizardPage{
         	primitiveName.setFont(parent.getFont());
         }
         
-        new Label(topLevel,SWT.NONE).setText("Type");
+        new Label(topLevel,SWT.NONE).setText(ResourcesWizard.PRIMITIVE_TYPE);
         
         
         extendsButton = new Button(topLevel, SWT.RADIO);
@@ -84,14 +106,61 @@ public class WizardPagePrimitiveMain extends WizardPage{
         	GridData Constraint = new GridData();
             Constraint.horizontalAlignment = SWT.END;
             extendsButton.setLayoutData(Constraint);
-
         }
-        new Label(topLevel,SWT.NONE).setText("Extends");
+        Label extendsLabel = new Label(topLevel,SWT.NONE);
+        extendsLabel.setText(ResourcesWizard.PRIMITIVE_EXTENDS);
+        extendsLabel.addMouseListener(new MouseListener(){
+			@Override
+			public void mouseDoubleClick(MouseEvent e) {}
+			@Override
+			public void mouseDown(MouseEvent e) {
+				extendsButton.setSelection(true);
+				overrideButton.setSelection(false);
+				anonymousButton.setSelection(false);
+				treeComposite.setVisible(true);
+				wizParent.disableSecondPage();
+			}
+			@Override
+			public void mouseUp(MouseEvent e) {}
+        });
+        
         
         overrideButton = new Button(topLevel, SWT.RADIO);
-        new Label(topLevel,SWT.NONE).setText("Override");
+        Label overrideLabel = new Label(topLevel,SWT.NONE);
+        overrideLabel.setText(ResourcesWizard.PRIMITIVE_OVERRIDE);
+        overrideLabel.addMouseListener(new MouseListener(){
+			@Override
+			public void mouseDoubleClick(MouseEvent e) {}
+			@Override
+			public void mouseDown(MouseEvent e) {
+				overrideButton.setSelection(true);
+				anonymousButton.setSelection(false);
+				extendsButton.setSelection(false);
+				treeComposite.setVisible(true);
+				wizParent.enableSecondPage();
+			}
+			@Override
+			public void mouseUp(MouseEvent e) {}
+        });
+        
         anonymousButton = new Button(topLevel, SWT.RADIO);
-        new Label(topLevel,SWT.NONE).setText("Anonymous");
+        Label anonymousLabel = new Label(topLevel,SWT.NONE);
+        anonymousLabel.setText(ResourcesWizard.PRIMITIVE_ANONYMUS);
+        anonymousLabel.addMouseListener(new MouseListener(){
+			@Override
+			public void mouseDoubleClick(MouseEvent e) {}
+			@Override
+			public void mouseDown(MouseEvent e) {
+				anonymousButton.setSelection(true);
+				overrideButton.setSelection(false);
+				extendsButton.setSelection(false);
+				treeComposite.setVisible(false);
+				wizParent.enableSecondPage();
+			}
+			@Override
+			public void mouseUp(MouseEvent e) {}
+        });
+        
         {
         	GridData constraint = new GridData();
             constraint.horizontalAlignment = SWT.END;
@@ -116,7 +185,6 @@ public class WizardPagePrimitiveMain extends WizardPage{
 
         	GridData constraint = new GridData(SWT.FILL, SWT.FILL, true, false);
         	constraint.horizontalSpan = 3;
-//       	constraint.horizontalAlignment = SWT.END;
         	treeComposite.setLayoutData(constraint);
         	
 		}

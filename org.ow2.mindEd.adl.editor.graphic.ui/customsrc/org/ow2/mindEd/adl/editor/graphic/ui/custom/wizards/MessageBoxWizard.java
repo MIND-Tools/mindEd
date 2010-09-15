@@ -5,11 +5,11 @@ import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.MessageBox;
 import org.eclipse.swt.widgets.Shell;
 
-public class WizardMessageBox {
+public class MessageBoxWizard {
 
 	private MessageBox messageBox;
 	
-	public  WizardMessageBox(Shell shell, String message, int style)
+	public  MessageBoxWizard(Shell shell, String message, int style)
 	{
 		int usedStyle = 0;
 		if(style == SWT.NONE)

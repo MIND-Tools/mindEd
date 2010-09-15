@@ -272,7 +272,6 @@ public class DragAndDrop {
 	 * @param targetEditPart
 	 * @param location
 	 */
-	@SuppressWarnings({ "rawtypes" })
 	public static void executeDrop(List<?> listDropObject, EditPart targetEditPart, Point location) {
 
 		List<Command> listCommand = getListCommand(listDropObject, targetEditPart, location);
@@ -295,7 +294,7 @@ public class DragAndDrop {
 						if(command.canExecute())
 						{
 							command.execute();
-							Collection temp = DiagramCommandStack.getReturnValues(command);
+							Collection<?> temp = DiagramCommandStack.getReturnValues(command);
 							@SuppressWarnings("unused")
 							List<View> addedViews = getAddedViews(EP.getViewer(), DiagramCommandStack.getReturnValues(command));
 							

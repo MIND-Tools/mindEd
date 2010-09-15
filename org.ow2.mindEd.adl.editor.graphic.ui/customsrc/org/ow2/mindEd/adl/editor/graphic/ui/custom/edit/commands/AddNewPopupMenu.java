@@ -23,7 +23,7 @@ import org.eclipse.ui.internal.WorkbenchPlugin;
 import org.ow2.mindEd.adl.InterfaceDefinition;
 import org.ow2.mindEd.adl.custom.impl.InterfaceDefinitionCustomImpl;
 import org.ow2.mindEd.adl.editor.graphic.ui.custom.wizards.InterfaceInformation;
-import org.ow2.mindEd.adl.editor.graphic.ui.custom.wizards.WizardAddNewInterface;
+import org.ow2.mindEd.adl.editor.graphic.ui.custom.wizards.InterfaceCreationWizard;
 import org.ow2.mindEd.adl.editor.graphic.ui.edit.parts.PrimitiveBodyCompartmentEditPart;
 import org.ow2.mindEd.adl.editor.graphic.ui.edit.parts.PrimitiveBodyEditPart;
 import org.ow2.mindEd.adl.editor.graphic.ui.providers.MindElementTypes;
@@ -55,7 +55,7 @@ public class AddNewPopupMenu extends AbstractPopupMenu implements IObjectActionD
 				org.eclipse.gef.commands.Command command = bodyEditPart.getCommand(request);
 				if(command.canExecute())
 				{
-					WizardAddNewInterface wizWizard = new WizardAddNewInterface(bodyEditPart); 
+					InterfaceCreationWizard wizWizard = new InterfaceCreationWizard(bodyEditPart); 
 			        
 			        WizardDialog wizDialog = new WizardDialog(PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell(), wizWizard);
 			        wizDialog.setBlockOnOpen(true);
