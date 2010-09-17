@@ -1183,11 +1183,6 @@ and
          id="org.ow2.mindEd.adl.editor.graphic.ui.NewInterface"
          name="NewInterface">
    </command>
-   <command
-         description="Create new subcomponent"
-         id="org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.commands.tempDND"
-         name="NewSubComponent">
-   </command>
 </extension>
 <extension
       point="org.eclipse.ui.popupMenus">
@@ -1210,24 +1205,6 @@ and
             menubarPath="org.ow2.mindEd.adl.editor.graphic.ui.AddNewMenu/AddNewGroup">
       </action>
 
-   </objectContribution>
-   <objectContribution
-         adaptable="false"
-         id="org.ow2.mindEd.adl.editor.graphic.ui.objectContribution2"
-         objectClass="org.eclipse.gmf.runtime.diagram.ui.editparts.GraphicalEditPart">
-      <menu
-            id="org.ow2.mindEd.adl.editor.graphic.ui.menu1"
-            label="Add New">
-         <separator
-               name="tempseparator">
-         </separator>
-      </menu>
-      <action
-            class="org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.commands.tempDND"
-            id="org.ow2.mindEd.adl.editor.graphic.ui.action1"
-            label="DND"
-            menubarPath="org.ow2.mindEd.adl.editor.graphic.ui.menu1/tempseparator">
-      </action>
    </objectContribution>
 </extension>
 

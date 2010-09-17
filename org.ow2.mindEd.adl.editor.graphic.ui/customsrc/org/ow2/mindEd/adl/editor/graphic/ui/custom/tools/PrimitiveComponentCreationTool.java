@@ -43,6 +43,8 @@ public class PrimitiveComponentCreationTool extends UnspecifiedTypeCreationTool{
 		Command c = getCurrentCommand();
 		if(c != null)
 		{
+			executeCurrentCommand();
+/*			
 			selectAddedObject(viewer, DiagramCommandStack.getReturnValues(c));
 			PrimitiveCreationWizard wizWizard = new PrimitiveCreationWizard(); 
 	        WizardDialog wizDialog = new WizardDialog(PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell(), wizWizard);
@@ -112,7 +114,9 @@ public class PrimitiveComponentCreationTool extends UnspecifiedTypeCreationTool{
 			} catch (ExecutionException e) {
 				e.printStackTrace();
 			}
+*/
 		}
+
 		antiScroll = false;
 	}
 

@@ -29,7 +29,8 @@ public class PrimitiveSecondPage extends WizardPage{
 	
 	protected PrimitiveSecondPage(String pageName) {
 		super(pageName);
-		// TODO Auto-generated constructor stub
+		setTitle(ResourcesWizard.PRIMITIVE_PAGE_TITLE);
+		setDescription(ResourcesWizard.PRIMITIVE_PAGE_DESCRIPTION);
 	}
 
 	@Override
