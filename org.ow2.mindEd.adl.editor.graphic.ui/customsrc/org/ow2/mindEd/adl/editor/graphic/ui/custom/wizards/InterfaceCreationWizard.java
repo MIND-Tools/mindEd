@@ -117,40 +117,7 @@ public class InterfaceCreationWizard extends Wizard{
 		newInterfaceInformation.setOptional(mainPage.getOptional());
 		newInterfaceInformation.setCollection(mainPage.getCollection());
 		newInterfaceInformation.setCollectionSize(mainPage.getCollectionSize());
-		
-		String elements[] = newInterfaceInformation.getPath().split("/");
-		IProject project ;
-		if(elements[0].equals(""))
-			project = ResourcesPlugin.getWorkspace().getRoot().getProject(elements[1]);
-		else
-			project = ResourcesPlugin.getWorkspace().getRoot().getProject(elements[0]);
-		
-	
-		
-		// TODO Currently, itf path is /project/src/pkg/name.itf". Convert this form to use ModelToProjectUtil
-		
-		MindProject mindProject = ModelToProjectUtil.INSTANCE.getMindProject(project);
-		
 
-/*
-		@SuppressWarnings("unused")
-		InterfaceDefinition newInterface = null;
-        try {
-              TransactionImpl transaction = new TransactionImpl(bodyEditPart.getEditingDomain(), false);
-              transaction.start();
-              newInterface = CreationUtil.createInterface((Body) (bodyEditPart.resolveSemanticElement())
-            		  ,Role.REQUIRES
-            		  ,newInterfaceInformation.getName()
-            		  ,newInterfaceInformation.getPath()
-            		  ,newInterfaceInformation.isOptional()
-            		  ,newInterfaceInformation.isCollection()
-            		  ,newInterfaceInformation.getCollectionSize());
-              transaction.commit();
-        }
-        catch(Exception e) {
-              MindDiagramEditorPlugin.getInstance().logError("Error generating an interface to bind", e);
-        }
-*/
 				
 		return true;
 	}

@@ -4,6 +4,7 @@ import java.util.Collection;
 import java.util.List;
 
 import org.eclipse.core.commands.ExecutionException;
+import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.transaction.RollbackException;
 import org.eclipse.emf.transaction.impl.TransactionImpl;
 import org.eclipse.gef.EditPartViewer;
@@ -19,6 +20,8 @@ import org.ow2.mindEd.adl.custom.impl.InterfaceDefinitionCustomImpl;
 import org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.commands.MindDiagramUpdateAllCommand;
 import org.ow2.mindEd.adl.editor.graphic.ui.custom.wizards.InterfaceInformation;
 import org.ow2.mindEd.adl.editor.graphic.ui.custom.wizards.InterfaceCreationWizard;
+import org.ow2.mindEd.ide.core.ModelToProjectUtil;
+import org.ow2.mindEd.ide.model.MindFile;
 
 public class InterfaceCreationTool extends UnspecifiedTypeCreationTool{
 
@@ -53,10 +56,13 @@ public class InterfaceCreationTool extends UnspecifiedTypeCreationTool{
 						
 						TransactionImpl transaction = new TransactionImpl(request.getEditingDomain(), false);
 						try {
+							MindFile mindFile = null;
+							URI uri = URI.createPlatformResourceURI(interfaceInformation.getPath(), true);
+							mindFile = ModelToProjectUtil.INSTANCE.getCurrentMindFile(uri);
 							transaction.start();
 							if (element instanceof InterfaceDefinition)
 							{
-								((InterfaceDefinitionCustomImpl)element).setSignature(interfaceInformation.getPath());
+								((InterfaceDefinitionCustomImpl)element).setSignature(mindFile.getQualifiedName());
 								((InterfaceDefinitionCustomImpl)element).setName(interfaceInformation.getName());
 								((InterfaceDefinitionCustomImpl)element).setOptional(interfaceInformation.isOptional());
 								((InterfaceDefinitionCustomImpl)element).setCollection(interfaceInformation.isCollection());
