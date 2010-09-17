@@ -168,7 +168,7 @@ public class FractalUtil {
 	public static String getFQNFromURI(String srcFolder, String extension, URI uri){
 
 		// we try to catch the keywords from which package directories are beginning		
-				
+		
 		int i = 0;
 		String fQN = "";
 		for (String segment : uri.segments()){

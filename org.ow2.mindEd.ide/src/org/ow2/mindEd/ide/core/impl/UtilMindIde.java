@@ -1,5 +1,7 @@
 package org.ow2.mindEd.ide.core.impl;
 
+import org.eclipse.core.resources.IContainer;
+import org.eclipse.core.resources.IFolder;
 import org.eclipse.core.resources.IResource;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IPath;
@@ -135,5 +137,25 @@ public class UtilMindIde {
 					"incomplete entry application is missing " + name));
 		}
 		return ret;
+	}
+	
+	/**
+	 * must create package model element.
+	 * @param f a folder
+	 * @return true if has file or is a sheet element
+	 */
+	public static boolean hasFile(IContainer f) {
+		try {
+			IResource[] members = f.members();
+			if (members.length == 0)
+				return true;
+			for (IResource iResource : members) {
+				if (iResource.getType() == IResource.FILE && UtilMindIde.getEClassFile(iResource.getName()) != null)
+					return true;
+			}
+		} catch (CoreException e) {
+			return false;
+		}
+		return false;
 	}
 }

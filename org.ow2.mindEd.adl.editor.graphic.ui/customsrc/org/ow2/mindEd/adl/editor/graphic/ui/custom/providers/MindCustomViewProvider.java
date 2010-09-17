@@ -74,8 +74,8 @@ public class MindCustomViewProvider extends MindViewProvider {
 		Routing routing = Routing.get(prefStore
 				.getInt(IPreferenceConstants.PREF_LINE_STYLE));
 		if (routing != null) {
-		ViewUtil.setStructuralFeatureValue(edge,
-				NotationPackage.eINSTANCE.getRoutingStyle_Routing(),
+			ViewUtil.setStructuralFeatureValue(edge,
+					NotationPackage.eINSTANCE.getRoutingStyle_Routing(),
 					routing);
 		}
 

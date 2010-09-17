@@ -236,12 +236,12 @@
          </commonWizard>
          <enablement>
             <or>
-            <instanceof
-                  value="org.ow2.mindEd.ide.model.MindObject">
-            </instanceof>
-            <instanceof
-                  value="org.eclipse.core.resources.IWorkspaceRoot">
-            </instanceof>
+               <instanceof
+                     value="org.ow2.mindEd.ide.model.MindObject">
+               </instanceof>
+               <instanceof
+                     value="org.eclipse.core.resources.IWorkspaceRoot">
+               </instanceof>
                <instanceof
                      value="org.eclipse.core.resources.IResource">
                </instanceof>
@@ -340,9 +340,6 @@
                         value="org.eclipse.core.resources.IWorkspaceRoot">
                   </instanceof>
                   <instanceof
-                        value="org.ow2.mindEd.ide.core.MindModel">
-                  </instanceof>
-                  <instanceof
                         value="org.ow2.mindEd.ide.model.MindRootSrc">
                   </instanceof>
                   <instanceof
@@ -360,6 +357,16 @@
                   <instanceof
                         value="org.ow2.mindEd.ide.model.MindAllRepo">
                   </instanceof>
+                  <and>
+                     <instanceof
+                           value="org.ow2.mindEd.ide.core.MindModel">
+                     </instanceof>
+                     <test
+                           args="isWorkspaceModel"
+                           property="org.ow2.mindEd.ide.ui.isWorkspaceModel"
+                           value="true">
+                     </test>
+                  </and>
                </or>
             </enablement>
          </commonWizard>
@@ -426,7 +433,7 @@
             <possibleDropTargets>
                <or>
                   <instanceof
-                        value="org.ow2.mindEd.ide.model.MindFile">
+                        value="java.lang.Object">
                   </instanceof>
                </or></possibleDropTargets>
          </dropAssistant>
@@ -542,5 +549,15 @@
             id="org.ow2.mindEd.ide.ui.wizardlib"
             name="Export mindProject to sourceLib">
       </wizard>
+   </extension>
+   <extension
+         point="org.eclipse.core.expressions.propertyTesters">
+      <propertyTester
+            class="org.ow2.mindEd.ide.ui.PropertyTester"
+            id="org.ow2.mindEd.ide.ui.isWorkspaceModel"
+            namespace="org.ow2.mindEd.ide.ui"
+            properties="isWorkspaceModel"
+            type="java.lang.Boolean">
+      </propertyTester>
    </extension>
 </plugin>
