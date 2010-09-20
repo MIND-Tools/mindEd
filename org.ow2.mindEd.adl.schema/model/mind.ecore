@@ -25,7 +25,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="architecturedefinition"
         eType="#//ArchitectureDefinition" containment="true" eOpposite="#//ArchitectureDefinition/parentAdlDefinition"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Annotation" eSuperTypes="#//ElementValue">
+  <eClassifiers xsi:type="ecore:EClass" name="Annotation" eSuperTypes="#//ElementValue #//MergedObject">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         defaultValueLiteral="annotationt_Name"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="annotationElements" upperBound="-1"
@@ -41,7 +41,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="parentAnnotation" eType="#//Annotation"
         transient="true" eOpposite="#//Annotation/annotationElements"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="AnnotationsList">
+  <eClassifiers xsi:type="ecore:EClass" name="AnnotationsList" eSuperTypes="#//MergedObject">
     <eStructuralFeatures xsi:type="ecore:EReference" name="annotations" upperBound="-1"
         eType="#//Annotation" containment="true" eOpposite="#//Annotation/parentAnnotationList"/>
   </eClassifiers>

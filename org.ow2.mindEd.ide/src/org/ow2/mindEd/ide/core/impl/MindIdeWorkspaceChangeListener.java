@@ -23,6 +23,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.ow2.mindEd.ide.core.MindIdeCore;
 import org.ow2.mindEd.ide.model.MindFile;
+import org.ow2.mindEd.ide.model.MindLibrary;
 import org.ow2.mindEd.ide.model.MindObject;
 import org.ow2.mindEd.ide.model.MindPackage;
 import org.ow2.mindEd.ide.model.MindPathEntry;
@@ -32,12 +33,10 @@ import org.ow2.mindEd.ide.model.MindRepo;
 import org.ow2.mindEd.ide.model.MindRootSrc;
 
 public class MindIdeWorkspaceChangeListener implements IResourceVisitor, IResourceDeltaVisitor, IResourceChangeListener {
-	private MindRepo _mindRepo;
 	Map<IResource, MindObject> _mapResourceToMind;
 	MindModelImpl _model;
 	
-	public MindIdeWorkspaceChangeListener(MindModelImpl model, MindRepo repo, Map<IResource, MindObject> mapResourceToMind) {
-		_mindRepo = repo;
+	public MindIdeWorkspaceChangeListener(MindModelImpl model, Map<IResource, MindObject> mapResourceToMind) {
 		_model = model;
 		_mapResourceToMind = mapResourceToMind;
 		if (mapResourceToMind == null) {
@@ -77,50 +76,61 @@ public class MindIdeWorkspaceChangeListener implements IResourceVisitor, IResour
 			return false;
 		}
 		if (resource.getType() == IResource.FOLDER) {
+			IFolder _repoContainer = _model.getLocalRepoFolder();
+			if (_repoContainer.equals(resource.getParent()))  {
+				MindLibrary lib = _model.findOrCreateLib((IFolder) resource, resource.getName(), _model.getLocalRepo(), false);
+				_mapResourceToMind.put(resource, lib);
+				return true;
+			}
+			
 			IProject p = resource.getProject();
 			MindProject mp = (MindProject) _mapResourceToMind.get(p);
 			if (mp == null) {
 				mp = _model.get(p);
-				if (mp == null)
-					return false;
-				_mapResourceToMind.put(p, mp);
-			}
-			for (MindPathEntry mpe : mp.getMindpathentries()) {
-				if (mpe.getEntryKind() == MindPathKind.SOURCE) {
-					if (resource.getFullPath().toPortableString().equals(mpe.getName())) {
-						MindRootSrc findRootSrc = (MindRootSrc) mpe.getResolvedBy();
-						if (findRootSrc == null)
-							findRootSrc = (MindRootSrc) _mapResourceToMind.get(resource);
-						if (findRootSrc == null) {
-							findRootSrc = UtilMindIde.findRootSrc(_mindRepo, resource.getFullPath());
-						}
-						if (findRootSrc != null) {
-							if (kind == IResourceDelta.REMOVED) {
-								_model.remove(findRootSrc);
-								return false;
-							} else {
-								_mapResourceToMind.put(resource, findRootSrc);
-								return true;
-							}
-						} else {
-							if (kind == IResourceDelta.ADDED) { 
-								findRootSrc = _model.findOrCreateRootSrc(mp, (IFolder) resource, false);
-								_mapResourceToMind.put(resource, findRootSrc);
-								return true;
-							}
-						}
-							
-					}
-				}
 			}
 			
+			if (mp != null) {
+				_mapResourceToMind.put(p, mp);
+				for (MindPathEntry mpe : mp.getMindpathentries()) {
+					if (mpe.getEntryKind() == MindPathKind.SOURCE) {
+						if (resource.getFullPath().toPortableString().equals(mpe.getName())) {
+							MindRootSrc findRootSrc = (MindRootSrc) mpe.getResolvedBy();
+							if (findRootSrc == null)
+								findRootSrc = (MindRootSrc) _mapResourceToMind.get(resource);
+							if (findRootSrc == null) {
+								findRootSrc = UtilMindIde.findRootSrc(_model.getWSRepo(), resource.getFullPath());
+							}
+							if (findRootSrc != null) {
+								if (kind == IResourceDelta.REMOVED) {
+									_model.remove(findRootSrc);
+									return false;
+								} else {
+									_mapResourceToMind.put(resource, findRootSrc);
+									return true;
+								}
+							} else {
+								if (kind == IResourceDelta.ADDED) { 
+									findRootSrc = _model.findOrCreateRootSrc(mp, (IFolder) resource, false);
+									_mapResourceToMind.put(resource, findRootSrc);
+									return true;
+								}
+							}
+								
+						}
+					}
+				}
+			} else {
+				if (p != _model.getLocalRepoFolder().getProject()) {
+					return false;
+				}
+			}
 			if (kind == IResourceDelta.REMOVED) {
 				MindPackage packageFound = findOrCreateMindPackage(resource, false);
 				if (packageFound!= null)
 					_model.remove(packageFound.getRootsrc(), packageFound, true);
 				return false;
 			}
-			if (hasFile((IFolder) resource)) {
+			if (UtilMindIde.hasFile((IFolder) resource)) {
 				MindPackage packageFound = findOrCreateMindPackage(resource, true);
 				if (packageFound == null)
 					return false;
@@ -142,7 +152,7 @@ public class MindIdeWorkspaceChangeListener implements IResourceVisitor, IResour
 				if (kind == IResourceDelta.REMOVED) {
 					_model.remove(mf);
 					if (resource.getParent().getType() == IResource.FOLDER) {
-						if (!MindIdeWorkspaceChangeListener.hasFile((IFolder) resource.getParent())) {
+						if (!UtilMindIde.hasFile((IFolder) resource.getParent())) {
 							MindPackage mPackage = findOrCreateMindPackage(resource.getParent(), false);
 							if (mPackage != null)
 								_model.remove(mPackage.getRootsrc(), mPackage, true);
@@ -291,29 +301,11 @@ public class MindIdeWorkspaceChangeListener implements IResourceVisitor, IResour
 		return name.substring(0, i);
 	}
 
-	/**
-	 * must create package model element.
-	 * @param f a folder
-	 * @return true if has file or is a sheet element
-	 */
-	public static boolean hasFile(IFolder f) {
-		try {
-			IResource[] members = f.members();
-			if (members.length == 0)
-				return true;
-			for (IResource iResource : members) {
-				if (iResource.getType() == IResource.FILE && UtilMindIde.getEClassFile(iResource.getName()) != null)
-					return true;
-			}
-		} catch (CoreException e) {
-			return false;
-		}
-		return false;
-	}
+	
 	
 	
 	private void syncDelete() {
-		for (MindRootSrc rs : new ArrayList<MindRootSrc>(_mindRepo.getRootsrcs())) {
+		for (MindRootSrc rs : new ArrayList<MindRootSrc>(_model.getWSRepo().getRootsrcs())) {
 			IResource r = MindIdeCore.getResource(rs);
 			if (r == null || !r.exists()) {
 				_model.remove(rs);
@@ -322,7 +314,7 @@ public class MindIdeWorkspaceChangeListener implements IResourceVisitor, IResour
 			_mapResourceToMind.put(r, rs);
 			for (MindPackage p : new ArrayList<MindPackage>(rs.getPackages())) {
 				r = MindIdeCore.getResource(p);
-				if (r == null || !r.exists() || !MindIdeWorkspaceChangeListener.hasFile((IFolder) r)) {
+				if (r == null || !r.exists() || !UtilMindIde.hasFile((IFolder) r)) {
 					p.getRootsrc().getPackages().remove(p);
 					continue;
 				}

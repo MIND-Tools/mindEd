@@ -16,6 +16,7 @@ import org.eclipse.ui.navigator.ICommonActionConstants;
 import org.eclipse.ui.navigator.ICommonActionExtensionSite;
 import org.eclipse.ui.navigator.ICommonMenuConstants;
 import org.eclipse.ui.navigator.ICommonViewerWorkbenchSite;
+import org.ow2.mindEd.ide.ui.actions.MindExportLibAction;
 import org.ow2.mindEd.ide.ui.actions.MindOpenFileAction;
 
 @SuppressWarnings("restriction")
@@ -27,10 +28,13 @@ public class MindOpenActionProvider extends CommonActionProvider {
 
 	private boolean contribute = false;
 
+	private MindExportLibAction exportLibAction;
+
 	public void init(ICommonActionExtensionSite aConfig) {
 		if (aConfig.getViewSite() instanceof ICommonViewerWorkbenchSite) {
 			viewSite = (ICommonViewerWorkbenchSite) aConfig.getViewSite();
 			openFileAction = new MindOpenFileAction(viewSite.getPage());
+			exportLibAction = new MindExportLibAction();
 			contribute = true;
 		}
 	}
@@ -48,6 +52,10 @@ public class MindOpenActionProvider extends CommonActionProvider {
 			aMenu.insertAfter(ICommonMenuConstants.GROUP_OPEN, openFileAction);
 		}
 		addOpenWithMenu(aMenu);
+		exportLibAction.selectionChanged(selection);
+		if (exportLibAction.isEnabled())
+			aMenu.insertAfter(ICommonMenuConstants.GROUP_OPEN, exportLibAction);
+		
 	}
 
 	public void fillActionBars(IActionBars theActionBars) {

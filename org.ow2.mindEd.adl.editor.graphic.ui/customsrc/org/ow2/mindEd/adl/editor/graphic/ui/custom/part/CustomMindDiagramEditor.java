@@ -59,82 +59,82 @@ public class CustomMindDiagramEditor extends MindDiagramEditor {
 		getDiagramGraphicalViewer().addDropTargetListener(
 				(TransferDropTargetListener) new DiagramDropTargetListener(
 						getDiagramGraphicalViewer(), CustomPluginTransfer
-								.getInstance()) {
-					
-					@SuppressWarnings("unchecked")
-					@Override
-					protected void handleDragOver() {
-						super.handleDragOver();
-					
-						boolean commandIsValid = true;
-						List<Command> listCommand = DragAndDrop.getListCommand(
-								getObjectsBeingDropped(), 
-								getTargetEditPart(),
-								new Point (getCurrentEvent().x,getCurrentEvent().y));
-						if(listCommand != null)
+						.getInstance()) {
+			
+			@SuppressWarnings("unchecked")
+			@Override
+			protected void handleDragOver() {
+				super.handleDragOver();
+			
+				boolean commandIsValid = true;
+				List<Command> listCommand = DragAndDrop.getListCommand(
+						getObjectsBeingDropped(), 
+						getTargetEditPart(),
+						new Point (getCurrentEvent().x,getCurrentEvent().y));
+				if(listCommand != null)
+				{
+					if(listCommand.size() != 0)
+					{
+						for(Command command : listCommand)
 						{
-							if(listCommand.size() != 0)
+							if(!command.canExecute())
 							{
-								for(Command command : listCommand)
-								{
-									if(!command.canExecute())
-									{
-										commandIsValid = commandIsValid & false;
-									}
-								}
-							}
-							else
-							{
-								commandIsValid = false;
+								commandIsValid = commandIsValid & false;
 							}
 						}
-						
-						
-						if(!commandIsValid)
-						{
-							getCurrentEvent().detail = DND.DROP_NONE;
-						}
-						else
-						{
-							getCurrentEvent().detail = DND.DROP_COPY;
-						}
 					}
+					else
+					{
+						commandIsValid = false;
+					}
+				}
+				
+				
+				if(!commandIsValid)
+				{
+					getCurrentEvent().detail = DND.DROP_NONE;
+				}
+				else
+				{
+					getCurrentEvent().detail = DND.DROP_COPY;
+				}
+			}
 
-					protected List getObjectsBeingDropped() {
-						TransferData[] data = getCurrentEvent().dataTypes;
-                        List<Object> ret = new ArrayList<Object>();
-                        for (int i = 0; i < data.length; i++) {
-                              boolean cond = CustomPluginTransfer.getInstance().isSupportedType(data[i]);
-                              if (cond) {
-                                    IStructuredSelection selection = (IStructuredSelection) LocalSelectionTransfer.getTransfer().getSelection();
-                                    for (Iterator it = selection.iterator(); it.hasNext();) {
-                                          Object object = (Object) it.next();
-                                          ret.add(object);
-                                    }
-                              }
-                        }
-                        return ret;
-					}
+			protected List getObjectsBeingDropped() {
+				TransferData[] data = getCurrentEvent().dataTypes;
+                List<Object> ret = new ArrayList<Object>();
+                for (int i = 0; i < data.length; i++) {
+                      boolean cond = CustomPluginTransfer.getInstance().isSupportedType(data[i]);
+                      if (cond) {
+                            IStructuredSelection selection = (IStructuredSelection) LocalSelectionTransfer.getTransfer().getSelection();
+                            for (Iterator it = selection.iterator(); it.hasNext();) {
+                                  Object object = (Object) it.next();
+                                  ret.add(object);
+                            }
+                      }
+                }
+                return ret;
+			}
 
-					public boolean isEnabled(DropTargetEvent event) {
-						System.out.println("MindDiagramEditor.isEnabled");
-						boolean ret = true;
-						System.out.println("MdaDiagramEditor.isEnabled ret : "+ret);
-						return ret;
-					}
-					
-					@Override
-					protected void handleDrop() {
-						super.handleDrop();
-						
-						DragAndDrop.executeDrop(
-								getObjectsBeingDropped(), 
-								getTargetEditPart(),
-								this.getDropLocation());
+			public boolean isEnabled(DropTargetEvent event) {
+				System.out.println("MindDiagramEditor.isEnabled");
+				boolean ret = true;
+				System.out.println("MdaDiagramEditor.isEnabled ret : "+ret);
+				return ret;
+			}
+			
+			@Override
+			protected void handleDrop() {
+				super.handleDrop();
+				
+				DragAndDrop.executeDrop(
+						getObjectsBeingDropped(), 
+						getTargetEditPart(),
+						this.getDropLocation());
 
-					}
-					
-				});
+			}
+			
+		});
 	}
 	
 	

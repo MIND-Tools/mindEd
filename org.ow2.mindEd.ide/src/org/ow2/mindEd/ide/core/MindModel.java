@@ -6,8 +6,10 @@ import java.util.List;
 import java.util.Map;
 
 import org.eclipse.core.resources.IContainer;
+import org.eclipse.core.resources.IFolder;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.runtime.CoreException;
+import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.emf.common.util.EList;
 import org.ow2.mindEd.ide.model.MindAdl;
@@ -94,6 +96,18 @@ public interface MindModel {
 	 * @return
 	 */
 	MindRepo getWSRepo();
+	
+	/**
+	 * return the local repository
+	 * @return
+	 */
+	MindRepo getLocalRepo();
+	
+	/**
+	 * return the local repository
+	 * @return
+	 */
+	IFolder getLocalRepoFolder();
 
 	/**
 	 * Find the mind root source corresponding to the giving eclipse container.
@@ -136,4 +150,6 @@ public interface MindModel {
 	 */
 	MindLibrary getMindLib(IProject project) ;
 
+	
+	MindLibrary createMindLibFromProject(MindProject mp, String libName, IProgressMonitor monitor) throws CoreException;
 }

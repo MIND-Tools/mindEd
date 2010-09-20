@@ -27,6 +27,7 @@ import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.core.runtime.Path;
 import org.eclipse.core.runtime.Status;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.osgi.util.NLS;
 import org.ow2.mindEd.ide.core.impl.CDTUtil;
 import org.ow2.mindEd.ide.core.template.TemplateITFADL;
@@ -34,6 +35,7 @@ import org.ow2.mindEd.ide.core.template.TemplatePrimitiveC;
 import org.ow2.mindEd.ide.model.MindAdl;
 import org.ow2.mindEd.ide.model.MindAllRepo;
 import org.ow2.mindEd.ide.model.MindFile;
+import org.ow2.mindEd.ide.model.MindLibOrProject;
 import org.ow2.mindEd.ide.model.MindObject;
 import org.ow2.mindEd.ide.model.MindPackage;
 import org.ow2.mindEd.ide.model.MindPathEntry;
@@ -226,6 +228,8 @@ public class MindIdeCore {
 	 * @return the eclipse resource corresponding to the given mind object or null.
 	 */
 	public static IResource getResource(MindObject obj) {
+		if (obj == null)
+			return null;
 		switch (obj.eClass().getClassifierID()) {
 
 		case MindidePackage.MIND_ADL:
@@ -312,26 +316,46 @@ public class MindIdeCore {
 		if (adaptableObject.getType() == IResource.PROJECT) {
 			return get((IProject) adaptableObject);
 		}
-		MindAllRepo allrepo = getMindAllRepos();
 		IPath fullpath = adaptableObject.getFullPath();
+		IFolder localRepoFolder = getModel().getLocalRepoFolder();
+		if (localRepoFolder.contains(adaptableObject)) {
+			for (MindLibOrProject lop : getModel().getLocalRepo().getMindLibOrProjects()) {
+				IFolder f = localRepoFolder.getFolder(lop.getName());
+				if (f.equals(adaptableObject))
+					return lop;
+				if (f.contains(adaptableObject)) {
+					MindObject ret =  findInRootSrc(fullpath, lop.getRootsrcs());
+					if (ret != null)
+						return ret;
+				}
+			}
+		}
+		MindAllRepo allrepo = getMindAllRepos();
 		for (MindRepo r : allrepo.getRepos()) {
-			for (MindRootSrc rs : r.getRootsrcs()) {
-				IPath p = new Path(rs.getFullpath());
-				if (p.isPrefixOf(fullpath)) {
-					if (p.segmentCount() == fullpath.segmentCount())
-						return rs;
-					for (MindPackage pa : rs.getPackages()) {
-						p = new Path(pa.getFullpath());
-						if (p.isPrefixOf(fullpath)) {
-							if (p.segmentCount() == fullpath.segmentCount())
-								return pa;
-							for (MindFile mf : pa.getFiles()) {
-								p = new Path(mf.getFullpath());
-								if (p.isPrefixOf(fullpath)) {
-									if (p.segmentCount() == fullpath
-											.segmentCount())
-										return mf;
-								}
+			MindObject ret = findInRootSrc(fullpath, r.getRootsrcs());
+			if (ret != null)
+				return ret;
+		}
+		return null;
+	}
+	
+	public static MindObject findInRootSrc(IPath fullpath, EList<MindRootSrc> eList) {
+		for (MindRootSrc rs : eList) {
+			IPath p = new Path(rs.getFullpath());
+			if (p.isPrefixOf(fullpath)) {
+				if (p.segmentCount() == fullpath.segmentCount())
+					return rs;
+				for (MindPackage pa : rs.getPackages()) {
+					p = new Path(pa.getFullpath());
+					if (p.isPrefixOf(fullpath)) {
+						if (p.segmentCount() == fullpath.segmentCount())
+							return pa;
+						for (MindFile mf : pa.getFiles()) {
+							p = new Path(mf.getFullpath());
+							if (p.isPrefixOf(fullpath)) {
+								if (p.segmentCount() == fullpath
+										.segmentCount())
+									return mf;
 							}
 						}
 					}

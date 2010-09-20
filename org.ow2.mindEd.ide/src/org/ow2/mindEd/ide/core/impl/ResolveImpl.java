@@ -13,6 +13,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.ow2.mindEd.ide.core.MindModel;
 import org.ow2.mindEd.ide.core.MindModelManager;
 import org.ow2.mindEd.ide.model.MindFile;
+import org.ow2.mindEd.ide.model.MindLibOrProject;
 import org.ow2.mindEd.ide.model.MindObject;
 import org.ow2.mindEd.ide.model.MindPackage;
 import org.ow2.mindEd.ide.model.MindPathEntry;
@@ -24,8 +25,22 @@ import org.ow2.mindEd.ide.model.MindidePackage;
 
 public class ResolveImpl {
 	
+	static public MindFile findMindFile(MindLibOrProject mind, String qualifiedName) {
+		int ptIndex = qualifiedName.lastIndexOf('.');
+		String pn = qualifiedName.substring(0,ptIndex);
+		String cn = qualifiedName.substring(ptIndex+1);
+		EList<MindPackage> packages = ResolveImpl.findPackagesInMindPath(mind).get(pn);
+		for (MindPackage p : packages) {
+			for (MindFile mf : p.getFiles()) {
+				if (mf.getName().equals(cn) && mind.exists(mf)) {
+					return mf;
+				}
+			}
+		}
+		return null;
+	}
 	
-	static public EList<MindPackage> findPackages(MindProject mindProject) {
+	static public EList<MindPackage> findPackages(MindLibOrProject mindProject) {
 		BasicEList<MindPackage> foundPackages = new BasicEList<MindPackage> ();
 		for (MindRootSrc s : mindProject.getRootsrcs()) {
 			foundPackages.addAll(s.getPackages());
@@ -34,7 +49,7 @@ public class ResolveImpl {
 	}
 
 	
-	static public Map<String, EList<MindPackage>> findPackagesInMindPath(MindProject mindProject) {
+	static public Map<String, EList<MindPackage>> findPackagesInMindPath(MindLibOrProject mindProject) {
 		Map<String, EList<MindPackage>> ret = new HashMap<String, EList<MindPackage>>();
 		EList<MindPackage> foundPackages = findPackages(mindProject);
 		addPackagesInMap(ret, foundPackages);
@@ -96,12 +111,12 @@ public class ResolveImpl {
 	
 	
 	
-	public static Collection<MindObject> foundRefProjects(MindProject mindProject) {
+	public static Collection<MindObject> foundRefProjects(MindLibOrProject mindProject) {
 		ArrayList<MindObject> visitedItem = new ArrayList<MindObject>();
-		ArrayList<MindProject> toVisitesItem = new ArrayList<MindProject>();
+		ArrayList<MindLibOrProject> toVisitesItem = new ArrayList<MindLibOrProject>();
 		toVisitesItem.add(mindProject);
 		while (!toVisitesItem.isEmpty()) {
-			MindProject p = toVisitesItem.remove(0);
+			MindLibOrProject p = toVisitesItem.remove(0);
 			visitedItem.add(p);
 			EList<MindPathEntry> refPs = mindProject.getMindpathentries();
 			for (MindPathEntry rp : refPs) {
@@ -154,7 +169,7 @@ public class ResolveImpl {
 	
 	
 	
-	public static MindFile resolve(MindProject mindProject, EClass typeElement, String name,
+	public static MindFile resolve(MindLibOrProject mindProject, EClass typeElement, String name,
 			String defaultPackage, List<String> imports) {
 		
 		HashMap<String, String> typeToPackage = new HashMap<String, String>();
@@ -220,7 +235,7 @@ public class ResolveImpl {
 		return null;
 	}
 
-	public static <T extends MindFile> EList<T> resolve(MindProject mindProject,
+	public static <T extends MindFile> EList<T> resolve(MindLibOrProject mindProject,
 			EClass typeElement, String name) {
 		BasicEList<T> ret = new BasicEList<T>();
 		for (Entry<String, EList<MindPackage>> p : findPackagesInMindPath(mindProject).entrySet()) {
@@ -233,7 +248,7 @@ public class ResolveImpl {
 		return ret;
 	}
 	
-	public static EList<MindFile> getAllFiles(MindProject mindProject) {
+	public static EList<MindFile> getAllFiles(MindLibOrProject mindProject) {
 		BasicEList<MindFile> ret = new BasicEList<MindFile>();
 		for (Entry<String, EList<MindPackage>> p : findPackagesInMindPath(mindProject).entrySet()) {
 			for(MindPackage pp : p.getValue()) {
@@ -257,7 +272,7 @@ public class ResolveImpl {
 		return ret;
 	}
 
-	public static <T extends MindFile> EList<T> resolveP(MindProject mindProject,
+	public static <T extends MindFile> EList<T> resolveP(MindLibOrProject mindProject,
 			EClass typeElement, String packageName) {
 		BasicEList<T> ret = new BasicEList<T>();
 		EList<MindPackage> foundPackages = findPackagesInMindPath(mindProject).get(packageName);

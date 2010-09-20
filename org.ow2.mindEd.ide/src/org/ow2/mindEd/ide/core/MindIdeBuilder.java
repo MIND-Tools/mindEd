@@ -35,6 +35,7 @@ import org.objectweb.fractal.adl.error.Error;
 import org.objectweb.fractal.adl.error.ErrorLocator;
 import org.ow2.mindEd.ide.model.MindFile;
 import org.ow2.mindEd.ide.model.MindLibOrProject;
+import org.ow2.mindEd.ide.model.MindLibrary;
 import org.ow2.mindEd.ide.model.MindObject;
 import org.ow2.mindEd.ide.model.MindPackage;
 import org.ow2.mindEd.ide.model.MindPathEntry;
@@ -317,6 +318,10 @@ public class MindIdeBuilder extends IncrementalProjectBuilder {
 				if (p != null && ((rs = p.getRootsrc()) != null) && ((mp2 = rs.getProject()) != null)) {
 					computeResolvedMindPath(mp2, visited, path);
 				}
+			} else if (mpe.getEntryKind() == MindPathKind.LIBRARY) {
+				MindLibrary p = (MindLibrary) mpe.getResolvedBy();
+				if (p != null)
+					path.add(p);
 			}
 		}
 	}
