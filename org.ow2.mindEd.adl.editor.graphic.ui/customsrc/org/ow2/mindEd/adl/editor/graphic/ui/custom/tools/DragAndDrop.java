@@ -189,7 +189,6 @@ public class DragAndDrop {
 											FileC fileC = ((ImplementationDefinitionCustomImpl)element).getFileC();
 											if(fileC.getFileName().equals(mindFile.getQualifiedName()))
 												type = null;
-												
 										}
 									}
 								}
@@ -424,8 +423,11 @@ public class DragAndDrop {
 												ImplementationDefinitionCustomImpl implementationDefinition = new ImplementationDefinitionCustomImpl();
 												FileCCustomImpl fileC = new FileCCustomImpl();
 												String[] fullPath = mindFile.getFullpath().split("/");
+												String fileCName = fullPath[fullPath.length-1];
+												String[] directory =  mindFile.getFullpath().split(fileCName);
 												
-												fileC.setFileName(fullPath[fullPath.length-1]);//												
+												fileC.setDirectory(directory[0]);
+												fileC.setFileName(fileCName);												
 												implementationDefinition.setFileC(fileC);
 												((SubComponentDefinitionCustomImpl) element).getBody().getElements().add(implementationDefinition);
 												((SubComponentDefinitionCustomImpl) element).setName(getNameComponentWithIndex(EP,mindFile.getName(),"_c"));
@@ -434,7 +436,12 @@ public class DragAndDrop {
 											{
 												ImplementationDefinitionCustomImpl implementationDefinition = new ImplementationDefinitionCustomImpl();
 												FileCCustomImpl fileC = new FileCCustomImpl();
-												fileC.setFileName(mindFile.getQualifiedName());												
+												String[] fullPath = mindFile.getFullpath().split("/");
+												String fileCName = fullPath[fullPath.length-1];
+												String[] directory =  mindFile.getFullpath().split(fileCName);
+												
+												fileC.setDirectory(directory[0]);
+												fileC.setFileName(fileCName);										
 												implementationDefinition.setFileC(fileC);
 												((PrimitiveComponentDefinitionCustomImpl) element).getBody().getElements().add(implementationDefinition);
 												((PrimitiveComponentDefinitionCustomImpl) element).setName(getNameComponentWithIndex(EP,mindFile.getName(),"_c"));
@@ -442,7 +449,12 @@ public class DragAndDrop {
 											else if (element instanceof ImplementationDefinition)
 											{
 												FileCCustomImpl fileC = new FileCCustomImpl();
-												fileC.setFileName(mindFile.getQualifiedName());
+												String[] fullPath = mindFile.getFullpath().split("/");
+												String fileCName = fullPath[fullPath.length-1];
+												String[] directory =  mindFile.getFullpath().split(fileCName);
+												
+												fileC.setDirectory(directory[0]);
+												fileC.setFileName(fileCName);
 												((ImplementationDefinitionCustomImpl)element).setFileC(fileC);
 											}
 										}
