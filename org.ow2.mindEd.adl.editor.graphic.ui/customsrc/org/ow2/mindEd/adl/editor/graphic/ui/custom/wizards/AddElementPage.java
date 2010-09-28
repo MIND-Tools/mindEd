@@ -33,8 +33,8 @@ public class AddElementPage extends WizardPage{
 	AddElementWizard addElementWizard;
 	
 	Composite topLevel;
-	Composite treeComposite;
-	Composite textBoxComposite;
+	Composite subLevel;
+
 	
 	TreeViewer treeViewer;
 	Text filePath;
@@ -79,77 +79,77 @@ public class AddElementPage extends WizardPage{
         
         fileButton.setSelection(true);
         inlineButton.setSelection(false);
-        
+ 
         createTreeComposite(topLevel);
-        createTextBoxComposite(topLevel);
         createRadioListener();
         
         setControl(topLevel);
+        
 	}
 	
 	private void createTextBoxComposite(Composite parent) {
 		
-		if(inlineButton.getSelection())
+		subLevel = new Composite(parent, SWT.NONE);
 		{
-			textBoxComposite = new Composite(parent, SWT.NONE);
-			{
-				GridLayout layout = new GridLayout ();
-				layout.numColumns = 1;
-				textBoxComposite.setLayout(layout);
-				textBoxComposite.setFont(parent.getFont());
-	
-	        	GridData constraint = new GridData(SWT.FILL, SWT.FILL, true, true);
-	        	constraint.horizontalSpan = 3;
-	        	textBoxComposite.setLayoutData(constraint);
-	        	textBoxComposite.setVisible(true);
-			}
-			inlineTextBox = new Text(textBoxComposite, SWT.BORDER);
-			inlineTextBox.setLayoutData(textBoxComposite.getLayoutData());
+
+			GridLayout layout = new GridLayout ();
+			layout.numColumns = 1;
+			subLevel.setLayout(layout);
+			subLevel.setFont(parent.getFont());
+
+        	GridData constraint = new GridData(SWT.FILL, SWT.FILL, true, true);
+        	constraint.horizontalSpan = 3;
+        	subLevel.setLayoutData(constraint);
+
+			subLevel.setVisible(true);
 		}
+		inlineTextBox = new Text(subLevel, SWT.BORDER | SWT.WRAP);
+		inlineTextBox.setLayoutData(subLevel.getLayoutData());
+		inlineTextBox.setText("{{"+'\n'+"}}");
 	}
 
 
 	private void createTreeComposite(Composite parent) {
-		if(fileButton.getSelection())
+		
+		subLevel = new Composite(parent, SWT.NONE);
 		{
-			treeComposite = new Composite(parent, SWT.NONE);
-			{
-				GridLayout layout = new GridLayout ();
-				layout.numColumns = 1;
-				treeComposite.setLayout(layout);
-	        	treeComposite.setFont(parent.getFont());
-	
-	        	GridData constraint = new GridData(SWT.FILL, SWT.FILL, true, false);
-	        	constraint.horizontalSpan = 3;
-	        	treeComposite.setLayoutData(constraint);
-	        	treeComposite.setVisible(true);
-	        	
-			}
-			treeViewer = new TreeViewer (new Tree (treeComposite, style));
-	        treeViewer.setContentProvider(new WorkbenchContentProvider());
-	        treeViewer.setLabelProvider(new WorkbenchLabelProvider());
-	
-	        Tree treeWidget = treeViewer.getTree();
-	        treeWidget.setFont(treeComposite.getFont());
-	        {
-			    GridData data = new GridData(SWT.FILL, SWT.FILL, true, true);
-			    data.heightHint = HEIGHT_DATA;
-			    treeWidget.setLayoutData(data);
-			}
-	        
-	        treeViewer.setInput(ResourcesPlugin.getWorkspace().getRoot());
-	        filePath = new Text(treeComposite, SWT.BORDER);
-	        filePath.setFont(treeComposite.getFont());
-	        {
-				GridData data = new GridData(SWT.FILL, SWT.FILL, true, true);
-	        	filePath.setLayoutData(data);
-	        }
-	        
-	        createTreeListener();
-	        
-	        TreeFilterExtension treeFilter = new TreeFilterExtension(".c"); 
-	        treeViewer.addFilter(treeFilter);
+
+			GridLayout layout = new GridLayout ();
+			layout.numColumns = 1;
+			subLevel.setLayout(layout);
+        	subLevel.setFont(parent.getFont());
+
+        	GridData constraint = new GridData(SWT.FILL, SWT.FILL, true, false);
+        	constraint.horizontalSpan = 3;
+        	subLevel.setLayoutData(constraint);
+        	
+        	subLevel.setVisible(true);
+        	
 		}
+		treeViewer = new TreeViewer (new Tree (subLevel, style));
+        treeViewer.setContentProvider(new WorkbenchContentProvider());
+        treeViewer.setLabelProvider(new WorkbenchLabelProvider());
+
+        Tree treeWidget = treeViewer.getTree();
+        treeWidget.setFont(subLevel.getFont());
+        {
+		    GridData data = new GridData(SWT.FILL, SWT.FILL, true, true);
+		    data.heightHint = HEIGHT_DATA;
+		    treeWidget.setLayoutData(data);
+		}
+        
+        treeViewer.setInput(ResourcesPlugin.getWorkspace().getRoot());
+        filePath = new Text(subLevel, SWT.BORDER);
+        filePath.setFont(subLevel.getFont());
+        {
+			GridData data = new GridData(SWT.FILL, SWT.FILL, true, true);
+        	filePath.setLayoutData(data);
+        }
+        
+        createTreeListener();
+        
+        TreeFilterExtension treeFilter = new TreeFilterExtension(".c"); 
+        treeViewer.addFilter(treeFilter);
 	}
 
 	private void createTreeListener() {
@@ -205,7 +205,11 @@ public class AddElementPage extends WizardPage{
 			public void widgetSelected(SelectionEvent e) {
 				if(fileButton.getSelection())
 				{
-					topLevel.pack(true);
+					if ((subLevel != null) && (!subLevel.isDisposed())) {
+						subLevel.dispose();
+					}
+					createTreeComposite(topLevel);
+					topLevel.layout(true);
 				}
 			}
 			
@@ -218,7 +222,11 @@ public class AddElementPage extends WizardPage{
 			public void widgetSelected(SelectionEvent e) {
 				if(inlineButton.getSelection())
 				{
-					
+					if ((subLevel != null) && (!subLevel.isDisposed())) {
+						subLevel.dispose();
+					}
+					createTextBoxComposite(topLevel);
+					topLevel.layout(true);
 				}
 			}
 			
@@ -233,8 +241,16 @@ public class AddElementPage extends WizardPage{
 		return inlineButton.getSelection();
 	}
 	
+	public boolean isFile(){
+		return fileButton.getSelection();
+	}
+	
 	public String getFilePath(){
 		return filePath.getText();
+	}
+	
+	public String getInlineText(){
+		return inlineTextBox.getText();
 	}
 
 }

@@ -35,6 +35,8 @@ public class ResourcesWizard {
 	public final static String ADD_ELEMENT_TYPE = "Implementation";
 	public final static String ADD_ELEMENT_FILE_BUTTON = "File";
 	public final static String ADD_ELEMENT_INLINE_BUTTON = "Inline";
+	public final static String ADD_ELEMENT_INLINE_ERROR = "Inline Text must start by '{{' and finish by '}}'.";
+	public final static String ADD_ELEMENT_FILE_ERROR = "You must select a file with '.c' extension.";
 	
 	public final static String CONFIRMATION_MESSAGE = "This file doesn't exist. Do you want to create this file ?";
 	public final static String ERROR_NAME = "You must write a name to finish this creation.";

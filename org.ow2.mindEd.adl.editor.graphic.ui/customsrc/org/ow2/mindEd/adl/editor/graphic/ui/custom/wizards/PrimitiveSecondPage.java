@@ -1,5 +1,9 @@
 package org.ow2.mindEd.adl.editor.graphic.ui.custom.wizards;
 
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Iterator;
+
 import org.eclipse.jface.wizard.Wizard;
 import org.eclipse.jface.wizard.WizardDialog;
 import org.eclipse.jface.wizard.WizardPage;
@@ -69,7 +73,7 @@ public class PrimitiveSecondPage extends WizardPage{
         	constraint.horizontalSpan = 3;
         	listComposite.setLayoutData(constraint);
 		}
-        listBox = new List(listComposite, SWT.BORDER);
+        listBox = new List(listComposite, SWT.BORDER | SWT.WRAP);
         listBox.setLayoutData(listComposite.getLayoutData());
         
         createButtonListener();
@@ -83,13 +87,31 @@ public class PrimitiveSecondPage extends WizardPage{
 			public void mouseDoubleClick(MouseEvent e) {}
 			@Override
 			public void mouseDown(MouseEvent e) {
-				listBox.add("test");
 				AddElementWizard elementWizard = new AddElementWizard();
 				WizardDialog wizDialog = new WizardDialog(PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell(), elementWizard);
 				wizDialog.setBlockOnOpen(true);
 				if(wizDialog.open() == WizardDialog.OK)
 				{
+					ImplementationInformation implInfotmation = elementWizard.getImplementationInformation();
 					
+					if(implInfotmation.isFile())
+					{
+						String[] tabImpl = listBox.getItems();
+						ArrayList<String> listImpl = new ArrayList<String>();
+							
+						for(String impl : tabImpl)
+						{
+							listImpl.add(impl);
+						}
+						
+						if(!listImpl.contains(implInfotmation.getFilePath()))
+							listBox.add(implInfotmation.getFilePath());
+						
+					}
+					else if(implInfotmation.isInline())
+					{
+						listBox.add(implInfotmation.getInlineText());
+					}
 				}
 			}
 			@Override
@@ -128,6 +150,22 @@ public class PrimitiveSecondPage extends WizardPage{
 		});
 
 		
+	}
+	
+	public ArrayList<String> getListImplementation()
+	{
+		ArrayList<String> listImpl = new ArrayList<String>();
+		if(listBox != null)
+		{
+			String listItem[] = listBox.getItems();
+			for(String impl : listItem)
+			{
+				listImpl.add(impl);
+			}
+			
+			return listImpl;
+		}
+		else return null;
 	}
 
 }

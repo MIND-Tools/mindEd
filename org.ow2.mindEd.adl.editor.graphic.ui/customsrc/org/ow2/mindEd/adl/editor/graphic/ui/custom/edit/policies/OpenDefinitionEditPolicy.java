@@ -150,10 +150,20 @@ public class OpenDefinitionEditPolicy extends OpenEditPolicy {
 			} else {
 				File f = new File(directory, fileName);
 				if (f.isAbsolute()) {
-					IWorkspace workspace = org.eclipse.core.resources.ResourcesPlugin.getWorkspace();
-					file = workspace.getRoot().getFileForLocation(new Path(f.getAbsolutePath()));
+					//IWorkspace workspace = org.eclipse.core.resources.ResourcesPlugin.getWorkspace();
+					//file = workspace.getRoot().getFileForLocation(new Path(f.getAbsolutePath()));
+					URI uri = URI.createPlatformResourceURI(f.getPath(), true);
+					MindPackage pack = ModelToProjectUtil.INSTANCE.getCurrentPackage(uri);
+					IFolder f2 = MindIdeCore.getResource(pack);
+					file = f2.getFile(fileName);
 				} else {
 					//TODO resolve ???
+					
+					URI uri = URI.createPlatformResourceURI(f.getPath(), true);
+					MindPackage pack = ModelToProjectUtil.INSTANCE.getCurrentPackage(uri);
+					IFolder f2 = MindIdeCore.getResource(pack);
+					file = f2.getFile(fileName);
+
 				}
 			}
 			

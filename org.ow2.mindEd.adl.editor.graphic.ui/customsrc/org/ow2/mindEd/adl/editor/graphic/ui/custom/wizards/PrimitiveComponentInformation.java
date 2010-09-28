@@ -1,5 +1,7 @@
 package org.ow2.mindEd.adl.editor.graphic.ui.custom.wizards;
 
+import java.util.ArrayList;
+
 public class PrimitiveComponentInformation {
 
 	public String getPrimitiveName() {
@@ -32,12 +34,20 @@ public class PrimitiveComponentInformation {
 	public void setExtendPath(String extendPath) {
 		this.extendPath = extendPath;
 	}
+	public ArrayList<String> getListImplementation() {
+		return listImplementation;
+	}
+	public void setListImplementation(ArrayList<String> listImplementation) {
+		this.listImplementation = listImplementation;
+	}
 	
 	protected String primitiveName = null;
 	protected boolean extend = false;
 	protected boolean override = false;
 	protected boolean anonymous = false;
 	protected String extendPath = null;
+	protected ArrayList<String> listImplementation = null;
+	
 	
 	
 }

@@ -1,12 +1,14 @@
 package org.ow2.mindEd.adl.editor.graphic.ui.custom.tools;
 
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
 
 import org.eclipse.core.commands.ExecutionException;
 import org.eclipse.core.resources.IFile;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.transaction.RollbackException;
 import org.eclipse.emf.transaction.impl.TransactionImpl;
@@ -20,17 +22,26 @@ import org.eclipse.jface.wizard.WizardDialog;
 import org.eclipse.ui.PlatformUI;
 import org.ow2.mindEd.adl.ComponentKind;
 import org.ow2.mindEd.adl.ComponentReference;
+import org.ow2.mindEd.adl.Element;
+import org.ow2.mindEd.adl.FileC;
 import org.ow2.mindEd.adl.InterfaceDefinition;
 import org.ow2.mindEd.adl.custom.impl.CompositeReferenceDefinitionCustomImpl;
+import org.ow2.mindEd.adl.custom.impl.ImplementationDefinitionCustomImpl;
 import org.ow2.mindEd.adl.custom.impl.InterfaceDefinitionCustomImpl;
+import org.ow2.mindEd.adl.custom.impl.PrimitiveBodyCustomImpl;
 import org.ow2.mindEd.adl.custom.impl.PrimitiveComponentDefinitionCustomImpl;
 import org.ow2.mindEd.adl.custom.impl.PrimitiveReferenceDefinitionCustomImpl;
 import org.ow2.mindEd.adl.custom.impl.SubComponentDefinitionCustomImpl;
+import org.ow2.mindEd.adl.custom.impl.SubComponentPrimitiveBodyCustomImpl;
 import org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.commands.MindDiagramUpdateAllCommand;
 import org.ow2.mindEd.adl.editor.graphic.ui.custom.wizards.PrimitiveComponentInformation;
 import org.ow2.mindEd.adl.editor.graphic.ui.custom.wizards.PrimitiveCreationWizard;
+import org.ow2.mindEd.adl.editor.graphic.ui.providers.MindElementTypes;
+import org.ow2.mindEd.adl.impl.FileCImpl;
+import org.ow2.mindEd.adl.impl.InlineCodeCImpl;
 import org.ow2.mindEd.adl.impl.PrimitiveReferencesListImpl;
 import org.ow2.mindEd.ide.core.ModelToProjectUtil;
+import org.ow2.mindEd.ide.model.MindC;
 import org.ow2.mindEd.ide.model.MindFile;
 
 public class PrimitiveComponentCreationTool extends UnspecifiedTypeCreationTool{
@@ -42,9 +53,7 @@ public class PrimitiveComponentCreationTool extends UnspecifiedTypeCreationTool{
 		EditPartViewer viewer = getCurrentViewer();
 		Command c = getCurrentCommand();
 		if(c != null)
-		{
-			executeCurrentCommand();
-/*			
+		{			
 			selectAddedObject(viewer, DiagramCommandStack.getReturnValues(c));
 			PrimitiveCreationWizard wizWizard = new PrimitiveCreationWizard(); 
 	        WizardDialog wizDialog = new WizardDialog(PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell(), wizWizard);
@@ -84,6 +93,42 @@ public class PrimitiveComponentCreationTool extends UnspecifiedTypeCreationTool{
 									newReferenceDefinition.setReferenceName(mindFile.getQualifiedName());
 									((SubComponentDefinitionCustomImpl)element).setReferenceDefinition(newReferenceDefinition);
 								}
+								if((primitiveInformation.getListImplementation() != null)
+										&& (primitiveInformation.getListImplementation().size()!= 0))
+								{
+									ArrayList<String> listImpl = primitiveInformation.getListImplementation();
+									for(String impl : listImpl)
+									{
+										SubComponentPrimitiveBodyCustomImpl body = (SubComponentPrimitiveBodyCustomImpl) ((SubComponentDefinitionCustomImpl)element).getBody();
+										List<Element> elementList = body.getElements();
+										
+										if(impl.startsWith("{{") && impl.endsWith("}}"))
+										{
+											InlineCodeCImpl inlineCode = new InlineCodeCImpl();
+											inlineCode.setCodeC(impl);
+											
+											ImplementationDefinitionCustomImpl newImpl = new ImplementationDefinitionCustomImpl();
+											newImpl.setInlineCcode(inlineCode);
+											elementList.add(newImpl);
+										}
+										else
+										{
+											MindFile mindFileC = null;
+											URI uri = URI.createPlatformResourceURI(impl, true);
+											mindFileC = ModelToProjectUtil.INSTANCE.getCurrentMindFile(uri);
+											if(mindFileC instanceof MindC)
+											{
+												FileCImpl fileC = new FileCImpl();
+												fileC.setFileName(mindFileC.getQualifiedName());
+												
+												ImplementationDefinitionCustomImpl newImpl = new ImplementationDefinitionCustomImpl();
+												newImpl.setFileC(fileC);
+												elementList.add(newImpl);
+											}
+										}
+									}
+								}
+									
 							}
 							else if (element instanceof PrimitiveComponentDefinitionCustomImpl)
 							{
@@ -96,6 +141,41 @@ public class PrimitiveComponentCreationTool extends UnspecifiedTypeCreationTool{
 									newReferenceDefinition.setReferenceName(mindFile.getQualifiedName());
 									((PrimitiveComponentDefinitionCustomImpl)element).setReferencesList(referenceList);
 									newReferenceDefinition.setParentReferencesList(referenceList);
+								}
+								if((primitiveInformation.getListImplementation()!= null) 
+										&& (primitiveInformation.getListImplementation().size()!= 0))
+								{
+									ArrayList<String> listImpl = primitiveInformation.getListImplementation();
+									for(String impl : listImpl)
+									{
+										PrimitiveBodyCustomImpl body = (PrimitiveBodyCustomImpl) ((PrimitiveComponentDefinitionCustomImpl)element).getBody();
+										List<Element> elementList = body.getElements();
+										
+										if(impl.startsWith("{{") && impl.endsWith("}}"))
+										{
+											InlineCodeCImpl inlineCode = new InlineCodeCImpl();
+											inlineCode.setCodeC(impl);
+											
+											ImplementationDefinitionCustomImpl newImpl = new ImplementationDefinitionCustomImpl();
+											newImpl.setInlineCcode(inlineCode);
+											elementList.add(newImpl);
+										}
+										else
+										{											
+											MindFile mindFileC = null;
+											URI uri = URI.createPlatformResourceURI(impl, true);
+											mindFileC = ModelToProjectUtil.INSTANCE.getCurrentMindFile(uri);
+											if(mindFileC instanceof MindC)
+											{
+												FileCImpl fileC = new FileCImpl();
+												fileC.setFileName(mindFileC.getQualifiedName());
+												
+												ImplementationDefinitionCustomImpl newImpl = new ImplementationDefinitionCustomImpl();
+												newImpl.setFileC(fileC);
+												elementList.add(newImpl);
+											}
+										}
+									}
 								}
 							}
 							transaction.commit();
@@ -114,7 +194,6 @@ public class PrimitiveComponentCreationTool extends UnspecifiedTypeCreationTool{
 			} catch (ExecutionException e) {
 				e.printStackTrace();
 			}
-*/
 		}
 
 		antiScroll = false;

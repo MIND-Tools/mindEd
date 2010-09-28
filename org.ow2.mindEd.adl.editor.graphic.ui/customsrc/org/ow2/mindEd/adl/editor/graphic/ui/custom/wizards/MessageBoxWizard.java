@@ -12,6 +12,8 @@ public class MessageBoxWizard {
 	public  MessageBoxWizard(Shell shell, String message, int style)
 	{
 		int usedStyle = 0;
+		
+		
 		if(style == SWT.NONE)
 			usedStyle = SWT.YES | SWT.NO;
 		else 

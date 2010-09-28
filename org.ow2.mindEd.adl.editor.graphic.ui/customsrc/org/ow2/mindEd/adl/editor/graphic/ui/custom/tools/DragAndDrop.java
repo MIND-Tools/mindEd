@@ -31,6 +31,7 @@ import org.eclipse.gmf.runtime.diagram.ui.requests.CreateViewRequestFactory;
 import org.eclipse.gmf.runtime.emf.type.core.IElementType;
 import org.eclipse.gmf.runtime.emf.type.core.requests.CreateElementRequest;
 import org.eclipse.gmf.runtime.notation.View;
+import org.eclipse.gmf.runtime.notation.impl.BasicCompartmentImpl;
 import org.eclipse.gmf.runtime.notation.impl.BasicDecorationNodeImpl;
 import org.eclipse.gmf.runtime.notation.impl.ShapeImpl;
 import org.eclipse.xtext.linking.lazy.LazyLinkingResource;
@@ -42,6 +43,7 @@ import org.ow2.mindEd.adl.ImplementationDefinition;
 import org.ow2.mindEd.adl.InterfaceDefinition;
 import org.ow2.mindEd.adl.PrimitiveComponentDefinition;
 import org.ow2.mindEd.adl.PrimitiveReferencesList;
+import org.ow2.mindEd.adl.ReferencesList;
 import org.ow2.mindEd.adl.SubComponentDefinition;
 import org.ow2.mindEd.adl.custom.impl.CompositeBodyCustomImpl;
 import org.ow2.mindEd.adl.custom.impl.CompositeReferenceDefinitionCustomImpl;
@@ -58,6 +60,10 @@ import org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.commands.MindDiagramUpda
 import org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.parts.AdlDefinitionCustomEditPart;
 import org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.parts.CompositeBodyCompartmentCustomEditPart;
 import org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.parts.PrimitiveBodyCompartmentCustomEditPart;
+import org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.parts.PrimitiveComponentDefinitionCustomEditPart;
+import org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.parts.PrimitiveReferenceCustomEditPart;
+import org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.parts.PrimitiveReferencesListCompartmentCustomEditPart;
+import org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.parts.PrimitiveReferencesListCustomEditPart;
 import org.ow2.mindEd.adl.editor.graphic.ui.edit.parts.SubComponentCompositeBodyCompartmentEditPart;
 import org.ow2.mindEd.adl.editor.graphic.ui.edit.parts.SubComponentPrimitiveBodyCompartmentEditPart;
 import org.ow2.mindEd.adl.editor.graphic.ui.providers.MindElementTypes;
@@ -135,6 +141,19 @@ public class DragAndDrop {
 							else
 								type = null;
 						}
+						else if (targetEditPart instanceof PrimitiveComponentDefinitionCustomEditPart)
+						{
+							if(canDropMindAdl(EP,mindFile))
+								type = MindElementTypes.PrimitiveReferenceDefinition_3125;
+							else
+								type = null;
+						}
+						else
+						{
+							int g = 1;
+							g = g * 1;
+							System.out.println(targetEditPart.getClass().toString());
+						}
 					}
 					if(mindFile instanceof MindC)
 					{
@@ -204,23 +223,79 @@ public class DragAndDrop {
 					if(mindFile instanceof MindItf)
 					{
 						type = MindElementTypes.InterfaceDefinition_3130;
-					}				
+					}		
+					
+					Command com = null;
 					if(type != null)
 					{
-						Request request = createRequest(type,EP.getViewer());
-
-						if (request instanceof CreateViewRequest) {
-							((CreateRequest) request).setLocation(location);
+						if (type == MindElementTypes.PrimitiveReferenceDefinition_3125)
+						{
+							List targetChildren = targetEditPart.getChildren();
+							for(Object target : targetChildren)
+							{
+								if(target instanceof PrimitiveReferencesListCustomEditPart)
+								{
+									List referencesChildren = ((PrimitiveReferencesListCustomEditPart)target).getChildren();
+									for(Object refListChild : referencesChildren)
+									{
+										if(refListChild instanceof PrimitiveReferencesListCompartmentCustomEditPart)
+										{
+											boolean newReference = true;
+											List referencesList = ((PrimitiveReferencesListCompartmentCustomEditPart) refListChild).getChildren();
+											if(referencesList != null)
+											{
+												for(Object temp7 : referencesList)
+												{
+													if (temp7 instanceof PrimitiveReferenceCustomEditPart)
+													{
+														PrimitiveReferenceDefinitionCustomImpl bite = (PrimitiveReferenceDefinitionCustomImpl) ((ShapeImpl)((PrimitiveReferenceCustomEditPart) temp7).getModel()).getElement();
+														if(bite.getReferenceName().equals(mindFile.getQualifiedName()))
+															newReference = false;
+													}
+												}
+											}
+											if (newReference)
+											{
+												Request request = createRequest(type,((PrimitiveReferencesListCompartmentCustomEditPart) refListChild).getViewer());
+												com = ((PrimitiveReferencesListCompartmentCustomEditPart) refListChild).getCommand(request);
+											}
+										}
+									}
+								}
+							}
+/*							List temp2 = ((PrimitiveReferenceDefinitionCustomImpl)element).getParentReferencesList().getReferences();
+							boolean newReference = true;
+							for (Object refInCompo : temp2)
+							{
+								if(refInCompo instanceof PrimitiveReferenceDefinitionCustomImpl)
+								{
+									if(((PrimitiveReferenceDefinitionCustomImpl)refInCompo).getReferenceName().equals(mindFile.getQualifiedName()))
+										newReference = false;
+								}
+							}
+							if(newReference)
+*/								
+						}
+						else
+						{
+							Request request = createRequest(type,EP.getViewer());
+	
+							if (request instanceof CreateViewRequest) {
+								((CreateRequest) request).setLocation(location);
+							}
+							
+							com = EP.getCommand(request);
 						}
 						
-						Command com = EP.getCommand(request);
 						if(com != null)
 						{
 							com.setLabel(mindFile.getFullpath());
 							commadList.add(com);
 						}
+						
 					}
-					else
+					
+					if(com == null)
 					{
 						Command unexecutableCommand = new Command(){
 							@Override
@@ -247,7 +322,7 @@ public class DragAndDrop {
 	 */
 	private static boolean canDropMindAdl(GraphicalEditPart EP,
 			MindFile mindFile) {
-
+/*
 		EList<Resource> resources = EP.getEditingDomain().getResourceSet().getResources();
 		URI resourceURI = null;
 		for (Resource res : resources) {
@@ -264,6 +339,8 @@ public class DragAndDrop {
 		      }
 		}
 		return false;
+*/
+		return true;
 	}
 
 	/**
@@ -300,7 +377,6 @@ public class DragAndDrop {
 							
 							for(Object elementRequest : temp)
 							{
-
 								if(elementRequest instanceof CreateElementRequestAdapter)
 								{
 									CreateElementRequest request = (CreateElementRequest) ((CreateElementRequestAdapter)elementRequest).getAdapter(CreateElementRequest.class);
@@ -313,7 +389,11 @@ public class DragAndDrop {
 
 										if(mindFile instanceof MindAdl)
 										{
-											if (element instanceof SubComponentDefinition)
+											if (element instanceof PrimitiveReferenceDefinitionCustomImpl)
+											{
+												((PrimitiveReferenceDefinitionCustomImpl)element).setReferenceName(mindFile.getQualifiedName());
+											}
+											else if (element instanceof SubComponentDefinition)
 											{
 												CompositeReferenceDefinitionImpl newReferenceDefinition = new CompositeReferenceDefinitionImpl();
 												newReferenceDefinition.setReferenceName(mindFile.getQualifiedName());
@@ -343,7 +423,9 @@ public class DragAndDrop {
 											if (element instanceof SubComponentDefinition) {
 												ImplementationDefinitionCustomImpl implementationDefinition = new ImplementationDefinitionCustomImpl();
 												FileCCustomImpl fileC = new FileCCustomImpl();
-												fileC.setFileName(mindFile.getQualifiedName());//												
+												String[] fullPath = mindFile.getFullpath().split("/");
+												
+												fileC.setFileName(fullPath[fullPath.length-1]);//												
 												implementationDefinition.setFileC(fileC);
 												((SubComponentDefinitionCustomImpl) element).getBody().getElements().add(implementationDefinition);
 												((SubComponentDefinitionCustomImpl) element).setName(getNameComponentWithIndex(EP,mindFile.getName(),"_c"));

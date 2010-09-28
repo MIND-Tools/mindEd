@@ -1,20 +1,16 @@
 package org.ow2.mindEd.adl.editor.graphic.ui.custom.wizards;
 
 
-import org.eclipse.core.resources.IFile;
-import org.eclipse.emf.common.util.URI;
+
 import org.eclipse.jface.dialogs.IDialogSettings;
-import org.eclipse.jface.wizard.IWizardPage;
-import org.eclipse.jface.wizard.Wizard;
 import org.eclipse.jface.wizard.WizardDialog;
 import org.eclipse.swt.SWT;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.internal.WorkbenchPlugin;
-import org.ow2.mindEd.ide.core.ModelToProjectUtil;
-import org.ow2.mindEd.ide.model.MindFile;
 
 @SuppressWarnings("restriction")
 public class PrimitiveCreationWizard extends CustomWizard {
+
 
 	PrimitiveMainPage primitiveMainPage;
 	PrimitiveSecondPage primitiveSecondPage;
@@ -39,10 +35,10 @@ public class PrimitiveCreationWizard extends CustomWizard {
 			wizardSettings = workbenchSettings.addNewSection("NewWizardAction"); //$NON-NLS-1$
 		}
         this.setDialogSettings(wizardSettings);
-        this.setForcePreviousAndNextButtons(false);
         this.setWindowTitle(ResourcesWizard.PRIMITIVE_WIZARD_TITLE);
         
         this.setForcePreviousAndNextButtons(true);
+
         
 
 	}
@@ -59,6 +55,8 @@ public class PrimitiveCreationWizard extends CustomWizard {
 		primitiveInformation.setOverride(primitiveMainPage.isOverride());
 		primitiveInformation.setAnonymous(primitiveMainPage.isAnonymous());
 		primitiveInformation.setExtendPath(primitiveMainPage.getExtendPath());
+		if(primitiveSecondPage!=null)
+			primitiveInformation.setListImplementation(primitiveSecondPage.getListImplementation());
 		
 		if((primitiveInformation.getPrimitiveName() == null)
 				|| (primitiveInformation.getPrimitiveName().length() == 0))
@@ -69,29 +67,26 @@ public class PrimitiveCreationWizard extends CustomWizard {
 			.open();
 			return false;
 		}
-		if(!primitiveInformation.isAnonymous() &&
-				((primitiveInformation.getExtendPath() == null) 
-				|| (primitiveInformation.getExtendPath().length() == 0)))
+		if(!primitiveInformation.isAnonymous())
 		{
-			new MessageBoxWizard(PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell()
-					, ResourcesWizard.ERROR_PATH
-					, SWT.ICON_WARNING | SWT.OK)
-			.open();
-			return false;
+			if((primitiveInformation.getExtendPath() == null) 
+				|| (primitiveInformation.getExtendPath().length() == 0))
+			{
+				new MessageBoxWizard(PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell()
+						, ResourcesWizard.ERROR_PATH
+						, SWT.ICON_WARNING | SWT.OK)
+				.open();
+				return false;
+			}
+			if(!primitiveInformation.getExtendPath().endsWith(".adl"))
+			{
+				new MessageBoxWizard(PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell()
+						, String.format(ResourcesWizard.ERROR_EXTENSION, "'adl'")
+						, SWT.ICON_WARNING | SWT.OK)
+				.open();
+				return false;
+			}
 		}
-		if(!primitiveInformation.getExtendPath().endsWith(".adl"))
-		{
-			new MessageBoxWizard(PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell()
-					, String.format(ResourcesWizard.ERROR_EXTENSION, "'adl'")
-					, SWT.ICON_WARNING | SWT.OK)
-			.open();
-			return false;
-		}
-		
-		
-		
-		
-		
 		return true;
 
 	}
