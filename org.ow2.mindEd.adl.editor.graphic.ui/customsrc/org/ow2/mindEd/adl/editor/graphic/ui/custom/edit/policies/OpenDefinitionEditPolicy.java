@@ -38,6 +38,7 @@ import org.ow2.mindEd.adl.editor.graphic.ui.custom.part.CustomMindDiagramEditorU
 import org.ow2.mindEd.adl.editor.graphic.ui.part.MindDiagramEditorPlugin;
 import org.ow2.mindEd.ide.core.MindIdeCore;
 import org.ow2.mindEd.ide.core.ModelToProjectUtil;
+import org.ow2.mindEd.ide.model.MindAdl;
 import org.ow2.mindEd.ide.model.MindPackage;
 import org.ow2.mindEd.ide.model.MindProject;
 
@@ -145,13 +146,14 @@ public class OpenDefinitionEditPolicy extends OpenEditPolicy {
 			String fileName = ((FileC) model).getFileName();
 			if (directory == null || directory == "") {
 				
-/*				IEditorInput temp = MindProxyFactory.INSTANCE.getEditorInput();
-				if(temp instanceof FileEditorInput)
+				IEditorInput temp = MindProxyFactory.INSTANCE.getEditorInput();
+/*				if(temp instanceof FileEditorInput)
 				{
 					IFile fileEditor = ((FileEditorInput) temp).getFile();
 					IPath path = fileEditor.getFullPath();
+					IWorkspace WS = fileEditor.getWorkspace();
 					String bite = path.toString();
-					URI uri = URI.createURI(bite);
+					URI uri = URI.createFileURI(bite);
 					
 					ArrayList<String> importsList = new ArrayList<String>();
 					RootEditPart root = getHost().getRoot();
@@ -168,7 +170,7 @@ public class OpenDefinitionEditPolicy extends OpenEditPolicy {
 						}
 					}
 					
-					URI temp3 = ModelToProjectUtil.INSTANCE.resolveAdl(uri, ((FileC) model).getFileName(), importsList);
+					URI temp3 = ModelToProjectUtil.INSTANCE.resolveAdl(uri, "reretest_adl", importsList);
 					
 					int a = 1;
 					a = a * 1;

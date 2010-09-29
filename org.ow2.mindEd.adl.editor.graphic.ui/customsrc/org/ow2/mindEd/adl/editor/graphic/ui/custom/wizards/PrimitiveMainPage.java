@@ -13,6 +13,8 @@ import org.eclipse.jface.viewers.SelectionChangedEvent;
 import org.eclipse.jface.viewers.TreePath;
 import org.eclipse.jface.viewers.TreeSelection;
 import org.eclipse.jface.viewers.TreeViewer;
+import org.eclipse.jface.viewers.Viewer;
+import org.eclipse.jface.viewers.ViewerFilter;
 import org.eclipse.jface.wizard.Wizard;
 import org.eclipse.jface.wizard.WizardPage;
 import org.eclipse.swt.SWT;
@@ -188,78 +190,7 @@ public class PrimitiveMainPage extends WizardPage{
         	treeComposite.setLayoutData(constraint);
         	
 		}
-		
-		treeViewer = new TreeViewer (new Tree (treeComposite, style));
-        treeViewer.setContentProvider(new WorkbenchContentProvider());
-        treeViewer.setLabelProvider(new WorkbenchLabelProvider());
-
-        Tree treeWidget = treeViewer.getTree();
-        treeWidget.setFont(treeComposite.getFont());
-        {
-		    GridData data = new GridData(SWT.FILL, SWT.FILL, true, true);
-		    data.heightHint = HEIGHT_DATA;
-		    treeWidget.setLayoutData(data);
-		}
-        
-        treeViewer.setInput(ResourcesPlugin.getWorkspace().getRoot());
-        uriField = new Text(treeComposite, SWT.BORDER);
-        uriField.setFont(treeComposite.getFont());
-        {
-			GridData data = new GridData(SWT.FILL, SWT.FILL, true, true);
-        	uriField.setLayoutData(data);
-        }
-        
-        createTreeListener();
-        
-        TreeFilterExtension treeFilter = new TreeFilterExtension(".adl"); 
-        treeViewer.addFilter(treeFilter);
-		
-	}
-
-	private void createTreeListener() {
-		// TODO Auto-generated method stub
-        treeViewer.addPostSelectionChangedListener(new ISelectionChangedListener() {
-			@SuppressWarnings("restriction")
-			@Override
-			public void selectionChanged(SelectionChangedEvent event) {
-				
-				TreeSelection treeSelection= (TreeSelection) event.getSelection();
-				TreePath treePath = treeSelection.getPaths()[0];
-				if(treePath.getLastSegment() instanceof Project)
-				{
-					Project selectedItem = (Project)treePath.getLastSegment();
-					uriField.setText(selectedItem.getFullPath().toString());
-				}
-				else if(treePath.getLastSegment() instanceof Folder)
-				{
-					Folder selectedItem = (Folder)treePath.getLastSegment();
-					uriField.setText(selectedItem.getFullPath().toString());
-				}
-				else if (treePath.getLastSegment() instanceof File)
-				{
-					File selectedItem = (File)treePath.getLastSegment();
-					
-					uriField.setText(selectedItem.getFullPath().toString());
-				}
-			}
-		});
-        
-        treeViewer.addDoubleClickListener(new IDoubleClickListener() {
-            public void doubleClick(DoubleClickEvent event) {
-
-	            ISelection selection = event.getSelection();
-	            if (selection instanceof IStructuredSelection) {
-	                Object item = ((IStructuredSelection) selection)
-	                        .getFirstElement();
-	                if (treeViewer.getExpandedState(item)) {
-	                	treeViewer.collapseToLevel(item, 1);
-					} else {
-						treeViewer.expandToLevel(item, 1);
-					}
-	            }
-
-            }
-        });
+		uriField = CreationTreeViewer.createTreeComposite(treeComposite, style, HEIGHT_DATA, ".adl");
 	}
 
 	private void createRadioListener() {

@@ -17,6 +17,7 @@ import org.eclipse.jface.viewers.SelectionChangedEvent;
 import org.eclipse.jface.viewers.TreePath;
 import org.eclipse.jface.viewers.TreeSelection;
 import org.eclipse.jface.viewers.TreeViewer;
+import org.eclipse.jface.viewers.Viewer;
 import org.eclipse.jface.viewers.ViewerFilter;
 import org.eclipse.jface.wizard.WizardPage;
 import org.eclipse.swt.SWT;
@@ -101,82 +102,10 @@ public class InterfaceMainPage extends WizardPage {
         
         new Label(topLevel,SWT.NONE).setText(ResourcesWizard.INTERFACE_SIGNATURE);        
 
-        treeViewer = new TreeViewer (new Tree (topLevel, style));
-        treeViewer.setContentProvider(new WorkbenchContentProvider());
-        treeViewer.setLabelProvider(new WorkbenchLabelProvider());
-
-        Tree treeWidget = treeViewer.getTree();
-        treeWidget.setFont(parent.getFont());
-        {
-		    GridData data = new GridData(SWT.FILL, SWT.FILL, true, true);
-		    data.widthHint = WIDTH_DATA;
-		    data.heightHint = HEIGHT_DATA;
-		    treeWidget.setLayoutData(data);
-		}
-        
-        treeViewer.setInput(ResourcesPlugin.getWorkspace().getRoot());
-        uriField = new Text(topLevel, SWT.BORDER);
-        uriField.setFont(parent.getFont());
-        {
-			GridData data = new GridData(SWT.FILL, SWT.FILL, true, true);
-			data.widthHint = WIDTH_DATA;
-        	uriField.setLayoutData(data);
-        }
-        
-        treeViewer.addPostSelectionChangedListener(new ISelectionChangedListener() {
-			@Override
-			public void selectionChanged(SelectionChangedEvent event) {
-				
-				TreeSelection treeSelection= (TreeSelection) event.getSelection();
-				TreePath treePath = treeSelection.getPaths()[0];
-				if(treePath.getLastSegment() instanceof Project)
-				{
-					Project selectedItem = (Project)treePath.getLastSegment();
-					uriField.setText(selectedItem.getFullPath().toString());
-				}
-				else if(treePath.getLastSegment() instanceof Folder)
-				{
-					Folder selectedItem = (Folder)treePath.getLastSegment();
-					uriField.setText(selectedItem.getFullPath().toString());
-				}
-				else if (treePath.getLastSegment() instanceof File)
-				{
-					File selectedItem = (File)treePath.getLastSegment();
-					
-					uriField.setText(selectedItem.getFullPath().toString());
-				}
-			}
-		});
-        
-        treeViewer.addDoubleClickListener(new IDoubleClickListener() {
-            public void doubleClick(DoubleClickEvent event) {
-
-	            ISelection selection = event.getSelection();
-	            if (selection instanceof IStructuredSelection) {
-	                Object item = ((IStructuredSelection) selection)
-	                        .getFirstElement();
-	                if (treeViewer.getExpandedState(item)) {
-	                	treeViewer.collapseToLevel(item, 1);
-					} else {
-						treeViewer.expandToLevel(item, 1);
-					}
-	            }
-
-            }
-        });
-        
-        TreeFilterExtension treeFilter = new TreeFilterExtension(".itf"); 
-        treeViewer.addFilter(treeFilter);
-
-        
+        uriField = CreationTreeViewer.createTreeComposite(topLevel, style, HEIGHT_DATA, ".itf");
         createAdvancedControl(topLevel);
-        
-        
-        
-        
-        
 	}
-        
+    
 	  /**
 	   * Called to prepare the Browse File System button, this implementation adds a selection listener
 	   * that creates an appropriate {@link FileDialog}.

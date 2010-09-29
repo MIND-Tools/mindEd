@@ -14,8 +14,12 @@ import org.eclipse.jface.viewers.SelectionChangedEvent;
 import org.eclipse.jface.viewers.TreePath;
 import org.eclipse.jface.viewers.TreeSelection;
 import org.eclipse.jface.viewers.TreeViewer;
+import org.eclipse.jface.viewers.Viewer;
+import org.eclipse.jface.viewers.ViewerFilter;
 import org.eclipse.jface.wizard.WizardPage;
 import org.eclipse.swt.SWT;
+import org.eclipse.swt.events.MouseEvent;
+import org.eclipse.swt.events.MouseListener;
 import org.eclipse.swt.events.SelectionEvent;
 import org.eclipse.swt.events.SelectionListener;
 import org.eclipse.swt.layout.GridData;
@@ -45,6 +49,9 @@ public class AddElementPage extends WizardPage{
 	Button fileButton;
 	Button inlineButton;
 	
+	Label fileLabel;
+	Label inlineLabel;
+	
 	protected final int HEIGHT_DATA = 200;
 	protected final int WIDTH_DATA = 200;
 	
@@ -71,11 +78,47 @@ public class AddElementPage extends WizardPage{
         new Label(topLevel, SWT.NONE).setText(ResourcesWizard.ADD_ELEMENT_TYPE);
         
         fileButton = new Button(topLevel, SWT.RADIO);
-        new Label(topLevel, SWT.NONE).setText(ResourcesWizard.ADD_ELEMENT_FILE_BUTTON);
+        fileLabel = new Label(topLevel, SWT.NONE);
+        fileLabel.setText(ResourcesWizard.ADD_ELEMENT_FILE_BUTTON);
+        fileLabel.addMouseListener(new MouseListener(){
+			@Override
+			public void mouseDoubleClick(MouseEvent e) {}
+
+			@Override
+			public void mouseDown(MouseEvent e) {
+				fileButton.setSelection(true);
+				inlineButton.setSelection(false);
+				if ((subLevel != null) && (!subLevel.isDisposed())) {
+					subLevel.dispose();
+				}
+				createTreeComposite(topLevel);
+				topLevel.layout(true);
+			}
+			@Override
+			public void mouseUp(MouseEvent e) {}
+			});
         
         new Label(topLevel, SWT.NONE);
         inlineButton = new Button(topLevel, SWT.RADIO);
-        new Label(topLevel, SWT.NONE).setText(ResourcesWizard.ADD_ELEMENT_INLINE_BUTTON);
+        inlineLabel = new Label(topLevel, SWT.NONE);
+        inlineLabel.setText(ResourcesWizard.ADD_ELEMENT_INLINE_BUTTON);
+        inlineLabel.addMouseListener(new MouseListener(){
+			@Override
+			public void mouseDoubleClick(MouseEvent e) {}
+
+			@Override
+			public void mouseDown(MouseEvent e) {
+				fileButton.setSelection(false);
+				inlineButton.setSelection(true);
+				if ((subLevel != null) && (!subLevel.isDisposed())) {
+					subLevel.dispose();
+				}
+				createTextBoxComposite(topLevel);
+				topLevel.layout(true);
+			}
+			@Override
+			public void mouseUp(MouseEvent e) {}
+			});
         
         fileButton.setSelection(true);
         inlineButton.setSelection(false);
@@ -126,77 +169,9 @@ public class AddElementPage extends WizardPage{
         	subLevel.setVisible(true);
         	
 		}
-		treeViewer = new TreeViewer (new Tree (subLevel, style));
-        treeViewer.setContentProvider(new WorkbenchContentProvider());
-        treeViewer.setLabelProvider(new WorkbenchLabelProvider());
+		filePath = CreationTreeViewer.createTreeComposite(subLevel, style, HEIGHT_DATA, ".c");
+	}		
 
-        Tree treeWidget = treeViewer.getTree();
-        treeWidget.setFont(subLevel.getFont());
-        {
-		    GridData data = new GridData(SWT.FILL, SWT.FILL, true, true);
-		    data.heightHint = HEIGHT_DATA;
-		    treeWidget.setLayoutData(data);
-		}
-        
-        treeViewer.setInput(ResourcesPlugin.getWorkspace().getRoot());
-        filePath = new Text(subLevel, SWT.BORDER);
-        filePath.setFont(subLevel.getFont());
-        {
-			GridData data = new GridData(SWT.FILL, SWT.FILL, true, true);
-        	filePath.setLayoutData(data);
-        }
-        
-        createTreeListener();
-        
-        TreeFilterExtension treeFilter = new TreeFilterExtension(".c"); 
-        treeViewer.addFilter(treeFilter);
-	}
-
-	private void createTreeListener() {
-        treeViewer.addPostSelectionChangedListener(new ISelectionChangedListener() {
-			@SuppressWarnings("restriction")
-			@Override
-			public void selectionChanged(SelectionChangedEvent event) {
-				
-				TreeSelection treeSelection= (TreeSelection) event.getSelection();
-				TreePath treePath = treeSelection.getPaths()[0];
-				if(treePath.getLastSegment() instanceof Project)
-				{
-					Project selectedItem = (Project)treePath.getLastSegment();
-					filePath.setText(selectedItem.getFullPath().toString());
-				}
-				else if(treePath.getLastSegment() instanceof Folder)
-				{
-					Folder selectedItem = (Folder)treePath.getLastSegment();
-					filePath.setText(selectedItem.getFullPath().toString());
-				}
-				else if (treePath.getLastSegment() instanceof File)
-				{
-					File selectedItem = (File)treePath.getLastSegment();
-					
-					filePath.setText(selectedItem.getFullPath().toString());
-				}
-			}
-		});
-        
-        treeViewer.addDoubleClickListener(new IDoubleClickListener() {
-            public void doubleClick(DoubleClickEvent event) {
-
-	            ISelection selection = event.getSelection();
-	            if (selection instanceof IStructuredSelection) {
-	                Object item = ((IStructuredSelection) selection)
-	                        .getFirstElement();
-	                if (treeViewer.getExpandedState(item)) {
-	                	treeViewer.collapseToLevel(item, 1);
-					} else {
-						treeViewer.expandToLevel(item, 1);
-					}
-	            }
-
-            }
-        });
-	}
-	
 	private void createRadioListener() {
 		
 		fileButton.addSelectionListener(new SelectionListener()		
