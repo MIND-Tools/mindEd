@@ -87,7 +87,7 @@ public class PrimitiveSecondPage extends WizardPage{
 			public void mouseDoubleClick(MouseEvent e) {}
 			@Override
 			public void mouseDown(MouseEvent e) {
-				AddElementWizard elementWizard = new AddElementWizard();
+				AddElementWizard elementWizard = new AddElementWizard(null);
 				WizardDialog wizDialog = new WizardDialog(PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell(), elementWizard);
 				wizDialog.setBlockOnOpen(true);
 				if(wizDialog.open() == WizardDialog.OK)
@@ -103,10 +103,8 @@ public class PrimitiveSecondPage extends WizardPage{
 						{
 							listImpl.add(impl);
 						}
-						
 						if(!listImpl.contains(implInfotmation.getFilePath()))
 							listBox.add(implInfotmation.getFilePath());
-						
 					}
 					else if(implInfotmation.isInline())
 					{
@@ -141,8 +139,38 @@ public class PrimitiveSecondPage extends WizardPage{
 			public void mouseDoubleClick(MouseEvent e) {}
 			@Override
 			public void mouseDown(MouseEvent e) {
-				int a = 1;
-				a = a * 1;
+				int listIndex[] = listBox.getSelectionIndices();
+				if(listIndex.length != 0)
+				{
+					for(int i : listIndex)
+					{
+						AddElementWizard elementWizard = new AddElementWizard(listBox.getItem(i));
+						WizardDialog wizDialog = new WizardDialog(PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell(), elementWizard);
+						wizDialog.setBlockOnOpen(true);
+						if(wizDialog.open() == WizardDialog.OK)
+						{
+							listBox.remove(i);
+							ImplementationInformation implInfotmation = elementWizard.getImplementationInformation();
+							
+							if(implInfotmation.isFile())
+							{
+								String[] tabImpl = listBox.getItems();
+								ArrayList<String> listImpl = new ArrayList<String>();
+									
+								for(String impl : tabImpl)
+								{
+									listImpl.add(impl);
+								}
+								if(!listImpl.contains(implInfotmation.getFilePath()))
+									listBox.add(implInfotmation.getFilePath());
+							}
+							else if(implInfotmation.isInline())
+							{
+								listBox.add(implInfotmation.getInlineText());
+							}
+						}
+					}
+				}
 			}
 			@Override
 			public void mouseUp(MouseEvent e) {

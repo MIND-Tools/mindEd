@@ -9,8 +9,9 @@ public class AddElementWizard extends CustomWizard{
 
 	AddElementPage elementPage = null;
 	ImplementationInformation implInformation = new ImplementationInformation();
+	String modify = null;
 	
-	public AddElementWizard(){
+	public AddElementWizard(String elementModify){
 		super();
 		
 		IDialogSettings workbenchSettings = WorkbenchPlugin.getDefault().getDialogSettings();
@@ -23,10 +24,13 @@ public class AddElementWizard extends CustomWizard{
 		this.setForcePreviousAndNextButtons(false);
 		this.setWindowTitle(ResourcesWizard.ADD_ELEMENT_WIZARD_TITLE);
 		this.setForcePreviousAndNextButtons(false);
+		
+		if(elementModify != null)
+			modify = elementModify;
 	}
 	
 	public void addPages() {
-		elementPage = new AddElementPage("temp");
+		elementPage = new AddElementPage("temp", modify);
 		addPage(elementPage);
 	}
 	

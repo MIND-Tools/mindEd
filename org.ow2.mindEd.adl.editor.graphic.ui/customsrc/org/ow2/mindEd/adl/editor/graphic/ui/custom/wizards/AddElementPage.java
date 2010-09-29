@@ -52,14 +52,18 @@ public class AddElementPage extends WizardPage{
 	Label fileLabel;
 	Label inlineLabel;
 	
+	String elementModify = null;
+	
 	protected final int HEIGHT_DATA = 200;
 	protected final int WIDTH_DATA = 200;
 	
 	
-	protected AddElementPage(String pageName) {
+	protected AddElementPage(String pageName, String modify) {
 		super(pageName);
 		setTitle(ResourcesWizard.ADD_ELEMENT_PAGE_TITLE);
 		setDescription(ResourcesWizard.ADD_ELEMENT_PAGE_DESCRIPTION);
+		if(modify != null)
+			elementModify = modify;
 	}
 
 	@Override
@@ -128,8 +132,27 @@ public class AddElementPage extends WizardPage{
         
         setControl(topLevel);
         
+        if(elementModify != null)
+        	setModification();
+        
 	}
 	
+	private void setModification() {
+		if(elementModify.startsWith("{{") && elementModify.endsWith("}}"))
+		{
+			fileButton.setSelection(false);
+			inlineButton.setSelection(true);
+			inlineTextBox.setText(elementModify);
+		}
+		else
+		{
+			fileButton.setSelection(true);
+			inlineButton.setSelection(false);
+			filePath.setText(elementModify);
+		}
+		
+	}
+
 	private void createTextBoxComposite(Composite parent) {
 		
 		subLevel = new Composite(parent, SWT.NONE);
