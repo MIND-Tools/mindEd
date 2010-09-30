@@ -52,6 +52,7 @@ public class AddElementWizard extends CustomWizard{
 			if(!implInformation.getFilePath().endsWith(".c"))
 			{
 				new MessageBoxWizard(PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell()
+						, ResourcesWizard.ERROR_WARNING
 						, ResourcesWizard.ADD_ELEMENT_FILE_ERROR
 						, SWT.ICON_WARNING | SWT.OK)
 				.open();
@@ -67,6 +68,7 @@ public class AddElementWizard extends CustomWizard{
 						&& implInformation.getInlineText().endsWith("}}")))
 				{
 					new MessageBoxWizard(PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell()
+							, ResourcesWizard.ERROR_WARNING
 							, ResourcesWizard.ADD_ELEMENT_INLINE_ERROR
 							, SWT.ICON_WARNING | SWT.OK)
 					.open();

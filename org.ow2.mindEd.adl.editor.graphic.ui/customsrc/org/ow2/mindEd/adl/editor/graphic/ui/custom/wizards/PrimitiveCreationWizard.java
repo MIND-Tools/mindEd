@@ -62,6 +62,7 @@ public class PrimitiveCreationWizard extends CustomWizard {
 				|| (primitiveInformation.getPrimitiveName().length() == 0))
 		{
 			new MessageBoxWizard(PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell()
+					, ResourcesWizard.ERROR_WARNING
 					, ResourcesWizard.ERROR_NAME
 					, SWT.ICON_WARNING | SWT.OK)
 			.open();
@@ -73,6 +74,7 @@ public class PrimitiveCreationWizard extends CustomWizard {
 				|| (primitiveInformation.getExtendPath().length() == 0))
 			{
 				new MessageBoxWizard(PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell()
+						, ResourcesWizard.ERROR_WARNING
 						, ResourcesWizard.ERROR_PATH
 						, SWT.ICON_WARNING | SWT.OK)
 				.open();
@@ -81,6 +83,7 @@ public class PrimitiveCreationWizard extends CustomWizard {
 			if(!primitiveInformation.getExtendPath().endsWith(".adl"))
 			{
 				new MessageBoxWizard(PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell()
+						, ResourcesWizard.ERROR_WARNING
 						, String.format(ResourcesWizard.ERROR_EXTENSION, "'adl'")
 						, SWT.ICON_WARNING | SWT.OK)
 				.open();

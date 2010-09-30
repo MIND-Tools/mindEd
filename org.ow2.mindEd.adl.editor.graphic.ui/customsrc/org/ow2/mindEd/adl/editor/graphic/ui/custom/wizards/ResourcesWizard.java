@@ -42,4 +42,6 @@ public class ResourcesWizard {
 	public final static String ERROR_NAME = "You must write a name to finish this creation.";
 	public static final String ERROR_PATH = "You must select a signature to finish this creation.";
 	public static final String ERROR_EXTENSION = "You must select an existing file or write a new file with %s extension.";
+	public static final String ERROR_UNEXISTING_FILE = "This %s file doen't exist. Do you want create this file.";
+	public static final String ERROR_WARNING = "Warning";
 }

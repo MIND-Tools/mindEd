@@ -9,7 +9,7 @@ public class MessageBoxWizard {
 
 	private MessageBox messageBox;
 	
-	public  MessageBoxWizard(Shell shell, String message, int style)
+	public  MessageBoxWizard(Shell shell, String title, String message, int style)
 	{
 		int usedStyle = 0;
 		
@@ -21,6 +21,7 @@ public class MessageBoxWizard {
 		
 		messageBox = new MessageBox(shell, usedStyle);
 		messageBox.setMessage(message);
+		messageBox.setText(title);
 		
 	}
 	
