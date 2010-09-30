@@ -74,7 +74,7 @@ public abstract class CustomWizard implements IWizard {
     /**
      * This wizard's list of pages (element type: <code>IWizardPage</code>).
      */
-    private List pages = new ArrayList();
+    private List<IWizardPage> pages = new ArrayList<IWizardPage>();
 
     /**
      * Indicates whether this wizard needs a progress monitor.

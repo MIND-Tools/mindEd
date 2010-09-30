@@ -1,21 +1,6 @@
 package org.ow2.mindEd.adl.editor.graphic.ui.custom.wizards;
 
-import org.eclipse.core.internal.resources.File;
-import org.eclipse.core.internal.resources.Folder;
-import org.eclipse.core.internal.resources.Project;
-import org.eclipse.core.resources.ResourcesPlugin;
-import org.eclipse.jface.resource.ImageDescriptor;
-import org.eclipse.jface.viewers.DoubleClickEvent;
-import org.eclipse.jface.viewers.IDoubleClickListener;
-import org.eclipse.jface.viewers.ISelection;
-import org.eclipse.jface.viewers.ISelectionChangedListener;
-import org.eclipse.jface.viewers.IStructuredSelection;
-import org.eclipse.jface.viewers.SelectionChangedEvent;
-import org.eclipse.jface.viewers.TreePath;
-import org.eclipse.jface.viewers.TreeSelection;
 import org.eclipse.jface.viewers.TreeViewer;
-import org.eclipse.jface.viewers.Viewer;
-import org.eclipse.jface.viewers.ViewerFilter;
 import org.eclipse.jface.wizard.WizardPage;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.MouseEvent;
@@ -28,9 +13,6 @@ import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Text;
-import org.eclipse.swt.widgets.Tree;
-import org.eclipse.ui.model.WorkbenchContentProvider;
-import org.eclipse.ui.model.WorkbenchLabelProvider;
 
 public class AddElementPage extends WizardPage{
 
@@ -141,7 +123,12 @@ public class AddElementPage extends WizardPage{
 		if(elementModify.startsWith("{{") && elementModify.endsWith("}}"))
 		{
 			fileButton.setSelection(false);
-			inlineButton.setSelection(true);
+			inlineButton.setSelection(true);	
+			if ((subLevel != null) && (!subLevel.isDisposed())) {
+				subLevel.dispose();
+			}
+			createTextBoxComposite(topLevel);
+			topLevel.layout(true);
 			inlineTextBox.setText(elementModify);
 		}
 		else
@@ -150,14 +137,12 @@ public class AddElementPage extends WizardPage{
 			inlineButton.setSelection(false);
 			filePath.setText(elementModify);
 		}
-		
 	}
 
 	private void createTextBoxComposite(Composite parent) {
 		
 		subLevel = new Composite(parent, SWT.NONE);
 		{
-
 			GridLayout layout = new GridLayout ();
 			layout.numColumns = 1;
 			subLevel.setLayout(layout);

@@ -1,10 +1,6 @@
 package org.ow2.mindEd.adl.editor.graphic.ui.custom.wizards;
 
 import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Iterator;
-
-import org.eclipse.jface.wizard.Wizard;
 import org.eclipse.jface.wizard.WizardDialog;
 import org.eclipse.jface.wizard.WizardPage;
 import org.eclipse.swt.SWT;

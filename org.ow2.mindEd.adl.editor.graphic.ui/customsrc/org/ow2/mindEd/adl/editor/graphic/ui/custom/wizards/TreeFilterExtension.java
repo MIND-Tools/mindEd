@@ -8,6 +8,7 @@ import org.eclipse.jface.viewers.Viewer;
 import org.eclipse.jface.viewers.ViewerFilter;
 
 
+@SuppressWarnings("restriction")
 public class TreeFilterExtension extends ViewerFilter{
 
 	protected String extensionFilter;
@@ -19,7 +20,6 @@ public class TreeFilterExtension extends ViewerFilter{
 		
 	}
 	
-	@SuppressWarnings("restriction")
 	@Override
 	public boolean select(Viewer viewer, Object parentElement, Object element) {
 

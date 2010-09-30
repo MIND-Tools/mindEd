@@ -1,42 +1,15 @@
 package org.ow2.mindEd.adl.editor.graphic.ui.custom.wizards;
 
 
-import java.util.List;
-
-import org.eclipse.core.internal.resources.File;
-import org.eclipse.core.internal.resources.Project;
-import org.eclipse.core.internal.resources.Workspace;
-import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IProject;
-import org.eclipse.core.resources.IWorkspace;
-import org.eclipse.core.resources.IWorkspaceRoot;
 import org.eclipse.core.resources.ResourcesPlugin;
-import org.eclipse.core.runtime.CoreException;
-import org.eclipse.core.runtime.IPath;
-import org.eclipse.emf.common.util.EList;
-import org.eclipse.emf.common.util.URI;
-import org.eclipse.emf.transaction.impl.TransactionImpl;
 import org.eclipse.jface.dialogs.IDialogSettings;
-import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.wizard.Wizard;
 import org.eclipse.swt.SWT;
-import org.eclipse.swt.graphics.Path;
-import org.eclipse.ui.IEditorInput;
-import org.eclipse.ui.IEditorPart;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.internal.WorkbenchPlugin;
-import org.eclipse.ui.part.FileEditorInput;
-import org.ow2.mindEd.adl.Body;
-import org.ow2.mindEd.adl.InterfaceDefinition;
-import org.ow2.mindEd.adl.Role;
-import org.ow2.mindEd.adl.custom.util.CreationUtil;
 import org.ow2.mindEd.adl.editor.graphic.ui.edit.parts.PrimitiveBodyEditPart;
-import org.ow2.mindEd.adl.editor.graphic.ui.part.MindDiagramEditor;
-import org.ow2.mindEd.adl.editor.graphic.ui.part.MindDiagramEditorPlugin;
-import org.ow2.mindEd.ide.core.MindException;
-import org.ow2.mindEd.ide.core.MindIdeCore;
 import org.ow2.mindEd.ide.core.ModelToProjectUtil;
-import org.ow2.mindEd.ide.model.MindFile;
 import org.ow2.mindEd.ide.model.MindProject;
 
 @SuppressWarnings("restriction")

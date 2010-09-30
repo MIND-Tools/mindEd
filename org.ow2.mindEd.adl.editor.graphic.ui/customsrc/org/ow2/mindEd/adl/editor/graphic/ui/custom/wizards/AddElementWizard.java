@@ -5,6 +5,7 @@ import org.eclipse.swt.SWT;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.internal.WorkbenchPlugin;
 
+@SuppressWarnings("restriction")
 public class AddElementWizard extends CustomWizard{
 
 	AddElementPage elementPage = null;

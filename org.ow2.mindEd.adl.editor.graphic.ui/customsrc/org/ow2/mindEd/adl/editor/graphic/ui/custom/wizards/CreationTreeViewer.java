@@ -17,7 +17,6 @@ import org.eclipse.jface.viewers.Viewer;
 import org.eclipse.jface.viewers.ViewerFilter;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.layout.GridData;
-import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Text;
 import org.eclipse.swt.widgets.Tree;
@@ -25,6 +24,7 @@ import org.eclipse.ui.model.WorkbenchContentProvider;
 import org.eclipse.ui.model.WorkbenchLabelProvider;
 
 
+@SuppressWarnings("restriction")
 public class CreationTreeViewer {
 
 	
@@ -56,7 +56,6 @@ public static Text createTreeComposite(Composite subLevel, int style, int height
         TreeFilterExtension treeFilter = new TreeFilterExtension(extensionFilter); 
         treeViewer.addFilter(treeFilter);
         treeViewer.addFilter(new ViewerFilter() {
-			@SuppressWarnings("restriction")
 			@Override
 			public boolean select(Viewer viewer, Object parentElement,
 					Object element) {
@@ -86,7 +85,6 @@ public static Text createTreeComposite(Composite subLevel, int style, int height
 
 	private static void createTreeListener(final TreeViewer treeViewer, final Text filePath) {
         treeViewer.addPostSelectionChangedListener(new ISelectionChangedListener() {
-			@SuppressWarnings("restriction")
 			@Override
 			public void selectionChanged(SelectionChangedEvent event) {
 				
