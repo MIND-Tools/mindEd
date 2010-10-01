@@ -44,6 +44,7 @@ public class ResourcesWizard {
 	public static final String ERROR_EXTENSION = "You must select an existing file or write a new file with %s extension.";
 	public static final String ERROR_UNEXISTING_FILE = "This %s file doen't exist. Do you want create this file.";
 	public static final String ERROR_UNEXISTING_PROJECT = "You must use an existing project.";
+	public static final String ERROR_UNEXISTING_SOURCE_ENTRY = "You must have a source entry.";
 	public static final String ERROR_WARNING = "Warning";
 	public static final String ERROR_ERROR = "Error";
 }

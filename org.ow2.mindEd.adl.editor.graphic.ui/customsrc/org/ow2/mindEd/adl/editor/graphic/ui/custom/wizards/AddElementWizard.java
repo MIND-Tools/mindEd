@@ -58,8 +58,6 @@ public class AddElementWizard extends CustomWizard{
 				.open();
 				return false;
 			}
-			else
-				return true;
 		}
 		else if(implInformation.isInline())
 		{
@@ -74,10 +72,11 @@ public class AddElementWizard extends CustomWizard{
 					.open();
 					return false;
 				}
-				else
-					return true;
 		}
-		return false;
+		
+		CreationNewMindFile.TestAndCreate(implInformation.getFilePath(), "c");
+		
+		return true;
 	}
 	
 	public ImplementationInformation getImplementationInformation()
