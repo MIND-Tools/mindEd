@@ -6,14 +6,12 @@ import org.eclipse.core.internal.resources.Folder;
 import org.eclipse.core.internal.resources.Project;
 import org.eclipse.core.internal.resources.Workspace;
 import org.eclipse.core.resources.IFile;
-import org.eclipse.core.resources.IResource;
 import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.Path;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.jface.dialogs.IDialogSettings;
 import org.eclipse.jface.wizard.Wizard;
-import org.eclipse.jface.wizard.WizardDialog;
 import org.eclipse.swt.SWT;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.internal.WorkbenchPlugin;
@@ -24,9 +22,7 @@ import org.ow2.mindEd.adl.editor.graphic.ui.edit.parts.PrimitiveBodyEditPart;
 import org.ow2.mindEd.ide.core.MindException;
 import org.ow2.mindEd.ide.core.MindIdeCore;
 import org.ow2.mindEd.ide.core.ModelToProjectUtil;
-import org.ow2.mindEd.ide.model.MindFile;
 import org.ow2.mindEd.ide.model.MindObject;
-import org.ow2.mindEd.ide.model.MindPackage;
 
 @SuppressWarnings("restriction")
 public class InterfaceCreationWizard extends Wizard{
@@ -144,8 +140,8 @@ public class InterfaceCreationWizard extends Wizard{
 							if(mindProject == null)
 							{
 								new MessageBoxWizard(PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell()
-										, "Error"
-										, "You must use an existing project."
+										, ResourcesWizard.ERROR_ERROR
+										, ResourcesWizard.ERROR_UNEXISTING_PROJECT
 										, SWT.ICON_ERROR |SWT.CANCEL).open();
 								return false;
 							}
@@ -159,14 +155,30 @@ public class InterfaceCreationWizard extends Wizard{
 								try {
 									MindIdeCore.createMindPackage(containerPath, path[i], null);
 								} catch (CoreException e) {
-									// TODO Auto-generated catch block
 									e.printStackTrace();
 								}
 							}	
 						}
 					}
-					int a = 1;
-					a = a * 1;
+					else
+					{
+						if(i==1)
+						{
+							new MessageBoxWizard(PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell()
+									, ResourcesWizard.ERROR_ERROR
+									, ResourcesWizard.ERROR_UNEXISTING_PROJECT
+									, SWT.ICON_ERROR |SWT.CANCEL).open();
+							return false;
+						}
+						else if(i==2)
+						{
+							new MessageBoxWizard(PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell()
+									, ResourcesWizard.ERROR_ERROR
+									, "You must have a source entry."
+									, SWT.ICON_ERROR |SWT.CANCEL).open();
+							return false;
+						}
+					}
 				}
 				
 				Path newItfPath = new Path(uri.toPlatformString(false)); 

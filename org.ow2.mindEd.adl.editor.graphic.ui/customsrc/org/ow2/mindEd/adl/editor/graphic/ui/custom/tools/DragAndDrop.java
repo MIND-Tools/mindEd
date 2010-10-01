@@ -7,12 +7,8 @@ import java.util.List;
 
 
 import org.eclipse.core.commands.ExecutionException;
-import org.eclipse.core.resources.IFile;
 import org.eclipse.core.runtime.IAdaptable;
 import org.eclipse.draw2d.geometry.Point;
-import org.eclipse.emf.common.util.EList;
-import org.eclipse.emf.common.util.URI;
-import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.transaction.RollbackException;
 import org.eclipse.emf.transaction.impl.TransactionImpl;
 import org.eclipse.gef.EditPart;
@@ -31,10 +27,8 @@ import org.eclipse.gmf.runtime.diagram.ui.requests.CreateViewRequestFactory;
 import org.eclipse.gmf.runtime.emf.type.core.IElementType;
 import org.eclipse.gmf.runtime.emf.type.core.requests.CreateElementRequest;
 import org.eclipse.gmf.runtime.notation.View;
-import org.eclipse.gmf.runtime.notation.impl.BasicCompartmentImpl;
 import org.eclipse.gmf.runtime.notation.impl.BasicDecorationNodeImpl;
 import org.eclipse.gmf.runtime.notation.impl.ShapeImpl;
-import org.eclipse.xtext.linking.lazy.LazyLinkingResource;
 import org.ow2.mindEd.adl.CompositeComponentDefinition;
 import org.ow2.mindEd.adl.CompositeReferenceDefinition;
 import org.ow2.mindEd.adl.Element;
@@ -43,7 +37,6 @@ import org.ow2.mindEd.adl.ImplementationDefinition;
 import org.ow2.mindEd.adl.InterfaceDefinition;
 import org.ow2.mindEd.adl.PrimitiveComponentDefinition;
 import org.ow2.mindEd.adl.PrimitiveReferencesList;
-import org.ow2.mindEd.adl.ReferencesList;
 import org.ow2.mindEd.adl.SubComponentDefinition;
 import org.ow2.mindEd.adl.custom.impl.CompositeBodyCustomImpl;
 import org.ow2.mindEd.adl.custom.impl.CompositeReferenceDefinitionCustomImpl;
@@ -69,7 +62,6 @@ import org.ow2.mindEd.adl.editor.graphic.ui.edit.parts.SubComponentPrimitiveBody
 import org.ow2.mindEd.adl.editor.graphic.ui.providers.MindElementTypes;
 import org.ow2.mindEd.adl.impl.CompositeReferenceDefinitionImpl;
 import org.ow2.mindEd.adl.impl.PrimitiveReferencesListImpl;
-import org.ow2.mindEd.ide.core.ModelToProjectUtil;
 import org.ow2.mindEd.ide.model.MindAdl;
 import org.ow2.mindEd.ide.model.MindC;
 import org.ow2.mindEd.ide.model.MindFile;
@@ -229,18 +221,18 @@ public class DragAndDrop {
 					{
 						if (type == MindElementTypes.PrimitiveReferenceDefinition_3125)
 						{
-							List targetChildren = targetEditPart.getChildren();
+							List<?> targetChildren = targetEditPart.getChildren();
 							for(Object target : targetChildren)
 							{
 								if(target instanceof PrimitiveReferencesListCustomEditPart)
 								{
-									List referencesChildren = ((PrimitiveReferencesListCustomEditPart)target).getChildren();
+									List<?> referencesChildren = ((PrimitiveReferencesListCustomEditPart)target).getChildren();
 									for(Object refListChild : referencesChildren)
 									{
 										if(refListChild instanceof PrimitiveReferencesListCompartmentCustomEditPart)
 										{
 											boolean newReference = true;
-											List referencesList = ((PrimitiveReferencesListCompartmentCustomEditPart) refListChild).getChildren();
+											List<?> referencesList = ((PrimitiveReferencesListCompartmentCustomEditPart) refListChild).getChildren();
 											if(referencesList != null)
 											{
 												for(Object temp7 : referencesList)

@@ -4,12 +4,7 @@ import java.util.Collection;
 import java.util.List;
 
 import org.eclipse.core.commands.ExecutionException;
-import org.eclipse.core.internal.resources.File;
-import org.eclipse.core.internal.resources.Workspace;
 import org.eclipse.core.resources.IFile;
-import org.eclipse.core.resources.ResourcesPlugin;
-import org.eclipse.core.runtime.CoreException;
-import org.eclipse.core.runtime.Path;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.transaction.RollbackException;
 import org.eclipse.emf.transaction.impl.TransactionImpl;
@@ -26,11 +21,8 @@ import org.ow2.mindEd.adl.custom.impl.InterfaceDefinitionCustomImpl;
 import org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.commands.MindDiagramUpdateAllCommand;
 import org.ow2.mindEd.adl.editor.graphic.ui.custom.wizards.InterfaceInformation;
 import org.ow2.mindEd.adl.editor.graphic.ui.custom.wizards.InterfaceCreationWizard;
-import org.ow2.mindEd.ide.core.MindException;
-import org.ow2.mindEd.ide.core.MindIdeCore;
 import org.ow2.mindEd.ide.core.ModelToProjectUtil;
 import org.ow2.mindEd.ide.model.MindFile;
-import org.ow2.mindEd.ide.model.MindObject;
 
 public class InterfaceCreationTool extends UnspecifiedTypeCreationTool{
 
