@@ -22,6 +22,12 @@ import org.ow2.mindEd.ide.model.MindObject;
 @SuppressWarnings("restriction")
 public class CreationNewMindFile {
 	
+	/**
+	 * Test if a MindFile exist in pathString
+	 * @param pathString path of file
+	 * @param extensionFile extension of file to create (itf, c, adl)
+	 * @return
+	 */
 	public static boolean TestAndCreate(String pathString, String extensionFile){
 
 
@@ -108,6 +114,10 @@ public class CreationNewMindFile {
 						MindIdeCore.createITFTemplate(newMindFile,null);
 					else if(pathString.endsWith(".c"))
 						MindIdeCore.createCTemplate(newMindFile, null);
+					else if(pathString.endsWith(".adl"))
+					{
+						MindIdeCore.createADL(newMindFile, null);
+					}
 
 				} catch (MindException e) {
 					e.printStackTrace();
