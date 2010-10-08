@@ -1,6 +1,7 @@
 package org.ow2.mindEd.adl.editor.graphic.ui.custom.helpers;
 
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.List;
 
 import org.eclipse.core.runtime.IConfigurationElement;
@@ -70,10 +71,10 @@ public class MindExtensionHelper {
 			.getConfigurationElementsFor(ANNOTATION_EXTENSION_ID);
 	}
 	
-	protected static IConfigurationElement getAnnotationExtensionAppearance(EObject semantic) {
+	protected static List<IConfigurationElement> getAnnotationExtensionAppearances(EObject semantic) {
 		// Get the extension
 		IConfigurationElement[] config = getAnnotationExtension();
-		
+		List<IConfigurationElement> appearancesForElement = new ArrayList<IConfigurationElement>();
 		try {
 			for (IConfigurationElement element : config) {
 				
@@ -93,21 +94,20 @@ public class MindExtensionHelper {
 						if (type.equals("Components") &&
 								(semantic instanceof ArchitectureDefinition
 								|| semantic instanceof Body))
-							return appearance;
+							appearancesForElement.add(appearance);
 						else if (type.equals("Interfaces") &&
 								semantic instanceof InterfaceDefinition)
-							return appearance;
+							appearancesForElement.add(appearance);
 						else if (type.equals("Bindings") &&
 								semantic instanceof BindingDefinition)
-							return appearance;
+							appearancesForElement.add(appearance);
 					}
 				}
 			}
-			return null;
 		} catch (Exception e) {
 			MindDiagramEditorPlugin.getInstance().logError("Error in extension mindAnnotation", e);
 		}
-		return null;
+		return appearancesForElement;
 	}
 	
 	/**
@@ -117,9 +117,13 @@ public class MindExtensionHelper {
 	 * org.ow2.mindEd.adl.editor.graphic.ui.mindAnnotation, or null
 	 */
 	public static String getAnnotationExtensionColorName(EObject semantic) {
-		IConfigurationElement extensionElement = getAnnotationExtensionAppearance(semantic);
-		if (extensionElement != null) {
-			return extensionElement.getAttribute("color");
+		List<IConfigurationElement> extensionElements = getAnnotationExtensionAppearances(semantic);
+		if (extensionElements == null)
+			return null;
+		for (int i = extensionElements.size()-1 ; i >= 0 ; i--) {
+			if (extensionElements.get(i).getAttribute("color") != null) {
+				return extensionElements.get(i).getAttribute("color");
+			}
 		}
 		return null;
 	}
@@ -156,12 +160,18 @@ public class MindExtensionHelper {
 	 * org.ow2.mindEd.adl.editor.graphic.ui.mindAnnotation, or null
 	 */
 	public static URL getExtensionIconURL(EObject semantic) {
-		IConfigurationElement extensionElement = getAnnotationExtensionAppearance(semantic);
-		if (extensionElement != null && !(semantic instanceof Body)) {
-			String icon = extensionElement.getAttribute("icon");
-			String contributor = extensionElement.getContributor().getName();
-			if (icon != null && contributor != null)
-				return Platform.getBundle(contributor).getResource(icon);
+		if (semantic instanceof Body)
+			return null;
+		List<IConfigurationElement> extensionElements = getAnnotationExtensionAppearances(semantic);
+		if (extensionElements == null)
+			return null;
+		for (int i = extensionElements.size()-1 ; i >= 0 ; i--) {
+			if (extensionElements.get(i).getAttribute("icon") != null) {
+				String icon = extensionElements.get(i).getAttribute("icon");
+				String contributor = extensionElements.get(i).getContributor().getName();
+				if (icon != null && contributor != null)
+					return Platform.getBundle(contributor).getResource(icon);
+			}
 		}
 		return null;
 	}
@@ -173,9 +183,13 @@ public class MindExtensionHelper {
 	 * org.ow2.mindEd.adl.editor.graphic.ui.mindAnnotation, or null
 	 */
 	public static String getExtensionIcon(EObject semantic) {
-		IConfigurationElement extensionElement = getAnnotationExtensionAppearance(semantic);
-		if (extensionElement != null) {
-			return extensionElement.getAttribute("icon");
+		List<IConfigurationElement> extensionElements = getAnnotationExtensionAppearances(semantic);
+		if (extensionElements == null)
+			return null;
+		for (int i = extensionElements.size()-1 ; i >= 0 ; i--) {
+			if (extensionElements.get(i).getAttribute("icon") != null) {
+				return extensionElements.get(i).getAttribute("icon");
+			}
 		}
 		return null;
 	}
