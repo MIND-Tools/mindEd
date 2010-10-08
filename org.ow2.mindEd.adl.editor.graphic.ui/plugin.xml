@@ -1203,31 +1203,6 @@ and
       </context>
    </viewProvider>
 </extension>
-<extension
-      point="org.ow2.mindEd.adl.editor.graphic.ui.mindAnnotation">
-   <Annotation
-         annotationName="distributed">
-      <Appearance
-            color="Brown"
-            icon="icons/distributed.gif">
-         <Element
-               elementType="Components">
-         </Element>
-      </Appearance>
-   </Annotation>
-</extension>
-<extension
-      point="org.ow2.mindEd.adl.editor.graphic.ui.mindAnnotation">
-   <Annotation
-         annotationName="distributed">
-      <Appearance
-            color="Green">
-         <Element
-               elementType="Components">
-         </Element>
-      </Appearance>
-   </Annotation>
-</extension>
 
 
 
