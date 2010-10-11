@@ -114,6 +114,27 @@ public class FractalFormatter extends AbstractDeclarativeFormatter {
 		this.c.setLinewrap(2).after(
 				this.f.getImportDefinitionAccess().getGroup());
 	}
+	
+	/**
+	 * Format Implementation source definition
+	 */
+	private void formatSource(){
+		this.c.setLinewrap().after(this.f.getImplementationDefinitionAccess().getGroup());
+	}
+	
+	/**
+	 * Format Interfaces definition
+	 */
+	private void formatInterfaces(){
+		this.c.setLinewrap().after(this.f.getInterfaceDefinitionAccess().getGroup());
+	}
+	
+	/**
+	 * Format Binding definitions
+	 */
+	private void formatBindings(){
+		this.c.setLinewrap().after(this.f.getBindingDefinitionAccess().getGroup());
+	}
 
 	/**
 	 * Format a line ended by a semicolon.
@@ -137,6 +158,15 @@ public class FractalFormatter extends AbstractDeclarativeFormatter {
 
 		// Annotations
 		this.formatAnnotation();
+		
+		// Source, aka implementation definition
+		this.formatSource();
+		
+		// Binding definition
+		this.formatBindings();
+		
+		// Interface
+		this.formatInterfaces();
 
 		// Semicolon rules
 		Keyword[] keys = new Keyword[] {
@@ -166,7 +196,7 @@ public class FractalFormatter extends AbstractDeclarativeFormatter {
 	private void formatList(Keyword l, Keyword c, Keyword r) {
 		this.c.setNoSpace().around(l);
 		this.c.setNoSpace().before(c);
-		this.c.setNoSpace().before(r);
+		this.c.setNoSpace().before(r); 
 	}
 
 	/**
