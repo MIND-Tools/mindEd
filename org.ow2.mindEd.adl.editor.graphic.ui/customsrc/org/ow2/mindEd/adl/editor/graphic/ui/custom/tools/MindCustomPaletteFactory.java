@@ -86,6 +86,45 @@ public class MindCustomPaletteFactory extends MindPaletteFactory {
 		
 	}
 	
+	
+	
+	@Override
+	protected ToolEntry createCompositeComponent1CreationTool() {
+		
+		ArrayList<IElementType> types = new ArrayList<IElementType>(2);
+		types.add(org.ow2.mindEd.adl.editor.graphic.ui.providers.MindElementTypes.CompositeComponentDefinition_2007);
+		types.add(org.ow2.mindEd.adl.editor.graphic.ui.providers.MindElementTypes.SubComponentDefinition_3131);
+		CompositeComponentToolEntry entry = new CompositeComponentToolEntry(
+				org.ow2.mindEd.adl.editor.graphic.ui.part.Messages.CompositeComponent1CreationTool_title,
+				org.ow2.mindEd.adl.editor.graphic.ui.part.Messages.CompositeComponent1CreationTool_desc,
+				types);
+		entry.setId("createCompositeComponent1CreationTool"); //$NON-NLS-1$
+		entry.setSmallIcon(org.ow2.mindEd.adl.editor.graphic.ui.providers.MindElementTypes
+				.getImageDescriptor(org.ow2.mindEd.adl.editor.graphic.ui.providers.MindElementTypes.CompositeComponentDefinition_2007));
+		entry.setLargeIcon(entry.getSmallIcon());
+		return entry;
+	}
+	
+	protected static class CompositeComponentToolEntry extends ToolEntry {
+		private final List<IElementType> relationshipTypes;
+		
+		public CompositeComponentToolEntry(String label, String shortDesc,
+				List<IElementType> relationshipTypes) {
+			super(label, shortDesc, null, null);
+			this.relationshipTypes = relationshipTypes;
+		}
+
+			
+		public Tool createTool() {
+			Tool tool = new CompositeComponentCreationTool(relationshipTypes);
+			tool.setProperties(getToolProperties());
+			return tool;
+			
+		}
+	}
+	
+	
+
 	@Override
 	protected ToolEntry createInterface1CreationTool() {
 

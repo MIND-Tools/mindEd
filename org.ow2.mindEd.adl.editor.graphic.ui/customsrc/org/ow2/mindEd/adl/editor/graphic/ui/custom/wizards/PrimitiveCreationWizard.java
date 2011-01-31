@@ -89,9 +89,13 @@ public class PrimitiveCreationWizard extends CustomWizard {
 				.open();
 				return false;
 			}
+			
+			return CreationNewMindFile.TestAndCreate(primitiveInformation.getExtendPath(), "adl");
 		}
-		
-		return CreationNewMindFile.TestAndCreate(primitiveInformation.getExtendPath(), "adl");
+		else
+		{
+			return true;
+		}
 
 	}
 	
