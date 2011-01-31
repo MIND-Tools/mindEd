@@ -15,7 +15,6 @@ public class MindEdDropAdapterAssistant extends CommonDropAdapterAssistant {
 	public IStatus validateDrop(Object target, int operation,
 			TransferData transferType) {
 		System.out.println(target.getClass());
-		
 		return null;
 	}
 

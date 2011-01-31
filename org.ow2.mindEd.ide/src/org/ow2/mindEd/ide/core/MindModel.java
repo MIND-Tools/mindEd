@@ -148,7 +148,7 @@ public interface MindModel {
 	 * @param project
 	 * @return
 	 */
-	MindLibrary getMindLib(IProject project);
+	MindLibrary getMindLib(IProject project) ;
 
 	
 	MindLibrary createMindLibFromProject(MindProject mp, String libName, IProgressMonitor monitor) throws CoreException;

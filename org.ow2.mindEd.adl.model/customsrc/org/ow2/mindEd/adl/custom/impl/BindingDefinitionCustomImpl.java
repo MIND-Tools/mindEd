@@ -111,6 +111,8 @@ public class BindingDefinitionCustomImpl extends BindingDefinitionImpl {
 			{
 				interfaceSourceParentLabel = AdlPackage.eINSTANCE.getBindingDefinition_InterfaceSourceParentLabel().getDefaultValueLiteral();
 			}
+			else if (parent.getBody().eClass().getClassifierID() == AdlPackage.COMPOSITE_BODY)
+				interfaceSourceParentLabel = null;
 			else interfaceSourceParentLabel = parent.getSimpleName();
 			super.setInterfaceSource(newInterfaceSource);
 		}
@@ -131,6 +133,8 @@ public class BindingDefinitionCustomImpl extends BindingDefinitionImpl {
 			{
 				interfaceTargetParentLabel = AdlPackage.eINSTANCE.getBindingDefinition_InterfaceTargetParentLabel().getDefaultValueLiteral();
 			}
+			else if (parent.getBody().eClass().getClassifierID() == AdlPackage.COMPOSITE_BODY)
+				interfaceTargetParentLabel = null;
 			else interfaceTargetParentLabel = parent.getSimpleName();
 			super.setInterfaceTarget(newInterfaceTarget);
 		}

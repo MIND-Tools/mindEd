@@ -196,7 +196,7 @@ public class FractalFormatter extends AbstractDeclarativeFormatter {
 	private void formatList(Keyword l, Keyword c, Keyword r) {
 		this.c.setNoSpace().around(l);
 		this.c.setNoSpace().before(c);
-		this.c.setNoSpace().before(r);
+		this.c.setNoSpace().before(r); 
 	}
 
 	/**

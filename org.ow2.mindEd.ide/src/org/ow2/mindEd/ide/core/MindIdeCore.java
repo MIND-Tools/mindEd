@@ -30,8 +30,12 @@ import org.eclipse.core.runtime.Status;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.osgi.util.NLS;
 import org.ow2.mindEd.ide.core.impl.CDTUtil;
+import org.ow2.mindEd.ide.core.template.TemplateCompositeADL;
 import org.ow2.mindEd.ide.core.template.TemplateITFADL;
+import org.ow2.mindEd.ide.core.template.TemplatePrimitiveADL;
 import org.ow2.mindEd.ide.core.template.TemplatePrimitiveC;
+import org.ow2.mindEd.ide.core.template.TemplateTypeADL;
+import org.ow2.mindEd.ide.model.ComponentKind;
 import org.ow2.mindEd.ide.model.MindAdl;
 import org.ow2.mindEd.ide.model.MindAllRepo;
 import org.ow2.mindEd.ide.model.MindFile;
@@ -459,6 +463,44 @@ public class MindIdeCore {
 		}
 	}
 	
+	/**
+	 * Create a file .c with a template.
+	 * 
+	 * @param f file of the new CFile to create
+	 * @param monitor
+	 * @throws CoreException
+	 */
+	static public void createCTemplate(IFile f, IProgressMonitor monitor) throws MindException, CoreException {
+		MindProject p = get(f.getProject());
+		if (p == null)
+			throw new MindException("The project '"+f.getProject().getName()+"' isn't a mind project.");
+		if (!f.getName().endsWith(".c"))
+			throw new MindException("Bad extendsion for '"+f.getName()+"'");
+		String cn = f.getName().substring(0, f.getName().length() - 2);
+		if (cn.contains(".")) {
+			throw new MindException("The component name '"+f.getName()+"' contains '.'.");
+		}
+		IPath mindItfPath = f.getFullPath();
+		
+		// search the goot root source for compute package
+		for (MindRootSrc rs : p.getRootsrcs()) {
+			IFolder rsContainer = getResource(rs);
+			if (rsContainer.getFullPath().isPrefixOf(mindItfPath)) {
+				StringBuilder qn = new StringBuilder();
+				IPath packagePath = f.getParent().getFullPath().removeFirstSegments(rsContainer.getFullPath().segmentCount());
+				for (String s : packagePath.segments()) {
+					qn.append(s);
+					qn.append('.');
+				}
+				qn.append(cn);
+				createCTemplate(f.getParent(), cn, qn.toString(), monitor);
+				return;
+			}
+		}
+		throw new MindException("Cannot found the root source for '"+mindItfPath.toPortableString()+"'.");
+		
+	}
+	
 	static public void createITFTemplate(MindPackage adl, String qn, String componentName,
 			IProgressMonitor monitor)
 			throws CoreException {		
@@ -530,7 +572,11 @@ public class MindIdeCore {
 	static private InputStream openITFContentStream(String qn) {
 		return new ByteArrayInputStream(new TemplateITFADL().generate(qn).getBytes());
 	}
-
+/*	
+	static private InputStream openADLContentStream(String qn) {
+		return new ByteArrayInputStream(new TemplateTypeADL().generate(qn).getBytes());
+	}
+*/
 	public static void rebuidAll() {
 		List<MindProject> projects = getModel().getAllProject();
 		for (MindProject mp : projects) {
@@ -545,6 +591,94 @@ public class MindIdeCore {
 			p.touch(null);
 		} catch (CoreException e) {
 		}
+	}
+	
+	static public void createADL(IFile f, IProgressMonitor monitor) throws MindException, CoreException {
+		
+		MindProject p = get(f.getProject());
+		if (p == null)
+			throw new MindException("The project '"+f.getProject().getName()+"' isn't a mind project.");
+		if (!f.getName().endsWith(".adl"))
+			throw new MindException("Bad extendsion for '"+f.getName()+"'");
+		String cn = f.getName().substring(0, f.getName().length() - 4);
+		if (cn.contains(".")) {
+			throw new MindException("The component name '"+f.getName()+"' contains '.'.");
+		}
+		IPath mindItfPath = f.getFullPath();
+		
+		// search the goot root source for compute package
+		for (MindRootSrc rs : p.getRootsrcs()) {
+			IFolder rsContainer = getResource(rs);
+			if (rsContainer.getFullPath().isPrefixOf(mindItfPath)) {
+				StringBuilder qn = new StringBuilder();
+				IPath packagePath = f.getParent().getFullPath().removeFirstSegments(rsContainer.getFullPath().segmentCount());
+				for (int i = 0 ; i<packagePath.segments().length; i++) {
+					if(i != 0)
+						qn.append('.');
+					qn.append(packagePath.segments()[i]);
+				}
+				createADL(rsContainer, cn, qn.toString(), monitor, ComponentKind.PRIMITIVE);
+				return;
+			}
+		}
+		throw new MindException("Cannot found the root source for '"+mindItfPath.toPortableString()+"'.");
+	
+	}
+	
+	static public void createADL(IContainer resource,
+			String componentName,
+			String packageName,
+			 IProgressMonitor monitor, ComponentKind kind)
+			throws CoreException {
+
+		MindRootSrc rs = getModel().findOrCreateRootSrc((IContainer) resource);
+		MindPackage p = getModel().findOrCreatePackage(rs, packageName);
+		IContainer container = MindIdeCore.getResource(p);
+		create(container, monitor);
+		MindAdl adl = MindideFactory.eINSTANCE.createMindAdl();
+		final IFile file = resource.getFile(new Path(packageName + "/" + componentName+".adl")); //$NON-NLS-1$
+		adl.setFullpath(file.getFullPath().toPortableString());
+
+		if (packageName.length() != 0)
+			adl.setQualifiedName(packageName+"."+componentName);
+		else
+			adl.setQualifiedName(componentName); 
+		adl.setName(componentName);
+		adl.setKind(kind);
+		adl.setPackage(p);
+		if (kind == ComponentKind.PRIMITIVE) {
+			MindIdeCore.createCTemplate(container, 
+					componentName, adl.getQualifiedName(), monitor);
+		}
+		
+		InputStream stream = openContentStream(adl);
+		if (file.exists()) {
+			//file.setContents(stream, true, true, monitor);
+		} else {
+			file.create(stream, true, monitor);
+		}
+	}
+	
+	private static InputStream openContentStream(MindAdl a) {
+		
+		String contents = ""; //$NON-NLS-1$
+		
+		switch (a.getKind()) {
+		case PRIMITIVE:
+			contents = new TemplatePrimitiveADL().generate(a);
+			break;
+		case TYPE:
+			contents = new TemplateTypeADL().generate(a);
+			break;
+		case COMPOSITE:
+			contents = new TemplateCompositeADL().generate(a);
+			break;
+
+		default:
+			break;
+		}
+			
+		return new ByteArrayInputStream(contents.getBytes());
 	}
 
 }

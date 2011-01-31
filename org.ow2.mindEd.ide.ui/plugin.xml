@@ -236,12 +236,12 @@
          </commonWizard>
          <enablement>
             <or>
-               <instanceof
-                     value="org.ow2.mindEd.ide.model.MindObject">
-               </instanceof>
-               <instanceof
-                     value="org.eclipse.core.resources.IWorkspaceRoot">
-               </instanceof>
+            <instanceof
+                  value="org.ow2.mindEd.ide.model.MindObject">
+            </instanceof>
+            <instanceof
+                  value="org.eclipse.core.resources.IWorkspaceRoot">
+            </instanceof>
                <instanceof
                      value="org.eclipse.core.resources.IResource">
                </instanceof>
@@ -433,7 +433,7 @@
             <possibleDropTargets>
                <or>
                   <instanceof
-                        value="java.lang.Object">
+                        value="org.ow2.mindEd.ide.model.MindFile">
                   </instanceof>
                </or></possibleDropTargets>
          </dropAssistant>

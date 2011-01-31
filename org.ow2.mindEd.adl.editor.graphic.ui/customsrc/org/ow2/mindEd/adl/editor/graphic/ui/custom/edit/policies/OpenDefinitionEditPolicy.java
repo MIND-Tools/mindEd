@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IFolder;
 import org.eclipse.core.resources.IWorkspace;
+import org.eclipse.core.runtime.IPath;
 import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.core.runtime.Path;
 import org.eclipse.core.runtime.QualifiedName;
@@ -32,10 +33,12 @@ import org.ow2.mindEd.adl.ImportDefinition;
 import org.ow2.mindEd.adl.InterfaceDefinition;
 
 import org.ow2.mindEd.adl.custom.util.DefinitionLoaderUtil;
+import org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.parts.proxy.MindProxyFactory;
 import org.ow2.mindEd.adl.editor.graphic.ui.custom.part.CustomMindDiagramEditorUtil;
 import org.ow2.mindEd.adl.editor.graphic.ui.part.MindDiagramEditorPlugin;
 import org.ow2.mindEd.ide.core.MindIdeCore;
 import org.ow2.mindEd.ide.core.ModelToProjectUtil;
+import org.ow2.mindEd.ide.model.MindAdl;
 import org.ow2.mindEd.ide.model.MindPackage;
 import org.ow2.mindEd.ide.model.MindProject;
 
@@ -142,6 +145,38 @@ public class OpenDefinitionEditPolicy extends OpenEditPolicy {
 			IFile file = null;
 			String fileName = ((FileC) model).getFileName();
 			if (directory == null || directory == "") {
+				
+				IEditorInput temp = MindProxyFactory.INSTANCE.getEditorInput();
+/*				if(temp instanceof FileEditorInput)
+				{
+					IFile fileEditor = ((FileEditorInput) temp).getFile();
+					IPath path = fileEditor.getFullPath();
+					IWorkspace WS = fileEditor.getWorkspace();
+					String bite = path.toString();
+					URI uri = URI.createFileURI(bite);
+					
+					ArrayList<String> importsList = new ArrayList<String>();
+					RootEditPart root = getHost().getRoot();
+					if (root != null && root.getContents()!=null) {
+						View rootView = (View)root.getContents().getModel();
+						if (rootView != null) {
+							EObject adl = rootView.getElement();
+							if (adl != null && adl instanceof AdlDefinition) {
+								EList<ImportDefinition> imports = ((AdlDefinition) adl).getImports();
+								for (ImportDefinition importDef : imports) {
+									importsList.add(importDef.getImportName());
+								}
+							}
+						}
+					}
+					
+					URI temp3 = ModelToProjectUtil.INSTANCE.resolveAdl(uri, "reretest_adl", importsList);
+					
+					int a = 1;
+					a = a * 1;
+				}
+*/
+				
 				MindPackage pack = ModelToProjectUtil.INSTANCE.getCurrentPackage();
 				if (pack != null) {
 					IFolder f = MindIdeCore.getResource(pack);
@@ -150,10 +185,20 @@ public class OpenDefinitionEditPolicy extends OpenEditPolicy {
 			} else {
 				File f = new File(directory, fileName);
 				if (f.isAbsolute()) {
-					IWorkspace workspace = org.eclipse.core.resources.ResourcesPlugin.getWorkspace();
-					file = workspace.getRoot().getFileForLocation(new Path(f.getAbsolutePath()));
+					//IWorkspace workspace = org.eclipse.core.resources.ResourcesPlugin.getWorkspace();
+					//file = workspace.getRoot().getFileForLocation(new Path(f.getAbsolutePath()));
+					URI uri = URI.createPlatformResourceURI(f.getPath(), true);
+					MindPackage pack = ModelToProjectUtil.INSTANCE.getCurrentPackage(uri);
+					IFolder f2 = MindIdeCore.getResource(pack);
+					file = f2.getFile(fileName);
 				} else {
 					//TODO resolve ???
+					
+					URI uri = URI.createPlatformResourceURI(f.getPath(), true);
+					MindPackage pack = ModelToProjectUtil.INSTANCE.getCurrentPackage(uri);
+					IFolder f2 = MindIdeCore.getResource(pack);
+					file = f2.getFile(fileName);
+
 				}
 			}
 			
