@@ -30,7 +30,7 @@ public class ResourcesWizard {
 	public final static String PRIMITIVE_REMOVE = "Remove";
 	
 	public final static String ADD_ELEMENT_WIZARD_TITLE = "Implementation";
-	public final static String ADD_ELEMENT_PAGE_TITLE = "Add or modify an Implementation in Componenet";
+	public final static String ADD_ELEMENT_PAGE_TITLE = "Add or modify an Implementation in Component";
 	public final static String ADD_ELEMENT_PAGE_DESCRIPTION = "Assistant to search or create a new Implementation";
 	public final static String ADD_ELEMENT_TYPE = "Implementation";
 	public final static String ADD_ELEMENT_FILE_BUTTON = "File";

@@ -1,6 +1,7 @@
 package org.ow2.mindEd.adl.editor.graphic.ui.custom.wizards;
 
 import java.util.ArrayList;
+
 import org.eclipse.jface.wizard.WizardDialog;
 import org.eclipse.jface.wizard.WizardPage;
 import org.eclipse.swt.SWT;
@@ -12,29 +13,32 @@ import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.List;
+import org.eclipse.swt.widgets.Text;
 import org.eclipse.ui.PlatformUI;
 
-public class PrimitiveSecondPage extends WizardPage{
+public class CompositeMainPage extends WizardPage{
 
 	Composite topLevel;
 	Composite listComposite;
 	
+	Text compositeName;
 	
-	Button addButton = null;
-	Button modifyButton = null;
-	Button removeButton = null;
+	Button addButton;
+	Button modifyButton;
+	Button removeButton;
 	
-	List listBox = null;
+	List listBox;
 	
 	
-	protected PrimitiveSecondPage(String pageName) {
+	protected CompositeMainPage(String pageName) {
 		super(pageName);
-		setTitle(ResourcesWizard.PRIMITIVE_PAGE_TITLE);
-		setDescription(ResourcesWizard.PRIMITIVE_PAGE_DESCRIPTION);
+		this.setTitle("Creation Composite Component");
+		this.setDescription("Assistant to create a new Composite Component.");
 	}
 
 	@Override
 	public void createControl(Composite parent) {
+		
 		topLevel = new Composite(parent, SWT.NONE);
 		{
 			GridLayout layout = new GridLayout ();
@@ -44,35 +48,28 @@ public class PrimitiveSecondPage extends WizardPage{
 			setControl(topLevel);
 		}
 		
-        new Label(topLevel,SWT.NONE).setText(ResourcesWizard.PRIMITIVE_SOURCE);
-        new Label(topLevel,SWT.NONE);
-        new Label(topLevel,SWT.NONE);
+		new Label(topLevel,SWT.NONE).setText("Name");
+        compositeName = new Text(topLevel,SWT.BORDER);
+        {
+        	compositeName.setFont(parent.getFont());
+        	GridData constraint = new GridData(SWT.FILL, SWT.DEFAULT, true, false);
+        	constraint.horizontalSpan = 2;
+        	compositeName.setLayoutData(constraint);
+        	compositeName.setFont(parent.getFont());
+        }
         
-        addButton = new Button(topLevel, SWT.NONE);
-        addButton.setText(ResourcesWizard.PRIMITIVE_ADD);
-        
-        modifyButton = new Button(topLevel, SWT.NONE);
-        modifyButton.setText(ResourcesWizard.PRIMITIVE_MODIFY);
-        
-        removeButton = new Button(topLevel, SWT.NONE);
-        removeButton.setText(ResourcesWizard.PRIMITIVE_REMOVE);
-        
-        listComposite = new Composite(topLevel, SWT.NONE);
-		{
-			GridLayout layout = new GridLayout ();
-			layout.numColumns = 1;
-			listComposite.setLayout(layout);
-			listComposite.setVisible(true);
-			listComposite.setFont(parent.getFont());
-
-        	GridData constraint = new GridData(SWT.FILL, SWT.FILL, true, true);
+        Label labelExtends = new Label (topLevel,SWT.NONE);
+        labelExtends.setText("Extends");
+        {
+        	GridData constraint = new GridData(SWT.FILL, SWT.DEFAULT, true, false);
         	constraint.horizontalSpan = 3;
-        	listComposite.setLayoutData(constraint);
-		}
-        listBox = new List(listComposite, SWT.BORDER | SWT.WRAP);
-        listBox.setLayoutData(listComposite.getLayoutData());
+        	labelExtends.setLayoutData(constraint);
+        }
+        
+        createExtendsButton();
         
         createButtonListener();
+		
 	}
 
 	private void createButtonListener() {
@@ -83,7 +80,7 @@ public class PrimitiveSecondPage extends WizardPage{
 			public void mouseDoubleClick(MouseEvent e) {}
 			@Override
 			public void mouseDown(MouseEvent e) {
-				AddElementWizard elementWizard = new AddElementWizard(null, AddElementWizard.TYPES.IMPLEMENT);
+				AddElementWizard elementWizard = new AddElementWizard(null, AddElementWizard.TYPES.EXTENDS);
 				WizardDialog wizDialog = new WizardDialog(PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell(), elementWizard);
 				wizDialog.setBlockOnOpen(true);
 				if(wizDialog.open() == WizardDialog.OK)
@@ -140,7 +137,7 @@ public class PrimitiveSecondPage extends WizardPage{
 				{
 					for(int i : listIndex)
 					{
-						AddElementWizard elementWizard = new AddElementWizard(listBox.getItem(i),AddElementWizard.TYPES.IMPLEMENT);
+						AddElementWizard elementWizard = new AddElementWizard(listBox.getItem(i),AddElementWizard.TYPES.EXTENDS);
 						WizardDialog wizDialog = new WizardDialog(PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell(), elementWizard);
 						wizDialog.setBlockOnOpen(true);
 						if(wizDialog.open() == WizardDialog.OK)
@@ -175,21 +172,32 @@ public class PrimitiveSecondPage extends WizardPage{
 
 		
 	}
-	
-	public ArrayList<String> getListImplementation()
-	{
-		ArrayList<String> listImpl = new ArrayList<String>();
-		if(listBox != null)
+
+	private void createExtendsButton() {
+		
+		addButton = new Button(topLevel, SWT.NONE);
+		addButton.setText("Add");
+		
+		modifyButton = new Button(topLevel, SWT.NONE);
+		modifyButton.setText("Modify");
+		
+		removeButton = new Button(topLevel, SWT.NONE);
+		removeButton.setText("Remove");
+		
+		listComposite = new Composite(topLevel, SWT.NONE);
 		{
-			String listItem[] = listBox.getItems();
-			for(String impl : listItem)
-			{
-				listImpl.add(impl);
-			}
+			GridData constraint = new GridData(SWT.FILL, SWT.FILL, true, true);
+        	constraint.horizontalSpan = 3;
+        	listComposite.setLayoutData(constraint);
 			
-			return listImpl;
+			GridLayout layout = new GridLayout ();
+			layout.numColumns = 1;
+			listComposite.setLayout(layout);
+			listComposite.setFont(topLevel.getFont());
 		}
-		else return null;
+		
+		listBox = new List(listComposite, SWT.BORDER | SWT.WRAP);
+        listBox.setLayoutData(listComposite.getLayoutData());
 	}
 
 }

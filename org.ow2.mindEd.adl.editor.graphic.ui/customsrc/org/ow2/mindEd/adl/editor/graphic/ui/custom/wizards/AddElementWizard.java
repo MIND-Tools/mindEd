@@ -7,13 +7,21 @@ import org.eclipse.ui.internal.WorkbenchPlugin;
 
 @SuppressWarnings("restriction")
 public class AddElementWizard extends CustomWizard{
+	
+	static enum TYPES{
+		IMPLEMENT,
+		EXTENDS
+	};
 
 	AddElementPage elementPage = null;
 	ImplementationInformation implInformation = new ImplementationInformation();
 	String modify = null;
+	TYPES elementType;
 	
-	public AddElementWizard(String elementModify){
+	public AddElementWizard(String elementModify, TYPES Type){
 		super();
+		
+		elementType = Type;
 		
 		IDialogSettings workbenchSettings = WorkbenchPlugin.getDefault().getDialogSettings();
 		IDialogSettings wizardSettings = workbenchSettings.getSection("NewWizardAction"); //$NON-NLS-1$
@@ -23,7 +31,10 @@ public class AddElementWizard extends CustomWizard{
 		}
 		this.setDialogSettings(wizardSettings);
 		this.setForcePreviousAndNextButtons(false);
-		this.setWindowTitle(ResourcesWizard.ADD_ELEMENT_WIZARD_TITLE);
+		if(elementType == TYPES.IMPLEMENT)
+			this.setWindowTitle(ResourcesWizard.ADD_ELEMENT_WIZARD_TITLE);
+		if(elementType == TYPES.EXTENDS)
+			this.setWindowTitle("Extends Title");
 		this.setForcePreviousAndNextButtons(false);
 		
 		if(elementModify != null)
@@ -31,7 +42,7 @@ public class AddElementWizard extends CustomWizard{
 	}
 	
 	public void addPages() {
-		elementPage = new AddElementPage("temp", modify);
+		elementPage = new AddElementPage("temp", modify, elementType);
 		addPage(elementPage);
 	}
 	

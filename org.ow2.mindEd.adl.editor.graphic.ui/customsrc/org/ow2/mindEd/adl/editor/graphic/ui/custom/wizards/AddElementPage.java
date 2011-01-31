@@ -18,6 +18,8 @@ public class AddElementPage extends WizardPage{
 
 	AddElementWizard addElementWizard;
 	
+	AddElementWizard.TYPES elementType;
+	
 	Composite topLevel;
 	Composite subLevel;
 
@@ -31,6 +33,8 @@ public class AddElementPage extends WizardPage{
 	Button fileButton;
 	Button inlineButton;
 	
+	Label elementTypeLabel;
+	
 	Label fileLabel;
 	Label inlineLabel;
 	
@@ -40,10 +44,20 @@ public class AddElementPage extends WizardPage{
 	protected final int WIDTH_DATA = 200;
 	
 	
-	protected AddElementPage(String pageName, String modify) {
+	protected AddElementPage(String pageName, String modify, AddElementWizard.TYPES Type) {
 		super(pageName);
-		setTitle(ResourcesWizard.ADD_ELEMENT_PAGE_TITLE);
-		setDescription(ResourcesWizard.ADD_ELEMENT_PAGE_DESCRIPTION);
+		elementType = Type;
+		
+		if(elementType == AddElementWizard.TYPES.IMPLEMENT)
+		{
+			setTitle(ResourcesWizard.ADD_ELEMENT_PAGE_TITLE);
+			setDescription(ResourcesWizard.ADD_ELEMENT_PAGE_DESCRIPTION);
+		}
+		if(elementType == AddElementWizard.TYPES.EXTENDS)
+		{
+			setTitle("Add Extends");
+			setDescription("Extends Description");
+		}
 		if(modify != null)
 			elementModify = modify;
 	}
@@ -61,11 +75,15 @@ public class AddElementPage extends WizardPage{
 			addElementWizard = (AddElementWizard) this.getWizard();
 
 		}
-        new Label(topLevel, SWT.NONE).setText(ResourcesWizard.ADD_ELEMENT_TYPE);
-        
+		
+		elementTypeLabel = new Label(topLevel, SWT.NONE);
+		if(elementType == AddElementWizard.TYPES.IMPLEMENT)
+			elementTypeLabel.setText(ResourcesWizard.ADD_ELEMENT_TYPE);
+
         fileButton = new Button(topLevel, SWT.RADIO);
         fileLabel = new Label(topLevel, SWT.NONE);
-        fileLabel.setText(ResourcesWizard.ADD_ELEMENT_FILE_BUTTON);
+        if(elementType == AddElementWizard.TYPES.IMPLEMENT)
+        	fileLabel.setText(ResourcesWizard.ADD_ELEMENT_FILE_BUTTON);
         fileLabel.addMouseListener(new MouseListener(){
 			@Override
 			public void mouseDoubleClick(MouseEvent e) {}
@@ -87,7 +105,8 @@ public class AddElementPage extends WizardPage{
         new Label(topLevel, SWT.NONE);
         inlineButton = new Button(topLevel, SWT.RADIO);
         inlineLabel = new Label(topLevel, SWT.NONE);
-        inlineLabel.setText(ResourcesWizard.ADD_ELEMENT_INLINE_BUTTON);
+        if(elementType == AddElementWizard.TYPES.IMPLEMENT)
+        	inlineLabel.setText(ResourcesWizard.ADD_ELEMENT_INLINE_BUTTON);
         inlineLabel.addMouseListener(new MouseListener(){
 			@Override
 			public void mouseDoubleClick(MouseEvent e) {}
@@ -108,6 +127,13 @@ public class AddElementPage extends WizardPage{
         
         fileButton.setSelection(true);
         inlineButton.setSelection(false);
+        
+        if(elementType == AddElementWizard.TYPES.EXTENDS)
+        {
+        	elementTypeLabel.setVisible(false);
+        	fileButton.setVisible(false);
+        	inlineButton.setVisible(false);
+        }
  
         createTreeComposite(topLevel);
         createRadioListener();
@@ -177,7 +203,10 @@ public class AddElementPage extends WizardPage{
         	subLevel.setVisible(true);
         	
 		}
-		filePath = CreationTreeViewer.createTreeComposite(subLevel, style, HEIGHT_DATA, ".c");
+		if(elementType == AddElementWizard.TYPES.IMPLEMENT)
+			filePath = CreationTreeViewer.createTreeComposite(subLevel, style, HEIGHT_DATA, ".c");
+		if(elementType == AddElementWizard.TYPES.EXTENDS)
+			filePath = CreationTreeViewer.createTreeComposite(subLevel, style, HEIGHT_DATA, ".adl");
 	}		
 
 	private void createRadioListener() {
