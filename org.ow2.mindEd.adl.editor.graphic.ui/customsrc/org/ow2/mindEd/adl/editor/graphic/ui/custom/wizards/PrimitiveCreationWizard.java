@@ -15,6 +15,8 @@ public class PrimitiveCreationWizard extends CustomWizard {
 	PrimitiveMainPage primitiveMainPage;
 	PrimitiveSecondPage primitiveSecondPage;
 	
+	boolean isSubComponent = false;
+	
 	WizardDialog wizardDialog;
 	
 	PrimitiveComponentInformation primitiveInformation = new PrimitiveComponentInformation();
@@ -23,11 +25,13 @@ public class PrimitiveCreationWizard extends CustomWizard {
 		return primitiveInformation;
 	}
 
-	public PrimitiveCreationWizard()
+	public PrimitiveCreationWizard(boolean subComponent)
 	{
 		super();
 		
-		 IDialogSettings workbenchSettings = WorkbenchPlugin.getDefault()
+		isSubComponent = subComponent;
+		
+		IDialogSettings workbenchSettings = WorkbenchPlugin.getDefault()
 	        .getDialogSettings();
         IDialogSettings wizardSettings = workbenchSettings
                 .getSection("NewWizardAction"); //$NON-NLS-1$
@@ -44,7 +48,7 @@ public class PrimitiveCreationWizard extends CustomWizard {
 	}
 	
 	public void addPages() {
-		primitiveMainPage = new PrimitiveMainPage("Main Page", this);
+		primitiveMainPage = new PrimitiveMainPage("Main Page", this, isSubComponent);
 		addPage(primitiveMainPage);
 	}
 	
@@ -54,7 +58,9 @@ public class PrimitiveCreationWizard extends CustomWizard {
 		primitiveInformation.setExtend(primitiveMainPage.isExtend());
 		primitiveInformation.setOverride(primitiveMainPage.isOverride());
 		primitiveInformation.setAnonymous(primitiveMainPage.isAnonymous());
-		primitiveInformation.setExtendPath(primitiveMainPage.getExtendPath());
+		primitiveInformation.setListExtends(primitiveMainPage.getListExtends());
+		if(isSubComponent)
+			primitiveInformation.setExtendPath(primitiveMainPage.getExtendPath());
 		if(primitiveSecondPage!=null)
 			primitiveInformation.setListImplementation(primitiveSecondPage.getListImplementation());
 		
@@ -70,33 +76,63 @@ public class PrimitiveCreationWizard extends CustomWizard {
 		}
 		if(!primitiveInformation.isAnonymous())
 		{
-			if((primitiveInformation.getExtendPath() == null) 
-				|| (primitiveInformation.getExtendPath().length() == 0))
+			if(!isSubComponent)
 			{
-				new MessageBoxWizard(PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell()
-						, ResourcesWizard.ERROR_WARNING
-						, ResourcesWizard.ERROR_PATH
-						, SWT.ICON_WARNING | SWT.OK)
-				.open();
-				return false;
+				if((primitiveInformation.getListExtends() == null)
+					|| (primitiveInformation.getListExtends().size() == 0))
+				{
+					new MessageBoxWizard(PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell()
+							, ResourcesWizard.ERROR_WARNING
+							, ResourcesWizard.ERROR_PATH
+							, SWT.ICON_WARNING | SWT.OK)
+					.open();
+					return false;
+				}
+				boolean result = true;
+				for(String extendPath : primitiveInformation.getListExtends())
+				{
+					
+					if(!extendPath.endsWith(".adl"))
+					{
+						new MessageBoxWizard(PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell()
+								, ResourcesWizard.ERROR_WARNING
+								, String.format(ResourcesWizard.ERROR_EXTENSION, "'adl'")
+								, SWT.ICON_WARNING | SWT.OK)
+						.open();
+						return false;
+					}
+					result = result & CreationNewMindFile.TestAndCreate(extendPath, "adl");
+				}
+				return result;
 			}
-			if(!primitiveInformation.getExtendPath().endsWith(".adl"))
+			else
 			{
-				new MessageBoxWizard(PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell()
-						, ResourcesWizard.ERROR_WARNING
-						, String.format(ResourcesWizard.ERROR_EXTENSION, "'adl'")
-						, SWT.ICON_WARNING | SWT.OK)
-				.open();
-				return false;
+				if((primitiveInformation.getExtendPath() == null) 
+					|| (primitiveInformation.getExtendPath().length() == 0))
+				{
+					new MessageBoxWizard(PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell()
+							, ResourcesWizard.ERROR_WARNING
+							, ResourcesWizard.ERROR_PATH
+							, SWT.ICON_WARNING | SWT.OK)
+					.open();
+					return false;
+				}
+				if(!primitiveInformation.getExtendPath().endsWith(".adl"))
+				{
+					new MessageBoxWizard(PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell()
+							, ResourcesWizard.ERROR_WARNING
+							, String.format(ResourcesWizard.ERROR_EXTENSION, "'adl'")
+							, SWT.ICON_WARNING | SWT.OK)
+					.open();
+					return false;
+				}
+				return CreationNewMindFile.TestAndCreate(primitiveInformation.getExtendPath(), "adl");
 			}
-			
-			return CreationNewMindFile.TestAndCreate(primitiveInformation.getExtendPath(), "adl");
 		}
 		else
 		{
 			return true;
 		}
-
 	}
 	
 	public void enableSecondPage()

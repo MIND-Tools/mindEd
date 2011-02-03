@@ -1,6 +1,9 @@
 package org.ow2.mindEd.adl.editor.graphic.ui.custom.wizards;
 
+import java.util.ArrayList;
+
 import org.eclipse.jface.viewers.TreeViewer;
+import org.eclipse.jface.wizard.WizardDialog;
 import org.eclipse.jface.wizard.WizardPage;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.MouseEvent;
@@ -12,7 +15,9 @@ import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Label;
+import org.eclipse.swt.widgets.List;
 import org.eclipse.swt.widgets.Text;
+import org.eclipse.ui.PlatformUI;
 
 public class PrimitiveMainPage extends WizardPage{
 
@@ -37,13 +42,21 @@ public class PrimitiveMainPage extends WizardPage{
 	}
 
 	Composite topLevel;
-	Composite treeComposite;
+	Composite extendsComposite; 
+	
+	boolean isSubComponent = false;
 	
 	Text primitiveName;
 	
 	Button extendsButton;
 	Button overrideButton;
 	Button anonymousButton;
+	
+	Button addButton;
+	Button modifyButton;
+	Button removeButton;
+	
+	List listBox;
 	
 	TreeViewer treeViewer;
 	private int style = SWT.BORDER | SWT.SINGLE;
@@ -54,8 +67,9 @@ public class PrimitiveMainPage extends WizardPage{
 	
 	PrimitiveCreationWizard wizParent;
 	
-	protected PrimitiveMainPage(String pageName, PrimitiveCreationWizard parent) {
+	protected PrimitiveMainPage(String pageName, PrimitiveCreationWizard parent, boolean subComponent) {
 		super(pageName);
+		isSubComponent = subComponent;
 		setTitle(ResourcesWizard.PRIMITIVE_PAGE_TITLE);
 		setDescription(ResourcesWizard.PRIMITIVE_PAGE_DESCRIPTION);
 		wizParent = parent;
@@ -101,7 +115,7 @@ public class PrimitiveMainPage extends WizardPage{
 				extendsButton.setSelection(true);
 				overrideButton.setSelection(false);
 				anonymousButton.setSelection(false);
-				treeComposite.setVisible(true);
+				extendsComposite.setVisible(true);
 				wizParent.disableSecondPage();
 			}
 			@Override
@@ -120,7 +134,7 @@ public class PrimitiveMainPage extends WizardPage{
 				overrideButton.setSelection(true);
 				anonymousButton.setSelection(false);
 				extendsButton.setSelection(false);
-				treeComposite.setVisible(true);
+				extendsComposite.setVisible(true);
 				wizParent.enableSecondPage();
 			}
 			@Override
@@ -138,7 +152,7 @@ public class PrimitiveMainPage extends WizardPage{
 				anonymousButton.setSelection(true);
 				overrideButton.setSelection(false);
 				extendsButton.setSelection(false);
-				treeComposite.setVisible(false);
+				extendsComposite.setVisible(false);
 				wizParent.enableSecondPage();
 			}
 			@Override
@@ -154,25 +168,65 @@ public class PrimitiveMainPage extends WizardPage{
         }
         createRadioListener();
         
-        createTreeComposite(topLevel);
+        if(!isSubComponent)
+        {
+        	createListBoxExtends(topLevel);
+        	createButtonListener();
+        }
+        else
+        {
+        	createTreeComposite(topLevel);
+        }
 		
 	}
 
+	private void createListBoxExtends(Composite parent) {
+		
+		extendsComposite = new Composite(parent, SWT.NONE);
+		{
+			GridData constraint = new GridData(SWT.FILL, SWT.FILL, true, true);
+        	constraint.horizontalSpan = 3;
+        	extendsComposite.setLayoutData(constraint);
+			
+			GridLayout layout = new GridLayout ();
+			layout.numColumns = 3;
+			extendsComposite.setLayout(layout);
+			extendsComposite.setFont(parent.getFont());
+		}		
+		
+		addButton = new Button(extendsComposite, SWT.NONE);
+		addButton.setText("Add");
+		
+		modifyButton = new Button(extendsComposite, SWT.NONE);
+		modifyButton.setText("Modify");
+		
+		removeButton = new Button(extendsComposite, SWT.NONE);
+		removeButton.setText("Remove");
+		
+		listBox = new List(extendsComposite, SWT.BORDER | SWT.WRAP);
+		{
+			GridData constraint = new GridData(SWT.FILL, SWT.FILL, true, true);
+        	constraint.horizontalSpan = 3;
+        	listBox.setLayoutData(constraint);
+		}
+        
+	}
+
 	private void createTreeComposite(Composite parent) {
-		treeComposite = new Composite(parent, SWT.NONE);
+		extendsComposite = new Composite(parent, SWT.NONE);
 		{
 			GridLayout layout = new GridLayout ();
 			layout.numColumns = 1;
-			treeComposite.setLayout(layout);
-        	treeComposite.setVisible(true);
-        	treeComposite.setFont(parent.getFont());
+			extendsComposite.setLayout(layout);
+        	extendsComposite.setVisible(true);
+        	extendsComposite.setFont(parent.getFont());
 
-        	GridData constraint = new GridData(SWT.FILL, SWT.FILL, true, false);
+        	GridData constraint = new GridData(SWT.FILL, SWT.FILL, true, true);
         	constraint.horizontalSpan = 3;
-        	treeComposite.setLayoutData(constraint);
+        	extendsComposite.setLayoutData(constraint);
         	
 		}
-		uriField = CreationTreeViewer.createTreeComposite(treeComposite, style, HEIGHT_DATA, ".adl");
+		uriField = CreationTreeViewer.createTreeComposite(extendsComposite, style, HEIGHT_DATA, ".adl");
 	}
 
 	private void createRadioListener() {
@@ -183,7 +237,7 @@ public class PrimitiveMainPage extends WizardPage{
 			public void widgetSelected(SelectionEvent e) {
 				if(extendsButton.getSelection())
 				{
-					treeComposite.setVisible(true);
+					extendsComposite.setVisible(true);
 					wizParent.disableSecondPage();
 				}
 			}
@@ -201,7 +255,7 @@ public class PrimitiveMainPage extends WizardPage{
 			public void widgetSelected(SelectionEvent e) {
 				if(overrideButton.getSelection())
 				{
-					treeComposite.setVisible(true);
+					extendsComposite.setVisible(true);
 					wizParent.enableSecondPage();
 				}
 			}
@@ -219,7 +273,7 @@ public class PrimitiveMainPage extends WizardPage{
 			public void widgetSelected(SelectionEvent e) {
 				if(anonymousButton.getSelection())
 				{
-					treeComposite.setVisible(false);
+					extendsComposite.setVisible(false);
 					wizParent.enableSecondPage();
 				}
 			}
@@ -231,5 +285,123 @@ public class PrimitiveMainPage extends WizardPage{
 		});
 		
 	}
+	
+	private void createButtonListener() {
+
+		addButton.addMouseListener(new MouseListener(){
+
+			@Override
+			public void mouseDoubleClick(MouseEvent e) {}
+			@Override
+			public void mouseDown(MouseEvent e) {
+				AddElementWizard elementWizard = new AddElementWizard(null, AddElementWizard.TYPES.EXTENDS);
+				WizardDialog wizDialog = new WizardDialog(PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell(), elementWizard);
+				wizDialog.setBlockOnOpen(true);
+				if(wizDialog.open() == WizardDialog.OK)
+				{
+					ImplementationInformation implInfotmation = elementWizard.getImplementationInformation();
+					
+					if(implInfotmation.isFile())
+					{
+						String[] tabImpl = listBox.getItems();
+						ArrayList<String> listImpl = new ArrayList<String>();
+							
+						for(String impl : tabImpl)
+						{
+							listImpl.add(impl);
+						}
+						if(!listImpl.contains(implInfotmation.getFilePath()))
+							listBox.add(implInfotmation.getFilePath());
+					}
+					else if(implInfotmation.isInline())
+					{
+						listBox.add(implInfotmation.getInlineText());
+					}
+				}
+			}
+			@Override
+			public void mouseUp(MouseEvent e) {}
+		});
+		
+		removeButton.addMouseListener(new MouseListener(){
+
+			@Override
+			public void mouseDoubleClick(MouseEvent e) {}
+			@Override
+			public void mouseDown(MouseEvent e) {
+				int listIndex[] = listBox.getSelectionIndices();
+				if(listIndex.length != 0)
+				{
+					listBox.remove(listIndex);
+				}
+			}
+			@Override
+			public void mouseUp(MouseEvent e) {
+			}
+		});
+		
+		modifyButton.addMouseListener(new MouseListener(){
+
+			@Override
+			public void mouseDoubleClick(MouseEvent e) {}
+			@Override
+			public void mouseDown(MouseEvent e) {
+				int listIndex[] = listBox.getSelectionIndices();
+				if(listIndex.length != 0)
+				{
+					for(int i : listIndex)
+					{
+						AddElementWizard elementWizard = new AddElementWizard(listBox.getItem(i),AddElementWizard.TYPES.EXTENDS);
+						WizardDialog wizDialog = new WizardDialog(PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell(), elementWizard);
+						wizDialog.setBlockOnOpen(true);
+						if(wizDialog.open() == WizardDialog.OK)
+						{
+							listBox.remove(i);
+							ImplementationInformation implInfotmation = elementWizard.getImplementationInformation();
+							
+							if(implInfotmation.isFile())
+							{
+								String[] tabImpl = listBox.getItems();
+								ArrayList<String> listImpl = new ArrayList<String>();
+									
+								for(String impl : tabImpl)
+								{
+									listImpl.add(impl);
+								}
+								if(!listImpl.contains(implInfotmation.getFilePath()))
+									listBox.add(implInfotmation.getFilePath());
+							}
+							else if(implInfotmation.isInline())
+							{
+								listBox.add(implInfotmation.getInlineText());
+							}
+						}
+					}
+				}
+			}
+			@Override
+			public void mouseUp(MouseEvent e) {
+			}
+		});
+
+		
+	}
+	
+	public ArrayList<String> getListExtends()
+	{
+		ArrayList<String> listImpl = new ArrayList<String>();
+		if(listBox != null)
+		{
+			String listItem[] = listBox.getItems();
+			for(String impl : listItem)
+			{
+				listImpl.add(impl);
+			}
+			
+			return listImpl;
+		}
+		else return null;
+	}
+	
 
 }

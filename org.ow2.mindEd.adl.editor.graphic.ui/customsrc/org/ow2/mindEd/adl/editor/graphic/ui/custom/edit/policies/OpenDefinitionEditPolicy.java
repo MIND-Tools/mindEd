@@ -152,7 +152,6 @@ public class OpenDefinitionEditPolicy extends OpenEditPolicy {
 					IFile fileEditor = ((FileEditorInput) temp).getFile();
 					IPath path = fileEditor.getFullPath();
 					IWorkspace WS = fileEditor.getWorkspace();
-					String bite = path.toString();
 					URI uri = URI.createFileURI(bite);
 					
 					ArrayList<String> importsList = new ArrayList<String>();

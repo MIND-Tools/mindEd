@@ -107,7 +107,7 @@ public class CustomMindDiagramEditor extends MindDiagramEditor {
                       boolean cond = CustomPluginTransfer.getInstance().isSupportedType(data[i]);
                       if (cond) {
                             IStructuredSelection selection = (IStructuredSelection) LocalSelectionTransfer.getTransfer().getSelection();
-                            for (Iterator it = selection.iterator(); it.hasNext();) {
+                            for (Iterator<?> it = selection.iterator(); it.hasNext();) {
                                   Object object = (Object) it.next();
                                   ret.add(object);
                             }
@@ -119,7 +119,7 @@ public class CustomMindDiagramEditor extends MindDiagramEditor {
 			public boolean isEnabled(DropTargetEvent event) {
 				System.out.println("MindDiagramEditor.isEnabled");
 				boolean ret = true;
-				System.out.println("MdaDiagramEditor.isEnabled ret : "+ret);
+				System.out.println("MindDiagramEditor.isEnabled ret : "+ret);
 				return ret;
 			}
 			

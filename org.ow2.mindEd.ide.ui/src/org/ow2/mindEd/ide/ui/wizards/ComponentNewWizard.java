@@ -140,6 +140,7 @@ public class ComponentNewWizard extends Wizard implements INewWizard {
 		adl.setName(componentName);
 		adl.setKind(kind);
 		adl.setPackage(p);
+		System.out.println("test luc");
 		if (kind == ComponentKind.PRIMITIVE) {
 			MindIdeCore.createCTemplate(container, 
 					componentName, adl.getQualifiedName(), monitor);

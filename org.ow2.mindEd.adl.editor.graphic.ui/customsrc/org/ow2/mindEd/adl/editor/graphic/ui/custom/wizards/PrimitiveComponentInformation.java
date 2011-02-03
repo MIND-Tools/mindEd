@@ -41,12 +41,21 @@ public class PrimitiveComponentInformation {
 		this.listImplementation = listImplementation;
 	}
 	
+	public ArrayList<String> getListExtends() {
+		return listExtends;
+	}
+	public void setListExtends(ArrayList<String> listExtends) {
+		this.listExtends = listExtends;
+	}
+	
 	protected String primitiveName = null;
 	protected boolean extend = false;
 	protected boolean override = false;
 	protected boolean anonymous = false;
 	protected String extendPath = null;
 	protected ArrayList<String> listImplementation = null;
+	protected ArrayList<String> listExtends = null;
+	
 	
 	
 	

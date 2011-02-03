@@ -46,8 +46,12 @@ public class PrimitiveComponentCreationTool extends UnspecifiedTypeCreationTool{
 		Command c = getCurrentCommand();
 		if(c != null)
 		{			
+			boolean isSubComponent = false;
+			if(c.getLabel().contains("Sub"))
+				isSubComponent = true;
+			
 			selectAddedObject(viewer, DiagramCommandStack.getReturnValues(c));
-			PrimitiveCreationWizard wizWizard = new PrimitiveCreationWizard(); 
+			PrimitiveCreationWizard wizWizard = new PrimitiveCreationWizard(isSubComponent); 
 	        WizardDialog wizDialog = new WizardDialog(PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell(), wizWizard);
 	        wizWizard.setWizardDialog(wizDialog);
 			wizDialog.setBlockOnOpen(true);
@@ -70,17 +74,20 @@ public class PrimitiveComponentCreationTool extends UnspecifiedTypeCreationTool{
 						try {
 							transaction.start();
 							MindFile mindFile = null;
-							if(!primitiveInformation.isAnonymous())
+/*							if(!primitiveInformation.isAnonymous())
 							{
 								URI uri = URI.createPlatformResourceURI(primitiveInformation.getExtendPath(), true);
 								mindFile = ModelToProjectUtil.INSTANCE.getCurrentMindFile(uri);
 							}
-							if (element instanceof SubComponentDefinitionCustomImpl)
+*/							if (element instanceof SubComponentDefinitionCustomImpl)
 							{
 								((SubComponentDefinitionCustomImpl)element).setName(primitiveInformation.getPrimitiveName());
 								
 								if(!primitiveInformation.isAnonymous())
 								{
+									URI uri = URI.createPlatformResourceURI(primitiveInformation.getExtendPath(), true);
+									mindFile = ModelToProjectUtil.INSTANCE.getCurrentMindFile(uri);
+									
 									CompositeReferenceDefinitionCustomImpl newReferenceDefinition = new CompositeReferenceDefinitionCustomImpl();
 									newReferenceDefinition.setReferenceName(mindFile.getQualifiedName());
 									((SubComponentDefinitionCustomImpl)element).setReferenceDefinition(newReferenceDefinition);
@@ -128,11 +135,20 @@ public class PrimitiveComponentCreationTool extends UnspecifiedTypeCreationTool{
 								
 								if(!primitiveInformation.isAnonymous())
 								{
+									ArrayList<String> listExtends = primitiveInformation.getListExtends();
+									
 									PrimitiveReferencesListImpl referenceList = new PrimitiveReferencesListImpl();
-									PrimitiveReferenceDefinitionCustomImpl newReferenceDefinition = new PrimitiveReferenceDefinitionCustomImpl();
-									newReferenceDefinition.setReferenceName(mindFile.getQualifiedName());
-									((PrimitiveComponentDefinitionCustomImpl)element).setReferencesList(referenceList);
-									newReferenceDefinition.setParentReferencesList(referenceList);
+									
+									for(String extendPath : listExtends)
+									{
+										URI uri = URI.createPlatformResourceURI(extendPath, true);
+										mindFile = ModelToProjectUtil.INSTANCE.getCurrentMindFile(uri);
+										
+										PrimitiveReferenceDefinitionCustomImpl newReferenceDefinition = new PrimitiveReferenceDefinitionCustomImpl();
+										newReferenceDefinition.setReferenceName(mindFile.getQualifiedName());
+										((PrimitiveComponentDefinitionCustomImpl)element).setReferencesList(referenceList);
+										newReferenceDefinition.setParentReferencesList(referenceList);
+									}
 								}
 								if((primitiveInformation.getListImplementation()!= null) 
 										&& (primitiveInformation.getListImplementation().size()!= 0))

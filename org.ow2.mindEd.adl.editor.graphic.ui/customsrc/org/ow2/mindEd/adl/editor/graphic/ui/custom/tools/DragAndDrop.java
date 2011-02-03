@@ -7,8 +7,18 @@ import java.util.List;
 
 
 import org.eclipse.core.commands.ExecutionException;
+import org.eclipse.core.internal.resources.File;
+import org.eclipse.core.resources.IFile;
+import org.eclipse.core.resources.IWorkspaceRoot;
+import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.IAdaptable;
+import org.eclipse.core.runtime.IPath;
+import org.eclipse.core.runtime.URIUtil;
 import org.eclipse.draw2d.geometry.Point;
+import org.eclipse.emf.common.ui.URIEditorInput;
+import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.common.util.URI;
+import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.transaction.RollbackException;
 import org.eclipse.emf.transaction.impl.TransactionImpl;
 import org.eclipse.gef.EditPart;
@@ -29,6 +39,8 @@ import org.eclipse.gmf.runtime.emf.type.core.requests.CreateElementRequest;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.gmf.runtime.notation.impl.BasicDecorationNodeImpl;
 import org.eclipse.gmf.runtime.notation.impl.ShapeImpl;
+import org.eclipse.ui.actions.OpenFileAction;
+import org.eclipse.xtext.linking.lazy.LazyLinkingResource;
 import org.ow2.mindEd.adl.CompositeComponentDefinition;
 import org.ow2.mindEd.adl.CompositeReferenceDefinition;
 import org.ow2.mindEd.adl.Element;
@@ -62,6 +74,7 @@ import org.ow2.mindEd.adl.editor.graphic.ui.edit.parts.SubComponentPrimitiveBody
 import org.ow2.mindEd.adl.editor.graphic.ui.providers.MindElementTypes;
 import org.ow2.mindEd.adl.impl.CompositeReferenceDefinitionImpl;
 import org.ow2.mindEd.adl.impl.PrimitiveReferencesListImpl;
+import org.ow2.mindEd.ide.core.ModelToProjectUtil;
 import org.ow2.mindEd.ide.model.MindAdl;
 import org.ow2.mindEd.ide.model.MindC;
 import org.ow2.mindEd.ide.model.MindFile;
@@ -308,7 +321,7 @@ public class DragAndDrop {
 	/**
 	 * Check if mindFile drop is not the MindAdl file associate to the Diagram
 	 * @param EP : Target Edit Part
-	 * @param mindFile : MindFile selected to the Drang&Drop
+	 * @param mindFile : MindFile selected to the Drag&Drop
 	 * @return boolean
 	 */
 	private static boolean canDropMindAdl(GraphicalEditPart EP,

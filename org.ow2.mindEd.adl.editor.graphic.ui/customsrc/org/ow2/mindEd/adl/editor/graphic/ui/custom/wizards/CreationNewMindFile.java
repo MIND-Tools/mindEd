@@ -37,7 +37,7 @@ public class CreationNewMindFile {
 		{
 			MessageBoxWizard msgCreation = new MessageBoxWizard(PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell()
 						, ResourcesWizard.ERROR_WARNING
-						, String.format(ResourcesWizard.ERROR_UNEXISTING_FILE, "'" + extensionFile + "'")
+						, String.format(ResourcesWizard.ERROR_UNEXISTING_FILE, "'" + pathString + "'")
 						, SWT.ICON_WARNING | SWT.YES | SWT.NO | SWT.CANCEL);
 			int messageBoxResult = msgCreation.open();
 			if(messageBoxResult == SWT.YES)

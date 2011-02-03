@@ -18,8 +18,10 @@ import org.eclipse.ui.PlatformUI;
 
 public class CompositeMainPage extends WizardPage{
 
+	boolean isSubComponent = false;
+	
 	Composite topLevel;
-	Composite listComposite;
+	Composite extendsComposite;
 	
 	Text compositeName;
 	
@@ -29,9 +31,18 @@ public class CompositeMainPage extends WizardPage{
 	
 	List listBox;
 	
+	private int style = SWT.BORDER | SWT.SINGLE;
+	protected Text uriField;
 	
-	protected CompositeMainPage(String pageName) {
+	protected final int HEIGHT_DATA = 200;
+	protected final int WIDTH_DATA = 200;
+	
+	
+	protected CompositeMainPage(String pageName, boolean subComponent) {
 		super(pageName);
+		
+		isSubComponent = subComponent;
+		
 		this.setTitle("Creation Composite Component");
 		this.setDescription("Assistant to create a new Composite Component.");
 	}
@@ -66,11 +77,35 @@ public class CompositeMainPage extends WizardPage{
         	labelExtends.setLayoutData(constraint);
         }
         
-        createExtendsButton();
-        
-        createButtonListener();
-		
+        if(!isSubComponent)
+        {
+        	createExtendsButton();
+            createButtonListener();
+        }
+        else
+        {
+        	createTreeComposite(topLevel);
+        }        
 	}
+	
+	private void createTreeComposite(Composite parent) {
+		extendsComposite = new Composite(parent, SWT.NONE);
+		{
+			GridLayout layout = new GridLayout ();
+			layout.numColumns = 1;
+			extendsComposite.setLayout(layout);
+        	extendsComposite.setVisible(true);
+        	extendsComposite.setFont(parent.getFont());
+
+        	GridData constraint = new GridData(SWT.FILL, SWT.FILL, true, true);
+        	constraint.horizontalSpan = 3;
+        	extendsComposite.setLayoutData(constraint);
+        	
+		}
+		uriField = CreationTreeViewer.createTreeComposite(extendsComposite, style, HEIGHT_DATA, ".adl");
+	}	
+	
+	
 
 	private void createButtonListener() {
 
@@ -184,20 +219,44 @@ public class CompositeMainPage extends WizardPage{
 		removeButton = new Button(topLevel, SWT.NONE);
 		removeButton.setText("Remove");
 		
-		listComposite = new Composite(topLevel, SWT.NONE);
+		extendsComposite = new Composite(topLevel, SWT.NONE);
 		{
 			GridData constraint = new GridData(SWT.FILL, SWT.FILL, true, true);
         	constraint.horizontalSpan = 3;
-        	listComposite.setLayoutData(constraint);
+        	extendsComposite.setLayoutData(constraint);
 			
 			GridLayout layout = new GridLayout ();
 			layout.numColumns = 1;
-			listComposite.setLayout(layout);
-			listComposite.setFont(topLevel.getFont());
+			extendsComposite.setLayout(layout);
+			extendsComposite.setFont(topLevel.getFont());
 		}
 		
-		listBox = new List(listComposite, SWT.BORDER | SWT.WRAP);
-        listBox.setLayoutData(listComposite.getLayoutData());
+		listBox = new List(extendsComposite, SWT.BORDER | SWT.WRAP);
+        listBox.setLayoutData(extendsComposite.getLayoutData());
+	}
+	
+	public String getCompositeComponentName(){
+		return compositeName.getText();
+	}
+	
+	public ArrayList<String> getListExtends()
+	{
+		ArrayList<String> listImpl = new ArrayList<String>();
+		if(listBox != null)
+		{
+			String listItem[] = listBox.getItems();
+			for(String impl : listItem)
+			{
+				listImpl.add(impl);
+			}
+			
+			return listImpl;
+		}
+		else return null;
+	}
+	
+	public String getExtendPath(){
+		return uriField.getText();
 	}
 
 }

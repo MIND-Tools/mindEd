@@ -58,34 +58,41 @@ public class AddElementWizard extends CustomWizard{
 		if(implInformation.isFile())
 			implInformation.setFilePath(elementPage.getFilePath());
 		
-		if(implInformation.isFile())
-		{
-			if(!implInformation.getFilePath().endsWith(".c"))
+		if(elementType == TYPES.IMPLEMENT)
 			{
-				new MessageBoxWizard(PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell()
-						, ResourcesWizard.ERROR_WARNING
-						, ResourcesWizard.ADD_ELEMENT_FILE_ERROR
-						, SWT.ICON_WARNING | SWT.OK)
-				.open();
-				return false;
-			}
-		}
-		else if(implInformation.isInline())
-		{
-			if(!implInformation.getInlineText().isEmpty())
-				if(!(implInformation.getInlineText().startsWith("{{")
-						&& implInformation.getInlineText().endsWith("}}")))
+			if(implInformation.isFile())
+			{
+				if(!implInformation.getFilePath().endsWith(".c"))
 				{
 					new MessageBoxWizard(PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell()
 							, ResourcesWizard.ERROR_WARNING
-							, ResourcesWizard.ADD_ELEMENT_INLINE_ERROR
+							, ResourcesWizard.ADD_ELEMENT_FILE_ERROR
 							, SWT.ICON_WARNING | SWT.OK)
 					.open();
 					return false;
 				}
+			}
+			else if(implInformation.isInline())
+			{
+				if(!implInformation.getInlineText().isEmpty())
+					if(!(implInformation.getInlineText().startsWith("{{")
+							&& implInformation.getInlineText().endsWith("}}")))
+					{
+						new MessageBoxWizard(PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell()
+								, ResourcesWizard.ERROR_WARNING
+								, ResourcesWizard.ADD_ELEMENT_INLINE_ERROR
+								, SWT.ICON_WARNING | SWT.OK)
+						.open();
+						return false;
+					}
+			}
+			
+			CreationNewMindFile.TestAndCreate(implInformation.getFilePath(), "c");
 		}
-		
-		CreationNewMindFile.TestAndCreate(implInformation.getFilePath(), "c");
+		if(elementType == TYPES.EXTENDS)
+		{
+			CreationNewMindFile.TestAndCreate(implInformation.getFilePath(), "adl");
+		}
 		
 		return true;
 	}
