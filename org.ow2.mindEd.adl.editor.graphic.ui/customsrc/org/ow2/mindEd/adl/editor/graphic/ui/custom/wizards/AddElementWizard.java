@@ -4,6 +4,7 @@ import org.eclipse.jface.dialogs.IDialogSettings;
 import org.eclipse.swt.SWT;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.internal.WorkbenchPlugin;
+import org.ow2.mindEd.ide.model.ComponentKind;
 
 @SuppressWarnings("restriction")
 public class AddElementWizard extends CustomWizard{
@@ -12,16 +13,45 @@ public class AddElementWizard extends CustomWizard{
 		IMPLEMENT,
 		EXTENDS
 	};
+	
+	ComponentKind kind;
 
 	AddElementPage elementPage = null;
 	ImplementationInformation implInformation = new ImplementationInformation();
 	String modify = null;
 	TYPES elementType;
 	
+	
+	
 	public AddElementWizard(String elementModify, TYPES Type){
 		super();
 		
 		elementType = Type;
+		kind = ComponentKind.UNKNOWN;
+		
+		IDialogSettings workbenchSettings = WorkbenchPlugin.getDefault().getDialogSettings();
+		IDialogSettings wizardSettings = workbenchSettings.getSection("NewWizardAction"); //$NON-NLS-1$
+		
+		if (wizardSettings == null) {
+			wizardSettings = workbenchSettings.addNewSection("NewWizardAction"); //$NON-NLS-1$
+		}
+		this.setDialogSettings(wizardSettings);
+		this.setForcePreviousAndNextButtons(false);
+		if(elementType == TYPES.IMPLEMENT)
+			this.setWindowTitle(ResourcesWizard.ADD_ELEMENT_WIZARD_TITLE);
+		if(elementType == TYPES.EXTENDS)
+			this.setWindowTitle("Extends Title");
+		this.setForcePreviousAndNextButtons(false);
+		
+		if(elementModify != null)
+			modify = elementModify;
+	}
+
+	public AddElementWizard(String elementModify, TYPES Type, ComponentKind kindParam){
+		super();
+		
+		elementType = Type;
+		kind = kindParam;
 		
 		IDialogSettings workbenchSettings = WorkbenchPlugin.getDefault().getDialogSettings();
 		IDialogSettings wizardSettings = workbenchSettings.getSection("NewWizardAction"); //$NON-NLS-1$
@@ -87,11 +117,11 @@ public class AddElementWizard extends CustomWizard{
 					}
 			}
 			
-			CreationNewMindFile.TestAndCreate(implInformation.getFilePath(), "c");
+			CreationNewMindFile.TestAndCreate(implInformation.getFilePath(), "c", kind);
 		}
 		if(elementType == TYPES.EXTENDS)
 		{
-			CreationNewMindFile.TestAndCreate(implInformation.getFilePath(), "adl");
+			CreationNewMindFile.TestAndCreate(implInformation.getFilePath(), "adl", kind);
 		}
 		
 		return true;

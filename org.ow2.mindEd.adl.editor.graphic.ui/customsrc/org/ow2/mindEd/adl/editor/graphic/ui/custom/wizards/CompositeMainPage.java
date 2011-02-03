@@ -15,6 +15,7 @@ import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.List;
 import org.eclipse.swt.widgets.Text;
 import org.eclipse.ui.PlatformUI;
+import org.ow2.mindEd.ide.model.ComponentKind;
 
 public class CompositeMainPage extends WizardPage{
 
@@ -115,7 +116,7 @@ public class CompositeMainPage extends WizardPage{
 			public void mouseDoubleClick(MouseEvent e) {}
 			@Override
 			public void mouseDown(MouseEvent e) {
-				AddElementWizard elementWizard = new AddElementWizard(null, AddElementWizard.TYPES.EXTENDS);
+				AddElementWizard elementWizard = new AddElementWizard(null, AddElementWizard.TYPES.EXTENDS, ComponentKind.COMPOSITE);
 				WizardDialog wizDialog = new WizardDialog(PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell(), elementWizard);
 				wizDialog.setBlockOnOpen(true);
 				if(wizDialog.open() == WizardDialog.OK)
@@ -172,7 +173,7 @@ public class CompositeMainPage extends WizardPage{
 				{
 					for(int i : listIndex)
 					{
-						AddElementWizard elementWizard = new AddElementWizard(listBox.getItem(i),AddElementWizard.TYPES.EXTENDS);
+						AddElementWizard elementWizard = new AddElementWizard(listBox.getItem(i),AddElementWizard.TYPES.EXTENDS, ComponentKind.COMPOSITE);
 						WizardDialog wizDialog = new WizardDialog(PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell(), elementWizard);
 						wizDialog.setBlockOnOpen(true);
 						if(wizDialog.open() == WizardDialog.OK)

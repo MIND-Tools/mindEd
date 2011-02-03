@@ -2,6 +2,7 @@ package org.ow2.mindEd.adl.editor.graphic.ui.custom.wizards;
 
 import org.eclipse.swt.SWT;
 import org.eclipse.ui.PlatformUI;
+import org.ow2.mindEd.ide.model.ComponentKind;
 
 public class CompositeCreationWizard extends CustomWizard{
 
@@ -45,8 +46,59 @@ public class CompositeCreationWizard extends CustomWizard{
 			.open();
 			return false;
 		}
-		
-		return true;
+		if(!isSubComponent)
+		{
+/*			if((compositeInformation.getListExtends() == null)
+				|| (compositeInformation.getListExtends().size() == 0))
+			{
+				new MessageBoxWizard(PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell()
+						, ResourcesWizard.ERROR_WARNING
+						, ResourcesWizard.ERROR_PATH
+						, SWT.ICON_WARNING | SWT.OK)
+				.open();
+				return false;
+			}
+*/
+			boolean result = true;
+			for(String extendPath : compositeInformation.getListExtends())
+			{
+				
+				if(!extendPath.endsWith(".adl"))
+				{
+					new MessageBoxWizard(PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell()
+							, ResourcesWizard.ERROR_WARNING
+							, String.format(ResourcesWizard.ERROR_EXTENSION, "'adl'")
+							, SWT.ICON_WARNING | SWT.OK)
+					.open();
+					return false;
+				}
+				result = result & CreationNewMindFile.TestAndCreate(extendPath, "adl", ComponentKind.COMPOSITE);
+			}
+			return result;
+		}
+		else
+		{
+			if((compositeInformation.getExtendPath() == null) 
+				|| (compositeInformation.getExtendPath().length() == 0))
+			{
+				new MessageBoxWizard(PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell()
+						, ResourcesWizard.ERROR_WARNING
+						, ResourcesWizard.ERROR_PATH
+						, SWT.ICON_WARNING | SWT.OK)
+				.open();
+				return false;
+			}
+			if(!compositeInformation.getExtendPath().endsWith(".adl"))
+			{
+				new MessageBoxWizard(PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell()
+						, ResourcesWizard.ERROR_WARNING
+						, String.format(ResourcesWizard.ERROR_EXTENSION, "'adl'")
+						, SWT.ICON_WARNING | SWT.OK)
+				.open();
+				return false;
+			}
+			return CreationNewMindFile.TestAndCreate(compositeInformation.getExtendPath(), "adl", ComponentKind.COMPOSITE);
+		}
 	}
 
 

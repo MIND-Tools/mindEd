@@ -17,10 +17,16 @@ import org.ow2.mindEd.adl.editor.graphic.ui.custom.tools.ExistingProject;
 import org.ow2.mindEd.ide.core.MindException;
 import org.ow2.mindEd.ide.core.MindIdeCore;
 import org.ow2.mindEd.ide.core.ModelToProjectUtil;
+import org.ow2.mindEd.ide.model.ComponentKind;
 import org.ow2.mindEd.ide.model.MindObject;
 
 @SuppressWarnings("restriction")
 public class CreationNewMindFile {
+	
+	public static boolean TestAndCreate(String pathString, String extensionFile)
+	{
+		return TestAndCreate(pathString, extensionFile, ComponentKind.UNKNOWN);
+	}
 	
 	/**
 	 * Test if a MindFile exist in pathString
@@ -28,7 +34,7 @@ public class CreationNewMindFile {
 	 * @param extensionFile extension of file to create (itf, c, adl)
 	 * @return
 	 */
-	public static boolean TestAndCreate(String pathString, String extensionFile){
+	public static boolean TestAndCreate(String pathString, String extensionFile, ComponentKind kind){
 
 
 		URI uri = URI.createPlatformResourceURI(pathString, true);
@@ -116,7 +122,7 @@ public class CreationNewMindFile {
 						MindIdeCore.createCTemplate(newMindFile, null);
 					else if(pathString.endsWith(".adl"))
 					{
-						MindIdeCore.createADL(newMindFile, null);
+						MindIdeCore.createADL(newMindFile, null, kind);
 					}
 
 				} catch (MindException e) {

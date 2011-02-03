@@ -625,6 +625,39 @@ public class MindIdeCore {
 	
 	}
 	
+static public void createADL(IFile f, IProgressMonitor monitor, ComponentKind kind) throws MindException, CoreException {
+		
+		MindProject p = get(f.getProject());
+		if (p == null)
+			throw new MindException("The project '"+f.getProject().getName()+"' isn't a mind project.");
+		if (!f.getName().endsWith(".adl"))
+			throw new MindException("Bad extendsion for '"+f.getName()+"'");
+		String cn = f.getName().substring(0, f.getName().length() - 4);
+		if (cn.contains(".")) {
+			throw new MindException("The component name '"+f.getName()+"' contains '.'.");
+		}
+		IPath mindItfPath = f.getFullPath();
+		
+		// search the goot root source for compute package
+		for (MindRootSrc rs : p.getRootsrcs()) {
+			IFolder rsContainer = getResource(rs);
+			if (rsContainer.getFullPath().isPrefixOf(mindItfPath)) {
+				StringBuilder qn = new StringBuilder();
+				IPath packagePath = f.getParent().getFullPath().removeFirstSegments(rsContainer.getFullPath().segmentCount());
+				for (int i = 0 ; i<packagePath.segments().length; i++) {
+					if(i != 0)
+						qn.append('.');
+					qn.append(packagePath.segments()[i]);
+				}
+				createADL(rsContainer, cn, qn.toString(), monitor, kind);
+				return;
+			}
+		}
+		throw new MindException("Cannot found the root source for '"+mindItfPath.toPortableString()+"'.");
+	
+	}
+	
+	
 	static public void createADL(IContainer resource,
 			String componentName,
 			String packageName,

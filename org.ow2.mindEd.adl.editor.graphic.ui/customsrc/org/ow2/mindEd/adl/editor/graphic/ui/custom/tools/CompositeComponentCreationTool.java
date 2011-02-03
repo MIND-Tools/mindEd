@@ -25,6 +25,7 @@ import org.ow2.mindEd.adl.editor.graphic.ui.custom.wizards.CompositeComponentInf
 import org.ow2.mindEd.adl.editor.graphic.ui.custom.wizards.CompositeCreationWizard;
 import org.ow2.mindEd.adl.editor.graphic.ui.custom.wizards.PrimitiveComponentInformation;
 import org.ow2.mindEd.adl.impl.CompositeReferencesListImpl;
+import org.ow2.mindEd.adl.impl.ReferencesListImpl;
 import org.ow2.mindEd.ide.core.ModelToProjectUtil;
 import org.ow2.mindEd.ide.model.MindFile;
 
@@ -90,9 +91,10 @@ public class CompositeComponentCreationTool extends UnspecifiedTypeCreationTool{
 								if((compositeInformation.getListExtends() != null)
 										&& (compositeInformation.getListExtends().size() != 0))
 									{
-										
-										CompositeReferencesListImpl referencesList = new CompositeReferencesListImpl();
-										((CompositeComponentDefinitionCustomImpl)element).setReferencesList(referencesList);
+									
+										CompositeReferencesListImpl newReferencesList = new CompositeReferencesListImpl();
+	
+										((CompositeComponentDefinitionCustomImpl)element).setReferencesList(newReferencesList);
 										
 										for(String extendPath : compositeInformation.getListExtends())
 										{
@@ -100,9 +102,9 @@ public class CompositeComponentCreationTool extends UnspecifiedTypeCreationTool{
 											mindFile = ModelToProjectUtil.INSTANCE.getCurrentMindFile(uri);
 											
 											CompositeReferenceDefinitionCustomImpl newReferenceDefinition = new CompositeReferenceDefinitionCustomImpl();
-											newReferenceDefinition.setNameFQN(mindFile.getQualifiedName());
-											((CompositeComponentDefinitionCustomImpl)element).setReferencesList(referencesList);
-											newReferenceDefinition.setParentReferencesList(referencesList);
+											newReferenceDefinition.setReferenceName(mindFile.getQualifiedName());
+											((CompositeComponentDefinitionCustomImpl)element).setReferencesList(newReferencesList);
+											newReferenceDefinition.setParentReferencesList(newReferencesList);
 										}
 									}
 								

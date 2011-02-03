@@ -7,6 +7,7 @@ import org.eclipse.jface.wizard.WizardDialog;
 import org.eclipse.swt.SWT;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.internal.WorkbenchPlugin;
+import org.ow2.mindEd.ide.model.ComponentKind;
 
 @SuppressWarnings("restriction")
 public class PrimitiveCreationWizard extends CustomWizard {
@@ -101,7 +102,7 @@ public class PrimitiveCreationWizard extends CustomWizard {
 						.open();
 						return false;
 					}
-					result = result & CreationNewMindFile.TestAndCreate(extendPath, "adl");
+					result = result & CreationNewMindFile.TestAndCreate(extendPath, "adl", ComponentKind.PRIMITIVE);
 				}
 				return result;
 			}
@@ -126,7 +127,7 @@ public class PrimitiveCreationWizard extends CustomWizard {
 					.open();
 					return false;
 				}
-				return CreationNewMindFile.TestAndCreate(primitiveInformation.getExtendPath(), "adl");
+				return CreationNewMindFile.TestAndCreate(primitiveInformation.getExtendPath(), "adl", ComponentKind.PRIMITIVE);
 			}
 		}
 		else
