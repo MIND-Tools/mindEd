@@ -14,18 +14,12 @@ import org.eclipse.gmf.runtime.diagram.ui.tools.UnspecifiedTypeCreationTool;
 import org.eclipse.gmf.runtime.emf.type.core.requests.CreateElementRequest;
 import org.eclipse.jface.wizard.WizardDialog;
 import org.eclipse.ui.PlatformUI;
-import org.ow2.mindEd.adl.ReferencesList;
-import org.ow2.mindEd.adl.custom.impl.ComponentReferenceCustomImpl;
 import org.ow2.mindEd.adl.custom.impl.CompositeComponentDefinitionCustomImpl;
 import org.ow2.mindEd.adl.custom.impl.CompositeReferenceDefinitionCustomImpl;
-import org.ow2.mindEd.adl.custom.impl.PrimitiveComponentDefinitionCustomImpl;
-import org.ow2.mindEd.adl.custom.impl.PrimitiveReferenceDefinitionCustomImpl;
 import org.ow2.mindEd.adl.custom.impl.SubComponentDefinitionCustomImpl;
 import org.ow2.mindEd.adl.editor.graphic.ui.custom.wizards.CompositeComponentInformation;
 import org.ow2.mindEd.adl.editor.graphic.ui.custom.wizards.CompositeCreationWizard;
-import org.ow2.mindEd.adl.editor.graphic.ui.custom.wizards.PrimitiveComponentInformation;
 import org.ow2.mindEd.adl.impl.CompositeReferencesListImpl;
-import org.ow2.mindEd.adl.impl.ReferencesListImpl;
 import org.ow2.mindEd.ide.core.ModelToProjectUtil;
 import org.ow2.mindEd.ide.model.MindFile;
 
@@ -123,6 +117,5 @@ public class CompositeComponentCreationTool extends UnspecifiedTypeCreationTool{
 
 	public CompositeComponentCreationTool(List<?> connectionTypes) {
 		super(connectionTypes);
-		// TODO Auto-generated constructor stub
 	}
 }

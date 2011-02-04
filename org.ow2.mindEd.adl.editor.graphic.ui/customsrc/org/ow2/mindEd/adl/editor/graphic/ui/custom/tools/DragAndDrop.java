@@ -7,18 +7,8 @@ import java.util.List;
 
 
 import org.eclipse.core.commands.ExecutionException;
-import org.eclipse.core.internal.resources.File;
-import org.eclipse.core.resources.IFile;
-import org.eclipse.core.resources.IWorkspaceRoot;
-import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.IAdaptable;
-import org.eclipse.core.runtime.IPath;
-import org.eclipse.core.runtime.URIUtil;
 import org.eclipse.draw2d.geometry.Point;
-import org.eclipse.emf.common.ui.URIEditorInput;
-import org.eclipse.emf.common.util.EList;
-import org.eclipse.emf.common.util.URI;
-import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.transaction.RollbackException;
 import org.eclipse.emf.transaction.impl.TransactionImpl;
 import org.eclipse.gef.EditPart;
@@ -39,8 +29,6 @@ import org.eclipse.gmf.runtime.emf.type.core.requests.CreateElementRequest;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.gmf.runtime.notation.impl.BasicDecorationNodeImpl;
 import org.eclipse.gmf.runtime.notation.impl.ShapeImpl;
-import org.eclipse.ui.actions.OpenFileAction;
-import org.eclipse.xtext.linking.lazy.LazyLinkingResource;
 import org.ow2.mindEd.adl.CompositeComponentDefinition;
 import org.ow2.mindEd.adl.CompositeReferenceDefinition;
 import org.ow2.mindEd.adl.Element;
@@ -64,6 +52,10 @@ import org.ow2.mindEd.adl.custom.impl.SubComponentPrimitiveBodyCustomImpl;
 import org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.commands.MindDiagramUpdateAllCommand;
 import org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.parts.AdlDefinitionCustomEditPart;
 import org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.parts.CompositeBodyCompartmentCustomEditPart;
+import org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.parts.CompositeComponentDefinitionCustomEditPart;
+import org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.parts.CompositeReferenceCustomEditPart;
+import org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.parts.CompositeReferencesListCompartmentCustomEditPart;
+import org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.parts.CompositeReferencesListCustomEditPart;
 import org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.parts.PrimitiveBodyCompartmentCustomEditPart;
 import org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.parts.PrimitiveComponentDefinitionCustomEditPart;
 import org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.parts.PrimitiveReferenceCustomEditPart;
@@ -74,7 +66,6 @@ import org.ow2.mindEd.adl.editor.graphic.ui.edit.parts.SubComponentPrimitiveBody
 import org.ow2.mindEd.adl.editor.graphic.ui.providers.MindElementTypes;
 import org.ow2.mindEd.adl.impl.CompositeReferenceDefinitionImpl;
 import org.ow2.mindEd.adl.impl.PrimitiveReferencesListImpl;
-import org.ow2.mindEd.ide.core.ModelToProjectUtil;
 import org.ow2.mindEd.ide.model.MindAdl;
 import org.ow2.mindEd.ide.model.MindC;
 import org.ow2.mindEd.ide.model.MindFile;
@@ -148,15 +139,22 @@ public class DragAndDrop {
 						}
 						else if (targetEditPart instanceof PrimitiveComponentDefinitionCustomEditPart)
 						{
+							// If Drop on Primitive Reference List
 							if(canDropMindAdl(EP,mindFile))
 								type = MindElementTypes.PrimitiveReferenceDefinition_3125;
 							else
 								type = null;
 						}
+						else if(targetEditPart instanceof CompositeComponentDefinitionCustomEditPart)
+						{
+							// If Drop on Composite Reference List
+							if(canDropMindAdl(EP,mindFile))
+								type = MindElementTypes.CompositeReferenceDefinition_3102;
+							else
+								type = null;
+						}
 						else
 						{
-							int g = 1;
-							g = g * 1;
 							System.out.println(targetEditPart.getClass().toString());
 						}
 					}
@@ -232,28 +230,32 @@ public class DragAndDrop {
 					Command com = null;
 					if(type != null)
 					{
+						// Drop on Primitive Reference List
 						if (type == MindElementTypes.PrimitiveReferenceDefinition_3125)
 						{
 							List<?> targetChildren = targetEditPart.getChildren();
 							for(Object target : targetChildren)
 							{
+								// Search Primitive Reference List in Parent's Children
 								if(target instanceof PrimitiveReferencesListCustomEditPart)
 								{
 									List<?> referencesChildren = ((PrimitiveReferencesListCustomEditPart)target).getChildren();
 									for(Object refListChild : referencesChildren)
 									{
+										// search Reference List Compartment Edit Part
 										if(refListChild instanceof PrimitiveReferencesListCompartmentCustomEditPart)
 										{
 											boolean newReference = true;
 											List<?> referencesList = ((PrimitiveReferencesListCompartmentCustomEditPart) refListChild).getChildren();
 											if(referencesList != null)
 											{
-												for(Object temp7 : referencesList)
+												for(Object referenceListItem : referencesList)
 												{
-													if (temp7 instanceof PrimitiveReferenceCustomEditPart)
+													// search Reference List Edit Part to Create Command
+													if (referenceListItem instanceof PrimitiveReferenceCustomEditPart)
 													{
-														PrimitiveReferenceDefinitionCustomImpl bite = (PrimitiveReferenceDefinitionCustomImpl) ((ShapeImpl)((PrimitiveReferenceCustomEditPart) temp7).getModel()).getElement();
-														if(bite.getReferenceName().equals(mindFile.getQualifiedName()))
+														PrimitiveReferenceDefinitionCustomImpl primitiveReferenceDef = (PrimitiveReferenceDefinitionCustomImpl) ((ShapeImpl)((PrimitiveReferenceCustomEditPart) referenceListItem).getModel()).getElement();
+														if(primitiveReferenceDef.getReferenceName().equals(mindFile.getQualifiedName()))
 															newReference = false;
 													}
 												}
@@ -266,19 +268,47 @@ public class DragAndDrop {
 										}
 									}
 								}
-							}
-/*							List temp2 = ((PrimitiveReferenceDefinitionCustomImpl)element).getParentReferencesList().getReferences();
-							boolean newReference = true;
-							for (Object refInCompo : temp2)
+							}								
+						}
+						else if (type == MindElementTypes.CompositeReferenceDefinition_3102)
+						{
+							// Drop on Composite Reference List
+							List<?> targetChildren = targetEditPart.getChildren();
+							for(Object target : targetChildren)
 							{
-								if(refInCompo instanceof PrimitiveReferenceDefinitionCustomImpl)
+								// Search Composite Reference List in Parent's Children
+								if(target instanceof CompositeReferencesListCustomEditPart)
 								{
-									if(((PrimitiveReferenceDefinitionCustomImpl)refInCompo).getReferenceName().equals(mindFile.getQualifiedName()))
-										newReference = false;
+									List<?> referencesChildren = ((CompositeReferencesListCustomEditPart)target).getChildren();
+									for(Object refListChild : referencesChildren)
+									{
+										// search Reference List Compartment Edit Part
+										if(refListChild instanceof CompositeReferencesListCompartmentCustomEditPart)
+										{
+											boolean newReference = true;
+											List<?> referencesList = ((CompositeReferencesListCompartmentCustomEditPart) refListChild).getChildren();
+											if(referencesList != null)
+											{
+												for(Object referenceListItem : referencesList)
+												{
+													// search Reference List Edit Part to Create Command
+													if (referenceListItem instanceof CompositeReferenceCustomEditPart)
+													{
+														CompositeReferenceDefinitionCustomImpl compositeReferenceDef = (CompositeReferenceDefinitionCustomImpl) ((ShapeImpl)((CompositeReferenceCustomEditPart) referenceListItem).getModel()).getElement();
+														if(compositeReferenceDef.getReferenceName().equals(mindFile.getQualifiedName()))
+															newReference = false;
+													}
+												}
+											}
+											if (newReference)
+											{
+												Request request = createRequest(type,((CompositeReferencesListCompartmentCustomEditPart) refListChild).getViewer());
+												com = ((CompositeReferencesListCompartmentCustomEditPart) refListChild).getCommand(request);
+											}
+										}
+									}
 								}
 							}
-							if(newReference)
-*/								
 						}
 						else
 						{
