@@ -17,6 +17,7 @@ import org.eclipse.jface.preference.IPreferenceStore;
 import org.ow2.mindEd.adl.custom.helpers.AdlDefinitionHelper;
 import org.ow2.mindEd.adl.custom.helpers.ArchitectureDefinitionHelper;
 import org.ow2.mindEd.adl.custom.impl.AdlDefinitionCustomImpl;
+import org.ow2.mindEd.adl.custom.impl.CompositeComponentDefinitionCustomImpl;
 import org.ow2.mindEd.adl.editor.graphic.ui.custom.preferences.CustomGeneralPreferencePage;
 import org.ow2.mindEd.adl.editor.graphic.ui.edit.parts.AdlDefinitionEditPart;
 import org.ow2.mindEd.adl.editor.graphic.ui.edit.parts.CompositeComponentDefinitionEditPart;
@@ -178,6 +179,21 @@ public class MindDiagramUpdateAllCommand extends MindDiagramUpdateCommand {
 				helper.refreshMerge();
 		}
 	}
+	
+	public void refreshMerge(CompositeComponentDefinitionCustomImpl root) {
+		if (root != null)
+		{
+			int a = 1;
+			a = a * 1;
+			// Refresh all merged elements
+			if ((ArchitectureDefinitionHelper)root.getHelper() == null)
+				return;
+			ArchitectureDefinitionHelper helper = ((ArchitectureDefinitionHelper)root.getHelper());
+			if (helper != null)
+				helper.refreshMerge();
+		}
+	}
+	
 	/**
 	 * This list is used to store all elements that should be hidden but are set to visible.
 	 */
