@@ -8,6 +8,7 @@ import org.eclipse.core.commands.ExecutionEvent;
 import org.eclipse.core.commands.ExecutionException;
 import org.eclipse.core.commands.ParameterizedCommand;
 import org.eclipse.core.runtime.CoreException;
+import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.draw2d.DelegatingLayout;
 import org.eclipse.draw2d.FreeformLayer;
 import org.eclipse.draw2d.Layer;
@@ -66,6 +67,23 @@ import org.ow2.mindEd.ide.core.ModelToProjectUtil;
 @SuppressWarnings("deprecation")
 public class CustomMindDiagramEditor extends MindDiagramEditor {
 
+	
+
+
+
+	@Override
+	public void doSave(IProgressMonitor progressMonitor) {
+		super.doSave(progressMonitor);
+		
+		try {
+			this.doSetInput(this.getEditorInput(),true);
+			
+		} catch (CoreException e) {
+			e.printStackTrace();
+		}
+	}
+
+
 	IWorkbenchPart selectedPart = null;
 	
 	@Override
@@ -112,8 +130,6 @@ public class CustomMindDiagramEditor extends MindDiagramEditor {
 										
 										try {
 											transaction.start();
-											System.out.println("bite");
-//											refreshCommand.updateElement((EObject) temp3.getModel());
 											EObject root = ((View)temp3.getModel()).getElement();
 											
 											refreshCommand.refreshMerge((CompositeComponentDefinitionCustomImpl) root);
