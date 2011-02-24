@@ -4,9 +4,6 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-import org.eclipse.core.commands.ExecutionEvent;
-import org.eclipse.core.commands.ExecutionException;
-import org.eclipse.core.commands.ParameterizedCommand;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.draw2d.DelegatingLayout;
@@ -17,24 +14,19 @@ import org.eclipse.draw2d.geometry.Point;
 import org.eclipse.emf.common.ui.URIEditorInput;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.transaction.RollbackException;
-import org.eclipse.emf.transaction.TransactionalEditingDomain;
 import org.eclipse.emf.transaction.impl.TransactionImpl;
 import org.eclipse.gef.EditPart;
 import org.eclipse.gef.LayerConstants;
-import org.eclipse.gef.RootEditPart;
 import org.eclipse.gef.commands.Command;
 import org.eclipse.gef.dnd.TransferDropTargetListener;
 import org.eclipse.gef.palette.PaletteRoot;
-import org.eclipse.gmf.runtime.diagram.ui.editparts.DiagramEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.DiagramRootEditPart;
+import org.eclipse.gmf.runtime.diagram.ui.editparts.GraphicalEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.parts.DiagramDropTargetListener;
-import org.eclipse.gmf.runtime.diagram.ui.parts.IDiagramGraphicalViewer;
 import org.eclipse.gmf.runtime.diagram.ui.resources.editor.document.IDocumentProvider;
 import org.eclipse.gmf.runtime.notation.View;
-import org.eclipse.gmf.runtime.notation.impl.DiagramImpl;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.IStructuredSelection;
-import org.eclipse.jface.viewers.StructuredSelection;
 import org.eclipse.swt.dnd.DND;
 import org.eclipse.swt.dnd.DropTargetEvent;
 import org.eclipse.swt.dnd.TransferData;
@@ -46,22 +38,16 @@ import org.eclipse.ui.part.FileEditorInput;
 import org.eclipse.ui.views.contentoutline.IContentOutlinePage;
 import org.eclipse.ui.views.navigator.LocalSelectionTransfer;
 
-import org.ow2.mindEd.adl.ArchitectureDefinition;
-import org.ow2.mindEd.adl.custom.impl.AdlDefinitionCustomImpl;
-import org.ow2.mindEd.adl.custom.impl.CompositeComponentDefinitionCustomImpl;
-import org.ow2.mindEd.adl.custom.util.AdlMergeUtil;
+import org.ow2.mindEd.adl.custom.impl.MindObjectImpl;
 import org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.commands.MindDiagramUpdateAllCommand;
 import org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.parts.AdlDefinitionCustomEditPart;
 import org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.parts.CompositeComponentDefinitionCustomEditPart;
-import org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.parts.proxy.MindProxy;
+import org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.parts.PrimitiveComponentDefinitionCustomEditPart;
 import org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.parts.proxy.MindProxyFactory;
 import org.ow2.mindEd.adl.editor.graphic.ui.custom.layouts.CustomConnectionLayerEx;
 import org.ow2.mindEd.adl.editor.graphic.ui.custom.providers.MindCustomDocumentProvider;
 import org.ow2.mindEd.adl.editor.graphic.ui.custom.tools.DragAndDrop;
-import org.ow2.mindEd.adl.editor.graphic.ui.edit.parts.AdlDefinitionEditPart;
 import org.ow2.mindEd.adl.editor.graphic.ui.part.MindDiagramEditor;
-import org.ow2.mindEd.adl.editor.graphic.ui.part.MindDiagramEditorPlugin;
-import org.ow2.mindEd.adl.editor.graphic.ui.part.MindDiagramUpdateCommand;
 import org.ow2.mindEd.ide.core.ModelToProjectUtil;
 
 @SuppressWarnings("deprecation")
@@ -73,14 +59,29 @@ public class CustomMindDiagramEditor extends MindDiagramEditor {
 
 	@Override
 	public void doSave(IProgressMonitor progressMonitor) {
+		
+		
+//		refreshComponentEditPart();
+		
+		IEditorInput editorInput = this.getEditorInput();
+		
+		System.out.println("Before doSave");
 		super.doSave(progressMonitor);
+		System.out.println("After doSave");
+		
+		System.out.println(this.toString());
+		
 		
 		try {
-			this.doSetInput(this.getEditorInput(),true);
+			System.out.println("Before doSetInput");
+			this.doSetInput(editorInput,true);
+			System.out.println("After doSetInput");
 			
 		} catch (CoreException e) {
 			e.printStackTrace();
 		}
+		
+//		refreshComponentEditPart();
 	}
 
 
@@ -90,6 +91,7 @@ public class CustomMindDiagramEditor extends MindDiagramEditor {
 	public void selectionChanged(IWorkbenchPart part, ISelection selection) {
 		
 		super.selectionChanged(part, selection);
+		
 		
 		
 		if(part instanceof CustomMindDiagramEditor)
@@ -107,6 +109,7 @@ public class CustomMindDiagramEditor extends MindDiagramEditor {
 						if(!this.isDirty())
 						{
 							try {
+								System.out.println("CustomMindDiag doSetInput");
 								((CustomMindDiagramEditor)part).doSetInput(((CustomMindDiagramEditor)part).getEditorInput(),true);
 								
 							} catch (CoreException e) {
@@ -115,61 +118,78 @@ public class CustomMindDiagramEditor extends MindDiagramEditor {
 						}
 						else
 						{
-							Object temp = this.getDiagramEditPart();
-							if(temp instanceof AdlDefinitionCustomEditPart)
+							refreshComponentEditPart();
+/*							
+							Object diagramEditPart = this.getDiagramEditPart();
+							if(diagramEditPart instanceof AdlDefinitionCustomEditPart)
 							{
-								AdlDefinitionCustomEditPart temp2 = (AdlDefinitionCustomEditPart)temp;
-								for(Object children : temp2.getChildren())
+								AdlDefinitionCustomEditPart adlDef = (AdlDefinitionCustomEditPart)diagramEditPart;
+								for(Object children : adlDef.getChildren())
 								{
-									if(children instanceof CompositeComponentDefinitionCustomEditPart)
+									if((children instanceof CompositeComponentDefinitionCustomEditPart)
+											|| (children instanceof PrimitiveComponentDefinitionCustomEditPart))
 									{
-										CompositeComponentDefinitionCustomEditPart temp3 = (CompositeComponentDefinitionCustomEditPart)children;
+										GraphicalEditPart componentDel = null;
+										if(children instanceof CompositeComponentDefinitionCustomEditPart)
+											componentDel = (CompositeComponentDefinitionCustomEditPart)children;
+										if(children instanceof PrimitiveComponentDefinitionCustomEditPart)
+											componentDel = (PrimitiveComponentDefinitionCustomEditPart)children;
+											
 
 										MindDiagramUpdateAllCommand refreshCommand = new MindDiagramUpdateAllCommand(true);
 										TransactionImpl transaction = new TransactionImpl(getEditingDomain(), false);
 										
 										try {
 											transaction.start();
-											EObject root = ((View)temp3.getModel()).getElement();
-											
-											refreshCommand.refreshMerge((CompositeComponentDefinitionCustomImpl) root);
+											EObject root = ((View)componentDel.getModel()).getElement();
+											refreshCommand.refreshMerge((MindObjectImpl) root);
 											transaction.commit();
 										} catch (InterruptedException e1) {
-											// TODO Auto-generated catch block
 											e1.printStackTrace();
 										} catch (RollbackException e) {
-											// TODO Auto-generated catch block
 											e.printStackTrace();
 										}
-										
-//										try {
-//											refreshCommand.execute(new ExecutionEvent());
-//										} catch (ExecutionException e) {
-//											e.printStackTrace();
-//										}
-										
-										
-										int a = 1;
-										a = a * 1;
 									}
 								}
 							}
-							
-//							AdlMergeUtil.getInstance().updateSubComponentReferences(definition, currentReferenceTreatment)
+*/							
+						}						
+					}
+				}
+			}
+		}
+	}
+	
+	private void refreshComponentEditPart()
+	{
+		Object diagramEditPart = this.getDiagramEditPart();
+		if(diagramEditPart instanceof AdlDefinitionCustomEditPart)
+		{
+			AdlDefinitionCustomEditPart adlDef = (AdlDefinitionCustomEditPart)diagramEditPart;
+			for(Object children : adlDef.getChildren())
+			{
+				if((children instanceof CompositeComponentDefinitionCustomEditPart)
+						|| (children instanceof PrimitiveComponentDefinitionCustomEditPart))
+				{
+					GraphicalEditPart componentDel = null;
+					if(children instanceof CompositeComponentDefinitionCustomEditPart)
+						componentDel = (CompositeComponentDefinitionCustomEditPart)children;
+					if(children instanceof PrimitiveComponentDefinitionCustomEditPart)
+						componentDel = (PrimitiveComponentDefinitionCustomEditPart)children;
+						
 
-							
-							
-//							MindDiagramUpdateAllCommand refreshCommand = new MindDiagramUpdateAllCommand(true);
-//
-//
-//							try {
-//								refreshCommand.execute(new ExecutionEvent());
-//							} catch (ExecutionException e) {
-//								// TODO Auto-generated catch block
-//								e.printStackTrace();
-//							}
-							
-						}
+					MindDiagramUpdateAllCommand refreshCommand = new MindDiagramUpdateAllCommand(true);
+					TransactionImpl transaction = new TransactionImpl(getEditingDomain(), false);
+					
+					try {
+						transaction.start();
+						EObject root = ((View)componentDel.getModel()).getElement();
+						refreshCommand.refreshMerge((MindObjectImpl) root);
+						transaction.commit();
+					} catch (InterruptedException e1) {
+						e1.printStackTrace();
+					} catch (RollbackException e) {
+						e.printStackTrace();
 					}
 				}
 			}

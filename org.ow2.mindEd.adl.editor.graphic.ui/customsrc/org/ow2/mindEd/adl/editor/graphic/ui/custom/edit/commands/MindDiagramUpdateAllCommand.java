@@ -17,7 +17,7 @@ import org.eclipse.jface.preference.IPreferenceStore;
 import org.ow2.mindEd.adl.custom.helpers.AdlDefinitionHelper;
 import org.ow2.mindEd.adl.custom.helpers.ArchitectureDefinitionHelper;
 import org.ow2.mindEd.adl.custom.impl.AdlDefinitionCustomImpl;
-import org.ow2.mindEd.adl.custom.impl.CompositeComponentDefinitionCustomImpl;
+import org.ow2.mindEd.adl.custom.impl.MindObjectImpl;
 import org.ow2.mindEd.adl.editor.graphic.ui.custom.preferences.CustomGeneralPreferencePage;
 import org.ow2.mindEd.adl.editor.graphic.ui.edit.parts.AdlDefinitionEditPart;
 import org.ow2.mindEd.adl.editor.graphic.ui.edit.parts.CompositeComponentDefinitionEditPart;
@@ -122,7 +122,7 @@ public class MindDiagramUpdateAllCommand extends MindDiagramUpdateCommand {
 	 * @param rootEditPart
 	 * @param rank
 	 */
-	@SuppressWarnings("unchecked")
+	@SuppressWarnings({ "unchecked", "deprecation" })
 	public void updateAll (EditPart rootEditPart, int rank){
 		if (MindProxyFactory.INSTANCE.getMindProxyFor(rootEditPart) instanceof MindComponentProxy)
 			// Increase rank if a component is encountered
@@ -180,7 +180,7 @@ public class MindDiagramUpdateAllCommand extends MindDiagramUpdateCommand {
 		}
 	}
 	
-	public void refreshMerge(CompositeComponentDefinitionCustomImpl root) {
+	public void refreshMerge(MindObjectImpl root) {
 		if (root != null)
 		{
 			int a = 1;

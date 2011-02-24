@@ -48,17 +48,18 @@ public class CompositeCreationWizard extends CustomWizard{
 		}
 		if(!isSubComponent)
 		{
-/*			if((compositeInformation.getListExtends() == null)
-				|| (compositeInformation.getListExtends().size() == 0))
+			if((compositeInformation.getListExtends() != null)
+				&& (compositeInformation.getListExtends().size() != 0))
 			{
-				new MessageBoxWizard(PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell()
-						, ResourcesWizard.ERROR_WARNING
-						, ResourcesWizard.ERROR_PATH
-						, SWT.ICON_WARNING | SWT.OK)
-				.open();
-				return false;
+				boolean result = true;
+				for(int i=0 ; i<compositeInformation.getListExtends().size() ; i++)
+				{
+					String extendPath = compositeInformation.getListExtends().get(i);
+					result = result & CreationNewMindFile.TestAndCreate(extendPath, "adl", ComponentKind.COMPOSITE);
+				}
+				return result;
 			}
-*/
+
 			boolean result = true;
 			for(String extendPath : compositeInformation.getListExtends())
 			{
@@ -78,26 +79,21 @@ public class CompositeCreationWizard extends CustomWizard{
 		}
 		else
 		{
-			if((compositeInformation.getExtendPath() == null) 
-				|| (compositeInformation.getExtendPath().length() == 0))
+			if((compositeInformation.getExtendPath() != null) 
+				&& (compositeInformation.getExtendPath().length() != 0))
 			{
-				new MessageBoxWizard(PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell()
-						, ResourcesWizard.ERROR_WARNING
-						, ResourcesWizard.ERROR_PATH
-						, SWT.ICON_WARNING | SWT.OK)
-				.open();
-				return false;
+				if(!compositeInformation.getExtendPath().endsWith(".adl"))
+				{
+					new MessageBoxWizard(PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell()
+							, ResourcesWizard.ERROR_WARNING
+							, String.format(ResourcesWizard.ERROR_EXTENSION, "'adl'")
+							, SWT.ICON_WARNING | SWT.OK)
+					.open();
+					return false;
+				}
+				return CreationNewMindFile.TestAndCreate(compositeInformation.getExtendPath(), "adl", ComponentKind.COMPOSITE);
 			}
-			if(!compositeInformation.getExtendPath().endsWith(".adl"))
-			{
-				new MessageBoxWizard(PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell()
-						, ResourcesWizard.ERROR_WARNING
-						, String.format(ResourcesWizard.ERROR_EXTENSION, "'adl'")
-						, SWT.ICON_WARNING | SWT.OK)
-				.open();
-				return false;
-			}
-			return CreationNewMindFile.TestAndCreate(compositeInformation.getExtendPath(), "adl", ComponentKind.COMPOSITE);
+			else return true;
 		}
 	}
 
