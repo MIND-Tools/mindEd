@@ -12,11 +12,15 @@ import org.eclipse.gef.requests.TargetRequest;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.GraphicalEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.tools.UnspecifiedTypeConnectionTool;
 import org.eclipse.gmf.runtime.notation.View;
+import org.eclipse.gmf.runtime.notation.impl.ShapeImpl;
+import org.eclipse.swt.graphics.Cursor;
 import org.ow2.mindEd.adl.ArchitectureDefinition;
 import org.ow2.mindEd.adl.Body;
 import org.ow2.mindEd.adl.InterfaceDefinition;
 import org.ow2.mindEd.adl.Role;
+import org.ow2.mindEd.adl.custom.impl.InterfaceDefinitionCustomImpl;
 import org.ow2.mindEd.adl.custom.util.CreationUtil;
+import org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.parts.InterfaceDefinitionCustomEditPart;
 import org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.parts.proxy.MindBodyCompartmentProxy;
 import org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.parts.proxy.MindBodyProxy;
 import org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.parts.proxy.MindProxyFactory;
@@ -25,6 +29,76 @@ import org.ow2.mindEd.adl.editor.graphic.ui.part.MindDiagramEditorPlugin;
 
 @SuppressWarnings("rawtypes")
 public class BindingCreationTool extends UnspecifiedTypeConnectionTool {
+
+
+	@Override
+	protected Cursor calculateCursor() {
+//		if (isInState(STATE_CONNECTION_STARTED))
+//		{
+//			if(!canBindInterfaces())
+//				return getDisabledCursor();
+//		}
+		return super.calculateCursor();
+	}
+
+	private EditPart connectionSource_TEST;
+	@Override
+	protected boolean handleCreateConnection() {
+//		if( !canBindInterfaces() )
+//			return false;
+//		else		
+			return super.handleCreateConnection();
+	}
+	
+	protected boolean canBindInterfaces()
+	{
+		String signatureTarget = null;
+		String signatureSource = null;
+		
+		EditPart targetEditPart = this.getTargetEditPart();
+		if(targetEditPart instanceof InterfaceDefinitionCustomEditPart)
+		{
+			if(targetEditPart.getModel() instanceof ShapeImpl)
+			{
+				ShapeImpl model = (ShapeImpl) targetEditPart.getModel();
+				if(model.getElement() instanceof InterfaceDefinitionCustomImpl)
+				{
+					InterfaceDefinitionCustomImpl interfaceDefinition = (InterfaceDefinitionCustomImpl) model.getElement();
+					signatureTarget = interfaceDefinition.getSignature();
+				}
+				else
+					return false;
+			}
+			else
+				return false;
+		}
+		else
+			return false;
+		
+		if(connectionSource_TEST instanceof InterfaceDefinitionCustomEditPart)
+		{
+			if(connectionSource_TEST.getModel() instanceof ShapeImpl)
+			{
+				ShapeImpl model = (ShapeImpl) connectionSource_TEST.getModel();
+				if(model.getElement() instanceof InterfaceDefinitionCustomImpl)
+				{
+					InterfaceDefinitionCustomImpl interfaceDefinition = (InterfaceDefinitionCustomImpl) model.getElement();
+					signatureSource = interfaceDefinition.getSignature();
+				}
+				else
+					return false;
+			}
+			else
+				return false;
+		}
+		else
+			return false;
+		
+		if(signatureSource.equals(signatureTarget))
+			return true;
+		else		
+			return false;
+	}
 
 
 	protected void updateTargetRequest()
@@ -379,7 +453,7 @@ public class BindingCreationTool extends UnspecifiedTypeConnectionTool {
 			
 			getCurrentInput().setMouseLocation(interfaceBounds.x,interfaceBounds.y);
 		}
-		
+		connectionSource_TEST = source;
 		super.setConnectionSource(source);
 	}
 	

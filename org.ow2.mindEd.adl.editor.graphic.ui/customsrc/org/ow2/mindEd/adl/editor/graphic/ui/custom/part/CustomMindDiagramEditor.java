@@ -1,9 +1,12 @@
 package org.ow2.mindEd.adl.editor.graphic.ui.custom.part;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
+import org.eclipse.core.commands.ExecutionEvent;
+import org.eclipse.core.commands.ExecutionException;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.draw2d.DelegatingLayout;
@@ -12,19 +15,26 @@ import org.eclipse.draw2d.Layer;
 import org.eclipse.draw2d.LayeredPane;
 import org.eclipse.draw2d.geometry.Point;
 import org.eclipse.emf.common.ui.URIEditorInput;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.transaction.RollbackException;
+import org.eclipse.emf.transaction.TransactionalEditingDomain;
 import org.eclipse.emf.transaction.impl.TransactionImpl;
 import org.eclipse.gef.EditPart;
 import org.eclipse.gef.LayerConstants;
 import org.eclipse.gef.commands.Command;
 import org.eclipse.gef.dnd.TransferDropTargetListener;
+import org.eclipse.gef.editparts.AbstractEditPart;
 import org.eclipse.gef.palette.PaletteRoot;
+import org.eclipse.gmf.runtime.diagram.ui.editparts.DiagramEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.DiagramRootEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.GraphicalEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.parts.DiagramDropTargetListener;
 import org.eclipse.gmf.runtime.diagram.ui.resources.editor.document.IDocumentProvider;
+import org.eclipse.gmf.runtime.emf.core.resources.GMFResource;
 import org.eclipse.gmf.runtime.notation.View;
+import org.eclipse.gmf.runtime.notation.impl.DiagramImpl;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.swt.dnd.DND;
@@ -32,12 +42,19 @@ import org.eclipse.swt.dnd.DropTargetEvent;
 import org.eclipse.swt.dnd.TransferData;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.ui.IEditorInput;
+import org.eclipse.ui.IEditorSite;
 import org.eclipse.ui.IFileEditorInput;
 import org.eclipse.ui.IWorkbenchPart;
+import org.eclipse.ui.PartInitException;
+import org.eclipse.ui.PlatformUI;
+import org.eclipse.ui.internal.EditorSite;
+import org.eclipse.ui.part.EditorPart;
 import org.eclipse.ui.part.FileEditorInput;
 import org.eclipse.ui.views.contentoutline.IContentOutlinePage;
 import org.eclipse.ui.views.navigator.LocalSelectionTransfer;
+import org.eclipse.xtext.linking.lazy.LazyLinkingResource;
 
+import org.ow2.mindEd.adl.custom.impl.AdlDefinitionCustomImpl;
 import org.ow2.mindEd.adl.custom.impl.MindObjectImpl;
 import org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.commands.MindDiagramUpdateAllCommand;
 import org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.parts.AdlDefinitionCustomEditPart;
@@ -48,41 +65,14 @@ import org.ow2.mindEd.adl.editor.graphic.ui.custom.layouts.CustomConnectionLayer
 import org.ow2.mindEd.adl.editor.graphic.ui.custom.providers.MindCustomDocumentProvider;
 import org.ow2.mindEd.adl.editor.graphic.ui.custom.tools.DragAndDrop;
 import org.ow2.mindEd.adl.editor.graphic.ui.part.MindDiagramEditor;
+import org.ow2.mindEd.adl.editor.graphic.ui.part.MindDiagramEditorPlugin;
+import org.ow2.mindEd.adl.editor.graphic.ui.part.MindDiagramUpdateCommand;
+import org.ow2.mindEd.adl.editor.graphic.ui.providers.MindValidationDecoratorProvider;
+import org.ow2.mindEd.adl.provider.MindEditPlugin;
 import org.ow2.mindEd.ide.core.ModelToProjectUtil;
 
 @SuppressWarnings("deprecation")
 public class CustomMindDiagramEditor extends MindDiagramEditor {
-
-	
-
-
-
-	@Override
-	public void doSave(IProgressMonitor progressMonitor) {
-		
-		
-//		refreshComponentEditPart();
-		
-		IEditorInput editorInput = this.getEditorInput();
-		
-		System.out.println("Before doSave");
-		super.doSave(progressMonitor);
-		System.out.println("After doSave");
-		
-		System.out.println(this.toString());
-		
-		
-		try {
-			System.out.println("Before doSetInput");
-			this.doSetInput(editorInput,true);
-			System.out.println("After doSetInput");
-			
-		} catch (CoreException e) {
-			e.printStackTrace();
-		}
-		
-//		refreshComponentEditPart();
-	}
 
 
 	IWorkbenchPart selectedPart = null;
@@ -91,8 +81,6 @@ public class CustomMindDiagramEditor extends MindDiagramEditor {
 	public void selectionChanged(IWorkbenchPart part, ISelection selection) {
 		
 		super.selectionChanged(part, selection);
-		
-		
 		
 		if(part instanceof CustomMindDiagramEditor)
 		{
@@ -103,57 +91,46 @@ public class CustomMindDiagramEditor extends MindDiagramEditor {
 				if(selectedPart != part)
 				{
 					selectedPart = part;
-					
 					if(this.equals(part))
 					{
-						if(!this.isDirty())
-						{
-							try {
-								System.out.println("CustomMindDiag doSetInput");
-								((CustomMindDiagramEditor)part).doSetInput(((CustomMindDiagramEditor)part).getEditorInput(),true);
-								
-							} catch (CoreException e) {
-								e.printStackTrace();
-							}
-						}
-						else
-						{
-							refreshComponentEditPart();
-/*							
-							Object diagramEditPart = this.getDiagramEditPart();
-							if(diagramEditPart instanceof AdlDefinitionCustomEditPart)
-							{
-								AdlDefinitionCustomEditPart adlDef = (AdlDefinitionCustomEditPart)diagramEditPart;
-								for(Object children : adlDef.getChildren())
-								{
-									if((children instanceof CompositeComponentDefinitionCustomEditPart)
-											|| (children instanceof PrimitiveComponentDefinitionCustomEditPart))
-									{
-										GraphicalEditPart componentDel = null;
-										if(children instanceof CompositeComponentDefinitionCustomEditPart)
-											componentDel = (CompositeComponentDefinitionCustomEditPart)children;
-										if(children instanceof PrimitiveComponentDefinitionCustomEditPart)
-											componentDel = (PrimitiveComponentDefinitionCustomEditPart)children;
-											
-
-										MindDiagramUpdateAllCommand refreshCommand = new MindDiagramUpdateAllCommand(true);
-										TransactionImpl transaction = new TransactionImpl(getEditingDomain(), false);
-										
-										try {
-											transaction.start();
-											EObject root = ((View)componentDel.getModel()).getElement();
-											refreshCommand.refreshMerge((MindObjectImpl) root);
-											transaction.commit();
-										} catch (InterruptedException e1) {
-											e1.printStackTrace();
-										} catch (RollbackException e) {
-											e.printStackTrace();
-										}
-									}
-								}
-							}
-*/							
-						}						
+//						if(!this.isDirty())
+//						{
+//							refreshComponentEditPart();
+////							Object temp = ((CustomMindDiagramEditor)part).getDocumentProvider();
+////							if(temp instanceof MindCustomDocumentProvider)
+////							{
+////								try {
+////									((MindCustomDocumentProvider)temp).synchronize(this);
+////								} catch (CoreException e) {
+////									// TODO Auto-generated catch block
+////									e.printStackTrace();
+////								}
+////								int b = 1;
+////								b = b * 1;
+////							}
+//							
+////							MindValidationDecoratorProvider.refreshDecorators(getDiagram());
+//							
+//						}
+//						else
+//						{
+//							refreshComponentEditPart();
+////							refreshAll(getDiagramEditPart());
+////							DiagramEditPart temp3;
+//
+//
+////							((CustomMindDiagramEditor)part).setFocus();
+//						}						
+					}
+					else
+					{
+//						this.dispose();
+						
+//						if(this.getDocumentProvider() instanceof MindCustomDocumentProvider)
+//						{
+//							MindCustomDocumentProvider temp = (MindCustomDocumentProvider) this.getDocumentProvider();
+//							
+//						}
 					}
 				}
 			}
@@ -176,7 +153,6 @@ public class CustomMindDiagramEditor extends MindDiagramEditor {
 						componentDel = (CompositeComponentDefinitionCustomEditPart)children;
 					if(children instanceof PrimitiveComponentDefinitionCustomEditPart)
 						componentDel = (PrimitiveComponentDefinitionCustomEditPart)children;
-						
 
 					MindDiagramUpdateAllCommand refreshCommand = new MindDiagramUpdateAllCommand(true);
 					TransactionImpl transaction = new TransactionImpl(getEditingDomain(), false);

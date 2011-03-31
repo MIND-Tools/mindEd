@@ -6,11 +6,15 @@ import java.util.List;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.gef.EditPart;
+import org.eclipse.gef.commands.Command;
+import org.eclipse.gef.requests.CreateRequest;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.CanonicalEditPolicy;
 import org.eclipse.gmf.runtime.notation.View;
+import org.eclipse.gmf.runtime.notation.impl.DiagramImpl;
 import org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.parts.proxy.MindProxy;
 import org.ow2.mindEd.adl.editor.graphic.ui.custom.edit.parts.proxy.MindProxyFactory;
 import org.ow2.mindEd.adl.editor.graphic.ui.edit.parts.AdlDefinitionEditPart;
+import org.ow2.mindEd.adl.editor.graphic.ui.providers.MindElementTypes;
 
 /**
  * AdlDefinitionEditPart is the canvas, the background.
@@ -24,6 +28,26 @@ public class AdlDefinitionCustomEditPart extends AdlDefinitionEditPart {
 	
 	public AdlDefinitionCustomEditPart(View view) {
 		super(view);
+	}
+	
+	public void temp()
+	{
+//		refreshVisuals();
+//		refreshChildren();
+//		refreshSourceConnections();
+//		refreshTargetConnections();
+//		refreshVisibility();
+		
+		CreateRequest temp = new CreateRequest(MindElementTypes.TemplateSpecifier_3097);	
+		Command cmd = getCommand(temp);
+		cmd.execute();
+		
+		temp.setType(REQ_CREATE);
+		cmd = getCommand(temp);
+		cmd.execute();
+		
+//		updateAll(getPrimaryChildEditPart());
+		
 	}
 	
 	@Override
