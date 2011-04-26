@@ -17,7 +17,9 @@
 
 package org.ow2.mindEd.adl.validation;
 
+import org.eclipse.emf.ecore.EValidator;
 import org.eclipse.ui.IStartup;
+import org.ow2.mindEd.adl.AdlPackage;
 
 
 
@@ -40,5 +42,8 @@ public class Startup
 	 *Constraint provider must be activated, force activation
 	 */
 	public void earlyStartup() {
+		EValidator.Registry.INSTANCE.put(
+				AdlPackage.eINSTANCE,
+				new EValidatorAdapter());
 	}
 }

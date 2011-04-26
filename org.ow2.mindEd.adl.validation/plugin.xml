@@ -20,53 +20,78 @@
 -->
 <plugin>
 
+
      <extension point="org.eclipse.ui.startup">
       <startup class="org.ow2.mindEd.adl.validation.Startup"/>
    </extension>
+     <extension
+           point="org.eclipse.emf.validation.constraintBindings">
+        <clientContext
+              id="org.ow2.mindEd.adl.validation.clientContext">
+           <enablement>
+              <and>
+                 <instanceof
+                       value="org.eclipse.emf.ecore.EObject">
+                 </instanceof>
+                 <test
+                       property="org.ow2.mindEd.adl.ePackage"
+                       value="http://org.ow2.mindEd/adl.ecore/0.2.0">
+                 </test>
+              </and>
+           </enablement>
+        </clientContext>
+        <binding
+              category="mindEd-validation/adapter"
+              context="org.ow2.mindEd.adl.validation.clientContext">
+        </binding>
+     </extension>
+     <extension
+           point="org.eclipse.emf.validation.constraintProviders">
+        <category
+              id="mindEd-validation/adapter"
+              name="%category.name">
+           %category.description
+        </category>
+        <constraintProvider
+              cache="true">
+           <package
+                 namespaceUri="http://org.ow2.mindEd/adl.ecore/0.2.0">
+           </package>
+           <constraints
+                 categories="mindEd-validation/adapter">
+              <constraint
+                    class="org.ow2.mindEd.adl.validation.constraints.TestConstraint"
+                    id="org.ow2.mindEd.adl.validation.constraints.TestConstraint"
+                    lang="Java"
+                    mode="Batch"
+                    name="testconstraint"
+                    severity="ERROR"
+                    statusCode="1">
+                 <message>
+                    Test Error
+                 </message>
+                 <target
+                       class="InterfaceDefinition">
+                 </target>
+                 <description>
+                    desc
+                 </description>
+              </constraint>
+           </constraints>
+        </constraintProvider>
+     </extension>
+     <extension
+           point="org.eclipse.core.expressions.propertyTesters">
+        <propertyTester
+              class="org.ow2.mindEd.adl.validation.expressions.EObjectPropertyTester"
+              id="org.ow2.mindEd.adl.validation.propertyTester1"
+              namespace="org.ow2.mindEd.adl"
+              properties="ePackage"
+              type="org.eclipse.emf.ecore.EObject">
+        </propertyTester>
+     </extension>
    
-   <extension point="org.eclipse.core.expressions.propertyTesters">
-      <propertyTester
-         id="org.eclipse.emf.validation.examples.adapter.expressions.EObjectPropertyTester"
-         type="org.eclipse.emf.ecore.EObject"
-         namespace="org.eclipse.emf.validation.examples.adapter"
-         properties="ePackage"
-         class="org.ow2.mindEd.adl.validation.expressions.EObjectPropertyTester">
-      </propertyTester>
-   </extension>
    
-   <extension point="org.eclipse.emf.validation.constraintBindings">
-      <clientContext id="org.eclipse.emf.validation.examples.adapter">
-         <enablement>
-            <and>
-               <instanceof value="org.eclipse.emf.ecore.EObject"/>
-               <test
-                  property="org.eclipse.emf.validation.examples.adapter.ePackage"
-                  value="http://org.ow2.fractal/mind/mind.ecore/0.2.0"/>                  
-            </and>
-         </enablement>
-      </clientContext>
-      
-      <binding
-         context="org.eclipse.emf.validation.examples.adapter"
-         category="emf-validation-example"/>
-   </extension>
    
    <!-- Define a constraint -->
-   <extension point="org.eclipse.emf.validation.constraintProviders">
-      <category name="%category.name" id="emf-validation-example/adapter">
-         %category.description
-      </category>
-      <constraintProvider cache="true">
-         <package namespaceUri="http://org.ow2.fractal/mind/mind.ecore/0.2.0"/>
-         <constraints categories="emf-validation-example/adapter">
-            <constraint lang="Java" severity="ERROR" mode="Batch" name="noSubComponentBody" id="noSubComponentBody" statusCode="100"
-            	class="org.ow2.mindEd.adl.validation.constraints.SubComponentConstraint">
-               <description>"SubComponentError"</description>
-               <message>"SubComponent {0} must have at least a body or reference"</message>
-               <!-- This constraint applies to any library element. -->
-               <target class="SubComponentDefinition"/>
-            </constraint>
-         </constraints>
-      </constraintProvider>
-   </extension>
 </plugin>
