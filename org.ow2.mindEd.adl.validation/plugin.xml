@@ -60,23 +60,55 @@
            <constraints
                  categories="mindEd-validation/adapter">
               <constraint
-                    class="org.ow2.mindEd.adl.validation.constraints.TestConstraint"
-                    id="org.ow2.mindEd.adl.validation.constraints.TestConstraint"
+                    class="org.ow2.mindEd.adl.validation.constraints.MindEdNameConstraints"
+                    id="org.ow2.mindEd.adl.validation.constraints.MindEdNameConstraints"
                     lang="Java"
-                    mode="Batch"
-                    name="testconstraint"
+                    mode="Live"
+                    name="MindEdNameConstraints"
                     severity="ERROR"
                     statusCode="1">
                  <message>
-                    Test Error
+                    {0}
                  </message>
+                 <description>
+                    desc
+                 </description>
                  <target
                        class="InterfaceDefinition">
+                 </target>
+                 <target
+                       class="PrimitiveComponentDefinition">
+                 </target>
+                 <target
+                       class="SubComponentDefinition">
+                 </target>
+                 <target
+                       class="Annotation">
+                 </target>
+                 <target
+                       class="ComponentReference">
+                 </target>
+              </constraint>
+<!--
+              <constraint
+                    class="org.ow2.mindEd.adl.validation.constraints.MindEdBindingConstraints"
+                    id="org.ow2.mindEd.adl.validation.constraints.MindEdBindingConstraints"
+                    lang="Java"
+                    mode="Live"
+                    name="MindEdBindingConstraints"
+                    severity="ERROR"
+                    statusCode="1">
+                 <message>
+                    {0}
+                 </message>
+                 <target
+                       class="BindingDefinition">
                  </target>
                  <description>
                     desc
                  </description>
               </constraint>
+-->
            </constraints>
         </constraintProvider>
      </extension>
