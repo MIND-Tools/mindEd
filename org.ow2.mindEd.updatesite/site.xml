@@ -6,10 +6,10 @@ académique du logiciel embarqué une technologie d’assemblage
 de composants logiciels fondamentale, robuste, stable et pérenne,
 adaptable aux problématiques métiers de chacun.
    </description>
-   <feature url="features/org.ow2.mindEd.feature.sdk_0.2.1.201105031048.jar" id="org.ow2.mindEd.feature.sdk" version="0.2.1.201105031048">
+   <feature url="features/org.ow2.mindEd.feature.sdk_0.2.1.201106271621.jar" id="org.ow2.mindEd.feature.sdk" version="0.2.1.201106271621">
       <category name="MindEd"/>
    </feature>
-   <feature url="features/org.ow2.mindEd.feature_0.2.1.201105031048.jar" id="org.ow2.mindEd.feature" version="0.2.1.201105031048">
+   <feature url="features/org.ow2.mindEd.feature_0.2.1.201106271621.jar" id="org.ow2.mindEd.feature" version="0.2.1.201106271621">
       <category name="MindEd"/>
    </feature>
    <category-def name="MindEd" label="MindEd Minalogic"/>

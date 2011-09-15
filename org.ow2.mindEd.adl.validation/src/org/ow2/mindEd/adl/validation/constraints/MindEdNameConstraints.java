@@ -17,7 +17,6 @@ public class MindEdNameConstraints extends AbstractModelConstraint{
 		
 		if(ctx.getTarget() instanceof ArchitectureDefinitionImpl)
 		{
-			Object temp = (ArchitectureDefinitionImpl)ctx.getTarget();
 			name = ((ArchitectureDefinitionImpl)ctx.getTarget()).getName();
 		}
 		else if(ctx.getTarget() instanceof InterfaceDefinitionCustomImpl)
@@ -26,7 +25,6 @@ public class MindEdNameConstraints extends AbstractModelConstraint{
 		}
 		else if(ctx.getTarget() instanceof SubComponentDefinitionCustomImpl )
 		{
-			Object temp = (SubComponentDefinitionCustomImpl)ctx.getTarget();
 			name = ((SubComponentDefinitionCustomImpl)ctx.getTarget()).getName();
 		}
 		else if(ctx.getTarget() instanceof ComponentReferenceImpl )
@@ -35,7 +33,6 @@ public class MindEdNameConstraints extends AbstractModelConstraint{
 		}
 		else if(ctx.getTarget() instanceof AnnotationImpl )
 		{
-			Object temp = (AnnotationImpl)ctx.getTarget();
 			name = ((AnnotationImpl)ctx.getTarget()).getName();
 		}
 		else

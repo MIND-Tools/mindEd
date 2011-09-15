@@ -89,24 +89,21 @@
                        class="ComponentReference">
                  </target>
               </constraint>
-<!--
-              <constraint
-                    class="org.ow2.mindEd.adl.validation.constraints.MindEdBindingConstraints"
-                    id="org.ow2.mindEd.adl.validation.constraints.MindEdBindingConstraints"
+<!--              <constraint
+                    class="org.ow2.mindEd.adl.validation.constraints.MindEdSignatureBindingConstraints"
+                    id="org.ow2.mindEd.adl.validation.constraints.MindEdSignatureBindingConstraints"
+                    isEnabledByDefault="true"
                     lang="Java"
-                    mode="Live"
-                    name="MindEdBindingConstraints"
+                    mode="Batch"
+                    name="MindEdSignatureBindingConstraints"
                     severity="ERROR"
                     statusCode="1">
                  <message>
-                    {0}
+                    message body text
                  </message>
                  <target
                        class="BindingDefinition">
                  </target>
-                 <description>
-                    desc
-                 </description>
               </constraint>
 -->
            </constraints>

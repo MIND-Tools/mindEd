@@ -24,6 +24,8 @@ import org.eclipse.gef.palette.PaletteRoot;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.DiagramRootEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.GraphicalEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.parts.DiagramDropTargetListener;
+import org.eclipse.gmf.runtime.diagram.ui.parts.DiagramGraphicalViewer;
+import org.eclipse.gmf.runtime.diagram.ui.resources.editor.document.DiagramDocument;
 import org.eclipse.gmf.runtime.diagram.ui.resources.editor.document.IDocumentProvider;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.gmf.runtime.notation.impl.ShapeImpl;
@@ -36,6 +38,8 @@ import org.eclipse.swt.widgets.Composite;
 import org.eclipse.ui.IEditorInput;
 import org.eclipse.ui.IFileEditorInput;
 import org.eclipse.ui.IWorkbenchPart;
+import org.eclipse.ui.PartInitException;
+import org.eclipse.ui.internal.actions.SelectWorkingSetsAction;
 import org.eclipse.ui.part.FileEditorInput;
 import org.eclipse.ui.views.contentoutline.IContentOutlinePage;
 import org.eclipse.ui.views.navigator.LocalSelectionTransfer;
@@ -58,94 +62,8 @@ import org.ow2.mindEd.ide.core.ModelToProjectUtil;
 public class CustomMindDiagramEditor extends MindDiagramEditor {
 
 
-	@Override
-	public void doSave(IProgressMonitor progressMonitor) {
-				
-		Object temp = this.getDiagramEditPart();
-		if(temp instanceof AbstractGraphicalEditPart)
-		{
-			// Must call twice to remove binding
-			removeEmptyBindingFromModel((AbstractGraphicalEditPart)temp);
-			refreshComponentEditPart();
-			removeEmptyBindingFromModel((AbstractGraphicalEditPart)temp);
-			refreshComponentEditPart();
-		}
-		
-		super.doSave(progressMonitor);
-		
-		try {
-			this.doSetInput(getEditorInput(), true);
-		} catch (CoreException e) {
-			e.printStackTrace();
-		}
-	}
-
-	/**
-	 * Search recursively in each children binding in each Body.
-	 * Remove binding with an empty source or target.
-	 * @param testPart
-	 */
-	protected void removeEmptyBindingFromModel(AbstractGraphicalEditPart testPart)
-	{
-		
-		if(testPart.getChildren().size()==0)
-			return;
-		else
-		{
-			for (Object nextChild : testPart.getChildren())
-			{
-				if(nextChild instanceof CompositeBodyCustomEditPart)
-				{
-					if(((CompositeBodyCustomEditPart)nextChild).getModel() instanceof ShapeImpl)
-					{
-						ShapeImpl model = (ShapeImpl) ((CompositeBodyCustomEditPart)nextChild).getModel();
-						if(model.getElement() instanceof CompositeBodyCustomImpl)
-						{
-							List<?> listElementModel = ((CompositeBodyCustomImpl) model.getElement()).getElements();
-							ArrayList<BindingDefinitionCustomImpl> bindingDelete = new ArrayList<BindingDefinitionCustomImpl>();
-							
-							for(Object elementModel : listElementModel)
-							{
-								if(elementModel instanceof BindingDefinitionCustomImpl)
-								{
-									// Extract empty binding
-									if(((BindingDefinitionCustomImpl)elementModel).getInterfaceSource() == null
-											|| ((BindingDefinitionCustomImpl)elementModel).getInterfaceTarget() == null)
-									{
-										bindingDelete.add((BindingDefinitionCustomImpl)elementModel);
-									}
-								}
-							}
-							// Remove bindings from model
-							for (BindingDefinitionCustomImpl binding : bindingDelete)
-							{
-								TransactionImpl transcation = new TransactionImpl(getEditingDomain(), false);
-								
-								try {
-									transcation.start();
-									listElementModel.remove(binding);
-									transcation.commit();
-								} catch (InterruptedException e) {
-									e.printStackTrace();
-								} catch (RollbackException e) {
-									e.printStackTrace();
-								}
-								
-							}
-						}
-						
-					}
-				}
-				// call next Children
-				else if (nextChild instanceof AbstractGraphicalEditPart)
-					removeEmptyBindingFromModel((AbstractGraphicalEditPart)nextChild);
-			}
-		}
-		return;
-	}
-
 	IWorkbenchPart selectedPart = null;
-	
+
 	@Override
 	public void selectionChanged(IWorkbenchPart part, ISelection selection) {
 		
@@ -159,19 +77,39 @@ public class CustomMindDiagramEditor extends MindDiagramEditor {
 			{
 				if(selectedPart != part)
 				{
+					if(!((CustomMindDiagramEditor)selectedPart).isDirty())
+					{
+						try {
+							((CustomMindDiagramEditor)selectedPart).releaseInput();
+						} catch (Throwable e) {
+							e.printStackTrace();
+						}
+					}
 					selectedPart = part;
+					
 					if(this.equals(part))
 					{
 						if(!this.isDirty())
 						{
+//							((CustomMindDiagramEditor)part).initializeGraphicalViewer();
+//							((CustomMindDiagramEditor)part).initializeGraphicalViewerContents();
 							try {
-								((CustomMindDiagramEditor)part).doSetInput(getEditorInput(), true);
+								((CustomMindDiagramEditor)part).init(getEditorSite(), getEditorInput());
+							} catch (PartInitException e1) {
+								e1.printStackTrace();
+							}
+							
+							try {
+								((CustomMindDiagramEditor)part).getDocumentProvider().resetDocument(((CustomMindDiagramEditor)part).getEditorInput());
+								((CustomMindDiagramEditor)part).getDocumentProvider().synchronize(((CustomMindDiagramEditor)part).getEditorInput());
 							} catch (CoreException e) {
 								e.printStackTrace();
 							}
 						}
 						else
 						{
+							((CustomMindDiagramEditor)part).initializeGraphicalViewer();
+							((CustomMindDiagramEditor)part).initializeGraphicalViewerContents();
 							refreshComponentEditPart();
 						}						
 					}
@@ -179,30 +117,29 @@ public class CustomMindDiagramEditor extends MindDiagramEditor {
 			}
 		}
 	}
-	
-	private void refreshComponentEditPart()
-	{
-		Object diagramEditPart = this.getDiagramEditPart();
-		if(diagramEditPart instanceof AdlDefinitionCustomEditPart)
-		{
-			AdlDefinitionCustomEditPart adlDef = (AdlDefinitionCustomEditPart)diagramEditPart;
-			for(Object children : adlDef.getChildren())
-			{
-				if((children instanceof CompositeComponentDefinitionCustomEditPart)
-						|| (children instanceof PrimitiveComponentDefinitionCustomEditPart))
-				{
-					GraphicalEditPart componentDel = null;
-					if(children instanceof CompositeComponentDefinitionCustomEditPart)
-						componentDel = (CompositeComponentDefinitionCustomEditPart)children;
-					if(children instanceof PrimitiveComponentDefinitionCustomEditPart)
-						componentDel = (PrimitiveComponentDefinitionCustomEditPart)children;
 
-					MindDiagramUpdateAllCommand refreshCommand = new MindDiagramUpdateAllCommand(true);
-					TransactionImpl transaction = new TransactionImpl(getEditingDomain(), false);
-					
+	private void refreshComponentEditPart() {
+		Object diagramEditPart = this.getDiagramEditPart();
+		if (diagramEditPart instanceof AdlDefinitionCustomEditPart) {
+			AdlDefinitionCustomEditPart adlDef = (AdlDefinitionCustomEditPart) diagramEditPart;
+			for (Object children : adlDef.getChildren()) {
+				if ((children instanceof CompositeComponentDefinitionCustomEditPart)
+						|| (children instanceof PrimitiveComponentDefinitionCustomEditPart)) {
+					GraphicalEditPart componentDel = null;
+					if (children instanceof CompositeComponentDefinitionCustomEditPart)
+						componentDel = (CompositeComponentDefinitionCustomEditPart) children;
+					if (children instanceof PrimitiveComponentDefinitionCustomEditPart)
+						componentDel = (PrimitiveComponentDefinitionCustomEditPart) children;
+
+					MindDiagramUpdateAllCommand refreshCommand = new MindDiagramUpdateAllCommand(
+							true);
+					TransactionImpl transaction = new TransactionImpl(
+							getEditingDomain(), false);
+
 					try {
 						transaction.start();
-						EObject root = ((View)componentDel.getModel()).getElement();
+						EObject root = ((View) componentDel.getModel())
+								.getElement();
 						refreshCommand.refreshMerge((MindObjectImpl) root);
 						transaction.commit();
 					} catch (InterruptedException e1) {
@@ -215,13 +152,11 @@ public class CustomMindDiagramEditor extends MindDiagramEditor {
 		}
 	}
 
-
 	@Override
 	protected void updateState(IEditorInput input) {
-	
+
 		super.updateState(input);
 	}
-
 
 	@Override
 	protected void initializeGraphicalViewer() {
@@ -229,89 +164,79 @@ public class CustomMindDiagramEditor extends MindDiagramEditor {
 		getDiagramGraphicalViewer().addDropTargetListener(
 				(TransferDropTargetListener) new DiagramDropTargetListener(
 						getDiagramGraphicalViewer(), CustomPluginTransfer
-						.getInstance()) {
-			
-			@Override
-			protected void handleDragOver() {
-				super.handleDragOver();
-			
-				boolean commandIsValid = true;
-				List<Command> listCommand = DragAndDrop.getListCommand(
-						getObjectsBeingDropped(), 
-						getTargetEditPart(),
-						new Point (getCurrentEvent().x,getCurrentEvent().y));
-				if(listCommand != null)
-				{
-					if(listCommand.size() != 0)
-					{
-						for(Command command : listCommand)
-						{
-							if(!command.canExecute())
-							{
-								commandIsValid = commandIsValid & false;
+								.getInstance()) {
+
+					@Override
+					protected void handleDragOver() {
+						super.handleDragOver();
+
+						boolean commandIsValid = true;
+						List<Command> listCommand = DragAndDrop.getListCommand(
+								getObjectsBeingDropped(), getTargetEditPart(),
+								new Point(getCurrentEvent().x,
+										getCurrentEvent().y));
+						if (listCommand != null) {
+							if (listCommand.size() != 0) {
+								for (Command command : listCommand) {
+									if (!command.canExecute()) {
+										commandIsValid = commandIsValid & false;
+									}
+								}
+							} else {
+								commandIsValid = false;
 							}
 						}
+
+						if (!commandIsValid) {
+							getCurrentEvent().detail = DND.DROP_NONE;
+						} else {
+							getCurrentEvent().detail = DND.DROP_COPY;
+						}
 					}
-					else
-					{
-						commandIsValid = false;
+
+					protected List<Object> getObjectsBeingDropped() {
+						TransferData[] data = getCurrentEvent().dataTypes;
+						List<Object> ret = new ArrayList<Object>();
+						for (int i = 0; i < data.length; i++) {
+							boolean cond = CustomPluginTransfer.getInstance()
+									.isSupportedType(data[i]);
+							if (cond) {
+								IStructuredSelection selection = (IStructuredSelection) LocalSelectionTransfer
+										.getTransfer().getSelection();
+								for (Iterator<?> it = selection.iterator(); it
+										.hasNext();) {
+									Object object = (Object) it.next();
+									ret.add(object);
+								}
+							}
+						}
+						return ret;
 					}
-				}
-				
-				
-				if(!commandIsValid)
-				{
-					getCurrentEvent().detail = DND.DROP_NONE;
-				}
-				else
-				{
-					getCurrentEvent().detail = DND.DROP_COPY;
-				}
-			}
 
-			protected List<Object> getObjectsBeingDropped() {
-				TransferData[] data = getCurrentEvent().dataTypes;
-                List<Object> ret = new ArrayList<Object>();
-                for (int i = 0; i < data.length; i++) {
-                      boolean cond = CustomPluginTransfer.getInstance().isSupportedType(data[i]);
-                      if (cond) {
-                            IStructuredSelection selection = (IStructuredSelection) LocalSelectionTransfer.getTransfer().getSelection();
-                            for (Iterator<?> it = selection.iterator(); it.hasNext();) {
-                                  Object object = (Object) it.next();
-                                  ret.add(object);
-                            }
-                      }
-                }
-                return ret;
-			}
+					public boolean isEnabled(DropTargetEvent event) {
+						System.out.println("MindDiagramEditor.isEnabled");
+						boolean ret = true;
+						System.out.println("MindDiagramEditor.isEnabled ret : "
+								+ ret);
+						return ret;
+					}
 
-			public boolean isEnabled(DropTargetEvent event) {
-				System.out.println("MindDiagramEditor.isEnabled");
-				boolean ret = true;
-				System.out.println("MindDiagramEditor.isEnabled ret : "+ret);
-				return ret;
-			}
-			
-			@Override
-			protected void handleDrop() {
-				super.handleDrop();
-				
-				DragAndDrop.executeDrop(
-						getObjectsBeingDropped(), 
-						getTargetEditPart(),
-						this.getDropLocation());
+					@Override
+					protected void handleDrop() {
+						super.handleDrop();
 
-			}
-			
-		});
+						DragAndDrop.executeDrop(getObjectsBeingDropped(),
+								getTargetEditPart(), this.getDropLocation());
+
+					}
+
+				});
 	}
-	
-	
+
 	@Override
 	public void createPartControl(Composite parent) {
 		super.createPartControl(parent);
 	}
-
 
 	@Override
 	protected PaletteRoot createPaletteRoot(PaletteRoot existingPaletteRoot) {
@@ -326,34 +251,35 @@ public class CustomMindDiagramEditor extends MindDiagramEditor {
 	}
 
 	/**
-     * @see org.eclipse.gef.ui.parts.GraphicalEditor#initializeGraphicalViewer()
-     */
+	 * @see org.eclipse.gef.ui.parts.GraphicalEditor#initializeGraphicalViewer()
+	 */
 	protected void initializeGraphicalViewerContents() {
-        super.initializeGraphicalViewerContents();
-        // Now that things are initialized, we should refresh
-        refreshAll(getDiagramEditPart());
-    }
-	
+		super.initializeGraphicalViewerContents();
+		// Now that things are initialized, we should refresh
+		refreshAll(getDiagramEditPart());
+	}
+
 	/**
 	 * Refresh all edit parts
+	 * 
 	 * @param editPart
 	 */
 	public void refreshAll(EditPart editPart) {
-		 editPart.refresh();
-		 for (Object child : editPart.getChildren()) {
-			 if (child instanceof EditPart)
-				 refreshAll((EditPart)child);
-		 }
+		editPart.refresh();
+		for (Object child : editPart.getChildren()) {
+			if (child instanceof EditPart)
+				refreshAll((EditPart) child);
+		}
 	}
-	
 
 	protected IDocumentProvider provider;
-	
+
 	protected IDocumentProvider getDocumentProvider(IEditorInput input) {
-		if (provider == null) setDocumentProvider(input);
+		if (provider == null)
+			setDocumentProvider(input);
 		return provider;
 	}
-	
+
 	protected void setDocumentProvider(IEditorInput input) {
 		if (input instanceof IFileEditorInput
 				|| input instanceof URIEditorInput) {
@@ -363,20 +289,25 @@ public class CustomMindDiagramEditor extends MindDiagramEditor {
 			super.setDocumentProvider(input);
 		}
 	}
-	
+
 	@Override
 	public void setInput(IEditorInput input) {
 		if (input instanceof FileEditorInput) {
 			FileEditorInput fei = (FileEditorInput) input;
 			if (fei.getFile().getFileExtension().equals("adl")) {
-				input = new FileEditorInput(fei.getFile().getParent().getFile(new org.eclipse.core.runtime.Path(fei.getName()+"_diagram")));
+				input = new FileEditorInput(fei
+						.getFile()
+						.getParent()
+						.getFile(
+								new org.eclipse.core.runtime.Path(fei.getName()
+										+ "_diagram")));
 			}
 		}
 		ModelToProjectUtil.INSTANCE.setEditorInput(input);
 		MindProxyFactory.INSTANCE.setEditorInput(input);
 		super.setInput(input);
 	}
-	
+
 	@Override
 	public void dispose() {
 		try {
@@ -393,16 +324,15 @@ public class CustomMindDiagramEditor extends MindDiagramEditor {
 		}
 		return super.getAdapter(type);
 	}
-	
-	
-	
+
 	public static final String EXTERNAL_NODE_LABELS_LAYER = "External Node Labels";
-	
+
 	/**
 	 * @author Yann Davin
 	 */
 	public void setupCustomConnectionLayerEx() {
-		DiagramRootEditPart root = (DiagramRootEditPart)getDiagramGraphicalViewer().getRootEditPart();
+		DiagramRootEditPart root = (DiagramRootEditPart) getDiagramGraphicalViewer()
+				.getRootEditPart();
 		LayeredPane printableLayers = (LayeredPane) root
 				.getLayer(LayerConstants.PRINTABLE_LAYERS);
 		Layer connlayer = printableLayers
@@ -410,24 +340,23 @@ public class CustomMindDiagramEditor extends MindDiagramEditor {
 		if (connlayer == null || connlayer instanceof CustomConnectionLayerEx) {
 			return;
 		}
-		
+
 		printableLayers.removeLayer(LayerConstants.CONNECTION_LAYER);
 		Layer decorationLayer = printableLayers
 				.getLayer(DiagramRootEditPart.DECORATION_PRINTABLE_LAYER);
 		printableLayers
 				.removeLayer(DiagramRootEditPart.DECORATION_PRINTABLE_LAYER);
 		printableLayers.addLayerBefore(new CustomConnectionLayerEx(),
-				LayerConstants.CONNECTION_LAYER, printableLayers
-						.getLayer(LayerConstants.PRIMARY_LAYER));
+				LayerConstants.CONNECTION_LAYER,
+				printableLayers.getLayer(LayerConstants.PRIMARY_LAYER));
 		printableLayers.addLayerBefore(decorationLayer,
-				DiagramRootEditPart.DECORATION_PRINTABLE_LAYER, printableLayers
-						.getLayer(LayerConstants.CONNECTION_LAYER));
+				DiagramRootEditPart.DECORATION_PRINTABLE_LAYER,
+				printableLayers.getLayer(LayerConstants.CONNECTION_LAYER));
 
 		FreeformLayer extLabelsLayer = new FreeformLayer();
 		extLabelsLayer.setLayoutManager(new DelegatingLayout());
 		printableLayers.addLayerAfter(extLabelsLayer,
-				EXTERNAL_NODE_LABELS_LAYER,
-				LayerConstants.PRIMARY_LAYER);
+				EXTERNAL_NODE_LABELS_LAYER, LayerConstants.PRIMARY_LAYER);
 		LayeredPane scalableLayers = (LayeredPane) root
 				.getLayer(LayerConstants.SCALABLE_LAYERS);
 		FreeformLayer scaledFeedbackLayer = new FreeformLayer();
@@ -436,6 +365,5 @@ public class CustomMindDiagramEditor extends MindDiagramEditor {
 				LayerConstants.SCALED_FEEDBACK_LAYER,
 				DiagramRootEditPart.DECORATION_UNPRINTABLE_LAYER);
 	}
-	
-	
+
 }
