@@ -232,8 +232,19 @@ FQN".*";
 terminal CodeC :
 '{{' -> '}}';
 
-terminal Path :
-(ID(':')? | (".")*)(((('\\')|('\\\\')|('/'))ID)?)*(('\\')|('\\\\')|('/'));
+terminal SL :
+(('\\')|('\\\\')|('/'));
+
+/* SSZ: grammar taken from the Mindc compiler adl-parser.jj file
+void Path() : {}
+{
+  [ <SLASH> ] [ <DOT> <SLASH> ] ( <DOTDOT> <SLASH> )* 
+  <IDENTIFIER> ( <SLASH> <IDENTIFIER> )* <DOT> <IDENTIFIER>
+}
+*/
+
+Path :
+(ID(':')? | ('.') | ('..'))? (SL ((ID ('-')?)* | '..'))* SL;
 
 signedINT :
 ('+'|'-')?INT;

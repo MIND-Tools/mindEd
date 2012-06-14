@@ -60,6 +60,8 @@ public class FractalParser extends AbstractContentAssistParser {
 					put(grammarAccess.getValueAccess().getAlternatives(), "rule__Value__Alternatives");
 					put(grammarAccess.getAnnotationTypeAccess().getAlternatives(), "rule__AnnotationType__Alternatives");
 					put(grammarAccess.getAttributeTypeAccess().getAlternatives(), "rule__AttributeType__Alternatives");
+					put(grammarAccess.getPathAccess().getAlternatives_0(), "rule__Path__Alternatives_0");
+					put(grammarAccess.getPathAccess().getAlternatives_1_1(), "rule__Path__Alternatives_1_1");
 					put(grammarAccess.getSignedINTAccess().getAlternatives_0(), "rule__SignedINT__Alternatives_0");
 					put(grammarAccess.getRoleAccess().getAlternatives(), "rule__Role__Alternatives");
 					put(grammarAccess.getAdlDefinitionAccess().getGroup(), "rule__AdlDefinition__Group__0");
@@ -126,6 +128,10 @@ public class FractalParser extends AbstractContentAssistParser {
 					put(grammarAccess.getFQNAccess().getGroup(), "rule__FQN__Group__0");
 					put(grammarAccess.getFQNAccess().getGroup_1(), "rule__FQN__Group_1__0");
 					put(grammarAccess.getFULL_IMPORT_NAMEAccess().getGroup(), "rule__FULL_IMPORT_NAME__Group__0");
+					put(grammarAccess.getPathAccess().getGroup(), "rule__Path__Group__0");
+					put(grammarAccess.getPathAccess().getGroup_0_0(), "rule__Path__Group_0_0__0");
+					put(grammarAccess.getPathAccess().getGroup_1(), "rule__Path__Group_1__0");
+					put(grammarAccess.getPathAccess().getGroup_1_1_0(), "rule__Path__Group_1_1_0__0");
 					put(grammarAccess.getSignedINTAccess().getGroup(), "rule__SignedINT__Group__0");
 					put(grammarAccess.getAdlDefinitionAccess().getImportsAssignment_0(), "rule__AdlDefinition__ImportsAssignment_0");
 					put(grammarAccess.getAdlDefinitionAccess().getArchitecturedefinitionAssignment_1(), "rule__AdlDefinition__ArchitecturedefinitionAssignment_1");

@@ -25,7 +25,8 @@ public class FractalItfFormatter extends AbstractDeclarativeFormatter {
 
 		FractalItfGrammarAccess f = (FractalItfGrammarAccess) getGrammarAccess();
 
-		c.setIndentationSpace("    ");
+		// SSZ: quick'n'dirty fix: commented next line
+		//c.setIndentationSpace("    ");
 		formatInclude(f, c);
 		formatDefine(f, c);
 		formatInterfaces(f, c);

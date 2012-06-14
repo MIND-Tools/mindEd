@@ -15,11 +15,13 @@ Require-Bundle: org.ow2.mindEd.adl.textual.model;bundle-version="0.2.1";visibili
  org.eclipse.xtext.ui,
  org.eclipse.xtext.ui.shared,
  org.eclipse.xtext.builder,
- org.ow2.mindEd.ide.ui;bundle-version="0.2.1"
+ org.ow2.mindEd.ide.ui;bundle-version="0.2.1",
+ org.eclipse.ui.ide;bundle-version="3.6.2"
 Bundle-RequiredExecutionEnvironment: J2SE-1.5
 Export-Package: org.ow2.mindEd.adl.textual.ui,
  org.ow2.mindEd.adl.textual.ui.contentassist.antlr,
- org.ow2.mindEd.adl.textual.ui.internal
+ org.ow2.mindEd.adl.textual.ui.internal,
+ org.ow2.mindEd.adl.textual.ui.contentassist
 Bundle-Activator: org.ow2.mindEd.adl.textual.ui.internal.FractalActivator
 Import-Package: org.apache.log4j,
  org.eclipse.gmf.runtime.common.ui.util,

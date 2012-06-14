@@ -9,6 +9,7 @@ import java.util.Map;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
+import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.xtext.validation.Check;
 import org.eclipse.xtext.validation.ComposedChecks;
 import org.ow2.mindEd.adl.AdlPackage;
@@ -48,7 +49,7 @@ import com.google.common.collect.TreeMultiset;
  * @contributor Rémi Mélisson
  * 
  */
-@ComposedChecks(validators= {EValidatorAdapter.class})
+//@ComposedChecks(validators= {EValidatorAdapter.class})
 public class FractalJavaValidator extends AbstractFractalJavaValidator {
 
 	// Reference on the project model
@@ -103,7 +104,9 @@ public class FractalJavaValidator extends AbstractFractalJavaValidator {
 					ArchitectureDefinition elt = (ArchitectureDefinition) element;
 					if ((elt.getName().equals(definitionName))
 							&& (elt != sourceDefinition))
+						// SSZ: TODO: Added definition.eContainingFeature() as a quick fix, SURELY WRONG: INVESTIGATE THIS
 						error("Duplicate component names : " + definitionName,
+								definition.eContainingFeature(),
 								AdlPackage.ARCHITECTURE_DEFINITION__NAME,
 								FractalJavaValidator.DUPLICATE_COMPONENT_NAME);
 
@@ -147,6 +150,8 @@ public class FractalJavaValidator extends AbstractFractalJavaValidator {
 
 		if (!fullList.contains(name))
 			error("Package '" + name + "' does not exist",
+					// SSZ: Dirty quick fix for test purpose, added importDefinition.eContainingFeature()
+					importDefinition.eContainingFeature(),
 					AdlPackage.IMPORT_DEFINITION,
 					FractalJavaValidator.UNKNOWN_IMPORT);
 	}
@@ -161,7 +166,7 @@ public class FractalJavaValidator extends AbstractFractalJavaValidator {
 	public void checkTemplateSpecifierName(TemplateSpecifier templateSpecifier) {
 
 		// a local set for stock names
-		Multiset<String> multiset = new TreeMultiset<String>();
+		Multiset<String> multiset = TreeMultiset.create();
 
 		// container of the named element
 		EObject eContainer = (EObject) templateSpecifier.eContainer();
@@ -180,7 +185,9 @@ public class FractalJavaValidator extends AbstractFractalJavaValidator {
 		int n = multiset.count(templateSpecifier.getName());
 
 		if (n > 1) {
+			// SSZ: TODO: Added templateSpecifier.eContainingFeature() as a quick fix, SURELY WRONG: INVESTIGATE THIS
 			error("Duplicate template specifier name.",
+					templateSpecifier.eContainingFeature(),
 					AdlPackage.TEMPLATE_SPECIFIER__NAME,
 					FractalJavaValidator.DUPLICATE_TEMPLATE_SPECIFIER_NAME);
 		}
@@ -198,7 +205,7 @@ public class FractalJavaValidator extends AbstractFractalJavaValidator {
 	public void duplicateFormalArgumentName(FormalArgument formalArgument) {
 
 		// a local set for stock names
-		Multiset<String> multiset = new TreeMultiset<String>();
+		Multiset<String> multiset = TreeMultiset.create();
 
 		// container of the named element
 		EObject eContainer = (EObject) formalArgument.eContainer();
@@ -213,7 +220,9 @@ public class FractalJavaValidator extends AbstractFractalJavaValidator {
 		int n = multiset.count(formalArgument.getName());
 
 		if (n > 1) {
+			// SSZ: TODO: Added formalArgument.eContainingFeature() as a quick fix, SURELY WRONG: INVESTIGATE THIS
 			error("Duplicate formal argument name.",
+					formalArgument.eContainingFeature(),
 					AdlPackage.FORMAL_ARGUMENT__NAME,
 					FractalJavaValidator.DUPLICATE_FORMAL_ARGUMENT_NAME);
 		}
@@ -229,7 +238,7 @@ public class FractalJavaValidator extends AbstractFractalJavaValidator {
 	@Check
 	public void duplicateInterfaceName(InterfaceDefinition interfaceDefinition) {
 		// a local set for stock names
-		Multiset<String> multiset = new TreeMultiset<String>();
+		Multiset<String> multiset = TreeMultiset.create();
 
 		// container of the named element
 		EObject eContainer = (EObject) interfaceDefinition.eContainer();
@@ -248,7 +257,9 @@ public class FractalJavaValidator extends AbstractFractalJavaValidator {
 		int n = multiset.count(interfaceDefinition.getName());
 
 		if (n > 1) {
+			// SSZ: TODO: Added interfaceDefinition.eContainingFeature() as a quick fix, SURELY WRONG: INVESTIGATE THIS
 			error("Duplicate interface name.",
+					interfaceDefinition.eContainingFeature(),
 					AdlPackage.INTERFACE_DEFINITION__NAME,
 					FractalJavaValidator.DUPLICATE_INTERFACE_NAME);
 		}
@@ -282,7 +293,10 @@ public class FractalJavaValidator extends AbstractFractalJavaValidator {
 				// warning if not
 				warning("Interface signature '"
 						+ interfaceDefinition.getSignature()
-						+ "' does not exist", AdlPackage.INTERFACE_DEFINITION,
+						+ "' does not exist", 
+						// SSZ: Dirty quick fix for test purpose, added architectureDefinition.eContainingFeature()
+						interfaceDefinition.eContainingFeature(),
+						AdlPackage.INTERFACE_DEFINITION,
 						FractalJavaValidator.UNKNOWN_INTERFACE,
 						// include name of interface and package for quickfix
 						interfaceDefinition.getSignature(), FractalUtil
@@ -307,6 +321,8 @@ public class FractalJavaValidator extends AbstractFractalJavaValidator {
 		// the file extension should be ".c"
 		if (!fileC.getFileName().endsWith(".c")) {
 			warning("The file extension should be \".c\" .",
+					// SSZ: Dirty quick fix for test purpose, added fileC.eContainingFeature()
+					fileC.eContainingFeature(),
 					AdlPackage.IMPLEMENTATION_DEFINITION__FILE_C);
 			// in this case we just get out
 			return;
@@ -328,6 +344,8 @@ public class FractalJavaValidator extends AbstractFractalJavaValidator {
 		
 		// we don't find it -> warning at least
 		warning("This source file cannot be found.",
+				// SSZ: Dirty quick fix for test purpose, added fileC.eContainingFeature()
+				fileC.eContainingFeature(),
 				AdlPackage.IMPLEMENTATION_DEFINITION__FILE_C,
 				FractalJavaValidator.UNKNOWN_SOURCE_FILE,
 				// we include the wanted file name
@@ -353,6 +371,8 @@ public class FractalJavaValidator extends AbstractFractalJavaValidator {
 
 		if (!FQN.equals(expectedFQN)) {
 			error("Composite should be named: " + expectedFQN,
+					// SSZ: DIRTY FIX: TODO: check if good, added componentDefinitionCustomImpl.eContainingFeature()
+					componentDefinitionCustomImpl.eContainingFeature(),
 					AdlPackage.COMPOSITE_COMPONENT_DEFINITION__NAME_FQN);
 		}
 
@@ -469,6 +489,7 @@ public class FractalJavaValidator extends AbstractFractalJavaValidator {
 
 		if (typeFQN != null && !list.contains(typeFQN)) {
 			error("Unknown template specifier type",
+					templateSpecifier.eContainingFeature(),
 					AdlPackage.TEMPLATE_SPECIFIER__REFERENCE,
 					FractalJavaValidator.UNKNOWN_TEMPLATE_SPECIFIER_TYPE);
 		}
@@ -502,7 +523,9 @@ public class FractalJavaValidator extends AbstractFractalJavaValidator {
 			}
 		}
 		// if we're still here, it means that there is an error
-		error("Extend is not valid.", AdlPackage.COMPOSITE_COMPONENT_DEFINITION);
+		
+		// SSZ: Dirty fix (added architectureDefinition.eContainingFeature()), replace by the good EStructuralFeature
+		error("Extend is not valid.", architectureDefinition.eContainingFeature(), AdlPackage.COMPOSITE_COMPONENT_DEFINITION);
 
 	}
 }

@@ -183,7 +183,10 @@ public class OpenDefinitionEditPolicy extends OpenEditPolicy {
 				}
 			} else {
 				File f = new File(directory, fileName);
-				if (f.isAbsolute()) {
+				
+				// SSZ: handle cases in Windows
+				//if (f.isAbsolute()) {
+				if (directory.startsWith("/")) {
 					//IWorkspace workspace = org.eclipse.core.resources.ResourcesPlugin.getWorkspace();
 					//file = workspace.getRoot().getFileForLocation(new Path(f.getAbsolutePath()));
 					URI uri = URI.createPlatformResourceURI(f.getPath(), true);
@@ -191,13 +194,20 @@ public class OpenDefinitionEditPolicy extends OpenEditPolicy {
 					IFolder f2 = MindIdeCore.getResource(pack);
 					file = f2.getFile(fileName);
 				} else {
-					//TODO resolve ???
-					
-					URI uri = URI.createPlatformResourceURI(f.getPath(), true);
-					MindPackage pack = ModelToProjectUtil.INSTANCE.getCurrentPackage(uri);
-					IFolder f2 = MindIdeCore.getResource(pack);
-					file = f2.getFile(fileName);
-
+					// SSZ
+					// Find the file according to the host component package        		
+	        		MindPackage hostComponentPackage = ModelToProjectUtil.INSTANCE.getCurrentPackage();
+	        		if (hostComponentPackage != null) {
+						IFolder compFolder = MindIdeCore.getResource(hostComponentPackage);
+						
+						// Don't forget we want to locate the complete folder "container" : add the "/"
+						URI compFolderURI = URI.createPlatformResourceURI(compFolder.getFullPath().toString() + "/", true);
+						
+						URI currentRelativeURI = URI.createFileURI(f.getPath());
+						URI resolvedFinalURI = currentRelativeURI.resolve(compFolderURI);
+						
+						file = ModelToProjectUtil.INSTANCE.getIFile(resolvedFinalURI);
+	        		}
 				}
 			}
 			

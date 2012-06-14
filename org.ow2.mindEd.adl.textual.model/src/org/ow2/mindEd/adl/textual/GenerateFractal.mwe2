@@ -59,6 +59,18 @@ Workflow {
 					classSplitting = true
 				}
 			}
+
+			// SSZ
+			// rename refactoring
+			// fragment = refactoring.RefactorElementNameFragment {}
+
+// SSZ			
+//			// the Antlr parser
+//			fragment = parser.antlr.XtextAntlrGeneratorFragment {
+//				options = {
+//					classSplitting = true
+//				}
+//			}
 			
 			/*
 			If you don't want to use the Antlr fragment for some reason, remove the antlr fragment and uncomment the packrat parser fragment below.
@@ -72,8 +84,8 @@ Workflow {
 			 
 			// java-based API for validation 
 			fragment = validation.JavaValidatorFragment {
-                composedCheck = "org.eclipse.xtext.validation.ImportUriValidator"
-                composedCheck = "org.eclipse.xtext.validation.NamesAreUniqueValidator"
+            //    composedCheck = "org.eclipse.xtext.validation.ImportUriValidator"
+            //    composedCheck = "org.eclipse.xtext.validation.NamesAreUniqueValidator"
             }
             
 			// scoping and exporting API
@@ -93,8 +105,7 @@ Workflow {
 			fragment = labeling.LabelProviderFragment {}
 
 			// outline API 
-			fragment = outline.TransformerFragment {}
-			fragment = outline.OutlineNodeAdapterFactoryFragment {}
+			fragment = outline.OutlineTreeProviderFragment {}
 			fragment = outline.QuickOutlineFragment {}
 
 			// java-based API for content assistance 

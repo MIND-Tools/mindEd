@@ -5,7 +5,7 @@ import java.util.HashSet;
 import java.util.Map.Entry;
 import java.util.regex.Pattern;
 
-import org.eclipse.xtext.ui.editor.syntaxcoloring.antlr.AbstractAntlrTokenToAttributeIdMapper;
+import org.eclipse.xtext.ui.editor.syntaxcoloring.AbstractAntlrTokenToAttributeIdMapper;
 import org.ow2.mindEd.itf.editor.textual.fractalIDL.TypeQualifier;
 import org.ow2.mindEd.itf.editor.textual.fractalIDL.TypeSpecifier;
 

@@ -24,7 +24,7 @@ public class MakeCSTError {
 		Map<String, Object> cst = new HashMap<String, Object>();
 		
 		make(org.objectweb.fractal.adl.ADLErrors.class, cst);
-		make(org.ow2.mind.adl.ADLErrors.class, cst);
+		//make(org.ow2.mind.adl.ADLErrors.class, cst);
 		make(ArgumentErrors.class, cst);
 		make(AttributeErrors.class, cst);
 		make(BindingErrors.class, cst);

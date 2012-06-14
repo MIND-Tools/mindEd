@@ -210,7 +210,7 @@ public class FractalIdtGrammarAccess extends AbstractGrammarElementFinder {
 		return getTypeSpecificationAccess().getRule();
 	}
 
-	//TypedefName returns ecore::EString:
+	//TypedefName:
 	//	FullyQualifiedName;
 	public FractalItfGrammarAccess.TypedefNameElements getTypedefNameAccess() {
 		return gaFractalItf.getTypedefNameAccess();
@@ -261,7 +261,7 @@ public class FractalIdtGrammarAccess extends AbstractGrammarElementFinder {
 		return getStructorUnionReferenceAccess().getRule();
 	}
 
-	//StructOrUnion returns ecore::EString:
+	//StructOrUnion:
 	//	"struct" | "union";
 	public FractalItfGrammarAccess.StructOrUnionElements getStructOrUnionAccess() {
 		return gaFractalItf.getStructOrUnionAccess();
@@ -412,7 +412,7 @@ public class FractalIdtGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//// Interface definition part
-	//FullyQualifiedName returns ecore::EString:
+	//FullyQualifiedName:
 	//	ID ("." ID)*;
 	public FractalItfGrammarAccess.FullyQualifiedNameElements getFullyQualifiedNameAccess() {
 		return gaFractalItf.getFullyQualifiedNameAccess();
@@ -578,7 +578,7 @@ public class FractalIdtGrammarAccess extends AbstractGrammarElementFinder {
 		return gaFractalItf.getBooleanRule();
 	} 
 
-	//signedINT returns ecore::EString:
+	//signedINT:
 	//	AdditiveOperation? INT;
 	public FractalItfGrammarAccess.SignedINTElements getSignedINTAccess() {
 		return gaFractalItf.getSignedINTAccess();
@@ -742,7 +742,7 @@ public class FractalIdtGrammarAccess extends AbstractGrammarElementFinder {
 		return gaFractalItf.getUnaryOperationRule();
 	} 
 
-	//FloatingPointLiteral returns ecore::EString:
+	//FloatingPointLiteral:
 	//	signedINT+ "." signedINT* Exponent? FDsymbol? | "." signedINT+ Exponent? FDsymbol? | signedINT+ Exponent FDsymbol? |
 	//	signedINT+ Exponent? FDsymbol?;
 	public FractalItfGrammarAccess.FloatingPointLiteralElements getFloatingPointLiteralAccess() {
@@ -753,7 +753,7 @@ public class FractalIdtGrammarAccess extends AbstractGrammarElementFinder {
 		return getFloatingPointLiteralAccess().getRule();
 	}
 
-	//Exponent returns ecore::EString:
+	//Exponent:
 	//	("e" | "E") AdditiveOperation? INT+;
 	public FractalItfGrammarAccess.ExponentElements getExponentAccess() {
 		return gaFractalItf.getExponentAccess();
@@ -782,8 +782,8 @@ public class FractalIdtGrammarAccess extends AbstractGrammarElementFinder {
 	} 
 
 	//terminal STRING:
-	//	"\"" ("\\" ("b" | "t" | "n" | "f" | "r" | "\"" | "\'" | "\\") | !("\\" | "\""))* "\"" | "\'" ("\\" ("b" | "t" | "n" |
-	//	"f" | "r" | "\"" | "\'" | "\\") | !("\\" | "\'"))* "\'";
+	//	"\"" ("\\" ("b" | "t" | "n" | "f" | "r" | "u" | "\"" | "\'" | "\\") | !("\\" | "\""))* "\"" | "\'" ("\\" ("b" | "t" |
+	//	"n" | "f" | "r" | "u" | "\"" | "\'" | "\\") | !("\\" | "\'"))* "\'";
 	public TerminalRule getSTRINGRule() {
 		return gaFractalItf.getSTRINGRule();
 	} 

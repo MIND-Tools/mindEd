@@ -2,7 +2,7 @@ package org.ow2.mindEd.adl.textual.ui;
 
 import java.util.regex.Pattern;
 
-import org.eclipse.xtext.ui.editor.syntaxcoloring.antlr.AbstractAntlrTokenToAttributeIdMapper;
+import org.eclipse.xtext.ui.editor.syntaxcoloring.AbstractAntlrTokenToAttributeIdMapper;
 
 /**
  * 
@@ -15,7 +15,6 @@ public class AntlrTokenToAttributeIdMapper extends AbstractAntlrTokenToAttribute
 	private static final Pattern QUOTED = Pattern.compile("(?:^'([^']*)'$)|(?:^\"([^\"]*)\")$", Pattern.MULTILINE);
 	private static final Pattern PUNCTUATION = Pattern.compile("\\p{Punct}*");
 	
-	@Override
 	protected String calculateId(String tokenName, int tokenType) {
 		if("'0x'".equals(tokenName)) {
 			return LexicalHighlightingConfiguration.HEXA_ID;

@@ -1622,7 +1622,7 @@ public class FractalGrammarAccess extends AbstractGrammarElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "FileC");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Assignment cDirectoryAssignment_0 = (Assignment)cGroup.eContents().get(0);
-		private final RuleCall cDirectoryPathTerminalRuleCall_0_0 = (RuleCall)cDirectoryAssignment_0.eContents().get(0);
+		private final RuleCall cDirectoryPathParserRuleCall_0_0 = (RuleCall)cDirectoryAssignment_0.eContents().get(0);
 		private final Assignment cFileNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final RuleCall cFileNameFileNameParserRuleCall_1_0 = (RuleCall)cFileNameAssignment_1.eContents().get(0);
 		
@@ -1637,7 +1637,7 @@ public class FractalGrammarAccess extends AbstractGrammarElementFinder {
 		public Assignment getDirectoryAssignment_0() { return cDirectoryAssignment_0; }
 
 		//Path
-		public RuleCall getDirectoryPathTerminalRuleCall_0_0() { return cDirectoryPathTerminalRuleCall_0_0; }
+		public RuleCall getDirectoryPathParserRuleCall_0_0() { return cDirectoryPathParserRuleCall_0_0; }
 
 		//fileName=FileName
 		public Assignment getFileNameAssignment_1() { return cFileNameAssignment_1; }
@@ -1654,7 +1654,7 @@ public class FractalGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cFullStopKeyword_1_0 = (Keyword)cGroup_1.eContents().get(0);
 		private final RuleCall cIDTerminalRuleCall_1_1 = (RuleCall)cGroup_1.eContents().get(1);
 		
-		//FileName returns ecore::EString:
+		//FileName:
 		//	ID ("." ID)?;
 		public ParserRule getRule() { return rule; }
 
@@ -1868,7 +1868,7 @@ public class FractalGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cINTTerminalRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
 		private final RuleCall cSTRINGTerminalRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
 		
-		//ConstantFormat returns ecore::EString:
+		//ConstantFormat:
 		//	INT | STRING;
 		public ParserRule getRule() { return rule; }
 
@@ -1935,7 +1935,7 @@ public class FractalGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cSTRINGTerminalRuleCall_3 = (RuleCall)cAlternatives.eContents().get(3);
 		private final Keyword cNullKeyword_4 = (Keyword)cAlternatives.eContents().get(4);
 		
-		//Value returns ecore::EString:
+		//Value:
 		//	ID | signedINT | HexadecimalType | STRING | "null";
 		public ParserRule getRule() { return rule; }
 
@@ -1964,7 +1964,7 @@ public class FractalGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cXKeyword_0 = (Keyword)cGroup.eContents().get(0);
 		private final RuleCall cINTTerminalRuleCall_1 = (RuleCall)cGroup.eContents().get(1);
 		
-		//HexadecimalType returns ecore::EString:
+		//HexadecimalType:
 		//	"0x" INT;
 		public ParserRule getRule() { return rule; }
 
@@ -1987,7 +1987,7 @@ public class FractalGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cCFlagsKeyword_3 = (Keyword)cAlternatives.eContents().get(3);
 		private final RuleCall cFQNParserRuleCall_4 = (RuleCall)cAlternatives.eContents().get(4);
 		
-		//AnnotationType returns ecore::EString:
+		//AnnotationType:
 		//	"Override" | "Singleton" | "LDFlags" | "CFlags" | FQN;
 		public ParserRule getRule() { return rule; }
 
@@ -2018,7 +2018,7 @@ public class FractalGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cENUMKeyword_2 = (Keyword)cAlternatives.eContents().get(2);
 		private final RuleCall cIDTerminalRuleCall_3 = (RuleCall)cAlternatives.eContents().get(3);
 		
-		//AttributeType returns ecore::EString:
+		//AttributeType:
 		//	"STRUCT" | "UNION" | "ENUM" | ID;
 		public ParserRule getRule() { return rule; }
 
@@ -2046,7 +2046,7 @@ public class FractalGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cFullStopKeyword_1_0 = (Keyword)cGroup_1.eContents().get(0);
 		private final RuleCall cIDTerminalRuleCall_1_1 = (RuleCall)cGroup_1.eContents().get(1);
 		
-		//FQN returns ecore::EString:
+		//FQN:
 		//	ID ("." ID)*;
 		public ParserRule getRule() { return rule; }
 
@@ -2072,7 +2072,7 @@ public class FractalGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cFQNParserRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
 		private final Keyword cFullStopAsteriskKeyword_1 = (Keyword)cGroup.eContents().get(1);
 		
-		//FULL_IMPORT_NAME returns ecore::EString:
+		//FULL_IMPORT_NAME:
 		//	FQN ".*";
 		public ParserRule getRule() { return rule; }
 
@@ -2086,6 +2086,80 @@ public class FractalGrammarAccess extends AbstractGrammarElementFinder {
 		public Keyword getFullStopAsteriskKeyword_1() { return cFullStopAsteriskKeyword_1; }
 	}
 
+	public class PathElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Path");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Alternatives cAlternatives_0 = (Alternatives)cGroup.eContents().get(0);
+		private final Group cGroup_0_0 = (Group)cAlternatives_0.eContents().get(0);
+		private final RuleCall cIDTerminalRuleCall_0_0_0 = (RuleCall)cGroup_0_0.eContents().get(0);
+		private final Keyword cColonKeyword_0_0_1 = (Keyword)cGroup_0_0.eContents().get(1);
+		private final Keyword cFullStopKeyword_0_1 = (Keyword)cAlternatives_0.eContents().get(1);
+		private final Keyword cFullStopFullStopKeyword_0_2 = (Keyword)cAlternatives_0.eContents().get(2);
+		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
+		private final RuleCall cSLTerminalRuleCall_1_0 = (RuleCall)cGroup_1.eContents().get(0);
+		private final Alternatives cAlternatives_1_1 = (Alternatives)cGroup_1.eContents().get(1);
+		private final Group cGroup_1_1_0 = (Group)cAlternatives_1_1.eContents().get(0);
+		private final RuleCall cIDTerminalRuleCall_1_1_0_0 = (RuleCall)cGroup_1_1_0.eContents().get(0);
+		private final Keyword cHyphenMinusKeyword_1_1_0_1 = (Keyword)cGroup_1_1_0.eContents().get(1);
+		private final Keyword cFullStopFullStopKeyword_1_1_1 = (Keyword)cAlternatives_1_1.eContents().get(1);
+		private final RuleCall cSLTerminalRuleCall_2 = (RuleCall)cGroup.eContents().get(2);
+		
+		/// * SSZ: grammar taken from the Mindc compiler adl-parser.jj file
+		//void Path() : {}
+		//{
+		//  [ <SLASH> ] [ <DOT> <SLASH> ] ( <DOTDOT> <SLASH> )* 
+		//  <IDENTIFIER> ( <SLASH> <IDENTIFIER> )* <DOT> <IDENTIFIER>
+		//}
+		// * / Path:
+		//	(ID ":"? | "." | "..")? (SL ((ID "-"?)* | ".."))* SL;
+		public ParserRule getRule() { return rule; }
+
+		//(ID ":"? | "." | "..")? (SL ((ID "-"?)* | ".."))* SL
+		public Group getGroup() { return cGroup; }
+
+		//(ID ":"? | "." | "..")?
+		public Alternatives getAlternatives_0() { return cAlternatives_0; }
+
+		//ID ":"?
+		public Group getGroup_0_0() { return cGroup_0_0; }
+
+		//ID
+		public RuleCall getIDTerminalRuleCall_0_0_0() { return cIDTerminalRuleCall_0_0_0; }
+
+		//":"?
+		public Keyword getColonKeyword_0_0_1() { return cColonKeyword_0_0_1; }
+
+		//"."
+		public Keyword getFullStopKeyword_0_1() { return cFullStopKeyword_0_1; }
+
+		//".."
+		public Keyword getFullStopFullStopKeyword_0_2() { return cFullStopFullStopKeyword_0_2; }
+
+		//(SL ((ID "-"?)* | ".."))*
+		public Group getGroup_1() { return cGroup_1; }
+
+		//SL
+		public RuleCall getSLTerminalRuleCall_1_0() { return cSLTerminalRuleCall_1_0; }
+
+		//(ID "-"?)* | ".."
+		public Alternatives getAlternatives_1_1() { return cAlternatives_1_1; }
+
+		//(ID "-"?)*
+		public Group getGroup_1_1_0() { return cGroup_1_1_0; }
+
+		//ID
+		public RuleCall getIDTerminalRuleCall_1_1_0_0() { return cIDTerminalRuleCall_1_1_0_0; }
+
+		//"-"?
+		public Keyword getHyphenMinusKeyword_1_1_0_1() { return cHyphenMinusKeyword_1_1_0_1; }
+
+		//".."
+		public Keyword getFullStopFullStopKeyword_1_1_1() { return cFullStopFullStopKeyword_1_1_1; }
+
+		//SL
+		public RuleCall getSLTerminalRuleCall_2() { return cSLTerminalRuleCall_2; }
+	}
+
 	public class SignedINTElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "signedINT");
 		private final Group cGroup = (Group)rule.eContents().get(1);
@@ -2094,7 +2168,7 @@ public class FractalGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cHyphenMinusKeyword_0_1 = (Keyword)cAlternatives_0.eContents().get(1);
 		private final RuleCall cINTTerminalRuleCall_1 = (RuleCall)cGroup.eContents().get(1);
 		
-		//signedINT returns ecore::EString:
+		//signedINT:
 		//	("+" | "-")? INT;
 		public ParserRule getRule() { return rule; }
 
@@ -2196,7 +2270,8 @@ public class FractalGrammarAccess extends AbstractGrammarElementFinder {
 	private RoleElements unknownRuleRole;
 	private FULL_IMPORT_NAMEElements pFULL_IMPORT_NAME;
 	private TerminalRule tCodeC;
-	private TerminalRule tPath;
+	private TerminalRule tSL;
+	private PathElements pPath;
 	private SignedINTElements pSignedINT;
 	
 	private final GrammarProvider grammarProvider;
@@ -2590,7 +2665,7 @@ public class FractalGrammarAccess extends AbstractGrammarElementFinder {
 		return getFileCAccess().getRule();
 	}
 
-	//FileName returns ecore::EString:
+	//FileName:
 	//	ID ("." ID)?;
 	public FileNameElements getFileNameAccess() {
 		return (pFileName != null) ? pFileName : (pFileName = new FileNameElements());
@@ -2660,7 +2735,7 @@ public class FractalGrammarAccess extends AbstractGrammarElementFinder {
 		return getConstantValueAccess().getRule();
 	}
 
-	//ConstantFormat returns ecore::EString:
+	//ConstantFormat:
 	//	INT | STRING;
 	public ConstantFormatElements getConstantFormatAccess() {
 		return (pConstantFormat != null) ? pConstantFormat : (pConstantFormat = new ConstantFormatElements());
@@ -2680,7 +2755,7 @@ public class FractalGrammarAccess extends AbstractGrammarElementFinder {
 		return getElementValueArrayInitializerAccess().getRule();
 	}
 
-	//Value returns ecore::EString:
+	//Value:
 	//	ID | signedINT | HexadecimalType | STRING | "null";
 	public ValueElements getValueAccess() {
 		return (pValue != null) ? pValue : (pValue = new ValueElements());
@@ -2690,7 +2765,7 @@ public class FractalGrammarAccess extends AbstractGrammarElementFinder {
 		return getValueAccess().getRule();
 	}
 
-	//HexadecimalType returns ecore::EString:
+	//HexadecimalType:
 	//	"0x" INT;
 	public HexadecimalTypeElements getHexadecimalTypeAccess() {
 		return (pHexadecimalType != null) ? pHexadecimalType : (pHexadecimalType = new HexadecimalTypeElements());
@@ -2700,7 +2775,7 @@ public class FractalGrammarAccess extends AbstractGrammarElementFinder {
 		return getHexadecimalTypeAccess().getRule();
 	}
 
-	//AnnotationType returns ecore::EString:
+	//AnnotationType:
 	//	"Override" | "Singleton" | "LDFlags" | "CFlags" | FQN;
 	public AnnotationTypeElements getAnnotationTypeAccess() {
 		return (pAnnotationType != null) ? pAnnotationType : (pAnnotationType = new AnnotationTypeElements());
@@ -2710,7 +2785,7 @@ public class FractalGrammarAccess extends AbstractGrammarElementFinder {
 		return getAnnotationTypeAccess().getRule();
 	}
 
-	//AttributeType returns ecore::EString:
+	//AttributeType:
 	//	"STRUCT" | "UNION" | "ENUM" | ID;
 	public AttributeTypeElements getAttributeTypeAccess() {
 		return (pAttributeType != null) ? pAttributeType : (pAttributeType = new AttributeTypeElements());
@@ -2720,7 +2795,7 @@ public class FractalGrammarAccess extends AbstractGrammarElementFinder {
 		return getAttributeTypeAccess().getRule();
 	}
 
-	//FQN returns ecore::EString:
+	//FQN:
 	//	ID ("." ID)*;
 	public FQNElements getFQNAccess() {
 		return (pFQN != null) ? pFQN : (pFQN = new FQNElements());
@@ -2740,7 +2815,7 @@ public class FractalGrammarAccess extends AbstractGrammarElementFinder {
 		return getRoleAccess().getRule();
 	}
 
-	//FULL_IMPORT_NAME returns ecore::EString:
+	//FULL_IMPORT_NAME:
 	//	FQN ".*";
 	public FULL_IMPORT_NAMEElements getFULL_IMPORT_NAMEAccess() {
 		return (pFULL_IMPORT_NAME != null) ? pFULL_IMPORT_NAME : (pFULL_IMPORT_NAME = new FULL_IMPORT_NAMEElements());
@@ -2756,13 +2831,29 @@ public class FractalGrammarAccess extends AbstractGrammarElementFinder {
 		return (tCodeC != null) ? tCodeC : (tCodeC = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "CodeC"));
 	} 
 
-	//terminal Path:
-	//	(ID ":"? | "."*) (("\\" | "\\\\" | "/") ID)* ("\\" | "\\\\" | "/");
-	public TerminalRule getPathRule() {
-		return (tPath != null) ? tPath : (tPath = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "Path"));
+	//terminal SL:
+	//	"\\" | "\\\\" | "/";
+	public TerminalRule getSLRule() {
+		return (tSL != null) ? tSL : (tSL = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "SL"));
 	} 
 
-	//signedINT returns ecore::EString:
+	/// * SSZ: grammar taken from the Mindc compiler adl-parser.jj file
+	//void Path() : {}
+	//{
+	//  [ <SLASH> ] [ <DOT> <SLASH> ] ( <DOTDOT> <SLASH> )* 
+	//  <IDENTIFIER> ( <SLASH> <IDENTIFIER> )* <DOT> <IDENTIFIER>
+	//}
+	// * / Path:
+	//	(ID ":"? | "." | "..")? (SL ((ID "-"?)* | ".."))* SL;
+	public PathElements getPathAccess() {
+		return (pPath != null) ? pPath : (pPath = new PathElements());
+	}
+	
+	public ParserRule getPathRule() {
+		return getPathAccess().getRule();
+	}
+
+	//signedINT:
 	//	("+" | "-")? INT;
 	public SignedINTElements getSignedINTAccess() {
 		return (pSignedINT != null) ? pSignedINT : (pSignedINT = new SignedINTElements());
@@ -2785,8 +2876,8 @@ public class FractalGrammarAccess extends AbstractGrammarElementFinder {
 	} 
 
 	//terminal STRING:
-	//	"\"" ("\\" ("b" | "t" | "n" | "f" | "r" | "\"" | "\'" | "\\") | !("\\" | "\""))* "\"" | "\'" ("\\" ("b" | "t" | "n" |
-	//	"f" | "r" | "\"" | "\'" | "\\") | !("\\" | "\'"))* "\'";
+	//	"\"" ("\\" ("b" | "t" | "n" | "f" | "r" | "u" | "\"" | "\'" | "\\") | !("\\" | "\""))* "\"" | "\'" ("\\" ("b" | "t" |
+	//	"n" | "f" | "r" | "u" | "\"" | "\'" | "\\") | !("\\" | "\'"))* "\'";
 	public TerminalRule getSTRINGRule() {
 		return gaTerminals.getSTRINGRule();
 	} 

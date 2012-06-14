@@ -71,6 +71,19 @@
         </page>
     </extension>
     <extension
+            point="org.eclipse.ui.propertyPages">
+        <page
+            class="org.ow2.mindEd.idt.editor.textual.ui.FractalIdtExecutableExtensionFactory:org.eclipse.xtext.ui.editor.preferences.LanguageRootPreferencePage"
+            id="org.ow2.mindEd.idt.editor.textual.FractalIdt"
+            name="FractalIdt">
+            <keywordReference id="org.ow2.mindEd.idt.editor.textual.ui.keyword_FractalIdt"/>
+            <enabledWhen>
+	            <adapt type="org.eclipse.core.resources.IProject"/>
+			</enabledWhen>
+	        <filter name="projectNature" value="org.eclipse.xtext.ui.shared.xtextNature"/>
+        </page>
+    </extension>
+    <extension
         point="org.eclipse.ui.keywords">
         <keyword
             id="org.ow2.mindEd.idt.editor.textual.ui.keyword_FractalIdt"
@@ -136,7 +149,6 @@
             uriExtension="idt">
         </resourceServiceProvider>
     </extension>
-
 
 
 

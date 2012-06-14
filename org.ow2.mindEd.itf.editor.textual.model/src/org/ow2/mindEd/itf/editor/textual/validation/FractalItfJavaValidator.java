@@ -21,6 +21,8 @@ public class FractalItfJavaValidator extends AbstractFractalItfJavaValidator {
 				
 		if (! simpleName.equals(expectedName)) {
 			warning("interface should be named : " + expectedName,
+					// SSZ: Quick and dirty fix, added "interfaceDefinition.eContainingFeature(),"
+					interfaceDefinition.eContainingFeature(),
 					FractalIDLPackage.INTERFACE_DEFINITION,
 					FractalItfJavaValidator.WRONG_NAME);
 		}

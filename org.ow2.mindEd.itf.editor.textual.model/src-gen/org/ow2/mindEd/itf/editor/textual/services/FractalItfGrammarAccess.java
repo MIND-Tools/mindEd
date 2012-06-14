@@ -202,7 +202,7 @@ public class FractalItfGrammarAccess extends AbstractGrammarElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "TypedefName");
 		private final RuleCall cFullyQualifiedNameParserRuleCall = (RuleCall)rule.eContents().get(1);
 		
-		//TypedefName returns ecore::EString:
+		//TypedefName:
 		//	FullyQualifiedName;
 		public ParserRule getRule() { return rule; }
 
@@ -308,7 +308,7 @@ public class FractalItfGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cStructKeyword_0 = (Keyword)cAlternatives.eContents().get(0);
 		private final Keyword cUnionKeyword_1 = (Keyword)cAlternatives.eContents().get(1);
 		
-		//StructOrUnion returns ecore::EString:
+		//StructOrUnion:
 		//	"struct" | "union";
 		public ParserRule getRule() { return rule; }
 
@@ -819,7 +819,7 @@ public class FractalItfGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cIDTerminalRuleCall_1_1 = (RuleCall)cGroup_1.eContents().get(1);
 		
 		//// Interface definition part
-		//FullyQualifiedName returns ecore::EString:
+		//FullyQualifiedName:
 		//	ID ("." ID)*;
 		public ParserRule getRule() { return rule; }
 
@@ -1435,7 +1435,7 @@ public class FractalItfGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cAdditiveOperationTerminalRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
 		private final RuleCall cINTTerminalRuleCall_1 = (RuleCall)cGroup.eContents().get(1);
 		
-		//signedINT returns ecore::EString:
+		//signedINT:
 		//	AdditiveOperation? INT;
 		public ParserRule getRule() { return rule; }
 
@@ -1932,7 +1932,7 @@ public class FractalItfGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cExponentParserRuleCall_3_1 = (RuleCall)cGroup_3.eContents().get(1);
 		private final RuleCall cFDsymbolTerminalRuleCall_3_2 = (RuleCall)cGroup_3.eContents().get(2);
 		
-		//FloatingPointLiteral returns ecore::EString:
+		//FloatingPointLiteral:
 		//	signedINT+ "." signedINT* Exponent? FDsymbol? | "." signedINT+ Exponent? FDsymbol? | signedINT+ Exponent FDsymbol? |
 		//	signedINT+ Exponent? FDsymbol?;
 		public ParserRule getRule() { return rule; }
@@ -2008,7 +2008,7 @@ public class FractalItfGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cAdditiveOperationTerminalRuleCall_1 = (RuleCall)cGroup.eContents().get(1);
 		private final RuleCall cINTTerminalRuleCall_2 = (RuleCall)cGroup.eContents().get(2);
 		
-		//Exponent returns ecore::EString:
+		//Exponent:
 		//	("e" | "E") AdditiveOperation? INT+;
 		public ParserRule getRule() { return rule; }
 
@@ -2410,7 +2410,7 @@ public class FractalItfGrammarAccess extends AbstractGrammarElementFinder {
 		return getTypeSpecificationAccess().getRule();
 	}
 
-	//TypedefName returns ecore::EString:
+	//TypedefName:
 	//	FullyQualifiedName;
 	public TypedefNameElements getTypedefNameAccess() {
 		return (pTypedefName != null) ? pTypedefName : (pTypedefName = new TypedefNameElements());
@@ -2461,7 +2461,7 @@ public class FractalItfGrammarAccess extends AbstractGrammarElementFinder {
 		return getStructorUnionReferenceAccess().getRule();
 	}
 
-	//StructOrUnion returns ecore::EString:
+	//StructOrUnion:
 	//	"struct" | "union";
 	public StructOrUnionElements getStructOrUnionAccess() {
 		return (pStructOrUnion != null) ? pStructOrUnion : (pStructOrUnion = new StructOrUnionElements());
@@ -2612,7 +2612,7 @@ public class FractalItfGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//// Interface definition part
-	//FullyQualifiedName returns ecore::EString:
+	//FullyQualifiedName:
 	//	ID ("." ID)*;
 	public FullyQualifiedNameElements getFullyQualifiedNameAccess() {
 		return (pFullyQualifiedName != null) ? pFullyQualifiedName : (pFullyQualifiedName = new FullyQualifiedNameElements());
@@ -2778,7 +2778,7 @@ public class FractalItfGrammarAccess extends AbstractGrammarElementFinder {
 		return (tBoolean != null) ? tBoolean : (tBoolean = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "Boolean"));
 	} 
 
-	//signedINT returns ecore::EString:
+	//signedINT:
 	//	AdditiveOperation? INT;
 	public SignedINTElements getSignedINTAccess() {
 		return (pSignedINT != null) ? pSignedINT : (pSignedINT = new SignedINTElements());
@@ -2942,7 +2942,7 @@ public class FractalItfGrammarAccess extends AbstractGrammarElementFinder {
 		return (tUnaryOperation != null) ? tUnaryOperation : (tUnaryOperation = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "UnaryOperation"));
 	} 
 
-	//FloatingPointLiteral returns ecore::EString:
+	//FloatingPointLiteral:
 	//	signedINT+ "." signedINT* Exponent? FDsymbol? | "." signedINT+ Exponent? FDsymbol? | signedINT+ Exponent FDsymbol? |
 	//	signedINT+ Exponent? FDsymbol?;
 	public FloatingPointLiteralElements getFloatingPointLiteralAccess() {
@@ -2953,7 +2953,7 @@ public class FractalItfGrammarAccess extends AbstractGrammarElementFinder {
 		return getFloatingPointLiteralAccess().getRule();
 	}
 
-	//Exponent returns ecore::EString:
+	//Exponent:
 	//	("e" | "E") AdditiveOperation? INT+;
 	public ExponentElements getExponentAccess() {
 		return (pExponent != null) ? pExponent : (pExponent = new ExponentElements());
@@ -2982,8 +2982,8 @@ public class FractalItfGrammarAccess extends AbstractGrammarElementFinder {
 	} 
 
 	//terminal STRING:
-	//	"\"" ("\\" ("b" | "t" | "n" | "f" | "r" | "\"" | "\'" | "\\") | !("\\" | "\""))* "\"" | "\'" ("\\" ("b" | "t" | "n" |
-	//	"f" | "r" | "\"" | "\'" | "\\") | !("\\" | "\'"))* "\'";
+	//	"\"" ("\\" ("b" | "t" | "n" | "f" | "r" | "u" | "\"" | "\'" | "\\") | !("\\" | "\""))* "\"" | "\'" ("\\" ("b" | "t" |
+	//	"n" | "f" | "r" | "u" | "\"" | "\'" | "\\") | !("\\" | "\'"))* "\'";
 	public TerminalRule getSTRINGRule() {
 		return gaTerminals.getSTRINGRule();
 	} 

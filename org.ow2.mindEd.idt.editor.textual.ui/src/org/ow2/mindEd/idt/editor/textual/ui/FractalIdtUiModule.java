@@ -27,7 +27,7 @@ public class FractalIdtUiModule extends org.ow2.mindEd.idt.editor.textual.ui.Abs
 	 * Using IDT token
 	 * 
 	 */
-	public Class<? extends org.eclipse.xtext.ui.editor.syntaxcoloring.antlr.AbstractAntlrTokenToAttributeIdMapper> bindTokenToAttributeIdMapper() {
+	public Class<? extends org.eclipse.xtext.ui.editor.syntaxcoloring.AbstractAntlrTokenToAttributeIdMapper> bindTokenToAttributeIdMapper() {
 		return AntlrIDTTokenToAttributeIdMapper.class;
 	}
 }

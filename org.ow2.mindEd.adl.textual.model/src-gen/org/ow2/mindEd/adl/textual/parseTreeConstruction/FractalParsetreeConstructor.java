@@ -7886,9 +7886,9 @@ protected class FileC_DirectoryAssignment_0 extends AssignmentToken  {
 	public IEObjectConsumer tryConsume() {
 		if((value = eObjectConsumer.getConsumable("directory",false)) == null) return null;
 		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("directory");
-		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getFileCAccess().getDirectoryPathTerminalRuleCall_0_0(), value, null)) {
-			type = AssignmentType.TERMINAL_RULE_CALL;
-			element = grammarAccess.getFileCAccess().getDirectoryPathTerminalRuleCall_0_0();
+		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getFileCAccess().getDirectoryPathParserRuleCall_0_0(), value, null)) {
+			type = AssignmentType.DATATYPE_RULE_CALL;
+			element = grammarAccess.getFileCAccess().getDirectoryPathParserRuleCall_0_0();
 			return obj;
 		}
 		return null;
@@ -9043,6 +9043,7 @@ protected class ElementValueArrayInitializer_RightCurlyBracketKeyword_3 extends 
 
 
 /************ end Rule ElementValueArrayInitializer ****************/
+
 
 
 

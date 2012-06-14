@@ -3,10 +3,9 @@ package org.ow2.mindEd.itf.editor.textual.ui;
 import java.util.Iterator;
 import java.util.List;
 
-import org.eclipse.xtext.parsetree.AbstractNode;
-import org.eclipse.xtext.parsetree.CompositeNode;
-import org.eclipse.xtext.parsetree.LeafNode;
-import org.eclipse.xtext.parsetree.NodeUtil;
+import org.eclipse.xtext.nodemodel.ICompositeNode;
+import org.eclipse.xtext.nodemodel.ILeafNode;
+import org.eclipse.xtext.nodemodel.INode;
 import org.eclipse.xtext.resource.XtextResource;
 import org.eclipse.xtext.ui.editor.syntaxcoloring.IHighlightedPositionAcceptor;
 import org.eclipse.xtext.ui.editor.syntaxcoloring.ISemanticHighlightingCalculator;
@@ -27,15 +26,16 @@ public class SemanticHighlightingCalculator implements
 		if (resource == null || acceptor == null
 				|| resource.getParseResult() == null)
 			return;
-		Iterable<AbstractNode> allNodes = NodeUtil.getAllContents(resource
-				.getParseResult().getRootNode());
+		
+		INode rootNode = resource.getParseResult().getRootNode();
+		Iterable<INode> allNodes = rootNode.getAsTreeIterable();
 
-		for (Iterator<AbstractNode> it = allNodes.iterator(); it.hasNext();) {
+		for (Iterator<INode> it = allNodes.iterator(); it.hasNext();) {
 
-			AbstractNode abstractNode = (AbstractNode) it.next();
-			if (abstractNode instanceof LeafNode) {
+			INode abstractNode = (INode) it.next();
+			if (abstractNode instanceof ILeafNode) {
 
-				LeafNode leafNode = (LeafNode) abstractNode;
+				ILeafNode leafNode = (ILeafNode) abstractNode;
 
 				// coloring Annotations tokens
 				colorAnnotations(it, leafNode, acceptor);
@@ -53,16 +53,16 @@ public class SemanticHighlightingCalculator implements
 	 * @param acceptor
 	 *            the acceptor to color the token
 	 */
-	private void colorAnnotations(Iterator<AbstractNode> it, LeafNode leafNode,
+	private void colorAnnotations(Iterator<INode> it, ILeafNode leafNode,
 			IHighlightedPositionAcceptor acceptor) {
 		if (leafNode.getText().equals("@")) {
 
 			if (it.hasNext()) {
 
-				AbstractNode abstractNode = it.next();
+				INode abstractNode = it.next();
 
-				if (abstractNode instanceof CompositeNode) {
-					CompositeNode compositeNode = (CompositeNode) abstractNode;
+				if (abstractNode instanceof ICompositeNode) {
+					ICompositeNode compositeNode = (ICompositeNode) abstractNode;
 
 
 					acceptor.addPosition(leafNode.getOffset(), compositeNode

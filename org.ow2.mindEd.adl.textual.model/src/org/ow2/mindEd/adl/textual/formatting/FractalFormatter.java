@@ -257,7 +257,8 @@ public class FractalFormatter extends AbstractDeclarativeFormatter {
 		this.c = fc;
 		this.f = (org.ow2.mindEd.adl.textual.services.FractalGrammarAccess) getGrammarAccess();
 
-		this.c.setIndentationSpace("    ");
+		// SSZ: commented
+		//this.c.setIndentationSpace("    ");
 
 		this.formatBlocs();
 

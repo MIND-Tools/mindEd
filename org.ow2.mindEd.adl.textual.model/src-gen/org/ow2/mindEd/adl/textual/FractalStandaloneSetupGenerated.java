@@ -36,6 +36,5 @@ public class FractalStandaloneSetupGenerated implements ISetup {
 
 
 
-
 	}
 }

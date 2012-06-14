@@ -30,7 +30,8 @@ public class FractalIdtFormatter extends FractalItfFormatter {
 
 		FractalIdtGrammarAccess g = (org.ow2.mindEd.idt.editor.textual.services.FractalIdtGrammarAccess) getGrammarAccess();
 
-		c.setIndentationSpace("    ");
+		// SSZ: quick fix
+		//c.setIndentationSpace("    ");
 		formatInclude(f, c);
 		formatDefine(f, c);
 		formatTypeDefinition(f, c);

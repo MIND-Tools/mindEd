@@ -3,9 +3,11 @@ package org.ow2.mindEd.adl.textual.ui.quickfix;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.util.EcoreUtil;
+/*
 import org.eclipse.xtext.parsetree.AbstractNode;
 import org.eclipse.xtext.parsetree.CompositeNode;
 import org.eclipse.xtext.parsetree.NodeUtil;
+*/
 import org.eclipse.xtext.ui.editor.model.IXtextDocument;
 import org.eclipse.xtext.ui.editor.model.edit.IModification;
 import org.eclipse.xtext.ui.editor.model.edit.IModificationContext;
@@ -189,7 +191,8 @@ public class FractalQuickfixProvider extends DefaultQuickfixProvider {
 	}
 
 	
-	
+	// SSZ: Quick dirty fix migrating from 1.0 to 2.0 ; TODO: check what should be done !
+	/*
 	@Fix(MindcErrorCodes.CODE_KEY_ADL_3)
 	public void removeTemplateParameter(final Issue issue, IssueResolutionAcceptor acceptor) {
 		
@@ -228,7 +231,7 @@ public class FractalQuickfixProvider extends DefaultQuickfixProvider {
 						document.replace(offset, length, "fixed text");					}
 				});
 
-	}
+	}*/
 
 	@Fix(FractalJavaValidator.UNKNOWN_SOURCE_FILE)
 	public void createSourceFile(final Issue issue,
