@@ -157,7 +157,7 @@ public class TestMindProject {
 		fail(formatted + "expected:<" + expectedString + "> but was:<"
 				+ actualString + ">");
 	}
-	
+
 	@Test
 	public void testMindcLocation() throws Exception {
 		assertNotNull(MindActivator.getPref());
@@ -205,10 +205,10 @@ public class TestMindProject {
 		assertNotNull(mp);
 		assertMindProject(name);
 	}
-	
+
 	public static void assertMindProject(String name) throws CoreException {
 		IProject p = ResourcesPlugin.getWorkspace().getRoot().getProject(name);
-		
+
 		assertTrue(p.exists());
 		assertEquals(name, p.getName());
 		assertTrue(p.getFolder("src").exists());
@@ -216,12 +216,12 @@ public class TestMindProject {
 		assertTrue(p.getFile(".cproject").exists());
 		assertTrue(p.getFile(".project").exists());
 		assertTrue(p.getFile("Makefile").exists());
-		
+
 		IProjectDescription desc = p.getDescription();
 		String[] natures = desc.getNatureIds();
 		assertTrue(	Arrays.asList(natures).contains(CProjectNature.C_NATURE_ID));
 		assertTrue(	Arrays.asList(natures).contains(MindNature.NATURE_ID));
-		
+
 		ICommand[] commands = desc.getBuildSpec();
 		assertEquals(4, commands.length);
 		// 1 : org.eclipse.cdt.managedbuilder.core.genmakebuilder
@@ -232,32 +232,32 @@ public class TestMindProject {
 		assertEquals("org.eclipse.xtext.ui.shared.xtextBuilder", commands[1].getBuilderName());
 		assertEquals(MindIdeBuilder.BUILDER_ID, commands[2].getBuilderName());
 		assertEquals("org.eclipse.cdt.managedbuilder.core.ScannerConfigBuilder", commands[3].getBuilderName());
-		
-		
+
+
 		IManagedBuildInfo info = ManagedBuildManager.getBuildInfo(p);
-		
+
 		assertEquals("make", info.getBuildCommand());
-		
+
 		IConfiguration configuration = info.getDefaultConfiguration();
 		assertEquals("Default", configuration.getName());
-		
+
 		assertTrue(configuration.getId().startsWith("org.ow2.mindEd.ide.core.build"));
 		assertEquals("make", configuration.getBuildCommand());
-		
+
 		CBuildData buildData = configuration.getBuildData();
 		ICOutputEntry[] outDir = buildData.getOutputDirectories();
-		
+
 		assertEquals(1,outDir.length);
 		assertEquals(p.getFolder("build").getFullPath(), outDir[0].getFullPath());
-		
+
 		assertEquals("${workspace_loc:/"+p.getName() + "}", configuration.getBuilder().getBuildPath());
 		assertEquals(p.getLocation(), configuration.getBuilder().getBuildLocation());
-		
+
 		ICSourceEntry[] srcEntries = configuration.getSourceEntries();
 		assertEquals(1,srcEntries.length);
 		assertEquals(p.getFolder("src").getFullPath(), srcEntries[0].getFullPath());
 	}
-	
+
 	@Test
 	public void testWriteFile() throws CoreException, IOException {
 		// create mindProject
@@ -279,6 +279,9 @@ public class TestMindProject {
 		waitJob(DEFAULT_TIME_OUT_WAIT_JOB, 10, "fail save mpe",
 				FamilyJobCST.FAMILY_SAVE_MPE);
 
+		// TODO
+		// SSZ : Quick fix for environment issues, added mp2 argument to
+		// readFileEntriesWithException for it to be ok but may be wrong : fix later
 		assertTrue(MindProjectImpl.areMindpathsEqual(mp2.getRawMinpath(),
 				MindProjectImpl.readFileEntriesWithException(mp2.getProject(), mp2)));
 
@@ -289,6 +292,9 @@ public class TestMindProject {
 		assertNotNull(p2_use_p1.getResolvedBy());
 		assertNotNull(p2_use_p1.getOwnerProject());
 		assertEquals(mp2, p2_use_p1.getOwnerProject());
+		// TODO
+		// SSZ : Quick fix for environment issues, added mp2 argument to
+		// readFileEntriesWithException for it to be ok but may be wrong : fix later
 		assertTrue(MindProjectImpl.areMindpathsEqual(mp2.getRawMinpath(),
 				MindProjectImpl.readFileEntriesWithException(mp2.getProject(), mp2)));
 
@@ -302,6 +308,9 @@ public class TestMindProject {
 		assertNotNull(p2_src2.getResolvedBy());
 		assertNotNull(p2_src2.getOwnerProject());
 		assertEquals(mp2, p2_src2.getOwnerProject());
+		// TODO
+		// SSZ : Quick fix for environment issues, added mp2 argument to
+		// readFileEntriesWithException for it to be ok but may be wrong : fix later
 		assertTrue(MindProjectImpl.areMindpathsEqual(mp2.getRawMinpath(),
 				MindProjectImpl.readFileEntriesWithException(mp2.getProject(), mp2)));
 
@@ -310,6 +319,9 @@ public class TestMindProject {
 		assertEqualsMPE(p2_use_p1, mp2.getMindpathentries().get(2));
 		assertEqualsMPE(p2_src2, mp2.getMindpathentries().get(3));
 
+		// TODO
+		// SSZ : Quick fix for environment issues, added mp2 argument to
+		// readFileEntriesWithException for it to be ok but may be wrong : fix later
 		EList<MindPathEntry> mindpath = MindProjectImpl
 				.readFileEntriesWithException(mp2.getProject(), mp2);
 		assertEquals(4, mindpath.size());
@@ -341,6 +353,9 @@ public class TestMindProject {
 		assertNotNull(p2_import_p1.getOwnerProject());
 		assertEquals(mp2, p2_import_p1.getOwnerProject());
 
+		// TODO
+		// SSZ : Quick fix for environment issues, added mp2 argument to
+		// readFileEntriesWithException for it to be ok but may be wrong : fix later
 		assertTrue(MindProjectImpl.areMindpathsEqual(mp2.getRawMinpath(),
 				MindProjectImpl.readFileEntriesWithException(mp2.getProject(), mp2)));
 
@@ -689,9 +704,9 @@ public class TestMindProject {
 		p2 = UtilMindIde.find(mindRootSrc.getPackages(), "p2");
 		assertNull(p2);
 
-		
+
 		// delete default package 
-		
+
 		mp2.getProject().getFile("src/z.adl").create(
 				new ByteArrayInputStream("primitive z".getBytes()), true,
 				new NullProgressMonitor());
@@ -707,20 +722,20 @@ public class TestMindProject {
 				new ByteArrayInputStream("primitive p2.z".getBytes()), true,
 				new NullProgressMonitor());
 		assertEquals(3, mindRootSrc.getPackages().size());
-		
+
 		MindAdl adlZ = mp2.resolveAdl("z", "", null);
 		assertNotNull(adlZ);
-		
+
 		MindPackage defaultPackage = adlZ.getPackage();
 		defaultPackage.getRootsrc().getPackages().remove(defaultPackage);
 		waitJob(DEFAULT_TIME_OUT_WAIT_JOB, 10, "failremove",
 				FamilyJobCST.FAMILY_ALL);
-		
+
 		assertTrue(!mp2.getProject().getFile("src/z.adl").exists());
 		assertTrue(!mp2.getProject().getFile("src/u.adl").exists());
-		
+
 		assertEquals(2, mindRootSrc.getPackages().size());
-		
+
 	}
 
 	@Test
@@ -903,11 +918,11 @@ public class TestMindProject {
 		EList<MindAdl> mp1_p8 = mp1.resolvePossibleAdlInPackage("p8");
 		assertList(0, mp1_p8, null, null);
 	}
-	
+
 	@Test
 	public void testResolveXXP() throws CoreException, IOException {
 		String name;
-		
+
 		name = "P1_" + System.currentTimeMillis();
 		MindProject mp1 = MindIdeCore.createMINDProject(name,
 				new NullProgressMonitor());
@@ -923,30 +938,30 @@ public class TestMindProject {
 		mp1.getProject().getFile("src/t.adl").create(
 				new ByteArrayInputStream("composite t".getBytes()), true,
 				new NullProgressMonitor());
-		
+
 		sleep(80);
 		MindPackage p1_p1 = UtilMindIde.find(mp1.getRootsrcs().get(0)
 				.getPackages(), "p1");
 		assertNotNull(p1_p1);
 		MindAdl p1_p1_t = UtilMindIde.findAdl(p1_p1.getFiles(), "t");
 		assertNotNull(p1_p1_t);
-		
+
 		MindPackage p1_p_default = UtilMindIde.find(mp1.getRootsrcs().get(0)
 				.getPackages(), "");
 		assertNotNull(p1_p_default);
 		MindAdl p1_pdefault_t = UtilMindIde.findAdl(p1_p_default.getFiles(), "t");
 		assertNotNull(p1_pdefault_t);
-		
+
 
 		EList<MindAdl> mp1_t_in_ws = mp1.resolvePossibleAdlInWorkspace("t");
 		assertList(2, mp1_t_in_ws, null, l(p1_p1_t, p1_pdefault_t));
 
 		assertEquals(p1_p1_t, mp1.resolveAdl("t", "p1", importsArray()));
 		assertEquals(p1_pdefault_t, mp1.resolveAdl("t", "", importsArray()));
-		
+
 		assertEquals("p1.t", p1_p1_t.getQualifiedName());
 		assertEquals("t", p1_pdefault_t.getQualifiedName());
-		
+
 	}
 
 	/**
@@ -1021,7 +1036,7 @@ public class TestMindProject {
 
 	@Test
 	public void testResolveDependenciesImport() throws CoreException,
-			IOException {
+	IOException {
 		String name;
 		name = "P2_" + System.currentTimeMillis();
 		MindProject mp2 = MindIdeCore.createMINDProject(name,
@@ -1139,7 +1154,7 @@ public class TestMindProject {
 		mp3.setMindpath(dd);
 
 		sleep(30);
-		
+
 		assertEquals(3, mp3.getMindpathentries().size());
 		mp3_i_in_path = mp3.resolvePossibleAdlInMindPath("i");
 		assertList(1, mp3_i_in_path, null, l(p2_p5_src2_i));
@@ -1152,7 +1167,7 @@ public class TestMindProject {
 		} catch (InterruptedException e) {
 		}
 	}
-	
+
 	/**
 	 * 
 	 * <ol>
@@ -1182,7 +1197,7 @@ public class TestMindProject {
 
 		MindPathEntry p1_src2 = MindIdeCore.newMPESource(src2);
 		mp1.getMindpathentries().add(p1_src2);
-		
+
 		MindRootSrc rootSrc2 = UtilMindIde.findRootSrc(mp1.getRepoFromLibOrProject(), src2.getFullPath());
 		assertNotNull(rootSrc2);
 		assertNotNull(p1_src2.getResolvedBy());
@@ -1200,13 +1215,13 @@ public class TestMindProject {
 
 		MindPathEntry p1_src3 = MindIdeCore.newMPESource(src3);
 		mp1.getMindpathentries().add(p1_src3);
-		
+
 		sleep(30);
 		MindRootSrc rootSrc3 = UtilMindIde.findRootSrc(mp1.getRepoFromLibOrProject(), src3.getFullPath());
 		assertNotNull(rootSrc3);
 		assertNotNull(p1_src3.getResolvedBy());
 		assertEquals(rootSrc3, p1_src3.getResolvedBy());
-		
+
 		src3.delete(true,  new NullProgressMonitor());
 		sleep(30);
 		rootSrc3 = UtilMindIde.findRootSrc(mp1.getRepoFromLibOrProject(), src3.getFullPath());
@@ -1288,7 +1303,7 @@ public class TestMindProject {
 		assertNotCSource(src2);
 		assertTrue(!mp1.getMindpathentries().contains(p1_src2));
 		assertTrue(src2.exists());
-		
+
 		// 4 delete src source ==> delete csourc folder, not delete mpe
 		src3.delete(true, new NullProgressMonitor());
 		p1_src3_resolved = getContainsMPE(mp1, p1_src3); // time out
@@ -1569,11 +1584,11 @@ public class TestMindProject {
 		waitJob(DEFAULT_TIME_OUT_WAIT_JOB, 10, "fail wait",
 				FamilyJobCST.FAMILY_ALL);
 	}
-	
-	
+
+
 	@Test
 	public void testMakeFileVarSRC() throws CoreException, IOException {
-		
+
 		String p1name = "P1_" + System.currentTimeMillis();
 		MindProject mp1 = MindIdeCore.createMINDProject(p1name,
 				new NullProgressMonitor());
@@ -1592,16 +1607,16 @@ public class TestMindProject {
 		waitJob(DEFAULT_TIME_OUT_WAIT_JOB, 10, "failsetcomp",
 				FamilyJobCST.FAMILY_ALL);
 
-		
+
 		MindIdeCore.createMindPackage(p2name+"/src", "p1", null);
-		
+
 		MindPathEntry mpe_import_p1 = MindIdeCore.newMPEImport("p1");
 		mp1.getMindpathentries().add(mpe_import_p1);
 		waitJob(DEFAULT_TIME_OUT_WAIT_JOB, 10, "failsetcomp",
 				FamilyJobCST.FAMILY_ALL);
 
 		assertEquals(p1FullPath+"/src:"+mp2.getProject().getLocation().toOSString()+"/src", getMakeFileVar(mp1, MindMakefile.MIND_SRC));
-		
+
 		mp1.getMindpathentries().remove(mpe_import_p1);
 		waitJob(DEFAULT_TIME_OUT_WAIT_JOB, 10, "failsetcomp",
 				FamilyJobCST.FAMILY_ALL);
@@ -1609,14 +1624,14 @@ public class TestMindProject {
 		assertEquals(p1FullPath+"/src", getMakeFileVar(mp1, MindMakefile.MIND_SRC));
 
 
-		
+
 	}
 
 	private String getMakeFileVar(MindProject mp, String varname)
 			throws CoreException, IOException {
 		return new MindMakefile(mp.getProject()).getMakefileVariable(varname);
 	}
-	
+
 	@Test
 	public void tesMindC() throws CoreException, IOException, InvalidCommandLineException, ADLException, CompilerError {
 		String name;
@@ -1637,7 +1652,7 @@ public class TestMindProject {
 		MindObject mindObject = MindIdeCore.get(tAdlFile);
 		assertTrue(mindObject instanceof MindAdl);
 		MindIdeBuilder.checkFile(mp2.getProject(), Collections.singletonList(((MindFile)mindObject)));
-		
+
 		// create p1.z and check
 		IFile zAdlFile = mp2.getProject().getFile("src/p1/z.adl");
 		zAdlFile.create(
@@ -1646,8 +1661,8 @@ public class TestMindProject {
 		mindObject = MindIdeCore.get(zAdlFile);
 		assertTrue(mindObject instanceof MindAdl);
 		MindIdeBuilder.checkFile(mp2.getProject(), Collections.singletonList(((MindFile)mindObject)));
-		
-		
+
+
 		mp2.getProject().getFolder("src/p2").create(false, true,
 				new NullProgressMonitor());
 		// create p2.t and check
@@ -1658,8 +1673,8 @@ public class TestMindProject {
 		mindObject = MindIdeCore.get(zAdlFile);
 		assertTrue(mindObject instanceof MindAdl);
 		MindIdeBuilder.checkFile(mp2.getProject(), Collections.singletonList(((MindFile)mindObject)));
-		
-		
+
+
 		// create p2.z and check
 		IFile zP2AdlFile = mp2.getProject().getFile("src/p2/z.adl");
 		zP2AdlFile.create(
@@ -1668,15 +1683,15 @@ public class TestMindProject {
 		mindObject = MindIdeCore.get(zAdlFile);
 		assertTrue(mindObject instanceof MindAdl);
 		MindIdeBuilder.checkFile(mp2.getProject(), Collections.singletonList(((MindFile)mindObject)));
-		
+
 		mp2.getProject().build(IncrementalProjectBuilder.INCREMENTAL_BUILD,
 				new NullProgressMonitor());
 
 		IMarker[] errors = mp2.getProject().findMarkers(MindCMarker.MARKER_ID, false, IResource.DEPTH_INFINITE);
 		assertTrue(errors == null || errors.length == 0);
 	}
-	
-	
+
+
 	@Test
 	public void tesMindCErros() throws CoreException, IOException, InvalidCommandLineException, ADLException, CompilerError {
 		String name;
@@ -1701,7 +1716,7 @@ public class TestMindProject {
 
 	private void checkError(MindProject mp2, MindObject mindObject, 
 			String goodGroupId, int goodErrorId)
-			throws InvalidCommandLineException, CompilerError, CoreException {
+					throws InvalidCommandLineException, CompilerError, CoreException {
 		try {
 			MindIdeBuilder.checkFile(mp2.getProject(), Collections.singletonList(((MindFile)mindObject)));
 		} catch (ADLException e) {

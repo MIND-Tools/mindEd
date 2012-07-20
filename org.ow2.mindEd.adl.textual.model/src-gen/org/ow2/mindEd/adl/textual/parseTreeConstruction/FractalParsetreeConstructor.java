@@ -83,6 +83,7 @@ protected class ThisRootNode extends RootToken {
 /************ begin Rule AdlDefinition ****************
  *
  * AdlDefinition:
+ * 
  * 	imports+=ImportDefinition* architecturedefinition=ArchitectureDefinition;
  *
  **/
@@ -215,6 +216,7 @@ protected class AdlDefinition_ArchitecturedefinitionAssignment_1 extends Assignm
 /************ begin Rule ImportDefinition ****************
  *
  * ImportDefinition:
+ * 
  * 	"import" importName=(FQN | FULL_IMPORT_NAME) ";";
  *
  **/
@@ -337,6 +339,7 @@ protected class ImportDefinition_SemicolonKeyword_2 extends KeywordToken  {
 /************ begin Rule ArchitectureDefinition ****************
  *
  * ArchitectureDefinition:
+ * 
  * 	ComponentTypeDefinition | PrimitiveComponentDefinition | CompositeComponentDefinition;
  *
  **/
@@ -489,14 +492,19 @@ protected class ArchitectureDefinition_CompositeComponentDefinitionParserRuleCal
 /************ begin Rule PrimitiveComponentDefinition ****************
  *
  * PrimitiveComponentDefinition:
+ * 
  * 	annotationsList=AnnotationsList? abstract?="abstract"? "primitive" name=FQN
- * 	primitiveFormalArgumentsList=FormalArgumentsList? referencesList=PrimitiveReferencesList? ("{" body=PrimitiveBody? "}"
- * 	| body=PrimitiveBody)?;
+ * 
+ * 	primitiveFormalArgumentsList=FormalArgumentsList? referencesList=PrimitiveReferencesList? ("{" body=PrimitiveBody?
+ * 
+ * 	"}" | body=PrimitiveBody)?;
  *
  **/
 
 // annotationsList=AnnotationsList? abstract?="abstract"? "primitive" name=FQN
+// 
 // primitiveFormalArgumentsList=FormalArgumentsList? referencesList=PrimitiveReferencesList? ("{" body=PrimitiveBody? "}"
+// 
 // | body=PrimitiveBody)?
 protected class PrimitiveComponentDefinition_Group extends GroupToken {
 	
@@ -952,6 +960,7 @@ protected class PrimitiveComponentDefinition_BodyAssignment_6_1 extends Assignme
 /************ begin Rule PrimitiveDefinitionElement ****************
  *
  * PrimitiveDefinitionElement:
+ * 
  * 	InterfaceDefinition | AttributeDefinition | DataDefinition | ImplementationDefinition;
  *
  **/
@@ -1142,12 +1151,15 @@ protected class PrimitiveDefinitionElement_ImplementationDefinitionParserRuleCal
 /************ begin Rule ComponentTypeDefinition ****************
  *
  * ComponentTypeDefinition:
+ * 
  * 	annotationsList=AnnotationsList? "type" name=FQN referencesList=TypeReferencesList? ("{" body=TypeBody? "}" |
+ * 
  * 	body=TypeBody)?;
  *
  **/
 
 // annotationsList=AnnotationsList? "type" name=FQN referencesList=TypeReferencesList? ("{" body=TypeBody? "}" |
+// 
 // body=TypeBody)?
 protected class ComponentTypeDefinition_Group extends GroupToken {
 	
@@ -1518,6 +1530,7 @@ protected class ComponentTypeDefinition_BodyAssignment_4_1 extends AssignmentTok
 /************ begin Rule TypeReferenceDefinition ****************
  *
  * TypeReferenceDefinition:
+ * 
  * 	referenceName=FQN;
  *
  **/
@@ -1563,6 +1576,7 @@ protected class TypeReferenceDefinition_ReferenceNameAssignment extends Assignme
 /************ begin Rule TypeDefinitionElement ****************
  *
  * TypeDefinitionElement:
+ * 
  * 	InterfaceDefinition;
  *
  **/
@@ -1609,15 +1623,20 @@ protected class TypeDefinitionElement_InterfaceDefinitionParserRuleCall extends 
 /************ begin Rule CompositeComponentDefinition ****************
  *
  * CompositeComponentDefinition:
+ * 
  * 	annotationsList=AnnotationsList? "composite" name=FQN templateSpecifiersList=TemplateSpecifiersList?
+ * 
  * 	compositeFormalArgumentsList=FormalArgumentsList? referencesList=CompositeReferencesList? ("{" body=CompositeBody "}"
+ * 
  * 	| body=CompositeBody)?;
  *
  **/
 
 // annotationsList=AnnotationsList? "composite" name=FQN templateSpecifiersList=TemplateSpecifiersList?
-// compositeFormalArgumentsList=FormalArgumentsList? referencesList=CompositeReferencesList? ("{" body=CompositeBody "}" |
-// body=CompositeBody)?
+// 
+// compositeFormalArgumentsList=FormalArgumentsList? referencesList=CompositeReferencesList? ("{" body=CompositeBody "}"
+// 
+// | body=CompositeBody)?
 protected class CompositeComponentDefinition_Group extends GroupToken {
 	
 	public CompositeComponentDefinition_Group(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -2088,6 +2107,7 @@ protected class CompositeComponentDefinition_BodyAssignment_6_1 extends Assignme
 /************ begin Rule TemplateSpecifiersList ****************
  *
  * TemplateSpecifiersList:
+ * 
  * 	"<" (templateSpecifiers+=TemplateSpecifier ("," templateSpecifiers+=TemplateSpecifier)*) ">";
  *
  **/
@@ -2333,6 +2353,7 @@ protected class TemplateSpecifiersList_GreaterThanSignKeyword_2 extends KeywordT
 /************ begin Rule FormalArgumentsList ****************
  *
  * FormalArgumentsList:
+ * 
  * 	"(" (formalArguments+=FormalArgument ("," formalArguments+=FormalArgument)*) ")";
  *
  **/
@@ -2578,6 +2599,7 @@ protected class FormalArgumentsList_RightParenthesisKeyword_2 extends KeywordTok
 /************ begin Rule PrimitiveReferencesList ****************
  *
  * PrimitiveReferencesList:
+ * 
  * 	"extends" references+=PrimitiveReferenceDefinition ("," references+=PrimitiveReferenceDefinition)*;
  *
  **/
@@ -2778,6 +2800,7 @@ protected class PrimitiveReferencesList_ReferencesAssignment_2_1 extends Assignm
 /************ begin Rule CompositeReferencesList ****************
  *
  * CompositeReferencesList:
+ * 
  * 	"extends" references+=CompositeReferenceDefinition ("," references+=CompositeReferenceDefinition)*;
  *
  **/
@@ -2978,6 +3001,7 @@ protected class CompositeReferencesList_ReferencesAssignment_2_1 extends Assignm
 /************ begin Rule TypeReferencesList ****************
  *
  * TypeReferencesList:
+ * 
  * 	"extends" references+=TypeReferenceDefinition ("," references+=TypeReferenceDefinition)*;
  *
  **/
@@ -3178,6 +3202,7 @@ protected class TypeReferencesList_ReferencesAssignment_2_1 extends AssignmentTo
 /************ begin Rule FormalArgument ****************
  *
  * FormalArgument:
+ * 
  * 	name=ID;
  *
  **/
@@ -3223,6 +3248,7 @@ protected class FormalArgument_NameAssignment extends AssignmentToken  {
 /************ begin Rule CompositeDefinitionElement ****************
  *
  * CompositeDefinitionElement:
+ * 
  * 	SubComponentDefinition | InterfaceDefinition | BindingDefinition;
  *
  **/
@@ -3375,12 +3401,15 @@ protected class CompositeDefinitionElement_BindingDefinitionParserRuleCall_2 ext
 /************ begin Rule SubComponentDefinition ****************
  *
  * SubComponentDefinition:
+ * 
  * 	annotationsList=AnnotationsList? "contains" referenceDefinition=ComponentReference? "as" name=ID
+ * 
  * 	body=(SubComponentCompositeBody | SubComponentPrimitiveBody)?;
  *
  **/
 
 // annotationsList=AnnotationsList? "contains" referenceDefinition=ComponentReference? "as" name=ID
+// 
 // body=(SubComponentCompositeBody | SubComponentPrimitiveBody)?
 protected class SubComponentDefinition_Group extends GroupToken {
 	
@@ -3644,6 +3673,7 @@ protected class SubComponentDefinition_BodyAssignment_5 extends AssignmentToken 
 /************ begin Rule Body ****************
  *
  * Body:
+ * 
  * 	CompositeBody | PrimitiveBody | TypeBody;
  *
  **/
@@ -3796,6 +3826,7 @@ protected class Body_TypeBodyParserRuleCall_2 extends RuleCallToken {
 /************ begin Rule SubComponentCompositeBody ****************
  *
  * SubComponentCompositeBody:
+ * 
  * 	annotationsList=AnnotationsList? anonymous?="composite" "{" (elements+=CompositeDefinitionElement ";"?)* "}";
  *
  **/
@@ -4030,6 +4061,7 @@ protected class SubComponentCompositeBody_RightCurlyBracketKeyword_4 extends Key
 /************ begin Rule SubComponentPrimitiveBody ****************
  *
  * SubComponentPrimitiveBody:
+ * 
  * 	annotationsList=AnnotationsList? anonymous?="primitive" "{" (elements+=PrimitiveDefinitionElement ";"?)* "}";
  *
  **/
@@ -4264,6 +4296,7 @@ protected class SubComponentPrimitiveBody_RightCurlyBracketKeyword_4 extends Key
 /************ begin Rule CompositeBody ****************
  *
  * CompositeBody:
+ * 
  * 	(elements+=CompositeDefinitionElement ";"?)*;
  *
  **/
@@ -4343,6 +4376,7 @@ protected class CompositeBody_ElementsAssignment_0 extends AssignmentToken  {
 /************ begin Rule PrimitiveBody ****************
  *
  * PrimitiveBody:
+ * 
  * 	(elements+=PrimitiveDefinitionElement ";"?)*;
  *
  **/
@@ -4422,6 +4456,7 @@ protected class PrimitiveBody_ElementsAssignment_0 extends AssignmentToken  {
 /************ begin Rule TypeBody ****************
  *
  * TypeBody:
+ * 
  * 	(elements+=TypeDefinitionElement ";"?)*;
  *
  **/
@@ -4501,6 +4536,7 @@ protected class TypeBody_ElementsAssignment_0 extends AssignmentToken  {
 /************ begin Rule Element ****************
  *
  * Element:
+ * 
  * 	CompositeDefinitionElement | PrimitiveDefinitionElement | TypeDefinitionElement;
  *
  **/
@@ -4661,6 +4697,7 @@ protected class Element_TypeDefinitionElementParserRuleCall_2 extends RuleCallTo
 /************ begin Rule ComponentReference ****************
  *
  * ComponentReference:
+ * 
  * 	CompositeReferenceDefinition | PrimitiveReferenceDefinition | TypeReferenceDefinition;
  *
  **/
@@ -4813,12 +4850,15 @@ protected class ComponentReference_TypeReferenceDefinitionParserRuleCall_2 exten
 /************ begin Rule CompositeReferenceDefinition ****************
  *
  * CompositeReferenceDefinition:
+ * 
  * 	referenceName=FQN ("<" templatesList+=TemplateDefinition ("," templatesList+=TemplateDefinition)* ">")? ("("
+ * 
  * 	argumentsList+=ArgumentDefinition ("," argumentsList+=ArgumentDefinition)* ")")?;
  *
  **/
 
 // referenceName=FQN ("<" templatesList+=TemplateDefinition ("," templatesList+=TemplateDefinition)* ">")? ("("
+// 
 // argumentsList+=ArgumentDefinition ("," argumentsList+=ArgumentDefinition)* ")")?
 protected class CompositeReferenceDefinition_Group extends GroupToken {
 	
@@ -5303,6 +5343,7 @@ protected class CompositeReferenceDefinition_RightParenthesisKeyword_2_3 extends
 /************ begin Rule PrimitiveReferenceDefinition ****************
  *
  * PrimitiveReferenceDefinition:
+ * 
  * 	referenceName=FQN ("(" argumentsList+=ArgumentDefinition ("," argumentsList+=ArgumentDefinition)* ")")?;
  *
  **/
@@ -5583,6 +5624,7 @@ protected class PrimitiveReferenceDefinition_RightParenthesisKeyword_1_3 extends
 /************ begin Rule TemplateDefinition ****************
  *
  * TemplateDefinition:
+ * 
  * 	(name=ID "=")? reference=CompositeReferenceDefinition;
  *
  **/
@@ -5747,6 +5789,7 @@ protected class TemplateDefinition_ReferenceAssignment_1 extends AssignmentToken
 /************ begin Rule AttributeDefinition ****************
  *
  * AttributeDefinition:
+ * 
  * 	annotationsList=AnnotationsList? "attribute" type=AttributeType? attributeName=ID ("=" value=Value)?;
  *
  **/
@@ -6003,6 +6046,7 @@ protected class AttributeDefinition_ValueAssignment_4_1 extends AssignmentToken 
 /************ begin Rule ArgumentDefinition ****************
  *
  * ArgumentDefinition:
+ * 
  * 	argumentName=ID "=" argumentValue=Value | argumentValue=Value;
  *
  **/
@@ -6189,12 +6233,15 @@ protected class ArgumentDefinition_ArgumentValueAssignment_1 extends AssignmentT
 /************ begin Rule InterfaceDefinition ****************
  *
  * InterfaceDefinition:
+ * 
  * 	annotationsList=AnnotationsList? role=Role optional?="optional"? signature=FQN? "as" name=ID (collection?="["
+ * 
  * 	collectionsize=INT? "]" | collection?="[]")?;
  *
  **/
 
 // annotationsList=AnnotationsList? role=Role optional?="optional"? signature=FQN? "as" name=ID (collection?="["
+// 
 // collectionsize=INT? "]" | collection?="[]")?
 protected class InterfaceDefinition_Group extends GroupToken {
 	
@@ -6610,14 +6657,19 @@ protected class InterfaceDefinition_CollectionAssignment_6_1 extends AssignmentT
 /************ begin Rule BindingDefinition ****************
  *
  * BindingDefinition:
+ * 
  * 	annotationsList=AnnotationsList? ("binds" ("this" | interfaceSourceParentLabel=ID) "." interfaceSourceLabel=ID ("["
+ * 
  * 	interfaceSourceIndex=INT "]")? "to" ("this" | interfaceTargetParentLabel=ID) "." interfaceTargetLabel=ID ("["
+ * 
  * 	interfaceTargetIndex=INT "]")?);
  *
  **/
 
 // annotationsList=AnnotationsList? ("binds" ("this" | interfaceSourceParentLabel=ID) "." interfaceSourceLabel=ID ("["
+// 
 // interfaceSourceIndex=INT "]")? "to" ("this" | interfaceTargetParentLabel=ID) "." interfaceTargetLabel=ID ("["
+// 
 // interfaceTargetIndex=INT "]")?)
 protected class BindingDefinition_Group extends GroupToken {
 	
@@ -6693,6 +6745,7 @@ protected class BindingDefinition_AnnotationsListAssignment_0 extends Assignment
 }
 
 // "binds" ("this" | interfaceSourceParentLabel=ID) "." interfaceSourceLabel=ID ("[" interfaceSourceIndex=INT "]")? "to"
+// 
 // ("this" | interfaceTargetParentLabel=ID) "." interfaceTargetLabel=ID ("[" interfaceTargetIndex=INT "]")?
 protected class BindingDefinition_Group_1 extends GroupToken {
 	
@@ -7243,6 +7296,7 @@ protected class BindingDefinition_RightSquareBracketKeyword_1_9_2 extends Keywor
 /************ begin Rule DataDefinition ****************
  *
  * DataDefinition:
+ * 
  * 	annotationsList=AnnotationsList? "data" (fileC=FileC | inlineCcode=InlineCodeC);
  *
  **/
@@ -7466,6 +7520,7 @@ protected class DataDefinition_InlineCcodeAssignment_2_1 extends AssignmentToken
 /************ begin Rule ImplementationDefinition ****************
  *
  * ImplementationDefinition:
+ * 
  * 	annotationsList=AnnotationsList? "source" (fileC=FileC | inlineCcode=InlineCodeC);
  *
  **/
@@ -7689,6 +7744,7 @@ protected class ImplementationDefinition_InlineCcodeAssignment_2_1 extends Assig
 /************ begin Rule TemplateSpecifier ****************
  *
  * TemplateSpecifier:
+ * 
  * 	name=ID "conformsto" reference=TypeReferenceDefinition;
  *
  **/
@@ -7830,6 +7886,7 @@ protected class TemplateSpecifier_ReferenceAssignment_2 extends AssignmentToken 
 /************ begin Rule FileC ****************
  *
  * FileC:
+ * 
  * 	directory=Path? fileName=FileName;
  *
  **/
@@ -7938,6 +7995,7 @@ protected class FileC_FileNameAssignment_1 extends AssignmentToken  {
 /************ begin Rule InlineCodeC ****************
  *
  * InlineCodeC:
+ * 
  * 	codeC=CodeC;
  *
  **/
@@ -7983,6 +8041,7 @@ protected class InlineCodeC_CodeCAssignment extends AssignmentToken  {
 /************ begin Rule AnnotationsList ****************
  *
  * AnnotationsList:
+ * 
  * 	annotations+=Annotation annotations+=Annotation*;
  *
  **/
@@ -8116,7 +8175,10 @@ protected class AnnotationsList_AnnotationsAssignment_1 extends AssignmentToken 
 /************ begin Rule Annotation ****************
  *
  * Annotation:
- * 	"@" name=AnnotationType ("(" annotationElements+=AnnotationElement ("," annotationElements+=AnnotationElement)* ")")?;
+ * 
+ * 	"@" name=AnnotationType ("(" annotationElements+=AnnotationElement ("," annotationElements+=AnnotationElement)*
+ * 
+ * 	")")?;
  *
  **/
 
@@ -8418,6 +8480,7 @@ protected class Annotation_RightParenthesisKeyword_2_3 extends KeywordToken  {
 /************ begin Rule AnnotationElement ****************
  *
  * AnnotationElement:
+ * 
  * 	elementValue=ElementValue | elementName=ID "=" elementValue=ElementValue;
  *
  **/
@@ -8628,6 +8691,7 @@ protected class AnnotationElement_ElementValueAssignment_1_2 extends AssignmentT
 /************ begin Rule ElementValue ****************
  *
  * ElementValue:
+ * 
  * 	ConstantValue | Annotation | ElementValueArrayInitializer;
  *
  **/
@@ -8780,6 +8844,7 @@ protected class ElementValue_ElementValueArrayInitializerParserRuleCall_2 extend
 /************ begin Rule ConstantValue ****************
  *
  * ConstantValue:
+ * 
  * 	value=ConstantFormat;
  *
  **/
@@ -8826,6 +8891,7 @@ protected class ConstantValue_ValueAssignment extends AssignmentToken  {
 /************ begin Rule ElementValueArrayInitializer ****************
  *
  * ElementValueArrayInitializer:
+ * 
  * 	"{" values+=ElementValue ("," values+=ElementValue)* "}";
  *
  **/

@@ -8,6 +8,8 @@ import org.osgi.framework.Bundle;
 
 import com.google.inject.Injector;
 
+import org.ow2.mindEd.adl.textual.ui.internal.FractalActivator;
+
 /**
  * This class was generated. Customizations should only happen in a newly
  * introduced subclass. 
@@ -16,12 +18,12 @@ public class FractalExecutableExtensionFactory extends AbstractGuiceAwareExecuta
 
 	@Override
 	protected Bundle getBundle() {
-		return org.ow2.mindEd.adl.textual.ui.internal.FractalActivator.getInstance().getBundle();
+		return FractalActivator.getInstance().getBundle();
 	}
 	
 	@Override
 	protected Injector getInjector() {
-		return org.ow2.mindEd.adl.textual.ui.internal.FractalActivator.getInstance().getInjector("org.ow2.mindEd.adl.textual.Fractal");
+		return FractalActivator.getInstance().getInjector(FractalActivator.ORG_OW2_MINDED_ADL_TEXTUAL_FRACTAL);
 	}
 	
 }
