@@ -31,6 +31,104 @@ Ce faisant, et avec l’appui des financements publics pour supporter le surcoû
    </license>
 
    <requires>
+      <import feature="org.eclipse.help" version="1.2.0.v20090729-7e7jCWFEx2Xd7ZRvSUw9w9" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.ui.cheatsheets"/>
+      <import plugin="org.eclipse.core.runtime"/>
+      <import plugin="org.eclipse.core.resources"/>
+      <import plugin="org.eclipse.core.expressions"/>
+      <import plugin="org.eclipse.jface"/>
+      <import plugin="org.eclipse.ui.ide"/>
+      <import plugin="org.eclipse.ui.views"/>
+      <import plugin="org.eclipse.ui.navigator"/>
+      <import plugin="org.eclipse.ui.navigator.resources"/>
+      <import feature="org.eclipse.emf.ecore" version="2.6.0.v201002011637" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.emf.ecore.xmi"/>
+      <import feature="org.eclipse.emf.edit.ui" version="2.6.0.v201002011637" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.gmf.runtime.emf.core"/>
+      <import plugin="org.eclipse.gmf.runtime.emf.commands.core"/>
+      <import plugin="org.eclipse.gmf.runtime.emf.ui.properties"/>
+      <import plugin="org.eclipse.gmf.runtime.diagram.ui"/>
+      <import plugin="org.eclipse.gmf.runtime.diagram.ui.properties"/>
+      <import plugin="org.eclipse.gmf.runtime.diagram.ui.providers"/>
+      <import plugin="org.eclipse.gmf.runtime.diagram.ui.providers.ide"/>
+      <import plugin="org.eclipse.gmf.runtime.diagram.ui.render"/>
+      <import plugin="org.eclipse.gmf.runtime.diagram.ui.resources.editor"/>
+      <import plugin="org.eclipse.gmf.runtime.diagram.ui.resources.editor.ide"/>
+      <import feature="org.eclipse.draw2d" version="3.6.0.v20100201-1030-45-7w3121142602636" match="greaterOrEqual"/>
+      <import plugin="org.ow2.mindEd.adl.model" version="0.2.1" match="greaterOrEqual"/>
+      <import plugin="org.ow2.mindEd.adl.edit" version="0.2.1" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.ocl.ecore"/>
+      <import feature="org.eclipse.gef" version="3.6.0.v20100201-1030-777B-81A2Bz-6766395E33747" match="greaterOrEqual"/>
+      <import feature="org.eclipse.emf.validation" version="1.3.0.v200902052232-479-9oB55W69AO6KBA9" match="greaterOrEqual"/>
+      <import feature="org.eclipse.emf.validation.ocl" version="1.3.0.v20091215-1218-3--7w311A232602329" match="greaterOrEqual"/>
+      <import plugin="org.ow2.mindEd.ide.ui" version="0.2.1" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.gmf.tooling.runtime"/>
+      <import plugin="org.eclipse.gmf.runtime.diagram.ui.actions"/>
+      <import plugin="org.eclipse.xtext"/>
+      <import plugin="org.eclipse.emf.edit" version="2.5.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.ui" version="3.5.0" match="greaterOrEqual"/>
+      <import plugin="org.ow2.mindEd.ide" version="0.2.1" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.core.resources" version="3.6.0" match="greaterOrEqual"/>
+      <import plugin="org.ow2.mind.fractal-adl-bundle" version="0.2.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.cdt.core"/>
+      <import plugin="org.eclipse.cdt.make.core"/>
+      <import plugin="org.eclipse.cdt.managedbuilder.core"/>
+      <import plugin="org.eclipse.core.commands"/>
+      <import plugin="org.eclipse.core.filesystem"/>
+      <import plugin="org.eclipse.core.jobs"/>
+      <import plugin="org.eclipse.equinox.preferences"/>
+      <import plugin="org.eclipse.emf.common"/>
+      <import plugin="org.eclipse.emf.transaction"/>
+      <import plugin="org.eclipse.gmf.runtime.common.ui"/>
+      <import plugin="org.eclipse.jdt.core"/>
+      <import plugin="org.eclipse.jface.text"/>
+      <import plugin="org.eclipse.osgi"/>
+      <import plugin="org.eclipse.ui.workbench"/>
+      <import plugin="org.eclipse.ui.editors"/>
+      <import feature="org.eclipse.xtext.ui" version="1.0.0.v201003151027" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.xtext.util"/>
+      <import plugin="org.eclipse.cdt.ui" version="5.1.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.cdt.util" version="5.0.100" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.cdt.make.core" version="6.0.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.cdt.managedbuilder.core" version="6.0.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.cdt.managedbuilder.gnu.ui" version="5.0.100" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.cdt.managedbuilder.ui" version="5.1.0" match="greaterOrEqual"/>
+      <import plugin="org.ow2.mindEd.ide.edit" version="0.2.1" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.jdt.ui"/>
+      <import plugin="org.eclipse.ui.console"/>
+      <import plugin="org.objectweb.asm"/>
+      <import plugin="org.ow2.mindEd.ide.model" version="0.2.1" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.ui.editors" version="3.4.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.m2e.maven.runtime"/>
+      <import plugin="org.eclipse.emf.common.ui"/>
+      <import plugin="org.eclipse.ui.editors" version="3.5.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.ui.ide" version="3.5.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.xtext.ui.shared"/>
+      <import plugin="org.eclipse.xtext.builder"/>
+      <import plugin="org.antlr.runtime"/>
+      <import plugin="org.eclipse.xtext.common.types.ui"/>
+      <import plugin="org.eclipse.xtext.ui.codetemplates.ui"/>
+      <import plugin="org.eclipse.compare"/>
+      <import plugin="org.apache.log4j"/>
+      <import plugin="org.ow2.mindEd.itf.editor.textual.model" version="0.2.1" match="greaterOrEqual"/>
+      <import plugin="org.ow2.mindEd.idt.editor.textual.model" version="0.2.1" match="greaterOrEqual"/>
+      <import plugin="org.ow2.mindEd.itf.editor.textual.model.ui" version="0.2.1" match="greaterOrEqual"/>
+      <import plugin="org.ow2.mindEd.adl.util" version="1.0.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.core.runtime" version="3.2.0" match="compatible"/>
+      <import plugin="org.eclipse.core.expressions" version="3.2.0" match="compatible"/>
+      <import plugin="org.eclipse.ui" version="3.2.0" match="compatible"/>
+      <import plugin="org.eclipse.emf.validation" version="1.2.0" match="compatible"/>
+      <import plugin="org.eclipse.emf.validation.ui"/>
+      <import plugin="org.eclipse.xtext.common.types"/>
+      <import plugin="org.eclipse.xtext.xbase.lib"/>
+      <import feature="org.eclipse.help" version="1.2.0.v20090729-7e7jCWFEx2Xd7ZRvSUw9w9" match="greaterOrEqual"/>
+      <import feature="org.eclipse.emf.ecore" version="2.6.0.v201002011637" match="greaterOrEqual"/>
+      <import feature="org.eclipse.emf.edit.ui" version="2.6.0.v201002011637" match="greaterOrEqual"/>
+      <import feature="org.eclipse.draw2d" version="3.6.0.v20100201-1030-45-7w3121142602636" match="greaterOrEqual"/>
+      <import feature="org.eclipse.gef" version="3.6.0.v20100201-1030-777B-81A2Bz-6766395E33747" match="greaterOrEqual"/>
+      <import feature="org.eclipse.emf.validation" version="1.3.0.v200902052232-479-9oB55W69AO6KBA9" match="greaterOrEqual"/>
+      <import feature="org.eclipse.emf.validation.ocl" version="1.3.0.v20091215-1218-3--7w311A232602329" match="greaterOrEqual"/>
+      <import feature="org.eclipse.xtext.ui" version="1.0.0.v201003151027" match="greaterOrEqual"/>
       <import feature="org.eclipse.cdt" version="7.0.0.201002011403" match="greaterOrEqual"/>
       <import feature="org.eclipse.cdt.gnu.build" version="6.0.0.201002011403" match="greaterOrEqual"/>
       <import feature="org.eclipse.cdt.platform" version="7.0.0.201002011403" match="greaterOrEqual"/>
@@ -41,7 +139,6 @@ Ce faisant, et avec l’appui des financements publics pour supporter le surcoû
       <import feature="org.eclipse.emf.ecore" version="2.6.0.v201002011637" match="greaterOrEqual"/>
       <import feature="org.eclipse.emf.edit" version="2.6.0.v201002011637" match="greaterOrEqual"/>
       <import feature="org.eclipse.emf.edit.ui" version="2.6.0.v201002011637" match="greaterOrEqual"/>
-      <import feature="org.eclipse.emf.mwe.core" version="1.0.0.v201003150825" match="greaterOrEqual"/>
       <import feature="org.eclipse.emf.validation" version="1.3.0.v200902052232-479-9oB55W69AO6KBA9" match="greaterOrEqual"/>
       <import feature="org.eclipse.emf.validation.ocl" version="1.3.0.v20091215-1218-3--7w311A232602329" match="greaterOrEqual"/>
       <import feature="org.eclipse.gef" version="3.6.0.v20100201-1030-777B-81A2Bz-6766395E33747" match="greaterOrEqual"/>
@@ -51,11 +148,15 @@ Ce faisant, et avec l’appui des financements publics pour supporter le surcoû
       <import feature="org.eclipse.ocl" version="3.0.0.v200912282100-79-7G9oB56N7ABK9KDA" match="greaterOrEqual"/>
       <import feature="org.eclipse.platform" version="3.6.0.v20100121-9hF71GITFufnsj44XsigdRiv20ClbUb3ou" match="greaterOrEqual"/>
       <import feature="org.eclipse.rcp" version="3.6.0.v20091106-9KAiFD4Fs-UyZKdfDWGdrej" match="greaterOrEqual"/>
-      <import feature="org.eclipse.xtend" version="1.0.0.v201003150948" match="greaterOrEqual"/>
-      <import feature="org.eclipse.xtend.typesystem.emf" version="1.0.0.v201003150948" match="greaterOrEqual"/>
       <import feature="org.eclipse.xtext.runtime" version="1.0.0.v201003151027" match="greaterOrEqual"/>
       <import feature="org.eclipse.xtext.ui" version="1.0.0.v201003151027" match="greaterOrEqual"/>
       <import feature="org.eclipse.pde" version="3.6.0.v20090930-7b7kFD4FEx2XgdbEz-p9LZCG" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.xtext.junit4"/>
+      <import plugin="org.junit"/>
+      <import plugin="org.hamcrest.core"/>
+      <import plugin="org.ow2.mindEd.ide.editor" version="0.2.1" match="greaterOrEqual"/>
+      <import plugin="org.junit4"/>
+      <import plugin="org.eclipse.jdt.junit4.runtime"/>
    </requires>
 
    <plugin
@@ -102,13 +203,6 @@ Ce faisant, et avec l’appui des financements publics pour supporter le surcoû
 
    <plugin
          id="org.ow2.mindEd.ide.ui"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
-   <plugin
-         id="org.ow2.mindEd.adl.textual.model"
          download-size="0"
          install-size="0"
          version="0.0.0"
@@ -172,6 +266,62 @@ Ce faisant, et avec l’appui des financements publics pour supporter le surcoû
 
    <plugin
          id="org.ow2.mindEd.adl.validation"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.ow2.mindEd.adl.editor.tree"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.ow2.mindEd.adl.textual"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.ow2.mindEd.adl.util"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.ow2.mindEd.ide.editor"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.ow2.mind.fractal-adl-bundle.source"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.ow2.mindEd.adl.textual.tests"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.ow2.mindEd.ide.schema"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.ow2.mindEd.ide.test"
          download-size="0"
          install-size="0"
          version="0.0.0"

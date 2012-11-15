@@ -32,6 +32,17 @@ public class Messages extends NLS {
 	public static String ComponentNewWizardPage_src_field_label;
 	public static String ComponentNewWizardPage_src_field_title;
 	public static String ComponentNewWizardPage_title;
+	public static String MindInterfaceWizard_create_itf;
+	public static String MindInterfaceWizard_windows_title;
+	public static String MindInterfaceWizardPage_description;
+	public static String MindInterfaceWizard_opening_file;
+	public static String MindInterfaceWizardPage_package_field_label;
+	public static String MindInterfaceWizardPage_package_field_package_title;
+	public static String MindInterfaceWizardPage_package_field_browser;
+	public static String MindInterfaceWizardPage_interface_field_label;
+	public static String MindInterfaceWizardPage_error_msg_component_name_must_be_specified;
+	public static String MindInterfaceWizardPage_error_msg_component_name_must_be_valid;
+	public static String MindInterfaceWizardPage_20;
 	public static String MindPackageWizard_task;
 	public static String MindPackageWizard_window_title;
 	public static String MindPackageWizardPage_description;

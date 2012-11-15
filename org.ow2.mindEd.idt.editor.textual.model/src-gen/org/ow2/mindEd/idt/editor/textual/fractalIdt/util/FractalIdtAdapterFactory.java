@@ -1,7 +1,4 @@
 /**
- * <copyright>
- * </copyright>
- *
  */
 package org.ow2.mindEd.idt.editor.textual.fractalIdt.util;
 
@@ -88,11 +85,6 @@ public class FractalIdtAdapterFactory extends AdapterFactoryImpl
         return createConstantDefinitionBeginAdapter();
       }
       @Override
-      public Adapter caseConstantDefinitionEnd(ConstantDefinitionEnd object)
-      {
-        return createConstantDefinitionEndAdapter();
-      }
-      @Override
       public Adapter defaultCase(EObject object)
       {
         return createEObjectAdapter();
@@ -140,21 +132,6 @@ public class FractalIdtAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createConstantDefinitionBeginAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link org.ow2.mindEd.idt.editor.textual.fractalIdt.ConstantDefinitionEnd <em>Constant Definition End</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.ow2.mindEd.idt.editor.textual.fractalIdt.ConstantDefinitionEnd
-   * @generated
-   */
-  public Adapter createConstantDefinitionEndAdapter()
   {
     return null;
   }

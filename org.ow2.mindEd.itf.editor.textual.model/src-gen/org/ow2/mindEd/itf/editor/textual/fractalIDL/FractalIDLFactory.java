@@ -1,7 +1,4 @@
 /**
- * <copyright>
- * </copyright>
- *
  */
 package org.ow2.mindEd.itf.editor.textual.fractalIDL;
 
@@ -170,49 +167,31 @@ public interface FractalIDLFactory extends EFactory
   Declarator createDeclarator();
 
   /**
-   * Returns a new object of class '<em>Abstract Declarator</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Abstract Declarator</em>'.
-   * @generated
-   */
-  AbstractDeclarator createAbstractDeclarator();
-
-  /**
-   * Returns a new object of class '<em>Pointer Specification</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Pointer Specification</em>'.
-   * @generated
-   */
-  PointerSpecification createPointerSpecification();
-
-  /**
    * Returns a new object of class '<em>Qualified Pointer Specification</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return a new object of class '<em>Qualified Pointer Specification</em>'.
    * @generated
    */
-  Qualified_PointerSpecification createQualified_PointerSpecification();
+  QualifiedPointerSpecification createQualifiedPointerSpecification();
 
   /**
-   * Returns a new object of class '<em>Direct Declarator</em>'.
+   * Returns a new object of class '<em>Direct Named Declarator</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Direct Declarator</em>'.
+   * @return a new object of class '<em>Direct Named Declarator</em>'.
    * @generated
    */
-  DirectDeclarator createDirectDeclarator();
+  DirectNamedDeclarator createDirectNamedDeclarator();
 
   /**
-   * Returns a new object of class '<em>Abstract Direct Declarator</em>'.
+   * Returns a new object of class '<em>Direct Anonymous Declarator</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Abstract Direct Declarator</em>'.
+   * @return a new object of class '<em>Direct Anonymous Declarator</em>'.
    * @generated
    */
-  AbstractDirectDeclarator createAbstractDirectDeclarator();
+  DirectAnonymousDeclarator createDirectAnonymousDeclarator();
 
   /**
    * Returns a new object of class '<em>Array Specification</em>'.
@@ -278,13 +257,13 @@ public interface FractalIDLFactory extends EFactory
   IncludeDirective createIncludeDirective();
 
   /**
-   * Returns a new object of class '<em>Annotations</em>'.
+   * Returns a new object of class '<em>Annotations List</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Annotations</em>'.
+   * @return a new object of class '<em>Annotations List</em>'.
    * @generated
    */
-  Annotations createAnnotations();
+  AnnotationsList createAnnotationsList();
 
   /**
    * Returns a new object of class '<em>Annotation</em>'.
@@ -294,24 +273,6 @@ public interface FractalIDLFactory extends EFactory
    * @generated
    */
   Annotation createAnnotation();
-
-  /**
-   * Returns a new object of class '<em>Annotation Parameters</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Annotation Parameters</em>'.
-   * @generated
-   */
-  AnnotationParameters createAnnotationParameters();
-
-  /**
-   * Returns a new object of class '<em>Annotation Value Pairs</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Annotation Value Pairs</em>'.
-   * @generated
-   */
-  AnnotationValuePairs createAnnotationValuePairs();
 
   /**
    * Returns a new object of class '<em>Annotation Value Pair</em>'.
@@ -447,15 +408,6 @@ public interface FractalIDLFactory extends EFactory
    * @generated
    */
   PrimaryExpression createPrimaryExpression();
-
-  /**
-   * Returns a new object of class '<em>Literal</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Literal</em>'.
-   * @generated
-   */
-  Literal createLiteral();
 
   /**
    * Returns the package supported by this factory.

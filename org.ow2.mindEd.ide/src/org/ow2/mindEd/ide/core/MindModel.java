@@ -14,6 +14,7 @@ import org.eclipse.core.runtime.IStatus;
 import org.eclipse.emf.common.util.EList;
 import org.ow2.mindEd.ide.model.MindAdl;
 import org.ow2.mindEd.ide.model.MindAllRepo;
+import org.ow2.mindEd.ide.model.MindItf;
 import org.ow2.mindEd.ide.model.MindLibOrProject;
 import org.ow2.mindEd.ide.model.MindLibrary;
 import org.ow2.mindEd.ide.model.MindObject;
@@ -138,10 +139,20 @@ public interface MindModel {
 	 *
 	 * @param mp
 	 * @param packageName
-	 * @param componantName
+	 * @param componentName
 	 * @return the adl if is found or null
 	 */
-	MindAdl getAdl(MindProject mp, String packageName, String componantName);
+	MindAdl getAdl(MindProject mp, String packageName, String componentName);
+	
+	/**
+	 * Find the mind itf in the giving project mp, in package packageName and the name is interfaceName.
+	 *
+	 * @param mp
+	 * @param packageName
+	 * @param interfaceName
+	 * @return the itf if is found or null
+	 */
+	MindItf getItf(MindProject mp, String packageName, String interfaceName);
 	
 	/**
 	 * 

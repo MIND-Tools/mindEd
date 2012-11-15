@@ -12,7 +12,7 @@ import java.util.ArrayList;
 
 @SuppressWarnings("all")
 public class InternalFractalLexer extends Lexer {
-    public static final int RULE_ID=6;
+    public static final int RULE_ID=4;
     public static final int T__29=29;
     public static final int T__28=28;
     public static final int T__27=27;
@@ -29,7 +29,6 @@ public class InternalFractalLexer extends Lexer {
     public static final int T__19=19;
     public static final int T__56=56;
     public static final int T__57=57;
-    public static final int T__58=58;
     public static final int T__16=16;
     public static final int T__51=51;
     public static final int T__15=15;
@@ -40,7 +39,7 @@ public class InternalFractalLexer extends Lexer {
     public static final int T__17=17;
     public static final int T__14=14;
     public static final int T__13=13;
-    public static final int RULE_INT=4;
+    public static final int RULE_INT=6;
     public static final int T__50=50;
     public static final int T__42=42;
     public static final int T__43=43;
@@ -48,6 +47,7 @@ public class InternalFractalLexer extends Lexer {
     public static final int T__41=41;
     public static final int T__46=46;
     public static final int T__47=47;
+    public static final int RULE_CODE_C=8;
     public static final int T__44=44;
     public static final int T__45=45;
     public static final int T__48=48;
@@ -56,7 +56,6 @@ public class InternalFractalLexer extends Lexer {
     public static final int RULE_ML_COMMENT=9;
     public static final int T__30=30;
     public static final int T__31=31;
-    public static final int RULE_CODEC=8;
     public static final int T__32=32;
     public static final int RULE_STRING=5;
     public static final int T__33=33;
@@ -87,10 +86,10 @@ public class InternalFractalLexer extends Lexer {
         try {
             int _type = T__13;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g:11:7: ( 'this' )
-            // ../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g:11:9: 'this'
+            // ../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g:11:7: ( 'STRUCT' )
+            // ../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g:11:9: 'STRUCT'
             {
-            match("this"); 
+            match("STRUCT"); 
 
 
             }
@@ -108,10 +107,10 @@ public class InternalFractalLexer extends Lexer {
         try {
             int _type = T__14;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g:12:7: ( 'null' )
-            // ../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g:12:9: 'null'
+            // ../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g:12:7: ( 'UNION' )
+            // ../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g:12:9: 'UNION'
             {
-            match("null"); 
+            match("UNION"); 
 
 
             }
@@ -129,10 +128,10 @@ public class InternalFractalLexer extends Lexer {
         try {
             int _type = T__15;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g:13:7: ( 'Override' )
-            // ../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g:13:9: 'Override'
+            // ../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g:13:7: ( 'ENUM' )
+            // ../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g:13:9: 'ENUM'
             {
-            match("Override"); 
+            match("ENUM"); 
 
 
             }
@@ -150,11 +149,10 @@ public class InternalFractalLexer extends Lexer {
         try {
             int _type = T__16;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g:14:7: ( 'Singleton' )
-            // ../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g:14:9: 'Singleton'
+            // ../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g:14:7: ( '+' )
+            // ../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g:14:9: '+'
             {
-            match("Singleton"); 
-
+            match('+'); 
 
             }
 
@@ -171,11 +169,10 @@ public class InternalFractalLexer extends Lexer {
         try {
             int _type = T__17;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g:15:7: ( 'LDFlags' )
-            // ../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g:15:9: 'LDFlags'
+            // ../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g:15:7: ( '-' )
+            // ../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g:15:9: '-'
             {
-            match("LDFlags"); 
-
+            match('-'); 
 
             }
 
@@ -192,10 +189,10 @@ public class InternalFractalLexer extends Lexer {
         try {
             int _type = T__18;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g:16:7: ( 'CFlags' )
-            // ../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g:16:9: 'CFlags'
+            // ../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g:16:7: ( 'null' )
+            // ../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g:16:9: 'null'
             {
-            match("CFlags"); 
+            match("null"); 
 
 
             }
@@ -213,11 +210,10 @@ public class InternalFractalLexer extends Lexer {
         try {
             int _type = T__19;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g:17:7: ( 'STRUCT' )
-            // ../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g:17:9: 'STRUCT'
+            // ../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g:17:7: ( '.' )
+            // ../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g:17:9: '.'
             {
-            match("STRUCT"); 
-
+            match('.'); 
 
             }
 
@@ -234,10 +230,10 @@ public class InternalFractalLexer extends Lexer {
         try {
             int _type = T__20;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g:18:7: ( 'UNION' )
-            // ../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g:18:9: 'UNION'
+            // ../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g:18:7: ( '..' )
+            // ../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g:18:9: '..'
             {
-            match("UNION"); 
+            match(".."); 
 
 
             }
@@ -255,10 +251,10 @@ public class InternalFractalLexer extends Lexer {
         try {
             int _type = T__21;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g:19:7: ( 'ENUM' )
-            // ../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g:19:9: 'ENUM'
+            // ../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g:19:7: ( 'Override' )
+            // ../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g:19:9: 'Override'
             {
-            match("ENUM"); 
+            match("Override"); 
 
 
             }
@@ -276,10 +272,11 @@ public class InternalFractalLexer extends Lexer {
         try {
             int _type = T__22;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g:20:7: ( '.' )
-            // ../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g:20:9: '.'
+            // ../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g:20:7: ( 'Singleton' )
+            // ../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g:20:9: 'Singleton'
             {
-            match('.'); 
+            match("Singleton"); 
+
 
             }
 
@@ -296,10 +293,10 @@ public class InternalFractalLexer extends Lexer {
         try {
             int _type = T__23;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g:21:7: ( '..' )
-            // ../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g:21:9: '..'
+            // ../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g:21:7: ( 'LDFlags' )
+            // ../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g:21:9: 'LDFlags'
             {
-            match(".."); 
+            match("LDFlags"); 
 
 
             }
@@ -317,10 +314,11 @@ public class InternalFractalLexer extends Lexer {
         try {
             int _type = T__24;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g:22:7: ( '+' )
-            // ../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g:22:9: '+'
+            // ../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g:22:7: ( 'CFlags' )
+            // ../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g:22:9: 'CFlags'
             {
-            match('+'); 
+            match("CFlags"); 
+
 
             }
 
@@ -337,10 +335,11 @@ public class InternalFractalLexer extends Lexer {
         try {
             int _type = T__25;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g:23:7: ( '-' )
-            // ../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g:23:9: '-'
+            // ../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g:23:7: ( 'import' )
+            // ../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g:23:9: 'import'
             {
-            match('-'); 
+            match("import"); 
+
 
             }
 
@@ -357,11 +356,10 @@ public class InternalFractalLexer extends Lexer {
         try {
             int _type = T__26;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g:24:7: ( 'provides' )
-            // ../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g:24:9: 'provides'
+            // ../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g:24:7: ( ';' )
+            // ../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g:24:9: ';'
             {
-            match("provides"); 
-
+            match(';'); 
 
             }
 
@@ -378,10 +376,10 @@ public class InternalFractalLexer extends Lexer {
         try {
             int _type = T__27;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g:25:7: ( 'requires' )
-            // ../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g:25:9: 'requires'
+            // ../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g:25:7: ( '.*' )
+            // ../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g:25:9: '.*'
             {
-            match("requires"); 
+            match(".*"); 
 
 
             }
@@ -399,10 +397,10 @@ public class InternalFractalLexer extends Lexer {
         try {
             int _type = T__28;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g:26:7: ( 'import' )
-            // ../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g:26:9: 'import'
+            // ../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g:26:7: ( 'composite' )
+            // ../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g:26:9: 'composite'
             {
-            match("import"); 
+            match("composite"); 
 
 
             }
@@ -420,10 +418,10 @@ public class InternalFractalLexer extends Lexer {
         try {
             int _type = T__29;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g:27:7: ( ';' )
-            // ../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g:27:9: ';'
+            // ../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g:27:7: ( '{' )
+            // ../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g:27:9: '{'
             {
-            match(';'); 
+            match('{'); 
 
             }
 
@@ -440,11 +438,10 @@ public class InternalFractalLexer extends Lexer {
         try {
             int _type = T__30;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g:28:7: ( 'primitive' )
-            // ../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g:28:9: 'primitive'
+            // ../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g:28:7: ( '}' )
+            // ../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g:28:9: '}'
             {
-            match("primitive"); 
-
+            match('}'); 
 
             }
 
@@ -461,10 +458,10 @@ public class InternalFractalLexer extends Lexer {
         try {
             int _type = T__31;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g:29:7: ( '{' )
-            // ../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g:29:9: '{'
+            // ../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g:29:7: ( '<' )
+            // ../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g:29:9: '<'
             {
-            match('{'); 
+            match('<'); 
 
             }
 
@@ -481,10 +478,10 @@ public class InternalFractalLexer extends Lexer {
         try {
             int _type = T__32;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g:30:7: ( '}' )
-            // ../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g:30:9: '}'
+            // ../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g:30:7: ( '>' )
+            // ../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g:30:9: '>'
             {
-            match('}'); 
+            match('>'); 
 
             }
 
@@ -501,11 +498,10 @@ public class InternalFractalLexer extends Lexer {
         try {
             int _type = T__33;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g:31:7: ( 'type' )
-            // ../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g:31:9: 'type'
+            // ../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g:31:7: ( ',' )
+            // ../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g:31:9: ','
             {
-            match("type"); 
-
+            match(','); 
 
             }
 
@@ -522,10 +518,10 @@ public class InternalFractalLexer extends Lexer {
         try {
             int _type = T__34;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g:32:7: ( 'composite' )
-            // ../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g:32:9: 'composite'
+            // ../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g:32:7: ( 'extends' )
+            // ../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g:32:9: 'extends'
             {
-            match("composite"); 
+            match("extends"); 
 
 
             }
@@ -543,10 +539,11 @@ public class InternalFractalLexer extends Lexer {
         try {
             int _type = T__35;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g:33:7: ( '<' )
-            // ../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g:33:9: '<'
+            // ../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g:33:7: ( 'primitive' )
+            // ../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g:33:9: 'primitive'
             {
-            match('<'); 
+            match("primitive"); 
+
 
             }
 
@@ -563,10 +560,11 @@ public class InternalFractalLexer extends Lexer {
         try {
             int _type = T__36;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g:34:7: ( '>' )
-            // ../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g:34:9: '>'
+            // ../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g:34:7: ( 'type' )
+            // ../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g:34:9: 'type'
             {
-            match('>'); 
+            match("type"); 
+
 
             }
 
@@ -583,10 +581,10 @@ public class InternalFractalLexer extends Lexer {
         try {
             int _type = T__37;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g:35:7: ( ',' )
-            // ../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g:35:9: ','
+            // ../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g:35:7: ( '(' )
+            // ../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g:35:9: '('
             {
-            match(','); 
+            match('('); 
 
             }
 
@@ -603,10 +601,10 @@ public class InternalFractalLexer extends Lexer {
         try {
             int _type = T__38;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g:36:7: ( '(' )
-            // ../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g:36:9: '('
+            // ../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g:36:7: ( ')' )
+            // ../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g:36:9: ')'
             {
-            match('('); 
+            match(')'); 
 
             }
 
@@ -623,10 +621,11 @@ public class InternalFractalLexer extends Lexer {
         try {
             int _type = T__39;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g:37:7: ( ')' )
-            // ../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g:37:9: ')'
+            // ../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g:37:7: ( 'as' )
+            // ../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g:37:9: 'as'
             {
-            match(')'); 
+            match("as"); 
+
 
             }
 
@@ -643,11 +642,10 @@ public class InternalFractalLexer extends Lexer {
         try {
             int _type = T__40;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g:38:7: ( 'extends' )
-            // ../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g:38:9: 'extends'
+            // ../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g:38:7: ( ']' )
+            // ../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g:38:9: ']'
             {
-            match("extends"); 
-
+            match(']'); 
 
             }
 
@@ -685,10 +683,10 @@ public class InternalFractalLexer extends Lexer {
         try {
             int _type = T__42;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g:40:7: ( 'as' )
-            // ../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g:40:9: 'as'
+            // ../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g:40:7: ( 'binds' )
+            // ../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g:40:9: 'binds'
             {
-            match("as"); 
+            match("binds"); 
 
 
             }
@@ -706,10 +704,11 @@ public class InternalFractalLexer extends Lexer {
         try {
             int _type = T__43;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g:41:7: ( '=' )
-            // ../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g:41:9: '='
+            // ../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g:41:7: ( 'to' )
+            // ../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g:41:9: 'to'
             {
-            match('='); 
+            match("to"); 
+
 
             }
 
@@ -726,11 +725,10 @@ public class InternalFractalLexer extends Lexer {
         try {
             int _type = T__44;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g:42:7: ( 'attribute' )
-            // ../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g:42:9: 'attribute'
+            // ../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g:42:7: ( '[' )
+            // ../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g:42:9: '['
             {
-            match("attribute"); 
-
+            match('['); 
 
             }
 
@@ -747,10 +745,11 @@ public class InternalFractalLexer extends Lexer {
         try {
             int _type = T__45;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g:43:7: ( ']' )
-            // ../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g:43:9: ']'
+            // ../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g:43:7: ( 'conformsto' )
+            // ../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g:43:9: 'conformsto'
             {
-            match(']'); 
+            match("conformsto"); 
+
 
             }
 
@@ -767,10 +766,10 @@ public class InternalFractalLexer extends Lexer {
         try {
             int _type = T__46;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g:44:7: ( 'binds' )
-            // ../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g:44:9: 'binds'
+            // ../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g:44:7: ( '0x' )
+            // ../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g:44:9: '0x'
             {
-            match("binds"); 
+            match("0x"); 
 
 
             }
@@ -788,11 +787,10 @@ public class InternalFractalLexer extends Lexer {
         try {
             int _type = T__47;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g:45:7: ( 'to' )
-            // ../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g:45:9: 'to'
+            // ../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g:45:7: ( '=' )
+            // ../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g:45:9: '='
             {
-            match("to"); 
-
+            match('='); 
 
             }
 
@@ -809,10 +807,11 @@ public class InternalFractalLexer extends Lexer {
         try {
             int _type = T__48;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g:46:7: ( '[' )
-            // ../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g:46:9: '['
+            // ../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g:46:7: ( 'attribute' )
+            // ../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g:46:9: 'attribute'
             {
-            match('['); 
+            match("attribute"); 
+
 
             }
 
@@ -829,10 +828,10 @@ public class InternalFractalLexer extends Lexer {
         try {
             int _type = T__49;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g:47:7: ( 'data' )
-            // ../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g:47:9: 'data'
+            // ../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g:47:7: ( 'source' )
+            // ../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g:47:9: 'source'
             {
-            match("data"); 
+            match("source"); 
 
 
             }
@@ -850,10 +849,10 @@ public class InternalFractalLexer extends Lexer {
         try {
             int _type = T__50;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g:48:7: ( 'source' )
-            // ../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g:48:9: 'source'
+            // ../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g:48:7: ( 'data' )
+            // ../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g:48:9: 'data'
             {
-            match("source"); 
+            match("data"); 
 
 
             }
@@ -871,11 +870,10 @@ public class InternalFractalLexer extends Lexer {
         try {
             int _type = T__51;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g:49:7: ( 'conformsto' )
-            // ../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g:49:9: 'conformsto'
+            // ../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g:49:7: ( '@' )
+            // ../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g:49:9: '@'
             {
-            match("conformsto"); 
-
+            match('@'); 
 
             }
 
@@ -892,10 +890,11 @@ public class InternalFractalLexer extends Lexer {
         try {
             int _type = T__52;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g:50:7: ( '@' )
-            // ../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g:50:9: '@'
+            // ../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g:50:7: ( 'abstract' )
+            // ../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g:50:9: 'abstract'
             {
-            match('@'); 
+            match("abstract"); 
+
 
             }
 
@@ -912,10 +911,10 @@ public class InternalFractalLexer extends Lexer {
         try {
             int _type = T__53;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g:51:7: ( '0x' )
-            // ../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g:51:9: '0x'
+            // ../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g:51:7: ( 'provides' )
+            // ../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g:51:9: 'provides'
             {
-            match("0x"); 
+            match("provides"); 
 
 
             }
@@ -933,10 +932,10 @@ public class InternalFractalLexer extends Lexer {
         try {
             int _type = T__54;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g:52:7: ( '.*' )
-            // ../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g:52:9: '.*'
+            // ../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g:52:7: ( 'requires' )
+            // ../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g:52:9: 'requires'
             {
-            match(".*"); 
+            match("requires"); 
 
 
             }
@@ -954,10 +953,11 @@ public class InternalFractalLexer extends Lexer {
         try {
             int _type = T__55;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g:53:7: ( ':' )
-            // ../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g:53:9: ':'
+            // ../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g:53:7: ( 'optional' )
+            // ../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g:53:9: 'optional'
             {
-            match(':'); 
+            match("optional"); 
+
 
             }
 
@@ -974,10 +974,10 @@ public class InternalFractalLexer extends Lexer {
         try {
             int _type = T__56;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g:54:7: ( 'abstract' )
-            // ../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g:54:9: 'abstract'
+            // ../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g:54:7: ( 'this' )
+            // ../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g:54:9: 'this'
             {
-            match("abstract"); 
+            match("this"); 
 
 
             }
@@ -995,11 +995,10 @@ public class InternalFractalLexer extends Lexer {
         try {
             int _type = T__57;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g:55:7: ( 'optional' )
-            // ../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g:55:9: 'optional'
+            // ../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g:55:7: ( '?' )
+            // ../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g:55:9: '?'
             {
-            match("optional"); 
-
+            match('?'); 
 
             }
 
@@ -1011,38 +1010,17 @@ public class InternalFractalLexer extends Lexer {
     }
     // $ANTLR end "T__57"
 
-    // $ANTLR start "T__58"
-    public final void mT__58() throws RecognitionException {
+    // $ANTLR start "RULE_CODE_C"
+    public final void mRULE_CODE_C() throws RecognitionException {
         try {
-            int _type = T__58;
+            int _type = RULE_CODE_C;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g:56:7: ( '[]' )
-            // ../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g:56:9: '[]'
-            {
-            match("[]"); 
-
-
-            }
-
-            state.type = _type;
-            state.channel = _channel;
-        }
-        finally {
-        }
-    }
-    // $ANTLR end "T__58"
-
-    // $ANTLR start "RULE_CODEC"
-    public final void mRULE_CODEC() throws RecognitionException {
-        try {
-            int _type = RULE_CODEC;
-            int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g:10251:12: ( '{{' ( options {greedy=false; } : . )* '}}' )
-            // ../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g:10251:14: '{{' ( options {greedy=false; } : . )* '}}'
+            // ../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g:10512:13: ( '{{' ( options {greedy=false; } : . )* '}}' )
+            // ../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g:10512:15: '{{' ( options {greedy=false; } : . )* '}}'
             {
             match("{{"); 
 
-            // ../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g:10251:19: ( options {greedy=false; } : . )*
+            // ../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g:10512:20: ( options {greedy=false; } : . )*
             loop1:
             do {
                 int alt1=2;
@@ -1067,7 +1045,7 @@ public class InternalFractalLexer extends Lexer {
 
                 switch (alt1) {
             	case 1 :
-            	    // ../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g:10251:47: .
+            	    // ../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g:10512:48: .
             	    {
             	    matchAny(); 
 
@@ -1090,17 +1068,17 @@ public class InternalFractalLexer extends Lexer {
         finally {
         }
     }
-    // $ANTLR end "RULE_CODEC"
+    // $ANTLR end "RULE_CODE_C"
 
     // $ANTLR start "RULE_SL"
     public final void mRULE_SL() throws RecognitionException {
         try {
             int _type = RULE_SL;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g:10253:9: ( ( '\\\\' | '\\\\\\\\' | '/' ) )
-            // ../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g:10253:11: ( '\\\\' | '\\\\\\\\' | '/' )
+            // ../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g:10514:9: ( ( '\\\\' | '\\\\\\\\' | '/' ) )
+            // ../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g:10514:11: ( '\\\\' | '\\\\\\\\' | '/' )
             {
-            // ../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g:10253:11: ( '\\\\' | '\\\\\\\\' | '/' )
+            // ../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g:10514:11: ( '\\\\' | '\\\\\\\\' | '/' )
             int alt2=3;
             int LA2_0 = input.LA(1);
 
@@ -1124,14 +1102,14 @@ public class InternalFractalLexer extends Lexer {
             }
             switch (alt2) {
                 case 1 :
-                    // ../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g:10253:12: '\\\\'
+                    // ../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g:10514:12: '\\\\'
                     {
                     match('\\'); 
 
                     }
                     break;
                 case 2 :
-                    // ../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g:10253:17: '\\\\\\\\'
+                    // ../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g:10514:17: '\\\\\\\\'
                     {
                     match("\\\\"); 
 
@@ -1139,7 +1117,7 @@ public class InternalFractalLexer extends Lexer {
                     }
                     break;
                 case 3 :
-                    // ../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g:10253:24: '/'
+                    // ../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g:10514:24: '/'
                     {
                     match('/'); 
 
@@ -1164,10 +1142,10 @@ public class InternalFractalLexer extends Lexer {
         try {
             int _type = RULE_ID;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g:10255:9: ( ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )* )
-            // ../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g:10255:11: ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
+            // ../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g:10516:9: ( ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )* )
+            // ../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g:10516:11: ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
             {
-            // ../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g:10255:11: ( '^' )?
+            // ../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g:10516:11: ( '^' )?
             int alt3=2;
             int LA3_0 = input.LA(1);
 
@@ -1176,7 +1154,7 @@ public class InternalFractalLexer extends Lexer {
             }
             switch (alt3) {
                 case 1 :
-                    // ../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g:10255:11: '^'
+                    // ../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g:10516:11: '^'
                     {
                     match('^'); 
 
@@ -1194,7 +1172,7 @@ public class InternalFractalLexer extends Lexer {
                 recover(mse);
                 throw mse;}
 
-            // ../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g:10255:40: ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
+            // ../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g:10516:40: ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
             loop4:
             do {
                 int alt4=2;
@@ -1243,10 +1221,10 @@ public class InternalFractalLexer extends Lexer {
         try {
             int _type = RULE_INT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g:10257:10: ( ( '0' .. '9' )+ )
-            // ../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g:10257:12: ( '0' .. '9' )+
+            // ../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g:10518:10: ( ( '0' .. '9' )+ )
+            // ../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g:10518:12: ( '0' .. '9' )+
             {
-            // ../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g:10257:12: ( '0' .. '9' )+
+            // ../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g:10518:12: ( '0' .. '9' )+
             int cnt5=0;
             loop5:
             do {
@@ -1260,7 +1238,7 @@ public class InternalFractalLexer extends Lexer {
 
                 switch (alt5) {
             	case 1 :
-            	    // ../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g:10257:13: '0' .. '9'
+            	    // ../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g:10518:13: '0' .. '9'
             	    {
             	    matchRange('0','9'); 
 
@@ -1292,10 +1270,10 @@ public class InternalFractalLexer extends Lexer {
         try {
             int _type = RULE_STRING;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g:10259:13: ( ( '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' ) )
-            // ../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g:10259:15: ( '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
+            // ../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g:10520:13: ( ( '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' ) )
+            // ../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g:10520:15: ( '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
             {
-            // ../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g:10259:15: ( '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
+            // ../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g:10520:15: ( '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
             int alt8=2;
             int LA8_0 = input.LA(1);
 
@@ -1313,10 +1291,10 @@ public class InternalFractalLexer extends Lexer {
             }
             switch (alt8) {
                 case 1 :
-                    // ../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g:10259:16: '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"'
+                    // ../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g:10520:16: '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"'
                     {
                     match('\"'); 
-                    // ../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g:10259:20: ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )*
+                    // ../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g:10520:20: ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )*
                     loop6:
                     do {
                         int alt6=3;
@@ -1332,7 +1310,7 @@ public class InternalFractalLexer extends Lexer {
 
                         switch (alt6) {
                     	case 1 :
-                    	    // ../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g:10259:21: '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' )
+                    	    // ../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g:10520:21: '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' )
                     	    {
                     	    match('\\'); 
                     	    if ( input.LA(1)=='\"'||input.LA(1)=='\''||input.LA(1)=='\\'||input.LA(1)=='b'||input.LA(1)=='f'||input.LA(1)=='n'||input.LA(1)=='r'||(input.LA(1)>='t' && input.LA(1)<='u') ) {
@@ -1348,7 +1326,7 @@ public class InternalFractalLexer extends Lexer {
                     	    }
                     	    break;
                     	case 2 :
-                    	    // ../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g:10259:66: ~ ( ( '\\\\' | '\"' ) )
+                    	    // ../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g:10520:66: ~ ( ( '\\\\' | '\"' ) )
                     	    {
                     	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='!')||(input.LA(1)>='#' && input.LA(1)<='[')||(input.LA(1)>=']' && input.LA(1)<='\uFFFF') ) {
                     	        input.consume();
@@ -1373,10 +1351,10 @@ public class InternalFractalLexer extends Lexer {
                     }
                     break;
                 case 2 :
-                    // ../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g:10259:86: '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )* '\\''
+                    // ../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g:10520:86: '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )* '\\''
                     {
                     match('\''); 
-                    // ../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g:10259:91: ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )*
+                    // ../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g:10520:91: ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )*
                     loop7:
                     do {
                         int alt7=3;
@@ -1392,7 +1370,7 @@ public class InternalFractalLexer extends Lexer {
 
                         switch (alt7) {
                     	case 1 :
-                    	    // ../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g:10259:92: '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' )
+                    	    // ../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g:10520:92: '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' )
                     	    {
                     	    match('\\'); 
                     	    if ( input.LA(1)=='\"'||input.LA(1)=='\''||input.LA(1)=='\\'||input.LA(1)=='b'||input.LA(1)=='f'||input.LA(1)=='n'||input.LA(1)=='r'||(input.LA(1)>='t' && input.LA(1)<='u') ) {
@@ -1408,7 +1386,7 @@ public class InternalFractalLexer extends Lexer {
                     	    }
                     	    break;
                     	case 2 :
-                    	    // ../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g:10259:137: ~ ( ( '\\\\' | '\\'' ) )
+                    	    // ../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g:10520:137: ~ ( ( '\\\\' | '\\'' ) )
                     	    {
                     	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='&')||(input.LA(1)>='(' && input.LA(1)<='[')||(input.LA(1)>=']' && input.LA(1)<='\uFFFF') ) {
                     	        input.consume();
@@ -1451,12 +1429,12 @@ public class InternalFractalLexer extends Lexer {
         try {
             int _type = RULE_ML_COMMENT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g:10261:17: ( '/*' ( options {greedy=false; } : . )* '*/' )
-            // ../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g:10261:19: '/*' ( options {greedy=false; } : . )* '*/'
+            // ../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g:10522:17: ( '/*' ( options {greedy=false; } : . )* '*/' )
+            // ../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g:10522:19: '/*' ( options {greedy=false; } : . )* '*/'
             {
             match("/*"); 
 
-            // ../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g:10261:24: ( options {greedy=false; } : . )*
+            // ../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g:10522:24: ( options {greedy=false; } : . )*
             loop9:
             do {
                 int alt9=2;
@@ -1481,7 +1459,7 @@ public class InternalFractalLexer extends Lexer {
 
                 switch (alt9) {
             	case 1 :
-            	    // ../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g:10261:52: .
+            	    // ../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g:10522:52: .
             	    {
             	    matchAny(); 
 
@@ -1511,12 +1489,12 @@ public class InternalFractalLexer extends Lexer {
         try {
             int _type = RULE_SL_COMMENT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g:10263:17: ( '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )? )
-            // ../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g:10263:19: '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )?
+            // ../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g:10524:17: ( '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )? )
+            // ../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g:10524:19: '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )?
             {
             match("//"); 
 
-            // ../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g:10263:24: (~ ( ( '\\n' | '\\r' ) ) )*
+            // ../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g:10524:24: (~ ( ( '\\n' | '\\r' ) ) )*
             loop10:
             do {
                 int alt10=2;
@@ -1529,7 +1507,7 @@ public class InternalFractalLexer extends Lexer {
 
                 switch (alt10) {
             	case 1 :
-            	    // ../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g:10263:24: ~ ( ( '\\n' | '\\r' ) )
+            	    // ../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g:10524:24: ~ ( ( '\\n' | '\\r' ) )
             	    {
             	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='\t')||(input.LA(1)>='\u000B' && input.LA(1)<='\f')||(input.LA(1)>='\u000E' && input.LA(1)<='\uFFFF') ) {
             	        input.consume();
@@ -1549,7 +1527,7 @@ public class InternalFractalLexer extends Lexer {
                 }
             } while (true);
 
-            // ../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g:10263:40: ( ( '\\r' )? '\\n' )?
+            // ../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g:10524:40: ( ( '\\r' )? '\\n' )?
             int alt12=2;
             int LA12_0 = input.LA(1);
 
@@ -1558,9 +1536,9 @@ public class InternalFractalLexer extends Lexer {
             }
             switch (alt12) {
                 case 1 :
-                    // ../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g:10263:41: ( '\\r' )? '\\n'
+                    // ../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g:10524:41: ( '\\r' )? '\\n'
                     {
-                    // ../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g:10263:41: ( '\\r' )?
+                    // ../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g:10524:41: ( '\\r' )?
                     int alt11=2;
                     int LA11_0 = input.LA(1);
 
@@ -1569,7 +1547,7 @@ public class InternalFractalLexer extends Lexer {
                     }
                     switch (alt11) {
                         case 1 :
-                            // ../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g:10263:41: '\\r'
+                            // ../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g:10524:41: '\\r'
                             {
                             match('\r'); 
 
@@ -1601,10 +1579,10 @@ public class InternalFractalLexer extends Lexer {
         try {
             int _type = RULE_WS;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g:10265:9: ( ( ' ' | '\\t' | '\\r' | '\\n' )+ )
-            // ../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g:10265:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
+            // ../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g:10526:9: ( ( ' ' | '\\t' | '\\r' | '\\n' )+ )
+            // ../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g:10526:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
             {
-            // ../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g:10265:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
+            // ../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g:10526:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
             int cnt13=0;
             loop13:
             do {
@@ -1658,8 +1636,8 @@ public class InternalFractalLexer extends Lexer {
         try {
             int _type = RULE_ANY_OTHER;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g:10267:16: ( . )
-            // ../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g:10267:18: .
+            // ../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g:10528:16: ( . )
+            // ../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g:10528:18: .
             {
             matchAny(); 
 
@@ -1674,8 +1652,8 @@ public class InternalFractalLexer extends Lexer {
     // $ANTLR end "RULE_ANY_OTHER"
 
     public void mTokens() throws RecognitionException {
-        // ../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g:1:8: ( T__13 | T__14 | T__15 | T__16 | T__17 | T__18 | T__19 | T__20 | T__21 | T__22 | T__23 | T__24 | T__25 | T__26 | T__27 | T__28 | T__29 | T__30 | T__31 | T__32 | T__33 | T__34 | T__35 | T__36 | T__37 | T__38 | T__39 | T__40 | T__41 | T__42 | T__43 | T__44 | T__45 | T__46 | T__47 | T__48 | T__49 | T__50 | T__51 | T__52 | T__53 | T__54 | T__55 | T__56 | T__57 | T__58 | RULE_CODEC | RULE_SL | RULE_ID | RULE_INT | RULE_STRING | RULE_ML_COMMENT | RULE_SL_COMMENT | RULE_WS | RULE_ANY_OTHER )
-        int alt14=55;
+        // ../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g:1:8: ( T__13 | T__14 | T__15 | T__16 | T__17 | T__18 | T__19 | T__20 | T__21 | T__22 | T__23 | T__24 | T__25 | T__26 | T__27 | T__28 | T__29 | T__30 | T__31 | T__32 | T__33 | T__34 | T__35 | T__36 | T__37 | T__38 | T__39 | T__40 | T__41 | T__42 | T__43 | T__44 | T__45 | T__46 | T__47 | T__48 | T__49 | T__50 | T__51 | T__52 | T__53 | T__54 | T__55 | T__56 | T__57 | RULE_CODE_C | RULE_SL | RULE_ID | RULE_INT | RULE_STRING | RULE_ML_COMMENT | RULE_SL_COMMENT | RULE_WS | RULE_ANY_OTHER )
+        int alt14=54;
         alt14 = dfa14.predict(input);
         switch (alt14) {
             case 1 :
@@ -1994,70 +1972,63 @@ public class InternalFractalLexer extends Lexer {
                 }
                 break;
             case 46 :
-                // ../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g:1:280: T__58
+                // ../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g:1:280: RULE_CODE_C
                 {
-                mT__58(); 
+                mRULE_CODE_C(); 
 
                 }
                 break;
             case 47 :
-                // ../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g:1:286: RULE_CODEC
-                {
-                mRULE_CODEC(); 
-
-                }
-                break;
-            case 48 :
-                // ../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g:1:297: RULE_SL
+                // ../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g:1:292: RULE_SL
                 {
                 mRULE_SL(); 
 
                 }
                 break;
-            case 49 :
-                // ../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g:1:305: RULE_ID
+            case 48 :
+                // ../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g:1:300: RULE_ID
                 {
                 mRULE_ID(); 
 
                 }
                 break;
-            case 50 :
-                // ../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g:1:313: RULE_INT
+            case 49 :
+                // ../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g:1:308: RULE_INT
                 {
                 mRULE_INT(); 
 
                 }
                 break;
-            case 51 :
-                // ../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g:1:322: RULE_STRING
+            case 50 :
+                // ../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g:1:317: RULE_STRING
                 {
                 mRULE_STRING(); 
 
                 }
                 break;
-            case 52 :
-                // ../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g:1:334: RULE_ML_COMMENT
+            case 51 :
+                // ../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g:1:329: RULE_ML_COMMENT
                 {
                 mRULE_ML_COMMENT(); 
 
                 }
                 break;
-            case 53 :
-                // ../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g:1:350: RULE_SL_COMMENT
+            case 52 :
+                // ../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g:1:345: RULE_SL_COMMENT
                 {
                 mRULE_SL_COMMENT(); 
 
                 }
                 break;
-            case 54 :
-                // ../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g:1:366: RULE_WS
+            case 53 :
+                // ../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g:1:361: RULE_WS
                 {
                 mRULE_WS(); 
 
                 }
                 break;
-            case 55 :
-                // ../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g:1:374: RULE_ANY_OTHER
+            case 54 :
+                // ../org.ow2.mindEd.adl.textual.ui/src-gen/org/ow2/mindEd/adl/textual/ui/contentassist/antlr/internal/InternalFractal.g:1:369: RULE_ANY_OTHER
                 {
                 mRULE_ANY_OTHER(); 
 
@@ -2071,163 +2042,166 @@ public class InternalFractalLexer extends Lexer {
 
     protected DFA14 dfa14 = new DFA14(this);
     static final String DFA14_eotS =
-        "\1\uffff\10\60\1\73\2\uffff\3\60\1\uffff\1\103\1\uffff\1\60\5\uffff"+
-        "\2\60\2\uffff\1\60\1\123\2\60\1\uffff\1\130\1\uffff\1\60\1\uffff"+
-        "\1\133\1\54\2\uffff\2\54\2\uffff\2\60\1\142\1\uffff\10\60\5\uffff"+
-        "\3\60\4\uffff\1\60\5\uffff\1\60\1\162\2\60\2\uffff\1\60\2\uffff"+
-        "\2\60\4\uffff\1\60\5\uffff\2\60\1\uffff\17\60\1\uffff\6\60\1\u0091"+
-        "\1\u0092\1\u0093\6\60\1\u009a\13\60\1\u00a6\2\60\3\uffff\5\60\1"+
-        "\u00ae\1\uffff\12\60\1\u00b9\1\uffff\4\60\1\u00be\1\60\1\u00c0\1"+
-        "\uffff\3\60\1\u00c4\6\60\1\uffff\1\u00cb\3\60\1\uffff\1\u00cf\1"+
-        "\uffff\3\60\1\uffff\3\60\1\u00d6\2\60\1\uffff\1\60\1\u00da\1\60"+
-        "\1\uffff\1\u00dc\1\60\1\u00de\1\60\1\u00e0\1\60\1\uffff\1\60\1\u00e3"+
-        "\1\u00e4\1\uffff\1\u00e5\1\uffff\1\u00e6\1\uffff\1\u00e7\1\uffff"+
-        "\1\60\1\u00e9\5\uffff\1\u00ea\2\uffff";
+        "\1\uffff\3\57\2\uffff\1\57\1\67\4\57\1\uffff\1\57\1\77\4\uffff"+
+        "\3\57\2\uffff\1\57\1\uffff\1\57\1\uffff\1\122\1\uffff\2\57\1\uffff"+
+        "\2\57\2\uffff\1\132\1\54\2\uffff\2\54\2\uffff\2\57\1\uffff\2\57"+
+        "\2\uffff\1\57\3\uffff\4\57\1\uffff\1\57\6\uffff\3\57\1\156\1\57"+
+        "\2\uffff\1\160\2\57\1\uffff\1\57\4\uffff\2\57\1\uffff\2\57\6\uffff"+
+        "\17\57\1\uffff\1\57\1\uffff\12\57\1\u0093\1\u0094\12\57\1\u009f"+
+        "\1\u00a0\4\57\1\u00a5\4\57\1\u00aa\2\uffff\12\57\2\uffff\2\57\1"+
+        "\u00b7\1\57\1\uffff\2\57\1\u00bb\1\57\1\uffff\2\57\1\u00bf\1\u00c0"+
+        "\10\57\1\uffff\1\u00c9\2\57\1\uffff\2\57\1\u00ce\2\uffff\3\57\1"+
+        "\u00d2\4\57\1\uffff\3\57\1\u00da\1\uffff\1\57\1\u00dc\1\57\1\uffff"+
+        "\1\57\1\u00df\1\57\1\u00e1\1\u00e2\1\u00e3\1\u00e4\1\uffff\1\u00e5"+
+        "\1\uffff\1\57\1\u00e7\1\uffff\1\u00e8\5\uffff\1\u00e9\3\uffff";
     static final String DFA14_eofS =
-        "\u00eb\uffff";
+        "\u00ea\uffff";
     static final String DFA14_minS =
-        "\1\0\1\150\1\165\1\166\1\124\1\104\1\106\2\116\1\52\2\uffff\1\162"+
-        "\1\145\1\155\1\uffff\1\173\1\uffff\1\157\5\uffff\1\170\1\142\2\uffff"+
-        "\1\151\1\135\1\141\1\157\1\uffff\1\170\1\uffff\1\160\1\uffff\1\52"+
-        "\1\101\2\uffff\2\0\2\uffff\1\151\1\160\1\60\1\uffff\1\154\1\145"+
-        "\1\156\1\122\1\106\1\154\1\111\1\125\5\uffff\1\151\1\161\1\160\4"+
-        "\uffff\1\155\5\uffff\1\164\1\60\1\164\1\163\2\uffff\1\156\2\uffff"+
-        "\1\164\1\165\4\uffff\1\164\5\uffff\1\163\1\145\1\uffff\1\154\1\162"+
-        "\1\147\1\125\1\154\1\141\1\117\1\115\1\166\1\155\1\165\1\157\1\160"+
-        "\1\146\1\145\1\uffff\1\162\1\164\1\144\1\141\1\162\1\151\3\60\1"+
-        "\162\1\154\1\103\1\141\1\147\1\116\1\60\3\151\1\162\1\157\1\141"+
-        "\1\157\1\156\1\151\1\162\1\163\1\60\1\143\1\157\3\uffff\1\151\1"+
-        "\145\1\124\1\147\1\163\1\60\1\uffff\1\144\1\164\1\162\1\164\1\163"+
-        "\1\151\1\162\1\144\1\142\1\141\1\60\1\uffff\1\145\1\156\1\144\1"+
-        "\164\1\60\1\163\1\60\1\uffff\1\145\1\151\1\145\1\60\1\151\1\156"+
-        "\1\155\1\163\1\165\1\143\1\uffff\1\60\1\141\1\145\1\157\1\uffff"+
-        "\1\60\1\uffff\1\163\1\166\1\163\1\uffff\1\164\2\163\1\60\2\164\1"+
-        "\uffff\1\154\1\60\1\156\1\uffff\1\60\1\145\1\60\1\145\1\60\1\164"+
-        "\1\uffff\1\145\2\60\1\uffff\1\60\1\uffff\1\60\1\uffff\1\60\1\uffff"+
-        "\1\157\1\60\5\uffff\1\60\2\uffff";
+        "\1\0\1\124\2\116\2\uffff\1\165\1\52\1\166\1\104\1\106\1\155\1\uffff"+
+        "\1\157\1\173\4\uffff\1\170\1\162\1\150\2\uffff\1\142\1\uffff\1\151"+
+        "\1\uffff\1\170\1\uffff\1\157\1\141\1\uffff\1\145\1\160\2\uffff\1"+
+        "\52\1\101\2\uffff\2\0\2\uffff\1\122\1\156\1\uffff\1\111\1\125\2"+
+        "\uffff\1\154\3\uffff\1\145\1\106\1\154\1\160\1\uffff\1\155\6\uffff"+
+        "\1\164\1\151\1\160\1\60\1\151\2\uffff\1\60\1\164\1\163\1\uffff\1"+
+        "\156\4\uffff\1\165\1\164\1\uffff\1\161\1\164\6\uffff\1\125\1\147"+
+        "\1\117\1\115\1\154\1\162\1\154\1\141\1\157\1\160\1\146\1\145\1\155"+
+        "\1\166\1\145\1\uffff\1\163\1\uffff\1\162\1\164\1\144\1\162\1\141"+
+        "\1\165\1\151\1\103\1\154\1\116\2\60\1\162\1\141\1\147\1\162\1\157"+
+        "\1\141\1\157\1\156\2\151\2\60\1\151\1\162\1\163\1\143\1\60\1\151"+
+        "\1\157\1\124\1\145\1\60\2\uffff\1\151\1\147\1\163\1\164\1\163\1"+
+        "\151\1\162\1\144\1\164\1\144\2\uffff\1\142\1\141\1\60\1\145\1\uffff"+
+        "\1\162\1\156\1\60\1\164\1\uffff\1\144\1\163\2\60\1\151\1\156\1\155"+
+        "\1\163\1\151\1\145\1\165\1\143\1\uffff\1\60\1\145\1\141\1\uffff"+
+        "\1\157\1\145\1\60\2\uffff\1\164\2\163\1\60\1\166\1\163\2\164\1\uffff"+
+        "\1\163\1\154\1\156\1\60\1\uffff\1\145\1\60\1\164\1\uffff\1\145\1"+
+        "\60\1\145\4\60\1\uffff\1\60\1\uffff\1\157\1\60\1\uffff\1\60\5\uffff"+
+        "\1\60\3\uffff";
     static final String DFA14_maxS =
-        "\1\uffff\1\171\1\165\1\166\1\151\1\104\1\106\2\116\1\56\2\uffff"+
-        "\1\162\1\145\1\155\1\uffff\1\173\1\uffff\1\157\5\uffff\1\170\1\164"+
-        "\2\uffff\1\151\1\135\1\141\1\157\1\uffff\1\170\1\uffff\1\160\1\uffff"+
-        "\1\57\1\172\2\uffff\2\uffff\2\uffff\1\151\1\160\1\172\1\uffff\1"+
-        "\154\1\145\1\156\1\122\1\106\1\154\1\111\1\125\5\uffff\1\157\1\161"+
-        "\1\160\4\uffff\1\156\5\uffff\1\164\1\172\1\164\1\163\2\uffff\1\156"+
-        "\2\uffff\1\164\1\165\4\uffff\1\164\5\uffff\1\163\1\145\1\uffff\1"+
-        "\154\1\162\1\147\1\125\1\154\1\141\1\117\1\115\1\166\1\155\1\165"+
-        "\1\157\1\160\1\164\1\145\1\uffff\1\162\1\164\1\144\1\141\1\162\1"+
-        "\151\3\172\1\162\1\154\1\103\1\141\1\147\1\116\1\172\3\151\1\162"+
-        "\1\157\1\141\1\157\1\156\1\151\1\162\1\163\1\172\1\143\1\157\3\uffff"+
-        "\1\151\1\145\1\124\1\147\1\163\1\172\1\uffff\1\144\1\164\1\162\1"+
-        "\164\1\163\1\151\1\162\1\144\1\142\1\141\1\172\1\uffff\1\145\1\156"+
-        "\1\144\1\164\1\172\1\163\1\172\1\uffff\1\145\1\151\1\145\1\172\1"+
-        "\151\1\156\1\155\1\163\1\165\1\143\1\uffff\1\172\1\141\1\145\1\157"+
-        "\1\uffff\1\172\1\uffff\1\163\1\166\1\163\1\uffff\1\164\2\163\1\172"+
-        "\2\164\1\uffff\1\154\1\172\1\156\1\uffff\1\172\1\145\1\172\1\145"+
-        "\1\172\1\164\1\uffff\1\145\2\172\1\uffff\1\172\1\uffff\1\172\1\uffff"+
-        "\1\172\1\uffff\1\157\1\172\5\uffff\1\172\2\uffff";
+        "\1\uffff\1\151\2\116\2\uffff\1\165\1\56\1\166\1\104\1\106\1\155"+
+        "\1\uffff\1\157\1\173\4\uffff\1\170\1\162\1\171\2\uffff\1\164\1\uffff"+
+        "\1\151\1\uffff\1\170\1\uffff\1\157\1\141\1\uffff\1\145\1\160\2\uffff"+
+        "\1\57\1\172\2\uffff\2\uffff\2\uffff\1\122\1\156\1\uffff\1\111\1"+
+        "\125\2\uffff\1\154\3\uffff\1\145\1\106\1\154\1\160\1\uffff\1\156"+
+        "\6\uffff\1\164\1\157\1\160\1\172\1\151\2\uffff\1\172\1\164\1\163"+
+        "\1\uffff\1\156\4\uffff\1\165\1\164\1\uffff\1\161\1\164\6\uffff\1"+
+        "\125\1\147\1\117\1\115\1\154\1\162\1\154\1\141\1\157\1\160\1\164"+
+        "\1\145\1\155\1\166\1\145\1\uffff\1\163\1\uffff\1\162\1\164\1\144"+
+        "\1\162\1\141\1\165\1\151\1\103\1\154\1\116\2\172\1\162\1\141\1\147"+
+        "\1\162\1\157\1\141\1\157\1\156\2\151\2\172\1\151\1\162\1\163\1\143"+
+        "\1\172\1\151\1\157\1\124\1\145\1\172\2\uffff\1\151\1\147\1\163\1"+
+        "\164\1\163\1\151\1\162\1\144\1\164\1\144\2\uffff\1\142\1\141\1\172"+
+        "\1\145\1\uffff\1\162\1\156\1\172\1\164\1\uffff\1\144\1\163\2\172"+
+        "\1\151\1\156\1\155\1\163\1\151\1\145\1\165\1\143\1\uffff\1\172\1"+
+        "\145\1\141\1\uffff\1\157\1\145\1\172\2\uffff\1\164\2\163\1\172\1"+
+        "\166\1\163\2\164\1\uffff\1\163\1\154\1\156\1\172\1\uffff\1\145\1"+
+        "\172\1\164\1\uffff\1\145\1\172\1\145\4\172\1\uffff\1\172\1\uffff"+
+        "\1\157\1\172\1\uffff\1\172\5\uffff\1\172\3\uffff";
     static final String DFA14_acceptS =
-        "\12\uffff\1\14\1\15\3\uffff\1\21\1\uffff\1\24\1\uffff\1\27\1\30"+
-        "\1\31\1\32\1\33\2\uffff\1\37\1\41\4\uffff\1\50\1\uffff\1\53\1\uffff"+
-        "\1\60\2\uffff\1\61\1\62\2\uffff\1\66\1\67\3\uffff\1\61\10\uffff"+
-        "\1\13\1\52\1\12\1\14\1\15\3\uffff\1\21\1\57\1\23\1\24\1\uffff\1"+
-        "\27\1\30\1\31\1\32\1\33\4\uffff\1\37\1\41\1\uffff\1\56\1\44\2\uffff"+
-        "\1\50\1\51\1\62\1\53\1\uffff\1\60\1\64\1\65\1\63\1\66\2\uffff\1"+
-        "\43\17\uffff\1\36\36\uffff\1\1\1\25\1\2\6\uffff\1\11\13\uffff\1"+
-        "\45\7\uffff\1\10\12\uffff\1\42\4\uffff\1\7\1\uffff\1\6\3\uffff\1"+
-        "\20\6\uffff\1\46\3\uffff\1\5\6\uffff\1\34\3\uffff\1\3\1\uffff\1"+
-        "\16\1\uffff\1\17\1\uffff\1\35\2\uffff\1\54\1\55\1\4\1\22\1\26\1"+
-        "\uffff\1\40\1\47";
+        "\4\uffff\1\4\1\5\6\uffff\1\16\2\uffff\1\22\1\23\1\24\1\25\3\uffff"+
+        "\1\31\1\32\1\uffff\1\34\1\uffff\1\40\1\uffff\1\43\2\uffff\1\47\2"+
+        "\uffff\1\55\1\57\2\uffff\1\60\1\61\2\uffff\1\65\1\66\2\uffff\1\60"+
+        "\2\uffff\1\4\1\5\1\uffff\1\10\1\17\1\7\4\uffff\1\16\1\uffff\1\56"+
+        "\1\21\1\22\1\23\1\24\1\25\5\uffff\1\31\1\32\3\uffff\1\34\1\uffff"+
+        "\1\40\1\42\1\61\1\43\2\uffff\1\47\2\uffff\1\55\1\57\1\63\1\64\1"+
+        "\62\1\65\17\uffff\1\37\1\uffff\1\33\42\uffff\1\3\1\6\12\uffff\1"+
+        "\30\1\54\4\uffff\1\46\4\uffff\1\2\14\uffff\1\36\3\uffff\1\1\3\uffff"+
+        "\1\14\1\15\10\uffff\1\45\4\uffff\1\13\3\uffff\1\26\7\uffff\1\11"+
+        "\1\uffff\1\35\2\uffff\1\51\1\uffff\1\50\1\52\1\53\1\12\1\20\1\uffff"+
+        "\1\27\1\44\1\41";
     static final String DFA14_specialS =
-        "\1\0\50\uffff\1\2\1\1\u00c0\uffff}>";
+        "\1\0\50\uffff\1\2\1\1\u00bf\uffff}>";
     static final String[] DFA14_transitionS = {
             "\11\54\2\53\2\54\1\53\22\54\1\53\1\54\1\51\4\54\1\52\1\26\1"+
-            "\27\1\54\1\12\1\25\1\13\1\11\1\45\1\41\11\50\1\42\1\17\1\23"+
-            "\1\32\1\24\1\54\1\40\2\47\1\6\1\47\1\10\6\47\1\5\2\47\1\3\3"+
-            "\47\1\4\1\47\1\7\5\47\1\35\1\44\1\33\1\46\1\47\1\54\1\31\1\34"+
-            "\1\22\1\36\1\30\3\47\1\16\4\47\1\2\1\43\1\14\1\47\1\15\1\37"+
-            "\1\1\6\47\1\20\1\54\1\21\uff82\54",
-            "\1\55\6\uffff\1\57\11\uffff\1\56",
+            "\27\1\54\1\4\1\22\1\5\1\7\1\45\1\34\11\50\1\54\1\14\1\20\1\35"+
+            "\1\21\1\43\1\40\2\47\1\12\1\47\1\3\6\47\1\11\2\47\1\10\3\47"+
+            "\1\1\1\47\1\2\5\47\1\33\1\44\1\31\1\46\1\47\1\54\1\30\1\32\1"+
+            "\15\1\37\1\23\3\47\1\13\4\47\1\6\1\42\1\24\1\47\1\41\1\36\1"+
+            "\25\6\47\1\16\1\54\1\17\uff82\54",
+            "\1\55\24\uffff\1\56",
+            "\1\60",
             "\1\61",
-            "\1\62",
-            "\1\64\24\uffff\1\63",
-            "\1\65",
-            "\1\66",
-            "\1\67",
+            "",
+            "",
+            "\1\64",
+            "\1\66\3\uffff\1\65",
             "\1\70",
-            "\1\72\3\uffff\1\71",
+            "\1\71",
+            "\1\72",
+            "\1\73",
             "",
-            "",
+            "\1\75",
             "\1\76",
-            "\1\77",
-            "\1\100",
             "",
-            "\1\102",
             "",
+            "",
+            "",
+            "\1\104",
             "\1\105",
+            "\1\110\6\uffff\1\107\11\uffff\1\106",
             "",
             "",
+            "\1\115\20\uffff\1\113\1\114",
             "",
-            "",
-            "",
-            "\1\113",
-            "\1\116\20\uffff\1\114\1\115",
-            "",
+            "\1\117",
             "",
             "\1\121",
-            "\1\122",
+            "",
             "\1\124",
             "\1\125",
             "",
             "\1\127",
-            "",
-            "\1\132",
-            "",
-            "\1\134\4\uffff\1\135",
-            "\32\60\4\uffff\1\60\1\uffff\32\60",
+            "\1\130",
             "",
             "",
-            "\0\136",
-            "\0\136",
+            "\1\133\4\uffff\1\134",
+            "\32\57\4\uffff\1\57\1\uffff\32\57",
             "",
             "",
+            "\0\135",
+            "\0\135",
+            "",
+            "",
+            "\1\137",
             "\1\140",
+            "",
             "\1\141",
-            "\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\32\60",
+            "\1\142",
+            "",
             "",
             "\1\143",
+            "",
+            "",
+            "",
             "\1\144",
             "\1\145",
             "\1\146",
             "\1\147",
-            "\1\150",
-            "\1\151",
+            "",
+            "\1\150\1\151",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
             "\1\152",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "\1\154\5\uffff\1\153",
+            "\1\153\5\uffff\1\154",
             "\1\155",
-            "\1\156",
+            "\12\57\7\uffff\32\57\4\uffff\1\57\1\uffff\32\57",
+            "\1\157",
             "",
             "",
-            "",
-            "",
-            "\1\157\1\160",
-            "",
-            "",
-            "",
-            "",
-            "",
+            "\12\57\7\uffff\32\57\4\uffff\1\57\1\uffff\32\57",
             "\1\161",
-            "\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\32\60",
+            "\1\162",
+            "",
             "\1\163",
+            "",
+            "",
+            "",
+            "",
             "\1\164",
-            "",
-            "",
             "\1\165",
-            "",
             "",
             "\1\166",
             "\1\167",
@@ -2235,15 +2209,11 @@ public class InternalFractalLexer extends Lexer {
             "",
             "",
             "",
+            "",
+            "",
             "\1\170",
-            "",
-            "",
-            "",
-            "",
-            "",
             "\1\171",
             "\1\172",
-            "",
             "\1\173",
             "\1\174",
             "\1\175",
@@ -2251,133 +2221,133 @@ public class InternalFractalLexer extends Lexer {
             "\1\177",
             "\1\u0080",
             "\1\u0081",
-            "\1\u0082",
-            "\1\u0083",
+            "\1\u0083\15\uffff\1\u0082",
             "\1\u0084",
             "\1\u0085",
             "\1\u0086",
             "\1\u0087",
-            "\1\u0089\15\uffff\1\u0088",
-            "\1\u008a",
             "",
+            "\1\u0088",
+            "",
+            "\1\u0089",
+            "\1\u008a",
             "\1\u008b",
             "\1\u008c",
             "\1\u008d",
             "\1\u008e",
             "\1\u008f",
             "\1\u0090",
-            "\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\32\60",
-            "\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\32\60",
-            "\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\32\60",
-            "\1\u0094",
+            "\1\u0091",
+            "\1\u0092",
+            "\12\57\7\uffff\32\57\4\uffff\1\57\1\uffff\32\57",
+            "\12\57\7\uffff\32\57\4\uffff\1\57\1\uffff\32\57",
             "\1\u0095",
             "\1\u0096",
             "\1\u0097",
             "\1\u0098",
             "\1\u0099",
-            "\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\32\60",
+            "\1\u009a",
             "\1\u009b",
             "\1\u009c",
             "\1\u009d",
             "\1\u009e",
-            "\1\u009f",
-            "\1\u00a0",
+            "\12\57\7\uffff\32\57\4\uffff\1\57\1\uffff\32\57",
+            "\12\57\7\uffff\32\57\4\uffff\1\57\1\uffff\32\57",
             "\1\u00a1",
             "\1\u00a2",
             "\1\u00a3",
             "\1\u00a4",
-            "\1\u00a5",
-            "\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\32\60",
+            "\12\57\7\uffff\32\57\4\uffff\1\57\1\uffff\32\57",
+            "\1\u00a6",
             "\1\u00a7",
             "\1\u00a8",
-            "",
-            "",
-            "",
             "\1\u00a9",
-            "\1\u00aa",
+            "\12\57\7\uffff\32\57\4\uffff\1\57\1\uffff\32\57",
+            "",
+            "",
             "\1\u00ab",
             "\1\u00ac",
             "\1\u00ad",
-            "\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\32\60",
-            "",
+            "\1\u00ae",
             "\1\u00af",
             "\1\u00b0",
             "\1\u00b1",
             "\1\u00b2",
             "\1\u00b3",
             "\1\u00b4",
+            "",
+            "",
             "\1\u00b5",
             "\1\u00b6",
-            "\1\u00b7",
+            "\12\57\7\uffff\32\57\4\uffff\1\57\1\uffff\32\57",
             "\1\u00b8",
-            "\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\32\60",
             "",
+            "\1\u00b9",
             "\1\u00ba",
-            "\1\u00bb",
+            "\12\57\7\uffff\32\57\4\uffff\1\57\1\uffff\32\57",
             "\1\u00bc",
-            "\1\u00bd",
-            "\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\32\60",
-            "\1\u00bf",
-            "\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\32\60",
             "",
+            "\1\u00bd",
+            "\1\u00be",
+            "\12\57\7\uffff\32\57\4\uffff\1\57\1\uffff\32\57",
+            "\12\57\7\uffff\32\57\4\uffff\1\57\1\uffff\32\57",
             "\1\u00c1",
             "\1\u00c2",
             "\1\u00c3",
-            "\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\32\60",
+            "\1\u00c4",
             "\1\u00c5",
             "\1\u00c6",
             "\1\u00c7",
             "\1\u00c8",
-            "\1\u00c9",
-            "\1\u00ca",
             "",
-            "\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\32\60",
+            "\12\57\7\uffff\32\57\4\uffff\1\57\1\uffff\32\57",
+            "\1\u00ca",
+            "\1\u00cb",
+            "",
             "\1\u00cc",
             "\1\u00cd",
-            "\1\u00ce",
+            "\12\57\7\uffff\32\57\4\uffff\1\57\1\uffff\32\57",
             "",
-            "\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\32\60",
             "",
+            "\1\u00cf",
             "\1\u00d0",
             "\1\u00d1",
-            "\1\u00d2",
-            "",
+            "\12\57\7\uffff\32\57\4\uffff\1\57\1\uffff\32\57",
             "\1\u00d3",
             "\1\u00d4",
             "\1\u00d5",
-            "\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\32\60",
+            "\1\u00d6",
+            "",
             "\1\u00d7",
             "\1\u00d8",
-            "",
             "\1\u00d9",
-            "\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\32\60",
+            "\12\57\7\uffff\32\57\4\uffff\1\57\1\uffff\32\57",
+            "",
             "\1\u00db",
-            "",
-            "\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\32\60",
+            "\12\57\7\uffff\32\57\4\uffff\1\57\1\uffff\32\57",
             "\1\u00dd",
-            "\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\32\60",
-            "\1\u00df",
-            "\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\32\60",
-            "\1\u00e1",
             "",
-            "\1\u00e2",
-            "\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\32\60",
-            "\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\32\60",
+            "\1\u00de",
+            "\12\57\7\uffff\32\57\4\uffff\1\57\1\uffff\32\57",
+            "\1\u00e0",
+            "\12\57\7\uffff\32\57\4\uffff\1\57\1\uffff\32\57",
+            "\12\57\7\uffff\32\57\4\uffff\1\57\1\uffff\32\57",
+            "\12\57\7\uffff\32\57\4\uffff\1\57\1\uffff\32\57",
+            "\12\57\7\uffff\32\57\4\uffff\1\57\1\uffff\32\57",
             "",
-            "\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\32\60",
+            "\12\57\7\uffff\32\57\4\uffff\1\57\1\uffff\32\57",
             "",
-            "\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\32\60",
+            "\1\u00e6",
+            "\12\57\7\uffff\32\57\4\uffff\1\57\1\uffff\32\57",
             "",
-            "\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\32\60",
-            "",
-            "\1\u00e8",
-            "\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\32\60",
+            "\12\57\7\uffff\32\57\4\uffff\1\57\1\uffff\32\57",
             "",
             "",
             "",
             "",
             "",
-            "\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\32\60",
+            "\12\57\7\uffff\32\57\4\uffff\1\57\1\uffff\32\57",
+            "",
             "",
             ""
     };
@@ -2398,7 +2368,7 @@ public class InternalFractalLexer extends Lexer {
         }
     }
 
-    static class DFA14 extends DFA {
+    class DFA14 extends DFA {
 
         public DFA14(BaseRecognizer recognizer) {
             this.recognizer = recognizer;
@@ -2412,7 +2382,7 @@ public class InternalFractalLexer extends Lexer {
             this.transition = DFA14_transition;
         }
         public String getDescription() {
-            return "1:1: Tokens : ( T__13 | T__14 | T__15 | T__16 | T__17 | T__18 | T__19 | T__20 | T__21 | T__22 | T__23 | T__24 | T__25 | T__26 | T__27 | T__28 | T__29 | T__30 | T__31 | T__32 | T__33 | T__34 | T__35 | T__36 | T__37 | T__38 | T__39 | T__40 | T__41 | T__42 | T__43 | T__44 | T__45 | T__46 | T__47 | T__48 | T__49 | T__50 | T__51 | T__52 | T__53 | T__54 | T__55 | T__56 | T__57 | T__58 | RULE_CODEC | RULE_SL | RULE_ID | RULE_INT | RULE_STRING | RULE_ML_COMMENT | RULE_SL_COMMENT | RULE_WS | RULE_ANY_OTHER );";
+            return "1:1: Tokens : ( T__13 | T__14 | T__15 | T__16 | T__17 | T__18 | T__19 | T__20 | T__21 | T__22 | T__23 | T__24 | T__25 | T__26 | T__27 | T__28 | T__29 | T__30 | T__31 | T__32 | T__33 | T__34 | T__35 | T__36 | T__37 | T__38 | T__39 | T__40 | T__41 | T__42 | T__43 | T__44 | T__45 | T__46 | T__47 | T__48 | T__49 | T__50 | T__51 | T__52 | T__53 | T__54 | T__55 | T__56 | T__57 | RULE_CODE_C | RULE_SL | RULE_ID | RULE_INT | RULE_STRING | RULE_ML_COMMENT | RULE_SL_COMMENT | RULE_WS | RULE_ANY_OTHER );";
         }
         public int specialStateTransition(int s, IntStream _input) throws NoViableAltException {
             IntStream input = _input;
@@ -2422,75 +2392,75 @@ public class InternalFractalLexer extends Lexer {
                         int LA14_0 = input.LA(1);
 
                         s = -1;
-                        if ( (LA14_0=='t') ) {s = 1;}
+                        if ( (LA14_0=='S') ) {s = 1;}
 
-                        else if ( (LA14_0=='n') ) {s = 2;}
+                        else if ( (LA14_0=='U') ) {s = 2;}
 
-                        else if ( (LA14_0=='O') ) {s = 3;}
+                        else if ( (LA14_0=='E') ) {s = 3;}
 
-                        else if ( (LA14_0=='S') ) {s = 4;}
+                        else if ( (LA14_0=='+') ) {s = 4;}
 
-                        else if ( (LA14_0=='L') ) {s = 5;}
+                        else if ( (LA14_0=='-') ) {s = 5;}
 
-                        else if ( (LA14_0=='C') ) {s = 6;}
+                        else if ( (LA14_0=='n') ) {s = 6;}
 
-                        else if ( (LA14_0=='U') ) {s = 7;}
+                        else if ( (LA14_0=='.') ) {s = 7;}
 
-                        else if ( (LA14_0=='E') ) {s = 8;}
+                        else if ( (LA14_0=='O') ) {s = 8;}
 
-                        else if ( (LA14_0=='.') ) {s = 9;}
+                        else if ( (LA14_0=='L') ) {s = 9;}
 
-                        else if ( (LA14_0=='+') ) {s = 10;}
+                        else if ( (LA14_0=='C') ) {s = 10;}
 
-                        else if ( (LA14_0=='-') ) {s = 11;}
+                        else if ( (LA14_0=='i') ) {s = 11;}
 
-                        else if ( (LA14_0=='p') ) {s = 12;}
+                        else if ( (LA14_0==';') ) {s = 12;}
 
-                        else if ( (LA14_0=='r') ) {s = 13;}
+                        else if ( (LA14_0=='c') ) {s = 13;}
 
-                        else if ( (LA14_0=='i') ) {s = 14;}
+                        else if ( (LA14_0=='{') ) {s = 14;}
 
-                        else if ( (LA14_0==';') ) {s = 15;}
+                        else if ( (LA14_0=='}') ) {s = 15;}
 
-                        else if ( (LA14_0=='{') ) {s = 16;}
+                        else if ( (LA14_0=='<') ) {s = 16;}
 
-                        else if ( (LA14_0=='}') ) {s = 17;}
+                        else if ( (LA14_0=='>') ) {s = 17;}
 
-                        else if ( (LA14_0=='c') ) {s = 18;}
+                        else if ( (LA14_0==',') ) {s = 18;}
 
-                        else if ( (LA14_0=='<') ) {s = 19;}
+                        else if ( (LA14_0=='e') ) {s = 19;}
 
-                        else if ( (LA14_0=='>') ) {s = 20;}
+                        else if ( (LA14_0=='p') ) {s = 20;}
 
-                        else if ( (LA14_0==',') ) {s = 21;}
+                        else if ( (LA14_0=='t') ) {s = 21;}
 
                         else if ( (LA14_0=='(') ) {s = 22;}
 
                         else if ( (LA14_0==')') ) {s = 23;}
 
-                        else if ( (LA14_0=='e') ) {s = 24;}
+                        else if ( (LA14_0=='a') ) {s = 24;}
 
-                        else if ( (LA14_0=='a') ) {s = 25;}
+                        else if ( (LA14_0==']') ) {s = 25;}
 
-                        else if ( (LA14_0=='=') ) {s = 26;}
+                        else if ( (LA14_0=='b') ) {s = 26;}
 
-                        else if ( (LA14_0==']') ) {s = 27;}
+                        else if ( (LA14_0=='[') ) {s = 27;}
 
-                        else if ( (LA14_0=='b') ) {s = 28;}
+                        else if ( (LA14_0=='0') ) {s = 28;}
 
-                        else if ( (LA14_0=='[') ) {s = 29;}
+                        else if ( (LA14_0=='=') ) {s = 29;}
 
-                        else if ( (LA14_0=='d') ) {s = 30;}
+                        else if ( (LA14_0=='s') ) {s = 30;}
 
-                        else if ( (LA14_0=='s') ) {s = 31;}
+                        else if ( (LA14_0=='d') ) {s = 31;}
 
                         else if ( (LA14_0=='@') ) {s = 32;}
 
-                        else if ( (LA14_0=='0') ) {s = 33;}
+                        else if ( (LA14_0=='r') ) {s = 33;}
 
-                        else if ( (LA14_0==':') ) {s = 34;}
+                        else if ( (LA14_0=='o') ) {s = 34;}
 
-                        else if ( (LA14_0=='o') ) {s = 35;}
+                        else if ( (LA14_0=='?') ) {s = 35;}
 
                         else if ( (LA14_0=='\\') ) {s = 36;}
 
@@ -2508,7 +2478,7 @@ public class InternalFractalLexer extends Lexer {
 
                         else if ( ((LA14_0>='\t' && LA14_0<='\n')||LA14_0=='\r'||LA14_0==' ') ) {s = 43;}
 
-                        else if ( ((LA14_0>='\u0000' && LA14_0<='\b')||(LA14_0>='\u000B' && LA14_0<='\f')||(LA14_0>='\u000E' && LA14_0<='\u001F')||LA14_0=='!'||(LA14_0>='#' && LA14_0<='&')||LA14_0=='*'||LA14_0=='?'||LA14_0=='`'||LA14_0=='|'||(LA14_0>='~' && LA14_0<='\uFFFF')) ) {s = 44;}
+                        else if ( ((LA14_0>='\u0000' && LA14_0<='\b')||(LA14_0>='\u000B' && LA14_0<='\f')||(LA14_0>='\u000E' && LA14_0<='\u001F')||LA14_0=='!'||(LA14_0>='#' && LA14_0<='&')||LA14_0=='*'||LA14_0==':'||LA14_0=='`'||LA14_0=='|'||(LA14_0>='~' && LA14_0<='\uFFFF')) ) {s = 44;}
 
                         if ( s>=0 ) return s;
                         break;
@@ -2516,7 +2486,7 @@ public class InternalFractalLexer extends Lexer {
                         int LA14_42 = input.LA(1);
 
                         s = -1;
-                        if ( ((LA14_42>='\u0000' && LA14_42<='\uFFFF')) ) {s = 94;}
+                        if ( ((LA14_42>='\u0000' && LA14_42<='\uFFFF')) ) {s = 93;}
 
                         else s = 44;
 
@@ -2526,7 +2496,7 @@ public class InternalFractalLexer extends Lexer {
                         int LA14_41 = input.LA(1);
 
                         s = -1;
-                        if ( ((LA14_41>='\u0000' && LA14_41<='\uFFFF')) ) {s = 94;}
+                        if ( ((LA14_41>='\u0000' && LA14_41<='\uFFFF')) ) {s = 93;}
 
                         else s = 44;
 

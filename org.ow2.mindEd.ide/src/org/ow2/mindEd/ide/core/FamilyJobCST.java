@@ -36,10 +36,15 @@ public class FamilyJobCST {
 	public static final Object FAMILY_CREATE_CSOURCE_FOLDER =  new Object();
 
 	/**
-	 * Constant identifying the job family identifier for job which chnage the mindc location".
+	 * Constant identifying the job family identifier for job which changes the mindc location".
 	 */
 	public static final Object FAMILY_CHANGE_MINDC_LOCATION = new Object();
 
+	/**
+	 * Constant identifying the job family identifier for job which changes the mindc runtime location".
+	 */
+	public static final Object FAMILY_CHANGE_MINDC_RUNTIME_LOCATION = new Object();
+	
 	/**
 	 * Constant identifying the job family identifier for job which save the file '.mindpath'".
 	 */

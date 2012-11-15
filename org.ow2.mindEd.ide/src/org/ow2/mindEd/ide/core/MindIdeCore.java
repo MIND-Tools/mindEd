@@ -31,7 +31,7 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.osgi.util.NLS;
 import org.ow2.mindEd.ide.core.impl.CDTUtil;
 import org.ow2.mindEd.ide.core.template.TemplateCompositeADL;
-import org.ow2.mindEd.ide.core.template.TemplateITFADL;
+import org.ow2.mindEd.ide.core.template.TemplateITF;
 import org.ow2.mindEd.ide.core.template.TemplatePrimitiveADL;
 import org.ow2.mindEd.ide.core.template.TemplatePrimitiveC;
 import org.ow2.mindEd.ide.core.template.TemplateTypeADL;
@@ -570,7 +570,7 @@ public class MindIdeCore {
 	}
 	
 	static private InputStream openITFContentStream(String qn) {
-		return new ByteArrayInputStream(new TemplateITFADL().generate(qn).getBytes());
+		return new ByteArrayInputStream(new TemplateITF().generate(qn).getBytes());
 	}
 /*	
 	static private InputStream openADLContentStream(String qn) {

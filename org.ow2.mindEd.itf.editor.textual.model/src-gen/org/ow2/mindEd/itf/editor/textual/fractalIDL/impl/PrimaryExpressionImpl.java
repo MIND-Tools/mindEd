@@ -1,21 +1,15 @@
 /**
- * <copyright>
- * </copyright>
- *
  */
 package org.ow2.mindEd.itf.editor.textual.fractalIDL.impl;
 
 import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.ow2.mindEd.itf.editor.textual.fractalIDL.FractalIDLPackage;
-import org.ow2.mindEd.itf.editor.textual.fractalIDL.Literal;
 import org.ow2.mindEd.itf.editor.textual.fractalIDL.PrimaryExpression;
 
 /**
@@ -34,14 +28,24 @@ import org.ow2.mindEd.itf.editor.textual.fractalIDL.PrimaryExpression;
 public class PrimaryExpressionImpl extends MinimalEObjectImpl.Container implements PrimaryExpression
 {
   /**
-   * The cached value of the '{@link #getLiteral() <em>Literal</em>}' containment reference.
+   * The default value of the '{@link #getLiteral() <em>Literal</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getLiteral()
    * @generated
    * @ordered
    */
-  protected Literal literal;
+  protected static final String LITERAL_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getLiteral() <em>Literal</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getLiteral()
+   * @generated
+   * @ordered
+   */
+  protected String literal = LITERAL_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
@@ -69,7 +73,7 @@ public class PrimaryExpressionImpl extends MinimalEObjectImpl.Container implemen
    * <!-- end-user-doc -->
    * @generated
    */
-  public Literal getLiteral()
+  public String getLiteral()
   {
     return literal;
   }
@@ -79,53 +83,12 @@ public class PrimaryExpressionImpl extends MinimalEObjectImpl.Container implemen
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetLiteral(Literal newLiteral, NotificationChain msgs)
+  public void setLiteral(String newLiteral)
   {
-    Literal oldLiteral = literal;
+    String oldLiteral = literal;
     literal = newLiteral;
     if (eNotificationRequired())
-    {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FractalIDLPackage.PRIMARY_EXPRESSION__LITERAL, oldLiteral, newLiteral);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
-    }
-    return msgs;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setLiteral(Literal newLiteral)
-  {
-    if (newLiteral != literal)
-    {
-      NotificationChain msgs = null;
-      if (literal != null)
-        msgs = ((InternalEObject)literal).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FractalIDLPackage.PRIMARY_EXPRESSION__LITERAL, null, msgs);
-      if (newLiteral != null)
-        msgs = ((InternalEObject)newLiteral).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FractalIDLPackage.PRIMARY_EXPRESSION__LITERAL, null, msgs);
-      msgs = basicSetLiteral(newLiteral, msgs);
-      if (msgs != null) msgs.dispatch();
-    }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, FractalIDLPackage.PRIMARY_EXPRESSION__LITERAL, newLiteral, newLiteral));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
-  {
-    switch (featureID)
-    {
-      case FractalIDLPackage.PRIMARY_EXPRESSION__LITERAL:
-        return basicSetLiteral(null, msgs);
-    }
-    return super.eInverseRemove(otherEnd, featureID, msgs);
+      eNotify(new ENotificationImpl(this, Notification.SET, FractalIDLPackage.PRIMARY_EXPRESSION__LITERAL, oldLiteral, literal));
   }
 
   /**
@@ -155,7 +118,7 @@ public class PrimaryExpressionImpl extends MinimalEObjectImpl.Container implemen
     switch (featureID)
     {
       case FractalIDLPackage.PRIMARY_EXPRESSION__LITERAL:
-        setLiteral((Literal)newValue);
+        setLiteral((String)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -172,7 +135,7 @@ public class PrimaryExpressionImpl extends MinimalEObjectImpl.Container implemen
     switch (featureID)
     {
       case FractalIDLPackage.PRIMARY_EXPRESSION__LITERAL:
-        setLiteral((Literal)null);
+        setLiteral(LITERAL_EDEFAULT);
         return;
     }
     super.eUnset(featureID);
@@ -189,9 +152,26 @@ public class PrimaryExpressionImpl extends MinimalEObjectImpl.Container implemen
     switch (featureID)
     {
       case FractalIDLPackage.PRIMARY_EXPRESSION__LITERAL:
-        return literal != null;
+        return LITERAL_EDEFAULT == null ? literal != null : !LITERAL_EDEFAULT.equals(literal);
     }
     return super.eIsSet(featureID);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public String toString()
+  {
+    if (eIsProxy()) return super.toString();
+
+    StringBuffer result = new StringBuffer(super.toString());
+    result.append(" (literal: ");
+    result.append(literal);
+    result.append(')');
+    return result.toString();
   }
 
 } //PrimaryExpressionImpl

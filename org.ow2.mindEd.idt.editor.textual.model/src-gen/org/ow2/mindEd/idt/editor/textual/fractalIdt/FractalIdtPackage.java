@@ -1,7 +1,4 @@
 /**
- * <copyright>
- * </copyright>
- *
  */
 package org.ow2.mindEd.idt.editor.textual.fractalIdt;
 
@@ -115,13 +112,13 @@ public interface FractalIdtPackage extends EPackage
   int IDT_FILE__TYPE = 4;
 
   /**
-   * The feature id for the '<em><b>Enddef</b></em>' containment reference.
+   * The feature id for the '<em><b>End Def</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int IDT_FILE__ENDDEF = 5;
+  int IDT_FILE__END_DEF = 5;
 
   /**
    * The number of structural features of the '<em>Idt File</em>' class.
@@ -143,13 +140,13 @@ public interface FractalIdtPackage extends EPackage
   int CONSTANT_DEFINITION_BEGIN = 1;
 
   /**
-   * The feature id for the '<em><b>Id</b></em>' attribute.
+   * The feature id for the '<em><b>Name</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int CONSTANT_DEFINITION_BEGIN__ID = 0;
+  int CONSTANT_DEFINITION_BEGIN__NAME = 0;
 
   /**
    * The number of structural features of the '<em>Constant Definition Begin</em>' class.
@@ -159,34 +156,6 @@ public interface FractalIdtPackage extends EPackage
    * @ordered
    */
   int CONSTANT_DEFINITION_BEGIN_FEATURE_COUNT = 1;
-
-  /**
-   * The meta object id for the '{@link org.ow2.mindEd.idt.editor.textual.fractalIdt.impl.ConstantDefinitionEndImpl <em>Constant Definition End</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see org.ow2.mindEd.idt.editor.textual.fractalIdt.impl.ConstantDefinitionEndImpl
-   * @see org.ow2.mindEd.idt.editor.textual.fractalIdt.impl.FractalIdtPackageImpl#getConstantDefinitionEnd()
-   * @generated
-   */
-  int CONSTANT_DEFINITION_END = 2;
-
-  /**
-   * The feature id for the '<em><b>Id</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int CONSTANT_DEFINITION_END__ID = 0;
-
-  /**
-   * The number of structural features of the '<em>Constant Definition End</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int CONSTANT_DEFINITION_END_FEATURE_COUNT = 1;
 
 
   /**
@@ -255,15 +224,15 @@ public interface FractalIdtPackage extends EPackage
   EReference getIdtFile_Type();
 
   /**
-   * Returns the meta object for the containment reference '{@link org.ow2.mindEd.idt.editor.textual.fractalIdt.IdtFile#getEnddef <em>Enddef</em>}'.
+   * Returns the meta object for the attribute '{@link org.ow2.mindEd.idt.editor.textual.fractalIdt.IdtFile#getEndDef <em>End Def</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Enddef</em>'.
-   * @see org.ow2.mindEd.idt.editor.textual.fractalIdt.IdtFile#getEnddef()
+   * @return the meta object for the attribute '<em>End Def</em>'.
+   * @see org.ow2.mindEd.idt.editor.textual.fractalIdt.IdtFile#getEndDef()
    * @see #getIdtFile()
    * @generated
    */
-  EReference getIdtFile_Enddef();
+  EAttribute getIdtFile_EndDef();
 
   /**
    * Returns the meta object for class '{@link org.ow2.mindEd.idt.editor.textual.fractalIdt.ConstantDefinitionBegin <em>Constant Definition Begin</em>}'.
@@ -276,36 +245,15 @@ public interface FractalIdtPackage extends EPackage
   EClass getConstantDefinitionBegin();
 
   /**
-   * Returns the meta object for the attribute '{@link org.ow2.mindEd.idt.editor.textual.fractalIdt.ConstantDefinitionBegin#getId <em>Id</em>}'.
+   * Returns the meta object for the attribute '{@link org.ow2.mindEd.idt.editor.textual.fractalIdt.ConstantDefinitionBegin#getName <em>Name</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Id</em>'.
-   * @see org.ow2.mindEd.idt.editor.textual.fractalIdt.ConstantDefinitionBegin#getId()
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see org.ow2.mindEd.idt.editor.textual.fractalIdt.ConstantDefinitionBegin#getName()
    * @see #getConstantDefinitionBegin()
    * @generated
    */
-  EAttribute getConstantDefinitionBegin_Id();
-
-  /**
-   * Returns the meta object for class '{@link org.ow2.mindEd.idt.editor.textual.fractalIdt.ConstantDefinitionEnd <em>Constant Definition End</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Constant Definition End</em>'.
-   * @see org.ow2.mindEd.idt.editor.textual.fractalIdt.ConstantDefinitionEnd
-   * @generated
-   */
-  EClass getConstantDefinitionEnd();
-
-  /**
-   * Returns the meta object for the attribute '{@link org.ow2.mindEd.idt.editor.textual.fractalIdt.ConstantDefinitionEnd#getId <em>Id</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Id</em>'.
-   * @see org.ow2.mindEd.idt.editor.textual.fractalIdt.ConstantDefinitionEnd#getId()
-   * @see #getConstantDefinitionEnd()
-   * @generated
-   */
-  EAttribute getConstantDefinitionEnd_Id();
+  EAttribute getConstantDefinitionBegin_Name();
 
   /**
    * Returns the factory that creates the instances of the model.
@@ -381,12 +329,12 @@ public interface FractalIdtPackage extends EPackage
     EReference IDT_FILE__TYPE = eINSTANCE.getIdtFile_Type();
 
     /**
-     * The meta object literal for the '<em><b>Enddef</b></em>' containment reference feature.
+     * The meta object literal for the '<em><b>End Def</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference IDT_FILE__ENDDEF = eINSTANCE.getIdtFile_Enddef();
+    EAttribute IDT_FILE__END_DEF = eINSTANCE.getIdtFile_EndDef();
 
     /**
      * The meta object literal for the '{@link org.ow2.mindEd.idt.editor.textual.fractalIdt.impl.ConstantDefinitionBeginImpl <em>Constant Definition Begin</em>}' class.
@@ -399,30 +347,12 @@ public interface FractalIdtPackage extends EPackage
     EClass CONSTANT_DEFINITION_BEGIN = eINSTANCE.getConstantDefinitionBegin();
 
     /**
-     * The meta object literal for the '<em><b>Id</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute CONSTANT_DEFINITION_BEGIN__ID = eINSTANCE.getConstantDefinitionBegin_Id();
-
-    /**
-     * The meta object literal for the '{@link org.ow2.mindEd.idt.editor.textual.fractalIdt.impl.ConstantDefinitionEndImpl <em>Constant Definition End</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see org.ow2.mindEd.idt.editor.textual.fractalIdt.impl.ConstantDefinitionEndImpl
-     * @see org.ow2.mindEd.idt.editor.textual.fractalIdt.impl.FractalIdtPackageImpl#getConstantDefinitionEnd()
-     * @generated
-     */
-    EClass CONSTANT_DEFINITION_END = eINSTANCE.getConstantDefinitionEnd();
-
-    /**
-     * The meta object literal for the '<em><b>Id</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute CONSTANT_DEFINITION_END__ID = eINSTANCE.getConstantDefinitionEnd_Id();
+    EAttribute CONSTANT_DEFINITION_BEGIN__NAME = eINSTANCE.getConstantDefinitionBegin_Name();
 
   }
 

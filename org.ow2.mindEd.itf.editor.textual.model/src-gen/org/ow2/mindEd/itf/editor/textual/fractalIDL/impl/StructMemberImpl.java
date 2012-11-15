@@ -1,7 +1,4 @@
 /**
- * <copyright>
- * </copyright>
- *
  */
 package org.ow2.mindEd.itf.editor.textual.fractalIDL.impl;
 
@@ -14,7 +11,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
-import org.ow2.mindEd.itf.editor.textual.fractalIDL.Annotations;
+import org.ow2.mindEd.itf.editor.textual.fractalIDL.AnnotationsList;
 import org.ow2.mindEd.itf.editor.textual.fractalIDL.ConstantExpression;
 import org.ow2.mindEd.itf.editor.textual.fractalIDL.Declarators;
 import org.ow2.mindEd.itf.editor.textual.fractalIDL.FractalIDLPackage;
@@ -28,7 +25,7 @@ import org.ow2.mindEd.itf.editor.textual.fractalIDL.StructMember;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.ow2.mindEd.itf.editor.textual.fractalIDL.impl.StructMemberImpl#getAnnotations <em>Annotations</em>}</li>
+ *   <li>{@link org.ow2.mindEd.itf.editor.textual.fractalIDL.impl.StructMemberImpl#getAnnotationsList <em>Annotations List</em>}</li>
  *   <li>{@link org.ow2.mindEd.itf.editor.textual.fractalIDL.impl.StructMemberImpl#getQualType <em>Qual Type</em>}</li>
  *   <li>{@link org.ow2.mindEd.itf.editor.textual.fractalIDL.impl.StructMemberImpl#getDec <em>Dec</em>}</li>
  *   <li>{@link org.ow2.mindEd.itf.editor.textual.fractalIDL.impl.StructMemberImpl#getConstExpr <em>Const Expr</em>}</li>
@@ -40,14 +37,14 @@ import org.ow2.mindEd.itf.editor.textual.fractalIDL.StructMember;
 public class StructMemberImpl extends MinimalEObjectImpl.Container implements StructMember
 {
   /**
-   * The cached value of the '{@link #getAnnotations() <em>Annotations</em>}' containment reference.
+   * The cached value of the '{@link #getAnnotationsList() <em>Annotations List</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getAnnotations()
+   * @see #getAnnotationsList()
    * @generated
    * @ordered
    */
-  protected Annotations annotations;
+  protected AnnotationsList annotationsList;
 
   /**
    * The cached value of the '{@link #getQualType() <em>Qual Type</em>}' containment reference.
@@ -105,9 +102,9 @@ public class StructMemberImpl extends MinimalEObjectImpl.Container implements St
    * <!-- end-user-doc -->
    * @generated
    */
-  public Annotations getAnnotations()
+  public AnnotationsList getAnnotationsList()
   {
-    return annotations;
+    return annotationsList;
   }
 
   /**
@@ -115,13 +112,13 @@ public class StructMemberImpl extends MinimalEObjectImpl.Container implements St
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetAnnotations(Annotations newAnnotations, NotificationChain msgs)
+  public NotificationChain basicSetAnnotationsList(AnnotationsList newAnnotationsList, NotificationChain msgs)
   {
-    Annotations oldAnnotations = annotations;
-    annotations = newAnnotations;
+    AnnotationsList oldAnnotationsList = annotationsList;
+    annotationsList = newAnnotationsList;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FractalIDLPackage.STRUCT_MEMBER__ANNOTATIONS, oldAnnotations, newAnnotations);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FractalIDLPackage.STRUCT_MEMBER__ANNOTATIONS_LIST, oldAnnotationsList, newAnnotationsList);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -132,20 +129,20 @@ public class StructMemberImpl extends MinimalEObjectImpl.Container implements St
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setAnnotations(Annotations newAnnotations)
+  public void setAnnotationsList(AnnotationsList newAnnotationsList)
   {
-    if (newAnnotations != annotations)
+    if (newAnnotationsList != annotationsList)
     {
       NotificationChain msgs = null;
-      if (annotations != null)
-        msgs = ((InternalEObject)annotations).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FractalIDLPackage.STRUCT_MEMBER__ANNOTATIONS, null, msgs);
-      if (newAnnotations != null)
-        msgs = ((InternalEObject)newAnnotations).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FractalIDLPackage.STRUCT_MEMBER__ANNOTATIONS, null, msgs);
-      msgs = basicSetAnnotations(newAnnotations, msgs);
+      if (annotationsList != null)
+        msgs = ((InternalEObject)annotationsList).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FractalIDLPackage.STRUCT_MEMBER__ANNOTATIONS_LIST, null, msgs);
+      if (newAnnotationsList != null)
+        msgs = ((InternalEObject)newAnnotationsList).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FractalIDLPackage.STRUCT_MEMBER__ANNOTATIONS_LIST, null, msgs);
+      msgs = basicSetAnnotationsList(newAnnotationsList, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, FractalIDLPackage.STRUCT_MEMBER__ANNOTATIONS, newAnnotations, newAnnotations));
+      eNotify(new ENotificationImpl(this, Notification.SET, FractalIDLPackage.STRUCT_MEMBER__ANNOTATIONS_LIST, newAnnotationsList, newAnnotationsList));
   }
 
   /**
@@ -302,8 +299,8 @@ public class StructMemberImpl extends MinimalEObjectImpl.Container implements St
   {
     switch (featureID)
     {
-      case FractalIDLPackage.STRUCT_MEMBER__ANNOTATIONS:
-        return basicSetAnnotations(null, msgs);
+      case FractalIDLPackage.STRUCT_MEMBER__ANNOTATIONS_LIST:
+        return basicSetAnnotationsList(null, msgs);
       case FractalIDLPackage.STRUCT_MEMBER__QUAL_TYPE:
         return basicSetQualType(null, msgs);
       case FractalIDLPackage.STRUCT_MEMBER__DEC:
@@ -324,8 +321,8 @@ public class StructMemberImpl extends MinimalEObjectImpl.Container implements St
   {
     switch (featureID)
     {
-      case FractalIDLPackage.STRUCT_MEMBER__ANNOTATIONS:
-        return getAnnotations();
+      case FractalIDLPackage.STRUCT_MEMBER__ANNOTATIONS_LIST:
+        return getAnnotationsList();
       case FractalIDLPackage.STRUCT_MEMBER__QUAL_TYPE:
         return getQualType();
       case FractalIDLPackage.STRUCT_MEMBER__DEC:
@@ -346,8 +343,8 @@ public class StructMemberImpl extends MinimalEObjectImpl.Container implements St
   {
     switch (featureID)
     {
-      case FractalIDLPackage.STRUCT_MEMBER__ANNOTATIONS:
-        setAnnotations((Annotations)newValue);
+      case FractalIDLPackage.STRUCT_MEMBER__ANNOTATIONS_LIST:
+        setAnnotationsList((AnnotationsList)newValue);
         return;
       case FractalIDLPackage.STRUCT_MEMBER__QUAL_TYPE:
         setQualType((QualifiedTypeSpecification)newValue);
@@ -372,8 +369,8 @@ public class StructMemberImpl extends MinimalEObjectImpl.Container implements St
   {
     switch (featureID)
     {
-      case FractalIDLPackage.STRUCT_MEMBER__ANNOTATIONS:
-        setAnnotations((Annotations)null);
+      case FractalIDLPackage.STRUCT_MEMBER__ANNOTATIONS_LIST:
+        setAnnotationsList((AnnotationsList)null);
         return;
       case FractalIDLPackage.STRUCT_MEMBER__QUAL_TYPE:
         setQualType((QualifiedTypeSpecification)null);
@@ -398,8 +395,8 @@ public class StructMemberImpl extends MinimalEObjectImpl.Container implements St
   {
     switch (featureID)
     {
-      case FractalIDLPackage.STRUCT_MEMBER__ANNOTATIONS:
-        return annotations != null;
+      case FractalIDLPackage.STRUCT_MEMBER__ANNOTATIONS_LIST:
+        return annotationsList != null;
       case FractalIDLPackage.STRUCT_MEMBER__QUAL_TYPE:
         return qualType != null;
       case FractalIDLPackage.STRUCT_MEMBER__DEC:

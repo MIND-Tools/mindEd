@@ -239,7 +239,7 @@ public class ModelToProjectUtil {
 			return (MindFile) mo;
 		}
 		
-		throw new IllegalArgumentException(mo == null ? "not find":"bad type "+mo.eClass().getName());
+		throw new IllegalArgumentException(mo == null ? "not found":"bad type "+mo.eClass().getName());
 	}
 	
 	public String getCurrentFQN(URI adlURI) {

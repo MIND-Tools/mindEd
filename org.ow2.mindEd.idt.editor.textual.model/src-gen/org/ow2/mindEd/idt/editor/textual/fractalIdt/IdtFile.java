@@ -1,7 +1,4 @@
 /**
- * <copyright>
- * </copyright>
- *
  */
 package org.ow2.mindEd.idt.editor.textual.fractalIdt;
 
@@ -26,7 +23,7 @@ import org.ow2.mindEd.itf.editor.textual.fractalIDL.TypeDefinition;
  *   <li>{@link org.ow2.mindEd.idt.editor.textual.fractalIdt.IdtFile#getIncludes <em>Includes</em>}</li>
  *   <li>{@link org.ow2.mindEd.idt.editor.textual.fractalIdt.IdtFile#getConstant <em>Constant</em>}</li>
  *   <li>{@link org.ow2.mindEd.idt.editor.textual.fractalIdt.IdtFile#getType <em>Type</em>}</li>
- *   <li>{@link org.ow2.mindEd.idt.editor.textual.fractalIdt.IdtFile#getEnddef <em>Enddef</em>}</li>
+ *   <li>{@link org.ow2.mindEd.idt.editor.textual.fractalIdt.IdtFile#getEndDef <em>End Def</em>}</li>
  * </ul>
  * </p>
  *
@@ -137,29 +134,29 @@ public interface IdtFile extends EObject
   EList<TypeDefinition> getType();
 
   /**
-   * Returns the value of the '<em><b>Enddef</b></em>' containment reference.
+   * Returns the value of the '<em><b>End Def</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Enddef</em>' containment reference isn't clear,
+   * If the meaning of the '<em>End Def</em>' attribute isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Enddef</em>' containment reference.
-   * @see #setEnddef(ConstantDefinitionEnd)
-   * @see org.ow2.mindEd.idt.editor.textual.fractalIdt.FractalIdtPackage#getIdtFile_Enddef()
-   * @model containment="true"
+   * @return the value of the '<em>End Def</em>' attribute.
+   * @see #setEndDef(String)
+   * @see org.ow2.mindEd.idt.editor.textual.fractalIdt.FractalIdtPackage#getIdtFile_EndDef()
+   * @model
    * @generated
    */
-  ConstantDefinitionEnd getEnddef();
+  String getEndDef();
 
   /**
-   * Sets the value of the '{@link org.ow2.mindEd.idt.editor.textual.fractalIdt.IdtFile#getEnddef <em>Enddef</em>}' containment reference.
+   * Sets the value of the '{@link org.ow2.mindEd.idt.editor.textual.fractalIdt.IdtFile#getEndDef <em>End Def</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Enddef</em>' containment reference.
-   * @see #getEnddef()
+   * @param value the new value of the '<em>End Def</em>' attribute.
+   * @see #getEndDef()
    * @generated
    */
-  void setEnddef(ConstantDefinitionEnd value);
+  void setEndDef(String value);
 
 } // IdtFile

@@ -1,14 +1,11 @@
 /**
- * <copyright>
- * </copyright>
- *
  */
 package org.ow2.mindEd.itf.editor.textual.fractalIDL.util;
 
-import java.util.List;
-
-import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EPackage;
+
+import org.eclipse.emf.ecore.util.Switch;
 
 import org.ow2.mindEd.itf.editor.textual.fractalIDL.*;
 
@@ -25,7 +22,7 @@ import org.ow2.mindEd.itf.editor.textual.fractalIDL.*;
  * @see org.ow2.mindEd.itf.editor.textual.fractalIDL.FractalIDLPackage
  * @generated
  */
-public class FractalIDLSwitch<T>
+public class FractalIDLSwitch<T> extends Switch<T>
 {
   /**
    * The cached model package
@@ -50,15 +47,17 @@ public class FractalIDLSwitch<T>
   }
 
   /**
-   * Calls <code>caseXXX</code> for each class of the model until one returns a non null result; it yields that result.
+   * Checks whether this is a switch for the given package.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the first non-null result returned by a <code>caseXXX</code> call.
+   * @parameter ePackage the package in question.
+   * @return whether this is a switch for the given package.
    * @generated
    */
-  public T doSwitch(EObject theEObject)
+  @Override
+  protected boolean isSwitchFor(EPackage ePackage)
   {
-    return doSwitch(theEObject.eClass(), theEObject);
+    return ePackage == modelPackage;
   }
 
   /**
@@ -68,29 +67,7 @@ public class FractalIDLSwitch<T>
    * @return the first non-null result returned by a <code>caseXXX</code> call.
    * @generated
    */
-  protected T doSwitch(EClass theEClass, EObject theEObject)
-  {
-    if (theEClass.eContainer() == modelPackage)
-    {
-      return doSwitch(theEClass.getClassifierID(), theEObject);
-    }
-    else
-    {
-      List<EClass> eSuperTypes = theEClass.getESuperTypes();
-      return
-        eSuperTypes.isEmpty() ?
-          defaultCase(theEObject) :
-          doSwitch(eSuperTypes.get(0), theEObject);
-    }
-  }
-
-  /**
-   * Calls <code>caseXXX</code> for each class of the model until one returns a non null result; it yields that result.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the first non-null result returned by a <code>caseXXX</code> call.
-   * @generated
-   */
+  @Override
   protected T doSwitch(int classifierID, EObject theEObject)
   {
     switch (classifierID)
@@ -207,7 +184,6 @@ public class FractalIDLSwitch<T>
       {
         EnumMember enumMember = (EnumMember)theEObject;
         T result = caseEnumMember(enumMember);
-        if (result == null) result = caseEnumMemberList(enumMember);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -225,38 +201,24 @@ public class FractalIDLSwitch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case FractalIDLPackage.ABSTRACT_DECLARATOR:
-      {
-        AbstractDeclarator abstractDeclarator = (AbstractDeclarator)theEObject;
-        T result = caseAbstractDeclarator(abstractDeclarator);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case FractalIDLPackage.POINTER_SPECIFICATION:
-      {
-        PointerSpecification pointerSpecification = (PointerSpecification)theEObject;
-        T result = casePointerSpecification(pointerSpecification);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
       case FractalIDLPackage.QUALIFIED_POINTER_SPECIFICATION:
       {
-        Qualified_PointerSpecification qualified_PointerSpecification = (Qualified_PointerSpecification)theEObject;
-        T result = caseQualified_PointerSpecification(qualified_PointerSpecification);
+        QualifiedPointerSpecification qualifiedPointerSpecification = (QualifiedPointerSpecification)theEObject;
+        T result = caseQualifiedPointerSpecification(qualifiedPointerSpecification);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case FractalIDLPackage.DIRECT_DECLARATOR:
+      case FractalIDLPackage.DIRECT_NAMED_DECLARATOR:
       {
-        DirectDeclarator directDeclarator = (DirectDeclarator)theEObject;
-        T result = caseDirectDeclarator(directDeclarator);
+        DirectNamedDeclarator directNamedDeclarator = (DirectNamedDeclarator)theEObject;
+        T result = caseDirectNamedDeclarator(directNamedDeclarator);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case FractalIDLPackage.ABSTRACT_DIRECT_DECLARATOR:
+      case FractalIDLPackage.DIRECT_ANONYMOUS_DECLARATOR:
       {
-        AbstractDirectDeclarator abstractDirectDeclarator = (AbstractDirectDeclarator)theEObject;
-        T result = caseAbstractDirectDeclarator(abstractDirectDeclarator);
+        DirectAnonymousDeclarator directAnonymousDeclarator = (DirectAnonymousDeclarator)theEObject;
+        T result = caseDirectAnonymousDeclarator(directAnonymousDeclarator);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -309,10 +271,10 @@ public class FractalIDLSwitch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case FractalIDLPackage.ANNOTATIONS:
+      case FractalIDLPackage.ANNOTATIONS_LIST:
       {
-        Annotations annotations = (Annotations)theEObject;
-        T result = caseAnnotations(annotations);
+        AnnotationsList annotationsList = (AnnotationsList)theEObject;
+        T result = caseAnnotationsList(annotationsList);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -320,21 +282,6 @@ public class FractalIDLSwitch<T>
       {
         Annotation annotation = (Annotation)theEObject;
         T result = caseAnnotation(annotation);
-        if (result == null) result = caseAnnotationValue(annotation);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case FractalIDLPackage.ANNOTATION_PARAMETERS:
-      {
-        AnnotationParameters annotationParameters = (AnnotationParameters)theEObject;
-        T result = caseAnnotationParameters(annotationParameters);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case FractalIDLPackage.ANNOTATION_VALUE_PAIRS:
-      {
-        AnnotationValuePairs annotationValuePairs = (AnnotationValuePairs)theEObject;
-        T result = caseAnnotationValuePairs(annotationValuePairs);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -356,7 +303,6 @@ public class FractalIDLSwitch<T>
       {
         ArrayAnnotationValue arrayAnnotationValue = (ArrayAnnotationValue)theEObject;
         T result = caseArrayAnnotationValue(arrayAnnotationValue);
-        if (result == null) result = caseAnnotationValue(arrayAnnotationValue);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -444,13 +390,6 @@ public class FractalIDLSwitch<T>
       {
         PrimaryExpression primaryExpression = (PrimaryExpression)theEObject;
         T result = casePrimaryExpression(primaryExpression);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case FractalIDLPackage.LITERAL:
-      {
-        Literal literal = (Literal)theEObject;
-        T result = caseLiteral(literal);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -715,38 +654,6 @@ public class FractalIDLSwitch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Abstract Declarator</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Abstract Declarator</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseAbstractDeclarator(AbstractDeclarator object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Pointer Specification</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Pointer Specification</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T casePointerSpecification(PointerSpecification object)
-  {
-    return null;
-  }
-
-  /**
    * Returns the result of interpreting the object as an instance of '<em>Qualified Pointer Specification</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -757,39 +664,39 @@ public class FractalIDLSwitch<T>
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseQualified_PointerSpecification(Qualified_PointerSpecification object)
+  public T caseQualifiedPointerSpecification(QualifiedPointerSpecification object)
   {
     return null;
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Direct Declarator</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Direct Named Declarator</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Direct Declarator</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Direct Named Declarator</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseDirectDeclarator(DirectDeclarator object)
+  public T caseDirectNamedDeclarator(DirectNamedDeclarator object)
   {
     return null;
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Abstract Direct Declarator</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Direct Anonymous Declarator</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Abstract Direct Declarator</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Direct Anonymous Declarator</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseAbstractDirectDeclarator(AbstractDirectDeclarator object)
+  public T caseDirectAnonymousDeclarator(DirectAnonymousDeclarator object)
   {
     return null;
   }
@@ -907,17 +814,17 @@ public class FractalIDLSwitch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Annotations</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Annotations List</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Annotations</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Annotations List</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseAnnotations(Annotations object)
+  public T caseAnnotationsList(AnnotationsList object)
   {
     return null;
   }
@@ -934,38 +841,6 @@ public class FractalIDLSwitch<T>
    * @generated
    */
   public T caseAnnotation(Annotation object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Annotation Parameters</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Annotation Parameters</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseAnnotationParameters(AnnotationParameters object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Annotation Value Pairs</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Annotation Value Pairs</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseAnnotationValuePairs(AnnotationValuePairs object)
   {
     return null;
   }
@@ -1211,22 +1086,6 @@ public class FractalIDLSwitch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Literal</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Literal</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseLiteral(Literal object)
-  {
-    return null;
-  }
-
-  /**
    * Returns the result of interpreting the object as an instance of '<em>EObject</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -1237,6 +1096,7 @@ public class FractalIDLSwitch<T>
    * @see #doSwitch(org.eclipse.emf.ecore.EObject)
    * @generated
    */
+  @Override
   public T defaultCase(EObject object)
   {
     return null;
