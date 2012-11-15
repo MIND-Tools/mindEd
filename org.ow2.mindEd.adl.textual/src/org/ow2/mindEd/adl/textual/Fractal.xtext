@@ -1,0 +1,274 @@
+grammar org.ow2.mindEd.adl.textual.Fractal with org.eclipse.xtext.common.Terminals
+
+generate fractal "http://www.ow2.org/mindEd/adl/textual/Fractal"
+
+import "http://www.ow2.org/mindEd/itf/" as fractalIDL
+
+AdlDefinition :
+	imports += ImportDefinition*
+	/*
+	 * Any ArchitectureDefinition can be annotated
+	 * The following line used to be defined in each of the kinds of ArchitectureDefinition
+	 * (allowing to use the getAnnotationsList method of the according feature in EMF on each type)
+	 * but led to ambiguities in the grammar, leading to breaking Xtext's model and autocompletion,
+	 * mostly on provided and required interfaces.
+	 */
+	(annotationsList=AnnotationsList)?
+	architectureDefinition = ArchitectureDefinition
+;
+
+/*
+ * SSZ Note: Mind package scoping is handled thanks to the
+ * org.ow2.mindEd.adl.textual.scoping.FractalImportedNamespaceAwareLocalScopeProvider
+ * to be able to manage implicit declaration during the component declaration.
+ */
+
+ArchitectureDefinition:
+	CompositeDefinition | PrimitiveDefinition | TypeDefinition
+;
+
+ImportDefinition:
+	(annotationsList=AnnotationsList)?
+	'import' importedNamespace = QualifiedNameWithWildcard ';'
+;
+
+QualifiedNameWithWildcard:
+	QualifiedName '.*'?
+;
+
+CompositeDefinition:
+	'composite' (name = QualifiedName)? // support anonymous definitions
+	('<' (templateSpecifiers+=TemplateSpecifier (',' templateSpecifiers+=TemplateSpecifier)*) '>')? // <ID conformsto TypeDefinition, ID2 conformsto TypeDef2, ...>
+	(compositeFormalArgumentsList = FormalArgumentsList)? // (arg1, arg2, ...)
+	(	'extends' superTypes += CompositeSuperType
+			(',' superTypes += CompositeSuperType)*
+	)? '{'
+		elements += (ProvidedInterfaceDefinition | RequiredInterfaceDefinition | SubComponentDefinition | BindingDefinition)*
+	'}'
+;
+
+PrimitiveDefinition:
+	(abstract ?= 'abstract')?
+	'primitive' (name = QualifiedName)? // support anonymous definitions
+	(compositeFormalArgumentsList = FormalArgumentsList)?
+	('extends' superTypes += PrimitiveSuperType
+		(',' superTypes += PrimitiveSuperType)*
+	)? '{'
+		elements += (ProvidedInterfaceDefinition | RequiredInterfaceDefinition | ImplementationDefinition | AttributeDefinition | DataDefinition)*
+	'}'
+;
+
+TypeDefinition:
+	'type' name = QualifiedName
+	('extends' superTypes += [TypeDefinition | QualifiedName] (',' superTypes += [TypeDefinition | QualifiedName])*)? '{'
+		elements += (ProvidedInterfaceDefinition | RequiredInterfaceDefinition)*
+	'}'
+;
+
+CompositeSuperType:
+	targetArchDef = [CompositeSuperTypeDefinition | QualifiedName]
+	('<' templatesList+=TemplateReference (',' templatesList+=TemplateReference)* '>')?
+	('(' argumentsList+=ArgumentDefinition (',' argumentsList+=ArgumentDefinition)* ')')?
+;
+
+PrimitiveSuperType:
+	targetArchDef = [PrimitiveSuperTypeDefinition | QualifiedName]
+	('(' argumentsList+=ArgumentDefinition (',' argumentsList+=ArgumentDefinition)* ')')?
+;
+
+CompositeSuperTypeDefinition:
+	CompositeDefinition | TypeDefinition
+;
+
+PrimitiveSuperTypeDefinition:
+	PrimitiveDefinition | TypeDefinition
+;
+
+
+HostedInterfaceDefinition:
+	ProvidedInterfaceDefinition | RequiredInterfaceDefinition
+;
+
+// Renamed as HostedInterfaceDefinition to resolve name clash with fractalItf::InterfaceDefinition
+// Another way to solve the problem is to use prefixes ?
+ProvidedInterfaceDefinition :
+	(annotationsList=AnnotationsList)?
+	role="provides" signature = [fractalIDL::InterfaceDefinition | QualifiedName] 'as' name=ID
+	(collection?='['(collectionsize=INT)?']')? ';'
+;
+
+RequiredInterfaceDefinition :
+	(annotationsList=AnnotationsList)?
+	role="requires" (optional?='optional')? signature = [fractalIDL::InterfaceDefinition | QualifiedName] 'as' name=ID
+	(collection?='['(collectionsize=INT)?']')? ';'
+;
+
+TypeReference:
+	ArchitectureDefinition | TemplateSpecifier
+;
+
+// Original: can do anything but needs lots of manual scoping/validation
+SubComponentDefinition:
+	(annotationsList=AnnotationsList)?
+	'contains'
+	(type = [TypeReference | QualifiedName])?
+	('<' templatesList+=TemplateReference (',' templatesList+=TemplateReference)* '>')?
+	('(' argumentsList+=ArgumentDefinition (',' argumentsList+=ArgumentDefinition)* ')')?
+	'as'
+	name = ID
+	(bodyAnnotationsList=AnnotationsList)?
+	(body = (CompositeDefinition|PrimitiveDefinition))?
+	';'
+;
+
+//SubComponentBody: 
+//	SubComponentCompositeBody | SubComponentPrimitiveBody
+//;
+//
+//SubComponentCompositeBody:
+//	anonymous ?= 'composite'	// true but the existence of this body in the SubComponentDefinition rule
+//								// implies an anonymous component anyway
+//	'{'
+//		elements += (SubComponentDefinition | ProvidedInterfaceDefinition | RequiredInterfaceDefinition | BindingDefinition)*
+//	'}'
+//;
+//
+//SubComponentPrimitiveBody:
+//	anonymous?='primitive'		// true but the existence of this body in the SubComponentDefinition rule
+//								// implies an anonymous component anyway
+//	'{'
+//		elements += (ProvidedInterfaceDefinition | RequiredInterfaceDefinition | ImplementationDefinition | AttributeDefinition | DataDefinition)*
+//	'}'
+//;
+
+// Check if this rules is in accordance with the original grammar
+Element :
+	CompositeElement | PrimitiveElement | HostedInterfaceDefinition
+;
+
+CompositeElement :
+	HostedInterfaceDefinition | SubComponentDefinition | BindingDefinition
+;
+
+PrimitiveElement :
+	HostedInterfaceDefinition | ImplementationDefinition | AttributeDefinition | DataDefinition
+;
+
+// The correct auto-completion scoping for Bindings is implemented in org.ow2.mindEd.adl.textual.scoping.FractalScopeProvider
+// This could be assimilated to filtering elements from the references pool to provide only pertinent ones.
+
+BindingDefinition :
+	(annotationsList=AnnotationsList)?
+	'binds'
+	(sourceParent = [SubComponentDefinition | ID] | isSrcParentThis ?= 'this')
+	'.'
+	sourceInterface = [HostedInterfaceDefinition | ID] ('[' sourceIndex = INT ']')?
+	'to'
+	(targetParent = [SubComponentDefinition | ID] | isTgtParentThis ?= 'this')
+	'.'
+	targetInterface = [HostedInterfaceDefinition | ID] ('[' targetIndex = INT ']')?
+	';'
+;
+
+FormalArgument :
+	name=ID;
+
+FormalArgumentsList :
+	'(' formalArguments+=FormalArgument (',' formalArguments+=FormalArgument)* ')';
+
+// Using "id=ID" instead of "name=ID" allows us for the TemplateSpecifiers not to be indexed by default and we'll add them where needed by hand
+TemplateSpecifier :
+	name=ID 'conformsto' typeReference = [TypeDefinition | QualifiedName]
+;
+
+//TemplateSpecifiersList :
+//	'<' (templateSpecifiers+=TemplateSpecifier (',' templateSpecifiers+=TemplateSpecifier)*) '>';
+
+AttributeType :
+	'STRUCT'|'UNION'|'ENUM'|ID;
+
+signedINT :
+	('+'|'-')?INT;
+
+HexadecimalType :
+	'0x'INT;
+
+Value :
+	ID | signedINT | HexadecimalType | STRING | 'null';
+
+TemplateReference :
+	(name=TemplateSpecifier '=')? (typeReference = [TypeReference | QualifiedName] | anyTypeReference ?= '?')
+	// Our reference can itself be templated/parametered
+	('<' templatesList+=TemplateReference (',' templatesList+=TemplateReference)* '>')?
+	('(' argumentsList+=ArgumentDefinition (',' argumentsList+=ArgumentDefinition)* ')')?
+;
+
+ArgumentDefinition :
+	(name = ID '=')? argumentValue = Value
+;
+
+AttributeDefinition :
+	(annotationsList=AnnotationsList)?
+	'attribute' (type = AttributeType)? attributeName = ID ('=' value = Value)? ';' ;
+
+ImplementationDefinition :
+	(annotationsList=AnnotationsList)?
+	'source' ((fileC = FileC) |(inlineCcode = InlineCodeC)) ';'
+;
+
+DataDefinition :
+	(annotationsList=AnnotationsList)?
+	'data' ((fileC = FileC) | (inlineCcode = InlineCodeC)) ';';
+
+QualifiedName:
+	ID ('.' ID)*
+;
+
+FileC :
+	(directory = Path)? name = FileName;
+	
+InlineCodeC :
+	codeC = CODE_C;
+
+Path :
+	(ID | ('.') | ('..'))? (SL ((ID ('-')?)* | '..'))* SL;
+
+FileName :
+	ID('.'ID)?;
+
+AnnotationsList :
+	annotations+=Annotation (annotations+=Annotation)*;
+
+Annotation :
+	'@' name = ('Override' | 'Singleton' | 'LDFlags' | 'CFlags' | QualifiedName)
+	('(' annotationElements+=AnnotationElement (',' annotationElements+=AnnotationElement)* ')')?;
+
+// Pre-defined annotations + allow other names
+//AnnotationType:
+//	'Override' | 'Singleton' | 'LDFlags' | 'CFlags' | QualifiedName;
+
+AnnotationElement :
+	(name=ID '=')? elementValue=ElementValue
+;
+
+ElementValue :
+	ConstantValue | Annotation | ElementValueArrayInitializer;
+
+ElementValueArrayInitializer :
+	'{' values+=ElementValue (',' values+=ElementValue)* '}'; 
+
+ConstantValue :
+	value = ConstantFormat;
+
+ConstantFormat:
+INT|STRING|ID;
+
+terminal CODE_C :
+	'{{' -> '}}';
+
+terminal SL :
+	(('\\')|('\\\\')|('/'));
+
+//enum Role :
+//	provides="provides" | requires="requires";
+

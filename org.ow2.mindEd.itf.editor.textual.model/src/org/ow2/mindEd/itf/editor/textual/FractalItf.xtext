@@ -1,0 +1,250 @@
+grammar org.ow2.mindEd.itf.editor.textual.FractalItf with org.eclipse.xtext.common.Terminals
+
+generate fractalIDL "http://www.ow2.org/mindEd/itf/"
+
+
+ItfFile:
+  (includes+=IncludeDirective)*
+  (constant+=ConstantDefinition | type+=TypeDefinition)*
+  interface=InterfaceDefinition
+  (";")?
+;
+
+// Type definition part
+TypeDefinition:
+  (TypedefSpecification | StructOrUnionSpecification | EnumSpecification) ';';
+
+TypedefSpecification:
+  'typedef' qualifedType=QualifiedTypeSpecification dec=Declarators
+;
+
+QualifiedTypeSpecification:
+  (typeQualifier+=TypeQualifier)* typeSpec=TypeSpecification
+;
+
+enum TypeQualifier:
+  const | volatile;
+
+TypeSpecification:
+  typeDefName=QualifiedName
+  | StructOrUnionSpecification
+  | EnumSpecification
+  | typeSpecifier += TypeSpecifier (typeSpecifier += TypeSpecifier)*;
+
+enum TypeSpecifier:
+  void | char | short | int | long | float | double | signed | unsigned | string | int8_t | uint8_t |
+  int16_t | uint16_t | int32_t | uint32_t | int64_t | uint64_t | intptr_t | uintptr_t;
+
+StructOrUnionSpecification:
+  StructOrUnionDefinition | StructorUnionReference
+;
+
+StructOrUnionDefinition:
+  struct=StructOrUnion
+  (id=ID)?
+  '{' (structMember+=StructMember)* '}'
+;
+
+StructorUnionReference:
+  struct=StructOrUnion
+  id=ID
+;
+
+StructOrUnion:
+  'struct' | 'union';
+
+StructMember:
+  (annotationsList=AnnotationsList)?
+  qualType=QualifiedTypeSpecification
+  dec=Declarators
+  (':' constExpr=ConstantExpression)?
+  ';'
+;
+
+EnumSpecification:
+  EnumDefinition | EnumReference;
+
+EnumDefinition:
+  'enum' (id=ID)?
+  '{' enumMemberList=EnumMemberList '}';
+
+EnumReference:
+  'enum' id=ID;
+
+EnumMemberList:
+  enumMember+=EnumMember (',' enumMember+=EnumMember)*;
+
+EnumMember:
+  // Is the following really needed ??
+  //(annotationsList=AnnotationsList)?
+  name=ID ('=' constExpr=ConstantExpression)?;
+
+Declarators:
+  dec=Declarator (',' declaratorList+=Declarator)*;
+
+Declarator:
+  pointer+=QualifiedPointerSpecification*
+  (dc=DirectNamedDeclarator | dc=DirectAnonymousDeclarator | '(' dec=Declarator ')')
+; 
+
+//AbstractDeclarator:
+//  pointer=PointerSpecification
+//  dc=AbstractDirectDeclarator?
+//;
+
+// * -> const/volatile
+QualifiedPointerSpecification:
+  {QualifiedPointerSpecification} '*' typeQualifiers+=TypeQualifier*;
+
+DirectNamedDeclarator:
+  id=ID
+  array += ArraySpecification*
+;
+
+DirectAnonymousDeclarator:
+  {DirectAnonymousDeclarator} array += ArraySpecification*
+; 
+  
+// AbstractDirectDeclarator:
+//  ( '(' dec=AbstractDeclarator ')'
+//  	arrays += ArraySpecification*
+//  ) | array += ArraySpecification+;
+
+ArraySpecification:
+	unspecifiedSize ?= '[' ']'
+	| '[' fixedSize=ConstantExpression  ']'
+;
+
+QualifiedName:
+  ID ('.' ID)*
+; 
+
+// Interface definition part
+ConstantDefinition:
+  "#define" name=ID expr=ConstantExpression?;
+
+InterfaceDefinition:
+  (annotationsList=AnnotationsList)?
+  'interface' ("unmanaged")?
+  name=QualifiedName
+  (":" fqn2=QualifiedName)?
+  '{' (methodDef+=MethodDefinition)* '}'
+;
+
+MethodDefinition:
+  (annotationsList=AnnotationsList)?
+  qualifiedTypeSpec=QualifiedTypeSpecification
+  (pointerSpecification+=QualifiedPointerSpecification)*
+  name=ID
+  (	'(' ('void')? ')'
+  	| '(' ParameterList=ParameterList ')'
+  )
+  ';'
+;
+
+ParameterList:
+  params+=Parameter (',' params+=Parameter)* (',' '...')?;
+
+Parameter:
+  (annotationsList=AnnotationsList)?
+  ParameterQualifier+=ParameterQualifier*
+  qualifiedTypeSpec=QualifiedTypeSpecification (dec=Declarator /* | absDec=AbstractDeclarator */);
+
+enum ParameterQualifier:
+  in | out; // include directive
+
+
+IncludeDirective:
+  '#include' (importedURI=STRING('/' STRING)* | includeID=INCLUDE_LIB);
+
+terminal INCLUDE_LIB:
+  '<' (ID '/')* ID '.' ID '>';
+
+AnnotationsList :
+	annotations+=Annotation (annotations+=Annotation)*;
+
+Annotation:
+  '@' name=QualifiedName
+  ('(' annotationParametersList+=AnnotationValuePair (',' annotationParametersList+=AnnotationValuePair)* ')')?
+;
+
+AnnotationValuePair:
+  (name=ID '=')? value=AnnotationValue;
+
+AnnotationValue:
+  value=(signedINT|'null'|BOOLEAN|QualifiedName|STRING)
+  | arrayValue = ArrayAnnotationValue;
+  
+ArrayAnnotationValue:
+  '{' values+=AnnotationValue (',' values+=AnnotationValue)* '}';
+
+terminal BOOLEAN:
+  'true' | 'false';
+
+signedINT:
+  (ADDITIVE_OPERATION)? INT;
+
+ConstantExpression:
+  LogicalOrExpression;
+
+LogicalOrExpression:
+  leftExpr=LogicalAndExpression ('||' rightExpr=LogicalOrExpression)?;
+
+LogicalAndExpression:
+  leftExpr=OrExpression ('&&' rightExpr=LogicalAndExpression)?;
+
+OrExpression:
+  leftExpr=XorExpression ('|' rightExpr=OrExpression)?;
+
+XorExpression:
+  leftExpr=AndExpression ('^' rightExpr=XorExpression)?;
+
+AndExpression:
+  leftExpr=ShiftExpression ('&' rightExpr=AndExpression)?;
+
+ShiftExpression:
+  leftExpr=AdditiveExpression (op=SHIFT_OPERATION rightExpr=ShiftExpression)?;
+
+AdditiveExpression:
+  leftExpr=MulExpression (op=ADDITIVE_OPERATION rightExpr=AdditiveExpression)?;
+
+MulExpression:
+  leftExpr=CastExpression (op=MUL_OPERATION rightExpr=MulExpression)?;
+
+CastExpression:
+  '(' type=QualifiedTypeSpecification ')' expr=CastExpression|unaryExpr=
+  UnaryExpression;
+
+UnaryExpression:
+  (unaryExpr=UNARY_OPERATION)? primaryExpr=PrimaryExpression;
+
+PrimaryExpression:
+  literal=Literal|'(' ConstantExpression ')';
+
+Literal:
+  ID|STRING|FloatingPointLiteral;
+
+terminal SHIFT_OPERATION:
+  '<<'|'>>';
+
+terminal ADDITIVE_OPERATION:
+  '+'|'-';
+
+terminal MUL_OPERATION:
+  '*'|'/'|'%';
+
+terminal UNARY_OPERATION:
+  '&'|'*'|'+'|'-'|'~'|'!';
+
+FloatingPointLiteral:
+  signedINT+ '.' signedINT* (Exponent)? FDSYMBOL?
+  | '.' signedINT+ (Exponent)? FDSYMBOL? 
+  | signedINT+ Exponent FDSYMBOL? 
+  | signedINT+ Exponent? FDSYMBOL? ;
+
+Exponent:
+  ('e' | 'E'ADDITIVE_OPERATION)? INT+;
+  
+terminal FDSYMBOL:
+ 'f' | 'F' | 'd' | 'D';
+  
