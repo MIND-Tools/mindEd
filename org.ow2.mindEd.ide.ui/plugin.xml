@@ -606,41 +606,4 @@
             type="java.lang.Boolean">
       </propertyTester>
    </extension>
-   
-   <!--
-   		Inspired from http://help.eclipse.org/helios/topic/org.eclipse.platform.doc.isv/reference/extension-points/org_eclipse_ltk_core_refactoring_moveParticipants.html
-   		And the LTK refactoring framework documentation
-   -->
-   <extension
-		point="org.eclipse.ltk.core.refactoring.moveParticipants">
-		<moveParticipant
-    		id="org.eclipse.jdt.junit.moveTypeParticipant"
-    		name="Move MindEd file" 
-    		class="org.ow2.mindEd.ide.ui.refactoring.MindMoveParticipant">
-    		<enablement>
-      			<with variable="affectedNatures">
-        			<iterate operator="or">
-          				<equals value="org.ow2.mindEd.ide.core.nature"/>
-        			</iterate>
-      			</with>
-      			<!-- More info about available PropertyTesters:
-      				http://wiki.eclipse.org/Command_Core_Expressions#Property_Testers
-      			-->
-      			<with variable="element">
-      				<!-- Folder | (File && (extension==adl| extension==itf)) -->
-        			<instanceof value="org.eclipse.core.resources.IResource"/>
-        			<or>
-        				<instanceof value="org.eclipse.core.resources.IFolder"/>
-        				<and>
-        					<instanceof value="org.eclipse.core.resources.IFile"/>
-        					<or>
-        						<test property="org.eclipse.core.resources.extension" value="adl"/>
-        						<test property="org.eclipse.core.resources.extension" value="itf"/>
-        					</or>
-        				</and>
-        			</or>
-      			</with>
-    		</enablement>
-		</moveParticipant>
-   	</extension>
 </plugin>

@@ -775,7 +775,8 @@ protected class ItfFile_InterfaceAssignment_2 extends AssignmentToken  {
 /************ begin Rule TypeDefinition ****************
  *
  * // Type definition part
- *  TypeDefinition:
+ * 
+ * TypeDefinition:
  * 
  * 	(TypedefSpecification | StructOrUnionSpecification | EnumSpecification) ";";
  *
@@ -2811,16 +2812,18 @@ protected class EnumMemberList_EnumMemberAssignment_1_1 extends AssignmentToken 
 /************ begin Rule EnumMember ****************
  *
  * EnumMember: // Is the following really needed ??
- *  //(annotationsList=AnnotationsList)?
- *  name=ID ("="
  * 
- * 	constExpr=ConstantExpression)?;
+ * //(annotationsList=AnnotationsList)?
+ * 
+ * 	name=ID ("=" constExpr=ConstantExpression)?;
  *
  **/
 
 // // Is the following really needed ??
-//  //(annotationsList=AnnotationsList)?
-//  name=ID ("=" constExpr=ConstantExpression)?
+// 
+// //(annotationsList=AnnotationsList)?
+// 
+// name=ID ("=" constExpr=ConstantExpression)?
 protected class EnumMember_Group extends GroupToken {
 	
 	public EnumMember_Group(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -2851,8 +2854,10 @@ protected class EnumMember_Group extends GroupToken {
 }
 
 // // Is the following really needed ??
-//  //(annotationsList=AnnotationsList)?
-//  name=ID
+// 
+// //(annotationsList=AnnotationsList)?
+// 
+// name=ID
 protected class EnumMember_NameAssignment_0 extends AssignmentToken  {
 	
 	public EnumMember_NameAssignment_0(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -3483,11 +3488,14 @@ protected class Declarator_RightParenthesisKeyword_1_2_2 extends KeywordToken  {
 /************ begin Rule QualifiedPointerSpecification ****************
  *
  * //AbstractDeclarator:
- *  //  pointer=PointerSpecification
- *  //  dc=AbstractDirectDeclarator?
- *  //;
- *  // * -> const/volatile
  * 
+ * //  pointer=PointerSpecification
+ * 
+ * //  dc=AbstractDirectDeclarator?
+ * 
+ * //;
+ * 
+ * // * -> const/volatile
  * 
  * QualifiedPointerSpecification:
  * 
@@ -3852,12 +3860,14 @@ protected class DirectAnonymousDeclarator_ArrayAssignment_1 extends AssignmentTo
 /************ begin Rule ArraySpecification ****************
  *
  * // AbstractDirectDeclarator:
- *  //  ( '(' dec=AbstractDeclarator ')'
- *  //  	arrays += ArraySpecification*
  * 
+ * //  ( '(' dec=AbstractDeclarator ')'
+ * 
+ * //  	arrays += ArraySpecification*
  * 
  * //  ) | array += ArraySpecification+;
- *  ArraySpecification:
+ * 
+ * ArraySpecification:
  * 
  * 	unspecifiedSize?="[" "]" | "[" fixedSize=ConstantExpression "]";
  *
@@ -4091,7 +4101,8 @@ protected class ArraySpecification_RightSquareBracketKeyword_1_2 extends Keyword
 /************ begin Rule ConstantDefinition ****************
  *
  * // Interface definition part
- *  ConstantDefinition:
+ * 
+ * ConstantDefinition:
  * 
  * 	"#define" name=ID expr=ConstantExpression?;
  *

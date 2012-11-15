@@ -144,28 +144,18 @@ public abstract class AbstractFractalUiModule extends DefaultUiModule {
 	}
 
 	// contributed by org.eclipse.xtext.ui.generator.refactoring.RefactorElementNameFragment
-	public Class<? extends org.eclipse.xtext.ui.refactoring.ui.IRenameElementHandler> bindIRenameElementHandler() {
-		return org.eclipse.xtext.common.types.ui.refactoring.JvmRenameElementHandler.class;
-	}
-
-	// contributed by org.eclipse.xtext.ui.generator.refactoring.RefactorElementNameFragment
 	public Class<? extends org.eclipse.xtext.ui.refactoring.IRenameRefactoringProvider> bindIRenameRefactoringProvider() {
-		return org.eclipse.xtext.common.types.ui.refactoring.JvmRenameRefactoringProvider.class;
+		return org.eclipse.xtext.ui.refactoring.impl.DefaultRenameRefactoringProvider.class;
 	}
 
 	// contributed by org.eclipse.xtext.ui.generator.refactoring.RefactorElementNameFragment
 	public Class<? extends org.eclipse.xtext.ui.refactoring.ui.IRenameSupport.Factory> bindIRenameSupport$Factory() {
-		return org.eclipse.xtext.common.types.ui.refactoring.JdtRenameSupport.Factory.class;
+		return org.eclipse.xtext.ui.refactoring.ui.DefaultRenameSupport.Factory.class;
 	}
 
 	// contributed by org.eclipse.xtext.ui.generator.refactoring.RefactorElementNameFragment
-	public Class<? extends org.eclipse.xtext.ui.refactoring.IRenameStrategy.Provider> bindIRenameStrategy$Provider() {
-		return org.eclipse.xtext.common.types.ui.refactoring.participant.JvmMemberRenameStrategy.Provider.class;
-	}
-
-	// contributed by org.eclipse.xtext.ui.generator.refactoring.RefactorElementNameFragment
-	public void configureJvmMemberRenameStrategy$Provider$Delegate(com.google.inject.Binder binder) {
-		binder.bind(org.eclipse.xtext.ui.refactoring.IRenameStrategy.Provider.class).annotatedWith(org.eclipse.xtext.common.types.ui.refactoring.participant.JvmMemberRenameStrategy.Provider.Delegate.class).to(org.eclipse.xtext.ui.refactoring.impl.DefaultRenameStrategyProvider.class);
+	public Class<? extends org.eclipse.xtext.ui.refactoring.ui.IRenameElementHandler> bindIRenameElementHandler() {
+		return org.eclipse.xtext.ui.refactoring.ui.DefaultRenameElementHandler.class;
 	}
 
 	// contributed by org.eclipse.xtext.generator.types.TypesGeneratorFragment

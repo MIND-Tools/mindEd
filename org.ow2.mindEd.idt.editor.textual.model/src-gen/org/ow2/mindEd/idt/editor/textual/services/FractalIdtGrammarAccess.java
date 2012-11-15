@@ -218,7 +218,8 @@ public class FractalIdtGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//// Type definition part
-	// TypeDefinition:
+	//
+	//TypeDefinition:
 	//
 	//	(TypedefSpecification | StructOrUnionSpecification | EnumSpecification) ";";
 	public FractalItfGrammarAccess.TypeDefinitionElements getTypeDefinitionAccess() {
@@ -390,10 +391,10 @@ public class FractalIdtGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//EnumMember: // Is the following really needed ??
-	// //(annotationsList=AnnotationsList)?
-	// name=ID ("="
 	//
-	//	constExpr=ConstantExpression)?;
+	////(annotationsList=AnnotationsList)?
+	//
+	//	name=ID ("=" constExpr=ConstantExpression)?;
 	public FractalItfGrammarAccess.EnumMemberElements getEnumMemberAccess() {
 		return gaFractalItf.getEnumMemberAccess();
 	}
@@ -427,11 +428,14 @@ public class FractalIdtGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	////AbstractDeclarator:
-	// //  pointer=PointerSpecification
-	// //  dc=AbstractDirectDeclarator?
-	// //;
-	// // * -> const/volatile
 	//
+	////  pointer=PointerSpecification
+	//
+	////  dc=AbstractDirectDeclarator?
+	//
+	////;
+	//
+	//// * -> const/volatile
 	//
 	//QualifiedPointerSpecification:
 	//
@@ -467,12 +471,14 @@ public class FractalIdtGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//// AbstractDirectDeclarator:
-	// //  ( '(' dec=AbstractDeclarator ')'
-	// //  	arrays += ArraySpecification*
 	//
+	////  ( '(' dec=AbstractDeclarator ')'
+	//
+	////  	arrays += ArraySpecification*
 	//
 	////  ) | array += ArraySpecification+;
-	// ArraySpecification:
+	//
+	//ArraySpecification:
 	//
 	//	unspecifiedSize?="[" "]" | "[" fixedSize=ConstantExpression "]";
 	public FractalItfGrammarAccess.ArraySpecificationElements getArraySpecificationAccess() {
@@ -495,7 +501,8 @@ public class FractalIdtGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//// Interface definition part
-	// ConstantDefinition:
+	//
+	//ConstantDefinition:
 	//
 	//	"#define" name=ID expr=ConstantExpression?;
 	public FractalItfGrammarAccess.ConstantDefinitionElements getConstantDefinitionAccess() {
@@ -559,7 +566,8 @@ public class FractalIdtGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//// include directive
-	// enum ParameterQualifier:
+	//
+	//enum ParameterQualifier:
 	//
 	//	in | out;
 	public FractalItfGrammarAccess.ParameterQualifierElements getParameterQualifierAccess() {
