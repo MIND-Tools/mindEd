@@ -5,6 +5,7 @@ import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.xtext.validation.Check;
+import org.ow2.mindEd.adl.textual.fractal.AdlDefinition;
 import org.ow2.mindEd.adl.textual.fractal.ArchitectureDefinition;
 import org.ow2.mindEd.adl.textual.fractal.CompositeDefinition;
 import org.ow2.mindEd.adl.textual.fractal.CompositeElement;
@@ -31,19 +32,35 @@ public class FractalJavaValidator extends AbstractFractalJavaValidator {
 	public static final String UNKNOWN_SOURCE_FILE = "org.ow2.fractal.mind.xtext.validation.unknown_source";
 
 	public final static String WRONG_NAME = "org.ow2.mindEd.adl.editor.textual.validation.wrong_name";
+	public final static String NOT_IN_SRC_PATH = "org.ow2.mindEd.adl.editor.textual.validation.not_in_src_path";
 	
 	@Check
 	public void checkAdlSimpleName(ArchitectureDefinition archDef) {
 
+		// Protect method
+		if (archDef instanceof SubComponentDefinition)
+			return;
+		
 		String simpleName = archDef.getName();
+		
+		// anonymous component
+		if (simpleName == null)
+			return;
 		
 		String expectedName = FractalJavaValidator.getExpectedComponentName(archDef); 
 		
-		if (! simpleName.equals(expectedName)) {
+		if (expectedName == null) {
+			warning("definition not in source path",
+					FractalPackage.Literals.TYPE_REFERENCE__NAME,
+					FractalPackage.ARCHITECTURE_DEFINITION,
+					FractalJavaValidator.NOT_IN_SRC_PATH);
+			return;
+		} else if (! simpleName.equals(expectedName)) {
 			warning("definition should be named : " + expectedName,
 					FractalPackage.Literals.TYPE_REFERENCE__NAME,
 					FractalPackage.ARCHITECTURE_DEFINITION,
 					FractalJavaValidator.WRONG_NAME);
+			return;
 		}
 
 	}	
@@ -51,10 +68,20 @@ public class FractalJavaValidator extends AbstractFractalJavaValidator {
 	// Utils
 	public static String getExpectedComponentName(ArchitectureDefinition archDef){
 		
+		if (!(archDef.eContainer() instanceof AdlDefinition))
+			return null;
+		
 		AdlDefinitionImpl adlFile = (AdlDefinitionImpl) archDef.eContainer();
 		URI uri = adlFile.eDirectResource().getURI();
 		
-		String expectedName = ModelToProjectUtil.INSTANCE.getCurrentFQN(uri);
+		String expectedName = null;
+		
+		// TODO: Clean this ; to do this, we must disable Xtext's parsing/handling of the files that AREN'T in our path entries !
+		try {
+			expectedName = ModelToProjectUtil.INSTANCE.getCurrentFQN(uri);
+		} catch (IllegalArgumentException e) {
+			expectedName = null;  
+		}
 		return expectedName;
 	}	
 	
