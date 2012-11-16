@@ -429,6 +429,9 @@ public class MindModelImpl implements MindModel {
 		return null;
 	}
 
+	/**
+	 * @since 1.0
+	 */
 	public MindItf getItf(MindProject mp, String packageName, String interfaceName) {
 		MindPackage p = getPackage(mp, packageName);
 		if (p == null) return null;

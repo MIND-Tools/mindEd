@@ -2,6 +2,9 @@
 
 package org.ow2.mindEd.ide.core.template;
 
+/**
+ * @since 1.0
+ */
 public class TemplateITF
  {
   protected static String nl;

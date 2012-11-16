@@ -52,6 +52,7 @@ public class SourceFolderField {
 
 	/**
 	 * @see IDialogPage#createControl(Composite)
+	 * @since 1.0
 	 */
 	public void createControl(Composite container, final PageUpdateStatus pus) {
 		Label label = new Label(container, SWT.NULL);
@@ -89,6 +90,7 @@ public class SourceFolderField {
 	
 	/**
 	 * @return true if error
+	 * @since 1.0
 	 */
 
 	public boolean dialogChanged(PageUpdateStatus pus) {

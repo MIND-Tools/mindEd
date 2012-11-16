@@ -151,6 +151,7 @@ public interface MindModel {
 	 * @param packageName
 	 * @param interfaceName
 	 * @return the itf if is found or null
+	 * @since 1.0
 	 */
 	MindItf getItf(MindProject mp, String packageName, String interfaceName);
 	

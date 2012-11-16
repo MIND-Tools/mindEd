@@ -39,6 +39,7 @@ import org.ow2.mindEd.ide.ui.Activator;
  * @author Stephane Seyvoz
  * This class is strongly inspired by
  * @see ComponentNewWizard
+ * @since 1.0
  */
 public class MindInterfaceWizard extends Wizard implements INewWizard {
 

@@ -12,6 +12,7 @@ import org.ow2.mindEd.ide.ui.properties.MpeMindPathModel;
 
 /**
  * It's an action which create a mind path entry of kind project reference.
+ * @since 1.0
  */
 public final class MPENewProjectReference extends MPEAction {
 	public MPENewProjectReference(Shell shell, MindProject p, MpeMindPathModel model) {

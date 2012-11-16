@@ -39,6 +39,9 @@ import org.ow2.mindEd.ide.model.MindProject;
 import org.ow2.mindEd.ide.model.MindRootSrc;
 import org.ow2.mindEd.ide.model.MindideFactory;
 
+/**
+ * @since 1.0
+ */
 public class MindInterfaceWizardPage extends WizardPage implements PageUpdateStatus {
 
 	private SourceFolderField _sourceFolderField;
