@@ -13,6 +13,7 @@ import org.eclipse.xtext.ui.editor.syntaxcoloring.AbstractAntlrTokenToAttributeI
 import org.eclipse.xtext.ui.editor.syntaxcoloring.IHighlightingConfiguration;
 import org.ow2.mindEd.adl.textual.ui.navigation.FractalHyperlink;
 import org.ow2.mindEd.adl.textual.ui.refactoring.FractalRenameStrategy;
+import org.ow2.mindEd.adl.textual.ui.resource.FractalResourceUIServiceProvider;
 import org.ow2.mindEd.ide.ui.navigator.MindLabelProvider;
 
 import com.google.inject.Binder;
@@ -77,4 +78,8 @@ public class FractalUiModule extends org.ow2.mindEd.adl.textual.ui.AbstractFract
 		return FractalRenameStrategy.class;
 	}
 
+	public Class<? extends org.eclipse.xtext.ui.resource.IResourceUIServiceProvider> bindResourceUIServiceProvider() {
+		return FractalResourceUIServiceProvider.class;
+	}
+	
 }
