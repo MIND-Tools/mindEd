@@ -50,7 +50,7 @@ public class FractalResourceUIServiceProvider extends
 		} catch (IllegalArgumentException e) {
 			result = false;
 		}
-		System.out.println("[SSZ Dirty Debug] FractalResourceUIServiceProvider#belongsToMindPath - URI: " + uri.toPlatformString(true) + " is in path: " + result);
+		//System.out.println("[SSZ Dirty Debug] FractalResourceUIServiceProvider#belongsToMindPath - URI: " + uri.toPlatformString(true) + " is in path: " + result);
 		return result;
 	}
 	
