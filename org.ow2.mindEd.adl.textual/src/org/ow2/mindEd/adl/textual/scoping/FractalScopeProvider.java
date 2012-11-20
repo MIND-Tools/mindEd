@@ -70,7 +70,7 @@ public class FractalScopeProvider extends AbstractDeclarativeScopeProvider {
 
 			// handle anonymous component definitions
 			// see http://mind.ow2.org/mindc/mindc-user-guide.html#adl-anonym for more info
-			if (currArchDefOrTemplate == null)
+			if (bindingDef.getSourceParent().getBody() != null)
 				sourceComponentArchDef = bindingDef.getSourceParent().getBody();
 			else {
 				if (currArchDefOrTemplate instanceof ArchitectureDefinition)
@@ -190,7 +190,7 @@ public class FractalScopeProvider extends AbstractDeclarativeScopeProvider {
 
 			// handle anonymous component definitions
 			// see http://mind.ow2.org/mindc/mindc-user-guide.html#adl-anonym for more info
-			if (currArchDefOrTemplate == null)
+			if (bindingDef.getTargetParent().getBody() != null)
 				targetComponentArchDef = bindingDef.getTargetParent().getBody();
 			else {
 				// component definition is a standard one
@@ -314,12 +314,29 @@ public class FractalScopeProvider extends AbstractDeclarativeScopeProvider {
 	}
 
 	private EList<RequiredInterfaceDefinition> listAllRequiredInterfacesFromArchDefSuperTypes(CompositeDefinition archDef){
-		EList<CompositeSuperType> superTypes = archDef.getSuperTypes();
-
 		EList<RequiredInterfaceDefinition> reqItfList = new BasicEList<RequiredInterfaceDefinition>();
 
-		for (CompositeSuperType currSuperArchDef : superTypes) {
-			CompositeSuperTypeDefinition superType = currSuperArchDef.getTargetArchDef();
+		// are we handling standard inheritance or anonymous definition inheritance ?
+		if (!(archDef.eContainer() instanceof SubComponentDefinition)) {
+			EList<CompositeSuperType> superTypes = archDef.getSuperTypes();
+
+			for (CompositeSuperType currSuperArchDef : superTypes) {
+				CompositeSuperTypeDefinition superType = currSuperArchDef.getTargetArchDef();
+				if (superType instanceof CompositeDefinition)
+					reqItfList.addAll(getAllArchDefRequiredInterfaces((CompositeDefinition) superType));
+				else if (superType instanceof TypeDefinition)
+					reqItfList.addAll(getAllArchDefRequiredInterfaces((TypeDefinition) superType));
+
+				// we need a recursion in all supertypes
+				if (superType instanceof CompositeDefinition)
+					reqItfList.addAll(listAllRequiredInterfacesFromArchDefSuperTypes((CompositeDefinition) superType));
+				else if (superType instanceof TypeDefinition)
+					reqItfList.addAll(listAllRequiredInterfacesFromArchDefSuperTypes((TypeDefinition) superType));
+			}
+		} else {
+			SubComponentDefinition hostSubCompDef = (SubComponentDefinition) archDef.eContainer();
+
+			TypeReference superType = hostSubCompDef.getType();
 			if (superType instanceof CompositeDefinition)
 				reqItfList.addAll(getAllArchDefRequiredInterfaces((CompositeDefinition) superType));
 			else if (superType instanceof TypeDefinition)
@@ -332,16 +349,35 @@ public class FractalScopeProvider extends AbstractDeclarativeScopeProvider {
 				reqItfList.addAll(listAllRequiredInterfacesFromArchDefSuperTypes((TypeDefinition) superType));
 		}
 
+
 		return reqItfList;
 	}
 
 	private EList<RequiredInterfaceDefinition> listAllRequiredInterfacesFromArchDefSuperTypes(PrimitiveDefinition archDef){
-		EList<PrimitiveSuperType> superTypes = archDef.getSuperTypes();
-
 		EList<RequiredInterfaceDefinition> reqItfList = new BasicEList<RequiredInterfaceDefinition>();
 
-		for (PrimitiveSuperType currSuperArchDef : superTypes) {
-			PrimitiveSuperTypeDefinition superType = currSuperArchDef.getTargetArchDef();
+		// are we handling standard inheritance or anonymous definition inheritance ?
+		if (!(archDef.eContainer() instanceof SubComponentDefinition)) {
+			EList<PrimitiveSuperType> superTypes = archDef.getSuperTypes();
+
+			for (PrimitiveSuperType currSuperArchDef : superTypes) {
+				PrimitiveSuperTypeDefinition superType = currSuperArchDef.getTargetArchDef();
+				if (superType instanceof PrimitiveDefinition)
+					reqItfList.addAll(getAllArchDefRequiredInterfaces((PrimitiveDefinition) superType));
+				else if (superType instanceof TypeDefinition)
+					reqItfList.addAll(getAllArchDefRequiredInterfaces((TypeDefinition) superType));
+
+				// we need a recursion in all supertypes
+				if (superType instanceof PrimitiveDefinition)
+					reqItfList.addAll(listAllRequiredInterfacesFromArchDefSuperTypes((PrimitiveDefinition) superType));
+				else if (superType instanceof TypeDefinition)
+					reqItfList.addAll(listAllRequiredInterfacesFromArchDefSuperTypes((TypeDefinition) superType));
+			}
+		} else {
+			SubComponentDefinition hostSubCompDef = (SubComponentDefinition) archDef.eContainer();
+
+			TypeReference superType = hostSubCompDef.getType();
+
 			if (superType instanceof PrimitiveDefinition)
 				reqItfList.addAll(getAllArchDefRequiredInterfaces((PrimitiveDefinition) superType));
 			else if (superType instanceof TypeDefinition)
@@ -353,7 +389,6 @@ public class FractalScopeProvider extends AbstractDeclarativeScopeProvider {
 			else if (superType instanceof TypeDefinition)
 				reqItfList.addAll(listAllRequiredInterfacesFromArchDefSuperTypes((TypeDefinition) superType));
 		}
-
 		return reqItfList;
 	}
 
@@ -409,12 +444,29 @@ public class FractalScopeProvider extends AbstractDeclarativeScopeProvider {
 	}
 
 	private EList<ProvidedInterfaceDefinition> listAllProvidedInterfacesFromArchDefSuperTypes(CompositeDefinition archDef){
-		EList<CompositeSuperType> superTypes = archDef.getSuperTypes();
-
 		EList<ProvidedInterfaceDefinition> prvdItfList = new BasicEList<ProvidedInterfaceDefinition>();
 
-		for (CompositeSuperType currSuperArchDef : superTypes) {
-			CompositeSuperTypeDefinition superType = currSuperArchDef.getTargetArchDef();
+		// are we handling standard inheritance or anonymous definition inheritance ?
+		if (!(archDef.eContainer() instanceof SubComponentDefinition)) {
+			EList<CompositeSuperType> superTypes = archDef.getSuperTypes();
+
+			for (CompositeSuperType currSuperArchDef : superTypes) {
+				CompositeSuperTypeDefinition superType = currSuperArchDef.getTargetArchDef();
+				if (superType instanceof PrimitiveDefinition)
+					prvdItfList.addAll(getAllArchDefProvidedInterfaces((CompositeDefinition) superType));
+				else if (superType instanceof TypeDefinition)
+					prvdItfList.addAll(getAllArchDefProvidedInterfaces((TypeDefinition) superType));
+
+				// we need a recursion in all supertypes
+				if (superType instanceof CompositeDefinition)
+					prvdItfList.addAll(listAllProvidedInterfacesFromArchDefSuperTypes((CompositeDefinition) superType));
+				else if (superType instanceof TypeDefinition)
+					prvdItfList.addAll(listAllProvidedInterfacesFromArchDefSuperTypes((TypeDefinition) superType));
+			}
+		} else {
+			SubComponentDefinition hostSubCompDef = (SubComponentDefinition) archDef.eContainer();
+
+			TypeReference superType = hostSubCompDef.getType();
 			if (superType instanceof PrimitiveDefinition)
 				prvdItfList.addAll(getAllArchDefProvidedInterfaces((CompositeDefinition) superType));
 			else if (superType instanceof TypeDefinition)
@@ -431,12 +483,29 @@ public class FractalScopeProvider extends AbstractDeclarativeScopeProvider {
 	}
 
 	private EList<ProvidedInterfaceDefinition> listAllProvidedInterfacesFromArchDefSuperTypes(PrimitiveDefinition archDef){
-		EList<PrimitiveSuperType> superTypes = archDef.getSuperTypes();
-
 		EList<ProvidedInterfaceDefinition> prvdItfList = new BasicEList<ProvidedInterfaceDefinition>();
 
-		for (PrimitiveSuperType currSuperArchDef : superTypes) {
-			PrimitiveSuperTypeDefinition superType = currSuperArchDef.getTargetArchDef();
+		// are we handling standard inheritance or anonymous definition inheritance ?
+		if (!(archDef.eContainer() instanceof SubComponentDefinition)) {
+			EList<PrimitiveSuperType> superTypes = archDef.getSuperTypes();
+			
+			for (PrimitiveSuperType currSuperArchDef : superTypes) {
+				PrimitiveSuperTypeDefinition superType = currSuperArchDef.getTargetArchDef();
+				if (superType instanceof PrimitiveDefinition)
+					prvdItfList.addAll(getAllArchDefProvidedInterfaces((PrimitiveDefinition) superType));
+				else if (superType instanceof TypeDefinition)
+					prvdItfList.addAll(getAllArchDefProvidedInterfaces((TypeDefinition) superType));
+
+				// we need a recursion in all supertypes
+				if (superType instanceof PrimitiveDefinition)
+					prvdItfList.addAll(listAllProvidedInterfacesFromArchDefSuperTypes((PrimitiveDefinition) superType));
+				else if (superType instanceof TypeDefinition)
+					prvdItfList.addAll(listAllProvidedInterfacesFromArchDefSuperTypes((TypeDefinition) superType));
+			}
+		} else {
+			SubComponentDefinition hostSubCompDef = (SubComponentDefinition) archDef.eContainer();
+
+			TypeReference superType = hostSubCompDef.getType();
 			if (superType instanceof PrimitiveDefinition)
 				prvdItfList.addAll(getAllArchDefProvidedInterfaces((PrimitiveDefinition) superType));
 			else if (superType instanceof TypeDefinition)
