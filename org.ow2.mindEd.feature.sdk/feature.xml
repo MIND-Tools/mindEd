@@ -2,7 +2,7 @@
 <feature
       id="org.ow2.mindEd.feature.sdk"
       label="%featureName"
-      version="0.3.0.qualifier"
+      version="0.8.0.qualifier"
       provider-name="%providerName">
 
    <description>
@@ -93,10 +93,6 @@ accrue de la formation
 
    <includes
          id="org.ow2.mindEd.feature"
-         version="0.3.0.qualifier"/>
-
-   <includes
-         id="org.ow2.mindEd.feature.source"
-         version="0.3.0.qualifier"/>
+         version="0.0.0"/>
 
 </feature>
