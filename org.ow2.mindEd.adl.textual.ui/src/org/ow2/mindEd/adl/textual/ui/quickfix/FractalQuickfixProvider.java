@@ -118,7 +118,7 @@ public class FractalQuickfixProvider extends DefaultQuickfixProvider {
 			}
 		});
 	}
-
+	
 	/**
 	 * Rename, for example : 
 	 * 		toto -> toto1
