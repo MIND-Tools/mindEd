@@ -46,7 +46,7 @@ public class FractalResourceUIServiceProvider extends
 		// TODO: fix this IllegalArgumentException throwing in the Core plug-in
 		boolean result = false;
 		try {
-			result = (ModelToProjectUtil.INSTANCE.getCurrentMindFile(uri) != null) ? true : null;
+			result = (ModelToProjectUtil.INSTANCE.getCurrentMindFile(uri) != null) ? true : false;
 		} catch (IllegalArgumentException e) {
 			result = false;
 		}

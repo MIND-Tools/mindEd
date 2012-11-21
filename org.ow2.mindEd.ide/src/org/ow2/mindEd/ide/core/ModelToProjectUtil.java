@@ -230,6 +230,10 @@ public class ModelToProjectUtil {
 	 */
 	public MindFile getCurrentMindFile(URI adlURI) {
 		IFile file = getIFile(adlURI);
+		
+		if (file == null || file.getName() == null)
+			return null;
+		
 		if (file.getName().endsWith(MindIdeCore.DIAGRAM_EXT)){
 			String n = file.getName();
 			file = file.getParent().getFile(new Path(n.substring(0, n.length()-MindIdeCore.DIAGRAM_EXT.length())));
