@@ -2,10 +2,11 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Mind IDE MODEL
 Bundle-SymbolicName: org.ow2.mindEd.ide;singleton:=true
-Bundle-Version: 0.2.1.qualifier
+Bundle-Version: 1.0.0.qualifier
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Import-Package: org.eclipse.cdt.core,
  org.eclipse.cdt.core.envvar,
+ org.eclipse.cdt.core.errorparsers,
  org.eclipse.cdt.core.model,
  org.eclipse.cdt.core.settings.model,
  org.eclipse.cdt.core.settings.model.extension,
@@ -42,6 +43,7 @@ Import-Package: org.eclipse.cdt.core,
  org.eclipse.osgi.util,
  org.eclipse.ui,
  org.eclipse.ui.part,
+ org.eclipse.ui.preferences,
  org.eclipse.ui.texteditor,
  org.eclipse.xtext.resource,
  org.eclipse.xtext.ui.editor,

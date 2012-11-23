@@ -4,8 +4,8 @@
 package org.ow2.mindEd.adl.textual.ui.labeling;
 
 import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider;
-import org.eclipse.xtext.ui.label.DefaultEObjectLabelProvider;
-
+import org.eclipse.xtext.ui.label.DefaultEObjectLabelProvider; 
+ 
 import com.google.inject.Inject;
 
 /**

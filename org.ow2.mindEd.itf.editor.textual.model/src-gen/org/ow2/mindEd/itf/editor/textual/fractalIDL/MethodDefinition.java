@@ -1,9 +1,8 @@
 /**
- * <copyright>
- * </copyright>
- *
  */
 package org.ow2.mindEd.itf.editor.textual.fractalIDL;
+
+import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EObject;
 
@@ -15,10 +14,10 @@ import org.eclipse.emf.ecore.EObject;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link org.ow2.mindEd.itf.editor.textual.fractalIDL.MethodDefinition#getAnnotations <em>Annotations</em>}</li>
+ *   <li>{@link org.ow2.mindEd.itf.editor.textual.fractalIDL.MethodDefinition#getAnnotationsList <em>Annotations List</em>}</li>
  *   <li>{@link org.ow2.mindEd.itf.editor.textual.fractalIDL.MethodDefinition#getQualifiedTypeSpec <em>Qualified Type Spec</em>}</li>
  *   <li>{@link org.ow2.mindEd.itf.editor.textual.fractalIDL.MethodDefinition#getPointerSpecification <em>Pointer Specification</em>}</li>
- *   <li>{@link org.ow2.mindEd.itf.editor.textual.fractalIDL.MethodDefinition#getId <em>Id</em>}</li>
+ *   <li>{@link org.ow2.mindEd.itf.editor.textual.fractalIDL.MethodDefinition#getName <em>Name</em>}</li>
  *   <li>{@link org.ow2.mindEd.itf.editor.textual.fractalIDL.MethodDefinition#getParameterList <em>Parameter List</em>}</li>
  * </ul>
  * </p>
@@ -30,30 +29,30 @@ import org.eclipse.emf.ecore.EObject;
 public interface MethodDefinition extends EObject
 {
   /**
-   * Returns the value of the '<em><b>Annotations</b></em>' containment reference.
+   * Returns the value of the '<em><b>Annotations List</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Annotations</em>' containment reference isn't clear,
+   * If the meaning of the '<em>Annotations List</em>' containment reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Annotations</em>' containment reference.
-   * @see #setAnnotations(Annotations)
-   * @see org.ow2.mindEd.itf.editor.textual.fractalIDL.FractalIDLPackage#getMethodDefinition_Annotations()
+   * @return the value of the '<em>Annotations List</em>' containment reference.
+   * @see #setAnnotationsList(AnnotationsList)
+   * @see org.ow2.mindEd.itf.editor.textual.fractalIDL.FractalIDLPackage#getMethodDefinition_AnnotationsList()
    * @model containment="true"
    * @generated
    */
-  Annotations getAnnotations();
+  AnnotationsList getAnnotationsList();
 
   /**
-   * Sets the value of the '{@link org.ow2.mindEd.itf.editor.textual.fractalIDL.MethodDefinition#getAnnotations <em>Annotations</em>}' containment reference.
+   * Sets the value of the '{@link org.ow2.mindEd.itf.editor.textual.fractalIDL.MethodDefinition#getAnnotationsList <em>Annotations List</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Annotations</em>' containment reference.
-   * @see #getAnnotations()
+   * @param value the new value of the '<em>Annotations List</em>' containment reference.
+   * @see #getAnnotationsList()
    * @generated
    */
-  void setAnnotations(Annotations value);
+  void setAnnotationsList(AnnotationsList value);
 
   /**
    * Returns the value of the '<em><b>Qualified Type Spec</b></em>' containment reference.
@@ -82,56 +81,46 @@ public interface MethodDefinition extends EObject
   void setQualifiedTypeSpec(QualifiedTypeSpecification value);
 
   /**
-   * Returns the value of the '<em><b>Pointer Specification</b></em>' containment reference.
+   * Returns the value of the '<em><b>Pointer Specification</b></em>' containment reference list.
+   * The list contents are of type {@link org.ow2.mindEd.itf.editor.textual.fractalIDL.QualifiedPointerSpecification}.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Pointer Specification</em>' containment reference isn't clear,
+   * If the meaning of the '<em>Pointer Specification</em>' containment reference list isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Pointer Specification</em>' containment reference.
-   * @see #setPointerSpecification(PointerSpecification)
+   * @return the value of the '<em>Pointer Specification</em>' containment reference list.
    * @see org.ow2.mindEd.itf.editor.textual.fractalIDL.FractalIDLPackage#getMethodDefinition_PointerSpecification()
    * @model containment="true"
    * @generated
    */
-  PointerSpecification getPointerSpecification();
+  EList<QualifiedPointerSpecification> getPointerSpecification();
 
   /**
-   * Sets the value of the '{@link org.ow2.mindEd.itf.editor.textual.fractalIDL.MethodDefinition#getPointerSpecification <em>Pointer Specification</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Pointer Specification</em>' containment reference.
-   * @see #getPointerSpecification()
-   * @generated
-   */
-  void setPointerSpecification(PointerSpecification value);
-
-  /**
-   * Returns the value of the '<em><b>Id</b></em>' attribute.
+   * Returns the value of the '<em><b>Name</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Id</em>' attribute isn't clear,
+   * If the meaning of the '<em>Name</em>' attribute isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Id</em>' attribute.
-   * @see #setId(String)
-   * @see org.ow2.mindEd.itf.editor.textual.fractalIDL.FractalIDLPackage#getMethodDefinition_Id()
+   * @return the value of the '<em>Name</em>' attribute.
+   * @see #setName(String)
+   * @see org.ow2.mindEd.itf.editor.textual.fractalIDL.FractalIDLPackage#getMethodDefinition_Name()
    * @model
    * @generated
    */
-  String getId();
+  String getName();
 
   /**
-   * Sets the value of the '{@link org.ow2.mindEd.itf.editor.textual.fractalIDL.MethodDefinition#getId <em>Id</em>}' attribute.
+   * Sets the value of the '{@link org.ow2.mindEd.itf.editor.textual.fractalIDL.MethodDefinition#getName <em>Name</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Id</em>' attribute.
-   * @see #getId()
+   * @param value the new value of the '<em>Name</em>' attribute.
+   * @see #getName()
    * @generated
    */
-  void setId(String value);
+  void setName(String value);
 
   /**
    * Returns the value of the '<em><b>Parameter List</b></em>' containment reference.

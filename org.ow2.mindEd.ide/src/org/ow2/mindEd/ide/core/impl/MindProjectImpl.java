@@ -214,11 +214,7 @@ public class MindProjectImpl extends org.ow2.mindEd.ide.model.impl.MindProjectIm
 	
 	@Override
 	public EList<MindPathEntry> getRawMinpath() {
-		BasicEList<MindPathEntry> ret = new BasicEList<MindPathEntry>();
-		for (MindPathEntry mindPathEntry : new ArrayList<MindPathEntry>( getMindpathentries())) {
-			ret.add(new MindPathEntryCustomImpl(mindPathEntry));
-		}
-		return ret;
+		return getMindpathentries();
 	}
 	
 	@Override
@@ -727,7 +723,7 @@ public class MindProjectImpl extends org.ow2.mindEd.ide.model.impl.MindProjectIm
 	}
 	
 	public void changeMINDCOMP() {
-		Job r = new ChangeMindCOMPVarJob(this);
+		Job r = new ChangeMindCOMPVarJob(this);	
 		r.schedule();
 	}
 	

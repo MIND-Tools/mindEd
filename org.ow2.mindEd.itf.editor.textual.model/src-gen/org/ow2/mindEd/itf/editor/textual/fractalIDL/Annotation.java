@@ -1,10 +1,10 @@
 /**
- * <copyright>
- * </copyright>
- *
  */
 package org.ow2.mindEd.itf.editor.textual.fractalIDL;
 
+import org.eclipse.emf.common.util.EList;
+
+import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -14,8 +14,8 @@ package org.ow2.mindEd.itf.editor.textual.fractalIDL;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link org.ow2.mindEd.itf.editor.textual.fractalIDL.Annotation#getFqn <em>Fqn</em>}</li>
- *   <li>{@link org.ow2.mindEd.itf.editor.textual.fractalIDL.Annotation#getAnnotationParamaters <em>Annotation Paramaters</em>}</li>
+ *   <li>{@link org.ow2.mindEd.itf.editor.textual.fractalIDL.Annotation#getName <em>Name</em>}</li>
+ *   <li>{@link org.ow2.mindEd.itf.editor.textual.fractalIDL.Annotation#getAnnotationParametersList <em>Annotation Parameters List</em>}</li>
  * </ul>
  * </p>
  *
@@ -23,58 +23,48 @@ package org.ow2.mindEd.itf.editor.textual.fractalIDL;
  * @model
  * @generated
  */
-public interface Annotation extends AnnotationValue
+public interface Annotation extends EObject
 {
   /**
-   * Returns the value of the '<em><b>Fqn</b></em>' attribute.
+   * Returns the value of the '<em><b>Name</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Fqn</em>' attribute isn't clear,
+   * If the meaning of the '<em>Name</em>' attribute isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Fqn</em>' attribute.
-   * @see #setFqn(String)
-   * @see org.ow2.mindEd.itf.editor.textual.fractalIDL.FractalIDLPackage#getAnnotation_Fqn()
+   * @return the value of the '<em>Name</em>' attribute.
+   * @see #setName(String)
+   * @see org.ow2.mindEd.itf.editor.textual.fractalIDL.FractalIDLPackage#getAnnotation_Name()
    * @model
    * @generated
    */
-  String getFqn();
+  String getName();
 
   /**
-   * Sets the value of the '{@link org.ow2.mindEd.itf.editor.textual.fractalIDL.Annotation#getFqn <em>Fqn</em>}' attribute.
+   * Sets the value of the '{@link org.ow2.mindEd.itf.editor.textual.fractalIDL.Annotation#getName <em>Name</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Fqn</em>' attribute.
-   * @see #getFqn()
+   * @param value the new value of the '<em>Name</em>' attribute.
+   * @see #getName()
    * @generated
    */
-  void setFqn(String value);
+  void setName(String value);
 
   /**
-   * Returns the value of the '<em><b>Annotation Paramaters</b></em>' containment reference.
+   * Returns the value of the '<em><b>Annotation Parameters List</b></em>' containment reference list.
+   * The list contents are of type {@link org.ow2.mindEd.itf.editor.textual.fractalIDL.AnnotationValuePair}.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Annotation Paramaters</em>' containment reference isn't clear,
+   * If the meaning of the '<em>Annotation Parameters List</em>' containment reference list isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Annotation Paramaters</em>' containment reference.
-   * @see #setAnnotationParamaters(AnnotationParameters)
-   * @see org.ow2.mindEd.itf.editor.textual.fractalIDL.FractalIDLPackage#getAnnotation_AnnotationParamaters()
+   * @return the value of the '<em>Annotation Parameters List</em>' containment reference list.
+   * @see org.ow2.mindEd.itf.editor.textual.fractalIDL.FractalIDLPackage#getAnnotation_AnnotationParametersList()
    * @model containment="true"
    * @generated
    */
-  AnnotationParameters getAnnotationParamaters();
-
-  /**
-   * Sets the value of the '{@link org.ow2.mindEd.itf.editor.textual.fractalIDL.Annotation#getAnnotationParamaters <em>Annotation Paramaters</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Annotation Paramaters</em>' containment reference.
-   * @see #getAnnotationParamaters()
-   * @generated
-   */
-  void setAnnotationParamaters(AnnotationParameters value);
+  EList<AnnotationValuePair> getAnnotationParametersList();
 
 } // Annotation

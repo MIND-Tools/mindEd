@@ -82,5 +82,14 @@
 				class="org.ow2.mindEd.ide.core.impl.CPLMacroSettings">
 		</provider>
 	  </extension>
+   <extension
+         point="org.eclipse.core.runtime.preferences">
+   </extension>
+   <extension
+         id="MindcErrorParser"
+         name="Mindc Error Parser"
+         point="org.eclipse.cdt.core.ErrorParser">
+         <errorparser class="org.ow2.mindEd.ide.core.mindc.MindcErrorParser"/>
+   </extension>
 
 </plugin>

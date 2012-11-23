@@ -1,7 +1,4 @@
 /**
- * <copyright>
- * </copyright>
- *
  */
 package org.ow2.mindEd.idt.editor.textual.fractalIdt.impl;
 
@@ -13,7 +10,6 @@ import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
 import org.ow2.mindEd.idt.editor.textual.fractalIdt.ConstantDefinitionBegin;
-import org.ow2.mindEd.idt.editor.textual.fractalIdt.ConstantDefinitionEnd;
 import org.ow2.mindEd.idt.editor.textual.fractalIdt.FractalIdtFactory;
 import org.ow2.mindEd.idt.editor.textual.fractalIdt.FractalIdtPackage;
 import org.ow2.mindEd.idt.editor.textual.fractalIdt.IdtFile;
@@ -41,13 +37,6 @@ public class FractalIdtPackageImpl extends EPackageImpl implements FractalIdtPac
    * @generated
    */
   private EClass constantDefinitionBeginEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass constantDefinitionEndEClass = null;
 
   /**
    * Creates an instance of the model <b>Package</b>, registered with
@@ -180,9 +169,9 @@ public class FractalIdtPackageImpl extends EPackageImpl implements FractalIdtPac
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getIdtFile_Enddef()
+  public EAttribute getIdtFile_EndDef()
   {
-    return (EReference)idtFileEClass.getEStructuralFeatures().get(5);
+    return (EAttribute)idtFileEClass.getEStructuralFeatures().get(5);
   }
 
   /**
@@ -200,29 +189,9 @@ public class FractalIdtPackageImpl extends EPackageImpl implements FractalIdtPac
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getConstantDefinitionBegin_Id()
+  public EAttribute getConstantDefinitionBegin_Name()
   {
     return (EAttribute)constantDefinitionBeginEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EClass getConstantDefinitionEnd()
-  {
-    return constantDefinitionEndEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EAttribute getConstantDefinitionEnd_Id()
-  {
-    return (EAttribute)constantDefinitionEndEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -261,13 +230,10 @@ public class FractalIdtPackageImpl extends EPackageImpl implements FractalIdtPac
     createEReference(idtFileEClass, IDT_FILE__INCLUDES);
     createEReference(idtFileEClass, IDT_FILE__CONSTANT);
     createEReference(idtFileEClass, IDT_FILE__TYPE);
-    createEReference(idtFileEClass, IDT_FILE__ENDDEF);
+    createEAttribute(idtFileEClass, IDT_FILE__END_DEF);
 
     constantDefinitionBeginEClass = createEClass(CONSTANT_DEFINITION_BEGIN);
-    createEAttribute(constantDefinitionBeginEClass, CONSTANT_DEFINITION_BEGIN__ID);
-
-    constantDefinitionEndEClass = createEClass(CONSTANT_DEFINITION_END);
-    createEAttribute(constantDefinitionEndEClass, CONSTANT_DEFINITION_END__ID);
+    createEAttribute(constantDefinitionBeginEClass, CONSTANT_DEFINITION_BEGIN__NAME);
   }
 
   /**
@@ -310,13 +276,10 @@ public class FractalIdtPackageImpl extends EPackageImpl implements FractalIdtPac
     initEReference(getIdtFile_Includes(), theFractalIDLPackage.getIncludeDirective(), null, "includes", null, 0, -1, IdtFile.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getIdtFile_Constant(), theFractalIDLPackage.getConstantDefinition(), null, "constant", null, 0, -1, IdtFile.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getIdtFile_Type(), theFractalIDLPackage.getTypeDefinition(), null, "type", null, 0, -1, IdtFile.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getIdtFile_Enddef(), this.getConstantDefinitionEnd(), null, "enddef", null, 0, 1, IdtFile.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getIdtFile_EndDef(), ecorePackage.getEString(), "endDef", null, 0, 1, IdtFile.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(constantDefinitionBeginEClass, ConstantDefinitionBegin.class, "ConstantDefinitionBegin", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getConstantDefinitionBegin_Id(), ecorePackage.getEString(), "id", null, 0, 1, ConstantDefinitionBegin.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    initEClass(constantDefinitionEndEClass, ConstantDefinitionEnd.class, "ConstantDefinitionEnd", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getConstantDefinitionEnd_Id(), ecorePackage.getEString(), "id", null, 0, 1, ConstantDefinitionEnd.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getConstantDefinitionBegin_Name(), ecorePackage.getEString(), "name", null, 0, 1, ConstantDefinitionBegin.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     // Create resource
     createResource(eNS_URI);

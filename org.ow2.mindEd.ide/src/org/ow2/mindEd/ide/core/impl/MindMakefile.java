@@ -24,6 +24,7 @@ import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.Path;
+import org.ow2.mindEd.ide.core.MindActivator;
 
 public class MindMakefile {
 	static class Change {
@@ -118,7 +119,12 @@ public class MindMakefile {
 				IVariableDefinition v = (IVariableDefinition) d;
 				if (v.getName().equals(nameVar)) {
 					v.getValue().setLength(0);
-					v.getValue().append(value);
+					if (nameVar.equals("MIND_SRC") && MindActivator.getPref().getMakefileMSYSCompatibilityStatus())
+						v.getValue().append("\"" + value + "\"");
+					else
+						// On all other OS-es than Windows, and when on Windows with no
+						// MSYS compatibility needed
+						v.getValue().append(value);
 					changeLines(v);
 					return v;
 				}
@@ -266,9 +272,9 @@ public class MindMakefile {
 	}
 	
 /**
- * Set a new value to variable <code>varName</code>. If var is found and current value equals new value, do nothing.
+ * Set a new value to variable <code>varName</code>. Variable is always re-written in order for the MSYS compatibility preference change event to always work.
  * If var is not found insert var before target <code>targetBefore</code>.
- * Save make file if changed.
+ * 
  * @param varName  the name of variable
  * @param newValue the new value
  * @param targetBefore the name of the target before which insert var if need.
@@ -278,8 +284,7 @@ public class MindMakefile {
 	public void setVarAndSave(String varName, String newValue,
 			String targetBefore) throws CoreException, IOException {
 		String currentVar = getMakefileVariable(varName);
-		if (currentVar != null && currentVar.equals(newValue))
-			return;
+		
 		if (setMakefileVariable(varName, newValue) == null) {
 			ITargetRule t = findTarget(targetBefore);
 			if (t != null) {

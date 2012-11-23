@@ -13,7 +13,9 @@ import org.ow2.mindEd.ide.ui.IFractalShape;
  * @author Nicolas LINGOIS
  * 
  */
-public class LexicalHighlightingConfiguration implements IHighlightingConfiguration {
+
+public class LexicalHighlightingConfiguration implements
+		IHighlightingConfiguration {
 
 	public static final String KEYWORD_ID = "keyword";
 	public static final String PUNCTUATION_ID = "punctuation";
@@ -33,7 +35,7 @@ public class LexicalHighlightingConfiguration implements IHighlightingConfigurat
 	
 	
 	public static final String HEXA_ID = "0x";
-
+	
 	public void configure(IHighlightingConfigurationAcceptor acceptor) {
 		
 		acceptor.acceptDefaultHighlighting(KEYWORD_ID, "Keyword",

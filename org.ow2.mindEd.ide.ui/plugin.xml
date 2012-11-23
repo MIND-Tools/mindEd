@@ -30,6 +30,13 @@
             id="org.ow2.mindEd.ide.ui.wizards.MindPackageWizard"
             name="Mind package">
       </wizard>
+      <wizard
+            category="org.ow2.mindEd.ide.ui"
+            class="org.ow2.mindEd.ide.ui.wizards.MindInterfaceWizard"
+            icon="icons/InterfaceDefinition.gif"
+            id="org.ow2.mindEd.ide.ui.wizards.MindInterfaceWizard"
+            name="Mind interface">
+      </wizard>
    </extension>
    <extension
          point="org.eclipse.ui.popupMenus">
@@ -186,14 +193,25 @@
                <instanceof
                      value="org.eclipse.core.resources.IProject">
                </instanceof>
-            </or></possibleChildren>
+            </or>
+         </possibleChildren>
          <commonWizard
                type="new"
                wizardId="org.ow2.mindEd.ide.ui.wizards.ComponentNewWizard">
             <enablement>
                <instanceof
                      value="org.ow2.mindEd.ide.model.MindObject">
-               </instanceof></enablement>
+               </instanceof>
+            </enablement>
+         </commonWizard>
+         <commonWizard
+               type="new"
+               wizardId="org.ow2.mindEd.ide.ui.wizards.MindInterfaceWizard">
+            <enablement>
+               <instanceof
+                     value="org.ow2.mindEd.ide.model.MindObject">
+               </instanceof>
+            </enablement>
          </commonWizard>
          <commonWizard
                type="new"
@@ -201,7 +219,7 @@
             <enablement>
                <or>
                   <instanceof
-                  value="org.eclipse.core.resources.IWorkspaceRoot"/>
+                  		value="org.eclipse.core.resources.IWorkspaceRoot"/>
                   <instanceof
                         value="org.ow2.mindEd.ide.core.MindModel">
                   </instanceof>
@@ -223,7 +241,8 @@
                   <instanceof
                         value="org.eclipse.core.resources.IProject">
                   </instanceof>
-               </or></enablement>
+               </or>
+            </enablement>
          </commonWizard>
          <commonWizard
                type="new"
@@ -236,15 +255,15 @@
          </commonWizard>
          <enablement>
             <or>
-            <instanceof
-                  value="org.ow2.mindEd.ide.model.MindObject">
-            </instanceof>
-            <instanceof
-                  value="org.eclipse.core.resources.IWorkspaceRoot">
-            </instanceof>
-               <instanceof
-                     value="org.eclipse.core.resources.IResource">
-               </instanceof>
+            	<instanceof
+                	value="org.ow2.mindEd.ide.model.MindObject">
+            	</instanceof>
+            	<instanceof
+                	value="org.eclipse.core.resources.IWorkspaceRoot">
+            	</instanceof>
+            	<instanceof
+                	value="org.eclipse.core.resources.IResource">
+               	</instanceof>
             </or>
          </enablement>
          <triggerPoints>
@@ -403,7 +422,25 @@
                   </instanceof>
                </or>
             </enablement>
-         </commonWizard> <possibleChildren>
+         </commonWizard>
+         <commonWizard
+               type="new"
+               wizardId="org.ow2.mindEd.ide.ui.wizards.MindInterfaceWizard">
+            <enablement>
+               <or>
+                  <instanceof
+                        value="org.ow2.mindEd.ide.model.MindObject">
+                  </instanceof>
+                  <instanceof
+                        value="org.eclipse.core.resources.IResource">
+                  </instanceof>
+                  <instanceof
+                        value="org.eclipse.cdt.core.model.ICElement">
+                  </instanceof>
+               </or>
+            </enablement>
+         </commonWizard>
+         <possibleChildren>
             <or>
                <instanceof
                      value="org.eclipse.core.resources.IResource">
@@ -414,9 +451,8 @@
                <instanceof
                      value="org.ow2.mindEd.ide.edit.custom.MindPathItemProvider">
                </instanceof>
-            <instanceof
-           value="org.eclipse.jdt.internal.ui.packageview.PackageFragmentRootContainer">
-     
+               <instanceof
+           			 value="org.eclipse.jdt.internal.ui.packageview.PackageFragmentRootContainer">
                </instanceof>
             </or>
          </possibleChildren>
@@ -435,7 +471,8 @@
                   <instanceof
                         value="org.ow2.mindEd.ide.model.MindFile">
                   </instanceof>
-               </or></possibleDropTargets>
+               </or>
+            </possibleDropTargets>
          </dropAssistant>
       </navigatorContent>
       <actionProvider
@@ -477,7 +514,7 @@
       <page
             class="org.ow2.mindEd.ide.ui.preferences.MindcPreferencePage"
             id="org.ow2.mindEd.ide.ui.preferences.MindcPreferencePage"
-            name="Mindc Location">
+            name="Mindc Preferences">
       </page>
    </extension>
    <extension
@@ -492,6 +529,9 @@
          </newWizardShortcut>
          <newWizardShortcut
                id="org.ow2.mindEd.ide.ui.wizards.ComponentNewWizard">
+         </newWizardShortcut>
+         <newWizardShortcut
+               id="org.ow2.mindEd.ide.ui.wizards.MindInterfaceWizard">
          </newWizardShortcut>
          <view
                id="org.ow2.mindEd.ide.ui.view"
@@ -511,6 +551,9 @@
          <newWizardShortcut
                id="org.ow2.mindEd.ide.ui.wizards.ComponentNewWizard">
          </newWizardShortcut>
+         <newWizardShortcut
+               id="org.ow2.mindEd.ide.ui.wizards.MindInterfaceWizard">
+         </newWizardShortcut>
          <view
                id="org.ow2.mindEd.ide.ui.view"
                minimized="false"
@@ -528,6 +571,9 @@
          </newWizardShortcut>
          <newWizardShortcut
                id="org.ow2.mindEd.ide.ui.wizards.ComponentNewWizard">
+         </newWizardShortcut>
+         <newWizardShortcut
+               id="org.ow2.mindEd.ide.ui.wizards.MindInterfaceWizard">
          </newWizardShortcut>
          <view
                id="org.ow2.mindEd.ide.ui.view"

@@ -403,9 +403,8 @@ method: public static void nonExitMain(final String... args)
 			if (targetException instanceof CompilerError) {
 				throw (CompilerError) targetException;
 			}
-			
 			else
-				MindActivator.log(new Status(Status.ERROR, MindActivator.ID, "Bad mindc class, unknown error "+mindClassName, targetException));
+				MindActivator.log(new Status(Status.ERROR, MindActivator.ID, "Mindc Compiler: " + targetException.getMessage(), targetException));
 		}
 	}
 	

@@ -1,7 +1,4 @@
 /**
- * <copyright>
- * </copyright>
- *
  */
 package org.ow2.mindEd.itf.editor.textual.fractalIDL.impl;
 
@@ -25,7 +22,7 @@ import org.ow2.mindEd.itf.editor.textual.fractalIDL.FractalIDLPackage;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.ow2.mindEd.itf.editor.textual.fractalIDL.impl.ConstantDefinitionImpl#getId <em>Id</em>}</li>
+ *   <li>{@link org.ow2.mindEd.itf.editor.textual.fractalIDL.impl.ConstantDefinitionImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.ow2.mindEd.itf.editor.textual.fractalIDL.impl.ConstantDefinitionImpl#getExpr <em>Expr</em>}</li>
  * </ul>
  * </p>
@@ -35,24 +32,24 @@ import org.ow2.mindEd.itf.editor.textual.fractalIDL.FractalIDLPackage;
 public class ConstantDefinitionImpl extends MinimalEObjectImpl.Container implements ConstantDefinition
 {
   /**
-   * The default value of the '{@link #getId() <em>Id</em>}' attribute.
+   * The default value of the '{@link #getName() <em>Name</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getId()
+   * @see #getName()
    * @generated
    * @ordered
    */
-  protected static final String ID_EDEFAULT = null;
+  protected static final String NAME_EDEFAULT = null;
 
   /**
-   * The cached value of the '{@link #getId() <em>Id</em>}' attribute.
+   * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getId()
+   * @see #getName()
    * @generated
    * @ordered
    */
-  protected String id = ID_EDEFAULT;
+  protected String name = NAME_EDEFAULT;
 
   /**
    * The cached value of the '{@link #getExpr() <em>Expr</em>}' containment reference.
@@ -90,9 +87,9 @@ public class ConstantDefinitionImpl extends MinimalEObjectImpl.Container impleme
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getId()
+  public String getName()
   {
-    return id;
+    return name;
   }
 
   /**
@@ -100,12 +97,12 @@ public class ConstantDefinitionImpl extends MinimalEObjectImpl.Container impleme
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setId(String newId)
+  public void setName(String newName)
   {
-    String oldId = id;
-    id = newId;
+    String oldName = name;
+    name = newName;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, FractalIDLPackage.CONSTANT_DEFINITION__ID, oldId, id));
+      eNotify(new ENotificationImpl(this, Notification.SET, FractalIDLPackage.CONSTANT_DEFINITION__NAME, oldName, name));
   }
 
   /**
@@ -182,8 +179,8 @@ public class ConstantDefinitionImpl extends MinimalEObjectImpl.Container impleme
   {
     switch (featureID)
     {
-      case FractalIDLPackage.CONSTANT_DEFINITION__ID:
-        return getId();
+      case FractalIDLPackage.CONSTANT_DEFINITION__NAME:
+        return getName();
       case FractalIDLPackage.CONSTANT_DEFINITION__EXPR:
         return getExpr();
     }
@@ -200,8 +197,8 @@ public class ConstantDefinitionImpl extends MinimalEObjectImpl.Container impleme
   {
     switch (featureID)
     {
-      case FractalIDLPackage.CONSTANT_DEFINITION__ID:
-        setId((String)newValue);
+      case FractalIDLPackage.CONSTANT_DEFINITION__NAME:
+        setName((String)newValue);
         return;
       case FractalIDLPackage.CONSTANT_DEFINITION__EXPR:
         setExpr((ConstantExpression)newValue);
@@ -220,8 +217,8 @@ public class ConstantDefinitionImpl extends MinimalEObjectImpl.Container impleme
   {
     switch (featureID)
     {
-      case FractalIDLPackage.CONSTANT_DEFINITION__ID:
-        setId(ID_EDEFAULT);
+      case FractalIDLPackage.CONSTANT_DEFINITION__NAME:
+        setName(NAME_EDEFAULT);
         return;
       case FractalIDLPackage.CONSTANT_DEFINITION__EXPR:
         setExpr((ConstantExpression)null);
@@ -240,8 +237,8 @@ public class ConstantDefinitionImpl extends MinimalEObjectImpl.Container impleme
   {
     switch (featureID)
     {
-      case FractalIDLPackage.CONSTANT_DEFINITION__ID:
-        return ID_EDEFAULT == null ? id != null : !ID_EDEFAULT.equals(id);
+      case FractalIDLPackage.CONSTANT_DEFINITION__NAME:
+        return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
       case FractalIDLPackage.CONSTANT_DEFINITION__EXPR:
         return expr != null;
     }
@@ -259,8 +256,8 @@ public class ConstantDefinitionImpl extends MinimalEObjectImpl.Container impleme
     if (eIsProxy()) return super.toString();
 
     StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (id: ");
-    result.append(id);
+    result.append(" (name: ");
+    result.append(name);
     result.append(')');
     return result.toString();
   }

@@ -230,6 +230,10 @@ public class ModelToProjectUtil {
 	 */
 	public MindFile getCurrentMindFile(URI adlURI) {
 		IFile file = getIFile(adlURI);
+		
+		if (file == null || file.getName() == null)
+			return null;
+		
 		if (file.getName().endsWith(MindIdeCore.DIAGRAM_EXT)){
 			String n = file.getName();
 			file = file.getParent().getFile(new Path(n.substring(0, n.length()-MindIdeCore.DIAGRAM_EXT.length())));
@@ -239,7 +243,7 @@ public class ModelToProjectUtil {
 			return (MindFile) mo;
 		}
 		
-		throw new IllegalArgumentException(mo == null ? "not find":"bad type "+mo.eClass().getName());
+		throw new IllegalArgumentException(mo == null ? "not found":"bad type "+mo.eClass().getName());
 	}
 	
 	public String getCurrentFQN(URI adlURI) {

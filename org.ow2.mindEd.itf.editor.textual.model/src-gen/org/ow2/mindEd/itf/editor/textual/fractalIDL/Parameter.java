@@ -1,7 +1,4 @@
 /**
- * <copyright>
- * </copyright>
- *
  */
 package org.ow2.mindEd.itf.editor.textual.fractalIDL;
 
@@ -17,11 +14,10 @@ import org.eclipse.emf.ecore.EObject;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link org.ow2.mindEd.itf.editor.textual.fractalIDL.Parameter#getAnnotations <em>Annotations</em>}</li>
+ *   <li>{@link org.ow2.mindEd.itf.editor.textual.fractalIDL.Parameter#getAnnotationsList <em>Annotations List</em>}</li>
  *   <li>{@link org.ow2.mindEd.itf.editor.textual.fractalIDL.Parameter#getParameterQualifier <em>Parameter Qualifier</em>}</li>
  *   <li>{@link org.ow2.mindEd.itf.editor.textual.fractalIDL.Parameter#getQualifiedTypeSpec <em>Qualified Type Spec</em>}</li>
  *   <li>{@link org.ow2.mindEd.itf.editor.textual.fractalIDL.Parameter#getDec <em>Dec</em>}</li>
- *   <li>{@link org.ow2.mindEd.itf.editor.textual.fractalIDL.Parameter#getAbsDec <em>Abs Dec</em>}</li>
  * </ul>
  * </p>
  *
@@ -32,30 +28,30 @@ import org.eclipse.emf.ecore.EObject;
 public interface Parameter extends EObject
 {
   /**
-   * Returns the value of the '<em><b>Annotations</b></em>' containment reference.
+   * Returns the value of the '<em><b>Annotations List</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Annotations</em>' containment reference isn't clear,
+   * If the meaning of the '<em>Annotations List</em>' containment reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Annotations</em>' containment reference.
-   * @see #setAnnotations(Annotations)
-   * @see org.ow2.mindEd.itf.editor.textual.fractalIDL.FractalIDLPackage#getParameter_Annotations()
+   * @return the value of the '<em>Annotations List</em>' containment reference.
+   * @see #setAnnotationsList(AnnotationsList)
+   * @see org.ow2.mindEd.itf.editor.textual.fractalIDL.FractalIDLPackage#getParameter_AnnotationsList()
    * @model containment="true"
    * @generated
    */
-  Annotations getAnnotations();
+  AnnotationsList getAnnotationsList();
 
   /**
-   * Sets the value of the '{@link org.ow2.mindEd.itf.editor.textual.fractalIDL.Parameter#getAnnotations <em>Annotations</em>}' containment reference.
+   * Sets the value of the '{@link org.ow2.mindEd.itf.editor.textual.fractalIDL.Parameter#getAnnotationsList <em>Annotations List</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Annotations</em>' containment reference.
-   * @see #getAnnotations()
+   * @param value the new value of the '<em>Annotations List</em>' containment reference.
+   * @see #getAnnotationsList()
    * @generated
    */
-  void setAnnotations(Annotations value);
+  void setAnnotationsList(AnnotationsList value);
 
   /**
    * Returns the value of the '<em><b>Parameter Qualifier</b></em>' attribute list.
@@ -126,31 +122,5 @@ public interface Parameter extends EObject
    * @generated
    */
   void setDec(Declarator value);
-
-  /**
-   * Returns the value of the '<em><b>Abs Dec</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Abs Dec</em>' containment reference isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Abs Dec</em>' containment reference.
-   * @see #setAbsDec(AbstractDeclarator)
-   * @see org.ow2.mindEd.itf.editor.textual.fractalIDL.FractalIDLPackage#getParameter_AbsDec()
-   * @model containment="true"
-   * @generated
-   */
-  AbstractDeclarator getAbsDec();
-
-  /**
-   * Sets the value of the '{@link org.ow2.mindEd.itf.editor.textual.fractalIDL.Parameter#getAbsDec <em>Abs Dec</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Abs Dec</em>' containment reference.
-   * @see #getAbsDec()
-   * @generated
-   */
-  void setAbsDec(AbstractDeclarator value);
 
 } // Parameter

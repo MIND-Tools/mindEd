@@ -1,7 +1,4 @@
 /**
- * <copyright>
- * </copyright>
- *
  */
 package org.ow2.mindEd.itf.editor.textual.fractalIDL.impl;
 
@@ -25,7 +22,7 @@ import org.ow2.mindEd.itf.editor.textual.fractalIDL.FractalIDLPackage;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.ow2.mindEd.itf.editor.textual.fractalIDL.impl.AnnotationValuePairImpl#getId <em>Id</em>}</li>
+ *   <li>{@link org.ow2.mindEd.itf.editor.textual.fractalIDL.impl.AnnotationValuePairImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.ow2.mindEd.itf.editor.textual.fractalIDL.impl.AnnotationValuePairImpl#getValue <em>Value</em>}</li>
  * </ul>
  * </p>
@@ -35,24 +32,24 @@ import org.ow2.mindEd.itf.editor.textual.fractalIDL.FractalIDLPackage;
 public class AnnotationValuePairImpl extends MinimalEObjectImpl.Container implements AnnotationValuePair
 {
   /**
-   * The default value of the '{@link #getId() <em>Id</em>}' attribute.
+   * The default value of the '{@link #getName() <em>Name</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getId()
+   * @see #getName()
    * @generated
    * @ordered
    */
-  protected static final String ID_EDEFAULT = null;
+  protected static final String NAME_EDEFAULT = null;
 
   /**
-   * The cached value of the '{@link #getId() <em>Id</em>}' attribute.
+   * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getId()
+   * @see #getName()
    * @generated
    * @ordered
    */
-  protected String id = ID_EDEFAULT;
+  protected String name = NAME_EDEFAULT;
 
   /**
    * The cached value of the '{@link #getValue() <em>Value</em>}' containment reference.
@@ -90,9 +87,9 @@ public class AnnotationValuePairImpl extends MinimalEObjectImpl.Container implem
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getId()
+  public String getName()
   {
-    return id;
+    return name;
   }
 
   /**
@@ -100,12 +97,12 @@ public class AnnotationValuePairImpl extends MinimalEObjectImpl.Container implem
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setId(String newId)
+  public void setName(String newName)
   {
-    String oldId = id;
-    id = newId;
+    String oldName = name;
+    name = newName;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, FractalIDLPackage.ANNOTATION_VALUE_PAIR__ID, oldId, id));
+      eNotify(new ENotificationImpl(this, Notification.SET, FractalIDLPackage.ANNOTATION_VALUE_PAIR__NAME, oldName, name));
   }
 
   /**
@@ -182,8 +179,8 @@ public class AnnotationValuePairImpl extends MinimalEObjectImpl.Container implem
   {
     switch (featureID)
     {
-      case FractalIDLPackage.ANNOTATION_VALUE_PAIR__ID:
-        return getId();
+      case FractalIDLPackage.ANNOTATION_VALUE_PAIR__NAME:
+        return getName();
       case FractalIDLPackage.ANNOTATION_VALUE_PAIR__VALUE:
         return getValue();
     }
@@ -200,8 +197,8 @@ public class AnnotationValuePairImpl extends MinimalEObjectImpl.Container implem
   {
     switch (featureID)
     {
-      case FractalIDLPackage.ANNOTATION_VALUE_PAIR__ID:
-        setId((String)newValue);
+      case FractalIDLPackage.ANNOTATION_VALUE_PAIR__NAME:
+        setName((String)newValue);
         return;
       case FractalIDLPackage.ANNOTATION_VALUE_PAIR__VALUE:
         setValue((AnnotationValue)newValue);
@@ -220,8 +217,8 @@ public class AnnotationValuePairImpl extends MinimalEObjectImpl.Container implem
   {
     switch (featureID)
     {
-      case FractalIDLPackage.ANNOTATION_VALUE_PAIR__ID:
-        setId(ID_EDEFAULT);
+      case FractalIDLPackage.ANNOTATION_VALUE_PAIR__NAME:
+        setName(NAME_EDEFAULT);
         return;
       case FractalIDLPackage.ANNOTATION_VALUE_PAIR__VALUE:
         setValue((AnnotationValue)null);
@@ -240,8 +237,8 @@ public class AnnotationValuePairImpl extends MinimalEObjectImpl.Container implem
   {
     switch (featureID)
     {
-      case FractalIDLPackage.ANNOTATION_VALUE_PAIR__ID:
-        return ID_EDEFAULT == null ? id != null : !ID_EDEFAULT.equals(id);
+      case FractalIDLPackage.ANNOTATION_VALUE_PAIR__NAME:
+        return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
       case FractalIDLPackage.ANNOTATION_VALUE_PAIR__VALUE:
         return value != null;
     }
@@ -259,8 +256,8 @@ public class AnnotationValuePairImpl extends MinimalEObjectImpl.Container implem
     if (eIsProxy()) return super.toString();
 
     StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (id: ");
-    result.append(id);
+    result.append(" (name: ");
+    result.append(name);
     result.append(')');
     return result.toString();
   }

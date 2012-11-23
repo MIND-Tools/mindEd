@@ -1,7 +1,4 @@
 /**
- * <copyright>
- * </copyright>
- *
  */
 package org.ow2.mindEd.itf.editor.textual.fractalIDL;
 
@@ -15,7 +12,7 @@ import org.eclipse.emf.ecore.EObject;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link org.ow2.mindEd.itf.editor.textual.fractalIDL.StructMember#getAnnotations <em>Annotations</em>}</li>
+ *   <li>{@link org.ow2.mindEd.itf.editor.textual.fractalIDL.StructMember#getAnnotationsList <em>Annotations List</em>}</li>
  *   <li>{@link org.ow2.mindEd.itf.editor.textual.fractalIDL.StructMember#getQualType <em>Qual Type</em>}</li>
  *   <li>{@link org.ow2.mindEd.itf.editor.textual.fractalIDL.StructMember#getDec <em>Dec</em>}</li>
  *   <li>{@link org.ow2.mindEd.itf.editor.textual.fractalIDL.StructMember#getConstExpr <em>Const Expr</em>}</li>
@@ -29,30 +26,30 @@ import org.eclipse.emf.ecore.EObject;
 public interface StructMember extends EObject
 {
   /**
-   * Returns the value of the '<em><b>Annotations</b></em>' containment reference.
+   * Returns the value of the '<em><b>Annotations List</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Annotations</em>' containment reference isn't clear,
+   * If the meaning of the '<em>Annotations List</em>' containment reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Annotations</em>' containment reference.
-   * @see #setAnnotations(Annotations)
-   * @see org.ow2.mindEd.itf.editor.textual.fractalIDL.FractalIDLPackage#getStructMember_Annotations()
+   * @return the value of the '<em>Annotations List</em>' containment reference.
+   * @see #setAnnotationsList(AnnotationsList)
+   * @see org.ow2.mindEd.itf.editor.textual.fractalIDL.FractalIDLPackage#getStructMember_AnnotationsList()
    * @model containment="true"
    * @generated
    */
-  Annotations getAnnotations();
+  AnnotationsList getAnnotationsList();
 
   /**
-   * Sets the value of the '{@link org.ow2.mindEd.itf.editor.textual.fractalIDL.StructMember#getAnnotations <em>Annotations</em>}' containment reference.
+   * Sets the value of the '{@link org.ow2.mindEd.itf.editor.textual.fractalIDL.StructMember#getAnnotationsList <em>Annotations List</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Annotations</em>' containment reference.
-   * @see #getAnnotations()
+   * @param value the new value of the '<em>Annotations List</em>' containment reference.
+   * @see #getAnnotationsList()
    * @generated
    */
-  void setAnnotations(Annotations value);
+  void setAnnotationsList(AnnotationsList value);
 
   /**
    * Returns the value of the '<em><b>Qual Type</b></em>' containment reference.

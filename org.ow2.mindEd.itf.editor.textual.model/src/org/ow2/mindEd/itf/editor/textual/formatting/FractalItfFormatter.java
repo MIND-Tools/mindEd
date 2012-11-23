@@ -80,11 +80,12 @@ public class FractalItfFormatter extends AbstractDeclarativeFormatter {
 
 	protected void formatDefine(FractalItfGrammarAccess f, FormattingConfig c) {
 		c.setLinewrap().after(
-				f.getConstantDefinitionAccess().getIdIDTerminalRuleCall_1_0());
-		c.setNoSpace().around(f.getAdditiveOperationRule());
-		c.setNoSpace().around(f.getMulOperationRule());
-		c.setNoSpace().around(f.getShiftOperationRule());
-		c.setNoSpace().around(f.getUnaryOperationRule());
+				f.getConstantDefinitionAccess().getNameIDTerminalRuleCall_1_0());
+		
+		c.setNoSpace().around(f.getADDITIVE_OPERATIONRule());
+		c.setNoSpace().around(f.getMUL_OPERATIONRule());
+		c.setNoSpace().around(f.getSHIFT_OPERATIONRule());
+		c.setNoSpace().around(f.getUNARY_OPERATIONRule());
 	}
 
 	/**
@@ -118,7 +119,7 @@ public class FractalItfFormatter extends AbstractDeclarativeFormatter {
 	 */
 	protected void formatInclude(FractalItfGrammarAccess f, FormattingConfig c) {
 		c.setLinewrap().after(
-				f.getIncludeDirectiveAccess().getImportedURIAssignment_1_0());
+				f.getIncludeDirectiveAccess().getImportedURIAssignment_1_0_0());
 		c.setLinewrap().after(
 				f.getIncludeDirectiveAccess().getIncludeIDAssignment_1_1());
 	}
@@ -134,13 +135,11 @@ public class FractalItfFormatter extends AbstractDeclarativeFormatter {
 				.after(f.getAnnotationAccess().getCommercialAtKeyword_0());
 		c.setNoSpace()
 				.around(
-						f.getAnnotationParametersAccess()
-								.getLeftParenthesisKeyword_1());
+						f.getAnnotationAccess().getLeftParenthesisKeyword_2_0());
 		c.setNoSpace().around(
-				f.getAnnotationParametersAccess()
-						.getRightParenthesisKeyword_3());
+				f.getAnnotationAccess().getRightParenthesisKeyword_2_3());
 		c.setNoSpace().around(
-				f.getAnnotationValuePairAccess().getEqualsSignKeyword_1());
+				f.getAnnotationValuePairAccess().getEqualsSignKeyword_0_1());
 	}
 
 	/**
@@ -156,9 +155,9 @@ public class FractalItfFormatter extends AbstractDeclarativeFormatter {
 	 */
 	protected void formatExpression(FractalItfGrammarAccess f,
 			FormattingConfig c) {
-		c.setNoSpace().around(f.getAdditiveExpressionAccess().getOpAdditiveOperationTerminalRuleCall_1_0_0());
-		c.setNoSpace().around(f.getMulExpressionAccess().getOpMulOperationTerminalRuleCall_1_0_0());
-		c.setNoSpace().around(f.getShiftExpressionAccess().getOpShiftOperationTerminalRuleCall_1_0_0());
+		c.setNoSpace().around(f.getAdditiveExpressionAccess().getOpADDITIVE_OPERATIONTerminalRuleCall_1_0_0());
+		c.setNoSpace().around(f.getMulExpressionAccess().getOpMUL_OPERATIONTerminalRuleCall_1_0_0());
+		c.setNoSpace().around(f.getShiftExpressionAccess().getOpSHIFT_OPERATIONTerminalRuleCall_1_0_0());
 		c.setNoSpace().around(f.getUnaryExpressionAccess().getPrimaryExprPrimaryExpressionParserRuleCall_1_0());
 	}
 

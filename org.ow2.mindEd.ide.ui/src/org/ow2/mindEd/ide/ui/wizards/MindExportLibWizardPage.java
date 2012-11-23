@@ -44,7 +44,7 @@ import org.ow2.mindEd.ide.ui.navigator.MindLabelProvider;
  * as the source folder, package name.
  */
 
-public class MindExportLibWizardPage extends WizardPage implements PageUdapteStatus {
+public class MindExportLibWizardPage extends WizardPage implements PageUpdateStatus {
 	private ISelection _selection;
 	//private ComposedAdapterFactory _adapterFactory;
 	//private AdapterFactoryLabelProvider _renderer;
