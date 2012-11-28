@@ -80,30 +80,30 @@ public interface InterfaceDefinition extends EObject
   void setName(String value);
 
   /**
-   * Returns the value of the '<em><b>Fqn2</b></em>' attribute.
+   * Returns the value of the '<em><b>Fqn2</b></em>' reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Fqn2</em>' attribute isn't clear,
+   * If the meaning of the '<em>Fqn2</em>' reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Fqn2</em>' attribute.
-   * @see #setFqn2(String)
+   * @return the value of the '<em>Fqn2</em>' reference.
+   * @see #setFqn2(InterfaceDefinition)
    * @see org.ow2.mindEd.itf.editor.textual.fractalIDL.FractalIDLPackage#getInterfaceDefinition_Fqn2()
    * @model
    * @generated
    */
-  String getFqn2();
+  InterfaceDefinition getFqn2();
 
   /**
-   * Sets the value of the '{@link org.ow2.mindEd.itf.editor.textual.fractalIDL.InterfaceDefinition#getFqn2 <em>Fqn2</em>}' attribute.
+   * Sets the value of the '{@link org.ow2.mindEd.itf.editor.textual.fractalIDL.InterfaceDefinition#getFqn2 <em>Fqn2</em>}' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Fqn2</em>' attribute.
+   * @param value the new value of the '<em>Fqn2</em>' reference.
    * @see #getFqn2()
    * @generated
    */
-  void setFqn2(String value);
+  void setFqn2(InterfaceDefinition value);
 
   /**
    * Returns the value of the '<em><b>Method Def</b></em>' containment reference list.

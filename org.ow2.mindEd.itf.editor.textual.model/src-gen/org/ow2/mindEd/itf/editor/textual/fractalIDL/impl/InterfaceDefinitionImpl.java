@@ -72,24 +72,14 @@ public class InterfaceDefinitionImpl extends MinimalEObjectImpl.Container implem
   protected String name = NAME_EDEFAULT;
 
   /**
-   * The default value of the '{@link #getFqn2() <em>Fqn2</em>}' attribute.
+   * The cached value of the '{@link #getFqn2() <em>Fqn2</em>}' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getFqn2()
    * @generated
    * @ordered
    */
-  protected static final String FQN2_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getFqn2() <em>Fqn2</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getFqn2()
-   * @generated
-   * @ordered
-   */
-  protected String fqn2 = FQN2_EDEFAULT;
+  protected InterfaceDefinition fqn2;
 
   /**
    * The cached value of the '{@link #getMethodDef() <em>Method Def</em>}' containment reference list.
@@ -198,7 +188,27 @@ public class InterfaceDefinitionImpl extends MinimalEObjectImpl.Container implem
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getFqn2()
+  public InterfaceDefinition getFqn2()
+  {
+    if (fqn2 != null && fqn2.eIsProxy())
+    {
+      InternalEObject oldFqn2 = (InternalEObject)fqn2;
+      fqn2 = (InterfaceDefinition)eResolveProxy(oldFqn2);
+      if (fqn2 != oldFqn2)
+      {
+        if (eNotificationRequired())
+          eNotify(new ENotificationImpl(this, Notification.RESOLVE, FractalIDLPackage.INTERFACE_DEFINITION__FQN2, oldFqn2, fqn2));
+      }
+    }
+    return fqn2;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public InterfaceDefinition basicGetFqn2()
   {
     return fqn2;
   }
@@ -208,9 +218,9 @@ public class InterfaceDefinitionImpl extends MinimalEObjectImpl.Container implem
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setFqn2(String newFqn2)
+  public void setFqn2(InterfaceDefinition newFqn2)
   {
-    String oldFqn2 = fqn2;
+    InterfaceDefinition oldFqn2 = fqn2;
     fqn2 = newFqn2;
     if (eNotificationRequired())
       eNotify(new ENotificationImpl(this, Notification.SET, FractalIDLPackage.INTERFACE_DEFINITION__FQN2, oldFqn2, fqn2));
@@ -263,7 +273,8 @@ public class InterfaceDefinitionImpl extends MinimalEObjectImpl.Container implem
       case FractalIDLPackage.INTERFACE_DEFINITION__NAME:
         return getName();
       case FractalIDLPackage.INTERFACE_DEFINITION__FQN2:
-        return getFqn2();
+        if (resolve) return getFqn2();
+        return basicGetFqn2();
       case FractalIDLPackage.INTERFACE_DEFINITION__METHOD_DEF:
         return getMethodDef();
     }
@@ -288,7 +299,7 @@ public class InterfaceDefinitionImpl extends MinimalEObjectImpl.Container implem
         setName((String)newValue);
         return;
       case FractalIDLPackage.INTERFACE_DEFINITION__FQN2:
-        setFqn2((String)newValue);
+        setFqn2((InterfaceDefinition)newValue);
         return;
       case FractalIDLPackage.INTERFACE_DEFINITION__METHOD_DEF:
         getMethodDef().clear();
@@ -315,7 +326,7 @@ public class InterfaceDefinitionImpl extends MinimalEObjectImpl.Container implem
         setName(NAME_EDEFAULT);
         return;
       case FractalIDLPackage.INTERFACE_DEFINITION__FQN2:
-        setFqn2(FQN2_EDEFAULT);
+        setFqn2((InterfaceDefinition)null);
         return;
       case FractalIDLPackage.INTERFACE_DEFINITION__METHOD_DEF:
         getMethodDef().clear();
@@ -339,7 +350,7 @@ public class InterfaceDefinitionImpl extends MinimalEObjectImpl.Container implem
       case FractalIDLPackage.INTERFACE_DEFINITION__NAME:
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
       case FractalIDLPackage.INTERFACE_DEFINITION__FQN2:
-        return FQN2_EDEFAULT == null ? fqn2 != null : !FQN2_EDEFAULT.equals(fqn2);
+        return fqn2 != null;
       case FractalIDLPackage.INTERFACE_DEFINITION__METHOD_DEF:
         return methodDef != null && !methodDef.isEmpty();
     }
@@ -359,8 +370,6 @@ public class InterfaceDefinitionImpl extends MinimalEObjectImpl.Container implem
     StringBuffer result = new StringBuffer(super.toString());
     result.append(" (name: ");
     result.append(name);
-    result.append(", fqn2: ");
-    result.append(fqn2);
     result.append(')');
     return result.toString();
   }

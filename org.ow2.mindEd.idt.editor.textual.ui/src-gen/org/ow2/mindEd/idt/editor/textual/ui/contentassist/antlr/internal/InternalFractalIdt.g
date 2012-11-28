@@ -9026,8 +9026,12 @@ rule__InterfaceDefinition__Fqn2Assignment_4_1
     }
 :
 (
-{ before(grammarAccess.getInterfaceDefinitionAccess().getFqn2QualifiedNameParserRuleCall_4_1_0()); }
-	ruleQualifiedName{ after(grammarAccess.getInterfaceDefinitionAccess().getFqn2QualifiedNameParserRuleCall_4_1_0()); }
+{ before(grammarAccess.getInterfaceDefinitionAccess().getFqn2InterfaceDefinitionCrossReference_4_1_0()); }
+(
+{ before(grammarAccess.getInterfaceDefinitionAccess().getFqn2InterfaceDefinitionQualifiedNameParserRuleCall_4_1_0_1()); }
+	ruleQualifiedName{ after(grammarAccess.getInterfaceDefinitionAccess().getFqn2InterfaceDefinitionQualifiedNameParserRuleCall_4_1_0_1()); }
+)
+{ after(grammarAccess.getInterfaceDefinitionAccess().getFqn2InterfaceDefinitionCrossReference_4_1_0()); }
 )
 
 ;

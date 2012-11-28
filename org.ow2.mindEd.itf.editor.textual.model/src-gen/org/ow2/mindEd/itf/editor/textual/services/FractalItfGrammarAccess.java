@@ -84,8 +84,7 @@ public class FractalItfGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cSemicolonKeyword_1 = (Keyword)cGroup.eContents().get(1);
 		
 		//// Type definition part
-		//
-		//TypeDefinition:
+		// TypeDefinition:
 		//
 		//	(TypedefSpecification | StructOrUnionSpecification | EnumSpecification) ";";
 		public ParserRule getRule() { return rule; }
@@ -536,24 +535,20 @@ public class FractalItfGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cConstExprConstantExpressionParserRuleCall_1_1_0 = (RuleCall)cConstExprAssignment_1_1.eContents().get(0);
 		
 		//EnumMember: // Is the following really needed ??
+		// //(annotationsList=AnnotationsList)?
+		// name=ID ("="
 		//
-		////(annotationsList=AnnotationsList)?
-		//
-		//	name=ID ("=" constExpr=ConstantExpression)?;
+		//	constExpr=ConstantExpression)?;
 		public ParserRule getRule() { return rule; }
 
 		//// Is the following really needed ??
-		//
-		////(annotationsList=AnnotationsList)?
-		//
-		//name=ID ("=" constExpr=ConstantExpression)?
+		// //(annotationsList=AnnotationsList)?
+		// name=ID ("=" constExpr=ConstantExpression)?
 		public Group getGroup() { return cGroup; }
 
 		//// Is the following really needed ??
-		//
-		////(annotationsList=AnnotationsList)?
-		//
-		//name=ID
+		// //(annotationsList=AnnotationsList)?
+		// name=ID
 		public Assignment getNameAssignment_0() { return cNameAssignment_0; }
 
 		//ID
@@ -683,14 +678,11 @@ public class FractalItfGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cTypeQualifiersTypeQualifierEnumRuleCall_2_0 = (RuleCall)cTypeQualifiersAssignment_2.eContents().get(0);
 		
 		////AbstractDeclarator:
+		// //  pointer=PointerSpecification
+		// //  dc=AbstractDirectDeclarator?
+		// //;
+		// // * -> const/volatile
 		//
-		////  pointer=PointerSpecification
-		//
-		////  dc=AbstractDirectDeclarator?
-		//
-		////;
-		//
-		//// * -> const/volatile
 		//
 		//QualifiedPointerSpecification:
 		//
@@ -781,14 +773,12 @@ public class FractalItfGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cRightSquareBracketKeyword_1_2 = (Keyword)cGroup_1.eContents().get(2);
 		
 		//// AbstractDirectDeclarator:
+		// //  ( '(' dec=AbstractDeclarator ')'
+		// //  	arrays += ArraySpecification*
 		//
-		////  ( '(' dec=AbstractDeclarator ')'
-		//
-		////  	arrays += ArraySpecification*
 		//
 		////  ) | array += ArraySpecification+;
-		//
-		//ArraySpecification:
+		// ArraySpecification:
 		//
 		//	unspecifiedSize?="[" "]" | "[" fixedSize=ConstantExpression "]";
 		public ParserRule getRule() { return rule; }
@@ -863,8 +853,7 @@ public class FractalItfGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cExprConstantExpressionParserRuleCall_2_0 = (RuleCall)cExprAssignment_2.eContents().get(0);
 		
 		//// Interface definition part
-		//
-		//ConstantDefinition:
+		// ConstantDefinition:
 		//
 		//	"#define" name=ID expr=ConstantExpression?;
 		public ParserRule getRule() { return rule; }
@@ -900,7 +889,8 @@ public class FractalItfGrammarAccess extends AbstractGrammarElementFinder {
 		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
 		private final Keyword cColonKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
 		private final Assignment cFqn2Assignment_4_1 = (Assignment)cGroup_4.eContents().get(1);
-		private final RuleCall cFqn2QualifiedNameParserRuleCall_4_1_0 = (RuleCall)cFqn2Assignment_4_1.eContents().get(0);
+		private final CrossReference cFqn2InterfaceDefinitionCrossReference_4_1_0 = (CrossReference)cFqn2Assignment_4_1.eContents().get(0);
+		private final RuleCall cFqn2InterfaceDefinitionQualifiedNameParserRuleCall_4_1_0_1 = (RuleCall)cFqn2InterfaceDefinitionCrossReference_4_1_0.eContents().get(1);
 		private final Keyword cLeftCurlyBracketKeyword_5 = (Keyword)cGroup.eContents().get(5);
 		private final Assignment cMethodDefAssignment_6 = (Assignment)cGroup.eContents().get(6);
 		private final RuleCall cMethodDefMethodDefinitionParserRuleCall_6_0 = (RuleCall)cMethodDefAssignment_6.eContents().get(0);
@@ -908,14 +898,14 @@ public class FractalItfGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//InterfaceDefinition:
 		//
-		//	annotationsList=AnnotationsList? "interface" "unmanaged"? name=QualifiedName (":" fqn2=QualifiedName)? "{"
+		//	annotationsList=AnnotationsList? "interface" "unmanaged"? name=QualifiedName (":"
 		//
-		//	methodDef+=MethodDefinition* "}";
+		//	fqn2=[InterfaceDefinition|QualifiedName])? "{" methodDef+=MethodDefinition* "}";
 		public ParserRule getRule() { return rule; }
 
-		//annotationsList=AnnotationsList? "interface" "unmanaged"? name=QualifiedName (":" fqn2=QualifiedName)? "{"
+		//annotationsList=AnnotationsList? "interface" "unmanaged"? name=QualifiedName (":"
 		//
-		//methodDef+=MethodDefinition* "}"
+		//fqn2=[InterfaceDefinition|QualifiedName])? "{" methodDef+=MethodDefinition* "}"
 		public Group getGroup() { return cGroup; }
 
 		//annotationsList=AnnotationsList?
@@ -936,17 +926,20 @@ public class FractalItfGrammarAccess extends AbstractGrammarElementFinder {
 		//QualifiedName
 		public RuleCall getNameQualifiedNameParserRuleCall_3_0() { return cNameQualifiedNameParserRuleCall_3_0; }
 
-		//(":" fqn2=QualifiedName)?
+		//(":" fqn2=[InterfaceDefinition|QualifiedName])?
 		public Group getGroup_4() { return cGroup_4; }
 
 		//":"
 		public Keyword getColonKeyword_4_0() { return cColonKeyword_4_0; }
 
-		//fqn2=QualifiedName
+		//fqn2=[InterfaceDefinition|QualifiedName]
 		public Assignment getFqn2Assignment_4_1() { return cFqn2Assignment_4_1; }
 
+		//[InterfaceDefinition|QualifiedName]
+		public CrossReference getFqn2InterfaceDefinitionCrossReference_4_1_0() { return cFqn2InterfaceDefinitionCrossReference_4_1_0; }
+
 		//QualifiedName
-		public RuleCall getFqn2QualifiedNameParserRuleCall_4_1_0() { return cFqn2QualifiedNameParserRuleCall_4_1_0; }
+		public RuleCall getFqn2InterfaceDefinitionQualifiedNameParserRuleCall_4_1_0_1() { return cFqn2InterfaceDefinitionQualifiedNameParserRuleCall_4_1_0_1; }
 
 		//"{"
 		public Keyword getLeftCurlyBracketKeyword_5() { return cLeftCurlyBracketKeyword_5; }
@@ -2262,8 +2255,7 @@ public class FractalItfGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cOutOutKeyword_1_0 = (Keyword)cOutEnumLiteralDeclaration_1.eContents().get(0);
 		
 		//// include directive
-		//
-		//enum ParameterQualifier:
+		// enum ParameterQualifier:
 		//
 		//	in | out;
 		public EnumRule getRule() { return rule; }
@@ -2396,8 +2388,7 @@ public class FractalItfGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//// Type definition part
-	//
-	//TypeDefinition:
+	// TypeDefinition:
 	//
 	//	(TypedefSpecification | StructOrUnionSpecification | EnumSpecification) ";";
 	public TypeDefinitionElements getTypeDefinitionAccess() {
@@ -2569,10 +2560,10 @@ public class FractalItfGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//EnumMember: // Is the following really needed ??
+	// //(annotationsList=AnnotationsList)?
+	// name=ID ("="
 	//
-	////(annotationsList=AnnotationsList)?
-	//
-	//	name=ID ("=" constExpr=ConstantExpression)?;
+	//	constExpr=ConstantExpression)?;
 	public EnumMemberElements getEnumMemberAccess() {
 		return (pEnumMember != null) ? pEnumMember : (pEnumMember = new EnumMemberElements());
 	}
@@ -2606,14 +2597,11 @@ public class FractalItfGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	////AbstractDeclarator:
+	// //  pointer=PointerSpecification
+	// //  dc=AbstractDirectDeclarator?
+	// //;
+	// // * -> const/volatile
 	//
-	////  pointer=PointerSpecification
-	//
-	////  dc=AbstractDirectDeclarator?
-	//
-	////;
-	//
-	//// * -> const/volatile
 	//
 	//QualifiedPointerSpecification:
 	//
@@ -2649,14 +2637,12 @@ public class FractalItfGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//// AbstractDirectDeclarator:
+	// //  ( '(' dec=AbstractDeclarator ')'
+	// //  	arrays += ArraySpecification*
 	//
-	////  ( '(' dec=AbstractDeclarator ')'
-	//
-	////  	arrays += ArraySpecification*
 	//
 	////  ) | array += ArraySpecification+;
-	//
-	//ArraySpecification:
+	// ArraySpecification:
 	//
 	//	unspecifiedSize?="[" "]" | "[" fixedSize=ConstantExpression "]";
 	public ArraySpecificationElements getArraySpecificationAccess() {
@@ -2679,8 +2665,7 @@ public class FractalItfGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//// Interface definition part
-	//
-	//ConstantDefinition:
+	// ConstantDefinition:
 	//
 	//	"#define" name=ID expr=ConstantExpression?;
 	public ConstantDefinitionElements getConstantDefinitionAccess() {
@@ -2693,9 +2678,9 @@ public class FractalItfGrammarAccess extends AbstractGrammarElementFinder {
 
 	//InterfaceDefinition:
 	//
-	//	annotationsList=AnnotationsList? "interface" "unmanaged"? name=QualifiedName (":" fqn2=QualifiedName)? "{"
+	//	annotationsList=AnnotationsList? "interface" "unmanaged"? name=QualifiedName (":"
 	//
-	//	methodDef+=MethodDefinition* "}";
+	//	fqn2=[InterfaceDefinition|QualifiedName])? "{" methodDef+=MethodDefinition* "}";
 	public InterfaceDefinitionElements getInterfaceDefinitionAccess() {
 		return (pInterfaceDefinition != null) ? pInterfaceDefinition : (pInterfaceDefinition = new InterfaceDefinitionElements());
 	}
@@ -2744,8 +2729,7 @@ public class FractalItfGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//// include directive
-	//
-	//enum ParameterQualifier:
+	// enum ParameterQualifier:
 	//
 	//	in | out;
 	public ParameterQualifierElements getParameterQualifierAccess() {

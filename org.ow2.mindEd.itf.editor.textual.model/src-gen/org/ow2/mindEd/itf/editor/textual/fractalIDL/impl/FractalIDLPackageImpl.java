@@ -1047,9 +1047,9 @@ public class FractalIDLPackageImpl extends EPackageImpl implements FractalIDLPac
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getInterfaceDefinition_Fqn2()
+  public EReference getInterfaceDefinition_Fqn2()
   {
-    return (EAttribute)interfaceDefinitionEClass.getEStructuralFeatures().get(2);
+    return (EReference)interfaceDefinitionEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -1862,7 +1862,7 @@ public class FractalIDLPackageImpl extends EPackageImpl implements FractalIDLPac
     interfaceDefinitionEClass = createEClass(INTERFACE_DEFINITION);
     createEReference(interfaceDefinitionEClass, INTERFACE_DEFINITION__ANNOTATIONS_LIST);
     createEAttribute(interfaceDefinitionEClass, INTERFACE_DEFINITION__NAME);
-    createEAttribute(interfaceDefinitionEClass, INTERFACE_DEFINITION__FQN2);
+    createEReference(interfaceDefinitionEClass, INTERFACE_DEFINITION__FQN2);
     createEReference(interfaceDefinitionEClass, INTERFACE_DEFINITION__METHOD_DEF);
 
     methodDefinitionEClass = createEClass(METHOD_DEFINITION);
@@ -2080,7 +2080,7 @@ public class FractalIDLPackageImpl extends EPackageImpl implements FractalIDLPac
     initEClass(interfaceDefinitionEClass, InterfaceDefinition.class, "InterfaceDefinition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getInterfaceDefinition_AnnotationsList(), this.getAnnotationsList(), null, "annotationsList", null, 0, 1, InterfaceDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getInterfaceDefinition_Name(), ecorePackage.getEString(), "name", null, 0, 1, InterfaceDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getInterfaceDefinition_Fqn2(), ecorePackage.getEString(), "fqn2", null, 0, 1, InterfaceDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getInterfaceDefinition_Fqn2(), this.getInterfaceDefinition(), null, "fqn2", null, 0, 1, InterfaceDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getInterfaceDefinition_MethodDef(), this.getMethodDefinition(), null, "methodDef", null, 0, -1, InterfaceDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(methodDefinitionEClass, MethodDefinition.class, "MethodDefinition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);

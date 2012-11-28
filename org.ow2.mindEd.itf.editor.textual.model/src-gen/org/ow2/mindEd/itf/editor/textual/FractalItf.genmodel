@@ -115,7 +115,7 @@
     <genClasses ecoreClass="FractalItf.ecore#//InterfaceDefinition">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference FractalItf.ecore#//InterfaceDefinition/annotationsList"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute FractalItf.ecore#//InterfaceDefinition/name"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute FractalItf.ecore#//InterfaceDefinition/fqn2"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference FractalItf.ecore#//InterfaceDefinition/fqn2"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference FractalItf.ecore#//InterfaceDefinition/methodDef"/>
     </genClasses>
     <genClasses ecoreClass="FractalItf.ecore#//MethodDefinition">

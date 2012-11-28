@@ -496,7 +496,7 @@ public class FractalItfSemanticSequencer extends AbstractDelegatingSemanticSeque
 	
 	/**
 	 * Constraint:
-	 *     (annotationsList=AnnotationsList? name=QualifiedName fqn2=QualifiedName? methodDef+=MethodDefinition*)
+	 *     (annotationsList=AnnotationsList? name=QualifiedName fqn2=[InterfaceDefinition|QualifiedName]? methodDef+=MethodDefinition*)
 	 */
 	protected void sequence_InterfaceDefinition(EObject context, InterfaceDefinition semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

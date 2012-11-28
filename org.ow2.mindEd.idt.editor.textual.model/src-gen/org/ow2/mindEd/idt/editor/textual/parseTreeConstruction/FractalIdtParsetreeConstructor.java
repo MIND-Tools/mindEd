@@ -775,8 +775,7 @@ protected class ItfFile_InterfaceAssignment_2 extends AssignmentToken  {
 /************ begin Rule TypeDefinition ****************
  *
  * // Type definition part
- * 
- * TypeDefinition:
+ *  TypeDefinition:
  * 
  * 	(TypedefSpecification | StructOrUnionSpecification | EnumSpecification) ";";
  *
@@ -2812,18 +2811,16 @@ protected class EnumMemberList_EnumMemberAssignment_1_1 extends AssignmentToken 
 /************ begin Rule EnumMember ****************
  *
  * EnumMember: // Is the following really needed ??
+ *  //(annotationsList=AnnotationsList)?
+ *  name=ID ("="
  * 
- * //(annotationsList=AnnotationsList)?
- * 
- * 	name=ID ("=" constExpr=ConstantExpression)?;
+ * 	constExpr=ConstantExpression)?;
  *
  **/
 
 // // Is the following really needed ??
-// 
-// //(annotationsList=AnnotationsList)?
-// 
-// name=ID ("=" constExpr=ConstantExpression)?
+//  //(annotationsList=AnnotationsList)?
+//  name=ID ("=" constExpr=ConstantExpression)?
 protected class EnumMember_Group extends GroupToken {
 	
 	public EnumMember_Group(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -2854,10 +2851,8 @@ protected class EnumMember_Group extends GroupToken {
 }
 
 // // Is the following really needed ??
-// 
-// //(annotationsList=AnnotationsList)?
-// 
-// name=ID
+//  //(annotationsList=AnnotationsList)?
+//  name=ID
 protected class EnumMember_NameAssignment_0 extends AssignmentToken  {
 	
 	public EnumMember_NameAssignment_0(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -3488,14 +3483,11 @@ protected class Declarator_RightParenthesisKeyword_1_2_2 extends KeywordToken  {
 /************ begin Rule QualifiedPointerSpecification ****************
  *
  * //AbstractDeclarator:
+ *  //  pointer=PointerSpecification
+ *  //  dc=AbstractDirectDeclarator?
+ *  //;
+ *  // * -> const/volatile
  * 
- * //  pointer=PointerSpecification
- * 
- * //  dc=AbstractDirectDeclarator?
- * 
- * //;
- * 
- * // * -> const/volatile
  * 
  * QualifiedPointerSpecification:
  * 
@@ -3860,14 +3852,12 @@ protected class DirectAnonymousDeclarator_ArrayAssignment_1 extends AssignmentTo
 /************ begin Rule ArraySpecification ****************
  *
  * // AbstractDirectDeclarator:
+ *  //  ( '(' dec=AbstractDeclarator ')'
+ *  //  	arrays += ArraySpecification*
  * 
- * //  ( '(' dec=AbstractDeclarator ')'
- * 
- * //  	arrays += ArraySpecification*
  * 
  * //  ) | array += ArraySpecification+;
- * 
- * ArraySpecification:
+ *  ArraySpecification:
  * 
  * 	unspecifiedSize?="[" "]" | "[" fixedSize=ConstantExpression "]";
  *
@@ -4101,8 +4091,7 @@ protected class ArraySpecification_RightSquareBracketKeyword_1_2 extends Keyword
 /************ begin Rule ConstantDefinition ****************
  *
  * // Interface definition part
- * 
- * ConstantDefinition:
+ *  ConstantDefinition:
  * 
  * 	"#define" name=ID expr=ConstantExpression?;
  *
@@ -4247,15 +4236,15 @@ protected class ConstantDefinition_ExprAssignment_2 extends AssignmentToken  {
  *
  * InterfaceDefinition:
  * 
- * 	annotationsList=AnnotationsList? "interface" "unmanaged"? name=QualifiedName (":" fqn2=QualifiedName)? "{"
+ * 	annotationsList=AnnotationsList? "interface" "unmanaged"? name=QualifiedName (":"
  * 
- * 	methodDef+=MethodDefinition* "}";
+ * 	fqn2=[InterfaceDefinition|QualifiedName])? "{" methodDef+=MethodDefinition* "}";
  *
  **/
 
-// annotationsList=AnnotationsList? "interface" "unmanaged"? name=QualifiedName (":" fqn2=QualifiedName)? "{"
+// annotationsList=AnnotationsList? "interface" "unmanaged"? name=QualifiedName (":"
 // 
-// methodDef+=MethodDefinition* "}"
+// fqn2=[InterfaceDefinition|QualifiedName])? "{" methodDef+=MethodDefinition* "}"
 protected class InterfaceDefinition_Group extends GroupToken {
 	
 	public InterfaceDefinition_Group(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -4385,7 +4374,7 @@ protected class InterfaceDefinition_NameAssignment_3 extends AssignmentToken  {
 
 }
 
-// (":" fqn2=QualifiedName)?
+// (":" fqn2=[InterfaceDefinition|QualifiedName])?
 protected class InterfaceDefinition_Group_4 extends GroupToken {
 	
 	public InterfaceDefinition_Group_4(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -4429,7 +4418,7 @@ protected class InterfaceDefinition_ColonKeyword_4_0 extends KeywordToken  {
 
 }
 
-// fqn2=QualifiedName
+// fqn2=[InterfaceDefinition|QualifiedName]
 protected class InterfaceDefinition_Fqn2Assignment_4_1 extends AssignmentToken  {
 	
 	public InterfaceDefinition_Fqn2Assignment_4_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -4453,10 +4442,13 @@ protected class InterfaceDefinition_Fqn2Assignment_4_1 extends AssignmentToken  
 	public IEObjectConsumer tryConsume() {
 		if((value = eObjectConsumer.getConsumable("fqn2",false)) == null) return null;
 		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("fqn2");
-		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getInterfaceDefinitionAccess().getFqn2QualifiedNameParserRuleCall_4_1_0(), value, null)) {
-			type = AssignmentType.DATATYPE_RULE_CALL;
-			element = grammarAccess.getInterfaceDefinitionAccess().getFqn2QualifiedNameParserRuleCall_4_1_0();
-			return obj;
+		if(value instanceof EObject) { // org::eclipse::xtext::impl::CrossReferenceImpl
+			IEObjectConsumer param = createEObjectConsumer((EObject)value);
+			if(param.isInstanceOf(grammarAccess.getInterfaceDefinitionAccess().getFqn2InterfaceDefinitionCrossReference_4_1_0().getType().getClassifier())) {
+				type = AssignmentType.CROSS_REFERENCE;
+				element = grammarAccess.getInterfaceDefinitionAccess().getFqn2InterfaceDefinitionCrossReference_4_1_0(); 
+				return obj;
+			}
 		}
 		return null;
 	}

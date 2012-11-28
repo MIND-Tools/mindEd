@@ -962,7 +962,7 @@ public interface FractalIDLPackage extends EPackage
   int INTERFACE_DEFINITION__NAME = 1;
 
   /**
-   * The feature id for the '<em><b>Fqn2</b></em>' attribute.
+   * The feature id for the '<em><b>Fqn2</b></em>' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -2469,15 +2469,15 @@ public interface FractalIDLPackage extends EPackage
   EAttribute getInterfaceDefinition_Name();
 
   /**
-   * Returns the meta object for the attribute '{@link org.ow2.mindEd.itf.editor.textual.fractalIDL.InterfaceDefinition#getFqn2 <em>Fqn2</em>}'.
+   * Returns the meta object for the reference '{@link org.ow2.mindEd.itf.editor.textual.fractalIDL.InterfaceDefinition#getFqn2 <em>Fqn2</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Fqn2</em>'.
+   * @return the meta object for the reference '<em>Fqn2</em>'.
    * @see org.ow2.mindEd.itf.editor.textual.fractalIDL.InterfaceDefinition#getFqn2()
    * @see #getInterfaceDefinition()
    * @generated
    */
-  EAttribute getInterfaceDefinition_Fqn2();
+  EReference getInterfaceDefinition_Fqn2();
 
   /**
    * Returns the meta object for the containment reference list '{@link org.ow2.mindEd.itf.editor.textual.fractalIDL.InterfaceDefinition#getMethodDef <em>Method Def</em>}'.
@@ -3765,12 +3765,12 @@ public interface FractalIDLPackage extends EPackage
     EAttribute INTERFACE_DEFINITION__NAME = eINSTANCE.getInterfaceDefinition_Name();
 
     /**
-     * The meta object literal for the '<em><b>Fqn2</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Fqn2</b></em>' reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute INTERFACE_DEFINITION__FQN2 = eINSTANCE.getInterfaceDefinition_Fqn2();
+    EReference INTERFACE_DEFINITION__FQN2 = eINSTANCE.getInterfaceDefinition_Fqn2();
 
     /**
      * The meta object literal for the '<em><b>Method Def</b></em>' containment reference list feature.

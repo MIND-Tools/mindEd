@@ -25,6 +25,7 @@ Import-Package: org.apache.log4j,
 Bundle-RequiredExecutionEnvironment: J2SE-1.5
 Export-Package: org.ow2.mindEd.adl.textual,
  org.ow2.mindEd.adl.textual.formatting,
+ org.ow2.mindEd.adl.textual,
  org.ow2.mindEd.adl.textual.fractal,
  org.ow2.mindEd.adl.textual.fractal.impl,
  org.ow2.mindEd.adl.textual.fractal.util,

@@ -1711,17 +1711,17 @@ ruleInterfaceDefinition returns [EObject current=null]
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getInterfaceDefinitionAccess().getFqn2QualifiedNameParserRuleCall_4_1_0()); 
-	    }
-		lv_fqn2_5_0=ruleQualifiedName		{
-	        if ($current==null) {
-	            $current = createModelElementForParent(grammarAccess.getInterfaceDefinitionRule());
+		  /* */ 
+		}
+		{
+			if ($current==null) {
+	            $current = createModelElement(grammarAccess.getInterfaceDefinitionRule());
 	        }
-       		set(
-       			$current, 
-       			"fqn2",
-        		lv_fqn2_5_0, 
-        		"QualifiedName");
+        }
+		{ 
+	        newCompositeNode(grammarAccess.getInterfaceDefinitionAccess().getFqn2InterfaceDefinitionCrossReference_4_1_0()); 
+	    }
+		ruleQualifiedName		{ 
 	        afterParserOrEnumRuleCall();
 	    }
 

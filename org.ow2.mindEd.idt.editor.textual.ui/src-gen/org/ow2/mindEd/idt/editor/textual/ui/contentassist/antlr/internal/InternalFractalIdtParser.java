@@ -5616,10 +5616,7 @@ public class InternalFractalIdtParser extends AbstractInternalContentAssistParse
                     {
                     int LA9_2 = input.LA(3);
 
-                    if ( (LA9_2==RULE_ID||(LA9_2>=25 && LA9_2<=44)||LA9_2==54||LA9_2==56||LA9_2==58||LA9_2==60) ) {
-                        alt9=2;
-                    }
-                    else if ( (LA9_2==57) ) {
+                    if ( (LA9_2==57) ) {
                         int LA9_5 = input.LA(4);
 
                         if ( (synpred13_InternalFractalIdt()) ) {
@@ -5635,6 +5632,9 @@ public class InternalFractalIdtParser extends AbstractInternalContentAssistParse
 
                             throw nvae;
                         }
+                    }
+                    else if ( (LA9_2==RULE_ID||(LA9_2>=25 && LA9_2<=44)||LA9_2==54||LA9_2==56||LA9_2==58||LA9_2==60) ) {
+                        alt9=2;
                     }
                     else {
                         if (state.backtracking>0) {state.failed=true; return ;}
@@ -26964,28 +26964,40 @@ public class InternalFractalIdtParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__InterfaceDefinition__Fqn2Assignment_4_1"
-    // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9023:1: rule__InterfaceDefinition__Fqn2Assignment_4_1 : ( ruleQualifiedName ) ;
+    // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9023:1: rule__InterfaceDefinition__Fqn2Assignment_4_1 : ( ( ruleQualifiedName ) ) ;
     public final void rule__InterfaceDefinition__Fqn2Assignment_4_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9027:1: ( ( ruleQualifiedName ) )
-            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9028:1: ( ruleQualifiedName )
+            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9027:1: ( ( ( ruleQualifiedName ) ) )
+            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9028:1: ( ( ruleQualifiedName ) )
             {
-            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9028:1: ( ruleQualifiedName )
-            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9029:1: ruleQualifiedName
+            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9028:1: ( ( ruleQualifiedName ) )
+            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9029:1: ( ruleQualifiedName )
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getInterfaceDefinitionAccess().getFqn2QualifiedNameParserRuleCall_4_1_0()); 
+               before(grammarAccess.getInterfaceDefinitionAccess().getFqn2InterfaceDefinitionCrossReference_4_1_0()); 
             }
-            pushFollow(FollowSets000.FOLLOW_ruleQualifiedName_in_rule__InterfaceDefinition__Fqn2Assignment_4_118424);
+            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9030:1: ( ruleQualifiedName )
+            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9031:1: ruleQualifiedName
+            {
+            if ( state.backtracking==0 ) {
+               before(grammarAccess.getInterfaceDefinitionAccess().getFqn2InterfaceDefinitionQualifiedNameParserRuleCall_4_1_0_1()); 
+            }
+            pushFollow(FollowSets000.FOLLOW_ruleQualifiedName_in_rule__InterfaceDefinition__Fqn2Assignment_4_118428);
             ruleQualifiedName();
 
             state._fsp--;
             if (state.failed) return ;
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getInterfaceDefinitionAccess().getFqn2QualifiedNameParserRuleCall_4_1_0()); 
+               after(grammarAccess.getInterfaceDefinitionAccess().getFqn2InterfaceDefinitionQualifiedNameParserRuleCall_4_1_0_1()); 
+            }
+
+            }
+
+            if ( state.backtracking==0 ) {
+               after(grammarAccess.getInterfaceDefinitionAccess().getFqn2InterfaceDefinitionCrossReference_4_1_0()); 
             }
 
             }
@@ -27009,22 +27021,22 @@ public class InternalFractalIdtParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__InterfaceDefinition__MethodDefAssignment_6"
-    // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9038:1: rule__InterfaceDefinition__MethodDefAssignment_6 : ( ruleMethodDefinition ) ;
+    // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9042:1: rule__InterfaceDefinition__MethodDefAssignment_6 : ( ruleMethodDefinition ) ;
     public final void rule__InterfaceDefinition__MethodDefAssignment_6() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9042:1: ( ( ruleMethodDefinition ) )
-            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9043:1: ( ruleMethodDefinition )
+            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9046:1: ( ( ruleMethodDefinition ) )
+            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9047:1: ( ruleMethodDefinition )
             {
-            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9043:1: ( ruleMethodDefinition )
-            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9044:1: ruleMethodDefinition
+            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9047:1: ( ruleMethodDefinition )
+            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9048:1: ruleMethodDefinition
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getInterfaceDefinitionAccess().getMethodDefMethodDefinitionParserRuleCall_6_0()); 
             }
-            pushFollow(FollowSets000.FOLLOW_ruleMethodDefinition_in_rule__InterfaceDefinition__MethodDefAssignment_618455);
+            pushFollow(FollowSets000.FOLLOW_ruleMethodDefinition_in_rule__InterfaceDefinition__MethodDefAssignment_618463);
             ruleMethodDefinition();
 
             state._fsp--;
@@ -27054,22 +27066,22 @@ public class InternalFractalIdtParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__MethodDefinition__AnnotationsListAssignment_0"
-    // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9053:1: rule__MethodDefinition__AnnotationsListAssignment_0 : ( ruleAnnotationsList ) ;
+    // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9057:1: rule__MethodDefinition__AnnotationsListAssignment_0 : ( ruleAnnotationsList ) ;
     public final void rule__MethodDefinition__AnnotationsListAssignment_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9057:1: ( ( ruleAnnotationsList ) )
-            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9058:1: ( ruleAnnotationsList )
+            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9061:1: ( ( ruleAnnotationsList ) )
+            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9062:1: ( ruleAnnotationsList )
             {
-            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9058:1: ( ruleAnnotationsList )
-            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9059:1: ruleAnnotationsList
+            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9062:1: ( ruleAnnotationsList )
+            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9063:1: ruleAnnotationsList
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getMethodDefinitionAccess().getAnnotationsListAnnotationsListParserRuleCall_0_0()); 
             }
-            pushFollow(FollowSets000.FOLLOW_ruleAnnotationsList_in_rule__MethodDefinition__AnnotationsListAssignment_018486);
+            pushFollow(FollowSets000.FOLLOW_ruleAnnotationsList_in_rule__MethodDefinition__AnnotationsListAssignment_018494);
             ruleAnnotationsList();
 
             state._fsp--;
@@ -27099,22 +27111,22 @@ public class InternalFractalIdtParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__MethodDefinition__QualifiedTypeSpecAssignment_1"
-    // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9068:1: rule__MethodDefinition__QualifiedTypeSpecAssignment_1 : ( ruleQualifiedTypeSpecification ) ;
+    // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9072:1: rule__MethodDefinition__QualifiedTypeSpecAssignment_1 : ( ruleQualifiedTypeSpecification ) ;
     public final void rule__MethodDefinition__QualifiedTypeSpecAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9072:1: ( ( ruleQualifiedTypeSpecification ) )
-            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9073:1: ( ruleQualifiedTypeSpecification )
+            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9076:1: ( ( ruleQualifiedTypeSpecification ) )
+            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9077:1: ( ruleQualifiedTypeSpecification )
             {
-            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9073:1: ( ruleQualifiedTypeSpecification )
-            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9074:1: ruleQualifiedTypeSpecification
+            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9077:1: ( ruleQualifiedTypeSpecification )
+            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9078:1: ruleQualifiedTypeSpecification
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getMethodDefinitionAccess().getQualifiedTypeSpecQualifiedTypeSpecificationParserRuleCall_1_0()); 
             }
-            pushFollow(FollowSets000.FOLLOW_ruleQualifiedTypeSpecification_in_rule__MethodDefinition__QualifiedTypeSpecAssignment_118517);
+            pushFollow(FollowSets000.FOLLOW_ruleQualifiedTypeSpecification_in_rule__MethodDefinition__QualifiedTypeSpecAssignment_118525);
             ruleQualifiedTypeSpecification();
 
             state._fsp--;
@@ -27144,22 +27156,22 @@ public class InternalFractalIdtParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__MethodDefinition__PointerSpecificationAssignment_2"
-    // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9083:1: rule__MethodDefinition__PointerSpecificationAssignment_2 : ( ruleQualifiedPointerSpecification ) ;
+    // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9087:1: rule__MethodDefinition__PointerSpecificationAssignment_2 : ( ruleQualifiedPointerSpecification ) ;
     public final void rule__MethodDefinition__PointerSpecificationAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9087:1: ( ( ruleQualifiedPointerSpecification ) )
-            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9088:1: ( ruleQualifiedPointerSpecification )
+            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9091:1: ( ( ruleQualifiedPointerSpecification ) )
+            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9092:1: ( ruleQualifiedPointerSpecification )
             {
-            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9088:1: ( ruleQualifiedPointerSpecification )
-            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9089:1: ruleQualifiedPointerSpecification
+            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9092:1: ( ruleQualifiedPointerSpecification )
+            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9093:1: ruleQualifiedPointerSpecification
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getMethodDefinitionAccess().getPointerSpecificationQualifiedPointerSpecificationParserRuleCall_2_0()); 
             }
-            pushFollow(FollowSets000.FOLLOW_ruleQualifiedPointerSpecification_in_rule__MethodDefinition__PointerSpecificationAssignment_218548);
+            pushFollow(FollowSets000.FOLLOW_ruleQualifiedPointerSpecification_in_rule__MethodDefinition__PointerSpecificationAssignment_218556);
             ruleQualifiedPointerSpecification();
 
             state._fsp--;
@@ -27189,22 +27201,22 @@ public class InternalFractalIdtParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__MethodDefinition__NameAssignment_3"
-    // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9098:1: rule__MethodDefinition__NameAssignment_3 : ( RULE_ID ) ;
+    // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9102:1: rule__MethodDefinition__NameAssignment_3 : ( RULE_ID ) ;
     public final void rule__MethodDefinition__NameAssignment_3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9102:1: ( ( RULE_ID ) )
-            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9103:1: ( RULE_ID )
+            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9106:1: ( ( RULE_ID ) )
+            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9107:1: ( RULE_ID )
             {
-            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9103:1: ( RULE_ID )
-            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9104:1: RULE_ID
+            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9107:1: ( RULE_ID )
+            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9108:1: RULE_ID
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getMethodDefinitionAccess().getNameIDTerminalRuleCall_3_0()); 
             }
-            match(input,RULE_ID,FollowSets000.FOLLOW_RULE_ID_in_rule__MethodDefinition__NameAssignment_318579); if (state.failed) return ;
+            match(input,RULE_ID,FollowSets000.FOLLOW_RULE_ID_in_rule__MethodDefinition__NameAssignment_318587); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getMethodDefinitionAccess().getNameIDTerminalRuleCall_3_0()); 
             }
@@ -27230,22 +27242,22 @@ public class InternalFractalIdtParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__MethodDefinition__ParameterListAssignment_4_1_1"
-    // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9113:1: rule__MethodDefinition__ParameterListAssignment_4_1_1 : ( ruleParameterList ) ;
+    // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9117:1: rule__MethodDefinition__ParameterListAssignment_4_1_1 : ( ruleParameterList ) ;
     public final void rule__MethodDefinition__ParameterListAssignment_4_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9117:1: ( ( ruleParameterList ) )
-            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9118:1: ( ruleParameterList )
+            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9121:1: ( ( ruleParameterList ) )
+            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9122:1: ( ruleParameterList )
             {
-            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9118:1: ( ruleParameterList )
-            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9119:1: ruleParameterList
+            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9122:1: ( ruleParameterList )
+            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9123:1: ruleParameterList
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getMethodDefinitionAccess().getParameterListParameterListParserRuleCall_4_1_1_0()); 
             }
-            pushFollow(FollowSets000.FOLLOW_ruleParameterList_in_rule__MethodDefinition__ParameterListAssignment_4_1_118610);
+            pushFollow(FollowSets000.FOLLOW_ruleParameterList_in_rule__MethodDefinition__ParameterListAssignment_4_1_118618);
             ruleParameterList();
 
             state._fsp--;
@@ -27275,22 +27287,22 @@ public class InternalFractalIdtParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__ParameterList__ParamsAssignment_0"
-    // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9128:1: rule__ParameterList__ParamsAssignment_0 : ( ruleParameter ) ;
+    // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9132:1: rule__ParameterList__ParamsAssignment_0 : ( ruleParameter ) ;
     public final void rule__ParameterList__ParamsAssignment_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9132:1: ( ( ruleParameter ) )
-            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9133:1: ( ruleParameter )
+            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9136:1: ( ( ruleParameter ) )
+            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9137:1: ( ruleParameter )
             {
-            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9133:1: ( ruleParameter )
-            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9134:1: ruleParameter
+            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9137:1: ( ruleParameter )
+            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9138:1: ruleParameter
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getParameterListAccess().getParamsParameterParserRuleCall_0_0()); 
             }
-            pushFollow(FollowSets000.FOLLOW_ruleParameter_in_rule__ParameterList__ParamsAssignment_018641);
+            pushFollow(FollowSets000.FOLLOW_ruleParameter_in_rule__ParameterList__ParamsAssignment_018649);
             ruleParameter();
 
             state._fsp--;
@@ -27320,22 +27332,22 @@ public class InternalFractalIdtParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__ParameterList__ParamsAssignment_1_1"
-    // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9143:1: rule__ParameterList__ParamsAssignment_1_1 : ( ruleParameter ) ;
+    // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9147:1: rule__ParameterList__ParamsAssignment_1_1 : ( ruleParameter ) ;
     public final void rule__ParameterList__ParamsAssignment_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9147:1: ( ( ruleParameter ) )
-            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9148:1: ( ruleParameter )
+            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9151:1: ( ( ruleParameter ) )
+            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9152:1: ( ruleParameter )
             {
-            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9148:1: ( ruleParameter )
-            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9149:1: ruleParameter
+            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9152:1: ( ruleParameter )
+            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9153:1: ruleParameter
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getParameterListAccess().getParamsParameterParserRuleCall_1_1_0()); 
             }
-            pushFollow(FollowSets000.FOLLOW_ruleParameter_in_rule__ParameterList__ParamsAssignment_1_118672);
+            pushFollow(FollowSets000.FOLLOW_ruleParameter_in_rule__ParameterList__ParamsAssignment_1_118680);
             ruleParameter();
 
             state._fsp--;
@@ -27365,22 +27377,22 @@ public class InternalFractalIdtParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Parameter__AnnotationsListAssignment_0"
-    // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9158:1: rule__Parameter__AnnotationsListAssignment_0 : ( ruleAnnotationsList ) ;
+    // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9162:1: rule__Parameter__AnnotationsListAssignment_0 : ( ruleAnnotationsList ) ;
     public final void rule__Parameter__AnnotationsListAssignment_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9162:1: ( ( ruleAnnotationsList ) )
-            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9163:1: ( ruleAnnotationsList )
+            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9166:1: ( ( ruleAnnotationsList ) )
+            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9167:1: ( ruleAnnotationsList )
             {
-            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9163:1: ( ruleAnnotationsList )
-            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9164:1: ruleAnnotationsList
+            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9167:1: ( ruleAnnotationsList )
+            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9168:1: ruleAnnotationsList
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getParameterAccess().getAnnotationsListAnnotationsListParserRuleCall_0_0()); 
             }
-            pushFollow(FollowSets000.FOLLOW_ruleAnnotationsList_in_rule__Parameter__AnnotationsListAssignment_018703);
+            pushFollow(FollowSets000.FOLLOW_ruleAnnotationsList_in_rule__Parameter__AnnotationsListAssignment_018711);
             ruleAnnotationsList();
 
             state._fsp--;
@@ -27410,22 +27422,22 @@ public class InternalFractalIdtParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Parameter__ParameterQualifierAssignment_1"
-    // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9173:1: rule__Parameter__ParameterQualifierAssignment_1 : ( ruleParameterQualifier ) ;
+    // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9177:1: rule__Parameter__ParameterQualifierAssignment_1 : ( ruleParameterQualifier ) ;
     public final void rule__Parameter__ParameterQualifierAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9177:1: ( ( ruleParameterQualifier ) )
-            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9178:1: ( ruleParameterQualifier )
+            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9181:1: ( ( ruleParameterQualifier ) )
+            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9182:1: ( ruleParameterQualifier )
             {
-            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9178:1: ( ruleParameterQualifier )
-            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9179:1: ruleParameterQualifier
+            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9182:1: ( ruleParameterQualifier )
+            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9183:1: ruleParameterQualifier
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getParameterAccess().getParameterQualifierParameterQualifierEnumRuleCall_1_0()); 
             }
-            pushFollow(FollowSets000.FOLLOW_ruleParameterQualifier_in_rule__Parameter__ParameterQualifierAssignment_118734);
+            pushFollow(FollowSets000.FOLLOW_ruleParameterQualifier_in_rule__Parameter__ParameterQualifierAssignment_118742);
             ruleParameterQualifier();
 
             state._fsp--;
@@ -27455,22 +27467,22 @@ public class InternalFractalIdtParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Parameter__QualifiedTypeSpecAssignment_2"
-    // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9188:1: rule__Parameter__QualifiedTypeSpecAssignment_2 : ( ruleQualifiedTypeSpecification ) ;
+    // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9192:1: rule__Parameter__QualifiedTypeSpecAssignment_2 : ( ruleQualifiedTypeSpecification ) ;
     public final void rule__Parameter__QualifiedTypeSpecAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9192:1: ( ( ruleQualifiedTypeSpecification ) )
-            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9193:1: ( ruleQualifiedTypeSpecification )
+            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9196:1: ( ( ruleQualifiedTypeSpecification ) )
+            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9197:1: ( ruleQualifiedTypeSpecification )
             {
-            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9193:1: ( ruleQualifiedTypeSpecification )
-            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9194:1: ruleQualifiedTypeSpecification
+            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9197:1: ( ruleQualifiedTypeSpecification )
+            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9198:1: ruleQualifiedTypeSpecification
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getParameterAccess().getQualifiedTypeSpecQualifiedTypeSpecificationParserRuleCall_2_0()); 
             }
-            pushFollow(FollowSets000.FOLLOW_ruleQualifiedTypeSpecification_in_rule__Parameter__QualifiedTypeSpecAssignment_218765);
+            pushFollow(FollowSets000.FOLLOW_ruleQualifiedTypeSpecification_in_rule__Parameter__QualifiedTypeSpecAssignment_218773);
             ruleQualifiedTypeSpecification();
 
             state._fsp--;
@@ -27500,22 +27512,22 @@ public class InternalFractalIdtParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Parameter__DecAssignment_3"
-    // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9203:1: rule__Parameter__DecAssignment_3 : ( ruleDeclarator ) ;
+    // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9207:1: rule__Parameter__DecAssignment_3 : ( ruleDeclarator ) ;
     public final void rule__Parameter__DecAssignment_3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9207:1: ( ( ruleDeclarator ) )
-            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9208:1: ( ruleDeclarator )
+            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9211:1: ( ( ruleDeclarator ) )
+            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9212:1: ( ruleDeclarator )
             {
-            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9208:1: ( ruleDeclarator )
-            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9209:1: ruleDeclarator
+            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9212:1: ( ruleDeclarator )
+            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9213:1: ruleDeclarator
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getParameterAccess().getDecDeclaratorParserRuleCall_3_0()); 
             }
-            pushFollow(FollowSets000.FOLLOW_ruleDeclarator_in_rule__Parameter__DecAssignment_318796);
+            pushFollow(FollowSets000.FOLLOW_ruleDeclarator_in_rule__Parameter__DecAssignment_318804);
             ruleDeclarator();
 
             state._fsp--;
@@ -27545,22 +27557,22 @@ public class InternalFractalIdtParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__IncludeDirective__ImportedURIAssignment_1_0_0"
-    // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9218:1: rule__IncludeDirective__ImportedURIAssignment_1_0_0 : ( RULE_STRING ) ;
+    // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9222:1: rule__IncludeDirective__ImportedURIAssignment_1_0_0 : ( RULE_STRING ) ;
     public final void rule__IncludeDirective__ImportedURIAssignment_1_0_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9222:1: ( ( RULE_STRING ) )
-            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9223:1: ( RULE_STRING )
+            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9226:1: ( ( RULE_STRING ) )
+            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9227:1: ( RULE_STRING )
             {
-            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9223:1: ( RULE_STRING )
-            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9224:1: RULE_STRING
+            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9227:1: ( RULE_STRING )
+            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9228:1: RULE_STRING
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getIncludeDirectiveAccess().getImportedURISTRINGTerminalRuleCall_1_0_0_0()); 
             }
-            match(input,RULE_STRING,FollowSets000.FOLLOW_RULE_STRING_in_rule__IncludeDirective__ImportedURIAssignment_1_0_018827); if (state.failed) return ;
+            match(input,RULE_STRING,FollowSets000.FOLLOW_RULE_STRING_in_rule__IncludeDirective__ImportedURIAssignment_1_0_018835); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getIncludeDirectiveAccess().getImportedURISTRINGTerminalRuleCall_1_0_0_0()); 
             }
@@ -27586,22 +27598,22 @@ public class InternalFractalIdtParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__IncludeDirective__IncludeIDAssignment_1_1"
-    // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9233:1: rule__IncludeDirective__IncludeIDAssignment_1_1 : ( RULE_INCLUDE_LIB ) ;
+    // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9237:1: rule__IncludeDirective__IncludeIDAssignment_1_1 : ( RULE_INCLUDE_LIB ) ;
     public final void rule__IncludeDirective__IncludeIDAssignment_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9237:1: ( ( RULE_INCLUDE_LIB ) )
-            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9238:1: ( RULE_INCLUDE_LIB )
+            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9241:1: ( ( RULE_INCLUDE_LIB ) )
+            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9242:1: ( RULE_INCLUDE_LIB )
             {
-            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9238:1: ( RULE_INCLUDE_LIB )
-            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9239:1: RULE_INCLUDE_LIB
+            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9242:1: ( RULE_INCLUDE_LIB )
+            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9243:1: RULE_INCLUDE_LIB
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getIncludeDirectiveAccess().getIncludeIDINCLUDE_LIBTerminalRuleCall_1_1_0()); 
             }
-            match(input,RULE_INCLUDE_LIB,FollowSets000.FOLLOW_RULE_INCLUDE_LIB_in_rule__IncludeDirective__IncludeIDAssignment_1_118858); if (state.failed) return ;
+            match(input,RULE_INCLUDE_LIB,FollowSets000.FOLLOW_RULE_INCLUDE_LIB_in_rule__IncludeDirective__IncludeIDAssignment_1_118866); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getIncludeDirectiveAccess().getIncludeIDINCLUDE_LIBTerminalRuleCall_1_1_0()); 
             }
@@ -27627,22 +27639,22 @@ public class InternalFractalIdtParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__AnnotationsList__AnnotationsAssignment_0"
-    // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9248:1: rule__AnnotationsList__AnnotationsAssignment_0 : ( ruleAnnotation ) ;
+    // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9252:1: rule__AnnotationsList__AnnotationsAssignment_0 : ( ruleAnnotation ) ;
     public final void rule__AnnotationsList__AnnotationsAssignment_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9252:1: ( ( ruleAnnotation ) )
-            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9253:1: ( ruleAnnotation )
+            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9256:1: ( ( ruleAnnotation ) )
+            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9257:1: ( ruleAnnotation )
             {
-            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9253:1: ( ruleAnnotation )
-            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9254:1: ruleAnnotation
+            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9257:1: ( ruleAnnotation )
+            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9258:1: ruleAnnotation
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getAnnotationsListAccess().getAnnotationsAnnotationParserRuleCall_0_0()); 
             }
-            pushFollow(FollowSets000.FOLLOW_ruleAnnotation_in_rule__AnnotationsList__AnnotationsAssignment_018889);
+            pushFollow(FollowSets000.FOLLOW_ruleAnnotation_in_rule__AnnotationsList__AnnotationsAssignment_018897);
             ruleAnnotation();
 
             state._fsp--;
@@ -27672,22 +27684,22 @@ public class InternalFractalIdtParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__AnnotationsList__AnnotationsAssignment_1"
-    // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9263:1: rule__AnnotationsList__AnnotationsAssignment_1 : ( ruleAnnotation ) ;
+    // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9267:1: rule__AnnotationsList__AnnotationsAssignment_1 : ( ruleAnnotation ) ;
     public final void rule__AnnotationsList__AnnotationsAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9267:1: ( ( ruleAnnotation ) )
-            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9268:1: ( ruleAnnotation )
+            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9271:1: ( ( ruleAnnotation ) )
+            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9272:1: ( ruleAnnotation )
             {
-            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9268:1: ( ruleAnnotation )
-            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9269:1: ruleAnnotation
+            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9272:1: ( ruleAnnotation )
+            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9273:1: ruleAnnotation
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getAnnotationsListAccess().getAnnotationsAnnotationParserRuleCall_1_0()); 
             }
-            pushFollow(FollowSets000.FOLLOW_ruleAnnotation_in_rule__AnnotationsList__AnnotationsAssignment_118920);
+            pushFollow(FollowSets000.FOLLOW_ruleAnnotation_in_rule__AnnotationsList__AnnotationsAssignment_118928);
             ruleAnnotation();
 
             state._fsp--;
@@ -27717,22 +27729,22 @@ public class InternalFractalIdtParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Annotation__NameAssignment_1"
-    // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9278:1: rule__Annotation__NameAssignment_1 : ( ruleQualifiedName ) ;
+    // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9282:1: rule__Annotation__NameAssignment_1 : ( ruleQualifiedName ) ;
     public final void rule__Annotation__NameAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9282:1: ( ( ruleQualifiedName ) )
-            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9283:1: ( ruleQualifiedName )
+            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9286:1: ( ( ruleQualifiedName ) )
+            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9287:1: ( ruleQualifiedName )
             {
-            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9283:1: ( ruleQualifiedName )
-            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9284:1: ruleQualifiedName
+            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9287:1: ( ruleQualifiedName )
+            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9288:1: ruleQualifiedName
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getAnnotationAccess().getNameQualifiedNameParserRuleCall_1_0()); 
             }
-            pushFollow(FollowSets000.FOLLOW_ruleQualifiedName_in_rule__Annotation__NameAssignment_118951);
+            pushFollow(FollowSets000.FOLLOW_ruleQualifiedName_in_rule__Annotation__NameAssignment_118959);
             ruleQualifiedName();
 
             state._fsp--;
@@ -27762,22 +27774,22 @@ public class InternalFractalIdtParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Annotation__AnnotationParametersListAssignment_2_1"
-    // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9293:1: rule__Annotation__AnnotationParametersListAssignment_2_1 : ( ruleAnnotationValuePair ) ;
+    // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9297:1: rule__Annotation__AnnotationParametersListAssignment_2_1 : ( ruleAnnotationValuePair ) ;
     public final void rule__Annotation__AnnotationParametersListAssignment_2_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9297:1: ( ( ruleAnnotationValuePair ) )
-            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9298:1: ( ruleAnnotationValuePair )
+            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9301:1: ( ( ruleAnnotationValuePair ) )
+            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9302:1: ( ruleAnnotationValuePair )
             {
-            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9298:1: ( ruleAnnotationValuePair )
-            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9299:1: ruleAnnotationValuePair
+            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9302:1: ( ruleAnnotationValuePair )
+            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9303:1: ruleAnnotationValuePair
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getAnnotationAccess().getAnnotationParametersListAnnotationValuePairParserRuleCall_2_1_0()); 
             }
-            pushFollow(FollowSets000.FOLLOW_ruleAnnotationValuePair_in_rule__Annotation__AnnotationParametersListAssignment_2_118982);
+            pushFollow(FollowSets000.FOLLOW_ruleAnnotationValuePair_in_rule__Annotation__AnnotationParametersListAssignment_2_118990);
             ruleAnnotationValuePair();
 
             state._fsp--;
@@ -27807,22 +27819,22 @@ public class InternalFractalIdtParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Annotation__AnnotationParametersListAssignment_2_2_1"
-    // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9308:1: rule__Annotation__AnnotationParametersListAssignment_2_2_1 : ( ruleAnnotationValuePair ) ;
+    // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9312:1: rule__Annotation__AnnotationParametersListAssignment_2_2_1 : ( ruleAnnotationValuePair ) ;
     public final void rule__Annotation__AnnotationParametersListAssignment_2_2_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9312:1: ( ( ruleAnnotationValuePair ) )
-            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9313:1: ( ruleAnnotationValuePair )
+            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9316:1: ( ( ruleAnnotationValuePair ) )
+            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9317:1: ( ruleAnnotationValuePair )
             {
-            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9313:1: ( ruleAnnotationValuePair )
-            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9314:1: ruleAnnotationValuePair
+            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9317:1: ( ruleAnnotationValuePair )
+            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9318:1: ruleAnnotationValuePair
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getAnnotationAccess().getAnnotationParametersListAnnotationValuePairParserRuleCall_2_2_1_0()); 
             }
-            pushFollow(FollowSets000.FOLLOW_ruleAnnotationValuePair_in_rule__Annotation__AnnotationParametersListAssignment_2_2_119013);
+            pushFollow(FollowSets000.FOLLOW_ruleAnnotationValuePair_in_rule__Annotation__AnnotationParametersListAssignment_2_2_119021);
             ruleAnnotationValuePair();
 
             state._fsp--;
@@ -27852,22 +27864,22 @@ public class InternalFractalIdtParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__AnnotationValuePair__NameAssignment_0_0"
-    // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9323:1: rule__AnnotationValuePair__NameAssignment_0_0 : ( RULE_ID ) ;
+    // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9327:1: rule__AnnotationValuePair__NameAssignment_0_0 : ( RULE_ID ) ;
     public final void rule__AnnotationValuePair__NameAssignment_0_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9327:1: ( ( RULE_ID ) )
-            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9328:1: ( RULE_ID )
+            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9331:1: ( ( RULE_ID ) )
+            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9332:1: ( RULE_ID )
             {
-            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9328:1: ( RULE_ID )
-            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9329:1: RULE_ID
+            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9332:1: ( RULE_ID )
+            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9333:1: RULE_ID
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getAnnotationValuePairAccess().getNameIDTerminalRuleCall_0_0_0()); 
             }
-            match(input,RULE_ID,FollowSets000.FOLLOW_RULE_ID_in_rule__AnnotationValuePair__NameAssignment_0_019044); if (state.failed) return ;
+            match(input,RULE_ID,FollowSets000.FOLLOW_RULE_ID_in_rule__AnnotationValuePair__NameAssignment_0_019052); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getAnnotationValuePairAccess().getNameIDTerminalRuleCall_0_0_0()); 
             }
@@ -27893,22 +27905,22 @@ public class InternalFractalIdtParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__AnnotationValuePair__ValueAssignment_1"
-    // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9338:1: rule__AnnotationValuePair__ValueAssignment_1 : ( ruleAnnotationValue ) ;
+    // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9342:1: rule__AnnotationValuePair__ValueAssignment_1 : ( ruleAnnotationValue ) ;
     public final void rule__AnnotationValuePair__ValueAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9342:1: ( ( ruleAnnotationValue ) )
-            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9343:1: ( ruleAnnotationValue )
+            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9346:1: ( ( ruleAnnotationValue ) )
+            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9347:1: ( ruleAnnotationValue )
             {
-            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9343:1: ( ruleAnnotationValue )
-            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9344:1: ruleAnnotationValue
+            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9347:1: ( ruleAnnotationValue )
+            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9348:1: ruleAnnotationValue
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getAnnotationValuePairAccess().getValueAnnotationValueParserRuleCall_1_0()); 
             }
-            pushFollow(FollowSets000.FOLLOW_ruleAnnotationValue_in_rule__AnnotationValuePair__ValueAssignment_119075);
+            pushFollow(FollowSets000.FOLLOW_ruleAnnotationValue_in_rule__AnnotationValuePair__ValueAssignment_119083);
             ruleAnnotationValue();
 
             state._fsp--;
@@ -27938,25 +27950,25 @@ public class InternalFractalIdtParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__AnnotationValue__ValueAssignment_0"
-    // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9353:1: rule__AnnotationValue__ValueAssignment_0 : ( ( rule__AnnotationValue__ValueAlternatives_0_0 ) ) ;
+    // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9357:1: rule__AnnotationValue__ValueAssignment_0 : ( ( rule__AnnotationValue__ValueAlternatives_0_0 ) ) ;
     public final void rule__AnnotationValue__ValueAssignment_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9357:1: ( ( ( rule__AnnotationValue__ValueAlternatives_0_0 ) ) )
-            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9358:1: ( ( rule__AnnotationValue__ValueAlternatives_0_0 ) )
+            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9361:1: ( ( ( rule__AnnotationValue__ValueAlternatives_0_0 ) ) )
+            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9362:1: ( ( rule__AnnotationValue__ValueAlternatives_0_0 ) )
             {
-            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9358:1: ( ( rule__AnnotationValue__ValueAlternatives_0_0 ) )
-            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9359:1: ( rule__AnnotationValue__ValueAlternatives_0_0 )
+            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9362:1: ( ( rule__AnnotationValue__ValueAlternatives_0_0 ) )
+            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9363:1: ( rule__AnnotationValue__ValueAlternatives_0_0 )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getAnnotationValueAccess().getValueAlternatives_0_0()); 
             }
-            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9360:1: ( rule__AnnotationValue__ValueAlternatives_0_0 )
-            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9360:2: rule__AnnotationValue__ValueAlternatives_0_0
+            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9364:1: ( rule__AnnotationValue__ValueAlternatives_0_0 )
+            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9364:2: rule__AnnotationValue__ValueAlternatives_0_0
             {
-            pushFollow(FollowSets000.FOLLOW_rule__AnnotationValue__ValueAlternatives_0_0_in_rule__AnnotationValue__ValueAssignment_019106);
+            pushFollow(FollowSets000.FOLLOW_rule__AnnotationValue__ValueAlternatives_0_0_in_rule__AnnotationValue__ValueAssignment_019114);
             rule__AnnotationValue__ValueAlternatives_0_0();
 
             state._fsp--;
@@ -27989,22 +28001,22 @@ public class InternalFractalIdtParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__AnnotationValue__ArrayValueAssignment_1"
-    // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9369:1: rule__AnnotationValue__ArrayValueAssignment_1 : ( ruleArrayAnnotationValue ) ;
+    // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9373:1: rule__AnnotationValue__ArrayValueAssignment_1 : ( ruleArrayAnnotationValue ) ;
     public final void rule__AnnotationValue__ArrayValueAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9373:1: ( ( ruleArrayAnnotationValue ) )
-            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9374:1: ( ruleArrayAnnotationValue )
+            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9377:1: ( ( ruleArrayAnnotationValue ) )
+            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9378:1: ( ruleArrayAnnotationValue )
             {
-            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9374:1: ( ruleArrayAnnotationValue )
-            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9375:1: ruleArrayAnnotationValue
+            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9378:1: ( ruleArrayAnnotationValue )
+            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9379:1: ruleArrayAnnotationValue
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getAnnotationValueAccess().getArrayValueArrayAnnotationValueParserRuleCall_1_0()); 
             }
-            pushFollow(FollowSets000.FOLLOW_ruleArrayAnnotationValue_in_rule__AnnotationValue__ArrayValueAssignment_119139);
+            pushFollow(FollowSets000.FOLLOW_ruleArrayAnnotationValue_in_rule__AnnotationValue__ArrayValueAssignment_119147);
             ruleArrayAnnotationValue();
 
             state._fsp--;
@@ -28034,22 +28046,22 @@ public class InternalFractalIdtParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__ArrayAnnotationValue__ValuesAssignment_1"
-    // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9384:1: rule__ArrayAnnotationValue__ValuesAssignment_1 : ( ruleAnnotationValue ) ;
+    // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9388:1: rule__ArrayAnnotationValue__ValuesAssignment_1 : ( ruleAnnotationValue ) ;
     public final void rule__ArrayAnnotationValue__ValuesAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9388:1: ( ( ruleAnnotationValue ) )
-            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9389:1: ( ruleAnnotationValue )
+            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9392:1: ( ( ruleAnnotationValue ) )
+            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9393:1: ( ruleAnnotationValue )
             {
-            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9389:1: ( ruleAnnotationValue )
-            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9390:1: ruleAnnotationValue
+            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9393:1: ( ruleAnnotationValue )
+            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9394:1: ruleAnnotationValue
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getArrayAnnotationValueAccess().getValuesAnnotationValueParserRuleCall_1_0()); 
             }
-            pushFollow(FollowSets000.FOLLOW_ruleAnnotationValue_in_rule__ArrayAnnotationValue__ValuesAssignment_119170);
+            pushFollow(FollowSets000.FOLLOW_ruleAnnotationValue_in_rule__ArrayAnnotationValue__ValuesAssignment_119178);
             ruleAnnotationValue();
 
             state._fsp--;
@@ -28079,22 +28091,22 @@ public class InternalFractalIdtParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__ArrayAnnotationValue__ValuesAssignment_2_1"
-    // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9399:1: rule__ArrayAnnotationValue__ValuesAssignment_2_1 : ( ruleAnnotationValue ) ;
+    // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9403:1: rule__ArrayAnnotationValue__ValuesAssignment_2_1 : ( ruleAnnotationValue ) ;
     public final void rule__ArrayAnnotationValue__ValuesAssignment_2_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9403:1: ( ( ruleAnnotationValue ) )
-            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9404:1: ( ruleAnnotationValue )
+            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9407:1: ( ( ruleAnnotationValue ) )
+            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9408:1: ( ruleAnnotationValue )
             {
-            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9404:1: ( ruleAnnotationValue )
-            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9405:1: ruleAnnotationValue
+            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9408:1: ( ruleAnnotationValue )
+            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9409:1: ruleAnnotationValue
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getArrayAnnotationValueAccess().getValuesAnnotationValueParserRuleCall_2_1_0()); 
             }
-            pushFollow(FollowSets000.FOLLOW_ruleAnnotationValue_in_rule__ArrayAnnotationValue__ValuesAssignment_2_119201);
+            pushFollow(FollowSets000.FOLLOW_ruleAnnotationValue_in_rule__ArrayAnnotationValue__ValuesAssignment_2_119209);
             ruleAnnotationValue();
 
             state._fsp--;
@@ -28124,22 +28136,22 @@ public class InternalFractalIdtParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__LogicalOrExpression__LeftExprAssignment_0"
-    // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9414:1: rule__LogicalOrExpression__LeftExprAssignment_0 : ( ruleLogicalAndExpression ) ;
+    // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9418:1: rule__LogicalOrExpression__LeftExprAssignment_0 : ( ruleLogicalAndExpression ) ;
     public final void rule__LogicalOrExpression__LeftExprAssignment_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9418:1: ( ( ruleLogicalAndExpression ) )
-            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9419:1: ( ruleLogicalAndExpression )
+            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9422:1: ( ( ruleLogicalAndExpression ) )
+            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9423:1: ( ruleLogicalAndExpression )
             {
-            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9419:1: ( ruleLogicalAndExpression )
-            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9420:1: ruleLogicalAndExpression
+            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9423:1: ( ruleLogicalAndExpression )
+            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9424:1: ruleLogicalAndExpression
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getLogicalOrExpressionAccess().getLeftExprLogicalAndExpressionParserRuleCall_0_0()); 
             }
-            pushFollow(FollowSets000.FOLLOW_ruleLogicalAndExpression_in_rule__LogicalOrExpression__LeftExprAssignment_019232);
+            pushFollow(FollowSets000.FOLLOW_ruleLogicalAndExpression_in_rule__LogicalOrExpression__LeftExprAssignment_019240);
             ruleLogicalAndExpression();
 
             state._fsp--;
@@ -28169,22 +28181,22 @@ public class InternalFractalIdtParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__LogicalOrExpression__RightExprAssignment_1_1"
-    // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9429:1: rule__LogicalOrExpression__RightExprAssignment_1_1 : ( ruleLogicalOrExpression ) ;
+    // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9433:1: rule__LogicalOrExpression__RightExprAssignment_1_1 : ( ruleLogicalOrExpression ) ;
     public final void rule__LogicalOrExpression__RightExprAssignment_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9433:1: ( ( ruleLogicalOrExpression ) )
-            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9434:1: ( ruleLogicalOrExpression )
+            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9437:1: ( ( ruleLogicalOrExpression ) )
+            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9438:1: ( ruleLogicalOrExpression )
             {
-            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9434:1: ( ruleLogicalOrExpression )
-            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9435:1: ruleLogicalOrExpression
+            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9438:1: ( ruleLogicalOrExpression )
+            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9439:1: ruleLogicalOrExpression
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getLogicalOrExpressionAccess().getRightExprLogicalOrExpressionParserRuleCall_1_1_0()); 
             }
-            pushFollow(FollowSets000.FOLLOW_ruleLogicalOrExpression_in_rule__LogicalOrExpression__RightExprAssignment_1_119263);
+            pushFollow(FollowSets000.FOLLOW_ruleLogicalOrExpression_in_rule__LogicalOrExpression__RightExprAssignment_1_119271);
             ruleLogicalOrExpression();
 
             state._fsp--;
@@ -28214,22 +28226,22 @@ public class InternalFractalIdtParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__LogicalAndExpression__LeftExprAssignment_0"
-    // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9444:1: rule__LogicalAndExpression__LeftExprAssignment_0 : ( ruleOrExpression ) ;
+    // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9448:1: rule__LogicalAndExpression__LeftExprAssignment_0 : ( ruleOrExpression ) ;
     public final void rule__LogicalAndExpression__LeftExprAssignment_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9448:1: ( ( ruleOrExpression ) )
-            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9449:1: ( ruleOrExpression )
+            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9452:1: ( ( ruleOrExpression ) )
+            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9453:1: ( ruleOrExpression )
             {
-            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9449:1: ( ruleOrExpression )
-            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9450:1: ruleOrExpression
+            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9453:1: ( ruleOrExpression )
+            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9454:1: ruleOrExpression
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getLogicalAndExpressionAccess().getLeftExprOrExpressionParserRuleCall_0_0()); 
             }
-            pushFollow(FollowSets000.FOLLOW_ruleOrExpression_in_rule__LogicalAndExpression__LeftExprAssignment_019294);
+            pushFollow(FollowSets000.FOLLOW_ruleOrExpression_in_rule__LogicalAndExpression__LeftExprAssignment_019302);
             ruleOrExpression();
 
             state._fsp--;
@@ -28259,22 +28271,22 @@ public class InternalFractalIdtParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__LogicalAndExpression__RightExprAssignment_1_1"
-    // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9459:1: rule__LogicalAndExpression__RightExprAssignment_1_1 : ( ruleLogicalAndExpression ) ;
+    // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9463:1: rule__LogicalAndExpression__RightExprAssignment_1_1 : ( ruleLogicalAndExpression ) ;
     public final void rule__LogicalAndExpression__RightExprAssignment_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9463:1: ( ( ruleLogicalAndExpression ) )
-            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9464:1: ( ruleLogicalAndExpression )
+            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9467:1: ( ( ruleLogicalAndExpression ) )
+            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9468:1: ( ruleLogicalAndExpression )
             {
-            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9464:1: ( ruleLogicalAndExpression )
-            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9465:1: ruleLogicalAndExpression
+            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9468:1: ( ruleLogicalAndExpression )
+            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9469:1: ruleLogicalAndExpression
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getLogicalAndExpressionAccess().getRightExprLogicalAndExpressionParserRuleCall_1_1_0()); 
             }
-            pushFollow(FollowSets000.FOLLOW_ruleLogicalAndExpression_in_rule__LogicalAndExpression__RightExprAssignment_1_119325);
+            pushFollow(FollowSets000.FOLLOW_ruleLogicalAndExpression_in_rule__LogicalAndExpression__RightExprAssignment_1_119333);
             ruleLogicalAndExpression();
 
             state._fsp--;
@@ -28304,22 +28316,22 @@ public class InternalFractalIdtParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__OrExpression__LeftExprAssignment_0"
-    // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9474:1: rule__OrExpression__LeftExprAssignment_0 : ( ruleXorExpression ) ;
+    // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9478:1: rule__OrExpression__LeftExprAssignment_0 : ( ruleXorExpression ) ;
     public final void rule__OrExpression__LeftExprAssignment_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9478:1: ( ( ruleXorExpression ) )
-            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9479:1: ( ruleXorExpression )
+            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9482:1: ( ( ruleXorExpression ) )
+            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9483:1: ( ruleXorExpression )
             {
-            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9479:1: ( ruleXorExpression )
-            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9480:1: ruleXorExpression
+            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9483:1: ( ruleXorExpression )
+            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9484:1: ruleXorExpression
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getOrExpressionAccess().getLeftExprXorExpressionParserRuleCall_0_0()); 
             }
-            pushFollow(FollowSets000.FOLLOW_ruleXorExpression_in_rule__OrExpression__LeftExprAssignment_019356);
+            pushFollow(FollowSets000.FOLLOW_ruleXorExpression_in_rule__OrExpression__LeftExprAssignment_019364);
             ruleXorExpression();
 
             state._fsp--;
@@ -28349,22 +28361,22 @@ public class InternalFractalIdtParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__OrExpression__RightExprAssignment_1_1"
-    // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9489:1: rule__OrExpression__RightExprAssignment_1_1 : ( ruleOrExpression ) ;
+    // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9493:1: rule__OrExpression__RightExprAssignment_1_1 : ( ruleOrExpression ) ;
     public final void rule__OrExpression__RightExprAssignment_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9493:1: ( ( ruleOrExpression ) )
-            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9494:1: ( ruleOrExpression )
+            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9497:1: ( ( ruleOrExpression ) )
+            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9498:1: ( ruleOrExpression )
             {
-            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9494:1: ( ruleOrExpression )
-            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9495:1: ruleOrExpression
+            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9498:1: ( ruleOrExpression )
+            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9499:1: ruleOrExpression
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getOrExpressionAccess().getRightExprOrExpressionParserRuleCall_1_1_0()); 
             }
-            pushFollow(FollowSets000.FOLLOW_ruleOrExpression_in_rule__OrExpression__RightExprAssignment_1_119387);
+            pushFollow(FollowSets000.FOLLOW_ruleOrExpression_in_rule__OrExpression__RightExprAssignment_1_119395);
             ruleOrExpression();
 
             state._fsp--;
@@ -28394,22 +28406,22 @@ public class InternalFractalIdtParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__XorExpression__LeftExprAssignment_0"
-    // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9504:1: rule__XorExpression__LeftExprAssignment_0 : ( ruleAndExpression ) ;
+    // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9508:1: rule__XorExpression__LeftExprAssignment_0 : ( ruleAndExpression ) ;
     public final void rule__XorExpression__LeftExprAssignment_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9508:1: ( ( ruleAndExpression ) )
-            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9509:1: ( ruleAndExpression )
+            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9512:1: ( ( ruleAndExpression ) )
+            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9513:1: ( ruleAndExpression )
             {
-            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9509:1: ( ruleAndExpression )
-            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9510:1: ruleAndExpression
+            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9513:1: ( ruleAndExpression )
+            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9514:1: ruleAndExpression
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getXorExpressionAccess().getLeftExprAndExpressionParserRuleCall_0_0()); 
             }
-            pushFollow(FollowSets000.FOLLOW_ruleAndExpression_in_rule__XorExpression__LeftExprAssignment_019418);
+            pushFollow(FollowSets000.FOLLOW_ruleAndExpression_in_rule__XorExpression__LeftExprAssignment_019426);
             ruleAndExpression();
 
             state._fsp--;
@@ -28439,22 +28451,22 @@ public class InternalFractalIdtParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__XorExpression__RightExprAssignment_1_1"
-    // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9519:1: rule__XorExpression__RightExprAssignment_1_1 : ( ruleXorExpression ) ;
+    // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9523:1: rule__XorExpression__RightExprAssignment_1_1 : ( ruleXorExpression ) ;
     public final void rule__XorExpression__RightExprAssignment_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9523:1: ( ( ruleXorExpression ) )
-            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9524:1: ( ruleXorExpression )
+            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9527:1: ( ( ruleXorExpression ) )
+            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9528:1: ( ruleXorExpression )
             {
-            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9524:1: ( ruleXorExpression )
-            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9525:1: ruleXorExpression
+            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9528:1: ( ruleXorExpression )
+            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9529:1: ruleXorExpression
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getXorExpressionAccess().getRightExprXorExpressionParserRuleCall_1_1_0()); 
             }
-            pushFollow(FollowSets000.FOLLOW_ruleXorExpression_in_rule__XorExpression__RightExprAssignment_1_119449);
+            pushFollow(FollowSets000.FOLLOW_ruleXorExpression_in_rule__XorExpression__RightExprAssignment_1_119457);
             ruleXorExpression();
 
             state._fsp--;
@@ -28484,22 +28496,22 @@ public class InternalFractalIdtParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__AndExpression__LeftExprAssignment_0"
-    // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9534:1: rule__AndExpression__LeftExprAssignment_0 : ( ruleShiftExpression ) ;
+    // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9538:1: rule__AndExpression__LeftExprAssignment_0 : ( ruleShiftExpression ) ;
     public final void rule__AndExpression__LeftExprAssignment_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9538:1: ( ( ruleShiftExpression ) )
-            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9539:1: ( ruleShiftExpression )
+            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9542:1: ( ( ruleShiftExpression ) )
+            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9543:1: ( ruleShiftExpression )
             {
-            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9539:1: ( ruleShiftExpression )
-            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9540:1: ruleShiftExpression
+            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9543:1: ( ruleShiftExpression )
+            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9544:1: ruleShiftExpression
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getAndExpressionAccess().getLeftExprShiftExpressionParserRuleCall_0_0()); 
             }
-            pushFollow(FollowSets000.FOLLOW_ruleShiftExpression_in_rule__AndExpression__LeftExprAssignment_019480);
+            pushFollow(FollowSets000.FOLLOW_ruleShiftExpression_in_rule__AndExpression__LeftExprAssignment_019488);
             ruleShiftExpression();
 
             state._fsp--;
@@ -28529,22 +28541,22 @@ public class InternalFractalIdtParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__AndExpression__RightExprAssignment_1_1"
-    // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9549:1: rule__AndExpression__RightExprAssignment_1_1 : ( ruleAndExpression ) ;
+    // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9553:1: rule__AndExpression__RightExprAssignment_1_1 : ( ruleAndExpression ) ;
     public final void rule__AndExpression__RightExprAssignment_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9553:1: ( ( ruleAndExpression ) )
-            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9554:1: ( ruleAndExpression )
+            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9557:1: ( ( ruleAndExpression ) )
+            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9558:1: ( ruleAndExpression )
             {
-            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9554:1: ( ruleAndExpression )
-            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9555:1: ruleAndExpression
+            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9558:1: ( ruleAndExpression )
+            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9559:1: ruleAndExpression
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getAndExpressionAccess().getRightExprAndExpressionParserRuleCall_1_1_0()); 
             }
-            pushFollow(FollowSets000.FOLLOW_ruleAndExpression_in_rule__AndExpression__RightExprAssignment_1_119511);
+            pushFollow(FollowSets000.FOLLOW_ruleAndExpression_in_rule__AndExpression__RightExprAssignment_1_119519);
             ruleAndExpression();
 
             state._fsp--;
@@ -28574,22 +28586,22 @@ public class InternalFractalIdtParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__ShiftExpression__LeftExprAssignment_0"
-    // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9564:1: rule__ShiftExpression__LeftExprAssignment_0 : ( ruleAdditiveExpression ) ;
+    // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9568:1: rule__ShiftExpression__LeftExprAssignment_0 : ( ruleAdditiveExpression ) ;
     public final void rule__ShiftExpression__LeftExprAssignment_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9568:1: ( ( ruleAdditiveExpression ) )
-            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9569:1: ( ruleAdditiveExpression )
+            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9572:1: ( ( ruleAdditiveExpression ) )
+            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9573:1: ( ruleAdditiveExpression )
             {
-            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9569:1: ( ruleAdditiveExpression )
-            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9570:1: ruleAdditiveExpression
+            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9573:1: ( ruleAdditiveExpression )
+            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9574:1: ruleAdditiveExpression
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getShiftExpressionAccess().getLeftExprAdditiveExpressionParserRuleCall_0_0()); 
             }
-            pushFollow(FollowSets000.FOLLOW_ruleAdditiveExpression_in_rule__ShiftExpression__LeftExprAssignment_019542);
+            pushFollow(FollowSets000.FOLLOW_ruleAdditiveExpression_in_rule__ShiftExpression__LeftExprAssignment_019550);
             ruleAdditiveExpression();
 
             state._fsp--;
@@ -28619,22 +28631,22 @@ public class InternalFractalIdtParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__ShiftExpression__OpAssignment_1_0"
-    // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9579:1: rule__ShiftExpression__OpAssignment_1_0 : ( RULE_SHIFT_OPERATION ) ;
+    // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9583:1: rule__ShiftExpression__OpAssignment_1_0 : ( RULE_SHIFT_OPERATION ) ;
     public final void rule__ShiftExpression__OpAssignment_1_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9583:1: ( ( RULE_SHIFT_OPERATION ) )
-            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9584:1: ( RULE_SHIFT_OPERATION )
+            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9587:1: ( ( RULE_SHIFT_OPERATION ) )
+            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9588:1: ( RULE_SHIFT_OPERATION )
             {
-            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9584:1: ( RULE_SHIFT_OPERATION )
-            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9585:1: RULE_SHIFT_OPERATION
+            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9588:1: ( RULE_SHIFT_OPERATION )
+            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9589:1: RULE_SHIFT_OPERATION
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getShiftExpressionAccess().getOpSHIFT_OPERATIONTerminalRuleCall_1_0_0()); 
             }
-            match(input,RULE_SHIFT_OPERATION,FollowSets000.FOLLOW_RULE_SHIFT_OPERATION_in_rule__ShiftExpression__OpAssignment_1_019573); if (state.failed) return ;
+            match(input,RULE_SHIFT_OPERATION,FollowSets000.FOLLOW_RULE_SHIFT_OPERATION_in_rule__ShiftExpression__OpAssignment_1_019581); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getShiftExpressionAccess().getOpSHIFT_OPERATIONTerminalRuleCall_1_0_0()); 
             }
@@ -28660,22 +28672,22 @@ public class InternalFractalIdtParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__ShiftExpression__RightExprAssignment_1_1"
-    // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9594:1: rule__ShiftExpression__RightExprAssignment_1_1 : ( ruleShiftExpression ) ;
+    // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9598:1: rule__ShiftExpression__RightExprAssignment_1_1 : ( ruleShiftExpression ) ;
     public final void rule__ShiftExpression__RightExprAssignment_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9598:1: ( ( ruleShiftExpression ) )
-            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9599:1: ( ruleShiftExpression )
+            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9602:1: ( ( ruleShiftExpression ) )
+            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9603:1: ( ruleShiftExpression )
             {
-            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9599:1: ( ruleShiftExpression )
-            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9600:1: ruleShiftExpression
+            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9603:1: ( ruleShiftExpression )
+            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9604:1: ruleShiftExpression
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getShiftExpressionAccess().getRightExprShiftExpressionParserRuleCall_1_1_0()); 
             }
-            pushFollow(FollowSets000.FOLLOW_ruleShiftExpression_in_rule__ShiftExpression__RightExprAssignment_1_119604);
+            pushFollow(FollowSets000.FOLLOW_ruleShiftExpression_in_rule__ShiftExpression__RightExprAssignment_1_119612);
             ruleShiftExpression();
 
             state._fsp--;
@@ -28705,22 +28717,22 @@ public class InternalFractalIdtParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__AdditiveExpression__LeftExprAssignment_0"
-    // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9609:1: rule__AdditiveExpression__LeftExprAssignment_0 : ( ruleMulExpression ) ;
+    // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9613:1: rule__AdditiveExpression__LeftExprAssignment_0 : ( ruleMulExpression ) ;
     public final void rule__AdditiveExpression__LeftExprAssignment_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9613:1: ( ( ruleMulExpression ) )
-            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9614:1: ( ruleMulExpression )
+            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9617:1: ( ( ruleMulExpression ) )
+            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9618:1: ( ruleMulExpression )
             {
-            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9614:1: ( ruleMulExpression )
-            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9615:1: ruleMulExpression
+            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9618:1: ( ruleMulExpression )
+            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9619:1: ruleMulExpression
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getAdditiveExpressionAccess().getLeftExprMulExpressionParserRuleCall_0_0()); 
             }
-            pushFollow(FollowSets000.FOLLOW_ruleMulExpression_in_rule__AdditiveExpression__LeftExprAssignment_019635);
+            pushFollow(FollowSets000.FOLLOW_ruleMulExpression_in_rule__AdditiveExpression__LeftExprAssignment_019643);
             ruleMulExpression();
 
             state._fsp--;
@@ -28750,22 +28762,22 @@ public class InternalFractalIdtParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__AdditiveExpression__OpAssignment_1_0"
-    // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9624:1: rule__AdditiveExpression__OpAssignment_1_0 : ( RULE_ADDITIVE_OPERATION ) ;
+    // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9628:1: rule__AdditiveExpression__OpAssignment_1_0 : ( RULE_ADDITIVE_OPERATION ) ;
     public final void rule__AdditiveExpression__OpAssignment_1_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9628:1: ( ( RULE_ADDITIVE_OPERATION ) )
-            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9629:1: ( RULE_ADDITIVE_OPERATION )
+            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9632:1: ( ( RULE_ADDITIVE_OPERATION ) )
+            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9633:1: ( RULE_ADDITIVE_OPERATION )
             {
-            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9629:1: ( RULE_ADDITIVE_OPERATION )
-            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9630:1: RULE_ADDITIVE_OPERATION
+            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9633:1: ( RULE_ADDITIVE_OPERATION )
+            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9634:1: RULE_ADDITIVE_OPERATION
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getAdditiveExpressionAccess().getOpADDITIVE_OPERATIONTerminalRuleCall_1_0_0()); 
             }
-            match(input,RULE_ADDITIVE_OPERATION,FollowSets000.FOLLOW_RULE_ADDITIVE_OPERATION_in_rule__AdditiveExpression__OpAssignment_1_019666); if (state.failed) return ;
+            match(input,RULE_ADDITIVE_OPERATION,FollowSets000.FOLLOW_RULE_ADDITIVE_OPERATION_in_rule__AdditiveExpression__OpAssignment_1_019674); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getAdditiveExpressionAccess().getOpADDITIVE_OPERATIONTerminalRuleCall_1_0_0()); 
             }
@@ -28791,22 +28803,22 @@ public class InternalFractalIdtParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__AdditiveExpression__RightExprAssignment_1_1"
-    // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9639:1: rule__AdditiveExpression__RightExprAssignment_1_1 : ( ruleAdditiveExpression ) ;
+    // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9643:1: rule__AdditiveExpression__RightExprAssignment_1_1 : ( ruleAdditiveExpression ) ;
     public final void rule__AdditiveExpression__RightExprAssignment_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9643:1: ( ( ruleAdditiveExpression ) )
-            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9644:1: ( ruleAdditiveExpression )
+            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9647:1: ( ( ruleAdditiveExpression ) )
+            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9648:1: ( ruleAdditiveExpression )
             {
-            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9644:1: ( ruleAdditiveExpression )
-            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9645:1: ruleAdditiveExpression
+            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9648:1: ( ruleAdditiveExpression )
+            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9649:1: ruleAdditiveExpression
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getAdditiveExpressionAccess().getRightExprAdditiveExpressionParserRuleCall_1_1_0()); 
             }
-            pushFollow(FollowSets000.FOLLOW_ruleAdditiveExpression_in_rule__AdditiveExpression__RightExprAssignment_1_119697);
+            pushFollow(FollowSets000.FOLLOW_ruleAdditiveExpression_in_rule__AdditiveExpression__RightExprAssignment_1_119705);
             ruleAdditiveExpression();
 
             state._fsp--;
@@ -28836,22 +28848,22 @@ public class InternalFractalIdtParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__MulExpression__LeftExprAssignment_0"
-    // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9654:1: rule__MulExpression__LeftExprAssignment_0 : ( ruleCastExpression ) ;
+    // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9658:1: rule__MulExpression__LeftExprAssignment_0 : ( ruleCastExpression ) ;
     public final void rule__MulExpression__LeftExprAssignment_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9658:1: ( ( ruleCastExpression ) )
-            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9659:1: ( ruleCastExpression )
+            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9662:1: ( ( ruleCastExpression ) )
+            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9663:1: ( ruleCastExpression )
             {
-            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9659:1: ( ruleCastExpression )
-            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9660:1: ruleCastExpression
+            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9663:1: ( ruleCastExpression )
+            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9664:1: ruleCastExpression
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getMulExpressionAccess().getLeftExprCastExpressionParserRuleCall_0_0()); 
             }
-            pushFollow(FollowSets000.FOLLOW_ruleCastExpression_in_rule__MulExpression__LeftExprAssignment_019728);
+            pushFollow(FollowSets000.FOLLOW_ruleCastExpression_in_rule__MulExpression__LeftExprAssignment_019736);
             ruleCastExpression();
 
             state._fsp--;
@@ -28881,22 +28893,22 @@ public class InternalFractalIdtParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__MulExpression__OpAssignment_1_0"
-    // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9669:1: rule__MulExpression__OpAssignment_1_0 : ( RULE_MUL_OPERATION ) ;
+    // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9673:1: rule__MulExpression__OpAssignment_1_0 : ( RULE_MUL_OPERATION ) ;
     public final void rule__MulExpression__OpAssignment_1_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9673:1: ( ( RULE_MUL_OPERATION ) )
-            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9674:1: ( RULE_MUL_OPERATION )
+            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9677:1: ( ( RULE_MUL_OPERATION ) )
+            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9678:1: ( RULE_MUL_OPERATION )
             {
-            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9674:1: ( RULE_MUL_OPERATION )
-            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9675:1: RULE_MUL_OPERATION
+            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9678:1: ( RULE_MUL_OPERATION )
+            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9679:1: RULE_MUL_OPERATION
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getMulExpressionAccess().getOpMUL_OPERATIONTerminalRuleCall_1_0_0()); 
             }
-            match(input,RULE_MUL_OPERATION,FollowSets000.FOLLOW_RULE_MUL_OPERATION_in_rule__MulExpression__OpAssignment_1_019759); if (state.failed) return ;
+            match(input,RULE_MUL_OPERATION,FollowSets000.FOLLOW_RULE_MUL_OPERATION_in_rule__MulExpression__OpAssignment_1_019767); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getMulExpressionAccess().getOpMUL_OPERATIONTerminalRuleCall_1_0_0()); 
             }
@@ -28922,22 +28934,22 @@ public class InternalFractalIdtParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__MulExpression__RightExprAssignment_1_1"
-    // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9684:1: rule__MulExpression__RightExprAssignment_1_1 : ( ruleMulExpression ) ;
+    // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9688:1: rule__MulExpression__RightExprAssignment_1_1 : ( ruleMulExpression ) ;
     public final void rule__MulExpression__RightExprAssignment_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9688:1: ( ( ruleMulExpression ) )
-            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9689:1: ( ruleMulExpression )
+            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9692:1: ( ( ruleMulExpression ) )
+            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9693:1: ( ruleMulExpression )
             {
-            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9689:1: ( ruleMulExpression )
-            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9690:1: ruleMulExpression
+            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9693:1: ( ruleMulExpression )
+            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9694:1: ruleMulExpression
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getMulExpressionAccess().getRightExprMulExpressionParserRuleCall_1_1_0()); 
             }
-            pushFollow(FollowSets000.FOLLOW_ruleMulExpression_in_rule__MulExpression__RightExprAssignment_1_119790);
+            pushFollow(FollowSets000.FOLLOW_ruleMulExpression_in_rule__MulExpression__RightExprAssignment_1_119798);
             ruleMulExpression();
 
             state._fsp--;
@@ -28967,22 +28979,22 @@ public class InternalFractalIdtParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__CastExpression__TypeAssignment_0_1"
-    // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9699:1: rule__CastExpression__TypeAssignment_0_1 : ( ruleQualifiedTypeSpecification ) ;
+    // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9703:1: rule__CastExpression__TypeAssignment_0_1 : ( ruleQualifiedTypeSpecification ) ;
     public final void rule__CastExpression__TypeAssignment_0_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9703:1: ( ( ruleQualifiedTypeSpecification ) )
-            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9704:1: ( ruleQualifiedTypeSpecification )
+            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9707:1: ( ( ruleQualifiedTypeSpecification ) )
+            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9708:1: ( ruleQualifiedTypeSpecification )
             {
-            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9704:1: ( ruleQualifiedTypeSpecification )
-            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9705:1: ruleQualifiedTypeSpecification
+            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9708:1: ( ruleQualifiedTypeSpecification )
+            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9709:1: ruleQualifiedTypeSpecification
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getCastExpressionAccess().getTypeQualifiedTypeSpecificationParserRuleCall_0_1_0()); 
             }
-            pushFollow(FollowSets000.FOLLOW_ruleQualifiedTypeSpecification_in_rule__CastExpression__TypeAssignment_0_119821);
+            pushFollow(FollowSets000.FOLLOW_ruleQualifiedTypeSpecification_in_rule__CastExpression__TypeAssignment_0_119829);
             ruleQualifiedTypeSpecification();
 
             state._fsp--;
@@ -29012,22 +29024,22 @@ public class InternalFractalIdtParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__CastExpression__ExprAssignment_0_3"
-    // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9714:1: rule__CastExpression__ExprAssignment_0_3 : ( ruleCastExpression ) ;
+    // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9718:1: rule__CastExpression__ExprAssignment_0_3 : ( ruleCastExpression ) ;
     public final void rule__CastExpression__ExprAssignment_0_3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9718:1: ( ( ruleCastExpression ) )
-            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9719:1: ( ruleCastExpression )
+            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9722:1: ( ( ruleCastExpression ) )
+            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9723:1: ( ruleCastExpression )
             {
-            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9719:1: ( ruleCastExpression )
-            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9720:1: ruleCastExpression
+            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9723:1: ( ruleCastExpression )
+            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9724:1: ruleCastExpression
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getCastExpressionAccess().getExprCastExpressionParserRuleCall_0_3_0()); 
             }
-            pushFollow(FollowSets000.FOLLOW_ruleCastExpression_in_rule__CastExpression__ExprAssignment_0_319852);
+            pushFollow(FollowSets000.FOLLOW_ruleCastExpression_in_rule__CastExpression__ExprAssignment_0_319860);
             ruleCastExpression();
 
             state._fsp--;
@@ -29057,22 +29069,22 @@ public class InternalFractalIdtParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__CastExpression__UnaryExprAssignment_1"
-    // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9729:1: rule__CastExpression__UnaryExprAssignment_1 : ( ruleUnaryExpression ) ;
+    // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9733:1: rule__CastExpression__UnaryExprAssignment_1 : ( ruleUnaryExpression ) ;
     public final void rule__CastExpression__UnaryExprAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9733:1: ( ( ruleUnaryExpression ) )
-            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9734:1: ( ruleUnaryExpression )
+            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9737:1: ( ( ruleUnaryExpression ) )
+            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9738:1: ( ruleUnaryExpression )
             {
-            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9734:1: ( ruleUnaryExpression )
-            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9735:1: ruleUnaryExpression
+            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9738:1: ( ruleUnaryExpression )
+            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9739:1: ruleUnaryExpression
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getCastExpressionAccess().getUnaryExprUnaryExpressionParserRuleCall_1_0()); 
             }
-            pushFollow(FollowSets000.FOLLOW_ruleUnaryExpression_in_rule__CastExpression__UnaryExprAssignment_119883);
+            pushFollow(FollowSets000.FOLLOW_ruleUnaryExpression_in_rule__CastExpression__UnaryExprAssignment_119891);
             ruleUnaryExpression();
 
             state._fsp--;
@@ -29102,22 +29114,22 @@ public class InternalFractalIdtParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__UnaryExpression__UnaryExprAssignment_0"
-    // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9744:1: rule__UnaryExpression__UnaryExprAssignment_0 : ( RULE_UNARY_OPERATION ) ;
+    // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9748:1: rule__UnaryExpression__UnaryExprAssignment_0 : ( RULE_UNARY_OPERATION ) ;
     public final void rule__UnaryExpression__UnaryExprAssignment_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9748:1: ( ( RULE_UNARY_OPERATION ) )
-            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9749:1: ( RULE_UNARY_OPERATION )
+            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9752:1: ( ( RULE_UNARY_OPERATION ) )
+            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9753:1: ( RULE_UNARY_OPERATION )
             {
-            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9749:1: ( RULE_UNARY_OPERATION )
-            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9750:1: RULE_UNARY_OPERATION
+            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9753:1: ( RULE_UNARY_OPERATION )
+            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9754:1: RULE_UNARY_OPERATION
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getUnaryExpressionAccess().getUnaryExprUNARY_OPERATIONTerminalRuleCall_0_0()); 
             }
-            match(input,RULE_UNARY_OPERATION,FollowSets000.FOLLOW_RULE_UNARY_OPERATION_in_rule__UnaryExpression__UnaryExprAssignment_019914); if (state.failed) return ;
+            match(input,RULE_UNARY_OPERATION,FollowSets000.FOLLOW_RULE_UNARY_OPERATION_in_rule__UnaryExpression__UnaryExprAssignment_019922); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getUnaryExpressionAccess().getUnaryExprUNARY_OPERATIONTerminalRuleCall_0_0()); 
             }
@@ -29143,22 +29155,22 @@ public class InternalFractalIdtParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__UnaryExpression__PrimaryExprAssignment_1"
-    // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9759:1: rule__UnaryExpression__PrimaryExprAssignment_1 : ( rulePrimaryExpression ) ;
+    // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9763:1: rule__UnaryExpression__PrimaryExprAssignment_1 : ( rulePrimaryExpression ) ;
     public final void rule__UnaryExpression__PrimaryExprAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9763:1: ( ( rulePrimaryExpression ) )
-            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9764:1: ( rulePrimaryExpression )
+            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9767:1: ( ( rulePrimaryExpression ) )
+            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9768:1: ( rulePrimaryExpression )
             {
-            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9764:1: ( rulePrimaryExpression )
-            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9765:1: rulePrimaryExpression
+            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9768:1: ( rulePrimaryExpression )
+            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9769:1: rulePrimaryExpression
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getUnaryExpressionAccess().getPrimaryExprPrimaryExpressionParserRuleCall_1_0()); 
             }
-            pushFollow(FollowSets000.FOLLOW_rulePrimaryExpression_in_rule__UnaryExpression__PrimaryExprAssignment_119945);
+            pushFollow(FollowSets000.FOLLOW_rulePrimaryExpression_in_rule__UnaryExpression__PrimaryExprAssignment_119953);
             rulePrimaryExpression();
 
             state._fsp--;
@@ -29188,22 +29200,22 @@ public class InternalFractalIdtParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__PrimaryExpression__LiteralAssignment_0"
-    // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9774:1: rule__PrimaryExpression__LiteralAssignment_0 : ( ruleLiteral ) ;
+    // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9778:1: rule__PrimaryExpression__LiteralAssignment_0 : ( ruleLiteral ) ;
     public final void rule__PrimaryExpression__LiteralAssignment_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9778:1: ( ( ruleLiteral ) )
-            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9779:1: ( ruleLiteral )
+            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9782:1: ( ( ruleLiteral ) )
+            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9783:1: ( ruleLiteral )
             {
-            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9779:1: ( ruleLiteral )
-            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9780:1: ruleLiteral
+            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9783:1: ( ruleLiteral )
+            // ../org.ow2.mindEd.idt.editor.textual.ui/src-gen/org/ow2/mindEd/idt/editor/textual/ui/contentassist/antlr/internal/InternalFractalIdt.g:9784:1: ruleLiteral
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getPrimaryExpressionAccess().getLiteralLiteralParserRuleCall_0_0()); 
             }
-            pushFollow(FollowSets000.FOLLOW_ruleLiteral_in_rule__PrimaryExpression__LiteralAssignment_019976);
+            pushFollow(FollowSets000.FOLLOW_ruleLiteral_in_rule__PrimaryExpression__LiteralAssignment_019984);
             ruleLiteral();
 
             state._fsp--;
@@ -29541,7 +29553,7 @@ public class InternalFractalIdtParser extends AbstractInternalContentAssistParse
     static final String DFA16_acceptS =
         "\3\uffff\1\2\4\uffff\1\1\1\4\1\uffff\1\3\2\uffff";
     static final String DFA16_specialS =
-        "\5\uffff\1\1\4\uffff\1\0\1\uffff\1\2\1\uffff}>";
+        "\5\uffff\1\0\4\uffff\1\1\1\uffff\1\2\1\uffff}>";
     static final String[] DFA16_transitionS = {
             "\1\1\1\2\64\uffff\1\3",
             "\1\2",
@@ -29598,23 +29610,6 @@ public class InternalFractalIdtParser extends AbstractInternalContentAssistParse
         	int _s = s;
             switch ( s ) {
                     case 0 : 
-                        int LA16_10 = input.LA(1);
-
-                         
-                        int index16_10 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (synpred24_InternalFractalIdt()) ) {s = 8;}
-
-                        else if ( (synpred26_InternalFractalIdt()) ) {s = 11;}
-
-                        else if ( (true) ) {s = 9;}
-
-                         
-                        input.seek(index16_10);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 1 : 
                         int LA16_5 = input.LA(1);
 
                          
@@ -29629,6 +29624,23 @@ public class InternalFractalIdtParser extends AbstractInternalContentAssistParse
 
                          
                         input.seek(index16_5);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 1 : 
+                        int LA16_10 = input.LA(1);
+
+                         
+                        int index16_10 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred24_InternalFractalIdt()) ) {s = 8;}
+
+                        else if ( (synpred26_InternalFractalIdt()) ) {s = 11;}
+
+                        else if ( (true) ) {s = 9;}
+
+                         
+                        input.seek(index16_10);
                         if ( s>=0 ) return s;
                         break;
                     case 2 : 
@@ -30442,57 +30454,57 @@ public class InternalFractalIdtParser extends AbstractInternalContentAssistParse
         public static final BitSet FOLLOW_ruleConstantExpression_in_rule__ConstantDefinition__ExprAssignment_218331 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_ruleAnnotationsList_in_rule__InterfaceDefinition__AnnotationsListAssignment_018362 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_ruleQualifiedName_in_rule__InterfaceDefinition__NameAssignment_318393 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleQualifiedName_in_rule__InterfaceDefinition__Fqn2Assignment_4_118424 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleMethodDefinition_in_rule__InterfaceDefinition__MethodDefAssignment_618455 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleAnnotationsList_in_rule__MethodDefinition__AnnotationsListAssignment_018486 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleQualifiedTypeSpecification_in_rule__MethodDefinition__QualifiedTypeSpecAssignment_118517 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleQualifiedPointerSpecification_in_rule__MethodDefinition__PointerSpecificationAssignment_218548 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_RULE_ID_in_rule__MethodDefinition__NameAssignment_318579 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleParameterList_in_rule__MethodDefinition__ParameterListAssignment_4_1_118610 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleParameter_in_rule__ParameterList__ParamsAssignment_018641 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleParameter_in_rule__ParameterList__ParamsAssignment_1_118672 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleAnnotationsList_in_rule__Parameter__AnnotationsListAssignment_018703 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleParameterQualifier_in_rule__Parameter__ParameterQualifierAssignment_118734 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleQualifiedTypeSpecification_in_rule__Parameter__QualifiedTypeSpecAssignment_218765 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleDeclarator_in_rule__Parameter__DecAssignment_318796 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_RULE_STRING_in_rule__IncludeDirective__ImportedURIAssignment_1_0_018827 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_RULE_INCLUDE_LIB_in_rule__IncludeDirective__IncludeIDAssignment_1_118858 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleAnnotation_in_rule__AnnotationsList__AnnotationsAssignment_018889 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleAnnotation_in_rule__AnnotationsList__AnnotationsAssignment_118920 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleQualifiedName_in_rule__Annotation__NameAssignment_118951 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleAnnotationValuePair_in_rule__Annotation__AnnotationParametersListAssignment_2_118982 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleAnnotationValuePair_in_rule__Annotation__AnnotationParametersListAssignment_2_2_119013 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_RULE_ID_in_rule__AnnotationValuePair__NameAssignment_0_019044 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleAnnotationValue_in_rule__AnnotationValuePair__ValueAssignment_119075 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rule__AnnotationValue__ValueAlternatives_0_0_in_rule__AnnotationValue__ValueAssignment_019106 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleArrayAnnotationValue_in_rule__AnnotationValue__ArrayValueAssignment_119139 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleAnnotationValue_in_rule__ArrayAnnotationValue__ValuesAssignment_119170 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleAnnotationValue_in_rule__ArrayAnnotationValue__ValuesAssignment_2_119201 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleLogicalAndExpression_in_rule__LogicalOrExpression__LeftExprAssignment_019232 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleLogicalOrExpression_in_rule__LogicalOrExpression__RightExprAssignment_1_119263 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleOrExpression_in_rule__LogicalAndExpression__LeftExprAssignment_019294 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleLogicalAndExpression_in_rule__LogicalAndExpression__RightExprAssignment_1_119325 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleXorExpression_in_rule__OrExpression__LeftExprAssignment_019356 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleOrExpression_in_rule__OrExpression__RightExprAssignment_1_119387 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleAndExpression_in_rule__XorExpression__LeftExprAssignment_019418 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleXorExpression_in_rule__XorExpression__RightExprAssignment_1_119449 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleShiftExpression_in_rule__AndExpression__LeftExprAssignment_019480 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleAndExpression_in_rule__AndExpression__RightExprAssignment_1_119511 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleAdditiveExpression_in_rule__ShiftExpression__LeftExprAssignment_019542 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_RULE_SHIFT_OPERATION_in_rule__ShiftExpression__OpAssignment_1_019573 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleShiftExpression_in_rule__ShiftExpression__RightExprAssignment_1_119604 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleMulExpression_in_rule__AdditiveExpression__LeftExprAssignment_019635 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_RULE_ADDITIVE_OPERATION_in_rule__AdditiveExpression__OpAssignment_1_019666 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleAdditiveExpression_in_rule__AdditiveExpression__RightExprAssignment_1_119697 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleCastExpression_in_rule__MulExpression__LeftExprAssignment_019728 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_RULE_MUL_OPERATION_in_rule__MulExpression__OpAssignment_1_019759 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleMulExpression_in_rule__MulExpression__RightExprAssignment_1_119790 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleQualifiedTypeSpecification_in_rule__CastExpression__TypeAssignment_0_119821 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleCastExpression_in_rule__CastExpression__ExprAssignment_0_319852 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleUnaryExpression_in_rule__CastExpression__UnaryExprAssignment_119883 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_RULE_UNARY_OPERATION_in_rule__UnaryExpression__UnaryExprAssignment_019914 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rulePrimaryExpression_in_rule__UnaryExpression__PrimaryExprAssignment_119945 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleLiteral_in_rule__PrimaryExpression__LiteralAssignment_019976 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleQualifiedName_in_rule__InterfaceDefinition__Fqn2Assignment_4_118428 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleMethodDefinition_in_rule__InterfaceDefinition__MethodDefAssignment_618463 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleAnnotationsList_in_rule__MethodDefinition__AnnotationsListAssignment_018494 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleQualifiedTypeSpecification_in_rule__MethodDefinition__QualifiedTypeSpecAssignment_118525 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleQualifiedPointerSpecification_in_rule__MethodDefinition__PointerSpecificationAssignment_218556 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_RULE_ID_in_rule__MethodDefinition__NameAssignment_318587 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleParameterList_in_rule__MethodDefinition__ParameterListAssignment_4_1_118618 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleParameter_in_rule__ParameterList__ParamsAssignment_018649 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleParameter_in_rule__ParameterList__ParamsAssignment_1_118680 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleAnnotationsList_in_rule__Parameter__AnnotationsListAssignment_018711 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleParameterQualifier_in_rule__Parameter__ParameterQualifierAssignment_118742 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleQualifiedTypeSpecification_in_rule__Parameter__QualifiedTypeSpecAssignment_218773 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleDeclarator_in_rule__Parameter__DecAssignment_318804 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_RULE_STRING_in_rule__IncludeDirective__ImportedURIAssignment_1_0_018835 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_RULE_INCLUDE_LIB_in_rule__IncludeDirective__IncludeIDAssignment_1_118866 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleAnnotation_in_rule__AnnotationsList__AnnotationsAssignment_018897 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleAnnotation_in_rule__AnnotationsList__AnnotationsAssignment_118928 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleQualifiedName_in_rule__Annotation__NameAssignment_118959 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleAnnotationValuePair_in_rule__Annotation__AnnotationParametersListAssignment_2_118990 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleAnnotationValuePair_in_rule__Annotation__AnnotationParametersListAssignment_2_2_119021 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_RULE_ID_in_rule__AnnotationValuePair__NameAssignment_0_019052 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleAnnotationValue_in_rule__AnnotationValuePair__ValueAssignment_119083 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_rule__AnnotationValue__ValueAlternatives_0_0_in_rule__AnnotationValue__ValueAssignment_019114 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleArrayAnnotationValue_in_rule__AnnotationValue__ArrayValueAssignment_119147 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleAnnotationValue_in_rule__ArrayAnnotationValue__ValuesAssignment_119178 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleAnnotationValue_in_rule__ArrayAnnotationValue__ValuesAssignment_2_119209 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleLogicalAndExpression_in_rule__LogicalOrExpression__LeftExprAssignment_019240 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleLogicalOrExpression_in_rule__LogicalOrExpression__RightExprAssignment_1_119271 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleOrExpression_in_rule__LogicalAndExpression__LeftExprAssignment_019302 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleLogicalAndExpression_in_rule__LogicalAndExpression__RightExprAssignment_1_119333 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleXorExpression_in_rule__OrExpression__LeftExprAssignment_019364 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleOrExpression_in_rule__OrExpression__RightExprAssignment_1_119395 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleAndExpression_in_rule__XorExpression__LeftExprAssignment_019426 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleXorExpression_in_rule__XorExpression__RightExprAssignment_1_119457 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleShiftExpression_in_rule__AndExpression__LeftExprAssignment_019488 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleAndExpression_in_rule__AndExpression__RightExprAssignment_1_119519 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleAdditiveExpression_in_rule__ShiftExpression__LeftExprAssignment_019550 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_RULE_SHIFT_OPERATION_in_rule__ShiftExpression__OpAssignment_1_019581 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleShiftExpression_in_rule__ShiftExpression__RightExprAssignment_1_119612 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleMulExpression_in_rule__AdditiveExpression__LeftExprAssignment_019643 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_RULE_ADDITIVE_OPERATION_in_rule__AdditiveExpression__OpAssignment_1_019674 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleAdditiveExpression_in_rule__AdditiveExpression__RightExprAssignment_1_119705 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleCastExpression_in_rule__MulExpression__LeftExprAssignment_019736 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_RULE_MUL_OPERATION_in_rule__MulExpression__OpAssignment_1_019767 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleMulExpression_in_rule__MulExpression__RightExprAssignment_1_119798 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleQualifiedTypeSpecification_in_rule__CastExpression__TypeAssignment_0_119829 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleCastExpression_in_rule__CastExpression__ExprAssignment_0_319860 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleUnaryExpression_in_rule__CastExpression__UnaryExprAssignment_119891 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_RULE_UNARY_OPERATION_in_rule__UnaryExpression__UnaryExprAssignment_019922 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_rulePrimaryExpression_in_rule__UnaryExpression__PrimaryExprAssignment_119953 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleLiteral_in_rule__PrimaryExpression__LiteralAssignment_019984 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_rule__MethodDefinition__Group_4_0__0_in_synpred13_InternalFractalIdt3723 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_rule__CastExpression__Group_0__0_in_synpred20_InternalFractalIdt3979 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_rule__FloatingPointLiteral__Group_0__0_in_synpred24_InternalFractalIdt4147 = new BitSet(new long[]{0x0000000000000002L});

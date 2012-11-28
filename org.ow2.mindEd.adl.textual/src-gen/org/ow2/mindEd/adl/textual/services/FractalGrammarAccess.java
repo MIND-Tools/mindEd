@@ -31,34 +31,30 @@ public class FractalGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//AdlDefinition:
 		//
-		//	imports+=ImportDefinition* / *
+		//	imports+=ImportDefinition*
 		//
+		//	/ *
 		//	 * Any ArchitectureDefinition can be annotated
-		//
 		//	 * The following line used to be defined in each of the kinds of ArchitectureDefinition
-		//
 		//	 * (allowing to use the getAnnotationsList method of the according feature in EMF on each type)
-		//
 		//	 * but led to ambiguities in the grammar, leading to breaking Xtext's model and autocompletion,
-		//
 		//	 * mostly on provided and required interfaces.
+		//	 * /
 		//
-		//	 * / annotationsList=AnnotationsList? architectureDefinition=ArchitectureDefinition;
+		//	annotationsList=AnnotationsList? architectureDefinition=ArchitectureDefinition;
 		public ParserRule getRule() { return rule; }
 
-		//imports+=ImportDefinition* / *
+		//imports+=ImportDefinition*
 		//
+		/// *
 		//	 * Any ArchitectureDefinition can be annotated
-		//
 		//	 * The following line used to be defined in each of the kinds of ArchitectureDefinition
-		//
 		//	 * (allowing to use the getAnnotationsList method of the according feature in EMF on each type)
-		//
 		//	 * but led to ambiguities in the grammar, leading to breaking Xtext's model and autocompletion,
-		//
 		//	 * mostly on provided and required interfaces.
+		//	 * /
 		//
-		//	 * / annotationsList=AnnotationsList? architectureDefinition=ArchitectureDefinition
+		//annotationsList=AnnotationsList? architectureDefinition=ArchitectureDefinition
 		public Group getGroup() { return cGroup; }
 
 		//imports+=ImportDefinition*
@@ -88,14 +84,12 @@ public class FractalGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cTypeDefinitionParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
 		
 		/// *
-		//
 		// * SSZ Note: Mind package scoping is handled thanks to the
-		//
 		// * org.ow2.mindEd.adl.textual.scoping.FractalImportedNamespaceAwareLocalScopeProvider
-		//
 		// * to be able to manage implicit declaration during the component declaration.
+		// * /
 		//
-		// * / ArchitectureDefinition:
+		//ArchitectureDefinition:
 		//
 		//	CompositeDefinition | PrimitiveDefinition | TypeDefinition;
 		public ParserRule getRule() { return rule; }
@@ -209,29 +203,31 @@ public class FractalGrammarAccess extends AbstractGrammarElementFinder {
 		//CompositeDefinition:
 		//
 		//	"composite" name=QualifiedName? // support anonymous definitions
+		// ("<" (templateSpecifiers+=TemplateSpecifier (","
 		//
-		//	("<" (templateSpecifiers+=TemplateSpecifier ("," templateSpecifiers+=TemplateSpecifier)*) ">")? // <ID conformsto TypeDefinition, ID2 conformsto TypeDef2, ...>
+		//	templateSpecifiers+=TemplateSpecifier)*) ">")? // <ID conformsto TypeDefinition, ID2 conformsto TypeDef2, ...>
+		//
 		//
 		//	compositeFormalArgumentsList=FormalArgumentsList? // (arg1, arg2, ...)
+		// ("extends" superTypes+=CompositeSuperType
 		//
-		//	("extends" superTypes+=CompositeSuperType ("," superTypes+=CompositeSuperType)*)? "{"
+		//	("," superTypes+=CompositeSuperType)*)? "{" elements+=(ProvidedInterfaceDefinition | RequiredInterfaceDefinition |
 		//
-		//	elements+=(ProvidedInterfaceDefinition | RequiredInterfaceDefinition | SubComponentDefinition | BindingDefinition)*
-		//
-		//	"}";
+		//	SubComponentDefinition | BindingDefinition)* "}";
 		public ParserRule getRule() { return rule; }
 
 		//"composite" name=QualifiedName? // support anonymous definitions
+		// ("<" (templateSpecifiers+=TemplateSpecifier (","
 		//
-		//("<" (templateSpecifiers+=TemplateSpecifier ("," templateSpecifiers+=TemplateSpecifier)*) ">")? // <ID conformsto TypeDefinition, ID2 conformsto TypeDef2, ...>
+		//templateSpecifiers+=TemplateSpecifier)*) ">")? // <ID conformsto TypeDefinition, ID2 conformsto TypeDef2, ...>
+		//
 		//
 		//compositeFormalArgumentsList=FormalArgumentsList? // (arg1, arg2, ...)
+		// ("extends" superTypes+=CompositeSuperType (","
 		//
-		//("extends" superTypes+=CompositeSuperType ("," superTypes+=CompositeSuperType)*)? "{"
+		//superTypes+=CompositeSuperType)*)? "{" elements+=(ProvidedInterfaceDefinition | RequiredInterfaceDefinition |
 		//
-		//elements+=(ProvidedInterfaceDefinition | RequiredInterfaceDefinition | SubComponentDefinition | BindingDefinition)*
-		//
-		//"}"
+		//SubComponentDefinition | BindingDefinition)* "}"
 		public Group getGroup() { return cGroup; }
 
 		//"composite"
@@ -360,6 +356,7 @@ public class FractalGrammarAccess extends AbstractGrammarElementFinder {
 		//
 		//	abstract?="abstract"? "primitive" name=QualifiedName? // support anonymous definitions
 		//
+		//
 		//	compositeFormalArgumentsList=FormalArgumentsList? ("extends" superTypes+=PrimitiveSuperType (","
 		//
 		//	superTypes+=PrimitiveSuperType)*)? "{" elements+=(ProvidedInterfaceDefinition | RequiredInterfaceDefinition |
@@ -368,6 +365,7 @@ public class FractalGrammarAccess extends AbstractGrammarElementFinder {
 		public ParserRule getRule() { return rule; }
 
 		//abstract?="abstract"? "primitive" name=QualifiedName? // support anonymous definitions
+		//
 		//
 		//compositeFormalArgumentsList=FormalArgumentsList? ("extends" superTypes+=PrimitiveSuperType (","
 		//
@@ -806,9 +804,9 @@ public class FractalGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//// Renamed as HostedInterfaceDefinition to resolve name clash with fractalItf::InterfaceDefinition
 		//
-		//// Another way to solve the problem is to use prefixes ?
 		//
-		//ProvidedInterfaceDefinition:
+		//// Another way to solve the problem is to use prefixes ?
+		// ProvidedInterfaceDefinition:
 		//
 		//	annotationsList=AnnotationsList? role="provides" signature=[fractalIDL::InterfaceDefinition|QualifiedName] "as"
 		//
@@ -1027,8 +1025,7 @@ public class FractalGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cSemicolonKeyword_9 = (Keyword)cGroup.eContents().get(9);
 		
 		//// Original: can do anything but needs lots of manual scoping/validation
-		//
-		//SubComponentDefinition:
+		// SubComponentDefinition:
 		//
 		//	annotationsList=AnnotationsList? "contains" type=[TypeReference|QualifiedName]? ("<" templatesList+=TemplateReference
 		//
@@ -1159,46 +1156,42 @@ public class FractalGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cHostedInterfaceDefinitionParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
 		
 		////SubComponentBody: 
+		// //	SubComponentCompositeBody | SubComponentPrimitiveBody
+		// //;
+		// //
+		// //SubComponentCompositeBody:
 		//
-		////	SubComponentCompositeBody | SubComponentPrimitiveBody
-		//
-		////;
-		//
-		////
-		//
-		////SubComponentCompositeBody:
 		//
 		////	anonymous ?= 'composite'	// true but the existence of this body in the SubComponentDefinition rule
 		//
-		////								// implies an anonymous component anyway
 		//
-		////	'{'
+		////								// implies an anonymous component anyway
+		// //	'{'
+		//
 		//
 		////		elements += (SubComponentDefinition | ProvidedInterfaceDefinition | RequiredInterfaceDefinition | BindingDefinition)*
 		//
+		//
 		////	'}'
+		// //;
+		// //
+		// //SubComponentPrimitiveBody:
 		//
-		////;
-		//
-		////
-		//
-		////SubComponentPrimitiveBody:
 		//
 		////	anonymous?='primitive'		// true but the existence of this body in the SubComponentDefinition rule
 		//
-		////								// implies an anonymous component anyway
 		//
-		////	'{'
+		////								// implies an anonymous component anyway
+		// //	'{'
+		//
 		//
 		////		elements += (ProvidedInterfaceDefinition | RequiredInterfaceDefinition | ImplementationDefinition | AttributeDefinition | DataDefinition)*
 		//
+		//
 		////	'}'
-		//
-		////;
-		//
-		//// Check if this rules is in accordance with the original grammar
-		//
-		//Element:
+		// //;
+		// // Check if this rules is in accordance with the original grammar
+		// Element:
 		//
 		//	CompositeElement | PrimitiveElement | HostedInterfaceDefinition;
 		public ParserRule getRule() { return rule; }
@@ -1311,7 +1304,9 @@ public class FractalGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//// The correct auto-completion scoping for Bindings is implemented in org.ow2.mindEd.adl.textual.scoping.FractalScopeProvider
 		//
+		//
 		//// This could be assimilated to filtering elements from the references pool to provide only pertinent ones.
+		//
 		//
 		//BindingDefinition:
 		//
@@ -1509,6 +1504,7 @@ public class FractalGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//// Using "id=ID" instead of "name=ID" allows us for the TemplateSpecifiers not to be indexed by default and we'll add them where needed by hand
 		//
+		//
 		//TemplateSpecifier:
 		//
 		//	name=ID "conformsto" typeReference=[TypeDefinition|QualifiedName];
@@ -1546,9 +1542,9 @@ public class FractalGrammarAccess extends AbstractGrammarElementFinder {
 		
 		////TemplateSpecifiersList :
 		//
-		////	'<' (templateSpecifiers+=TemplateSpecifier (',' templateSpecifiers+=TemplateSpecifier)*) '>';
 		//
-		//AttributeType:
+		////	'<' (templateSpecifiers+=TemplateSpecifier (',' templateSpecifiers+=TemplateSpecifier)*) '>';
+		// AttributeType:
 		//
 		//	"STRUCT" | "UNION" | "ENUM" | ID;
 		public ParserRule getRule() { return rule; }
@@ -1686,18 +1682,24 @@ public class FractalGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//TemplateReference:
 		//
-		//	(name=TemplateSpecifier "=")? (typeReference=[TypeReference|QualifiedName] | anyTypeReference?="?") // Our reference can itself be templated/parametered
+		//	(name=TemplateSpecifier "=")? (typeReference=[TypeReference|QualifiedName] | anyTypeReference?="?")
 		//
-		//	("<" templatesList+=TemplateReference ("," templatesList+=TemplateReference)* ">")? ("("
+		//	// Our reference can itself be templated/parametered
+		// ("<" templatesList+=TemplateReference (","
 		//
-		//	argumentsList+=ArgumentDefinition ("," argumentsList+=ArgumentDefinition)* ")")?;
+		//	templatesList+=TemplateReference)* ">")? ("(" argumentsList+=ArgumentDefinition (","
+		//
+		//	argumentsList+=ArgumentDefinition)* ")")?;
 		public ParserRule getRule() { return rule; }
 
-		//(name=TemplateSpecifier "=")? (typeReference=[TypeReference|QualifiedName] | anyTypeReference?="?") // Our reference can itself be templated/parametered
+		//(name=TemplateSpecifier "=")? (typeReference=[TypeReference|QualifiedName] | anyTypeReference?="?")
 		//
-		//("<" templatesList+=TemplateReference ("," templatesList+=TemplateReference)* ">")? ("("
+		//// Our reference can itself be templated/parametered
+		// ("<" templatesList+=TemplateReference (","
 		//
-		//argumentsList+=ArgumentDefinition ("," argumentsList+=ArgumentDefinition)* ")")?
+		//templatesList+=TemplateReference)* ">")? ("(" argumentsList+=ArgumentDefinition (","
+		//
+		//argumentsList+=ArgumentDefinition)* ")")?
 		public Group getGroup() { return cGroup; }
 
 		//(name=TemplateSpecifier "=")?
@@ -2271,12 +2273,11 @@ public class FractalGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cElementValueElementValueParserRuleCall_1_0 = (RuleCall)cElementValueAssignment_1.eContents().get(0);
 		
 		//// Pre-defined annotations + allow other names
+		// //AnnotationType:
 		//
-		////AnnotationType:
 		//
 		////	'Override' | 'Singleton' | 'LDFlags' | 'CFlags' | QualifiedName;
-		//
-		//AnnotationElement:
+		// AnnotationElement:
 		//
 		//	(name=ID "=")? elementValue=ElementValue;
 		public ParserRule getRule() { return rule; }
@@ -2503,19 +2504,17 @@ public class FractalGrammarAccess extends AbstractGrammarElementFinder {
 	
 	//AdlDefinition:
 	//
-	//	imports+=ImportDefinition* / *
+	//	imports+=ImportDefinition*
 	//
+	//	/ *
 	//	 * Any ArchitectureDefinition can be annotated
-	//
 	//	 * The following line used to be defined in each of the kinds of ArchitectureDefinition
-	//
 	//	 * (allowing to use the getAnnotationsList method of the according feature in EMF on each type)
-	//
 	//	 * but led to ambiguities in the grammar, leading to breaking Xtext's model and autocompletion,
-	//
 	//	 * mostly on provided and required interfaces.
+	//	 * /
 	//
-	//	 * / annotationsList=AnnotationsList? architectureDefinition=ArchitectureDefinition;
+	//	annotationsList=AnnotationsList? architectureDefinition=ArchitectureDefinition;
 	public AdlDefinitionElements getAdlDefinitionAccess() {
 		return (pAdlDefinition != null) ? pAdlDefinition : (pAdlDefinition = new AdlDefinitionElements());
 	}
@@ -2525,14 +2524,12 @@ public class FractalGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	/// *
-	//
 	// * SSZ Note: Mind package scoping is handled thanks to the
-	//
 	// * org.ow2.mindEd.adl.textual.scoping.FractalImportedNamespaceAwareLocalScopeProvider
-	//
 	// * to be able to manage implicit declaration during the component declaration.
+	// * /
 	//
-	// * / ArchitectureDefinition:
+	//ArchitectureDefinition:
 	//
 	//	CompositeDefinition | PrimitiveDefinition | TypeDefinition;
 	public ArchitectureDefinitionElements getArchitectureDefinitionAccess() {
@@ -2568,16 +2565,17 @@ public class FractalGrammarAccess extends AbstractGrammarElementFinder {
 	//CompositeDefinition:
 	//
 	//	"composite" name=QualifiedName? // support anonymous definitions
+	// ("<" (templateSpecifiers+=TemplateSpecifier (","
 	//
-	//	("<" (templateSpecifiers+=TemplateSpecifier ("," templateSpecifiers+=TemplateSpecifier)*) ">")? // <ID conformsto TypeDefinition, ID2 conformsto TypeDef2, ...>
+	//	templateSpecifiers+=TemplateSpecifier)*) ">")? // <ID conformsto TypeDefinition, ID2 conformsto TypeDef2, ...>
+	//
 	//
 	//	compositeFormalArgumentsList=FormalArgumentsList? // (arg1, arg2, ...)
+	// ("extends" superTypes+=CompositeSuperType
 	//
-	//	("extends" superTypes+=CompositeSuperType ("," superTypes+=CompositeSuperType)*)? "{"
+	//	("," superTypes+=CompositeSuperType)*)? "{" elements+=(ProvidedInterfaceDefinition | RequiredInterfaceDefinition |
 	//
-	//	elements+=(ProvidedInterfaceDefinition | RequiredInterfaceDefinition | SubComponentDefinition | BindingDefinition)*
-	//
-	//	"}";
+	//	SubComponentDefinition | BindingDefinition)* "}";
 	public CompositeDefinitionElements getCompositeDefinitionAccess() {
 		return (pCompositeDefinition != null) ? pCompositeDefinition : (pCompositeDefinition = new CompositeDefinitionElements());
 	}
@@ -2589,6 +2587,7 @@ public class FractalGrammarAccess extends AbstractGrammarElementFinder {
 	//PrimitiveDefinition:
 	//
 	//	abstract?="abstract"? "primitive" name=QualifiedName? // support anonymous definitions
+	//
 	//
 	//	compositeFormalArgumentsList=FormalArgumentsList? ("extends" superTypes+=PrimitiveSuperType (","
 	//
@@ -2681,9 +2680,9 @@ public class FractalGrammarAccess extends AbstractGrammarElementFinder {
 
 	//// Renamed as HostedInterfaceDefinition to resolve name clash with fractalItf::InterfaceDefinition
 	//
-	//// Another way to solve the problem is to use prefixes ?
 	//
-	//ProvidedInterfaceDefinition:
+	//// Another way to solve the problem is to use prefixes ?
+	// ProvidedInterfaceDefinition:
 	//
 	//	annotationsList=AnnotationsList? role="provides" signature=[fractalIDL::InterfaceDefinition|QualifiedName] "as"
 	//
@@ -2723,8 +2722,7 @@ public class FractalGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//// Original: can do anything but needs lots of manual scoping/validation
-	//
-	//SubComponentDefinition:
+	// SubComponentDefinition:
 	//
 	//	annotationsList=AnnotationsList? "contains" type=[TypeReference|QualifiedName]? ("<" templatesList+=TemplateReference
 	//
@@ -2742,46 +2740,42 @@ public class FractalGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	////SubComponentBody: 
+	// //	SubComponentCompositeBody | SubComponentPrimitiveBody
+	// //;
+	// //
+	// //SubComponentCompositeBody:
 	//
-	////	SubComponentCompositeBody | SubComponentPrimitiveBody
-	//
-	////;
-	//
-	////
-	//
-	////SubComponentCompositeBody:
 	//
 	////	anonymous ?= 'composite'	// true but the existence of this body in the SubComponentDefinition rule
 	//
-	////								// implies an anonymous component anyway
 	//
-	////	'{'
+	////								// implies an anonymous component anyway
+	// //	'{'
+	//
 	//
 	////		elements += (SubComponentDefinition | ProvidedInterfaceDefinition | RequiredInterfaceDefinition | BindingDefinition)*
 	//
+	//
 	////	'}'
+	// //;
+	// //
+	// //SubComponentPrimitiveBody:
 	//
-	////;
-	//
-	////
-	//
-	////SubComponentPrimitiveBody:
 	//
 	////	anonymous?='primitive'		// true but the existence of this body in the SubComponentDefinition rule
 	//
-	////								// implies an anonymous component anyway
 	//
-	////	'{'
+	////								// implies an anonymous component anyway
+	// //	'{'
+	//
 	//
 	////		elements += (ProvidedInterfaceDefinition | RequiredInterfaceDefinition | ImplementationDefinition | AttributeDefinition | DataDefinition)*
 	//
+	//
 	////	'}'
-	//
-	////;
-	//
-	//// Check if this rules is in accordance with the original grammar
-	//
-	//Element:
+	// //;
+	// // Check if this rules is in accordance with the original grammar
+	// Element:
 	//
 	//	CompositeElement | PrimitiveElement | HostedInterfaceDefinition;
 	public ElementElements getElementAccess() {
@@ -2816,7 +2810,9 @@ public class FractalGrammarAccess extends AbstractGrammarElementFinder {
 
 	//// The correct auto-completion scoping for Bindings is implemented in org.ow2.mindEd.adl.textual.scoping.FractalScopeProvider
 	//
+	//
 	//// This could be assimilated to filtering elements from the references pool to provide only pertinent ones.
+	//
 	//
 	//BindingDefinition:
 	//
@@ -2857,6 +2853,7 @@ public class FractalGrammarAccess extends AbstractGrammarElementFinder {
 
 	//// Using "id=ID" instead of "name=ID" allows us for the TemplateSpecifiers not to be indexed by default and we'll add them where needed by hand
 	//
+	//
 	//TemplateSpecifier:
 	//
 	//	name=ID "conformsto" typeReference=[TypeDefinition|QualifiedName];
@@ -2870,9 +2867,9 @@ public class FractalGrammarAccess extends AbstractGrammarElementFinder {
 
 	////TemplateSpecifiersList :
 	//
-	////	'<' (templateSpecifiers+=TemplateSpecifier (',' templateSpecifiers+=TemplateSpecifier)*) '>';
 	//
-	//AttributeType:
+	////	'<' (templateSpecifiers+=TemplateSpecifier (',' templateSpecifiers+=TemplateSpecifier)*) '>';
+	// AttributeType:
 	//
 	//	"STRUCT" | "UNION" | "ENUM" | ID;
 	public AttributeTypeElements getAttributeTypeAccess() {
@@ -2918,11 +2915,14 @@ public class FractalGrammarAccess extends AbstractGrammarElementFinder {
 
 	//TemplateReference:
 	//
-	//	(name=TemplateSpecifier "=")? (typeReference=[TypeReference|QualifiedName] | anyTypeReference?="?") // Our reference can itself be templated/parametered
+	//	(name=TemplateSpecifier "=")? (typeReference=[TypeReference|QualifiedName] | anyTypeReference?="?")
 	//
-	//	("<" templatesList+=TemplateReference ("," templatesList+=TemplateReference)* ">")? ("("
+	//	// Our reference can itself be templated/parametered
+	// ("<" templatesList+=TemplateReference (","
 	//
-	//	argumentsList+=ArgumentDefinition ("," argumentsList+=ArgumentDefinition)* ")")?;
+	//	templatesList+=TemplateReference)* ">")? ("(" argumentsList+=ArgumentDefinition (","
+	//
+	//	argumentsList+=ArgumentDefinition)* ")")?;
 	public TemplateReferenceElements getTemplateReferenceAccess() {
 		return (pTemplateReference != null) ? pTemplateReference : (pTemplateReference = new TemplateReferenceElements());
 	}
@@ -3055,12 +3055,11 @@ public class FractalGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//// Pre-defined annotations + allow other names
+	// //AnnotationType:
 	//
-	////AnnotationType:
 	//
 	////	'Override' | 'Singleton' | 'LDFlags' | 'CFlags' | QualifiedName;
-	//
-	//AnnotationElement:
+	// AnnotationElement:
 	//
 	//	(name=ID "=")? elementValue=ElementValue;
 	public AnnotationElementElements getAnnotationElementAccess() {
@@ -3123,10 +3122,8 @@ public class FractalGrammarAccess extends AbstractGrammarElementFinder {
 	} 
 
 	////enum Role :
-	//
-	////	provides="provides" | requires="requires";
-	//
-	//terminal SL:
+	// //	provides="provides" | requires="requires";
+	// terminal SL:
 	//
 	//	"\\" | "\\\\" | "/";
 	public TerminalRule getSLRule() {
