@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site>
+   <feature url="features/org.ow2.mindEd.feature_0.8.0.201211291124.jar" id="org.ow2.mindEd.feature" version="0.8.0.201211291124">
+      <category name="MindEd"/>
+   </feature>
+   <feature url="features/org.ow2.mindEd.feature.sdk_0.8.0.201211291124.jar" id="org.ow2.mindEd.feature.sdk" version="0.8.0.201211291124">
+      <category name="MindEd"/>
+   </feature>
+   <feature url="features/org.eclipse.cdt.util_5.1.0.201002161416.jar" id="org.eclipse.cdt.util" version="5.1.0.201002161416">
+      <category name="Dependencies"/>
+   </feature>
+   <category-def name="MindEd" label="MindEd">
+      <description>
+         Le projet MIND veut proposer à la communauté industrielle et
+académique du logiciel embarqué une technologie d’assemblage
+de composants logiciels fondamentale, robuste, stable et pérenne,
+adaptable aux problématiques métiers de chacun.
+      </description>
+   </category-def>
+   <category-def name="Dependencies" label="Dependencies"/>
+</site>
