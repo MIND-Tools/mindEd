@@ -579,7 +579,7 @@
                id="org.ow2.mindEd.ide.ui.view"
                minimized="false"
                relationship="stack"
-               relative="org.eclipse.ui.navigator.ProjectExplorer">
+               relative="org.eclipse.ui.views.ResourceNavigator">
          </view>
       </perspectiveExtension>
    </extension>
