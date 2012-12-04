@@ -255,6 +255,21 @@ public class FractalSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case FractalPackage.VALUE:
+      {
+        Value value = (Value)theEObject;
+        T result = caseValue(value);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case FractalPackage.VALUE_LIST:
+      {
+        ValueList valueList = (ValueList)theEObject;
+        T result = caseValueList(valueList);
+        if (result == null) result = caseValue(valueList);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case FractalPackage.TEMPLATE_REFERENCE:
       {
         TemplateReference templateReference = (TemplateReference)theEObject;
@@ -707,6 +722,38 @@ public class FractalSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseTemplateSpecifier(TemplateSpecifier object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Value</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Value</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseValue(Value object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Value List</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Value List</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseValueList(ValueList object)
   {
     return null;
   }

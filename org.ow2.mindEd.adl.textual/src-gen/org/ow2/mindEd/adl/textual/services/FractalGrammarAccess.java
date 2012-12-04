@@ -1622,14 +1622,15 @@ public class FractalGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cSignedINTParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
 		private final RuleCall cHexadecimalTypeParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
 		private final RuleCall cSTRINGTerminalRuleCall_3 = (RuleCall)cAlternatives.eContents().get(3);
-		private final Keyword cNullKeyword_4 = (Keyword)cAlternatives.eContents().get(4);
+		private final RuleCall cValueListParserRuleCall_4 = (RuleCall)cAlternatives.eContents().get(4);
+		private final Keyword cNullKeyword_5 = (Keyword)cAlternatives.eContents().get(5);
 		
 		//Value:
 		//
-		//	ID | signedINT | HexadecimalType | STRING | "null";
+		//	ID | signedINT | HexadecimalType | STRING | ValueList | "null";
 		public ParserRule getRule() { return rule; }
 
-		//ID | signedINT | HexadecimalType | STRING | "null"
+		//ID | signedINT | HexadecimalType | STRING | ValueList | "null"
 		public Alternatives getAlternatives() { return cAlternatives; }
 
 		//ID
@@ -1644,8 +1645,56 @@ public class FractalGrammarAccess extends AbstractGrammarElementFinder {
 		//STRING
 		public RuleCall getSTRINGTerminalRuleCall_3() { return cSTRINGTerminalRuleCall_3; }
 
+		//ValueList
+		public RuleCall getValueListParserRuleCall_4() { return cValueListParserRuleCall_4; }
+
 		//"null"
-		public Keyword getNullKeyword_4() { return cNullKeyword_4; }
+		public Keyword getNullKeyword_5() { return cNullKeyword_5; }
+	}
+
+	public class ValueListElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "ValueList");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cLeftCurlyBracketKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cMemberAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cMemberValueParserRuleCall_1_0 = (RuleCall)cMemberAssignment_1.eContents().get(0);
+		private final Group cGroup_2 = (Group)cGroup.eContents().get(2);
+		private final Keyword cCommaKeyword_2_0 = (Keyword)cGroup_2.eContents().get(0);
+		private final Assignment cMemberAssignment_2_1 = (Assignment)cGroup_2.eContents().get(1);
+		private final RuleCall cMemberValueParserRuleCall_2_1_0 = (RuleCall)cMemberAssignment_2_1.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_3 = (Keyword)cGroup.eContents().get(3);
+		
+		//ValueList:
+		//
+		//	"{" member+=Value ("," member+=Value)* "}";
+		public ParserRule getRule() { return rule; }
+
+		//"{" member+=Value ("," member+=Value)* "}"
+		public Group getGroup() { return cGroup; }
+
+		//"{"
+		public Keyword getLeftCurlyBracketKeyword_0() { return cLeftCurlyBracketKeyword_0; }
+
+		//member+=Value
+		public Assignment getMemberAssignment_1() { return cMemberAssignment_1; }
+
+		//Value
+		public RuleCall getMemberValueParserRuleCall_1_0() { return cMemberValueParserRuleCall_1_0; }
+
+		//("," member+=Value)*
+		public Group getGroup_2() { return cGroup_2; }
+
+		//","
+		public Keyword getCommaKeyword_2_0() { return cCommaKeyword_2_0; }
+
+		//member+=Value
+		public Assignment getMemberAssignment_2_1() { return cMemberAssignment_2_1; }
+
+		//Value
+		public RuleCall getMemberValueParserRuleCall_2_1_0() { return cMemberValueParserRuleCall_2_1_0; }
+
+		//"}"
+		public Keyword getRightCurlyBracketKeyword_3() { return cRightCurlyBracketKeyword_3; }
 	}
 
 	public class TemplateReferenceElements extends AbstractParserRuleElementFinder {
@@ -1830,22 +1879,32 @@ public class FractalGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cAnnotationsListAssignment_0 = (Assignment)cGroup.eContents().get(0);
 		private final RuleCall cAnnotationsListAnnotationsListParserRuleCall_0_0 = (RuleCall)cAnnotationsListAssignment_0.eContents().get(0);
 		private final Keyword cAttributeKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final Assignment cTypeAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cTypeAttributeTypeParserRuleCall_2_0 = (RuleCall)cTypeAssignment_2.eContents().get(0);
-		private final Assignment cAttributeNameAssignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final RuleCall cAttributeNameIDTerminalRuleCall_3_0 = (RuleCall)cAttributeNameAssignment_3.eContents().get(0);
-		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
-		private final Keyword cEqualsSignKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
-		private final Assignment cValueAssignment_4_1 = (Assignment)cGroup_4.eContents().get(1);
-		private final RuleCall cValueValueParserRuleCall_4_1_0 = (RuleCall)cValueAssignment_4_1.eContents().get(0);
-		private final Keyword cSemicolonKeyword_5 = (Keyword)cGroup.eContents().get(5);
+		private final Group cGroup_2 = (Group)cGroup.eContents().get(2);
+		private final Assignment cHeaderFileAssignment_2_0 = (Assignment)cGroup_2.eContents().get(0);
+		private final RuleCall cHeaderFileFileCParserRuleCall_2_0_0 = (RuleCall)cHeaderFileAssignment_2_0.eContents().get(0);
+		private final Keyword cColonKeyword_2_1 = (Keyword)cGroup_2.eContents().get(1);
+		private final Assignment cCTypeAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cCTypeAttributeTypeParserRuleCall_3_0 = (RuleCall)cCTypeAssignment_3.eContents().get(0);
+		private final Assignment cTypeAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final RuleCall cTypeIDTerminalRuleCall_4_0 = (RuleCall)cTypeAssignment_4.eContents().get(0);
+		private final Assignment cNameAssignment_5 = (Assignment)cGroup.eContents().get(5);
+		private final RuleCall cNameIDTerminalRuleCall_5_0 = (RuleCall)cNameAssignment_5.eContents().get(0);
+		private final Group cGroup_6 = (Group)cGroup.eContents().get(6);
+		private final Keyword cEqualsSignKeyword_6_0 = (Keyword)cGroup_6.eContents().get(0);
+		private final Assignment cValueAssignment_6_1 = (Assignment)cGroup_6.eContents().get(1);
+		private final RuleCall cValueValueParserRuleCall_6_1_0 = (RuleCall)cValueAssignment_6_1.eContents().get(0);
+		private final Keyword cSemicolonKeyword_7 = (Keyword)cGroup.eContents().get(7);
 		
 		//AttributeDefinition:
 		//
-		//	annotationsList=AnnotationsList? "attribute" type=AttributeType? attributeName=ID ("=" value=Value)? ";";
+		//	annotationsList=AnnotationsList? "attribute" (headerFile=FileC ":")? cType=AttributeType? type=ID? name=ID ("="
+		//
+		//	value=Value)? ";";
 		public ParserRule getRule() { return rule; }
 
-		//annotationsList=AnnotationsList? "attribute" type=AttributeType? attributeName=ID ("=" value=Value)? ";"
+		//annotationsList=AnnotationsList? "attribute" (headerFile=FileC ":")? cType=AttributeType? type=ID? name=ID ("="
+		//
+		//value=Value)? ";"
 		public Group getGroup() { return cGroup; }
 
 		//annotationsList=AnnotationsList?
@@ -1857,32 +1916,50 @@ public class FractalGrammarAccess extends AbstractGrammarElementFinder {
 		//"attribute"
 		public Keyword getAttributeKeyword_1() { return cAttributeKeyword_1; }
 
-		//type=AttributeType?
-		public Assignment getTypeAssignment_2() { return cTypeAssignment_2; }
+		//(headerFile=FileC ":")?
+		public Group getGroup_2() { return cGroup_2; }
+
+		//headerFile=FileC
+		public Assignment getHeaderFileAssignment_2_0() { return cHeaderFileAssignment_2_0; }
+
+		//FileC
+		public RuleCall getHeaderFileFileCParserRuleCall_2_0_0() { return cHeaderFileFileCParserRuleCall_2_0_0; }
+
+		//":"
+		public Keyword getColonKeyword_2_1() { return cColonKeyword_2_1; }
+
+		//cType=AttributeType?
+		public Assignment getCTypeAssignment_3() { return cCTypeAssignment_3; }
 
 		//AttributeType
-		public RuleCall getTypeAttributeTypeParserRuleCall_2_0() { return cTypeAttributeTypeParserRuleCall_2_0; }
+		public RuleCall getCTypeAttributeTypeParserRuleCall_3_0() { return cCTypeAttributeTypeParserRuleCall_3_0; }
 
-		//attributeName=ID
-		public Assignment getAttributeNameAssignment_3() { return cAttributeNameAssignment_3; }
+		//type=ID?
+		public Assignment getTypeAssignment_4() { return cTypeAssignment_4; }
 
 		//ID
-		public RuleCall getAttributeNameIDTerminalRuleCall_3_0() { return cAttributeNameIDTerminalRuleCall_3_0; }
+		public RuleCall getTypeIDTerminalRuleCall_4_0() { return cTypeIDTerminalRuleCall_4_0; }
+
+		//name=ID
+		public Assignment getNameAssignment_5() { return cNameAssignment_5; }
+
+		//ID
+		public RuleCall getNameIDTerminalRuleCall_5_0() { return cNameIDTerminalRuleCall_5_0; }
 
 		//("=" value=Value)?
-		public Group getGroup_4() { return cGroup_4; }
+		public Group getGroup_6() { return cGroup_6; }
 
 		//"="
-		public Keyword getEqualsSignKeyword_4_0() { return cEqualsSignKeyword_4_0; }
+		public Keyword getEqualsSignKeyword_6_0() { return cEqualsSignKeyword_6_0; }
 
 		//value=Value
-		public Assignment getValueAssignment_4_1() { return cValueAssignment_4_1; }
+		public Assignment getValueAssignment_6_1() { return cValueAssignment_6_1; }
 
 		//Value
-		public RuleCall getValueValueParserRuleCall_4_1_0() { return cValueValueParserRuleCall_4_1_0; }
+		public RuleCall getValueValueParserRuleCall_6_1_0() { return cValueValueParserRuleCall_6_1_0; }
 
 		//";"
-		public Keyword getSemicolonKeyword_5() { return cSemicolonKeyword_5; }
+		public Keyword getSemicolonKeyword_7() { return cSemicolonKeyword_7; }
 	}
 
 	public class ImplementationDefinitionElements extends AbstractParserRuleElementFinder {
@@ -2444,6 +2521,7 @@ public class FractalGrammarAccess extends AbstractGrammarElementFinder {
 	private SignedINTElements pSignedINT;
 	private HexadecimalTypeElements pHexadecimalType;
 	private ValueElements pValue;
+	private ValueListElements pValueList;
 	private TemplateReferenceElements pTemplateReference;
 	private ArgumentDefinitionElements pArgumentDefinition;
 	private AttributeDefinitionElements pAttributeDefinition;
@@ -2904,13 +2982,24 @@ public class FractalGrammarAccess extends AbstractGrammarElementFinder {
 
 	//Value:
 	//
-	//	ID | signedINT | HexadecimalType | STRING | "null";
+	//	ID | signedINT | HexadecimalType | STRING | ValueList | "null";
 	public ValueElements getValueAccess() {
 		return (pValue != null) ? pValue : (pValue = new ValueElements());
 	}
 	
 	public ParserRule getValueRule() {
 		return getValueAccess().getRule();
+	}
+
+	//ValueList:
+	//
+	//	"{" member+=Value ("," member+=Value)* "}";
+	public ValueListElements getValueListAccess() {
+		return (pValueList != null) ? pValueList : (pValueList = new ValueListElements());
+	}
+	
+	public ParserRule getValueListRule() {
+		return getValueListAccess().getRule();
 	}
 
 	//TemplateReference:
@@ -2944,7 +3033,9 @@ public class FractalGrammarAccess extends AbstractGrammarElementFinder {
 
 	//AttributeDefinition:
 	//
-	//	annotationsList=AnnotationsList? "attribute" type=AttributeType? attributeName=ID ("=" value=Value)? ";";
+	//	annotationsList=AnnotationsList? "attribute" (headerFile=FileC ":")? cType=AttributeType? type=ID? name=ID ("="
+	//
+	//	value=Value)? ";";
 	public AttributeDefinitionElements getAttributeDefinitionAccess() {
 		return (pAttributeDefinition != null) ? pAttributeDefinition : (pAttributeDefinition = new AttributeDefinitionElements());
 	}

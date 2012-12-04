@@ -3,14 +3,17 @@
 package org.ow2.mindEd.adl.textual.fractal.impl;
 
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.ow2.mindEd.adl.textual.fractal.ArgumentDefinition;
 import org.ow2.mindEd.adl.textual.fractal.FractalPackage;
+import org.ow2.mindEd.adl.textual.fractal.Value;
 
 /**
  * <!-- begin-user-doc -->
@@ -49,24 +52,14 @@ public class ArgumentDefinitionImpl extends MinimalEObjectImpl.Container impleme
   protected String name = NAME_EDEFAULT;
 
   /**
-   * The default value of the '{@link #getArgumentValue() <em>Argument Value</em>}' attribute.
+   * The cached value of the '{@link #getArgumentValue() <em>Argument Value</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getArgumentValue()
    * @generated
    * @ordered
    */
-  protected static final String ARGUMENT_VALUE_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getArgumentValue() <em>Argument Value</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getArgumentValue()
-   * @generated
-   * @ordered
-   */
-  protected String argumentValue = ARGUMENT_VALUE_EDEFAULT;
+  protected Value argumentValue;
 
   /**
    * <!-- begin-user-doc -->
@@ -117,7 +110,7 @@ public class ArgumentDefinitionImpl extends MinimalEObjectImpl.Container impleme
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getArgumentValue()
+  public Value getArgumentValue()
   {
     return argumentValue;
   }
@@ -127,12 +120,53 @@ public class ArgumentDefinitionImpl extends MinimalEObjectImpl.Container impleme
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setArgumentValue(String newArgumentValue)
+  public NotificationChain basicSetArgumentValue(Value newArgumentValue, NotificationChain msgs)
   {
-    String oldArgumentValue = argumentValue;
+    Value oldArgumentValue = argumentValue;
     argumentValue = newArgumentValue;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, FractalPackage.ARGUMENT_DEFINITION__ARGUMENT_VALUE, oldArgumentValue, argumentValue));
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FractalPackage.ARGUMENT_DEFINITION__ARGUMENT_VALUE, oldArgumentValue, newArgumentValue);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setArgumentValue(Value newArgumentValue)
+  {
+    if (newArgumentValue != argumentValue)
+    {
+      NotificationChain msgs = null;
+      if (argumentValue != null)
+        msgs = ((InternalEObject)argumentValue).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FractalPackage.ARGUMENT_DEFINITION__ARGUMENT_VALUE, null, msgs);
+      if (newArgumentValue != null)
+        msgs = ((InternalEObject)newArgumentValue).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FractalPackage.ARGUMENT_DEFINITION__ARGUMENT_VALUE, null, msgs);
+      msgs = basicSetArgumentValue(newArgumentValue, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, FractalPackage.ARGUMENT_DEFINITION__ARGUMENT_VALUE, newArgumentValue, newArgumentValue));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  {
+    switch (featureID)
+    {
+      case FractalPackage.ARGUMENT_DEFINITION__ARGUMENT_VALUE:
+        return basicSetArgumentValue(null, msgs);
+    }
+    return super.eInverseRemove(otherEnd, featureID, msgs);
   }
 
   /**
@@ -167,7 +201,7 @@ public class ArgumentDefinitionImpl extends MinimalEObjectImpl.Container impleme
         setName((String)newValue);
         return;
       case FractalPackage.ARGUMENT_DEFINITION__ARGUMENT_VALUE:
-        setArgumentValue((String)newValue);
+        setArgumentValue((Value)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -187,7 +221,7 @@ public class ArgumentDefinitionImpl extends MinimalEObjectImpl.Container impleme
         setName(NAME_EDEFAULT);
         return;
       case FractalPackage.ARGUMENT_DEFINITION__ARGUMENT_VALUE:
-        setArgumentValue(ARGUMENT_VALUE_EDEFAULT);
+        setArgumentValue((Value)null);
         return;
     }
     super.eUnset(featureID);
@@ -206,7 +240,7 @@ public class ArgumentDefinitionImpl extends MinimalEObjectImpl.Container impleme
       case FractalPackage.ARGUMENT_DEFINITION__NAME:
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
       case FractalPackage.ARGUMENT_DEFINITION__ARGUMENT_VALUE:
-        return ARGUMENT_VALUE_EDEFAULT == null ? argumentValue != null : !ARGUMENT_VALUE_EDEFAULT.equals(argumentValue);
+        return argumentValue != null;
     }
     return super.eIsSet(featureID);
   }
@@ -224,8 +258,6 @@ public class ArgumentDefinitionImpl extends MinimalEObjectImpl.Container impleme
     StringBuffer result = new StringBuffer(super.toString());
     result.append(" (name: ");
     result.append(name);
-    result.append(", argumentValue: ");
-    result.append(argumentValue);
     result.append(')');
     return result.toString();
   }

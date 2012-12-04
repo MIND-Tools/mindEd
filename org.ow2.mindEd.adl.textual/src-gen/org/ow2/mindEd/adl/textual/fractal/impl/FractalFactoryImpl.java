@@ -86,6 +86,8 @@ public class FractalFactoryImpl extends EFactoryImpl implements FractalFactory
       case FractalPackage.FORMAL_ARGUMENT: return createFormalArgument();
       case FractalPackage.FORMAL_ARGUMENTS_LIST: return createFormalArgumentsList();
       case FractalPackage.TEMPLATE_SPECIFIER: return createTemplateSpecifier();
+      case FractalPackage.VALUE: return createValue();
+      case FractalPackage.VALUE_LIST: return createValueList();
       case FractalPackage.TEMPLATE_REFERENCE: return createTemplateReference();
       case FractalPackage.ARGUMENT_DEFINITION: return createArgumentDefinition();
       case FractalPackage.ATTRIBUTE_DEFINITION: return createAttributeDefinition();
@@ -344,6 +346,28 @@ public class FractalFactoryImpl extends EFactoryImpl implements FractalFactory
   {
     TemplateSpecifierImpl templateSpecifier = new TemplateSpecifierImpl();
     return templateSpecifier;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Value createValue()
+  {
+    ValueImpl value = new ValueImpl();
+    return value;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public ValueList createValueList()
+  {
+    ValueListImpl valueList = new ValueListImpl();
+    return valueList;
   }
 
   /**

@@ -102,6 +102,8 @@ public class FractalParser extends AbstractContentAssistParser {
 					put(grammarAccess.getTemplateSpecifierAccess().getGroup(), "rule__TemplateSpecifier__Group__0");
 					put(grammarAccess.getSignedINTAccess().getGroup(), "rule__SignedINT__Group__0");
 					put(grammarAccess.getHexadecimalTypeAccess().getGroup(), "rule__HexadecimalType__Group__0");
+					put(grammarAccess.getValueListAccess().getGroup(), "rule__ValueList__Group__0");
+					put(grammarAccess.getValueListAccess().getGroup_2(), "rule__ValueList__Group_2__0");
 					put(grammarAccess.getTemplateReferenceAccess().getGroup(), "rule__TemplateReference__Group__0");
 					put(grammarAccess.getTemplateReferenceAccess().getGroup_0(), "rule__TemplateReference__Group_0__0");
 					put(grammarAccess.getTemplateReferenceAccess().getGroup_2(), "rule__TemplateReference__Group_2__0");
@@ -111,7 +113,8 @@ public class FractalParser extends AbstractContentAssistParser {
 					put(grammarAccess.getArgumentDefinitionAccess().getGroup(), "rule__ArgumentDefinition__Group__0");
 					put(grammarAccess.getArgumentDefinitionAccess().getGroup_0(), "rule__ArgumentDefinition__Group_0__0");
 					put(grammarAccess.getAttributeDefinitionAccess().getGroup(), "rule__AttributeDefinition__Group__0");
-					put(grammarAccess.getAttributeDefinitionAccess().getGroup_4(), "rule__AttributeDefinition__Group_4__0");
+					put(grammarAccess.getAttributeDefinitionAccess().getGroup_2(), "rule__AttributeDefinition__Group_2__0");
+					put(grammarAccess.getAttributeDefinitionAccess().getGroup_6(), "rule__AttributeDefinition__Group_6__0");
 					put(grammarAccess.getImplementationDefinitionAccess().getGroup(), "rule__ImplementationDefinition__Group__0");
 					put(grammarAccess.getDataDefinitionAccess().getGroup(), "rule__DataDefinition__Group__0");
 					put(grammarAccess.getQualifiedNameAccess().getGroup(), "rule__QualifiedName__Group__0");
@@ -196,6 +199,8 @@ public class FractalParser extends AbstractContentAssistParser {
 					put(grammarAccess.getFormalArgumentsListAccess().getFormalArgumentsAssignment_2_1(), "rule__FormalArgumentsList__FormalArgumentsAssignment_2_1");
 					put(grammarAccess.getTemplateSpecifierAccess().getNameAssignment_0(), "rule__TemplateSpecifier__NameAssignment_0");
 					put(grammarAccess.getTemplateSpecifierAccess().getTypeReferenceAssignment_2(), "rule__TemplateSpecifier__TypeReferenceAssignment_2");
+					put(grammarAccess.getValueListAccess().getMemberAssignment_1(), "rule__ValueList__MemberAssignment_1");
+					put(grammarAccess.getValueListAccess().getMemberAssignment_2_1(), "rule__ValueList__MemberAssignment_2_1");
 					put(grammarAccess.getTemplateReferenceAccess().getNameAssignment_0_0(), "rule__TemplateReference__NameAssignment_0_0");
 					put(grammarAccess.getTemplateReferenceAccess().getTypeReferenceAssignment_1_0(), "rule__TemplateReference__TypeReferenceAssignment_1_0");
 					put(grammarAccess.getTemplateReferenceAccess().getAnyTypeReferenceAssignment_1_1(), "rule__TemplateReference__AnyTypeReferenceAssignment_1_1");
@@ -206,9 +211,11 @@ public class FractalParser extends AbstractContentAssistParser {
 					put(grammarAccess.getArgumentDefinitionAccess().getNameAssignment_0_0(), "rule__ArgumentDefinition__NameAssignment_0_0");
 					put(grammarAccess.getArgumentDefinitionAccess().getArgumentValueAssignment_1(), "rule__ArgumentDefinition__ArgumentValueAssignment_1");
 					put(grammarAccess.getAttributeDefinitionAccess().getAnnotationsListAssignment_0(), "rule__AttributeDefinition__AnnotationsListAssignment_0");
-					put(grammarAccess.getAttributeDefinitionAccess().getTypeAssignment_2(), "rule__AttributeDefinition__TypeAssignment_2");
-					put(grammarAccess.getAttributeDefinitionAccess().getAttributeNameAssignment_3(), "rule__AttributeDefinition__AttributeNameAssignment_3");
-					put(grammarAccess.getAttributeDefinitionAccess().getValueAssignment_4_1(), "rule__AttributeDefinition__ValueAssignment_4_1");
+					put(grammarAccess.getAttributeDefinitionAccess().getHeaderFileAssignment_2_0(), "rule__AttributeDefinition__HeaderFileAssignment_2_0");
+					put(grammarAccess.getAttributeDefinitionAccess().getCTypeAssignment_3(), "rule__AttributeDefinition__CTypeAssignment_3");
+					put(grammarAccess.getAttributeDefinitionAccess().getTypeAssignment_4(), "rule__AttributeDefinition__TypeAssignment_4");
+					put(grammarAccess.getAttributeDefinitionAccess().getNameAssignment_5(), "rule__AttributeDefinition__NameAssignment_5");
+					put(grammarAccess.getAttributeDefinitionAccess().getValueAssignment_6_1(), "rule__AttributeDefinition__ValueAssignment_6_1");
 					put(grammarAccess.getImplementationDefinitionAccess().getAnnotationsListAssignment_0(), "rule__ImplementationDefinition__AnnotationsListAssignment_0");
 					put(grammarAccess.getImplementationDefinitionAccess().getFileCAssignment_2_0(), "rule__ImplementationDefinition__FileCAssignment_2_0");
 					put(grammarAccess.getImplementationDefinitionAccess().getInlineCcodeAssignment_2_1(), "rule__ImplementationDefinition__InlineCcodeAssignment_2_1");

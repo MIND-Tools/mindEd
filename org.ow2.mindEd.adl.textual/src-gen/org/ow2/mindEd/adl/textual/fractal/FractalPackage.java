@@ -1078,6 +1078,53 @@ public interface FractalPackage extends EPackage
   int TEMPLATE_SPECIFIER_FEATURE_COUNT = TYPE_REFERENCE_FEATURE_COUNT + 1;
 
   /**
+   * The meta object id for the '{@link org.ow2.mindEd.adl.textual.fractal.impl.ValueImpl <em>Value</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.ow2.mindEd.adl.textual.fractal.impl.ValueImpl
+   * @see org.ow2.mindEd.adl.textual.fractal.impl.FractalPackageImpl#getValue()
+   * @generated
+   */
+  int VALUE = 22;
+
+  /**
+   * The number of structural features of the '<em>Value</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int VALUE_FEATURE_COUNT = 0;
+
+  /**
+   * The meta object id for the '{@link org.ow2.mindEd.adl.textual.fractal.impl.ValueListImpl <em>Value List</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.ow2.mindEd.adl.textual.fractal.impl.ValueListImpl
+   * @see org.ow2.mindEd.adl.textual.fractal.impl.FractalPackageImpl#getValueList()
+   * @generated
+   */
+  int VALUE_LIST = 23;
+
+  /**
+   * The feature id for the '<em><b>Member</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int VALUE_LIST__MEMBER = VALUE_FEATURE_COUNT + 0;
+
+  /**
+   * The number of structural features of the '<em>Value List</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int VALUE_LIST_FEATURE_COUNT = VALUE_FEATURE_COUNT + 1;
+
+  /**
    * The meta object id for the '{@link org.ow2.mindEd.adl.textual.fractal.impl.TemplateReferenceImpl <em>Template Reference</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1085,7 +1132,7 @@ public interface FractalPackage extends EPackage
    * @see org.ow2.mindEd.adl.textual.fractal.impl.FractalPackageImpl#getTemplateReference()
    * @generated
    */
-  int TEMPLATE_REFERENCE = 22;
+  int TEMPLATE_REFERENCE = 24;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' containment reference.
@@ -1149,7 +1196,7 @@ public interface FractalPackage extends EPackage
    * @see org.ow2.mindEd.adl.textual.fractal.impl.FractalPackageImpl#getArgumentDefinition()
    * @generated
    */
-  int ARGUMENT_DEFINITION = 23;
+  int ARGUMENT_DEFINITION = 25;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1161,7 +1208,7 @@ public interface FractalPackage extends EPackage
   int ARGUMENT_DEFINITION__NAME = 0;
 
   /**
-   * The feature id for the '<em><b>Argument Value</b></em>' attribute.
+   * The feature id for the '<em><b>Argument Value</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -1186,7 +1233,7 @@ public interface FractalPackage extends EPackage
    * @see org.ow2.mindEd.adl.textual.fractal.impl.FractalPackageImpl#getAttributeDefinition()
    * @generated
    */
-  int ATTRIBUTE_DEFINITION = 24;
+  int ATTRIBUTE_DEFINITION = 26;
 
   /**
    * The feature id for the '<em><b>Annotations List</b></em>' containment reference.
@@ -1198,31 +1245,49 @@ public interface FractalPackage extends EPackage
   int ATTRIBUTE_DEFINITION__ANNOTATIONS_LIST = PRIMITIVE_ELEMENT__ANNOTATIONS_LIST;
 
   /**
+   * The feature id for the '<em><b>Header File</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ATTRIBUTE_DEFINITION__HEADER_FILE = PRIMITIVE_ELEMENT_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>CType</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ATTRIBUTE_DEFINITION__CTYPE = PRIMITIVE_ELEMENT_FEATURE_COUNT + 1;
+
+  /**
    * The feature id for the '<em><b>Type</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int ATTRIBUTE_DEFINITION__TYPE = PRIMITIVE_ELEMENT_FEATURE_COUNT + 0;
+  int ATTRIBUTE_DEFINITION__TYPE = PRIMITIVE_ELEMENT_FEATURE_COUNT + 2;
 
   /**
-   * The feature id for the '<em><b>Attribute Name</b></em>' attribute.
+   * The feature id for the '<em><b>Name</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int ATTRIBUTE_DEFINITION__ATTRIBUTE_NAME = PRIMITIVE_ELEMENT_FEATURE_COUNT + 1;
+  int ATTRIBUTE_DEFINITION__NAME = PRIMITIVE_ELEMENT_FEATURE_COUNT + 3;
 
   /**
-   * The feature id for the '<em><b>Value</b></em>' attribute.
+   * The feature id for the '<em><b>Value</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int ATTRIBUTE_DEFINITION__VALUE = PRIMITIVE_ELEMENT_FEATURE_COUNT + 2;
+  int ATTRIBUTE_DEFINITION__VALUE = PRIMITIVE_ELEMENT_FEATURE_COUNT + 4;
 
   /**
    * The number of structural features of the '<em>Attribute Definition</em>' class.
@@ -1231,7 +1296,7 @@ public interface FractalPackage extends EPackage
    * @generated
    * @ordered
    */
-  int ATTRIBUTE_DEFINITION_FEATURE_COUNT = PRIMITIVE_ELEMENT_FEATURE_COUNT + 3;
+  int ATTRIBUTE_DEFINITION_FEATURE_COUNT = PRIMITIVE_ELEMENT_FEATURE_COUNT + 5;
 
   /**
    * The meta object id for the '{@link org.ow2.mindEd.adl.textual.fractal.impl.ImplementationDefinitionImpl <em>Implementation Definition</em>}' class.
@@ -1241,7 +1306,7 @@ public interface FractalPackage extends EPackage
    * @see org.ow2.mindEd.adl.textual.fractal.impl.FractalPackageImpl#getImplementationDefinition()
    * @generated
    */
-  int IMPLEMENTATION_DEFINITION = 25;
+  int IMPLEMENTATION_DEFINITION = 27;
 
   /**
    * The feature id for the '<em><b>Annotations List</b></em>' containment reference.
@@ -1287,7 +1352,7 @@ public interface FractalPackage extends EPackage
    * @see org.ow2.mindEd.adl.textual.fractal.impl.FractalPackageImpl#getDataDefinition()
    * @generated
    */
-  int DATA_DEFINITION = 26;
+  int DATA_DEFINITION = 28;
 
   /**
    * The feature id for the '<em><b>Annotations List</b></em>' containment reference.
@@ -1333,7 +1398,7 @@ public interface FractalPackage extends EPackage
    * @see org.ow2.mindEd.adl.textual.fractal.impl.FractalPackageImpl#getFileC()
    * @generated
    */
-  int FILE_C = 27;
+  int FILE_C = 29;
 
   /**
    * The feature id for the '<em><b>Directory</b></em>' attribute.
@@ -1370,7 +1435,7 @@ public interface FractalPackage extends EPackage
    * @see org.ow2.mindEd.adl.textual.fractal.impl.FractalPackageImpl#getInlineCodeC()
    * @generated
    */
-  int INLINE_CODE_C = 28;
+  int INLINE_CODE_C = 30;
 
   /**
    * The feature id for the '<em><b>Code C</b></em>' attribute.
@@ -1398,7 +1463,7 @@ public interface FractalPackage extends EPackage
    * @see org.ow2.mindEd.adl.textual.fractal.impl.FractalPackageImpl#getAnnotationsList()
    * @generated
    */
-  int ANNOTATIONS_LIST = 29;
+  int ANNOTATIONS_LIST = 31;
 
   /**
    * The feature id for the '<em><b>Annotations</b></em>' containment reference list.
@@ -1426,7 +1491,7 @@ public interface FractalPackage extends EPackage
    * @see org.ow2.mindEd.adl.textual.fractal.impl.FractalPackageImpl#getElementValue()
    * @generated
    */
-  int ELEMENT_VALUE = 32;
+  int ELEMENT_VALUE = 34;
 
   /**
    * The number of structural features of the '<em>Element Value</em>' class.
@@ -1445,7 +1510,7 @@ public interface FractalPackage extends EPackage
    * @see org.ow2.mindEd.adl.textual.fractal.impl.FractalPackageImpl#getAnnotation()
    * @generated
    */
-  int ANNOTATION = 30;
+  int ANNOTATION = 32;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1482,7 +1547,7 @@ public interface FractalPackage extends EPackage
    * @see org.ow2.mindEd.adl.textual.fractal.impl.FractalPackageImpl#getAnnotationElement()
    * @generated
    */
-  int ANNOTATION_ELEMENT = 31;
+  int ANNOTATION_ELEMENT = 33;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1519,7 +1584,7 @@ public interface FractalPackage extends EPackage
    * @see org.ow2.mindEd.adl.textual.fractal.impl.FractalPackageImpl#getElementValueArrayInitializer()
    * @generated
    */
-  int ELEMENT_VALUE_ARRAY_INITIALIZER = 33;
+  int ELEMENT_VALUE_ARRAY_INITIALIZER = 35;
 
   /**
    * The feature id for the '<em><b>Values</b></em>' containment reference list.
@@ -1547,7 +1612,7 @@ public interface FractalPackage extends EPackage
    * @see org.ow2.mindEd.adl.textual.fractal.impl.FractalPackageImpl#getConstantValue()
    * @generated
    */
-  int CONSTANT_VALUE = 34;
+  int CONSTANT_VALUE = 36;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -2284,6 +2349,37 @@ public interface FractalPackage extends EPackage
   EReference getTemplateSpecifier_TypeReference();
 
   /**
+   * Returns the meta object for class '{@link org.ow2.mindEd.adl.textual.fractal.Value <em>Value</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Value</em>'.
+   * @see org.ow2.mindEd.adl.textual.fractal.Value
+   * @generated
+   */
+  EClass getValue();
+
+  /**
+   * Returns the meta object for class '{@link org.ow2.mindEd.adl.textual.fractal.ValueList <em>Value List</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Value List</em>'.
+   * @see org.ow2.mindEd.adl.textual.fractal.ValueList
+   * @generated
+   */
+  EClass getValueList();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link org.ow2.mindEd.adl.textual.fractal.ValueList#getMember <em>Member</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Member</em>'.
+   * @see org.ow2.mindEd.adl.textual.fractal.ValueList#getMember()
+   * @see #getValueList()
+   * @generated
+   */
+  EReference getValueList_Member();
+
+  /**
    * Returns the meta object for class '{@link org.ow2.mindEd.adl.textual.fractal.TemplateReference <em>Template Reference</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -2370,15 +2466,15 @@ public interface FractalPackage extends EPackage
   EAttribute getArgumentDefinition_Name();
 
   /**
-   * Returns the meta object for the attribute '{@link org.ow2.mindEd.adl.textual.fractal.ArgumentDefinition#getArgumentValue <em>Argument Value</em>}'.
+   * Returns the meta object for the containment reference '{@link org.ow2.mindEd.adl.textual.fractal.ArgumentDefinition#getArgumentValue <em>Argument Value</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Argument Value</em>'.
+   * @return the meta object for the containment reference '<em>Argument Value</em>'.
    * @see org.ow2.mindEd.adl.textual.fractal.ArgumentDefinition#getArgumentValue()
    * @see #getArgumentDefinition()
    * @generated
    */
-  EAttribute getArgumentDefinition_ArgumentValue();
+  EReference getArgumentDefinition_ArgumentValue();
 
   /**
    * Returns the meta object for class '{@link org.ow2.mindEd.adl.textual.fractal.AttributeDefinition <em>Attribute Definition</em>}'.
@@ -2389,6 +2485,28 @@ public interface FractalPackage extends EPackage
    * @generated
    */
   EClass getAttributeDefinition();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.ow2.mindEd.adl.textual.fractal.AttributeDefinition#getHeaderFile <em>Header File</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Header File</em>'.
+   * @see org.ow2.mindEd.adl.textual.fractal.AttributeDefinition#getHeaderFile()
+   * @see #getAttributeDefinition()
+   * @generated
+   */
+  EReference getAttributeDefinition_HeaderFile();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.ow2.mindEd.adl.textual.fractal.AttributeDefinition#getCType <em>CType</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>CType</em>'.
+   * @see org.ow2.mindEd.adl.textual.fractal.AttributeDefinition#getCType()
+   * @see #getAttributeDefinition()
+   * @generated
+   */
+  EAttribute getAttributeDefinition_CType();
 
   /**
    * Returns the meta object for the attribute '{@link org.ow2.mindEd.adl.textual.fractal.AttributeDefinition#getType <em>Type</em>}'.
@@ -2402,26 +2520,26 @@ public interface FractalPackage extends EPackage
   EAttribute getAttributeDefinition_Type();
 
   /**
-   * Returns the meta object for the attribute '{@link org.ow2.mindEd.adl.textual.fractal.AttributeDefinition#getAttributeName <em>Attribute Name</em>}'.
+   * Returns the meta object for the attribute '{@link org.ow2.mindEd.adl.textual.fractal.AttributeDefinition#getName <em>Name</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Attribute Name</em>'.
-   * @see org.ow2.mindEd.adl.textual.fractal.AttributeDefinition#getAttributeName()
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see org.ow2.mindEd.adl.textual.fractal.AttributeDefinition#getName()
    * @see #getAttributeDefinition()
    * @generated
    */
-  EAttribute getAttributeDefinition_AttributeName();
+  EAttribute getAttributeDefinition_Name();
 
   /**
-   * Returns the meta object for the attribute '{@link org.ow2.mindEd.adl.textual.fractal.AttributeDefinition#getValue <em>Value</em>}'.
+   * Returns the meta object for the containment reference '{@link org.ow2.mindEd.adl.textual.fractal.AttributeDefinition#getValue <em>Value</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Value</em>'.
+   * @return the meta object for the containment reference '<em>Value</em>'.
    * @see org.ow2.mindEd.adl.textual.fractal.AttributeDefinition#getValue()
    * @see #getAttributeDefinition()
    * @generated
    */
-  EAttribute getAttributeDefinition_Value();
+  EReference getAttributeDefinition_Value();
 
   /**
    * Returns the meta object for class '{@link org.ow2.mindEd.adl.textual.fractal.ImplementationDefinition <em>Implementation Definition</em>}'.
@@ -3281,6 +3399,34 @@ public interface FractalPackage extends EPackage
     EReference TEMPLATE_SPECIFIER__TYPE_REFERENCE = eINSTANCE.getTemplateSpecifier_TypeReference();
 
     /**
+     * The meta object literal for the '{@link org.ow2.mindEd.adl.textual.fractal.impl.ValueImpl <em>Value</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.ow2.mindEd.adl.textual.fractal.impl.ValueImpl
+     * @see org.ow2.mindEd.adl.textual.fractal.impl.FractalPackageImpl#getValue()
+     * @generated
+     */
+    EClass VALUE = eINSTANCE.getValue();
+
+    /**
+     * The meta object literal for the '{@link org.ow2.mindEd.adl.textual.fractal.impl.ValueListImpl <em>Value List</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.ow2.mindEd.adl.textual.fractal.impl.ValueListImpl
+     * @see org.ow2.mindEd.adl.textual.fractal.impl.FractalPackageImpl#getValueList()
+     * @generated
+     */
+    EClass VALUE_LIST = eINSTANCE.getValueList();
+
+    /**
+     * The meta object literal for the '<em><b>Member</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference VALUE_LIST__MEMBER = eINSTANCE.getValueList_Member();
+
+    /**
      * The meta object literal for the '{@link org.ow2.mindEd.adl.textual.fractal.impl.TemplateReferenceImpl <em>Template Reference</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -3349,12 +3495,12 @@ public interface FractalPackage extends EPackage
     EAttribute ARGUMENT_DEFINITION__NAME = eINSTANCE.getArgumentDefinition_Name();
 
     /**
-     * The meta object literal for the '<em><b>Argument Value</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Argument Value</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute ARGUMENT_DEFINITION__ARGUMENT_VALUE = eINSTANCE.getArgumentDefinition_ArgumentValue();
+    EReference ARGUMENT_DEFINITION__ARGUMENT_VALUE = eINSTANCE.getArgumentDefinition_ArgumentValue();
 
     /**
      * The meta object literal for the '{@link org.ow2.mindEd.adl.textual.fractal.impl.AttributeDefinitionImpl <em>Attribute Definition</em>}' class.
@@ -3367,6 +3513,22 @@ public interface FractalPackage extends EPackage
     EClass ATTRIBUTE_DEFINITION = eINSTANCE.getAttributeDefinition();
 
     /**
+     * The meta object literal for the '<em><b>Header File</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference ATTRIBUTE_DEFINITION__HEADER_FILE = eINSTANCE.getAttributeDefinition_HeaderFile();
+
+    /**
+     * The meta object literal for the '<em><b>CType</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute ATTRIBUTE_DEFINITION__CTYPE = eINSTANCE.getAttributeDefinition_CType();
+
+    /**
      * The meta object literal for the '<em><b>Type</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -3375,20 +3537,20 @@ public interface FractalPackage extends EPackage
     EAttribute ATTRIBUTE_DEFINITION__TYPE = eINSTANCE.getAttributeDefinition_Type();
 
     /**
-     * The meta object literal for the '<em><b>Attribute Name</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute ATTRIBUTE_DEFINITION__ATTRIBUTE_NAME = eINSTANCE.getAttributeDefinition_AttributeName();
+    EAttribute ATTRIBUTE_DEFINITION__NAME = eINSTANCE.getAttributeDefinition_Name();
 
     /**
-     * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Value</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute ATTRIBUTE_DEFINITION__VALUE = eINSTANCE.getAttributeDefinition_Value();
+    EReference ATTRIBUTE_DEFINITION__VALUE = eINSTANCE.getAttributeDefinition_Value();
 
     /**
      * The meta object literal for the '{@link org.ow2.mindEd.adl.textual.fractal.impl.ImplementationDefinitionImpl <em>Implementation Definition</em>}' class.

@@ -50,29 +50,29 @@ public interface ArgumentDefinition extends EObject
   void setName(String value);
 
   /**
-   * Returns the value of the '<em><b>Argument Value</b></em>' attribute.
+   * Returns the value of the '<em><b>Argument Value</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Argument Value</em>' attribute isn't clear,
+   * If the meaning of the '<em>Argument Value</em>' containment reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Argument Value</em>' attribute.
-   * @see #setArgumentValue(String)
+   * @return the value of the '<em>Argument Value</em>' containment reference.
+   * @see #setArgumentValue(Value)
    * @see org.ow2.mindEd.adl.textual.fractal.FractalPackage#getArgumentDefinition_ArgumentValue()
-   * @model
+   * @model containment="true"
    * @generated
    */
-  String getArgumentValue();
+  Value getArgumentValue();
 
   /**
-   * Sets the value of the '{@link org.ow2.mindEd.adl.textual.fractal.ArgumentDefinition#getArgumentValue <em>Argument Value</em>}' attribute.
+   * Sets the value of the '{@link org.ow2.mindEd.adl.textual.fractal.ArgumentDefinition#getArgumentValue <em>Argument Value</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Argument Value</em>' attribute.
+   * @param value the new value of the '<em>Argument Value</em>' containment reference.
    * @see #getArgumentValue()
    * @generated
    */
-  void setArgumentValue(String value);
+  void setArgumentValue(Value value);
 
 } // ArgumentDefinition

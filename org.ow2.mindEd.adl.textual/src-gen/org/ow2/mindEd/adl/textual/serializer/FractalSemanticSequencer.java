@@ -40,6 +40,7 @@ import org.ow2.mindEd.adl.textual.fractal.SubComponentDefinition;
 import org.ow2.mindEd.adl.textual.fractal.TemplateReference;
 import org.ow2.mindEd.adl.textual.fractal.TemplateSpecifier;
 import org.ow2.mindEd.adl.textual.fractal.TypeDefinition;
+import org.ow2.mindEd.adl.textual.fractal.ValueList;
 import org.ow2.mindEd.adl.textual.services.FractalGrammarAccess;
 
 @SuppressWarnings("all")
@@ -238,6 +239,13 @@ public class FractalSemanticSequencer extends AbstractDelegatingSemanticSequence
 					return; 
 				}
 				else break;
+			case FractalPackage.VALUE_LIST:
+				if(context == grammarAccess.getValueRule() ||
+				   context == grammarAccess.getValueListRule()) {
+					sequence_ValueList(context, (ValueList) semanticObject); 
+					return; 
+				}
+				else break;
 			}
 		if (errorAcceptor != null) errorAcceptor.accept(diagnosticProvider.createInvalidContextOrTypeDiagnostic(semanticObject, context));
 	}
@@ -292,7 +300,14 @@ public class FractalSemanticSequencer extends AbstractDelegatingSemanticSequence
 	
 	/**
 	 * Constraint:
-	 *     (annotationsList=AnnotationsList? type=AttributeType? attributeName=ID value=Value?)
+	 *     (
+	 *         annotationsList=AnnotationsList? 
+	 *         headerFile=FileC? 
+	 *         cType=AttributeType? 
+	 *         type=ID? 
+	 *         name=ID 
+	 *         value=Value?
+	 *     )
 	 */
 	protected void sequence_AttributeDefinition(EObject context, AttributeDefinition semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -560,6 +575,15 @@ public class FractalSemanticSequencer extends AbstractDelegatingSemanticSequence
 	 *     )
 	 */
 	protected void sequence_TypeDefinition(EObject context, TypeDefinition semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (member+=Value member+=Value*)
+	 */
+	protected void sequence_ValueList(EObject context, ValueList semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 }

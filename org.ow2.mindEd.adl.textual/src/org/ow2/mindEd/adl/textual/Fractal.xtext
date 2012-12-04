@@ -194,7 +194,11 @@ HexadecimalType :
 	'0x'INT;
 
 Value :
-	ID | signedINT | HexadecimalType | STRING | 'null';
+	ID | signedINT | HexadecimalType | STRING | ValueList | 'null';
+
+ValueList:
+	'{' member+=Value (',' member+=Value)* '}'
+;
 
 TemplateReference :
 	(name=TemplateSpecifier '=')? (typeReference = [TypeReference | QualifiedName] | anyTypeReference ?= '?')
@@ -209,7 +213,7 @@ ArgumentDefinition :
 
 AttributeDefinition :
 	(annotationsList=AnnotationsList)?
-	'attribute' (type = AttributeType)? attributeName = ID ('=' value = Value)? ';' ;
+	'attribute' (headerFile=FileC ':')? (cType=AttributeType)? (type=ID)? name = ID ('=' value = Value)? ';' ;
 
 ImplementationDefinition :
 	(annotationsList=AnnotationsList)?

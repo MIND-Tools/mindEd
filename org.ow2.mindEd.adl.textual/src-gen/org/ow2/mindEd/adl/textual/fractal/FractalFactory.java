@@ -221,6 +221,24 @@ public interface FractalFactory extends EFactory
   TemplateSpecifier createTemplateSpecifier();
 
   /**
+   * Returns a new object of class '<em>Value</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Value</em>'.
+   * @generated
+   */
+  Value createValue();
+
+  /**
+   * Returns a new object of class '<em>Value List</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Value List</em>'.
+   * @generated
+   */
+  ValueList createValueList();
+
+  /**
    * Returns a new object of class '<em>Template Reference</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

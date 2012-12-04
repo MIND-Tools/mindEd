@@ -185,6 +185,16 @@ public class FractalAdapterFactory extends AdapterFactoryImpl
         return createTemplateSpecifierAdapter();
       }
       @Override
+      public Adapter caseValue(Value object)
+      {
+        return createValueAdapter();
+      }
+      @Override
+      public Adapter caseValueList(ValueList object)
+      {
+        return createValueListAdapter();
+      }
+      @Override
       public Adapter caseTemplateReference(TemplateReference object)
       {
         return createTemplateReferenceAdapter();
@@ -597,6 +607,36 @@ public class FractalAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createTemplateSpecifierAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.ow2.mindEd.adl.textual.fractal.Value <em>Value</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.ow2.mindEd.adl.textual.fractal.Value
+   * @generated
+   */
+  public Adapter createValueAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.ow2.mindEd.adl.textual.fractal.ValueList <em>Value List</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.ow2.mindEd.adl.textual.fractal.ValueList
+   * @generated
+   */
+  public Adapter createValueListAdapter()
   {
     return null;
   }
