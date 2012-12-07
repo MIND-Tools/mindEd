@@ -48,21 +48,21 @@ public class BuildAction implements IObjectActionDelegate {
 		MindProject mp = MindIdeCore.get(project);
 		if (mp == null) return;
 		
-		try {
-			MindIdeBuilder.checkFile(project, mp.getAllFiles());
-		} catch (InvalidCommandLineException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (ADLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (CompilerError e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (CoreException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+//		try {
+//			MindIdeBuilder.checkFile(project, mp.getAllFiles());
+//		} catch (InvalidCommandLineException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		} catch (ADLException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		} catch (CompilerError e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		} catch (CoreException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
 		
 	}
 

@@ -94,11 +94,11 @@ public class MindIdeBuilder extends IncrementalProjectBuilder {
 					
 					IResource mfRsc = MindIdeCore.getResource(mf);
 					MindCMarker.unmark(mfRsc, false, IResource.DEPTH_ZERO);
-					checkFile(currentProject, Collections.singletonList(mf));
+/*					checkFile(currentProject, Collections.singletonList(mf));
 				} catch (InvalidCommandLineException e) {
 					addError(currentProject, mf, e);
 				} catch (ADLException e) {
-					addError(currentProject, mf, e);
+					addError(currentProject, mf, e);*/
 				} catch (CompilerError e) {
 					e.printStackTrace();
 				}
@@ -135,11 +135,11 @@ public class MindIdeBuilder extends IncrementalProjectBuilder {
 				try {
 					IResource mfRsc = MindIdeCore.getResource(mf);
 					MindCMarker.unmark(mfRsc, false, IResource.DEPTH_ZERO);
-					checkFile(currentProject, Collections.singletonList(mf));
+/*					checkFile(currentProject, Collections.singletonList(mf));
 				} catch (InvalidCommandLineException e) {
 					addError(currentProject, mf, e);
 				} catch (ADLException e) {
-					addError(currentProject, mf, e);
+					addError(currentProject, mf, e);*/
 				} catch (CompilerError e) {
 					e.printStackTrace();
 				}
