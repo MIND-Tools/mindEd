@@ -54,12 +54,13 @@ public class FractalFormatter extends AbstractDeclarativeFormatter {
 	}
 
 	/**
-	 * import a.b.c; -> line wrap after
+	 * import a.b.c; -> line wrap after and no space before ;
 	 * line wrap before architecture definition ... toto ... { ... }
 	 */
 	private void formatAdlDefinition(FormattingConfig c, FractalGrammarAccess f) {
 		c.setLinewrap(0, 1, 2).after(f.getImportDefinitionAccess().getSemicolonKeyword_3());
 		c.setLinewrap(0, 1, 2).before(f.getArchitectureDefinitionRule());
+		c.setNoSpace().before(f.getImportDefinitionAccess().getSemicolonKeyword_3());
 	}
 
 	/**
