@@ -24,6 +24,9 @@ import org.ow2.mindEd.adl.textual.fractal.ImportDefinition;
 import org.ow2.mindEd.adl.textual.fractal.InlineCodeC;
 import org.ow2.mindEd.adl.textual.fractal.PrimitiveDefinition;
 import org.ow2.mindEd.adl.textual.fractal.PrimitiveSuperType;
+import org.ow2.mindEd.adl.textual.fractal.PrimitiveSuperTypeDefinition;
+import org.ow2.mindEd.adl.textual.fractal.ProvidedInterfaceDefinition;
+import org.ow2.mindEd.adl.textual.fractal.RequiredInterfaceDefinition;
 import org.ow2.mindEd.adl.textual.fractal.SubComponentDefinition;
 import org.ow2.mindEd.adl.textual.fractal.TemplateReference;
 import org.ow2.mindEd.adl.textual.fractal.TemplateSpecifier;
@@ -144,8 +147,12 @@ public class FractalLabelProvider extends DefaultEObjectLabelProvider {
 
 	// !
 	// Super type of Provided/RequiredInterfaceDefinition: works for both
-	String image(HostedInterfaceDefinition itfDef) {
-		return "full/obj16/InterfaceDefinition.gif";
+	String image(RequiredInterfaceDefinition itfDef) {
+		return "full/obj16/RequiredInterfaceDefinition.gif";
+	}
+	
+	String image(ProvidedInterfaceDefinition itfDef) {
+		return "full/obj16/ProvidedInterfaceDefinition.gif";
 	}
 
 	String image(DataDefinition dataDef){
@@ -181,10 +188,31 @@ public class FractalLabelProvider extends DefaultEObjectLabelProvider {
 	}
 
 	// !
+	String text(CompositeSuperType compositeSuperType){
+		CompositeSuperTypeDefinition cstDef = compositeSuperType.getTargetArchDef();
+		if (cstDef instanceof CompositeDefinition)
+			return ((CompositeDefinition) cstDef).getName();
+		else if (cstDef instanceof TypeDefinition)
+			return ((TypeDefinition) cstDef).getName();
+		else // error case
+			return "";
+	}
+	
+	// !
 	String image(CompositeSuperType compositeSuperType){
 		return "full/obj16/CompositeReferenceDefinition.gif";
 	}
 
+	String text(PrimitiveSuperType primitiveSuperType){
+		PrimitiveSuperTypeDefinition pstDef = primitiveSuperType.getTargetArchDef();
+		if (pstDef instanceof PrimitiveDefinition)
+			return ((PrimitiveDefinition) pstDef).getName();
+		else if (pstDef instanceof TypeDefinition)
+			return ((TypeDefinition) pstDef).getName();
+		else // error case
+			return "";
+	}
+	
 	// !
 	String image(PrimitiveSuperType primitiveSuperType){
 		return "full/obj16/PrimitiveReferenceDefinition.gif";
