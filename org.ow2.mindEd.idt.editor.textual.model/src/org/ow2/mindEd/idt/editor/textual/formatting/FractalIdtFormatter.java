@@ -41,7 +41,7 @@ public class FractalIdtFormatter extends FractalItfFormatter {
 		c.setLinewrap().before(
 				g.getConstantDefinitionBeginAccess().getIfndefKeyword_0());
 		c.setLinewrap().before(
-				g.getIdtFileAccess().getEndifKeyword_4());
+				g.getConstantDefinitionEndAccess().getEndifKeyword());
 
 	}
 

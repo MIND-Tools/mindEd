@@ -1,9 +1,8 @@
 /**
- * <copyright>
- * </copyright>
- *
  */
 package org.ow2.mindEd.itf.editor.textual.fractalIDL;
+
+import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EObject;
 
@@ -17,6 +16,7 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link org.ow2.mindEd.itf.editor.textual.fractalIDL.Declarator#getPointer <em>Pointer</em>}</li>
  *   <li>{@link org.ow2.mindEd.itf.editor.textual.fractalIDL.Declarator#getDc <em>Dc</em>}</li>
+ *   <li>{@link org.ow2.mindEd.itf.editor.textual.fractalIDL.Declarator#getDec <em>Dec</em>}</li>
  * </ul>
  * </p>
  *
@@ -27,30 +27,20 @@ import org.eclipse.emf.ecore.EObject;
 public interface Declarator extends EObject
 {
   /**
-   * Returns the value of the '<em><b>Pointer</b></em>' containment reference.
+   * Returns the value of the '<em><b>Pointer</b></em>' containment reference list.
+   * The list contents are of type {@link org.ow2.mindEd.itf.editor.textual.fractalIDL.QualifiedPointerSpecification}.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Pointer</em>' containment reference isn't clear,
+   * If the meaning of the '<em>Pointer</em>' containment reference list isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Pointer</em>' containment reference.
-   * @see #setPointer(PointerSpecification)
+   * @return the value of the '<em>Pointer</em>' containment reference list.
    * @see org.ow2.mindEd.itf.editor.textual.fractalIDL.FractalIDLPackage#getDeclarator_Pointer()
    * @model containment="true"
    * @generated
    */
-  PointerSpecification getPointer();
-
-  /**
-   * Sets the value of the '{@link org.ow2.mindEd.itf.editor.textual.fractalIDL.Declarator#getPointer <em>Pointer</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Pointer</em>' containment reference.
-   * @see #getPointer()
-   * @generated
-   */
-  void setPointer(PointerSpecification value);
+  EList<QualifiedPointerSpecification> getPointer();
 
   /**
    * Returns the value of the '<em><b>Dc</b></em>' containment reference.
@@ -61,12 +51,12 @@ public interface Declarator extends EObject
    * </p>
    * <!-- end-user-doc -->
    * @return the value of the '<em>Dc</em>' containment reference.
-   * @see #setDc(DirectDeclarator)
+   * @see #setDc(EObject)
    * @see org.ow2.mindEd.itf.editor.textual.fractalIDL.FractalIDLPackage#getDeclarator_Dc()
    * @model containment="true"
    * @generated
    */
-  DirectDeclarator getDc();
+  EObject getDc();
 
   /**
    * Sets the value of the '{@link org.ow2.mindEd.itf.editor.textual.fractalIDL.Declarator#getDc <em>Dc</em>}' containment reference.
@@ -76,6 +66,32 @@ public interface Declarator extends EObject
    * @see #getDc()
    * @generated
    */
-  void setDc(DirectDeclarator value);
+  void setDc(EObject value);
+
+  /**
+   * Returns the value of the '<em><b>Dec</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Dec</em>' containment reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Dec</em>' containment reference.
+   * @see #setDec(Declarator)
+   * @see org.ow2.mindEd.itf.editor.textual.fractalIDL.FractalIDLPackage#getDeclarator_Dec()
+   * @model containment="true"
+   * @generated
+   */
+  Declarator getDec();
+
+  /**
+   * Sets the value of the '{@link org.ow2.mindEd.itf.editor.textual.fractalIDL.Declarator#getDec <em>Dec</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Dec</em>' containment reference.
+   * @see #getDec()
+   * @generated
+   */
+  void setDec(Declarator value);
 
 } // Declarator

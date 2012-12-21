@@ -45,7 +45,7 @@ public class FractalItfLabelProvider extends DefaultEObjectLabelProvider {
 	};
 
 	public String text(MethodDefinition obj) {
-		return "Method " + obj.getId();
+		return "Method " + obj.getName();
 	};
 
 	public String image(ItfFile obj) {

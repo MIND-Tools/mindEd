@@ -118,13 +118,16 @@ public class MindProjectImpl extends org.ow2.mindEd.ide.model.impl.MindProjectIm
 			return FamilyJobCST.FAMILY_CHANGE_MAKEFILE_VAR_MIND_SRC == family || FamilyJobCST.FAMILY_ALL == family;
 		}
 		
+		// SSZ
+		// Used to write path variables in the Makefile
+		// The previous version used to write absolute paths: here we write relative paths.
 		private String toFile(MindRootSrc rs) {
 			IFolder f = MindIdeCore.getResource(rs);
-			// for windows double \\
-			IPath location = f.getLocation();
-			if (location == null)
-				return null;
-			return location.toOSString().replaceAll("\\\\", "\\\\\\\\");
+			String path = "";
+			
+			path = (f.isLinked()) ? f.getLocation().toOSString() : f.getProjectRelativePath().toOSString(); 
+				
+			return path;
 		}
 	}
 	
@@ -214,11 +217,7 @@ public class MindProjectImpl extends org.ow2.mindEd.ide.model.impl.MindProjectIm
 	
 	@Override
 	public EList<MindPathEntry> getRawMinpath() {
-		BasicEList<MindPathEntry> ret = new BasicEList<MindPathEntry>();
-		for (MindPathEntry mindPathEntry : new ArrayList<MindPathEntry>( getMindpathentries())) {
-			ret.add(new MindPathEntryCustomImpl(mindPathEntry));
-		}
-		return ret;
+		return getMindpathentries();
 	}
 	
 	@Override
@@ -727,7 +726,7 @@ public class MindProjectImpl extends org.ow2.mindEd.ide.model.impl.MindProjectIm
 	}
 	
 	public void changeMINDCOMP() {
-		Job r = new ChangeMindCOMPVarJob(this);
+		Job r = new ChangeMindCOMPVarJob(this);	
 		r.schedule();
 	}
 	

@@ -55,7 +55,7 @@ import org.ow2.mindEd.ide.ui.navigator.MindLabelProvider;
  * as the source folder, package name.
  */
 
-public class MindExportLibMPEWizardPage extends WizardPage implements PageUdapteStatus {
+public class MindExportLibMPEWizardPage extends WizardPage implements PageUpdateStatus {
 	
 	static class MPEExptor extends MindPathEntryCustomImpl {
 		boolean _useImport;

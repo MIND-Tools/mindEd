@@ -1,7 +1,4 @@
 /**
- * <copyright>
- * </copyright>
- *
  */
 package org.ow2.mindEd.itf.editor.textual.fractalIDL.impl;
 
@@ -84,11 +81,9 @@ public class FractalIDLFactoryImpl extends EFactoryImpl implements FractalIDLFac
       case FractalIDLPackage.ENUM_MEMBER: return createEnumMember();
       case FractalIDLPackage.DECLARATORS: return createDeclarators();
       case FractalIDLPackage.DECLARATOR: return createDeclarator();
-      case FractalIDLPackage.ABSTRACT_DECLARATOR: return createAbstractDeclarator();
-      case FractalIDLPackage.POINTER_SPECIFICATION: return createPointerSpecification();
-      case FractalIDLPackage.QUALIFIED_POINTER_SPECIFICATION: return createQualified_PointerSpecification();
-      case FractalIDLPackage.DIRECT_DECLARATOR: return createDirectDeclarator();
-      case FractalIDLPackage.ABSTRACT_DIRECT_DECLARATOR: return createAbstractDirectDeclarator();
+      case FractalIDLPackage.QUALIFIED_POINTER_SPECIFICATION: return createQualifiedPointerSpecification();
+      case FractalIDLPackage.DIRECT_NAMED_DECLARATOR: return createDirectNamedDeclarator();
+      case FractalIDLPackage.DIRECT_ANONYMOUS_DECLARATOR: return createDirectAnonymousDeclarator();
       case FractalIDLPackage.ARRAY_SPECIFICATION: return createArraySpecification();
       case FractalIDLPackage.CONSTANT_DEFINITION: return createConstantDefinition();
       case FractalIDLPackage.INTERFACE_DEFINITION: return createInterfaceDefinition();
@@ -96,10 +91,8 @@ public class FractalIDLFactoryImpl extends EFactoryImpl implements FractalIDLFac
       case FractalIDLPackage.PARAMETER_LIST: return createParameterList();
       case FractalIDLPackage.PARAMETER: return createParameter();
       case FractalIDLPackage.INCLUDE_DIRECTIVE: return createIncludeDirective();
-      case FractalIDLPackage.ANNOTATIONS: return createAnnotations();
+      case FractalIDLPackage.ANNOTATIONS_LIST: return createAnnotationsList();
       case FractalIDLPackage.ANNOTATION: return createAnnotation();
-      case FractalIDLPackage.ANNOTATION_PARAMETERS: return createAnnotationParameters();
-      case FractalIDLPackage.ANNOTATION_VALUE_PAIRS: return createAnnotationValuePairs();
       case FractalIDLPackage.ANNOTATION_VALUE_PAIR: return createAnnotationValuePair();
       case FractalIDLPackage.ANNOTATION_VALUE: return createAnnotationValue();
       case FractalIDLPackage.ARRAY_ANNOTATION_VALUE: return createArrayAnnotationValue();
@@ -115,7 +108,6 @@ public class FractalIDLFactoryImpl extends EFactoryImpl implements FractalIDLFac
       case FractalIDLPackage.CAST_EXPRESSION: return createCastExpression();
       case FractalIDLPackage.UNARY_EXPRESSION: return createUnaryExpression();
       case FractalIDLPackage.PRIMARY_EXPRESSION: return createPrimaryExpression();
-      case FractalIDLPackage.LITERAL: return createLiteral();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
     }
@@ -344,10 +336,10 @@ public class FractalIDLFactoryImpl extends EFactoryImpl implements FractalIDLFac
    * <!-- end-user-doc -->
    * @generated
    */
-  public AbstractDeclarator createAbstractDeclarator()
+  public QualifiedPointerSpecification createQualifiedPointerSpecification()
   {
-    AbstractDeclaratorImpl abstractDeclarator = new AbstractDeclaratorImpl();
-    return abstractDeclarator;
+    QualifiedPointerSpecificationImpl qualifiedPointerSpecification = new QualifiedPointerSpecificationImpl();
+    return qualifiedPointerSpecification;
   }
 
   /**
@@ -355,10 +347,10 @@ public class FractalIDLFactoryImpl extends EFactoryImpl implements FractalIDLFac
    * <!-- end-user-doc -->
    * @generated
    */
-  public PointerSpecification createPointerSpecification()
+  public DirectNamedDeclarator createDirectNamedDeclarator()
   {
-    PointerSpecificationImpl pointerSpecification = new PointerSpecificationImpl();
-    return pointerSpecification;
+    DirectNamedDeclaratorImpl directNamedDeclarator = new DirectNamedDeclaratorImpl();
+    return directNamedDeclarator;
   }
 
   /**
@@ -366,32 +358,10 @@ public class FractalIDLFactoryImpl extends EFactoryImpl implements FractalIDLFac
    * <!-- end-user-doc -->
    * @generated
    */
-  public Qualified_PointerSpecification createQualified_PointerSpecification()
+  public DirectAnonymousDeclarator createDirectAnonymousDeclarator()
   {
-    Qualified_PointerSpecificationImpl qualified_PointerSpecification = new Qualified_PointerSpecificationImpl();
-    return qualified_PointerSpecification;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public DirectDeclarator createDirectDeclarator()
-  {
-    DirectDeclaratorImpl directDeclarator = new DirectDeclaratorImpl();
-    return directDeclarator;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public AbstractDirectDeclarator createAbstractDirectDeclarator()
-  {
-    AbstractDirectDeclaratorImpl abstractDirectDeclarator = new AbstractDirectDeclaratorImpl();
-    return abstractDirectDeclarator;
+    DirectAnonymousDeclaratorImpl directAnonymousDeclarator = new DirectAnonymousDeclaratorImpl();
+    return directAnonymousDeclarator;
   }
 
   /**
@@ -476,10 +446,10 @@ public class FractalIDLFactoryImpl extends EFactoryImpl implements FractalIDLFac
    * <!-- end-user-doc -->
    * @generated
    */
-  public Annotations createAnnotations()
+  public AnnotationsList createAnnotationsList()
   {
-    AnnotationsImpl annotations = new AnnotationsImpl();
-    return annotations;
+    AnnotationsListImpl annotationsList = new AnnotationsListImpl();
+    return annotationsList;
   }
 
   /**
@@ -491,28 +461,6 @@ public class FractalIDLFactoryImpl extends EFactoryImpl implements FractalIDLFac
   {
     AnnotationImpl annotation = new AnnotationImpl();
     return annotation;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public AnnotationParameters createAnnotationParameters()
-  {
-    AnnotationParametersImpl annotationParameters = new AnnotationParametersImpl();
-    return annotationParameters;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public AnnotationValuePairs createAnnotationValuePairs()
-  {
-    AnnotationValuePairsImpl annotationValuePairs = new AnnotationValuePairsImpl();
-    return annotationValuePairs;
   }
 
   /**
@@ -678,17 +626,6 @@ public class FractalIDLFactoryImpl extends EFactoryImpl implements FractalIDLFac
   {
     PrimaryExpressionImpl primaryExpression = new PrimaryExpressionImpl();
     return primaryExpression;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Literal createLiteral()
-  {
-    LiteralImpl literal = new LiteralImpl();
-    return literal;
   }
 
   /**

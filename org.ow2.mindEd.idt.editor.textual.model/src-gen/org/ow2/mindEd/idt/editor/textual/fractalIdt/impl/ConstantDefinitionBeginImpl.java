@@ -1,7 +1,4 @@
 /**
- * <copyright>
- * </copyright>
- *
  */
 package org.ow2.mindEd.idt.editor.textual.fractalIdt.impl;
 
@@ -22,7 +19,7 @@ import org.ow2.mindEd.idt.editor.textual.fractalIdt.FractalIdtPackage;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.ow2.mindEd.idt.editor.textual.fractalIdt.impl.ConstantDefinitionBeginImpl#getId <em>Id</em>}</li>
+ *   <li>{@link org.ow2.mindEd.idt.editor.textual.fractalIdt.impl.ConstantDefinitionBeginImpl#getName <em>Name</em>}</li>
  * </ul>
  * </p>
  *
@@ -31,24 +28,24 @@ import org.ow2.mindEd.idt.editor.textual.fractalIdt.FractalIdtPackage;
 public class ConstantDefinitionBeginImpl extends MinimalEObjectImpl.Container implements ConstantDefinitionBegin
 {
   /**
-   * The default value of the '{@link #getId() <em>Id</em>}' attribute.
+   * The default value of the '{@link #getName() <em>Name</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getId()
+   * @see #getName()
    * @generated
    * @ordered
    */
-  protected static final String ID_EDEFAULT = null;
+  protected static final String NAME_EDEFAULT = null;
 
   /**
-   * The cached value of the '{@link #getId() <em>Id</em>}' attribute.
+   * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getId()
+   * @see #getName()
    * @generated
    * @ordered
    */
-  protected String id = ID_EDEFAULT;
+  protected String name = NAME_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
@@ -76,9 +73,9 @@ public class ConstantDefinitionBeginImpl extends MinimalEObjectImpl.Container im
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getId()
+  public String getName()
   {
-    return id;
+    return name;
   }
 
   /**
@@ -86,12 +83,12 @@ public class ConstantDefinitionBeginImpl extends MinimalEObjectImpl.Container im
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setId(String newId)
+  public void setName(String newName)
   {
-    String oldId = id;
-    id = newId;
+    String oldName = name;
+    name = newName;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, FractalIdtPackage.CONSTANT_DEFINITION_BEGIN__ID, oldId, id));
+      eNotify(new ENotificationImpl(this, Notification.SET, FractalIdtPackage.CONSTANT_DEFINITION_BEGIN__NAME, oldName, name));
   }
 
   /**
@@ -104,8 +101,8 @@ public class ConstantDefinitionBeginImpl extends MinimalEObjectImpl.Container im
   {
     switch (featureID)
     {
-      case FractalIdtPackage.CONSTANT_DEFINITION_BEGIN__ID:
-        return getId();
+      case FractalIdtPackage.CONSTANT_DEFINITION_BEGIN__NAME:
+        return getName();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -120,8 +117,8 @@ public class ConstantDefinitionBeginImpl extends MinimalEObjectImpl.Container im
   {
     switch (featureID)
     {
-      case FractalIdtPackage.CONSTANT_DEFINITION_BEGIN__ID:
-        setId((String)newValue);
+      case FractalIdtPackage.CONSTANT_DEFINITION_BEGIN__NAME:
+        setName((String)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -137,8 +134,8 @@ public class ConstantDefinitionBeginImpl extends MinimalEObjectImpl.Container im
   {
     switch (featureID)
     {
-      case FractalIdtPackage.CONSTANT_DEFINITION_BEGIN__ID:
-        setId(ID_EDEFAULT);
+      case FractalIdtPackage.CONSTANT_DEFINITION_BEGIN__NAME:
+        setName(NAME_EDEFAULT);
         return;
     }
     super.eUnset(featureID);
@@ -154,8 +151,8 @@ public class ConstantDefinitionBeginImpl extends MinimalEObjectImpl.Container im
   {
     switch (featureID)
     {
-      case FractalIdtPackage.CONSTANT_DEFINITION_BEGIN__ID:
-        return ID_EDEFAULT == null ? id != null : !ID_EDEFAULT.equals(id);
+      case FractalIdtPackage.CONSTANT_DEFINITION_BEGIN__NAME:
+        return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
     }
     return super.eIsSet(featureID);
   }
@@ -171,8 +168,8 @@ public class ConstantDefinitionBeginImpl extends MinimalEObjectImpl.Container im
     if (eIsProxy()) return super.toString();
 
     StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (id: ");
-    result.append(id);
+    result.append(" (name: ");
+    result.append(name);
     result.append(')');
     return result.toString();
   }

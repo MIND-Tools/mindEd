@@ -35,9 +35,9 @@ public class FractalIdtProposalProvider extends AbstractFractalIdtProposalProvid
 
 		acceptor.accept(completionProposal);
 	}*/
-
+	
 	@Override
-	public void completeConstantDefinition_Id(EObject model,
+	public void completeConstantDefinitionBegin_Name(EObject model,
 			Assignment assignment, ContentAssistContext context,
 			ICompletionProposalAcceptor acceptor) {
 
@@ -45,7 +45,7 @@ public class FractalIdtProposalProvider extends AbstractFractalIdtProposalProvid
 
 		IdtFile idtFile = (IdtFile) model;
 
-		String proposal = idtFile.getBegindef().getId();
+		String proposal = idtFile.getBegindef().getName();
 
 		completionProposal = createCompletionProposal(proposal, proposal
 				+ " - definition", getImage(idtFile.getBegindef()), context);

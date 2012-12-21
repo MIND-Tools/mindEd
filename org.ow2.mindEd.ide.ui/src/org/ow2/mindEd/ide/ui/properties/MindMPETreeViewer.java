@@ -1,5 +1,6 @@
 package org.ow2.mindEd.ide.ui.properties;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
@@ -9,7 +10,9 @@ import java.util.Set;
 import org.eclipse.core.resources.IContainer;
 import org.eclipse.core.resources.IFolder;
 import org.eclipse.core.resources.IProject;
+import org.eclipse.core.resources.IProjectDescription;
 import org.eclipse.core.resources.ResourcesPlugin;
+import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.Path;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
@@ -70,13 +73,13 @@ public class MindMPETreeViewer implements ExtendedModel, MpeMindPathModel {
 	private Set<MindPathEntryViewer> _changeListeners = new HashSet<MindPathEntryViewer>();
 	MindProject _project;
 	
-	private IAction _editAction = new Action("edit", null) {
-		@Override
-		public void run() {
-			edit(getSelection());		
-		}
-		
-	};
+//	private IAction _editAction = new Action("edit", null) {
+//		@Override
+//		public void run() {
+//			edit(getSelection());		
+//		}
+//		
+//	};
 	
 	MPEActionGroup _mpeActionGroup;
 	
@@ -193,6 +196,10 @@ public class MindMPETreeViewer implements ExtendedModel, MpeMindPathModel {
 	}
 	
 	public static void createOrEditSourceFolder(Shell shell, MindProject project, MindPathEntry mpe, MpeMindPathModel model) {
+		// Note:
+		// if mpe != null we are in the project's "Mind properties" trying to edit a specific entry
+		// if mpe == null then it's a new path entry definition
+		
 		SourceEntryDialog dialog = new SourceEntryDialog(shell, project, mpe, model.getEntries());
 		
 		if (mpe != null) {
@@ -207,6 +214,7 @@ public class MindMPETreeViewer implements ExtendedModel, MpeMindPathModel {
 		}
 		if (dialog.open() == Window.OK) {
 			IContainer p = (IContainer) dialog.getFirstResult();
+			
 			if (p != null) {
 				if (mpe == null) {
 					mpe = MindideFactory.eINSTANCE
@@ -224,6 +232,26 @@ public class MindMPETreeViewer implements ExtendedModel, MpeMindPathModel {
 		}
 	}
 	
+	private static void addProjectReference(IProject project, IProject referencedProject) {
+		try {
+			IProjectDescription projDesc = project.getDescription();
+			IProject[] existingReferences = projDesc.getReferencedProjects();
+			// create new list containing existing references
+			List<IProject> projectReferences = new ArrayList<IProject>(Arrays.asList(existingReferences));
+			
+			projectReferences.add(referencedProject);
+			
+			// set the new referenced project array (with conversion from arraylist)
+			projDesc.setReferencedProjects(projectReferences.toArray(new IProject[projectReferences.size()]));
+			
+			// IProjectDescription Javadoc of the setReferencedProjects method says :
+			// "Users must call IProject.setDescription(IProjectDescription, int, IProgressMonitor) before changes made to this description take effect."
+			project.setDescription(projDesc, IProject.KEEP_HISTORY, null);
+		} catch (CoreException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 	
 	public static void createOrEditProjectReference(Shell shell, MindProject project, MindPathEntry mpe, MpeMindPathModel model) {
 		ElementListSelectionDialog dialog = new ElementListSelectionDialog(shell, new MindMPELabelProvider());
@@ -251,16 +279,25 @@ public class MindMPETreeViewer implements ExtendedModel, MpeMindPathModel {
 			MindProject p = (MindProject) dialog.getFirstResult();
 			if (p != null) {
 				if (mpe == null) {
+					// creation
 					mpe = MindideFactory.eINSTANCE
 							.createMindPathEntry();
 					mpe.setEntryKind(MindPathKind.PROJECT);
 					mpe.setName(p.getProject().getFullPath()
 							.toPortableString());
 					model.mpeAdded(mpe);
+					
+					// also add an Eclipse project reference
+					// this allows cross-projects references resolution
+					// (important for the ADL and IDL editors)
+					addProjectReference(project.getProject(), p.getProject());
 				} else {
+					// edition
 					mpe.setName(p.getProject().getFullPath()
 							.toPortableString());
 					model.mpeChanged(mpe);
+					// SSZ: TODO: edit the project's description as in the previous case
+					
 				}
 			}
 		}
