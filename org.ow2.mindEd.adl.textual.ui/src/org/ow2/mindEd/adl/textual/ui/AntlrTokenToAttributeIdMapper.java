@@ -15,6 +15,7 @@ public class AntlrTokenToAttributeIdMapper extends AbstractAntlrTokenToAttribute
 	private static final Pattern QUOTED = Pattern.compile("(?:^'([^']*)'$)|(?:^\"([^\"]*)\")$", Pattern.MULTILINE);
 	private static final Pattern PUNCTUATION = Pattern.compile("\\p{Punct}*");
 	
+	@Override
 	protected String calculateId(String tokenName, int tokenType) {
 		if("'0x'".equals(tokenName)) {
 			return LexicalHighlightingConfiguration.HEXA_ID;

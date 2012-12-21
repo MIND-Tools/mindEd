@@ -44,8 +44,13 @@ Workflow {
 			// referencedGenModels = "uri to genmodel, uri to next genmodel"
 			}
 			
-			// the serialization component
-			fragment = parseTreeConstructor.ParseTreeConstructorFragment {}
+			// Serializer 2.0
+			fragment = serializer.SerializerFragment {
+				generateStub = false
+			}
+                
+			// the serialization component (1.0)
+			// fragment = parseTreeConstructor.ParseTreeConstructorFragment {}
 			
 			// a custom ResourceFactory for use with EMF 
 			fragment = resourceFactory.ResourceFactoryFragment {

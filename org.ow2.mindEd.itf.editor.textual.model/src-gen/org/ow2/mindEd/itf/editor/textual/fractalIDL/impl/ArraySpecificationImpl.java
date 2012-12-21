@@ -1,7 +1,4 @@
 /**
- * <copyright>
- * </copyright>
- *
  */
 package org.ow2.mindEd.itf.editor.textual.fractalIDL.impl;
 
@@ -25,7 +22,8 @@ import org.ow2.mindEd.itf.editor.textual.fractalIDL.FractalIDLPackage;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.ow2.mindEd.itf.editor.textual.fractalIDL.impl.ArraySpecificationImpl#getConstExpr <em>Const Expr</em>}</li>
+ *   <li>{@link org.ow2.mindEd.itf.editor.textual.fractalIDL.impl.ArraySpecificationImpl#isUnspecifiedSize <em>Unspecified Size</em>}</li>
+ *   <li>{@link org.ow2.mindEd.itf.editor.textual.fractalIDL.impl.ArraySpecificationImpl#getFixedSize <em>Fixed Size</em>}</li>
  * </ul>
  * </p>
  *
@@ -34,14 +32,34 @@ import org.ow2.mindEd.itf.editor.textual.fractalIDL.FractalIDLPackage;
 public class ArraySpecificationImpl extends MinimalEObjectImpl.Container implements ArraySpecification
 {
   /**
-   * The cached value of the '{@link #getConstExpr() <em>Const Expr</em>}' containment reference.
+   * The default value of the '{@link #isUnspecifiedSize() <em>Unspecified Size</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getConstExpr()
+   * @see #isUnspecifiedSize()
    * @generated
    * @ordered
    */
-  protected ConstantExpression constExpr;
+  protected static final boolean UNSPECIFIED_SIZE_EDEFAULT = false;
+
+  /**
+   * The cached value of the '{@link #isUnspecifiedSize() <em>Unspecified Size</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #isUnspecifiedSize()
+   * @generated
+   * @ordered
+   */
+  protected boolean unspecifiedSize = UNSPECIFIED_SIZE_EDEFAULT;
+
+  /**
+   * The cached value of the '{@link #getFixedSize() <em>Fixed Size</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getFixedSize()
+   * @generated
+   * @ordered
+   */
+  protected ConstantExpression fixedSize;
 
   /**
    * <!-- begin-user-doc -->
@@ -69,9 +87,9 @@ public class ArraySpecificationImpl extends MinimalEObjectImpl.Container impleme
    * <!-- end-user-doc -->
    * @generated
    */
-  public ConstantExpression getConstExpr()
+  public boolean isUnspecifiedSize()
   {
-    return constExpr;
+    return unspecifiedSize;
   }
 
   /**
@@ -79,13 +97,36 @@ public class ArraySpecificationImpl extends MinimalEObjectImpl.Container impleme
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetConstExpr(ConstantExpression newConstExpr, NotificationChain msgs)
+  public void setUnspecifiedSize(boolean newUnspecifiedSize)
   {
-    ConstantExpression oldConstExpr = constExpr;
-    constExpr = newConstExpr;
+    boolean oldUnspecifiedSize = unspecifiedSize;
+    unspecifiedSize = newUnspecifiedSize;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, FractalIDLPackage.ARRAY_SPECIFICATION__UNSPECIFIED_SIZE, oldUnspecifiedSize, unspecifiedSize));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public ConstantExpression getFixedSize()
+  {
+    return fixedSize;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetFixedSize(ConstantExpression newFixedSize, NotificationChain msgs)
+  {
+    ConstantExpression oldFixedSize = fixedSize;
+    fixedSize = newFixedSize;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FractalIDLPackage.ARRAY_SPECIFICATION__CONST_EXPR, oldConstExpr, newConstExpr);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FractalIDLPackage.ARRAY_SPECIFICATION__FIXED_SIZE, oldFixedSize, newFixedSize);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -96,20 +137,20 @@ public class ArraySpecificationImpl extends MinimalEObjectImpl.Container impleme
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setConstExpr(ConstantExpression newConstExpr)
+  public void setFixedSize(ConstantExpression newFixedSize)
   {
-    if (newConstExpr != constExpr)
+    if (newFixedSize != fixedSize)
     {
       NotificationChain msgs = null;
-      if (constExpr != null)
-        msgs = ((InternalEObject)constExpr).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FractalIDLPackage.ARRAY_SPECIFICATION__CONST_EXPR, null, msgs);
-      if (newConstExpr != null)
-        msgs = ((InternalEObject)newConstExpr).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FractalIDLPackage.ARRAY_SPECIFICATION__CONST_EXPR, null, msgs);
-      msgs = basicSetConstExpr(newConstExpr, msgs);
+      if (fixedSize != null)
+        msgs = ((InternalEObject)fixedSize).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FractalIDLPackage.ARRAY_SPECIFICATION__FIXED_SIZE, null, msgs);
+      if (newFixedSize != null)
+        msgs = ((InternalEObject)newFixedSize).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FractalIDLPackage.ARRAY_SPECIFICATION__FIXED_SIZE, null, msgs);
+      msgs = basicSetFixedSize(newFixedSize, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, FractalIDLPackage.ARRAY_SPECIFICATION__CONST_EXPR, newConstExpr, newConstExpr));
+      eNotify(new ENotificationImpl(this, Notification.SET, FractalIDLPackage.ARRAY_SPECIFICATION__FIXED_SIZE, newFixedSize, newFixedSize));
   }
 
   /**
@@ -122,8 +163,8 @@ public class ArraySpecificationImpl extends MinimalEObjectImpl.Container impleme
   {
     switch (featureID)
     {
-      case FractalIDLPackage.ARRAY_SPECIFICATION__CONST_EXPR:
-        return basicSetConstExpr(null, msgs);
+      case FractalIDLPackage.ARRAY_SPECIFICATION__FIXED_SIZE:
+        return basicSetFixedSize(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -138,8 +179,10 @@ public class ArraySpecificationImpl extends MinimalEObjectImpl.Container impleme
   {
     switch (featureID)
     {
-      case FractalIDLPackage.ARRAY_SPECIFICATION__CONST_EXPR:
-        return getConstExpr();
+      case FractalIDLPackage.ARRAY_SPECIFICATION__UNSPECIFIED_SIZE:
+        return isUnspecifiedSize();
+      case FractalIDLPackage.ARRAY_SPECIFICATION__FIXED_SIZE:
+        return getFixedSize();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -154,8 +197,11 @@ public class ArraySpecificationImpl extends MinimalEObjectImpl.Container impleme
   {
     switch (featureID)
     {
-      case FractalIDLPackage.ARRAY_SPECIFICATION__CONST_EXPR:
-        setConstExpr((ConstantExpression)newValue);
+      case FractalIDLPackage.ARRAY_SPECIFICATION__UNSPECIFIED_SIZE:
+        setUnspecifiedSize((Boolean)newValue);
+        return;
+      case FractalIDLPackage.ARRAY_SPECIFICATION__FIXED_SIZE:
+        setFixedSize((ConstantExpression)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -171,8 +217,11 @@ public class ArraySpecificationImpl extends MinimalEObjectImpl.Container impleme
   {
     switch (featureID)
     {
-      case FractalIDLPackage.ARRAY_SPECIFICATION__CONST_EXPR:
-        setConstExpr((ConstantExpression)null);
+      case FractalIDLPackage.ARRAY_SPECIFICATION__UNSPECIFIED_SIZE:
+        setUnspecifiedSize(UNSPECIFIED_SIZE_EDEFAULT);
+        return;
+      case FractalIDLPackage.ARRAY_SPECIFICATION__FIXED_SIZE:
+        setFixedSize((ConstantExpression)null);
         return;
     }
     super.eUnset(featureID);
@@ -188,10 +237,29 @@ public class ArraySpecificationImpl extends MinimalEObjectImpl.Container impleme
   {
     switch (featureID)
     {
-      case FractalIDLPackage.ARRAY_SPECIFICATION__CONST_EXPR:
-        return constExpr != null;
+      case FractalIDLPackage.ARRAY_SPECIFICATION__UNSPECIFIED_SIZE:
+        return unspecifiedSize != UNSPECIFIED_SIZE_EDEFAULT;
+      case FractalIDLPackage.ARRAY_SPECIFICATION__FIXED_SIZE:
+        return fixedSize != null;
     }
     return super.eIsSet(featureID);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public String toString()
+  {
+    if (eIsProxy()) return super.toString();
+
+    StringBuffer result = new StringBuffer(super.toString());
+    result.append(" (unspecifiedSize: ");
+    result.append(unspecifiedSize);
+    result.append(')');
+    return result.toString();
   }
 
 } //ArraySpecificationImpl

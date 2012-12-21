@@ -1,20 +1,25 @@
 /**
- * <copyright>
- * </copyright>
- *
  */
 package org.ow2.mindEd.itf.editor.textual.fractalIDL.impl;
 
+import java.util.Collection;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
+
+import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.ow2.mindEd.itf.editor.textual.fractalIDL.Annotation;
-import org.ow2.mindEd.itf.editor.textual.fractalIDL.AnnotationParameters;
+import org.ow2.mindEd.itf.editor.textual.fractalIDL.AnnotationValuePair;
 import org.ow2.mindEd.itf.editor.textual.fractalIDL.FractalIDLPackage;
 
 /**
@@ -24,44 +29,44 @@ import org.ow2.mindEd.itf.editor.textual.fractalIDL.FractalIDLPackage;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.ow2.mindEd.itf.editor.textual.fractalIDL.impl.AnnotationImpl#getFqn <em>Fqn</em>}</li>
- *   <li>{@link org.ow2.mindEd.itf.editor.textual.fractalIDL.impl.AnnotationImpl#getAnnotationParamaters <em>Annotation Paramaters</em>}</li>
+ *   <li>{@link org.ow2.mindEd.itf.editor.textual.fractalIDL.impl.AnnotationImpl#getName <em>Name</em>}</li>
+ *   <li>{@link org.ow2.mindEd.itf.editor.textual.fractalIDL.impl.AnnotationImpl#getAnnotationParametersList <em>Annotation Parameters List</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class AnnotationImpl extends AnnotationValueImpl implements Annotation
+public class AnnotationImpl extends MinimalEObjectImpl.Container implements Annotation
 {
   /**
-   * The default value of the '{@link #getFqn() <em>Fqn</em>}' attribute.
+   * The default value of the '{@link #getName() <em>Name</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getFqn()
+   * @see #getName()
    * @generated
    * @ordered
    */
-  protected static final String FQN_EDEFAULT = null;
+  protected static final String NAME_EDEFAULT = null;
 
   /**
-   * The cached value of the '{@link #getFqn() <em>Fqn</em>}' attribute.
+   * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getFqn()
+   * @see #getName()
    * @generated
    * @ordered
    */
-  protected String fqn = FQN_EDEFAULT;
+  protected String name = NAME_EDEFAULT;
 
   /**
-   * The cached value of the '{@link #getAnnotationParamaters() <em>Annotation Paramaters</em>}' containment reference.
+   * The cached value of the '{@link #getAnnotationParametersList() <em>Annotation Parameters List</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getAnnotationParamaters()
+   * @see #getAnnotationParametersList()
    * @generated
    * @ordered
    */
-  protected AnnotationParameters annotationParamaters;
+  protected EList<AnnotationValuePair> annotationParametersList;
 
   /**
    * <!-- begin-user-doc -->
@@ -89,9 +94,9 @@ public class AnnotationImpl extends AnnotationValueImpl implements Annotation
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getFqn()
+  public String getName()
   {
-    return fqn;
+    return name;
   }
 
   /**
@@ -99,12 +104,12 @@ public class AnnotationImpl extends AnnotationValueImpl implements Annotation
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setFqn(String newFqn)
+  public void setName(String newName)
   {
-    String oldFqn = fqn;
-    fqn = newFqn;
+    String oldName = name;
+    name = newName;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, FractalIDLPackage.ANNOTATION__FQN, oldFqn, fqn));
+      eNotify(new ENotificationImpl(this, Notification.SET, FractalIDLPackage.ANNOTATION__NAME, oldName, name));
   }
 
   /**
@@ -112,47 +117,13 @@ public class AnnotationImpl extends AnnotationValueImpl implements Annotation
    * <!-- end-user-doc -->
    * @generated
    */
-  public AnnotationParameters getAnnotationParamaters()
+  public EList<AnnotationValuePair> getAnnotationParametersList()
   {
-    return annotationParamaters;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public NotificationChain basicSetAnnotationParamaters(AnnotationParameters newAnnotationParamaters, NotificationChain msgs)
-  {
-    AnnotationParameters oldAnnotationParamaters = annotationParamaters;
-    annotationParamaters = newAnnotationParamaters;
-    if (eNotificationRequired())
+    if (annotationParametersList == null)
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FractalIDLPackage.ANNOTATION__ANNOTATION_PARAMATERS, oldAnnotationParamaters, newAnnotationParamaters);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
+      annotationParametersList = new EObjectContainmentEList<AnnotationValuePair>(AnnotationValuePair.class, this, FractalIDLPackage.ANNOTATION__ANNOTATION_PARAMETERS_LIST);
     }
-    return msgs;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setAnnotationParamaters(AnnotationParameters newAnnotationParamaters)
-  {
-    if (newAnnotationParamaters != annotationParamaters)
-    {
-      NotificationChain msgs = null;
-      if (annotationParamaters != null)
-        msgs = ((InternalEObject)annotationParamaters).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FractalIDLPackage.ANNOTATION__ANNOTATION_PARAMATERS, null, msgs);
-      if (newAnnotationParamaters != null)
-        msgs = ((InternalEObject)newAnnotationParamaters).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FractalIDLPackage.ANNOTATION__ANNOTATION_PARAMATERS, null, msgs);
-      msgs = basicSetAnnotationParamaters(newAnnotationParamaters, msgs);
-      if (msgs != null) msgs.dispatch();
-    }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, FractalIDLPackage.ANNOTATION__ANNOTATION_PARAMATERS, newAnnotationParamaters, newAnnotationParamaters));
+    return annotationParametersList;
   }
 
   /**
@@ -165,8 +136,8 @@ public class AnnotationImpl extends AnnotationValueImpl implements Annotation
   {
     switch (featureID)
     {
-      case FractalIDLPackage.ANNOTATION__ANNOTATION_PARAMATERS:
-        return basicSetAnnotationParamaters(null, msgs);
+      case FractalIDLPackage.ANNOTATION__ANNOTATION_PARAMETERS_LIST:
+        return ((InternalEList<?>)getAnnotationParametersList()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -181,10 +152,10 @@ public class AnnotationImpl extends AnnotationValueImpl implements Annotation
   {
     switch (featureID)
     {
-      case FractalIDLPackage.ANNOTATION__FQN:
-        return getFqn();
-      case FractalIDLPackage.ANNOTATION__ANNOTATION_PARAMATERS:
-        return getAnnotationParamaters();
+      case FractalIDLPackage.ANNOTATION__NAME:
+        return getName();
+      case FractalIDLPackage.ANNOTATION__ANNOTATION_PARAMETERS_LIST:
+        return getAnnotationParametersList();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -194,16 +165,18 @@ public class AnnotationImpl extends AnnotationValueImpl implements Annotation
    * <!-- end-user-doc -->
    * @generated
    */
+  @SuppressWarnings("unchecked")
   @Override
   public void eSet(int featureID, Object newValue)
   {
     switch (featureID)
     {
-      case FractalIDLPackage.ANNOTATION__FQN:
-        setFqn((String)newValue);
+      case FractalIDLPackage.ANNOTATION__NAME:
+        setName((String)newValue);
         return;
-      case FractalIDLPackage.ANNOTATION__ANNOTATION_PARAMATERS:
-        setAnnotationParamaters((AnnotationParameters)newValue);
+      case FractalIDLPackage.ANNOTATION__ANNOTATION_PARAMETERS_LIST:
+        getAnnotationParametersList().clear();
+        getAnnotationParametersList().addAll((Collection<? extends AnnotationValuePair>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -219,11 +192,11 @@ public class AnnotationImpl extends AnnotationValueImpl implements Annotation
   {
     switch (featureID)
     {
-      case FractalIDLPackage.ANNOTATION__FQN:
-        setFqn(FQN_EDEFAULT);
+      case FractalIDLPackage.ANNOTATION__NAME:
+        setName(NAME_EDEFAULT);
         return;
-      case FractalIDLPackage.ANNOTATION__ANNOTATION_PARAMATERS:
-        setAnnotationParamaters((AnnotationParameters)null);
+      case FractalIDLPackage.ANNOTATION__ANNOTATION_PARAMETERS_LIST:
+        getAnnotationParametersList().clear();
         return;
     }
     super.eUnset(featureID);
@@ -239,10 +212,10 @@ public class AnnotationImpl extends AnnotationValueImpl implements Annotation
   {
     switch (featureID)
     {
-      case FractalIDLPackage.ANNOTATION__FQN:
-        return FQN_EDEFAULT == null ? fqn != null : !FQN_EDEFAULT.equals(fqn);
-      case FractalIDLPackage.ANNOTATION__ANNOTATION_PARAMATERS:
-        return annotationParamaters != null;
+      case FractalIDLPackage.ANNOTATION__NAME:
+        return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+      case FractalIDLPackage.ANNOTATION__ANNOTATION_PARAMETERS_LIST:
+        return annotationParametersList != null && !annotationParametersList.isEmpty();
     }
     return super.eIsSet(featureID);
   }
@@ -258,8 +231,8 @@ public class AnnotationImpl extends AnnotationValueImpl implements Annotation
     if (eIsProxy()) return super.toString();
 
     StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (fqn: ");
-    result.append(fqn);
+    result.append(" (name: ");
+    result.append(name);
     result.append(')');
     return result.toString();
   }

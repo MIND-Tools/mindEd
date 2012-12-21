@@ -50,7 +50,7 @@ import org.ow2.mindEd.ide.model.MindideFactory;
  * as the source folder, package name and component name.
  */
 
-public class ComponentNewWizardPage extends WizardPage implements PageUdapteStatus {
+public class ComponentNewWizardPage extends WizardPage implements PageUpdateStatus {
 	private SourceFolderField _sourceFolderField;
 	private Text _packageText;
 	private Text _componentNameText;
@@ -64,7 +64,7 @@ public class ComponentNewWizardPage extends WizardPage implements PageUdapteStat
 	private ComboViewer _kind_viewer;
 	
 	public ComponentNewWizardPage(MindModel model, ISelection selection) {
-		super("wizardPage");
+		super("ComponentNewWizardPage");
 		setTitle(Messages.ComponentNewWizardPage_title);
 		setDescription(Messages.ComponentNewWizardPage_description);
 		this._selection = selection;
@@ -266,29 +266,29 @@ public class ComponentNewWizardPage extends WizardPage implements PageUdapteStat
 	 * Ensures that all fields are valid.
 	 */
 	public void dialogChanged() {
-		String componantName = getComponentName();
+		String componentName = getComponentName();
 		
 		if (_sourceFolderField.dialogChanged(this))
 			return;
 		
-		if (componantName.length() == 0) {
+		if (componentName.length() == 0) {
 			updateStatus(Messages.ComponentNewWizardPage_error_msg_component_name_must_be_specified);
 			return;
 		}
-		if (componantName.replace('\\', '/').indexOf('/', 1) > 0) {
+		if (componentName.replace('\\', '/').indexOf('/', 1) > 0) {
 			updateStatus(Messages.ComponentNewWizardPage_error_msg_component_name_must_be_valid);
 			return;
 		}
 		
-		if (componantName.indexOf('.', 1) > 0) {
+		if (componentName.indexOf('.', 1) > 0) {
 			updateStatus(Messages.ComponentNewWizardPage_20);
 			return;
 		}
 		
 		MindAdl adl = _model.getAdl((MindProject) _sourceFolderField.getSourceFolder().getProject(),
-				getPackageName(), componantName);
+				getPackageName(), componentName);
 		if (adl != null) {
-			updateStatus("Component allready exits");
+			updateStatus("Component already exists");
 			return;
 		}
 		

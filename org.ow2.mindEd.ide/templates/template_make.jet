@@ -25,6 +25,7 @@ build:
 	mkdir -p build
 
 clean:
-	rm -Rf build
+	rm -Rf build; \
+	mkdir -p build
 
 .PHONY: all clean build

@@ -1,7 +1,4 @@
 /**
- * <copyright>
- * </copyright>
- *
  */
 package org.ow2.mindEd.idt.editor.textual.fractalIdt;
 
@@ -42,15 +39,6 @@ public interface FractalIdtFactory extends EFactory
    * @generated
    */
   ConstantDefinitionBegin createConstantDefinitionBegin();
-
-  /**
-   * Returns a new object of class '<em>Constant Definition End</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Constant Definition End</em>'.
-   * @generated
-   */
-  ConstantDefinitionEnd createConstantDefinitionEnd();
 
   /**
    * Returns the package supported by this factory.

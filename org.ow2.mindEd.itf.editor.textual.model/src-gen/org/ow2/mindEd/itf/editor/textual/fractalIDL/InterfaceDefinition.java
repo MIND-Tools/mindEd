@@ -1,7 +1,4 @@
 /**
- * <copyright>
- * </copyright>
- *
  */
 package org.ow2.mindEd.itf.editor.textual.fractalIDL;
 
@@ -17,8 +14,8 @@ import org.eclipse.emf.ecore.EObject;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link org.ow2.mindEd.itf.editor.textual.fractalIDL.InterfaceDefinition#getAnnotations <em>Annotations</em>}</li>
- *   <li>{@link org.ow2.mindEd.itf.editor.textual.fractalIDL.InterfaceDefinition#getFqn <em>Fqn</em>}</li>
+ *   <li>{@link org.ow2.mindEd.itf.editor.textual.fractalIDL.InterfaceDefinition#getAnnotationsList <em>Annotations List</em>}</li>
+ *   <li>{@link org.ow2.mindEd.itf.editor.textual.fractalIDL.InterfaceDefinition#getName <em>Name</em>}</li>
  *   <li>{@link org.ow2.mindEd.itf.editor.textual.fractalIDL.InterfaceDefinition#getFqn2 <em>Fqn2</em>}</li>
  *   <li>{@link org.ow2.mindEd.itf.editor.textual.fractalIDL.InterfaceDefinition#getMethodDef <em>Method Def</em>}</li>
  * </ul>
@@ -31,82 +28,82 @@ import org.eclipse.emf.ecore.EObject;
 public interface InterfaceDefinition extends EObject
 {
   /**
-   * Returns the value of the '<em><b>Annotations</b></em>' containment reference.
+   * Returns the value of the '<em><b>Annotations List</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Annotations</em>' containment reference isn't clear,
+   * If the meaning of the '<em>Annotations List</em>' containment reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Annotations</em>' containment reference.
-   * @see #setAnnotations(Annotations)
-   * @see org.ow2.mindEd.itf.editor.textual.fractalIDL.FractalIDLPackage#getInterfaceDefinition_Annotations()
+   * @return the value of the '<em>Annotations List</em>' containment reference.
+   * @see #setAnnotationsList(AnnotationsList)
+   * @see org.ow2.mindEd.itf.editor.textual.fractalIDL.FractalIDLPackage#getInterfaceDefinition_AnnotationsList()
    * @model containment="true"
    * @generated
    */
-  Annotations getAnnotations();
+  AnnotationsList getAnnotationsList();
 
   /**
-   * Sets the value of the '{@link org.ow2.mindEd.itf.editor.textual.fractalIDL.InterfaceDefinition#getAnnotations <em>Annotations</em>}' containment reference.
+   * Sets the value of the '{@link org.ow2.mindEd.itf.editor.textual.fractalIDL.InterfaceDefinition#getAnnotationsList <em>Annotations List</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Annotations</em>' containment reference.
-   * @see #getAnnotations()
+   * @param value the new value of the '<em>Annotations List</em>' containment reference.
+   * @see #getAnnotationsList()
    * @generated
    */
-  void setAnnotations(Annotations value);
+  void setAnnotationsList(AnnotationsList value);
 
   /**
-   * Returns the value of the '<em><b>Fqn</b></em>' attribute.
+   * Returns the value of the '<em><b>Name</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Fqn</em>' attribute isn't clear,
+   * If the meaning of the '<em>Name</em>' attribute isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Fqn</em>' attribute.
-   * @see #setFqn(String)
-   * @see org.ow2.mindEd.itf.editor.textual.fractalIDL.FractalIDLPackage#getInterfaceDefinition_Fqn()
+   * @return the value of the '<em>Name</em>' attribute.
+   * @see #setName(String)
+   * @see org.ow2.mindEd.itf.editor.textual.fractalIDL.FractalIDLPackage#getInterfaceDefinition_Name()
    * @model
    * @generated
    */
-  String getFqn();
+  String getName();
 
   /**
-   * Sets the value of the '{@link org.ow2.mindEd.itf.editor.textual.fractalIDL.InterfaceDefinition#getFqn <em>Fqn</em>}' attribute.
+   * Sets the value of the '{@link org.ow2.mindEd.itf.editor.textual.fractalIDL.InterfaceDefinition#getName <em>Name</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Fqn</em>' attribute.
-   * @see #getFqn()
+   * @param value the new value of the '<em>Name</em>' attribute.
+   * @see #getName()
    * @generated
    */
-  void setFqn(String value);
+  void setName(String value);
 
   /**
-   * Returns the value of the '<em><b>Fqn2</b></em>' attribute.
+   * Returns the value of the '<em><b>Fqn2</b></em>' reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Fqn2</em>' attribute isn't clear,
+   * If the meaning of the '<em>Fqn2</em>' reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Fqn2</em>' attribute.
-   * @see #setFqn2(String)
+   * @return the value of the '<em>Fqn2</em>' reference.
+   * @see #setFqn2(InterfaceDefinition)
    * @see org.ow2.mindEd.itf.editor.textual.fractalIDL.FractalIDLPackage#getInterfaceDefinition_Fqn2()
    * @model
    * @generated
    */
-  String getFqn2();
+  InterfaceDefinition getFqn2();
 
   /**
-   * Sets the value of the '{@link org.ow2.mindEd.itf.editor.textual.fractalIDL.InterfaceDefinition#getFqn2 <em>Fqn2</em>}' attribute.
+   * Sets the value of the '{@link org.ow2.mindEd.itf.editor.textual.fractalIDL.InterfaceDefinition#getFqn2 <em>Fqn2</em>}' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Fqn2</em>' attribute.
+   * @param value the new value of the '<em>Fqn2</em>' reference.
    * @see #getFqn2()
    * @generated
    */
-  void setFqn2(String value);
+  void setFqn2(InterfaceDefinition value);
 
   /**
    * Returns the value of the '<em><b>Method Def</b></em>' containment reference list.

@@ -52,8 +52,9 @@ public class SourceFolderField {
 
 	/**
 	 * @see IDialogPage#createControl(Composite)
+	 * @since 1.0
 	 */
-	public void createControl(Composite container, final PageUdapteStatus pus) {
+	public void createControl(Composite container, final PageUpdateStatus pus) {
 		Label label = new Label(container, SWT.NULL);
 		label.setText(Messages.ComponentNewWizardPage_src_field_label);
 
@@ -89,9 +90,10 @@ public class SourceFolderField {
 	
 	/**
 	 * @return true if error
+	 * @since 1.0
 	 */
 
-	public boolean dialogChanged(PageUdapteStatus pus) {
+	public boolean dialogChanged(PageUpdateStatus pus) {
 		IResource container = ResourcesPlugin.getWorkspace().getRoot()
 				.findMember(new Path(getSourceFolderName()));
 		

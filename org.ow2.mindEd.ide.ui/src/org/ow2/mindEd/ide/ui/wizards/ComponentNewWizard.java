@@ -151,7 +151,7 @@ public class ComponentNewWizard extends Wizard implements INewWizard {
 			file.create(stream, true, monitor);
 		}
 //		// -- Debut modif Olivier Marot
-		Activator.createDiagram(monitor, adl);
+		//Activator.createDiagram(monitor, adl);
 		// -- Fin modif Olivier Marot
 		
 		monitor.worked(1);

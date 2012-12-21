@@ -1,7 +1,4 @@
 /**
- * <copyright>
- * </copyright>
- *
  */
 package org.ow2.mindEd.idt.editor.textual.fractalIdt.impl;
 
@@ -22,7 +19,6 @@ import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.ow2.mindEd.idt.editor.textual.fractalIdt.ConstantDefinitionBegin;
-import org.ow2.mindEd.idt.editor.textual.fractalIdt.ConstantDefinitionEnd;
 import org.ow2.mindEd.idt.editor.textual.fractalIdt.FractalIdtPackage;
 import org.ow2.mindEd.idt.editor.textual.fractalIdt.IdtFile;
 
@@ -42,7 +38,7 @@ import org.ow2.mindEd.itf.editor.textual.fractalIDL.TypeDefinition;
  *   <li>{@link org.ow2.mindEd.idt.editor.textual.fractalIdt.impl.IdtFileImpl#getIncludes <em>Includes</em>}</li>
  *   <li>{@link org.ow2.mindEd.idt.editor.textual.fractalIdt.impl.IdtFileImpl#getConstant <em>Constant</em>}</li>
  *   <li>{@link org.ow2.mindEd.idt.editor.textual.fractalIdt.impl.IdtFileImpl#getType <em>Type</em>}</li>
- *   <li>{@link org.ow2.mindEd.idt.editor.textual.fractalIdt.impl.IdtFileImpl#getEnddef <em>Enddef</em>}</li>
+ *   <li>{@link org.ow2.mindEd.idt.editor.textual.fractalIdt.impl.IdtFileImpl#getEndDef <em>End Def</em>}</li>
  * </ul>
  * </p>
  *
@@ -101,14 +97,24 @@ public class IdtFileImpl extends MinimalEObjectImpl.Container implements IdtFile
   protected EList<TypeDefinition> type;
 
   /**
-   * The cached value of the '{@link #getEnddef() <em>Enddef</em>}' containment reference.
+   * The default value of the '{@link #getEndDef() <em>End Def</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getEnddef()
+   * @see #getEndDef()
    * @generated
    * @ordered
    */
-  protected ConstantDefinitionEnd enddef;
+  protected static final String END_DEF_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getEndDef() <em>End Def</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getEndDef()
+   * @generated
+   * @ordered
+   */
+  protected String endDef = END_DEF_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
@@ -274,9 +280,9 @@ public class IdtFileImpl extends MinimalEObjectImpl.Container implements IdtFile
    * <!-- end-user-doc -->
    * @generated
    */
-  public ConstantDefinitionEnd getEnddef()
+  public String getEndDef()
   {
-    return enddef;
+    return endDef;
   }
 
   /**
@@ -284,37 +290,12 @@ public class IdtFileImpl extends MinimalEObjectImpl.Container implements IdtFile
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetEnddef(ConstantDefinitionEnd newEnddef, NotificationChain msgs)
+  public void setEndDef(String newEndDef)
   {
-    ConstantDefinitionEnd oldEnddef = enddef;
-    enddef = newEnddef;
+    String oldEndDef = endDef;
+    endDef = newEndDef;
     if (eNotificationRequired())
-    {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FractalIdtPackage.IDT_FILE__ENDDEF, oldEnddef, newEnddef);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
-    }
-    return msgs;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setEnddef(ConstantDefinitionEnd newEnddef)
-  {
-    if (newEnddef != enddef)
-    {
-      NotificationChain msgs = null;
-      if (enddef != null)
-        msgs = ((InternalEObject)enddef).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FractalIdtPackage.IDT_FILE__ENDDEF, null, msgs);
-      if (newEnddef != null)
-        msgs = ((InternalEObject)newEnddef).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FractalIdtPackage.IDT_FILE__ENDDEF, null, msgs);
-      msgs = basicSetEnddef(newEnddef, msgs);
-      if (msgs != null) msgs.dispatch();
-    }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, FractalIdtPackage.IDT_FILE__ENDDEF, newEnddef, newEnddef));
+      eNotify(new ENotificationImpl(this, Notification.SET, FractalIdtPackage.IDT_FILE__END_DEF, oldEndDef, endDef));
   }
 
   /**
@@ -337,8 +318,6 @@ public class IdtFileImpl extends MinimalEObjectImpl.Container implements IdtFile
         return ((InternalEList<?>)getConstant()).basicRemove(otherEnd, msgs);
       case FractalIdtPackage.IDT_FILE__TYPE:
         return ((InternalEList<?>)getType()).basicRemove(otherEnd, msgs);
-      case FractalIdtPackage.IDT_FILE__ENDDEF:
-        return basicSetEnddef(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -363,8 +342,8 @@ public class IdtFileImpl extends MinimalEObjectImpl.Container implements IdtFile
         return getConstant();
       case FractalIdtPackage.IDT_FILE__TYPE:
         return getType();
-      case FractalIdtPackage.IDT_FILE__ENDDEF:
-        return getEnddef();
+      case FractalIdtPackage.IDT_FILE__END_DEF:
+        return getEndDef();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -398,8 +377,8 @@ public class IdtFileImpl extends MinimalEObjectImpl.Container implements IdtFile
         getType().clear();
         getType().addAll((Collection<? extends TypeDefinition>)newValue);
         return;
-      case FractalIdtPackage.IDT_FILE__ENDDEF:
-        setEnddef((ConstantDefinitionEnd)newValue);
+      case FractalIdtPackage.IDT_FILE__END_DEF:
+        setEndDef((String)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -430,8 +409,8 @@ public class IdtFileImpl extends MinimalEObjectImpl.Container implements IdtFile
       case FractalIdtPackage.IDT_FILE__TYPE:
         getType().clear();
         return;
-      case FractalIdtPackage.IDT_FILE__ENDDEF:
-        setEnddef((ConstantDefinitionEnd)null);
+      case FractalIdtPackage.IDT_FILE__END_DEF:
+        setEndDef(END_DEF_EDEFAULT);
         return;
     }
     super.eUnset(featureID);
@@ -457,10 +436,27 @@ public class IdtFileImpl extends MinimalEObjectImpl.Container implements IdtFile
         return constant != null && !constant.isEmpty();
       case FractalIdtPackage.IDT_FILE__TYPE:
         return type != null && !type.isEmpty();
-      case FractalIdtPackage.IDT_FILE__ENDDEF:
-        return enddef != null;
+      case FractalIdtPackage.IDT_FILE__END_DEF:
+        return END_DEF_EDEFAULT == null ? endDef != null : !END_DEF_EDEFAULT.equals(endDef);
     }
     return super.eIsSet(featureID);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public String toString()
+  {
+    if (eIsProxy()) return super.toString();
+
+    StringBuffer result = new StringBuffer(super.toString());
+    result.append(" (endDef: ");
+    result.append(endDef);
+    result.append(')');
+    return result.toString();
   }
 
 } //IdtFileImpl

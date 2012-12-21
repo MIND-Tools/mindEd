@@ -6,7 +6,7 @@ package org.ow2.mindEd.idt.editor.textual.ui.labeling;
 import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider;
 import org.eclipse.xtext.ui.label.DefaultEObjectLabelProvider;
 import org.ow2.mindEd.idt.editor.textual.fractalIdt.ConstantDefinitionBegin;
-import org.ow2.mindEd.idt.editor.textual.fractalIdt.ConstantDefinitionEnd;
+//import org.ow2.mindEd.idt.editor.textual.fractalIdt.ConstantDefinitionEnd;
 import org.ow2.mindEd.itf.editor.textual.fractalIDL.ConstantDefinition;
 
 import com.google.inject.Inject;
@@ -28,9 +28,9 @@ public class FractalIdtLabelProvider extends DefaultEObjectLabelProvider {
 		return "define_obj.gif";
 	}
 	
-	public String image(ConstantDefinitionEnd obj) {
-		return "define_obj.gif";
-	}
+//	public String image(ConstantDefinitionEnd obj) {
+//		return "define_obj.gif";
+//	}
 	
 	public String image(ConstantDefinition obj) {
 		return "define_obj.gif";

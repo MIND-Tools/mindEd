@@ -5,7 +5,8 @@
     modelPluginID="org.ow2.mindEd.idt.editor.textual.model" forceOverwrite="true"
     modelName="FractalIdt" updateClasspath="false" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
     complianceLevel="5.0" copyrightFields="false" editPluginID="org.ow2.mindEd.idt.editor.textual.model.edit"
-    editorPluginID="org.ow2.mindEd.idt.editor.textual.model.editor" usedGenPackages="../../../../../../../../org.ow2.mindEd.itf.editor.textual.model/src-gen/org/ow2/mindEd/itf/editor/textual/FractalItf.genmodel#//fractalIDL ../../../../../../../../org.ow2.mindEd.itf.editor.textual.model/src-gen/org/ow2/mindEd/itf/editor/textual/FractalItf.genmodel#//fractalIDL ../../../../../../../../org.ow2.mindEd.itf.editor.textual.model/src-gen/org/ow2/mindEd/itf/editor/textual/FractalItf.genmodel#//fractalIDL ../../../../../../../../org.ow2.mindEd.itf.editor.textual.model/src-gen/org/ow2/mindEd/itf/editor/textual/FractalItf.genmodel#//fractalIDL ../../../../../../../../org.ow2.mindEd.itf.editor.textual.model/src-gen/org/ow2/mindEd/itf/editor/textual/FractalItf.genmodel#//fractalIDL ../../../../../../../../org.ow2.mindEd.itf.editor.textual.model/src-gen/org/ow2/mindEd/itf/editor/textual/FractalItf.genmodel#//fractalIDL ../../../../../../../../org.ow2.mindEd.itf.editor.textual.model/src-gen/org/ow2/mindEd/itf/editor/textual/FractalItf.genmodel#//fractalIDL ../../../../../../../../org.ow2.mindEd.itf.editor.textual.model/src-gen/org/ow2/mindEd/itf/editor/textual/FractalItf.genmodel#//fractalIDL ../../../../../../../../org.ow2.mindEd.itf.editor.textual.model/src-gen/org/ow2/mindEd/itf/editor/textual/FractalItf.genmodel#//fractalIDL ../../../../../../../../org.ow2.mindEd.itf.editor.textual.model/src-gen/org/ow2/mindEd/itf/editor/textual/FractalItf.genmodel#//fractalIDL">
+    editorPluginID="org.ow2.mindEd.idt.editor.textual.model.editor" runtimeVersion="2.8"
+    usedGenPackages="../../../../../../../../org.ow2.mindEd.itf.editor.textual.model/src-gen/org/ow2/mindEd/itf/editor/textual/FractalItf.genmodel#//fractalIDL">
   <genPackages prefix="FractalIdt" basePackage="org.ow2.mindEd.idt.editor.textual"
       disposableProviderFactory="true" ecorePackage="FractalIdt.ecore#/">
     <genClasses ecoreClass="FractalIdt.ecore#//IdtFile">
@@ -14,13 +15,10 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference FractalIdt.ecore#//IdtFile/includes"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference FractalIdt.ecore#//IdtFile/constant"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference FractalIdt.ecore#//IdtFile/type"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EAttribute FractalIdt.ecore#//IdtFile/enddef"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute FractalIdt.ecore#//IdtFile/endDef"/>
     </genClasses>
     <genClasses ecoreClass="FractalIdt.ecore#//ConstantDefinitionBegin">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute FractalIdt.ecore#//ConstantDefinitionBegin/id"/>
-    </genClasses>
-    <genClasses ecoreClass="FractalIdt.ecore#//ConstantDefinitionEnd">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute FractalIdt.ecore#//ConstantDefinitionEnd/id"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute FractalIdt.ecore#//ConstantDefinitionBegin/name"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

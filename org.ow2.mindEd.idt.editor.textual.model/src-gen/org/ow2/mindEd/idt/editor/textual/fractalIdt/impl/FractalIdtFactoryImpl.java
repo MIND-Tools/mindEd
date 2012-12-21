@@ -1,7 +1,4 @@
 /**
- * <copyright>
- * </copyright>
- *
  */
 package org.ow2.mindEd.idt.editor.textual.fractalIdt.impl;
 
@@ -69,7 +66,6 @@ public class FractalIdtFactoryImpl extends EFactoryImpl implements FractalIdtFac
     {
       case FractalIdtPackage.IDT_FILE: return createIdtFile();
       case FractalIdtPackage.CONSTANT_DEFINITION_BEGIN: return createConstantDefinitionBegin();
-      case FractalIdtPackage.CONSTANT_DEFINITION_END: return createConstantDefinitionEnd();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
     }
@@ -95,17 +91,6 @@ public class FractalIdtFactoryImpl extends EFactoryImpl implements FractalIdtFac
   {
     ConstantDefinitionBeginImpl constantDefinitionBegin = new ConstantDefinitionBeginImpl();
     return constantDefinitionBegin;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public ConstantDefinitionEnd createConstantDefinitionEnd()
-  {
-    ConstantDefinitionEndImpl constantDefinitionEnd = new ConstantDefinitionEndImpl();
-    return constantDefinitionEnd;
   }
 
   /**

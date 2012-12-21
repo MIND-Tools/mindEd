@@ -37,7 +37,7 @@ import org.ow2.mindEd.ide.model.MindRootSrc;
  * as the source folder, package name.
  */
 
-public class MindPackageWizardPage extends WizardPage implements PageUdapteStatus {
+public class MindPackageWizardPage extends WizardPage implements PageUpdateStatus {
 	private ISelection _selection;
 	private ComposedAdapterFactory _adapterFactory;
 	private AdapterFactoryLabelProvider _renderer;
@@ -46,7 +46,7 @@ public class MindPackageWizardPage extends WizardPage implements PageUdapteStatu
 	private Text _packageText;
 	
 	public MindPackageWizardPage(MindModel model, ISelection selection) {
-		super("wizardPage"); //$NON-NLS-1$
+		super("MindPackageWizardPage"); //$NON-NLS-1$
 		setTitle(Messages.MindPackageWizardPage_title);
 		setDescription(Messages.MindPackageWizardPage_description);
 		this._selection = selection;

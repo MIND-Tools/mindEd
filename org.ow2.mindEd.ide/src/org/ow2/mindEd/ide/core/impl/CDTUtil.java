@@ -1,11 +1,13 @@
 package org.ow2.mindEd.ide.core.impl;
 
 import java.io.ByteArrayInputStream;
+import java.io.File;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import org.eclipse.cdt.core.CProjectNature;
@@ -29,13 +31,18 @@ import org.eclipse.cdt.managedbuilder.core.ManagedBuildManager;
 import org.eclipse.cdt.managedbuilder.internal.core.Configuration;
 import org.eclipse.cdt.managedbuilder.internal.core.ManagedProject;
 import org.eclipse.cdt.utils.envvar.StorableEnvironment;
+import org.eclipse.core.filesystem.IFileStore;
+import org.eclipse.core.resources.IContainer;
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IFolder;
 import org.eclipse.core.resources.IProject;
+import org.eclipse.core.resources.IResource;
 import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
+import org.eclipse.core.runtime.IPath;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.IStatus;
+import org.eclipse.core.runtime.Path;
 import org.eclipse.core.runtime.Status;
 import org.eclipse.core.runtime.jobs.Job;
 import org.ow2.mindEd.ide.core.FamilyJobCST;
@@ -43,11 +50,13 @@ import org.ow2.mindEd.ide.core.MindActivator;
 import org.ow2.mindEd.ide.core.MindIdeCore;
 import org.ow2.mindEd.ide.core.MindModelManager;
 import org.ow2.mindEd.ide.core.MindNature;
+import org.ow2.mindEd.ide.core.mindc.MindcErrorParser;
 import org.ow2.mindEd.ide.core.template.TemplateMake;
+import org.ow2.mindEd.ide.model.MindProject;
 
 public class CDTUtil {
 
-	
+
 	private static final class RemoveCSourceFolderJob extends Job {
 		private final IFolder f;
 
@@ -88,8 +97,8 @@ public class CDTUtil {
 						mgr.setProjectDescription(f.getProject(), des);
 						if (MindModelImpl.TRACING)
 							System.out
-									.println("DONE REMOVE CSOURCE FOLDER "
-											+ f);
+							.println("DONE REMOVE CSOURCE FOLDER "
+									+ f);
 						return Status.OK_STATUS;
 					}
 				}
@@ -98,7 +107,7 @@ public class CDTUtil {
 			}
 			return Status.OK_STATUS;
 		}
-		
+
 		@Override
 		public boolean belongsTo(Object family) {
 			return FamilyJobCST.FAMILY_ALL == family || FamilyJobCST.FAMILY_REMOVE_CSOURCE_FOLDER == family;
@@ -149,7 +158,7 @@ public class CDTUtil {
 			}
 			return Status.OK_STATUS;
 		}
-		
+
 		@Override
 		public boolean belongsTo(Object family) {
 			return FamilyJobCST.FAMILY_ALL == family || FamilyJobCST.FAMILY_CREATE_CSOURCE_FOLDER == family;
@@ -160,7 +169,7 @@ public class CDTUtil {
 		private final String mindcLocation;
 
 		private ChangeMindcLocation(String mindcLocation) {
-			super("change the MINDC Location : create variable MIND_ROOT in CDT");
+			super("Change the MINDC Location: create variable MIND_ROOT in CDT");
 			this.mindcLocation = mindcLocation;
 		}
 
@@ -181,7 +190,7 @@ public class CDTUtil {
 				usersupplier.setWorkspaceEnvironment(wsEnv);
 				MindIdeCore.rebuidAll();
 				if (MindModelImpl.TRACING)
-					System.out.println("DONE CHANGE MIND_ROOT to "
+					System.out.println("DONE CHANGING MIND_ROOT to "
 							+ mindcLocation);
 
 			} catch (WriteAccessException e) {
@@ -189,11 +198,67 @@ public class CDTUtil {
 			}
 			return Status.OK_STATUS;
 		}
-		
+
 
 		@Override
 		public boolean belongsTo(Object family) {
 			return FamilyJobCST.FAMILY_ALL == family || FamilyJobCST.FAMILY_CHANGE_MINDC_LOCATION == family;
+		}
+	}
+
+	private static final class ChangeMindcRuntimeLocation extends Job {
+		private final String mindcRuntimeLocation;
+
+		private ChangeMindcRuntimeLocation(String mindcRuntimeLocation) {
+			super("Change the runtime folders location in every concerned project");
+			this.mindcRuntimeLocation = mindcRuntimeLocation;
+		}
+
+		@Override
+		protected IStatus run(IProgressMonitor monitor) {
+			try {
+				if (MindModelImpl.TRACING)
+					System.out.println("CHANGE RUNTIME FOLDERS LINK DESTINATION to "
+							+ mindcRuntimeLocation);
+
+				List<MindProject> allMindProjects = MindIdeCore.getModel().getAllProject();
+				for (MindProject currProject : allMindProjects) {
+					if (mindcRuntimeLocation == null) {
+						MindActivator.log(new Status(Status.ERROR, MindActivator.ID, "\"Runtime\" linked folder could not be created, set mindc location in preference"));
+					} else {
+						// is a "folder" but File is the Java way :)
+						File mindRuntimeFile = new File(mindcRuntimeLocation);
+						if (!mindRuntimeFile.exists()) {
+							MindActivator.log(new Status(Status.ERROR, MindActivator.ID, "Mindc location subfolder \"Runtime\" doesn't exist !"));
+							continue;
+						}
+
+						// get the IProject runtime
+						IFolder eclipseRuntimeFolder = currProject.getProject().getFolder("runtime");
+
+						// Only redefine the folder link destination if it's a link
+						// otherwise we would crush possibly hand-made local (not linked) runtimes.
+						if (eclipseRuntimeFolder.exists() && eclipseRuntimeFolder.isLinked())
+							eclipseRuntimeFolder.createLink(new Path(mindRuntimeFile.getAbsolutePath()), IResource.REPLACE, monitor);
+					}
+				}
+
+				// Why not
+				MindIdeCore.rebuidAll();
+				if (MindModelImpl.TRACING)
+					System.out.println("DONE CHANGING RUNTIME FOLDERS LINK DESTINATION to "
+							+ mindcRuntimeLocation);
+			} catch (CoreException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			return Status.OK_STATUS;
+		}
+
+
+		@Override
+		public boolean belongsTo(Object family) {
+			return FamilyJobCST.FAMILY_ALL == family || FamilyJobCST.FAMILY_CHANGE_MINDC_RUNTIME_LOCATION == family;
 		}
 	}
 
@@ -217,9 +282,15 @@ public class CDTUtil {
 	}
 
 	public static void changeMINDCLocation(final String mindcLocation) {
-		Job r = new ChangeMindcLocation(mindcLocation);
-		r.setRule(ResourcesPlugin.getWorkspace().getRoot());
-		r.schedule();
+		// Changing MIND_ROOT in the environment
+		Job rMindc = new ChangeMindcLocation(mindcLocation);
+		rMindc.setRule(ResourcesPlugin.getWorkspace().getRoot());
+		rMindc.schedule();
+
+		// Changing runtime linked folders destination
+		Job rRuntime = new ChangeMindcRuntimeLocation(mindcLocation + File.separator + "runtime");
+		rRuntime.setRule(ResourcesPlugin.getWorkspace().getRoot());
+		rRuntime.schedule();
 	}
 
 	public static String getMINDCLocation() {
@@ -244,24 +315,24 @@ public class CDTUtil {
 	public static void initMindProject(IProject newProject,
 			IProgressMonitor monitor) throws CoreException,
 			UnsupportedEncodingException {
-		
+
 		// create first
 		IFile makefile = newProject.getFile("Makefile");
 		if (!makefile.exists())
 			makefile.create(
-				new ByteArrayInputStream(createMakeTemplate(newProject)), true,
-				monitor);
-		
+					new ByteArrayInputStream(createMakeTemplate(newProject)), true,
+					monitor);
+
 		// add nature
 		CProjectNature.addNature(newProject, CProjectNature.C_NATURE_ID,
 				monitor);
 		CProjectNature.addNature(newProject, "org.eclipse.xtext.ui.shared.xtextNature",
 				monitor);
-		
+
 		CProjectNature.addNature(newProject, MindNature.NATURE_ID, monitor);
 
-		
-		
+
+
 		// Create the default structure
 		IFolder buildFolder = newProject.getFolder("build");
 		if (!buildFolder.exists())
@@ -269,7 +340,20 @@ public class CDTUtil {
 		IFolder srcFolder = newProject.getFolder("src");
 		if (!srcFolder.exists())
 			srcFolder.create(true, true, monitor);
-		
+
+		// Link the runtime folder to the compiler runtime from the Mindc location variable (in preference store)
+		String mindLocation = MindActivator.getPref().getMindCLocation();
+		if (mindLocation == null) {
+			MindActivator.log(new Status(Status.ERROR, MindActivator.ID, "\"Runtime\" linked folder could not be created, set mindc location in preference"));
+		} else {
+			// is a "folder" but File is the Java way :)
+			File mindRuntimeFile = new File(mindLocation + "/runtime");
+
+			IFolder runtimeFolder = newProject.getFolder("runtime");
+			if (mindRuntimeFile.exists() && !runtimeFolder.exists())
+				runtimeFolder.createLink(new Path(mindRuntimeFile.getAbsolutePath()), IResource.ALLOW_MISSING_LOCAL, monitor);
+		}
+		// end runtime folder
 
 		// Set CDT information
 		ICProjectDescriptionManager mgr = CoreModel.getDefault()
@@ -294,7 +378,7 @@ public class CDTUtil {
 
 		ManagedProject mProj = new ManagedProject(des);
 		info.setManagedProject(mProj);
-	
+
 		String id = ManagedBuildManager.calculateChildId(
 				"org.ow2.mindEd.ide.core.build", null);
 		Configuration config = new Configuration(mProj, null, id, "Default");
@@ -314,22 +398,40 @@ public class CDTUtil {
 			bld.getBuildData();
 		}
 		// the name of this configuration is Default
-		
+
 		config.setName("Default");
 		config.setArtifactName(newProject.getName());
-		
+
+		// Create a source entries ArrayList
+		List<ICSourceEntry> sourceEntries = new ArrayList<ICSourceEntry>();
+
 		// ADD the source entry 'src'
-		
 		ICSourceEntry srcEntry = new CSourceEntry(newProject.getFolder("src"),
 				null, ICSettingEntry.VALUE_WORKSPACE_PATH);
-		config.setSourceEntries(new ICSourceEntry[] { srcEntry });
+		sourceEntries.add(srcEntry);
+
+		// ADD the source entry 'runtime'
+		if (mindLocation != null) {
+			ICSourceEntry runtimeEntry = new CSourceEntry(newProject.getFolder("runtime"),
+					null, ICSettingEntry.VALUE_WORKSPACE_PATH);
+			sourceEntries.add(runtimeEntry);
+		}
+
+		// convert the List to good-sized typed array
+		config.setSourceEntries(sourceEntries.toArray(new ICSourceEntry[sourceEntries.size()]));
 		config.exportArtifactInfo();
-		
-				
+
 		CConfigurationData data = config.getConfigurationData();
 		data.getBuildData();
-		
+
 		des.createConfiguration(ManagedBuildManager.CFG_DATA_PROVIDER_ID, data);
+
+		// add the Mindc error parser to the project defaults
+		String[] defaultErrorParserListArray = config.getErrorParserList();
+		List<String> defaultErrorParserList = new ArrayList<String>(Arrays.asList(defaultErrorParserListArray));
+		// See plugin.xml extension MindcErrorParser (we're in project org.ow2.mindEd.ide)
+		defaultErrorParserList.add("org.ow2.mindEd.ide.MindcErrorParser");
+		config.setErrorParserList(defaultErrorParserList.toArray(new String[defaultErrorParserList.size()]));
 
 		// ADD CPL Macro settings
 		ICConfigurationDescription cfgDes = des.getConfigurationById(id);
@@ -339,10 +441,10 @@ public class CDTUtil {
 		cfgDes.setExternalSettingsProviderIds(settingProviders.toArray(new String[settingProviders.size()]));
 
 		mgr.setProjectDescription(newProject, des);
-		
+
 
 	}
-	
+
 	/**
 	 * The default template for makefile
 	 * 

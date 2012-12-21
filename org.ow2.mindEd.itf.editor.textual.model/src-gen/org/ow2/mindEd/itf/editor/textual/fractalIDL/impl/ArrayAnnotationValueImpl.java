@@ -1,13 +1,9 @@
 /**
- * <copyright>
- * </copyright>
- *
  */
 package org.ow2.mindEd.itf.editor.textual.fractalIDL.impl;
 
 import java.util.Collection;
 
-import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.common.util.EList;
@@ -15,7 +11,7 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
@@ -31,25 +27,14 @@ import org.ow2.mindEd.itf.editor.textual.fractalIDL.FractalIDLPackage;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.ow2.mindEd.itf.editor.textual.fractalIDL.impl.ArrayAnnotationValueImpl#getFirstValue <em>First Value</em>}</li>
  *   <li>{@link org.ow2.mindEd.itf.editor.textual.fractalIDL.impl.ArrayAnnotationValueImpl#getValues <em>Values</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class ArrayAnnotationValueImpl extends AnnotationValueImpl implements ArrayAnnotationValue
+public class ArrayAnnotationValueImpl extends MinimalEObjectImpl.Container implements ArrayAnnotationValue
 {
-  /**
-   * The cached value of the '{@link #getFirstValue() <em>First Value</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getFirstValue()
-   * @generated
-   * @ordered
-   */
-  protected AnnotationValue firstValue;
-
   /**
    * The cached value of the '{@link #getValues() <em>Values</em>}' containment reference list.
    * <!-- begin-user-doc -->
@@ -86,54 +71,6 @@ public class ArrayAnnotationValueImpl extends AnnotationValueImpl implements Arr
    * <!-- end-user-doc -->
    * @generated
    */
-  public AnnotationValue getFirstValue()
-  {
-    return firstValue;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public NotificationChain basicSetFirstValue(AnnotationValue newFirstValue, NotificationChain msgs)
-  {
-    AnnotationValue oldFirstValue = firstValue;
-    firstValue = newFirstValue;
-    if (eNotificationRequired())
-    {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FractalIDLPackage.ARRAY_ANNOTATION_VALUE__FIRST_VALUE, oldFirstValue, newFirstValue);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
-    }
-    return msgs;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setFirstValue(AnnotationValue newFirstValue)
-  {
-    if (newFirstValue != firstValue)
-    {
-      NotificationChain msgs = null;
-      if (firstValue != null)
-        msgs = ((InternalEObject)firstValue).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FractalIDLPackage.ARRAY_ANNOTATION_VALUE__FIRST_VALUE, null, msgs);
-      if (newFirstValue != null)
-        msgs = ((InternalEObject)newFirstValue).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FractalIDLPackage.ARRAY_ANNOTATION_VALUE__FIRST_VALUE, null, msgs);
-      msgs = basicSetFirstValue(newFirstValue, msgs);
-      if (msgs != null) msgs.dispatch();
-    }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, FractalIDLPackage.ARRAY_ANNOTATION_VALUE__FIRST_VALUE, newFirstValue, newFirstValue));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public EList<AnnotationValue> getValues()
   {
     if (values == null)
@@ -153,8 +90,6 @@ public class ArrayAnnotationValueImpl extends AnnotationValueImpl implements Arr
   {
     switch (featureID)
     {
-      case FractalIDLPackage.ARRAY_ANNOTATION_VALUE__FIRST_VALUE:
-        return basicSetFirstValue(null, msgs);
       case FractalIDLPackage.ARRAY_ANNOTATION_VALUE__VALUES:
         return ((InternalEList<?>)getValues()).basicRemove(otherEnd, msgs);
     }
@@ -171,8 +106,6 @@ public class ArrayAnnotationValueImpl extends AnnotationValueImpl implements Arr
   {
     switch (featureID)
     {
-      case FractalIDLPackage.ARRAY_ANNOTATION_VALUE__FIRST_VALUE:
-        return getFirstValue();
       case FractalIDLPackage.ARRAY_ANNOTATION_VALUE__VALUES:
         return getValues();
     }
@@ -190,9 +123,6 @@ public class ArrayAnnotationValueImpl extends AnnotationValueImpl implements Arr
   {
     switch (featureID)
     {
-      case FractalIDLPackage.ARRAY_ANNOTATION_VALUE__FIRST_VALUE:
-        setFirstValue((AnnotationValue)newValue);
-        return;
       case FractalIDLPackage.ARRAY_ANNOTATION_VALUE__VALUES:
         getValues().clear();
         getValues().addAll((Collection<? extends AnnotationValue>)newValue);
@@ -211,9 +141,6 @@ public class ArrayAnnotationValueImpl extends AnnotationValueImpl implements Arr
   {
     switch (featureID)
     {
-      case FractalIDLPackage.ARRAY_ANNOTATION_VALUE__FIRST_VALUE:
-        setFirstValue((AnnotationValue)null);
-        return;
       case FractalIDLPackage.ARRAY_ANNOTATION_VALUE__VALUES:
         getValues().clear();
         return;
@@ -231,8 +158,6 @@ public class ArrayAnnotationValueImpl extends AnnotationValueImpl implements Arr
   {
     switch (featureID)
     {
-      case FractalIDLPackage.ARRAY_ANNOTATION_VALUE__FIRST_VALUE:
-        return firstValue != null;
       case FractalIDLPackage.ARRAY_ANNOTATION_VALUE__VALUES:
         return values != null && !values.isEmpty();
     }

@@ -34,7 +34,7 @@ public class MPEActionGroup extends ActionGroup {
 	public void fillContextMenu(IMenuManager menu) {
 		_newApplicationAction = new MPENewApplicationAction(_shell,_p,_model);
 		_newPackageAction = new MPENewImportPackageAction(_shell,_p,_model);
-		_newProjectAction = new MPENewReferenceProject(_shell,_p,_model);
+		_newProjectAction = new MPENewProjectReference(_shell,_p,_model);
 		_newSourceEntryAction =  new MPENewSourceAction(_shell,_p,_model);
 		_newLibraryEntryAction = new MPENewLibrary(_shell, _p, _model);
 		
